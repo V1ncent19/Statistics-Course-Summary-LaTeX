@@ -23,30 +23,40 @@
 
 
 
-%页边距设置
-\usepackage[left=0.5in,right=0.5in,top=0.81in,bottom=0.8in]{geometry}
+%以下是页边距设置
+\usepackage[left=1in,right=1in,top=0.81in,bottom=0.8in]{geometry}
 
-%段行设置
+%以下是段行设置
 \linespread{1.4}%行距
 \setlength{\parskip}{0.1\baselineskip}%段距
 \setlength{\parindent}{2em}%缩进
 
-%字体设置
-\setmainfont{Times New Roman}
-\newfontfamily\consolas{Consolas}
-
 %其他设置
 \numberwithin{equation}{section}%公式按照章节编号
-\newenvironment{point}{\raggedright$\Box $ }{}%新环境，用于标示重点内容
+\newenvironment{point}{\raggedright$\blacktriangleright$}{}%新环境，用于标示重点内容
 
-%代码环境\lst设置
+%代码环境lst设置
 \definecolor{CodeBlue}{HTML}{268BD2}
 \definecolor{CodeBlue2}{HTML}{0000CD}
 \definecolor{CodeGreen}{HTML}{2AA1A2}
 \definecolor{CodeRed}{HTML}{CB4B16}
 \definecolor{CodeYellow}{HTML}{B58900}
-\definecolor{CodePurPle}{HTML}{D33682}
+\definecolor{CodePurple}{HTML}{D33682}
 \definecolor{CodeGreen2}{HTML}{859900}
+
+% \lstdefinestyle{RLanguage}{
+%     basicstyle=\fontsize{10.5pt}{10.5pt}\selectfont
+%     language=R,
+%     commentstyle=\color{CodeYellow},
+%     keywordstyle=\color{CodeBlue},
+%     numberstyle=\tiny\color{CodePurple},
+%     stringstyle=\color{CodeGreen},
+%     frame=single,
+%     xleftmargin=2em,
+%     xrightmargin=2em,
+%     aboveskip=1em
+% }
+
 \lstset{
     basicstyle=\fontspec{Consolas},
     numbers=left, %设置行号位置
@@ -61,41 +71,37 @@
     xleftmargin=2em,xrightmargin=2em, aboveskip=1em, %设置边距
     tabsize=4, %设置tab空格数
     showspaces=false, %不显示空格
-    emph={TRUE,FALSE,NULL,NAN,NA,\$,<-,},emphstyle=\color{CodeBlue2}, %其他高亮
+    emph={TRUE,FALSE,NULL,NAN,NA,\$,<-,::},emphstyle=\color{CodeBlue2},
 }
-
-
-
-\begin{titlepage}
-    \title{\textbf{A Brief Summary of Statistics Course}\\统计学课程知识总结}
-    \author{Vincent}
-\end{titlepage}
 
 \begin{document}
 
-\maketitle\thispagestyle{myheadings}\markright{Complied using \LaTeX}
-
-\tableofcontents
-\newpage
 
 
-\include{sections/初等概率论.tex}
-\newpage
 
-\include{sections/统计推断.tex}
-\newpage
+\begin{lstlisting}[language=R]
+    stringr::str_c()
+    library('plyr')
+    x <- factor(c('alpha','beta','gamma','alpha'))
+    levels(x)[levels(x)=='alpha'] <- 'two'
+    library('plyr')#aaaaabbbb
+    levels(x)
+    levels(x)[2] <- 'two'
+    levels(x)
+    library('stringr')
+    stringr::str_replace_all(levels(x),'^alpha$','one')
+    x
+    x <- factor(c('a','b','a','a'),levels = c('a','b','c'))
+    levels(x)
+    x <- factor(x)
+    droplevels()
+    df <- data.frame(x = factor(c("alpha", "beta", "alpha"), 
+      levels = c("alpha", "beta", "gamma")), y = c(5, 8, 2), 
+      z = factor(c("red", "green", "green"), levels = c("red", 
+        "green", "blue")))
+    df$x
 
-% \include{sections/R.tex}
-% \newpage
-
-\include{sections/线性回归分析.tex}
-\newpage
-
-\include{sections/多元统计分析.tex}
-\newpage
-
+\end{lstlisting} 
 
 
 \end{document}
-
-
