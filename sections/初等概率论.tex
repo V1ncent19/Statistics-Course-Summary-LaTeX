@@ -1,4 +1,19 @@
 \section{概率论部分}\label{Section1Probability}
+    Chapter Overview
+\begin{itemize}[topsep=2pt,itemsep=2pt]
+    \item \hyperlink{Basic axioms}{Basic axioms}
+\end{itemize}
+
+    
+
+
+
+
+
+
+
+
+
     Cover：Basic axioms, random events, $\sigma$-field; random variable/vector and their properties, some special distributions; $E$\,\&\,$\sigma^2$\,\&\,$cov$ and their properties; probability-generating/moment-generating/characteristic function; weak/strong law of large number, central limit thm.; intro. to multivariate normal distribution.
 
 
@@ -35,6 +50,7 @@
 
 
 \subsection{Probability and Probability Model}
+
     What is \textbf{Probability}? 
     
     $\quad$ A 'belief' in the chance of an event occurring?
@@ -43,7 +59,7 @@
 \subsubsection{Sample and $\sigma$-Field}
     Def. sample space $\Omega$: The set of \text{all} possible outcomes of one particular experiment.
 
-    Def. $\mathscr{F}$ a $\sigma$-field(or a $\sigma$-algebra) as a collection of some subsets of $\Omega$ \textbf{if}
+    \index{$ \sigma $-field}Def. $\mathscr{F}$ a $\sigma$-field(or a $\sigma$-algebra) as a collection of some subsets of $\Omega$ \textbf{if}
     \begin{itemize}
         \item $\Omega\in\mathscr{F}$
         \item if $A\in\mathscr{F}$,then $A^C\in\mathscr{F}$
@@ -73,7 +89,7 @@
 \]
 \end{itemize}
 
-    Then $(\Omega,\mathscr{F},P)$ is probability space.
+    Then $(\Omega,\mathscr{F},P)$ is probability space\index{Probability Space}.
 
     Properties of Probability:
     \begin{itemize}
@@ -85,13 +101,13 @@
         \[
             P(\bigcup_{i=1}^nA_i)\leq\sum_{i=1}^n P(A_i)    
         \]
-        \item Inclusion-Exclusion Formula
+        \item Inclusion-Exclusion Formula\index{Inclusion-Exclusion Formula}
         \begin{align*}
             P(\Cup_{i=1}^nA_i)&=\sum_{1\leq i\leq n}P(A_i)-\sum_{1\leq i<j\leq n}P(A_i\cap A_j)\\
             &+\sum_{1\leq i<j<k\leq n}P(A_i\cap A_j\cap A_k)-\cdots\\
             &+(-1)^{n-1}P(A_1 \cap A_2\cap\cdots \cap A_n)
         \end{align*}
-        \item Borel-Cantelli Lemma
+        \item Borel-Cantelli Lemma\index{Borel-Cantelli Lemma}
         \begin{gather*}
             \sum_{n=1}^\infty P(A_n)<\infty\Rightarrow P(\lim_{n\to\infty}\sup A_n)=0\\
             \sum_{n=1}^\infty P(A_n)=\infty\Rightarrow P(\lim_{n\to\infty}\sup A_n)=1\quad \text{if }A_i\text{ independent}
@@ -113,7 +129,7 @@
         \[
             P(\Cap_{i=1}^n A_i)=P(A_1)\prod_{i=2}^n P(A_i|A_1\cap A_2\cap \cdots\cap A_{i-1})    
         \]
-        \item Total Probability Thm
+        \item Total Probability Thm.
         \[
             P(B)=\sum_{i=1}^n P(A_i)P(B|A_i)  
         \]
@@ -129,12 +145,12 @@
         \]
     \end{itemize}
 
-\subsection{Properties of Random Variable and Vector}
+\subsection{Properties of Random Variable and Vector}\label{SectionPropertiesOfRandomVariableAndVector}
 
 \subsubsection{Random Variable}
     Def. \text{Random Variable}: a \textbf{function} $X$ defined on sample space $\Omega$, mapping from $\Omega$ to some $\mathscr{X}\in\mathbb{R} $.
 
-    Then def. Cumulative Distribution Function (CDF).
+    Then def. Cumulative Distribution Function (CDF)\index{CDF (Cumulative Distribution Function)}.
     \[
         F_X(x)=P(X\leq x)
     \]
@@ -145,8 +161,8 @@
         \item
 
         \begin{center}
-            \parbox[t]{8.65cm}{PMF:\[p_X(x)=F_X(x^+)-F_X(x^-)\]}
-            \parbox[t]{8.65cm}{PDF
+            \parbox[t]{8.65cm}{PMF:\index{PMF (Probability Mass Function)}\[p_X(x)=F_X(x^+)-F_X(x^-)\]}
+            \parbox[t]{8.65cm}{PDF:\index{PDF (Probability Density Function)}
             \[
                 f_X(x)=\frac{\mathrm{d}F_X(x)}{\mathrm{d}x}
             \]}
@@ -154,7 +170,7 @@
         
         
         
-        \item Indicator function:
+        \item Indicator function:\index{Indicator Function}
         \[
             I_{x\in A}(x)=\begin{cases}
                 1& x\in  A\\
@@ -187,7 +203,7 @@
         \[
             g_k(x_k)=nC_{n-1}^{k-1}[F(x_k)]^{k-1}[1-F(x_k)]^{n-k}f(x_k)
         \]
-        \item $p$-fractile
+        \item $p$-fractile\index{Fractile!$ p $-fractile}
         \[\xi_p=F^{-1}(p)=\inf\{x|F(x)\geq p\}\]
     \end{itemize}
 
@@ -197,7 +213,7 @@
 
 
 \subsubsection{Random Vector}
-    A general case of random variable.
+    A general case of random variable.\index{r.v. (Random Variable or Random Vector)}
 
     $n$-dimension Random Vector $\vec{X}=(X_1,X_2,\ldots,X_n)$ defined on $(\Omega,\mathscr{F},P)$.
 
@@ -305,16 +321,16 @@
     Standard Deviation def. as :
     \[\sigma_X=\sqrt{var(X)}\]
 
-    Then can construct \textbf{Standardization} of r.v.
-    \[Y+\frac{X-E(X)}{\sqrt{var(X)}}\]
+    Then can construct \textbf{Standardization}\index{Standardization} of r.v.
+    \[Y=\frac{X-E(X)}{\sqrt{var(X)}}\]
 
 
-\subsubsection{Covariance and Correlation}
+\subsubsection{Covariance and Correlation}\label{SubSubSectionCovarianceAndCorrelation}
     Covariance of r.v. $X$ and $Y$:\[
         cov(X,Y)=E[(X-\mu_X)(Y-\mu_Y)]=E(XY)-E(X)E(Y)
     \]
 
-    And (Pearson's) Correlation Coefficient\[
+    And (Pearson's) Correlation Coefficient\index{Pearson's Correlation Coefficient}\[
         \rho_{X,Y}=corr(X,Y)=\frac{cov(X,Y)}{\sqrt{var(X)var(Y)}}
     \]
 
@@ -327,12 +343,12 @@
     cov(X,Y+Z)&=cov(X,Y)+cov(X,Z)
 \end{align*}
     
-\item Variance and Covariance\[
+\item Variance and Covariance\begin{equation}\label{EqaVarOfSumOfRV}
     var(X+Y)=var(X)+var(Y)+2cov(X,Y)
-\]
+\end{equation}
 \item Covariance Matrix
 
-    Def $\Sigma=E[(X-\mu)^T(X-\mu)]=\{\sigma_{ij}\}$
+    Def $\Sigma=E[(X-\mu)(X-\mu)^T]=\{\sigma_{ij}\}$ (where $X$ should be considered as a column vector)
 \begin{equation}\label{covariancematrix}
     \Sigma=
         \begin{pmatrix}
@@ -359,7 +375,7 @@ Attachment: Independence:\[
     Generating Function: Representation of $P$ in function space. $P\Leftrightarrow$ Generating Function.
 
 \subsubsection{Probability Generating Function}
-    PGF: used for non-negative, integer $X$
+    PGF\index{PGF (Probability Generating Function)}: used for non-negative, integer $X$
     \[
         g(s)=E(s^X)=\sum_{j=0}^\infty s^jP(X=j)    ,s\in[-1,1]
     \]
@@ -383,7 +399,7 @@ Attachment: Independence:\[
         \]
     \end{itemize}
 \subsubsection{Moment Generating Function}
-    MGF: 
+    MGF\index{MGF (Moment Generating Function)}: 
     \[
         M_X(s)=E(e^{sX})=\begin{cases}
             \sum_je^{sx}P(X=x_j)\\
@@ -403,7 +419,7 @@ Attachment: Independence:\[
         \]
     \end{itemize}
 \subsubsection{Characteristic Function}
-    C.F is actually the Fourier Transform of $f$.
+    C.F \index{C.F. (Characteristic Function)}is actually the Fourier Transform of $f$.
     \[
         \phi(t)=E(e^{itX}) = \int_{-\infty}^\infty e^{itx}f_X(x)\mathrm{d}x
     \]
@@ -428,6 +444,7 @@ Attachment: Independence:\[
 
 \subsection{Convergence and Limit Distribution}
 \subsubsection{Convergence Mode}
+    \index{Convergence}
     \[
         \begin{cases}
             \text{Convergence in Distribution }&{\displaystyle X_n\xrightarrow[]{\mathscr{L}}X:\lim_{n\to\infty}F_n(x)=F(x)}\\
@@ -462,7 +479,7 @@ Attachment: Independence:\[
                 \item $X_n\xrightarrow[]{p}X\Rightarrow g(X_n)\xrightarrow[]{p}g(X)$
                 \item $X_n\xrightarrow[]{\mathscr{L}}X\Rightarrow g(X_n)\xrightarrow[]{\mathscr{L}}g(X)$
             \end{enumerate}
-            \item Slutsky's Thm.: For $X_n\xrightarrow[]{\mathscr{L}}X,Y_n\xrightarrow[]{p}c$
+            \item Slutsky's Thm.\index{Slutsky's Thm.}: For $X_n\xrightarrow[]{\mathscr{L}}X,Y_n\xrightarrow[]{p}c$
             \begin{enumerate}
                 \item $X_n+Y_n\xrightarrow[]{\mathscr{L}}X+c$
                 \item $X_nY_n\xrightarrow[]{\mathscr{L}}cX$
@@ -476,7 +493,7 @@ Attachment: Independence:\[
 \subsubsection{Law of Large Number \& Central Limit Theorem}
 
 \begin{itemize}
-    \item WLLN
+    \item WLLN\index{LLN (Law of Large Number)}
 \[
     \frac{1}{n}\sum X_i\xrightarrow[]{p} E(X_1)
 \]
@@ -484,7 +501,7 @@ Attachment: Independence:\[
 \[
     \frac{1}{n}\sum X_i\xrightarrow[]{\text{a.s.}}  C
 \]
-\item CLT
+\item CLT\index{CLT (Central Limit Theorem)}
 \[
     \frac{1}{\sigma\sqrt{n}}\sum(X_k-\mu)\xrightarrow[]{\mathscr{L}} N(0,1)
 \]
@@ -503,21 +520,21 @@ Attachment: Independence:\[
 \subsection{Inequalities}
     
 \begin{itemize}
-    \item Cauchy-Schwarz Inequality
+    \item Cauchy-Schwarz Inequality\index{Inequality!Cauchy-Schwarz Inequality}
     \[
         |E(XY)|\leq\sqrt{E(X^2)E(Y^2)}
     \]
 
-    \item Bonferroni Inequality
+    \item Bonferroni Inequality\index{Inequality!Bonferroni Inequality}
 \[
     P(\bigcup_{i=1}^n A_i)\geq \sum_{1\leq i\leq n} P(A_i)+\sum_{1\leq i <j\leq n} P(A_i\cap A_j)
 \]
-    \item Markov Inequality
+    \item Markov Inequality\index{Inequality!Markov Inequality}
 \[
     P(|X|\geq \epsilon)\leq\frac{E(|X|^\alpha)}{\epsilon^\alpha}
 \]
 
-    \item Chebyshev Inequality
+    \item Chebyshev Inequality\index{Inequality!Chebyshev Inequality}
 \[
     P(|X-E(X)|\geq\epsilon)\leq\frac{var(X)}{\epsilon^2}
 \]
@@ -529,7 +546,7 @@ Attachment: Independence:\[
 \end{itemize}
 
 
-\subsection{Multivariate Normal Distribution}
+\subsection{Multivariate Normal Distribution}\label{SubsectionDerivationMultivariateNormal}
     For $X_1,X_2,\cdots,X_n$ independent and $X_k\sim N(\mu_k,\sigma^2_k),\, k=1,\cdots,n$, $T={\displaystyle\sum_{k=1}^n c_kX_k}, (c_k$ const), then
     \[
         T\sim N(\sum_{k=1}^nc_k\mu_k,\sum_{k=1}^n c_k^2\sigma^2_k)    
@@ -538,9 +555,9 @@ Attachment: Independence:\[
     Deduction in some special cases:
     \begin{itemize}
         \item Given $\mu_1=\mu_2=\cdots=\mu_n=\mu,\, \sigma^2_1=\sigma^2_2=\cdots=\sigma^2_n=\sigma^2$, i.e. $X_k$ i.i.d., then
-        \[
+        \begin{equation}\label{EqaDistributionOfSumOfiidNormal}
             T\sim   N(\mu\sum_{k=1}^n c_k,\sigma^2\sum_{k=1}^n c_k^2) 
-        \]
+        \end{equation}
         \item Further take $c_1=c_2=\cdots=c_n=\dfrac{1}{n}$, i.e. $T={\displaystyle \sum_{k=1}^n X_k /n}=\bar{X}$, then
         \[
             T=\bar{X}\sim N(\mu,\frac{\sigma^2}{n})    
@@ -571,12 +588,13 @@ Attachment: Independence:\[
             \vdots\\
             \epsilon_m
         \end{pmatrix}
+        +\vec{\mu}
     \]
 
     
     We have: $\vec{X}\sim N(\vec{\mu},\Sigma)$, where $\Sigma$, as defined in eqa.\ref{covariancematrix} is
     \[
-        \Sigma=\mathbf{BB}^T=
+        \Sigma=E[(\vec{X}-\vec{\mu})(\vec{X}-\vec{\mu})^T]=\mathbf{BB}^T=
         \begin{pmatrix}
         var(X_1) & cov(X_1,X_2) & \ldots & cov(X_1,X_n)\\
         cov(X_2,X_1) & var(X_2) & \ldots & cov(X_2,X_n)\\
@@ -656,7 +674,7 @@ Attachment: Independence:\[
             PDF of $t_\nu$:
             \[t_\nu(x)=\dfrac{\Gamma(\frac{\nu+1}{2})}{\Gamma(\frac{\nu}{2})\sqrt{\nu\pi}}\left(1+\frac{x^2}{\nu}\right)^{-\frac{\nu+1}{2}}\]
 
-            Denote: Upper $\alpha$-fractile of $t_\nu$, satisfies $P(T\geq c)=\alpha$:
+            Denote: Upper $\alpha$-fractile\index{Fractile!Upper $ \alpha $-fractile} of $t_\nu$, satisfies $P(T\geq c)=\alpha$:
             \[
                 c=t_{\nu,\alpha}
             \]

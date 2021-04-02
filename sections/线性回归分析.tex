@@ -1,2 +1,521 @@
-\section{线性回归分析部分}
+\section{线性回归分析部分}\label{SecLinearRegressionAnalysis}
+\begin{point}
+    Steps in Regression Analysis
+\end{point}
 
+\begin{enumerate}[topsep=2pt,itemsep=2pt]
+    \item Exploratory Data Analysis (EDA)\index{EDA (Exploratory Data Analysis)}
+    \item Statement of the problem;
+    \item Selection of potentially relevant variables;
+    \item Data collection;
+    \item Model specification;
+    \item Choice of fitting method;
+    \item Model fitting;
+    \item Model validation and criticism;
+    \item Using the chosen model(s) for the solution of the posed problem.
+\end{enumerate}
+
+    
+
+\subsection{Linear Regression Model}
+\begin{itemize}[topsep=6pt,itemsep=4pt]
+    \item Assume a Model
+    \begin{enumerate}[topsep=6pt,itemsep=4pt]
+        \item Parameter of the model
+        \item Basic Assumptions
+        \item Dsitribution of error
+    \end{enumerate}
+    \item Parametric Estimation
+    \begin{enumerate}[topsep=6pt,itemsep=4pt]
+        \item Ordinary Least Squares Estimation
+        \item Maximun Likelihood Estimation
+    \end{enumerate}
+    \item Statistics Inference
+    \begin{enumerate}[topsep=6pt,itemsep=4pt]
+        \item Hypotheses Testing
+        \item Interval Estimation
+    \end{enumerate}
+
+\end{itemize}
+
+
+    
+
+
+        
+\subsubsection{Data for simple linear regression}
+
+    We will observe pairs of variables, called 'cases'(样本点)
+        
+    A sample is $ (X_1,Y_1),\ldots,(X_n,Y_n) $
+
+    Linear Model: \footnote{Here in linear regression, we consider $ X_i $ only as real number, \textbf{without} randomness. So here $ Y_i $ can be considered as an r.v. with $ X_i $ as parameter, i.e. $ Y_i|_{X_i=x_i} $}
+
+%% 关于线性模型的X_i性质的假定
+    \[
+        Y_i=\beta _0+\beta _1X_i+\varepsilon _i 
+    \]
+    where $ \varepsilon_i  $ i.i.d.$ \sim \varepsilon  $ is a random error term, satisfies    \footnote{Note: Why we need $ \varepsilon $ as 'random error term'?
+    \begin{itemize}[topsep=6pt,itemsep=4pt]
+        \item It represents the intrinsic random property of the model.
+        \item Based on $ \varepsilon  $, we can take r.v. into our statistic model.
+    \end{itemize}
+    }
+    
+    \[
+        E(\varepsilon _i)=0\qquad var(\varepsilon _i)=\sigma ^2 
+    \]
+    
+    
+
+    Normal Error Assumption: Further in most cases, we consider $ \varepsilon \sim N(0,\sigma^2) $ ----because of its well-property distribution, $ \varepsilon _1,\varepsilon _2,\ldots,\varepsilon _n $ i.i.d. $ N(0,\sigma ^2) $.\footnote{i.e. $ Y_i $ are independent
+    \[
+        Y_i\sim N(\beta _0+\beta _1X_i,\sigma^2)\quad i=1,2,\ldots ,n 
+    \]
+    
+    }
+        
+    What does Linear Regression do? Under Linear Model, try to estimate 
+    \begin{itemize}[topsep=0pt,itemsep=-2pt]
+        \item $ \beta _0\text{ (intercept) }$;
+        \item $\beta _1\text{ (slope) }$;
+        \item $\sigma ^2\text{ (variance of error)} $.
+    \end{itemize}
+    
+    
+    (Thus Linear Regression is also a Statistics Inference process: deduce properties of model from data)
+        
+\subsubsection{The Ordinary Least Square Estimation}
+    Aim: use $ (x_i,y_i) $  to estimate $ \beta _0,\beta _1,\sigma^2 $. The idea is to define a 'loss function' to reflect the 'distance' from sample point to estimation point.
+
+    Estimate Principle: \footnote{Detailed Definition and Derivation see sec.\ref{SubSectionMoM_MLE_LinearRegression}.}
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item Ordinary Least Squares\index{Ordinary Least Squares}:
+        \[
+            (\hat{\beta  }_0,\hat{\beta _1})=\arg\min\sum_{i=1}^n (y-\beta _0-\beta _1x_i)^2
+        \]
+        \item MLE or MoM Estimation.
+    \end{itemize}
+    
+
+    
+    And get $ \hat{\beta _1},\hat{\beta _0}$ as well as $ \hat{\sigma^2} $(see eqa(\ref{EqaOLSEstimatorOfSigma}):\footnote{A memory trick: use $ \dfrac{Y}{\sqrt{s_Y}}=r_{XY}\dfrac{X}{\sqrt{s_X}} $ to get formular of $ Y\sim X $:
+    \[
+        \hat{\beta }_1=r_{XY}\dfrac{\sqrt{s_Y}}{\sqrt{s_X}}=\dfrac{{\displaystyle\sum (x_i-\bar{x})(y_i-\bar{y})}}{{\displaystyle\sum (x_i-\bar{x})^2}} 
+    \]}
+
+%LSE beta_0 beta_1
+\begin{equation}\label{EqaOLSEstimatorOfBeta}
+    \begin{aligned}
+        \hat{\beta }_1=&\dfrac{\sum\limits_{i=1}^n (x_i-\bar{x})(y_i-\bar{y})}{\sum\limits_{i=1}^n (x_i-\bar{x})^2}\\
+        \hat{\beta }_0=&\bar{y}-\hat{\beta _1}\bar{x}\\
+        \hat{\sigma^2}=&\dfrac{1}{n-p-1}\sum_{i=1}^n(y_i-\hat{\beta }_0-\hat{\beta }_1x_i)^2
+    \end{aligned}
+\end{equation}
+
+
+    
+    Def. \index{Residual}\textbf{Residual}: distance from sample point to estimate point, to reflect how the sample points fit the model.
+    \[
+        e_i=y_i-\hat{y}_i=\text{observed value of }\varepsilon _i 
+    \]
+    
+    Note: under least square estimation, we have\footnote{Intuitively, they each means '$ E(\varepsilon )=0 $' and '$ X\parallel \varepsilon  $'.}
+\begin{equation}\label{Limit_to_Residual}
+        \sum e_i=0\qquad \sum x_ie_i=0 
+\end{equation}
+    
+
+    Then use $ e_i $ to estimate $ \sigma ^2 $ (because it is $ \varepsilon _0 $ that are i.i.d., not $ Y_i $), where $ (n-p-1) $ is Degree of Freedom (df or dof)\footnote{Generally, MLE and LSE are different.
+
+    Comment from R.A.Fisher: $ \sum e_i^2 $ should be divided by 'number of $ e_i^2 $ that contribute to variance'. Here $ (n-p-1) $ corresponds to 'degree of freedom' $ =(n-2) $, $ p=1 $ corresponds to `one' variable (see sec.\ref{SubSectionMoM_MLE_LinearRegression}, eqa(\ref{EqaEstimatorSigmaWithDoF})), and correponds to the two equations of $ e_i $, eqa(\ref{Limit_to_Residual})}
+\begin{equation}\label{EqaOLSEstimatorOfSigma}
+    \begin{aligned}
+        \hat{\sigma _n^2}&=\dfrac{1}{n}\sum e_i^2 \quad\text{(use MLE or MoM)}\\
+        \hat{\sigma^2}&=\dfrac{1}{n-p-1}\sum e_i^2=\dfrac{1}{n-2}\sum e_i^2\quad\text{(use OLS, unbiased)}
+\end{aligned}
+\end{equation}
+
+    % MSE SSE dof
+
+
+
+
+
+
+    % Review: Statistical Inference
+    % \begin{itemize}[topsep=6pt,itemsep=4pt]
+    %     \item Basic concepts: HT CI;
+    %     \item Inference about $ \beta _1$;
+    %     \item Inference about $ \beta _0 $.
+    % \end{itemize}
+
+    % Note: the distribution of $ \hat{\beta }_0,\hat{\beta }_1 $ is sampling distribution（抽样分布）: distribution of statistics.
+
+
+
+    % Power function of testing
+    % \begin{itemize}[topsep=6pt,itemsep=4pt]
+    %     \item Definition;
+    %     \item Calculation;
+    %     \item Sample<->Power (Calculation of sampling).
+    % \end{itemize}
+
+
+\subsubsection{Statistical Inference to $ \beta _0 $,$ \beta _1 $}
+
+\begin{point}
+    Sampling Distribution of $ \hat{\beta} _1,\hat{\beta} _0  $
+\end{point}
+
+    Consider $ \hat{\beta} _1,\hat{\beta} _0 $ as statistics of sample, then we can examine the sampling distribution of $  \hat{\beta} _1,\hat{\beta} _0 $. Their randomness comes from
+    \[
+        Y_i=\beta_0+\beta_1X_i+\varepsilon _i 
+    \]
+    
+    
+
+    (The following part treats $\hat{\beta} _1,\hat{\beta} _0 $ as r.v., and note that $ X_i $ are \textbf{not }r.v.. And  for convenience and conciseness, denote $ S_{XX}={\displaystyle\sum_{i=1}^n(X_i-\bar{X})^2} $)
+
+   
+\begin{align*}
+        \hat{\beta }_1&=\beta _1+\sum_{i=1}^n\dfrac{X_i-\bar{X}}{S_{XX}}\varepsilon _i\\
+        \hat{\beta }_0&=\beta _0+\sum_{i=1}^n\left(\dfrac{1}{n}-\dfrac{(X_i-\bar{X})\bar{X}}{S_{XX}}\right)\varepsilon _i
+\end{align*}
+ 
+    Denote corresponding variance as $ \sigma^2_{\hat{\beta}_1} $ and $ \sigma^2_{\hat{\beta}_0} $, using eqa(\ref{EqaDistributionOfSumOfiidNormal}) to get:
+    \[
+        \sigma^2_{\hat{\beta}_1}= \dfrac{\sigma^2}{S_{XX}}\qquad \sigma^2_{\hat{\beta}_0}=\sigma^2(\dfrac{1}{n}+\dfrac{\bar{X}^2}{S_{XX}})
+    \] 
+    
+     And under normal error assumption, distribution of $ \hat{\beta} _1,\hat{\beta} _0  $ are
+    \begin{align*}
+        \hat{\beta }_1&\sim N(\beta _1,\sigma^2_{\hat{\beta}_1}) =N(\beta_1,\dfrac{\sigma^2}{S_{XX}})\\
+        \hat{\beta}_0&\sim N(\beta_0,\sigma^2_{\hat{\beta }_0}) =N(\beta_0,\sigma^2(\dfrac{1}{n}+\dfrac{\bar{X}^2}{S_{XX}}))
+    \end{align*}
+    
+    Based on sampling distribution of $ \hat{\beta} _1,\hat{\beta} _0  $, we can conduct statistical inference, including CI and HT.\footnote{Detail see sec.\ref{SectionHypothesisTesting}, estimating/testing $ \hat{\beta} _1,\hat{\beta} _0  $ usually corresponds to 'estimate $ \mu $, with $ \sigma^2 $ unknown'.}
+    
+    % \begin{itemize}[topsep=2pt,itemsep=2pt]
+    %     \item LSE of $ \beta _1 $ gives 
+    %     \[
+    %         \hat{\beta _1}=\dfrac{\sum (x_i-\bar{x})(y_i-\bar{y})}{\sum (x_i-\bar{x})^2}
+    %     \]
+        
+    %     and satisfies $ E(\hat{\beta}_1)=\beta_1 $. Can prove that $ \hat{\beta }_1\sim N(\beta _1,\dfrac{\sigma ^2}{\sum (x_i-\bar{x})^2})=N(\beta_1,\sigma^2(\hat{\beta}_1))$
+       
+    % \end{itemize}
+    
+    Note: In linear regression model, we usually focus more on $ \beta_1 $. And note that when $ 0 $ is \textbf{not} within the fitting range,$ \beta_0 $ is not so important.\footnote{Two reason:\begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item The etimation error of $ Y $ from $ \hat{\beta}_1 $ increases with $ X_h-\bar{X} $;
+        \item $ \beta_1==0  $ is important: decides whether linear model can be used. 
+    \end{itemize}
+    
+        }
+
+    Why we choose OLS to get regression coefficients?
+
+\begin{point}
+    \index{Gauss-Markov Thm.`'}Gauss–Markov Thm.: the OLS estimator has the lowest sampling variance within the class of linear unbiased estimators, i.e. OLS is the Best Linear Unbiased Estimator(BLUE).\footnote{This Thm. does \textbf{not }require normal error assumption.}
+\end{point}
+    
+
+
+
+\subsubsection{Prediction to $ Y_h $}
+    For a new $ X_h $ at which we wish to \textbf{predict }the corresponding $ Y_h $ (based on other known point $ (X_i,Y_i) $), denote the estimator as $ \hat{\mu}_h $:
+    \[
+        \hat{\mu}_h=\hat{\beta}_1X_h+\hat{\beta}_0 =\beta_1X_h+\beta _0+\sum_{i=1}^n\left( \dfrac{1}{n}+\dfrac{(X_i-\bar{X})(X_h-\bar{X})}{S_{XX}} \right)\varepsilon _i
+    \]
+    
+    Thus we can get\footnote{So $ \sigma ^2(\hat{\mu }_h) $ increases with $ X_h-\bar{X} $. Intuitively it make sense, because $ (\bar{X},\bar{Y})$ must falls on regression line.}
+    \[
+        E(\hat{\mu}_h)= \beta _1X_h+\beta _0\qquad \sigma ^2_{\hat{\mu}_h}=\left( \dfrac{1}{n}+\dfrac{(X_h-\bar{X})^2}{S_{XX}} \right)\sigma^2
+    \]
+    
+    Under Normal assumption:
+    \[
+        \hat{\mu}_h\sim N(\beta _1X_h+\beta _0,\left( \dfrac{1}{n}+\dfrac{(X_h-\bar{X})^2}{S_{XX}} \right)\sigma^2) 
+    \]
+    
+    Base on distribution we can give CI and HT.
+
+    Note: Remember that when we consider the estimator $ \hat{\mu } $, we \textbf{must } have the randomness of $ \hat{\beta }_0,\hat{\beta }_1 $ considered(if they are unknown).
+    
+    Prediction Error: $ Y_h $ itself is an $ Y $ of the linear model, i.e. $ Y_i=\beta_0+\beta_1X_h+\varepsilon _h $, we can consider \textbf{$ Y_h $ itself as an r.v. }v.s.\textbf{ predicted $ Y_h $ from other sample points} and define \textbf{Prediction Error}: 
+    \[
+        d_h=Y_h-\hat{\mu}_h 
+    \]
+
+    
+    \[
+        E(d_h)=0\qquad \sigma^2_{d_h}=var(Y_h-\hat{\mu }_h)=\sigma^2\left[ 1+\dfrac{1}{n}+\dfrac{(X_h-\bar{X})}{S_{XX}} \right] > \sigma ^2_{\hat{\mu}_h}
+    \]
+    
+
+
+    \begin{point}
+       Simultaneous Confidence Band(SCB)\index{SCB (Simultaneous Confidence Band)}\index{CB (Confidence Band)}
+    \end{point}
+
+    Confidence Band is \textbf{not} the CI at each point, but really a \textbf{band} for the \textbf{entire} regression line.\footnote{Why they are different? We require the confidence band have a \textbf{simultaneous} converage probability. For the same band $ (L(x),U(x)) $, $ P(\text{the whole line})< P(\text{each point})$, so Confidence Band is wider than $ \bigcup $CIs to hold the same $ 1-\alpha $.
+    
+    Also, we will see that for linear model, the boundary of SCB forms hyperbola, which make sense considering its asymptotic line.}
+    
+    
+    Aim: Find lower and upper function $ L(x) $ and $ U(x) $ such that
+    \[
+        P[L(x)<(\beta _0+\beta _1x)<U(x),\,\forall x\in I_x]=1-\alpha  
+    \]
+    
+    and get \textbf{Confidence Band}:
+    \[
+        \{(x,y)|L(x)<y<U(x)|\forall x\in I_x\} 
+    \]
+    
+    % Note: \textbf{Cannot} use CI at each point to form Confidence Band. Band is wider. And we are actually conduce CI \textbf{simoutanesly} to all $ x $.
+
+    Where $ (L(x),U(x)) $ can be derived as
+    \[
+        (L(x),U(x))=\hat{\mu}_x\pm s_{\hat{\mu}_x}W_{2,n-2,1-\alpha}
+    \]
+
+    Where $ W $ correponds to $ W $ distribution: $ W_{m,n}=\sqrt{2F_{m,n}} $
+    
+    
+    
+    Small sample case: Bonferroni correction.
+    
+
+
+
+
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+
+
+\subsection{Analysis of Variance}
+    \index{ANOVA (Analysis of Variance)}\textbf{AN}alysis \textbf{O}f \textbf{VA}riance (ANOVA): One-sample $ t $ test$ \rightsquigarrow $ Two sample $ t $ test$ \rightsquigarrow $ ANOVA
+\begin{itemize}[topsep=2pt,itemsep=2pt]
+    \item Partition of Totla Sum of Squares;
+    \item Partition of Degree of Freedom;
+    \item MSS$ \rightsquigarrow $ F-test;
+    \item ANOVA table;
+    \item General linear test. --to be examined further in later sections.
+    \item (Pearson) Correlation Coefficient $ \leftrightarrow \, R^2$
+\end{itemize}
+
+    SST: Total Sum of Squares\index{SST (Total Sum of Squares)}
+    \[
+        \mathrm{SST}=\sum_{i=1}^n(Y_i-\bar{Y})^2 
+    \]
+    
+    Note: Here $ Y_i $ are not i.i.d. (different mean).
+
+    Idea: take partition of SST. For instance
+    \[
+        Y_i-\bar{Y}=(Y_i-\hat{Y})+(\hat{Y}-\bar{Y})=e_i 
+    \]
+    
+    Note: $ \bar{Y}=\bar{\hat{Y}} $
+
+    then we partition SST into\footnote{\textbf{IMPORTANT: }In some books \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item SSError $ \to $ SSResidual;
+        \item SSRegression $ \to $ SSExplained.
+    \end{itemize}
+
+    And Cause \textbf{Confusion}! In this summary we take the former.
+         }
+
+         \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item variation due to model \index{SSR (Regression Sum of Squares)}(SSRegression) (which is explained by regression line);
+        \[
+            \mathrm{SSR}= \sum_{i=1}^n(\hat{Y}_i-\bar{Y})^2
+        \]
+        
+        \item variation attribtes to $ \varepsilon  $ \index{SSE (Error Sum of Squares)}(SSError).
+        \[
+            \mathrm{SSE}= \sum_{i=1}^n(Y_i-\hat{Y_i})
+        \]
+        
+        
+    \end{itemize}
+    
+    can prove
+    \[
+        \mathrm{SST}=\sum_{i=1}^n(Y_i-\bar{Y})^2=\sum_{i=1}^n(\hat{Y}_i-\bar{Y})^2+\sum_{i=1}^n(Y_i-\hat{Y_i})^2=\mathrm{SSR+SSE} 
+    \]
+
+    That is: we \textbf{partition} SST into two parts, so that we can examine them seperately.
+
+    \begin{point}
+        ANOVA Table\footnote{$ \mathrm{SSR}=\hat{\beta }_1^2\sum_{i=1}^n(X_i-\bar{X})^2$, so $ dof_R=1 $}
+    \end{point}
+    \begin{table}[H]
+        \centering
+        \renewcommand\arraystretch{1}
+        \begin{tabular}{c|ccc}
+            \hline
+            Source&$ dof $&SS&MS\\
+            Regression&1&$ \sum_{i=1}^n(\hat{Y}_i-\bar{Y})^2  $&SSR/$ dof_R $\\
+            Error&$ n-2 $&$ \sum_{i=1}^n(Y_i-\hat{Y}_i)^2  $&SSE/$ dof_E $\\
+            Total&$ n-1 $&$ \sum_{i=1}^n(Y_i-\bar{Y})^2  $&SST/$ dof_T $\\
+            \hline
+        \end{tabular}
+    \end{table}
+    
+    Properties:
+    
+    \[
+        E(\mathrm{MSE})=\sigma ^2\qquad E(\mathrm{MSR})=\sigma ^2+\beta _1^2S_{XX} 
+    \]
+    
+\begin{point}
+    Hypotheses Testing to $ H_0:\beta _1=0 $
+\end{point}
+\begin{itemize}[topsep=2pt,itemsep=2pt]
+    \item 
+    We can examine $ F=\dfrac{\mathrm{MSR}}{\mathrm{MSE}}\sim F_{dof_R,dof_E}=F_{1,n-2} $
+    \item    Or: General Linear Test (GLT)\index{GLT (General Linear Test)}\begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item Full model: $ Y_i=\beta _0+\beta _1X_i+\varepsilon _i $.
+        \item Reduced model: $ Y_i=\beta _0+\varepsilon _i $.
+    \end{itemize}
+
+    and examine
+    \[
+        F=\dfrac{(\mathrm{SSE_R-SSE_F})/dof_{R-F} }{\mathrm{SSE_F}/dof_F} \sim F_{dof_{R}-dof_F,dof_F}
+    \]
+\end{itemize}
+
+\begin{point}
+    Pearson Correlation Coefficient $ R^2 $
+\end{point}
+
+\[
+    R^2=\dfrac{\mathrm{SSR}}{\mathrm{SST}} 
+\]
+
+    Note: under simple linear model, $ r^2=R^2 $, where $ r=\hat{\beta}_1\dfrac{\sigma _X}{\sigma _Y} $
+
+
+
+\subsection{Model Assumption and Diagnostics}
+    
+\begin{point}
+    Diagonostics to $ X $
+\end{point}
+
+
+    Considering the dependence of $ Y_i $ on $ X_i $, we cannot just focus on the (marginal) distribution of $ Y_i $. Thus we also need a better 'distribution' of $ X_i $
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item 4 statistics(parameters);\footnote{See sec.\ref{SubSectionStatistics}}
+        \begin{itemize}[topsep=2pt,itemsep=2pt]
+            \item Mean: Location;
+            \[
+                \bar{X}=\dfrac{1}{n}\sum_{i=1}^nX_i 
+            \]
+            \item Standard Deviation: Variability;
+            \[
+                S^2=\dfrac{1}{n-1}\sum_{i=1}^n(X_i-\bar{X}) ^2
+            \]
+            
+            
+            \item Skewness: Lack of Symmertry;
+            \[
+                \hat{g}_1=\dfrac{m_{n,3}}{m_{n,2}^{3/2}}=\dfrac{\frac{1}{n}\sum\limits_{i=1}^n(X_i-\bar{X})^3}{\left( \frac{1}{n}\sum\limits_{i=1}^n(X_i-\bar{X}) \right)^{3/2}} 
+            \]
+
+            Adjusted Skewness (Least MSE):
+            \[
+                \dfrac{\sqrt{n(n-1)}}{n-2}\hat{g}_1 
+            \]
+            
+            \begin{itemize}[topsep=2pt,itemsep=2pt]
+                \item $ \hat{g}_1>0 $: Right skewness, longer right tail;
+                \item $ \hat{g}_1<0 $: Left skewness, longer left tail.
+            \end{itemize}
+            
+                
+            Fisher-Pearson coefficient of skewness.
+
+
+            \item Kurtosis: Heavy/Light Tailed.
+            \[
+                \hat{g}_2=\dfrac{m_{n,4}}{m_{n,2}^2}-3= \dfrac{\frac{1}{n}\sum\limits_{i=1}^n(X_i-\bar{X})^4}{\left( \frac{1}{n}\sum\limits_{i=1}^n(X_i-\bar{X}) \right)^{2}} -3
+            \]
+
+            $ \hat{g}_2=0 \Rightarrow $ similar to normal.
+            \begin{itemize}[topsep=2pt,itemsep=2pt]
+                \item $ \hat{g}_2>0 $: Leptokurtic, heavy tail slender;
+                \item $ \hat{g}_2<0 $: Platykurtic, light tail  broad.
+            \end{itemize}
+            
+            Note: In expression of $ \hat{g}_1 $ and $ \hat{g}_2 $, we already divide the variance. So Skewness and Kurtosis only reflect the difference from normal, but not related to variance!
+                
+            Best tool to determine Kurtosis: QQ-Plot.
+            
+        \end{itemize}
+        \item Useful Plots:
+        \begin{itemize}[topsep=2pt,itemsep=2pt]
+            \item BoxPlot: a rough distribution.
+            
+            25\%-quantile$ - $ 1.5IQR$ \vdash \sqsubset  $ 25\%-quantile$ \square  $ 75\%-quantile $ \sqsupset \dashv  $ 75\%-quantile$ + $ 1.5IQR\footnote{IQR:InterQuartile Range\index{IQR (InterQuartile Range)}}
+
+            \item Histogram Plots: Frequency distribution (can deal with many-peak)
+            \item Quantile-Quantile Plots\index{QQ-Plot (Quantile-Quantile Plots)}: Examine the similarity  between distribution.
+            
+            For two CDF $ q=F(x) $ and $ q=G(x) $(where $ q $ for quantile), with $ x=F^{-1}(q) $, $ x=G^{-1}(q) $. And Plot $ F^{-1}(q) $-$ G^{-1}(q) $.
+
+            Usually test normality, take $ G=\Phi  $
+        \end{itemize}
+        
+            
+        \item Normality;
+        \item Bias:
+        \begin{itemize}[topsep=2pt,itemsep=2pt]
+            \item Selection Bias: Not completely random sampling;
+            \item Information Bias: Difference between 'designed' and 'get', e.g. no response;
+            \item Confounding: Exist another important variable, while the model actually focuses on a less important variable, or even reverse the causality.
+        \end{itemize}
+        
+            
+    \end{itemize}
+    
+\begin{point}
+    Diagnostics to Residual
+\end{point}
+
+    Residual Plot: Reflect the linearity and variance assumption
+
+    Testing of 
+\begin{itemize}[topsep=2pt,itemsep=2pt]
+    \item The Assumption of Equal Variances:
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item Bartlett's test: Comes from UMPT, useful when normality assumption satisfied.
+        \item Levene's test: 
+        \item Brown-Forsythe test (Modified Levene's test): 
+        \item Breusch-Pagan test:
+    \end{itemize}
+
+
+    \item The Assumption of Normality:
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item Shapiro-Wilk Test (Most Powerful):
+    \end{itemize}
+    
+
+
+    \item The Assumption of Independence:
+        
+    
+        
+\end{itemize}
+
+    
+
+    
