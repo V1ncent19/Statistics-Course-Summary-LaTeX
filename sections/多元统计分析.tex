@@ -45,7 +45,7 @@
         E(AXB)=AE(X)B 
     \end{equation}
 
-    \item Random Vector: For a $ p\times 1 $ random vector $ \vec{X}=(X_{1},X_{2},\ldots,X_{p})^T  $, denote (Marginal) expectation and variance, and covariance, correlation coefficient between $ X_i,X_j $ as follows:
+    \item Random Vector\index{r.v. (Random Variable or Random Vector)}: For a $ p\times 1 $ random vector $ \vec{X}=(X_{1},X_{2},\ldots,X_{p})^T  $, denote (Marginal) expectation and variance, and covariance, correlation coefficient between $ X_i,X_j $ as follows:
     \begin{align*}
         \mu_i&=E(X_i)\\
         \sigma _{ii}&=\sigma_i ^2=E(X_i-\mu_i)^2\\
@@ -65,7 +65,7 @@
     \end{equation}
 
     and Standard Deviation Matrix
-    \begin{equation}
+    \begin{equation}\label{EqaStandardDeviationMatrix}
         V^{1/2}=diag\{\sqrt{\sigma _{ii}}\} 
     \end{equation}
 
@@ -83,7 +83,7 @@
     
     
 
-    and Correlation Matrix
+    and Correlation Matrix\index{Correlation Matrix}
     \begin{equation}
         \rho =\begin{bmatrix}
         \rho _{11}&\rho _{12}&\ldots&\rho _{1p}\\
@@ -162,7 +162,7 @@
             1&1&\ldots&1\\
             \end{bmatrix}_{n\times n}
         \end{equation}
-        
+
 
         \item Sample mean:
         \begin{equation}
@@ -175,7 +175,7 @@
                 x_{1i}-\bar{x}_i\\x_{2i}-\bar{x}_i\\\vdots\\x_{ni}-\bar{x}_i
             \end{bmatrix} 
         \end{equation}
-        \item Covariance Matrix:
+        \item Covariance Matrix:\index{Covariance Matrix}
             \begin{itemize}[topsep=6pt,itemsep=4pt]      
             \item Variance of $ y_i $:
             \begin{equation}
@@ -192,8 +192,8 @@
             \end{itemize}
         
         In condense notation, define Covariance Matrix from sample of size $ n $:
-        \begin{equation}
-            S^2_n=\begin{bmatrix}
+        \begin{equation}\label{EqaSampleCovarianceMatrix}
+            S_n=\begin{bmatrix}
             s_{11}&s_{12}&\ldots&s_{1p}\\
             s_{21}&s_{22}&\ldots&s_{2p}\\
             \vdots&\vdots&\ddots&\vdots\\
@@ -201,7 +201,7 @@
             \end{bmatrix}
         \end{equation}
 
-        and sample Correlation Coefficient Matrix:
+        and sample Correlation Coefficient Matrix:\index{Correlation Coefficient!Correlation Coefficient Matrix}
         \begin{equation}
             R_n=
             \begin{bmatrix}
@@ -340,10 +340,12 @@
                 
             
                        
-        \item Calculus Notations: We want to take derivative of $ y=(y_1,y_2,\ldots,y_q)^T $ over $ x=(x_1,x_2,\ldots,x_p)^T $
+        \item Matrix Differentiation\index{Matrix Differentiation}
         
-        We use 'Denominator-layout', which is
-        \begin{equation}
+        Calculus Notations: We want to take derivative of $ y=(y_1,y_2,\ldots,y_q)^T $ over $ x=(x_1,x_2,\ldots,x_p)^T $
+        
+        We use 'Denominator-layout',\index{Denominator-layout} which is
+        \begin{equation}\label{EqaMatrixDifferential}
             \dfrac{\partial^{}y }{\partial ^{}x}=\dfrac{\partial^{} y^T}{\partial x^{}} =
             \begin{bmatrix}
             \dfrac{\partial^{} y_1}{\partial x_1 ^{}}&\dfrac{\partial^{} y_2}{\partial x_1 ^{}}&\ldots&\dfrac{\partial^{} y_q}{\partial x_1 ^{}}\\
@@ -353,7 +355,7 @@
             \end{bmatrix}
         \end{equation}
         
-        \hypertarget{MatrixDifferenciation}{Properties (under denominator-layout):}
+        \hypertarget{MatrixDifferenciation}{Properties (under denominator-layout):}\footnote{More matrix diffrenciation equation see book \cite{线性回归分析ref2} P49.}
         \begin{itemize}[topsep=6pt,itemsep=2.5pt]
             \item $ \dfrac{\partial^{} }{\partial x^{}}Ax=A^T $;\\
             \item $ \dfrac{\partial^{} }{\partial x^{}}x^TA=A $;\\
@@ -375,6 +377,22 @@
             a_{1m}B&a_{m2}B&\ldots&a_{mn}B \\
             \end{bmatrix} 
         \end{equation}
+
+        \item \hypertarget{NormDefinition}{Norm}: Denote $ x=[x1,x2,\ldots,x_n]^T\in\mathbb{R}^n $, then the $ \ell_p $-norm of $ x $ is\index{Norm}
+        \[
+            ||x||_p\equiv \left( \sum_{i=1}^n||x_i|^p \right)^{1/p}
+        \]
+
+        Useful norm:
+        \begin{itemize}[topsep=2pt,itemsep=2pt]
+            \item $ \ell_0$-norm: \# of none 0 elements in $ x $;
+            \item $ \ell_1 $-norm: $ ||x||_1=\sum_{i=1}^n|x_i| $;
+            \item $ \ell_2 $-norm/Euclidean norm: $ ||x||_2=\sqrt{\sum_{i=1}^n x_i^2}  $.
+        \end{itemize}
+        
+            
+        
+        
         
     \end{itemize}
     
@@ -433,7 +451,7 @@
 
 
 
-\subsection{Multivariate Normal Distribution}
+\subsubsection{Multivariate Normal Distribution}\label{SubSubSectionMultivariateNormalDistribution}
     Univariate Noraml Distribution: $ N(\mu,\sigma^2) $
     \begin{equation}
         f_X(x)=\dfrac{1}{\sqrt{2\pi\sigma ^2}}\exp{-\dfrac{(x-\mu)^2}{2\sigma ^2}} 
@@ -569,6 +587,7 @@
     
     
 \subsubsection{MLE of Multivariate Normal}
+        \index{MLE (Maximum Likelihood Estimation)}
     Under the notation in eqa(\ref{EqaNPSampleMatrixNotation}), i.e. each sample case $ \mathbf{X}_i$ i.i.d. $\sim N_p(\mu,\Sigma ) $, we can get the joint PDF of $ \mathbf{X} $:
     \begin{equation}
         f_{\mathbf{X_1},\ldots,\mathbf{X_n};\mu,\Sigma }(x_1,\ldots,x_n)=\dfrac{1}{(2\pi)^{np/2}|\Sigma |^{n/2}}\exp\left( -\sum_{i=1}^n\dfrac{(x_i-\mu)'\Sigma ^{-1}(x_i-\mu)}{2} \right) 
@@ -585,7 +604,7 @@
         And we can get the MLE of $ \mu $ and $ \Sigma  $ as follows\footnote{Detailed proof see '\textit{Applied Multivariate Statistical Analysis}' P130}:
         \begin{align*}
             \hat{\mu}&= \dfrac{1}{n}\sum_{i=1}^n x_i=\bar{x} \\
-            \hat{\Sigma  }&= \dfrac{1}{n}\sum_{i=1}^n(x_i-\bar{x})(x_i-\bar{x})'=\dfrac{n-1}{n}S^2
+            \hat{\Sigma  }&= \dfrac{1}{n}\sum_{i=1}^n(x_i-\bar{x})(x_i-\bar{x})'=\dfrac{n-1}{n}S
         \end{align*}
 
     
@@ -618,8 +637,8 @@
     % \end{itemize}
     
         
-\subsubsection{Sampling distribution of $ \bar{X} $ and $ S^2 $}
-        $ \hat{\mu}=\bar{X} $ and $ \hat{\Sigma}=\dfrac{n-1}{n}S^2 $ are statistics, with sampling distribution.
+\subsubsection{Sampling distribution of $ \bar{X} $ and $ S $}
+        $ \hat{\mu}=\bar{X} $ and $ \hat{\Sigma}=\dfrac{n-1}{n}S $ are statistics, with sampling distribution.
 
 
 
@@ -660,17 +679,17 @@
 
     Then 
     \[
-        \dfrac{(n-1)S^2}{\sigma ^2}\sim \chi^2_{n-1} 
+        \dfrac{(n-1)S}{\sigma ^2}\sim \chi^2_{n-1} 
     \]
     
     \item Multivariate case: Consider $ (\mathbf{X}_{1},\mathbf{X}_{2},\ldots,\mathbf{X}_{n})  $ i.i.d. $ \sim N_p(\mu,\Sigma ) $
     
     Then
     \[
-        (n-1) S^2\sim W_p(n-1,\Sigma )
+        (n-1) S\sim W_p(n-1,\Sigma )
     \]
     
-    Where $ W_p(n-1,\Sigma ) $ is Wishart Distribution, details as follows:
+    Where $ W_p(n-1,\Sigma ) $ is Wishart Distribution,\index{Distribution!Wishart Distribution} details as follows:
 
          For r.v. $ Z_1,Z_2,\ldots,Z_m $ i.i.d. $ \sim N_p(0,\Sigma  ) $, def $ p $ dimensional \textbf{Wishart Distribution } with dof $ m $ as $ W_p(m,\Sigma ) $.\footnote{$ W_p(m,\Sigma ) $ is a distribution defined on $ p\times p $ matrix space.}
         \begin{equation}
@@ -740,11 +759,7 @@
 % Stein's method
 
 
-\subsection{Multivariate Statistical Inference}\label{SubSectionMultivariateHypothesisTesting}
-
-
-
-\subsubsection{Hypothesis Testing for Normal Population}
+\subsubsection{Hypothesis Testing for Normal Population}\label{SubSectionMultivariateHypothesisTesting}
 \begin{itemize}[topsep=2pt,itemsep=2pt]
     \item \textbf{One-Population Hypothesis Testing}: 
     
@@ -766,13 +781,13 @@
         
         i.e.
         \[
-            T^2=[\sqrt{n}(\bar{X}-\mu_0)](S^2)^{-1}[\sqrt{n}(\bar{X}-\mu_0)] \sim t^2_{n-1}=F_{1,n-1}
+            T^2=[\sqrt{n}(\bar{X}-\mu_0)]S^{-1}[\sqrt{n}(\bar{X}-\mu_0)] \sim t^2_{n-1}=F_{1,n-1}
         \]
 
 
-        \item Multi-Dimensional case: Hotelling's $ T^2 $
+        \item Multi-Dimensional case: Hotelling's $ T^2 $\index{Hotelling's $ T^2 $}
         \[
-            T^2 =[\sqrt{n}(\bar{X}-\mu_0)'](S^2)^{-1}[\sqrt{n}(\bar{X}-\mu _0)] \sim N_p(0,\Sigma )'\dfrac{W_p(n-1,\Sigma )}{n-1}N_p(0,\Sigma )=\dfrac{p}{n-p}(n-1)F_{p,n-p}
+            T^2 =[\sqrt{n}(\bar{X}-\mu_0)']S^{-1}[\sqrt{n}(\bar{X}-\mu _0)] \sim N_p(0,\Sigma )'\dfrac{W_p(n-1,\Sigma )}{n-1}N_p(0,\Sigma )=\dfrac{p}{n-p}(n-1)F_{p,n-p}
         \]
 
         And we can get the distribution of \textbf{Hotelling's $ T^2 $}:
@@ -845,17 +860,18 @@
         
         \begin{align}
             \bar{X}_1&=\dfrac{1}{n_1}\sum_{j=1}^{n_1} X_{1,j}&\bar{X}_2&=\dfrac{1}{n_2}\sum_{j=1}^{n_2} X_{1,j}\\
-            S^2_1&=\dfrac{1}{n_1-1}\sum_{j=1}^{n_1}(X_{1,j}-\bar{X}_1)(X_{1,j}-\bar{X}_1)'&S^2_2&=\dfrac{1}{n_2-1}\sum_{j=1}^{n_2}(X_{2,j}-\bar{X}_2)(X_{2,j}-\bar{X}_2)'
+            S_1&=\dfrac{1}{n_1-1}\sum_{j=1}^{n_1}(X_{1,j}-\bar{X}_1)(X_{1,j}-\bar{X}_1)'&S_2&=\dfrac{1}{n_2-1}\sum_{j=1}^{n_2}(X_{2,j}-\bar{X}_2)(X_{2,j}-\bar{X}_2)'
         \end{align}
         
         And denote pooled variance
-        \[
-            S^2_\mathrm{pooled}=\dfrac{1}{n_1+n_2-2}\left((n_1-1)S^2_1+(n_2-1)S^2_2 \right)  \sim \dfrac{W_p(n_1+n_2-2,\Sigma )}{n_1+n_2-2}
-        \]
+        \begin{equation}\label{EqaPooledVariance}
+            S_\mathrm{pooled}=\dfrac{1}{n_1+n_2-2}\left((n_1-1)S_1+(n_2-1)S_2 \right)  \sim \dfrac{W_p(n_1+n_2-2,\Sigma )}{n_1+n_2-2}
+        \end{equation}
+        
         
         Under $ H_0 $, we have 
         \[
-            T^2= \dfrac{1}{\frac{1}{n_1}+\frac{1}{n_2}}(\bar{X}_1-\bar{X}_2-\delta _0)'(S^2_\mathrm{pooled})^{-1}(\bar{X}_1-\bar{X}_2-\delta _0)\sim \dfrac{p(n_1+n_2-2)}{n_1+n_2-p-1}F_{p,n_1+n_2-p-1}
+            T^2= \dfrac{1}{\frac{1}{n_1}+\frac{1}{n_2}}(\bar{X}_1-\bar{X}_2-\delta _0)'S_\mathrm{pooled}^{-1}(\bar{X}_1-\bar{X}_2-\delta _0)\sim \dfrac{p(n_1+n_2-2)}{n_1+n_2-p-1}F_{p,n_1+n_2-p-1}
         \]
         
 
@@ -873,7 +889,7 @@
 
 
 \subsubsection{Confidence Region}
-
+    \index{Confidence Region}
 
     Estimate the confidence region for $ \mu $ of $ X\sim N_p(\mu,\Sigma ) $, Monovariate case see sec.\ref{SubSectionConfidenceIntervalForDistributions}
 \begin{itemize}
@@ -893,16 +909,16 @@
     
 
 
-    \item Individual Converage Interval
+    \item Individual Converage Interval\index{Confidence Region!Individual Converage Interval}
     
     Use the decomposition of $ S^2 $ as a positive finite matrix $ S^2=A^TA $, where $ A $ is some $ p\times p $ matrix, then
     \[
-        T^2= [\sqrt{n}(\bar{X}-\mu_0)'](S^2)^{-1}[\sqrt{n}(\bar{X}-\mu _0)]=[A^{-1\prime}\sqrt{n}(\bar{X}-\mu_0)]'[A^{-1\prime}\sqrt{n}(\bar{X}-\mu_0)]
+        T^2= [\sqrt{n}(\bar{X}-\mu_0)']S^{-1}[\sqrt{n}(\bar{X}-\mu _0)]=[A^{-1\prime}\sqrt{n}(\bar{X}-\mu_0)]'[A^{-1\prime}\sqrt{n}(\bar{X}-\mu_0)]
     \]
 
     Thus denote $ Z=A^{-1\prime}(X-\mu_0) \sim N_p(0,A^{-1\prime}\Sigma A^{-1}) $, the $ T^2 $ estimator of $ Z $ would be
     \[
-        T_Z^2=[\sqrt{n}\bar{Z}]'(S_Z^2)^{-1} [\sqrt{n}\bar{Z}]=n\bar{Z}'\bar{Z}=\dfrac{1}{n}\sum_{i=1}^n\bar{Z}_i^2\sim F_{p,n-p}
+        T_Z^2=[\sqrt{n}\bar{Z}]'S^{-1}_Z [\sqrt{n}\bar{Z}]=n\bar{Z}'\bar{Z}=\dfrac{1}{n}\sum_{i=1}^n\bar{Z}_i^2\sim F_{p,n-p}
     \]
 
     As a simplified case, we can take the \textbf{Individual Converage Interval} of $ Z_i $, which is 
@@ -954,18 +970,18 @@
     \item One-sample Mean:
     
     \[
-        n(\bar{X}-\mu)(S^2)^{-1}(\bar{X}-\mu)\xrightarrow[]{\mathscr{L}} \chi^2_p 
+        n(\bar{X}-\mu)S^{-1}(\bar{X}-\mu)\xrightarrow[]{\mathscr{L}} \chi^2_p 
     \]
 
     \item Unequal Variance Two-sample Mean:
     
     \[
-        \bar{X}_1-\bar{X}_2\xrightarrow[]{\mathscr{L}} N(\mu_1-\mu _2,\dfrac{1}{n_1}\Sigma _1+\dfrac{1}{n_2}\Sigma _2) \qquad\quad \dfrac{1}{n_1}S_1^2+\dfrac{1}{n_2}S_2^2\xrightarrow[]{\mathscr{L}} \dfrac{1}{n_1}\Sigma _1+\dfrac{1}{n_2}\Sigma _2
+        \bar{X}_1-\bar{X}_2\xrightarrow[]{\mathscr{L}} N(\mu_1-\mu _2,\dfrac{1}{n_1}\Sigma _1+\dfrac{1}{n_2}\Sigma _2) \qquad\quad \dfrac{1}{n_1}S_1+\dfrac{1}{n_2}S_2\xrightarrow[]{\mathscr{L}} \dfrac{1}{n_1}\Sigma _1+\dfrac{1}{n_2}\Sigma _2
     \]
 
     Test:
     \[
-        T^2=\left[(\bar{X}_1-\bar{X}_2)-(\mu _1-\mu _2) \right]'(\dfrac{1}{n_1}S_1^2+\dfrac{1}{n_2}S_2^2)^{-1}\left[(\bar{X}_1-\bar{X}_2)-(\mu _1-\mu _2) \right]\xrightarrow[]{\mathscr{L}} \chi^2_p
+        T^2=\left[(\bar{X}_1-\bar{X}_2)-(\mu _1-\mu _2) \right]'(\dfrac{1}{n_1}S_1+\dfrac{1}{n_2}S_2)^{-1}\left[(\bar{X}_1-\bar{X}_2)-(\mu _1-\mu _2) \right]\xrightarrow[]{\mathscr{L}} \chi^2_p
     \]
     
     
@@ -980,6 +996,177 @@
     
     
 
+\subsection{Principal Component Analysis}
+\fbox{
+    \begin{minipage}{0.9\linewidth}
+    PCA and next subsection \hyperlink{SubSectionFA}{FA} focus on data dimension reduction. Why?
+
+\begin{point}
+    `Curse of Dimesionality'
+\end{point}
+
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item Difficulty in computation complexity: Many algorithms has complexity $ O(n^2) $ or more, high dimension $ n $ cause high complexity.
+        \item Hughes Phenomenon: As the number of feature dimension increases, the classifier's performance increases as well until an optimal dimension. Adding more features based on the same size as the training set will then degrade the classifier's performance. 
+        \footnote{Example: Volumn of unit sphere in $ n $-dim space
+        \[
+            V_n=\pi^{n/2}\dfrac{1}{\Gamma (1+n/2)}\to \left(\dfrac{2\pi e}{n} \right)^{n/2}\to 0
+        \]
+        
+        i.e. data will become `sparse' in high dimension data -> difficult to extract information.}
+    \end{itemize}
+    
+        
+
+ 
+
+    \end{minipage}
+}\\
+
+    Key Idea of PCA: Find the components most powerful in explaining variance. (Similar to the idea of ANOVA)\index{PCA (Principal Component Analysis)}
+
+\subsubsection{Population Principal Component}
+    For population $ \vec{X}=(X_{1},X_{2},\ldots,X_{p})\sim (\mu,\Sigma )_p  $, conduct spectrum decomposition to $ \Sigma  $ such that
+    \[
+        \Sigma P=P\Lambda \qquad P=\begin{bmatrix}
+            e_1,e_2,\ldots,e_p
+        \end{bmatrix} 
+        \quad \Lambda =diag\{\lambda _1,\lambda _2,\ldots,\lambda _p\},\, \lambda _1\geq\lambda _2\geq\ldots\geq\lambda _p
+    \]
+
+    where $ (\lambda _i,e_i) $ is the $ i^\mathrm{th} $ eigenvalue-eigenvector pair of $ \Sigma  $, large $ \lambda _i $ suggests $ X $ is more `extended' in $ e_i $ direction(large variance).
+    
+    Then the \textbf{Principal Components} $ Y=\{Y_i\} $ 
+    \begin{align}
+        Y&=P'X\sim (P'\mu,P'\Sigma P)_p=(P'\mu,\Lambda )\\
+        &\begin{cases}
+            Y_1=e_1'X\sim (e_1'\mu,\lambda _1)\\
+            \vdots\\
+            Y_p=e_p'X\sim (e_p'\mu,\lambda _p)
+        \end{cases}
+    \end{align}
+
+    Properties \& Definitions:
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item Trace of cov. matrix:
+        \[
+            \sum_{i=1}^p\sigma _{ii}=\sum_{i=1}^pvar(X_i)=\sum_{i=1}^pvar(Y_i)=\sum_{i=1}^p\lambda_i
+        \]
+        \item $ corr $ between $ Y_i,X_j $:
+        \[
+            \rho_{Y_i,X_j}=\dfrac{cov(Y_i,X_j)}{\sqrt{\lambda _i}\sqrt{\sigma _{jj}}}=\dfrac{(e_{i})_j\sqrt{\lambda _i}}{\sqrt{\sigma _{jj}}} 
+        \]
+        \item Factor Loading:\index{Factor Loading}
+        \[
+             \mathrm{FL}_{ij}=(e_{i})_j\sqrt{\lambda _i}
+        \]
+        \item PC Score:
+        \[
+            \mathrm{PC\, Score}_i=Y_i=e_i'X \text{ or } Y_i=e_i'(X-\mu)
+        \]
+        
+        
+    \end{itemize}
+    
+    In practice, we pick the first several $ m $ PC such that
+    \[
+        \sum_{i=1}^m\dfrac{\lambda _i}{\sum\limits_{k=1}^p\lambda _k}\,\text{large enough} 
+    \]
+    
+    
+
+    Note: Another important point for PCA is the \textbf{interpretability} of principal components.
+
+    \begin{point}
+        Standardized Principal Component
+    \end{point}
+
+    To cancel out the influence due to scale, we can also obtain standardized PC from $ Z=(V)^{-1/2}(X_\mu) $, where $ V $ is standard deviation matrix as def. in eqa(\ref{EqaStandardDeviationMatrix}).
+
+    And we have $ \vec{Z}=(Z_{1},Z_{2},\ldots,Z_{p}) \sim N_p(0,V^{-1/2}\Sigma V^{-1/2\prime})=N_p(0,\rho ) $. Then obtain $ (\lambda _i,e_i) $ pairs\footnote{The eigenvalue-eigenvector pairs obtained from $ \rho  $ is generally \textbf{different}  from $ \Sigma  $.} from $ \rho  $ to form PC.
+    \[
+        \rho  P=P\Lambda \qquad P=\begin{bmatrix}
+            e_1,e_2,\ldots,e_p
+        \end{bmatrix} 
+        \quad \Lambda =diag\{\lambda _1,\lambda _2,\ldots,\lambda _p\},\, \lambda _1\geq\lambda _2\geq\ldots\geq\lambda _p
+    \]
+    Then the Principal Components $ W=\{W_i\} $ 
+    \begin{align}
+        W&=P'Z\sim (0,P'\rho  P)_p=(0,\Lambda  )\\
+        &\begin{cases}
+            W_1=e_1'Z\sim (0,\lambda _1)\\
+            \vdots\\
+            W_p=e_p'Z\sim (0,\lambda _p)
+        \end{cases}
+    \end{align}
+
+    Properties:
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item Trace of cov. matrix:
+        \[
+            \sum_{i=1}^pvar(Z_i)=\sum_{i=1}^pvar(W_i)=\sum_{i=1}^p\lambda_i=p
+        \]
+        \item $ corr $ between $ Y_i,X_j $:
+        \[
+            \rho_{W_i,Z_j}=(e_{i})_j\sqrt{\lambda _i}
+        \]     
+    \end{itemize}
+    
+
+
+    
+\subsubsection{Sample Principal Component}
+    For sample matrix $ X $ denoted in eqa(\ref{EqaNPSampleMatrixNotation}), with cov. matrix $ S $ in eqa(\ref{EqaSampleCovarianceMatrix}). Then conduct the above spectrum decomposition to $ S $ to get sample PCs.
+
+    
+    \[
+        \hat{Y}=\hat{P}\hat{\Lambda }\hat{P}' \qquad \hat{P}=\begin{bmatrix}
+            \hat{e}_1,\hat{e}_2,\ldots,\hat{e}_p
+        \end{bmatrix} 
+        \quad \hat{\Lambda} =diag\{\hat{\lambda} _1,\hat{\lambda} _2,\ldots,\hat{\lambda} _p\},\, \hat{\lambda} _1\geq\hat{\lambda} _2\geq\ldots\geq\hat{\lambda} _p
+    \]
+    
+    Properties and Definitions 
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item Trace of cov. matrix:
+        \[
+            \sum_{i=1}^ps _{ii}=\sum_{i=1}^p\hat{\lambda}_i
+        \]
+        
+        
+        \item Sample corr \& factor load:
+        \[
+             \rho (\hat{y}_i,x_j)=\dfrac{(\hat{e}_{i})_j\sqrt{\hat{\lambda _j}}}{\sqrt{s_{jj}}}
+        \]
+    \end{itemize}
+    
+    \begin{point}
+        Large Sample \& Normal PCA
+    \end{point}
+    
+    Under normal assumption or large sample case, i.e. 
+    \[
+        X\sim N_p(\mu,\Sigma ) \text{ or } X\xrightarrow[]{\mathscr{L}} N_p(\mu,\Sigma )
+    \]
+    
+    We can examine the (asymptotic) distribution of $ (\hat{\lambda} _{1},\hat{\lambda} _{2},\ldots,\hat{\lambda} _{p})  $ and $ (\hat{e}_{1},\hat{e}_{2},\ldots,\hat{e}_{p})  $:
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item $ \hat{\lambda } $:
+        \[
+            \sqrt{n}(\hat{\lambda }-\lambda )\sim N_p(0,2\Lambda ^2) 
+        \]
+        \item $ \hat{e}_i $:
+        \[
+            \sqrt{n}(\hat{e}_i-e_i)\sim N_p(0,E_i),\quad E_i=\lambda _i\sum_{k\neq i}\dfrac{\lambda _k}{(\lambda _k-\lambda _i)^2}e_ke_k' 
+        \]
+        \item Independence:
+        \[
+            \hat{\lambda }_i\parallel \hat{e}_i 
+        \]
+        
+    \end{itemize}
+    
+        
 
 
 
@@ -989,6 +1176,667 @@
 
 
 
+
+\subsection{Factor Analysis}
+    \hypertarget{SubSectionFA}{Key idea of FA:}\index{FA (Factor Analysis)} For a model with $ p $ variable $ X=(X_{1},X_{2},\ldots,X_{p})\sim (\mu ,\Sigma )_p  $ (especially when $ p $ large and $ X_i $ interrelated), there would be some internal, latent \textbf{factors} $ F $ behind $ X $ determining the model structure.\footnote{As the most simplified case, here only consider $ X $ linear dependent on $ F $.}
+
+
+\subsubsection{Orthogonal Factor Model}
+    
+    \[
+        \mathop{X-\mu}\limits_{p\times 1}=\mathop{L}\limits_{p\times m}\mathop{F}\limits_{m\times 1} +\mathop{\varepsilon }\limits_{p\times 1} ,\,\, m<p 
+    \]
+    
+    where $ L $ is the $ \mathrm{const} $ \textbf{loading matrix} ; $ F $ is r.v. \textbf{factor}; and $ \varepsilon  $ is r.v. error.
+    \begin{align*}
+        X=\begin{bmatrix}
+            X_1\\X_2\\\vdots\\X_p
+        \end{bmatrix}\quad
+        L=\begin{bmatrix}
+        \ell_{11}&\ell_{12}&\ldots&\ell_{1m}\\
+        \ell_{21}&\ell_{22}&\ldots&\ell_{2m}\\
+        \vdots&\vdots&\ddots&\vdots\\
+        \ell_{p1}&\ell_{p2}&\ldots&\ell_{pm}\\
+        \end{bmatrix}\quad
+        F=\begin{bmatrix}
+            F_1\\F_2\\\vdots\\F_m
+        \end{bmatrix}
+        \quad
+        \varepsilon =\begin{bmatrix}
+            \varepsilon _1\\\varepsilon _2\\\vdots\\\varepsilon _p
+        \end{bmatrix}
+    \end{align*}
+
+    Note: Intuitively, we cannot estimate $ (m+p) $ （unobserable) r.v. from $ p $ r.v., so we need the following assumptions on $ F $ and $ \varepsilon  $
+    \begin{equation}
+        \begin{aligned}
+            E(F)&=0&cov(F)&=I_n\\
+            E(\varepsilon )&=0&cov(\varepsilon )&=\Psi =diag\{\psi _1,\psi _2,\ldots ,\psi _p\}\\
+            \varepsilon \parallel& F\Leftrightarrow cov(F,\varepsilon )=0&&
+        \end{aligned}
+    \end{equation}
+
+    Derived Conclusions:
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item Representation of $ \Sigma  $:
+        \[
+            cov(X)=\Sigma =LL'+\Psi  
+        \]
+        \begin{itemize}[topsep=2pt,itemsep=2pt]
+            \item Diagonal Elements:
+            \[
+                var(X_i)=\sum_{k=1}^m\ell^2_{ik}+\psi _i=h^2_{i}+\psi _i
+            \]
+
+            where $ h_{i}^2 $ is Communality, $ \psi _i $ is Specific variance.
+            \item NonDiagonal Elements:
+            \[
+                cov(X_i,X_j)=\sum_{k=1}^m\ell_{im}\ell_{jm} 
+            \]
+        \end{itemize}
+        \item relation bet. $ X $ and $ F $:
+        \[
+            cov(X,F)=L 
+        \]
+    \end{itemize}
+    
+    \begin{point}
+        Factor Rotation
+    \end{point}
+    For any orthonormal rotation/reflection matrix $ \mathop{T}\limits_{m\times m}  $, $ \tilde{L}=LT $ satisfies the same factor model (with a different $ \tilde{F} $):
+    \begin{equation*}
+        \begin{aligned}
+            X=&LF+\varepsilon =LTT'F+\varepsilon =\tilde{L}\tilde{F}+\varepsilon \qquad \tilde{L}=LT,\,\tilde{F}=T'F\\
+            \Sigma =& LL'+\Psi =\tilde{L}\tilde{L}'+\Psi 
+        \end{aligned}
+    \end{equation*}
+
+    Comment: Factor rotation reflects the arbitrariness of selection of $ L $, allowing us to choose an \textbf{interpretable} $ L $ for FA model.
+
+        
+\subsubsection{Principal Component Approach}
+    Origin: when $ m=p $, factor decomposition reduces to spectrum(PC) decomposition.(At the same time $ \Psi  $ can be taken $ 0 $.)
+    \begin{equation}
+        \begin{aligned}
+        X=&LF+\varepsilon =PY &\Rightarrow \Psi &=0\\
+        \Sigma =&LL'+\Psi =P\Lambda P'&\Rightarrow L&=P\Lambda ^{1/2}
+        \end{aligned}
+    \end{equation}
+    
+    Then take the first $ m $ eigenvectors to form $ L $, and use $ \psi _i=\sigma  _{ii}-\sum\limits_{k=1}^m\ell_{ik}^2$ as an approximation.
+    \[
+        \Sigma =LL'+\Psi \qquad L=\begin{bmatrix}
+            \sqrt{\lambda_1 }e_1,\sqrt{\lambda_2 }e_2,\ldots,\sqrt{\lambda _m}e_m
+        \end{bmatrix} \qquad \Psi =diag\{\psi _{i}\}
+    \]
+
+    \begin{point}
+        Sample Factor Decomposition
+    \end{point}
+
+    From sample cov. matrix $ S $ and eigenvalue-eigenvector pairs $ (\hat{\lambda }_i,e_i) $, pick the first $ m $ paris to form $ L=\{\ell_{ij}\} $:
+    \[
+        \hat{L}=\{\hat{\ell}_{ij}\}=\begin{bmatrix}
+            \sqrt{\hat{\lambda }_1}\hat{e}_1,\sqrt{\hat{\lambda }_2}\hat{e}_2,\ldots,\sqrt{\hat{\lambda }_m}\hat{e}_m
+        \end{bmatrix} 
+        \qquad
+        \hat{\Psi }=diag\{s_{ii}-\sum_{k=1}^m\hat{\ell}_{ik}^2\}
+    \]
+
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item Selection of $ m $: Construct Residual Matrix
+        \[
+            \hat{E}=S-(\hat{L}\hat{L}'+\hat{\Psi }) 
+        \]
+        
+        Residual matrix is trace $ 0 $, pick $ m $ such that
+        \[
+            \text{Sum of All Elements in }\hat{E}<\sum_{k=m+1}^p\hat{\lambda }_{k}^2\text{ small enough} 
+        \]
+        
+        
+        
+    \end{itemize}
+    
+        
+    
+    
+    
+    
+    
+\subsubsection{MLE Method}
+    Assumption: Factor $ F $ and error $ \varepsilon  $ are normal.(Then also $ X \sim N_p(\mu ,\Sigma )$ is normal)
+    
+    \[
+        F\sim N_m(0,I_m)\quad \varepsilon \sim N_p(0,\Psi )\quad X\sim N_p(\mu,\Sigma ) 
+    \]
+
+    Likelihood Function:
+    \[
+        L(\mu ,\Sigma ) =(2\pi)^{-np/2}|\Sigma |^{-n/2}\exp\left( -\dfrac{1}{2}tr\left[ \Sigma ^{-1}\left( \sum_{k=1}^n(x_k-\bar{x})(x_k-\bar{x})'+n(\bar{x}-\mu)(\bar{x}-\mu)' \right) \right] \right)
+    \]
+
+    Maximize $ L $ to get $ \hat{L}  $ and $ \hat{\Psi } $, usually for convenient (and to counteract the arbitrariness of factor rotation) we further assume
+    \[
+        L'\Psi ^{-1}L=\varXi \text{ (diagonal matrix)} 
+    \]
+    
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item Estimtor of communality variance $ h_i^2 $:
+        \[
+            \hat{h}_i^2=\sum_{k=1}^m \hat{l}_{ik}^2 
+        \]
+        
+        
+    \end{itemize}
+    
+        
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Canonical Correction Analysis}
+    Key idea of CCA\index{CCA (Canonical Correction Analysis)}: For a model with two multivariate population $ X^{(1)}=(X^{(1)}_{1},X^{(1)}_{2},\ldots,X^{(1)}_{p})  $, \\$ X^{(2)}=(X^{(2)}_{1},X^{(2)}_{2},\ldots,X^{(2)}_{q})  $ with covariance
+    \[
+        \mathop{\Sigma }\limits_{(p+q)\times (p+q)}  =\begin{bmatrix}
+            \Sigma _{11}&\Sigma _{12}\\
+            \Sigma _{21}&\Sigma _{22}
+        \end{bmatrix} 
+    \]
+    
+    find a few condensed variable to measure their similarity.
+    
+    
+\subsubsection{Canonical Variate Pair}
+    By using the linear combination, we can construct a pair of vector $ \mathop{a}\limits_{p\times 1 }  $ and $ \mathop{b}\limits_{q\times 1}  $ such that $ corr(a'X^{(1)},b'X^{(2)}) $ large, i.e.
+    \begin{equation}\label{EqaFirstCanonicalVariatePair}
+        \{a,b\}=\mathop{\arg\max}\limits_{a,b\neq 0}\dfrac{a'\Sigma _{12}b}{\sqrt{a'\Sigma _{11}a}\sqrt{b'\Sigma _{22}b}}  
+    \end{equation}
+
+    
+    
+    where $ U_1=a'X^{(1)} $, $ V_1=b'X^{(2)} $ with $ var(U_1)=var(V_1)=1 $ are the \textbf{(first) canonical variate pair}, and $ \rho^* _1=corr(U_1,V_1) $ is the \textbf{(first) canonical correlation}.\index{Canonical Variable Pair}
+    
+    Similarly, the $ k^{\mathrm{th}} $ canonical pair $ (U_k,V_k) $ satisfy the same criterion as eqa(\ref{EqaFirstCanonicalVariatePair}) but with $ a_k\in \mathrm{span}\{a_1,\ldots,a_{k-1}\}^\perp,$ $b_k\in\mathrm{span}\{b_1,\ldots,b_{k-1}\}^\perp $, $ k\leq \min\{p,q\} $.
+    
+    Result: $ U_k $, $ V_k $ can be expressed as 
+    \[
+        U_k=a_k'X^{(1)}=e_k'\Sigma _{11}^{-1/2}X^{(1)}\qquad V_k=b_k'X^{(2)}=f_k'\Sigma _{22}^{-1/2}X^{(2)} 
+    \]
+    
+    where $ e_k $ is the $ k^\mathrm{th} $ eigen vector of $ \Sigma _{11}^{-1/2}\Sigma _{12}\Sigma _{22}^{-1}\Sigma _{21}\Sigma _{11}^{-1/2} $, $ f_k $ is the $ k^\mathrm{th} $ eigenvector of $ \Sigma _{22}^{-1/2}\Sigma _{21}\Sigma _{11}^{-1}\Sigma _{12}\Sigma _{22}^{-1/2} $. $ e_k $ and $ f_k $ satisfies:
+    \[
+        f_k=\dfrac{1}{\rho ^*_k}\Sigma _{22}^{-1/2}\Sigma _{21}\Sigma _{11}^{-1/2}e_k\quad e_k=\dfrac{1}{\rho _k^*}\Sigma _{11}^{-1/2}\Sigma _{12}\Sigma _{22}^{-1/2}f_k
+    \]
+       
+    
+\subsubsection{Canonical Correlation based on Standardized Variables}
+    Using standardized variable of $ X $:
+    \[
+        Z_k^{(\nu )}=\dfrac{X_k^{(\nu )}-\mu _k^{(\nu )}}{\sqrt{\sigma _{kk}^{(\nu )}}},\,k=1,2,\ldots p\text{ or }q,\, \nu =1,2
+    \]
+    
+    with covariance
+    \[
+        \mathop{\rho  }\limits_{(p+q)\times (p+q)}=V^{-1/2}\Sigma V^{-1/2}=\begin{bmatrix}
+            \rho _{11}&\rho _{12}\\
+            \rho _{21}&\rho _{22}
+        \end{bmatrix}
+    \]
+
+    And similarly, the CCA pair is
+    \[
+        U_k=a_k'Z^{(1)}=e_k'\rho _{11}^{-1/2}Z^{(1)}\qquad V_{k}=b_k'Z^{(2)}=f_k'\rho _{22}^{-1/2}Z^{(2)}
+    \]
+    
+    with $ e_k $ is the $ k^\mathrm{th} $ eigenvector of $ \rho _11 ^{-1/2}\rho _{12}\rho _{22}^{-1}\rho_{21}\rho _{11}^{-1/2} $, $ f_[k] $ is the $ k^\mathrm{th} $ eigenvector of $ \rho _{22}^{-1/2}\rho _{21}\rho _{11}^{-1}\rho _{12}\rho _{22}^{-1/2} $, and
+    \[
+        f_k=\dfrac{1}{\rho ^*_k}\rho _{22}^{-1/2}\rho _{21}\rho _{11}^{-1/2}e_k\quad e_k=\dfrac{1}{\rho _k^*}\rho _{11}^{-1/2}\rho _{12}\rho _{22}^{-1/2}f_k
+    \]
+    
+    
+\subsubsection{Sample Canonical Correlation}
+    Replacement:
+    \[
+        \Sigma \longrightarrow S\qquad \rho \longrightarrow R 
+    \]
+    
+    to get 
+    \[
+        \hat{U}=\hat{A}x^{(1)}\qquad \hat{V}=\hat{B}x^{(2)} 
+    \]
+
+    and we can use $ \hat{U},\hat{V},\, \hat{A},\hat{B} $ to express $ S_{12} $ as
+    \[
+        S_{12}=\hat{A}^{-1}\begin{bmatrix}
+        \hat{\rho }^*_{1}&0&\ldots&0\\
+        0&\hat{\rho }^*_{2}&\ldots&0\\
+        \vdots&\vdots&\ddots&\vdots\\
+        0&0&\ldots&\hat{\rho }^*_{p}\\
+        \end{bmatrix}(\hat{B}^{-1})'
+    \]
+    
+    When applying CCA, we pick the first $ r $ canonical variable, thus some infomation is lost. But we hope the first $ r $ canonical variables can contain enough information of $ X^{(1)} $ and $ X^{(2)} $.
+
+    Determine of $ r $: consider the error if approximation by expressing
+    \[
+        \hat{A}^{-1}=[\alpha _1,\alpha _2,\ldots,\alpha _p]\qquad \hat{B}^{-1}=[\beta _1,\beta _2,\ldots,\beta _p] 
+    \]
+
+    and 
+    \begin{align*}
+        S_{12}=&\sum_{i=1}^p \hat{\rho }^*_i\alpha _i\beta _i'\\
+        S_{11}=&\hat{A}^{-1}(\hat{A}^{-1})'=\sum_{i=1}^p\alpha _i\alpha _i'\\
+        S_{22}=&\hat{B}^{-1}(\hat{B}^{-1})'=\sum_{i=1}^p\beta _i\beta _i'
+    \end{align*}
+    
+    Total sample variance explained by the first $ r $ canonical variables:
+    \[
+        \dfrac{\sum_{i=1}^r\alpha _i'\alpha _i}{tr(S_{11})}\qquad \dfrac{\sum_{i=1}^r\beta _i'\beta _i}{tr(S_{22})} 
+    \]
+    
+    
+
+
+
+\subsection{Discriminant Analysis}
+    \index{DA (Discriminant Analysis)}
+    Key idea of DA: for $ \mathop{X}\limits_{n\times p}  $ with an extra column labeling the classification, we want to determine a rule to assign new objects. More specifically, determine the classification region $ R_i $ for each class $ \pi_i $.
+
+\subsubsection{Classification Criterion}
+\begin{itemize}[topsep=2pt,itemsep=2pt]
+    \item Two-category classification case:Each row of $ X $ is labeled in $ \pi_1 $ or $ \pi_2 $, for two-category, only one of $ R_1 $, $ R_2 $ is needed.
+
+    Some basic concept in classification model:
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item Prior Possibility $ p_i $, $ i=1,2 $;
+        \item Penalty for misclassification $ c(i|j) $, $ i,j=1,2 $: cost if a $ \pi_j $ object is classified in $ R_i $.
+        \item Conditional Probability $ P(i|j) $, $ i,j=1,2 $: probability that a $ \pi_j $ object falls in region $ R_i $
+    \end{itemize}
+
+    \begin{point}
+Determination Criterion:
+    \end{point}
+\begin{itemize}[topsep=2pt,itemsep=2pt]
+    \item Expected Cost of Misclassification (ECM) Criterion\index{ECM (Expected Cost of Misclassification)}: Minimizing $ \mathrm{ECM} $,
+    \[
+        \mathrm{ECM}=c(2|1)P(2|1)p_1+c(1|2)P(1|2)p_2 
+    \]
+    
+    For two-category problem, $ R_1 $, $ R_2 $ can be determined as
+    \begin{align*}
+        R_1=&\arg \dfrac{f_{\pi_1}(x)}{f_{\pi_2}(x)}\geq \dfrac{c(1|2)}{c(2|1)}\dfrac{p_2}{p_1}\\
+        R_2=&\complement_{R_x}^{R_1}=\arg \dfrac{f_{\pi_1}(x)}{f_{\pi_2}(x)}<\dfrac{c(1|2)}{c(2|1)}\dfrac{p_2}{p_1}
+    \end{align*}
+    \item Total Probability of Misclassification (TPM) Criterion: Minimizing $\mathrm{TPM}$,\index{TPM (Total Probability of Misclassification)}
+    \[
+        \mathrm{TPM}=P(\mathrm{misclass})=P(2|1)p_1+P(1|2)p_2 
+    \]
+
+    actually $ \arg\min\mathrm{TPM}=\mathop{\arg\min}\limits_{c(1|2)=c(2|1)} \mathrm{ECM} $
+    \item Posterior Probability Criterion: Maximize posterior probability $ P(\pi_i|x_0) $,
+    \[
+        P(X\in\pi_i|X=x_0)=\dfrac{p_i f_{\pi_i(x_0)}}{p_1f_{\pi_1}(x_0)+p_2f_{\pi_2}(x_0)},\, i=1,2
+    \]
+    
+    Also equivalent to $ \mathrm{ECM} $ for $ c(1|2)=c(2|1) $
+\end{itemize}
+    \item Here only introduce ECM: $ \{R_i\}=\arg\min\mathrm{ECM} $
+    \begin{align*}
+        \mathrm{ECM}(i)=&\sum_{j\neq i}c(j|i)P(j|i)\\
+        \mathrm{ECM}=&\sum_{i=1}^gp_i\mathrm{ECM}_i=\sum_{i=1}^g\sum_{j\neq i} c(j|i)p(j|i)p_i
+    \end{align*}
+\end{itemize}
+
+    
+    
+
+
+
+
+    
+\subsubsection{Linear \& Quadratic Discriminant Analysis}
+    Now take two-category ECM criterion as example. An estimation to $ P(1|2),\,P(2|1) $, i.e. to $ f_{\pi_1},\,f_{\pi_2} $ is needed.
+
+    Assumption: for $ \pi_1:X\sim N(\mu _1,\Sigma _1) $,$ \pi_2:X\sim N(\mu _2,\Sigma _2) $, further for
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item $ \Sigma _1=\Sigma _2=\Sigma  $: Linear Discriminant Analysis (LDA)\index{LDA (Linear Discriminant Analysis)}.
+        
+        \[
+            f_{\pi_i}(x)=\dfrac{1}{(2\pi)^{p/2}|\Sigma |^{1/2}}\exp\left( -\dfrac{1}{2}(x-\mu _i)'\Sigma ^{-1}(x-\mu _i) \right),\,i=1,2
+        \]
+        
+        then 
+        \begin{align*}
+            R_1=&\arg(\mu_1-\mu _2)'\Sigma ^{-1}x-\dfrac{1}{2}(\mu _1-\mu _2)'\Sigma ^{-1}(\mu _1-\mu _2)\geq \ln\left(\dfrac{c(1|2)}{c(2|1)}\dfrac{p_2}{p_1}\right)\\
+            R_2=&\arg(\mu_1-\mu _2)'\Sigma ^{-1}x-\dfrac{1}{2}(\mu _1-\mu _2)'\Sigma ^{-1}(\mu _1-\mu _2)< \ln\left(\dfrac{c(1|2)}{c(2|1)}\dfrac{p_2}{p_1}\right)
+        \end{align*}
+
+        Note that $  \mathrm{L.H.S.} $ is a linear combination of $ x $, thus called LinearDA.
+
+        Sample estimation to $ \Sigma  $: use pooled variance in eqa(\ref{EqaPooledVarianc}).
+
+        \item $ \Sigma _1\neq \Sigma _2 $: Quadratic Discriminant Analysis (QDA)\index{QDA (Quadratic Discriminant Analysis)}.
+        
+        \[
+            f_{\pi_i}(x)=\dfrac{1}{(2\pi)^{p/2}|\Sigma |^{1/2}}\exp\left( -\dfrac{1}{2}(x-\mu _i)'\Sigma_i ^{-1}(x-\mu _i) \right),\,i=1,2
+        \]
+        
+        then 
+        \begin{align*}
+            R_1=&-\dfrac{1}{2}x'(\Sigma _1^{-1}-\Sigma _2^{-1})x+(\mu _1'\Sigma _1^{-1}-\mu _2'\Sigma _2^{-1})x-\dfrac{1}{2}\ln\left(\dfrac{|\Sigma _1|}{|\Sigma _2|}\right)+\dfrac{1}{2}(\mu _1'\Sigma _1^{-1}\mu _1-\mu _2'\Sigma _2^{-1}\mu _2)\geq \ln\left(\dfrac{c(1|2)}{c(2|1)}\dfrac{p_2}{p_1}\right)\\
+            R_2=&-\dfrac{1}{2}x'(\Sigma _1^{-1}-\Sigma _2^{-1})x+(\mu _1'\Sigma _1^{-1}-\mu _2'\Sigma _2^{-1})x-\dfrac{1}{2}\ln\left(\dfrac{|\Sigma _1|}{|\Sigma _2|}\right)+\dfrac{1}{2}(\mu _1'\Sigma _1^{-1}\mu _1-\mu _2'\Sigma _2^{-1}\mu _2)< \ln\left(\dfrac{c(1|2)}{c(2|1)}\dfrac{p_2}{p_1}\right)
+        \end{align*}
+
+        Note that $  \mathrm{L.H.S.} $ is a quadric form of $ x $, thus called QuadraticDA.
+        \item Two extension: allow more flexible estimation to variance:
+        \begin{itemize}[topsep=2pt,itemsep=2pt]
+            \item $ \hat{\Sigma }_i(\alpha )=\alpha\hat{\Sigma }_i+(1-\alpha )\hat{\Sigma } $, shrink between QDA and LDA;
+            \item $ \hat{\Sigma }_i(\gamma )=\gamma \hat{\Sigma }+(1-\gamma )\hat{\sigma }^2I $, shrink toward scalar cov.
+        \end{itemize}
+        
+            
+    \end{itemize}
+    
+
+\subsubsection{Fisher's Discriminant Analysis}
+    \index{FDA (Fisher's Discriminant Analysis)}Project $ X $ onto some hyperplane and conduct low-dimensional classification.
+
+    Project $ x $ onto some hyperplane by $ y=a'x  $, then we maximize $ \psi =\dfrac{\text{mean of treatment}^2}{\text{variance}} $\footnote{MANOVA Model:    
+    For $ g $ groups with same $ \Sigma  $, consider an MANOVA model: $ X_{ij}=\mu +\tau_i+e_{ij} $. Then MANOVA table gives Sum of Squares and cross Products (SSP):
+    \begin{align*}
+        \text{Treatment:}&B=\sum_{i=1}^gn_i(\bar{x}_i-\bar{x})(\bar{x}_i-\bar{x})'\\
+        \text{Residual:}&W=\sum_{i=1}^g\sum_{j=1}^{n_i}(x_{ij}-\bar{x}_i)(x_{ij}-\bar{x}_i)'\\
+        \text{Total:}&T=B+W=\sum_{i=1}^g\sum_{j=1}^{n_i}(x_{ij}-\bar{x})(x_{ij}-\bar{x})'
+    \end{align*}
+
+    use $ B $ and $ W $ to measure the variance of sample.
+    }. i.e.
+    \begin{align*}
+        \psi =&\dfrac{\sum\limits_{i=1}^g(\mu_{iY}-\mu_Y)^2}{\sigma ^2_Y}=\dfrac{a'\left(\sum\limits_{i=1}^g(\mu_i-\mu)(\mu_i-\mu)'\right)a}{a'\Sigma a}\\
+        =&\dfrac{a'B_\mu a}{a'\Sigma a}
+    \end{align*}
+    
+    Result: $ a $ is the largest eigen vector of $ W^{-1}B $.
+
+    Relation between FDA and LDA: in FDA, take the first $ \xi  $ eigenvectors to conduct classification, thus loses more information. But when $ \xi =g-1 $, FDA $ \equiv $ LDA.\footnote{Because $ a $ is eigenvector of $ W^{-1}B $, while $ \mathrm{rk}(B)=g-1 $, thus there are $ g-1 $ non-zero eigenvalues at most.}
+   
+    
+        
+\subsubsection{Evaluation of Discriminant Model}
+\begin{point}
+    Judging Index:
+\end{point}
+
+\begin{itemize}[topsep=2pt,itemsep=2pt]
+    \item Total Probability of Misclassification (TPM)\index{TPM (Total Probability of Misclassification)}:
+    \[
+        \mathrm{TPM}=p_1P(2|1)+p_2P(1|2)=p_1\int _{R_2}f_{\pi_1}(x) \,\mathrm{d}x+p_2\int _{R_1}f_{\pi_2}(x) \,\mathrm{d}x
+    \]
+    
+    \item APparent Error Rate (APER)\index{APER (Apparent Error Rate)}: used with cross validation (CV). The fraction of misclassification in training set. 
+    
+\end{itemize}
+
+    
+    
+    
+
+
+
+
+\subsection{Clustering Analysis}
+    \index{CA (Clustering Analysis)}\index{Clustering Analysis}
+    Key idea of CA: Group a collection of data according to  similarity and relation of objects.
+
+\subsubsection{Agglomerative Clustering Algorithm}\
+    \index{Clustering Analysis!Agglomerative Clustering Algorithm}\index{Clustering Analysis!Hierarchical Clustering}
+    Hierarchical clustering: start with individual points and combine them to form groups. Agglomerative clustering algorithm is conducted by repeating following steps:
+    \begin{enumerate}[topsep=2pt,itemsep=2pt]
+        \item Start: All $ k=n $ points are individual clusters;
+        \item Use a distance/dissimilarity matrix $ \mathop{D}\limits_{k\times k}  $ to express distances between clusters; the 'distance' between clusters is diversified, choice of which see the \hyperlink{BetweenClusterD}{following part};
+        \item merge closest pairs of clusters(or points) to form larger clusters, and now number of clusters $ k <- k-1 $;
+        \item Go back to step.2 and repeat, until there is only one cluster left.
+    \end{enumerate}
+    
+\begin{point}
+    \hypertarget{BetweenClusterD}{Choice of between-cluster distance:} To express distance between two clusters $ A $ and $ B $,
+\end{point}
+
+    \noindent Choice of distance functional $ D(\cdot,\cdot) $:
+\begin{itemize}[topsep=2pt,itemsep=2pt]
+    \item Euclidean Distance $ D_\mathrm{E} $;
+    \item Mahalanobis Distance $ D_\mathrm{M} $;
+    \item Jaccard Distance $ D_\mathrm{J}=1-\dfrac{|A\cap B|}{|A\cup B} $;
+    \item etc.
+\end{itemize}
+
+    \noindent Location choice of cluster:    
+
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item Complete link: $ \max D(a\in A,b\in B) $;
+        \item Single link: $ \min D(a\in A,b\in B) $;
+        \item Centroid distance: $ D(A\,\mathrm{centroid},B\,\mathrm{centroid}) $;
+        \item Group average: $ <D(a\in A,b\in B)> $
+    \end{itemize}
+    
+    \noindent Note: pros-and-cons of agglomerative clustering algorithm
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item No assumptions for final $ k $ needed;
+        \item Intuitive display of relations;
+        \item Large computational requirement: $ \sim O(n^3) $;
+        \item Sensitive to noise and outliers.
+    \end{itemize}
+    
+        
+
+
+
+
+
+
+\subsubsection{$ k $-Means Clustering Algorithm}
+    \index{Clustering Analysis!$ k $-Means Clustering Algorithm}
+    Assume we have a preset number of clusters $ k $, we can use $ k $-means clustering.
+
+\begin{enumerate}[topsep=2pt,itemsep=2pt]
+    \item Choose number of clusters $ k $;
+    \item Select $ k $ points as initial centroids, useful methods:
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item Randomly select;
+        \item Use Centroid of agglomerative algorithm;
+        \item Successively pick the farthest point from others. 
+    \end{itemize}
+    \item For all points $ i $, calculate its distance from the $ l^\mathrm{th} $ centroid $ D(i,l) $, and classify each $ i $ point to the nearest centroid cluster;
+    \item Re-calculate the centroid of new $ k $ clusters;
+    \item Repeat step 4,5 until convergence.(Convergence criterion can be e.g. $ <\sum_i D(i\in g_l,l)>\to \mathrm{const} $)
+    
+         
+\end{enumerate}
+
+Note: pros­and­cons of $ k $-Means clustering algorithm
+\begin{itemize}[topsep=2pt,itemsep=2pt]
+    \item Efficient:$ \sim O(n) $;
+    \item Sensitive to outliers;
+    \item Ineffective for non-convex shapes.
+\end{itemize}
+
+    
+
+
+\subsubsection{}
+\index{Clustering Analysis!Expectation Maximize Algorithm}
+\index{E-M Algorithm (Expectation Maximize Algorithm)}
+    % We can also label each object, then conduct discriminant analysis (e.g. QDA).
+
+    %  Assumption and notation:  
+    % \begin{align*}
+    %     Y\sim& \sum_{l=1}^k\pi_lN()\text{ where }\pi\text{ is a set }\{\pi_l\}\\
+    %     X|Y=l\sim& N(\mu_l,\Sigma _l)=N(\theta_l),\, 1\leq l\leq k
+    % \end{align*}
+
+    % Our aim is to estimate $ \pi,(\mu_i,\Sigma _i) ,\,1\leq i\leq k$. 
+    % Take two-component gaussion mixture model $ k=2 $ as example.
+
+     Assumption and notation: $ X $ is generated from a mixed distribution of $ k $ normal:
+    
+    \[
+        X\sim \sum_{l=1}^k\pi_lN(\mu_l,\Sigma _l)=\sum_{l=1}^k\pi_lN(\theta _l),\, \sum_{l=1}^k\pi_l=1,\,\pi_l\geq 0.
+    \]
+    
+    Use its likelihood function $ L(\theta;x) $ and maximize posterior probability by $ \dfrac{\partial^{} \ell}{\partial \theta ^{}} $:
+    \[
+        L(\{\theta_l \};x)=\prod_{i=1}^N \sum_{l=1}^k\pi_l   \dfrac{1}{(2\pi)^{p/2}|\Sigma _l|^{1/2}}\exp\left(   -\dfrac{1}{2}(x-\mu _l)'\Sigma _l(x-\mu _l)\right)
+    \]
+    
+    Extreme value with constraint $ \sum_{l=1}^k \pi_l=1 $ requires 
+    \[
+         \dfrac{\partial^{} \ln L}{\partial \mu _l^{}}=0\quad \dfrac{\partial^{} \ln L}{\partial \Sigma _l^{}}=0 \quad \dfrac{\partial^{} L+\lambda (\sum\limits_{l=1}^k\pi_l-1)}{\partial \pi_l^{}}=0
+    \]
+    
+    Result:
+    \begin{align*}
+        % &\sum_{i=1}^N\dfrac{\pi_l\phi _{\theta_l}(x_i)}{\sum\limits_{j=1}^k\pi_j\phi _{\theta_j}(x_i)}(x_i-\mu _i)=0\\
+        \text{denote:}& \gamma _{il}:=\dfrac{\pi_i\phi _{\theta_l}(x_i)}{\sum\limits_{j=1}^k\pi_j\phi _{\theta_j}(x_i)}\\
+        &\begin{cases}
+        \mu _l=&\dfrac{\sum\limits_{i=1}^N\gamma _{il}x_i}{\sum\limits_{i=1}^N\gamma_{il}}\\
+        \Sigma _l=&\dfrac{\sum\limits_{i=1}^N\gamma _{il}(x_i-\mu _l)(x_i-\mu _l)'}{\sum\limits_{i=1}^N\gamma _{il}}\\
+        \pi_l=&\dfrac{1}{N}\sum_{i=1}^N\gamma_{il}
+        \end{cases}
+    \end{align*}
+    
+    where $ \gamma _{il} $ is the posterior probability that the $ i^\mathrm{th} $ object belongs to the $ l^\mathrm{th} $ group.
+
+    The above constraint equations are difficult to solve, use iteration algorithm:
+\begin{enumerate}[topsep=2pt,itemsep=2pt]
+    \item Use e.g. $ k $-means method to get an initial estimation to $ \hat{\theta }_l=(\hat{\mu}_l,\hat{\Sigma }_l),\,\hat{\pi}_l=1/k$;
+    \item $ \mathrm{E_{xpectation}} $-Step: Compute weight(responsibility) of each point;
+    \[
+        \hat{\gamma }_i(x_i\in G_l)=\dfrac{\hat{\pi}_l\phi _{\hat{\theta }_l}}{\sum\limits_{j=1}^l\hat{\pi}_j\phi _{\hat{\theta}_j}},\, 1\leq i\leq N
+    \]
+    \item $ \mathrm{M_{aximize}} $-Step: Re-calculate parameters $ \{\mu_l,\Sigma _l,\pi_l\} $;
+    \item Repeat step 2,3 until convergence.
+    
+\end{enumerate}
+
+    Note: EM method for Gaussion Mixture Model is a greedy algorithm -> local maximum.
+    
+\subsubsection{DBSCAN \& OPTICS Clustering Algorithm}
+    \index{Clustering Analysis!Density Clustering}
+    \hyperlink{DBSCAN}{DBSCAN} algorithm (Density-Based Spatial Clustering of Application with Noise)\index{Clustering Analysis!DBSCAN (Density-Based Spatial Clustering of Application with Noise)} is a kind of density clustering algorithm. \hyperlink{OPTICS}{OPTICS} algorithm (Ordering Point To Indentify the Cluster Structure) is its improved version.
+
+
+\begin{point}
+    \hypertarget{DBSCAN}{DBSCAN} Algorithm
+\end{point}
+
+    Key (preset) index in DBSCAN:
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item Eps $ \varepsilon  $: Radius of neighbourhood of a point;
+        \item MinPts $ M $: Minimum number of points to be indentified as cluster core point, usually choose $ M\geq \mathrm{dim}+1 $;
+        \item (Also, a distance norm is needed, e.g. Euclidean $ D $).
+    \end{itemize}
+    
+    Notation:
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item Neighbourhood of point $ x_i $:
+        \[
+             \mathcal{N}_\varepsilon (x_i)\equiv \{y\in \mathbb{R} ^n: 0<D(y,x)<\varepsilon \}
+        \]
+        \item `Density' (is actually an integer):
+        \[
+            \rho _\varepsilon (x_i)\equiv \#  x_j\in \mathcal{N}_\varepsilon (x_i) 
+        \]
+        \item Three types of Points: $ X_c $, $ X_{bd} $, $ X_{noi} $.
+        \begin{itemize}[topsep=2pt,itemsep=2pt]
+            \item Core Point: label an $ x_i $ as core point if
+        \[
+            \rho _\varepsilon (x_i)\geq M
+        \]
+
+        Denote the set of core point as $ X_c $, and set of non-core point as $ X_{nc} $
+        
+        \item Border Point: label an $ x_j\in X_{nc} $ as border point if
+        \[
+             \exists (x_i\in X_c)\in \mathcal{N}_\varepsilon (x_j) \& x_j\in X_{nc}
+        \]
+        Denote the set of border point as $ X_{bd} $
+        \item Noise Point: the set of noise point is 
+        \[X_{noi}\equiv\displaystyle{\complement_X^{X_{c}\cup X_{bd}} }\]
+        \end{itemize}
+    \item Point Relations: DDR, DR, DC
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+    \item Directly Density Reachable: For $ x_i,x_j\in X $, if $ x_i\in X_c $, $ x_j\in\mathcal{N}_\varepsilon (x_i) $, then say $ x_j $ is DDR from $ x_i $;
+    \item Density Reachable: For point chain $ x_{i_1},x_{i_2},\ldots,x_{i_m} $, $ m\geq 2 $. If $ x_{i_{\kappa+1} } $ is DDR from $ x_{i_\kappa } $, $ \forall 1\leq \kappa \leq m-1 $, then say $ x_{i_m} $ is DR from $ x_{i_1} $.
+    \item Density Connected: For point $ x_{i_1} $, $ x_{i_2} $, $ x_{i_3} $, if $ x_{i_2} $ and $ x_{i_3} $ are both DR from $ x_{i_1} $, then say $ x_{i_2} $ and $ x_{i_3} $ are DC. 
+    \end{itemize}
+    
+    Note: DR is not symmetric for $ x_{i_1} $ and $ x_{i_m} $; while DC is.       
+    \end{itemize}
+    
+    DBSCAN algorithm classify all points that are Density Connected to each other into a cluster $ C\subset X $, i.e.
+    \begin{align*}
+        \text{Maximality:}& x\in C\&\& y\text{ DR from } x \Rightarrow y\in C\\
+        \text{Connectivity:}& x,y\in C\Rightarrow x,y\text{ DC}.
+    \end{align*} 
+        
+    Pros and cons of DBSCAN:
+\begin{itemize}[topsep=2pt,itemsep=2pt]
+    \item Insensitive to noise;
+    \item Based on density, with no constraint on the shape of cluster; 
+    \item Suitable for clusters with uniformly densed data, otherwise difficult to choose proper Eps $ \varepsilon  $;
+    \item Complexity $ \sim O(n^2) $, at least $ O(n\log n) $.
+\end{itemize}
+
+
+\begin{point}
+    \hypertarget{OPTICS}{OPTICS} Algorithm\index{Clustering Analysis!OPTICS (Ordering Point To Indentify the Cluster Structure)}
+\end{point}
+
+    OPTICS is based on DBSCAN and shares most of the basic concepts and ideas. Further define the following distance (preset $ \varepsilon  $ and $ M $):
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item Core Distance: For $ x_i\in X_c $, the smallest distance allowing $ x_i $ to become core point.
+        \[
+            \mathrm{CD}(x_i)=D(x_i,N^M_\varepsilon (x_i)),\, \rho _\varepsilon (x_i)\geq M
+        \]
+
+        where $ N^M_\varepsilon (x_i) $ is the $ M^\mathrm{th} $ closest point from $ x_i $;
+        \item Reachablity Distance: For $ y\in X,\,x_i \in X_c\subset X$, 
+        \[
+            \mathrm{RD}(y,x_i)=\max\{CD(x_i,D(y,x_i))\}
+        \]
+
+        Or equivlantly
+        \[
+            \mathrm{RD}(y,x_i)=\mathop{\arg\min}\limits_{\rho _d(x_i)\geq M, y\in \mathcal{N}_d(x_i)}  d
+        \]
+        
+        
+    \end{itemize}
+    
+        
+    Algorithm flow:
+\begin{enumerate}[topsep=2pt,itemsep=2pt]
+    \item Construct $ X_c $ based on preset $ M $, $ \varepsilon  $;
+    % \item Denoting two sequence: \lstinline|Order seq| and \lstinline|Outcome seq|;
+    \item Pick an `unprocessed' point $ x_{n_i}\in X_c $ and calculate $ \mathrm{RD}(x_j,x_{n_i} ) $, $ \forall \text{`unprocessed'} x_j\in \mathcal{N}_\varepsilon (x_{n_i}) \cap X_c $. Pick the $ x_j\in X_c $ with smallest RD and label as $ x_{n_{i+1}} $ processed;
+    \item Repeat step 2 until all points are processed. Output $ \{x_{n_i}\}=(x_{n_1},x_{n_2},\ldots,x_{n_{|X_c|}}) $. Each $ x_{n_i} $ is attached with a $ \mathrm{CD}(x_{n_i}) $ and a $ r(x_{n_i}):=\mathrm{RD}(x_{n_{i-1}},x_{n_i}) $\footnote{For $ i=1 $, just define as $ 0 $}.
+\end{enumerate}
+
+    Then break the ordering sequence $ n_i $ according to $ r(x_{n_i}) $, .e.g. break $ n_i $ if $ r(x_{n_i})\geq \tilde{\varepsilon } $
+
+    Comment: OPTIC is more stable than DBSCAN, capable of dealing with multi-density clustering.
 
 
 

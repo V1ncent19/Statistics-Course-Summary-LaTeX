@@ -1,12 +1,13 @@
+
 \section{概率论部分}\label{Section1Probability}
 \begin{center}
     Instructor: Wanlu Deng
 \end{center}
 
-    Chapter Overview
-\begin{itemize}[topsep=2pt,itemsep=2pt]
-    \item \hyperlink{Basic axioms}{Basic axioms}
-\end{itemize}
+%     Chapter Overview
+% \begin{itemize}[topsep=2pt,itemsep=2pt]
+%     \item \hyperlink{Basic axioms}{Basic axioms}
+% \end{itemize}
 
     
 
@@ -18,7 +19,7 @@
 
 
 
-    Cover：Basic axioms, random events, $\sigma$-field; random variable/vector and their properties, some special distributions; $E$\,\&\,$\sigma^2$\,\&\,$cov$ and their properties; probability-generating/moment-generating/characteristic function; weak/strong law of large number, central limit thm.; intro. to multivariate normal distribution.
+%     Cover：Basic axioms, random events, $\sigma$-field; random variable/vector and their properties, some special distributions; $E$\,\&\,$\sigma^2$\,\&\,$cov$ and their properties; probability-generating/moment-generating/characteristic function; weak/strong law of large number, central limit thm.; intro. to multivariate normal distribution.
 
 
 
@@ -42,7 +43,7 @@
         $B(\alpha,\beta)$&$\dfrac{1}{B(\alpha,\beta)}x^{\alpha-1}(1-x)^{\beta-1}$&$\dfrac{\alpha}{\alpha+\beta}$&$\dfrac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}$&&\\
         $\chi^2_n$&$\dfrac{1}{2^{\frac{n}{2}}\Gamma(\frac{n}{2})}x^{\frac{n}{2}-1}e^{-\frac{x}{2}}$&$n$&$2n$&&\\
         $t_\nu$&$\dfrac{\Gamma(\frac{\nu+1}{2})}{\sqrt{\nu\pi}\Gamma(\frac{\nu}{2})}(1+\frac{x^2}{\nu})^{-\frac{\nu+1}{2}}$&$0$&$\dfrac{\nu}{\nu-2}$&&\\
-        $F(m,n)$&$\dfrac{\Gamma(\frac{m+n}{2})}{\Gamma(\frac{m}{2})\Gamma(\frac{n}{2})}\dfrac{m^\frac{m}{2}n^\frac{n}{2}x^{\frac{m}{2}-1}}{(mx+n)^{\frac{m+n}{2}}}$&$\dfrac{n}{n-2}$&$\dfrac{2n^2(m+n-2)}{m(n-2)^2(n-4)}$&&\\
+        $F_{m,n}$&$\dfrac{\Gamma(\frac{m+n}{2})}{\Gamma(\frac{m}{2})\Gamma(\frac{n}{2})}\dfrac{m^\frac{m}{2}n^\frac{n}{2}x^{\frac{m}{2}-1}}{(mx+n)^{\frac{m+n}{2}}}$&$\dfrac{n}{n-2}$&$\dfrac{2n^2(m+n-2)}{m(n-2)^2(n-4)}$&&\\
         \hline
     \end{tabular}
 \end{table}
@@ -98,7 +99,7 @@
         \begin{equation}    
             P(A)\leq P(B)\quad \text{for}\, A\subset B
         \end{equation}
-        \item Finite Subadditivity (Boole Inequality)
+        \item Finite Subadditivity (Boole Inequality)\index{Inequality!Boole Inequality}
         \begin{equation}    
             P(\bigcup_{i=1}^nA_i)\leq\sum_{i=1}^n P(A_i)    
         \end{equation}
@@ -135,7 +136,7 @@
             P(B)=\sum_{i=1}^n P(A_i)P(B|A_i)  
         \end{equation}
         where $\{A_i\}$ is a partition of $\Omega$.
-        \item Bayes's Rule
+        \item Bayes's Rule\index{Bayes's Rule}
         \begin{equation}    
             P(A_i|B)=\frac{P(A_i)P(B|A_i)}{\sum_{j=1}^nP(A_j)P(B|A_j)}    
         \end{equation}
@@ -178,7 +179,7 @@
                 0& x\notin A
             \end{cases}
         \end{equation}
-        \item Convolution
+        \item Convolution\index{Convolution}
         \begin{itemize}
             \item $W=X+Y$
             \begin{equation}        
@@ -194,7 +195,7 @@
             \end{equation}
         \end{itemize}
         
-        \item Order Statistics
+        \item Order Statistics\index{Order Statistics}
         
         Def $X_{(1)},X_{(2)},\cdots,X_{(n)}$ as order statistics of $\vec{X}$
         \begin{equation}    
@@ -331,11 +332,12 @@
         cov(X,Y)=E[(X-\mu_X)(Y-\mu_Y)]=E(XY)-E(X)E(Y)
     \end{equation}
 
-    And (Pearson's) Correlation Coefficient\index{Pearson's Correlation Coefficient}\begin{equation}
-        \rho_{X,Y}=corr(X,Y)=\frac{cov(X,Y)}{\sqrt{var(X)var(Y)}}
+    And (Pearson's) Correlation Coefficient\index{Pearson's Correlation Coefficient}\index{Correlation Coefficient!Pearson's Correlation Coefficient}
+    \begin{equation}
+        r=\rho_{X,Y}=corr(X,Y)=\frac{cov(X,Y)}{\sqrt{var(X)var(Y)}}
     \end{equation}
 
-    Remark: correlation $\nRightarrow$ cause and effect.
+    Remark: correlation $\nRightarrow$ cause and effect. Detail on causal effect topic see section \ref{SecCausalInference}.
 
     Properties:
 \begin{itemize}
@@ -344,10 +346,11 @@
     cov(X,Y+Z)&=cov(X,Y)+cov(X,Z)
 \end{align*}
     
-\item Variance and Covariance\begin{equation}label{EqaVarOfSumOfRV}
+\item Variance and Covariance
+\begin{equation}\label{EqaVarOfSumOfRV}
     var(X+Y)=var(X)+var(Y)+2cov(X,Y)
 \end{equation}
-\item Covariance Matrix
+\item Covariance Matrix\index{Covariance Matrix}
 
     Def $\Sigma=E[(X-\mu)(X-\mu)^T]=\{\sigma_{ij}\}$ (where $X$ should be considered as a column vector)
 \begin{equation}\label{covariancematrix}
@@ -473,7 +476,7 @@ Attachment: Independence:\begin{equation}    X_i || X_j\Rightarrow \begin{cases}
 
         Useful Thm.:
         \begin{itemize}
-            \item Continuous Mapping Thm.: For continuous function $g(\cdot)$
+            \item Continuous Mapping Thm.: For continuous function $g(\cdot)$\index{Continuous Mapping Thm.}
             \begin{enumerate}
                 \item $X_n\xrightarrow[]{\text{a.s.}}X\Rightarrow g(X_n)\xrightarrow[]{\text{a.s.}}g(X)$
                 \item $X_n\xrightarrow[]{p}X\Rightarrow g(X_n)\xrightarrow[]{p}g(X)$
@@ -493,19 +496,19 @@ Attachment: Independence:\begin{equation}    X_i || X_j\Rightarrow \begin{cases}
 \subsubsection{Law of Large Number \& Central Limit Theorem}
 
 \begin{itemize}
-    \item WLLN\index{LLN (Law of Large Number)}
+    \item WLLN\index{LLN (Law of Large Number)}\index{WLLN (Weak Law of Large Number)}
 \begin{equation}    \frac{1}{n}\sum X_i\xrightarrow[]{p} E(X_1)
 \end{equation}
-\item SLLN
+\item SLLN\index{SLLN (Strong Law of Large Number)}
 \begin{equation}    \frac{1}{n}\sum X_i\xrightarrow[]{\text{a.s.}}  C
 \end{equation}
-\item CLT\index{CLT (Central Limit Theorem)}
+\item CLT\index{CLT (Central Limit Thm.)}
 \begin{equation}    \frac{1}{\sigma\sqrt{n}}\sum(X_k-\mu)\xrightarrow[]{\mathscr{L}} N(0,1)
 \end{equation}
-\item de Moivre-Laplace Thm.
+\item de Moivre-Laplace Thm.\index{de Moivre-Laplace Thm.}
 \begin{equation}    P(k\leq S_n\leq m)\approx \Phi(\frac{m+0.5-np}{\sqrt{npq}})-\Phi(\frac{k-0.5-np}{\sqrt{npq}})
 \end{equation}
-\item Stirling Eqa
+\item Stirling Eqa.
 \begin{equation}    \frac{\lambda^k}{k!}e^{-\lambda}\approx \frac{1}{\sqrt{\lambda}\sqrt{2\pi}}e^{-\frac{(k-\lambda)^2}{2\lambda}}\xrightarrow[\lambda=n]{k=n}n!\approx\sqrt{2\pi n}(\frac{n}{e})^n
 \end{equation}
 
@@ -538,6 +541,15 @@ Attachment: Independence:\begin{equation}    X_i || X_j\Rightarrow \begin{cases}
 
 
 \subsection{Multivariate Normal Distribution}\label{SubsectionDerivationMultivariateNormal}
+    General Case and more discussion see section\ref{SubSubSectionMultivariateNormalDistribution}.
+
+    Distribution of Normal $ X(\mu ,\sigma ^2) $:\index{Distribution!Normal Distribution}
+    \[
+        f(x)=\dfrac{1}{\sqrt{2\pi}\sigma }e^{-\dfrac{(x-\mu )^2}{2\sigma ^2}} 
+    \]
+    
+    
+
     For $X_1,X_2,\cdots,X_n$ independent and $X_k\sim N(\mu_k,\sigma^2_k),\, k=1,\cdots,n$, $T={\displaystyle\sum_{k=1}^n c_kX_k}, (c_k$ const), then
     \begin{equation}
         T\sim N(\sum_{k=1}^nc_k\mu_k,\sum_{k=1}^n c_k^2\sigma^2_k)    
@@ -637,7 +649,7 @@ Attachment: Independence:\begin{equation}    X_i || X_j\Rightarrow \begin{cases}
     \subsubsection{Distributions of Function of Normal Variable: $\chi^2,$ $t\,\& \,F$}\label{chi2_t_F_properties}
         Consider $X_1,X_2,\ldots,X_n$ i.i.d. $\sim N(0,1)$; $Y,Y_1,Y_2,\ldots,Y_m$ i.i.d. $\sim N(0,1)$
         \begin{itemize}
-            \item $\chi^2$ Distribution: Def. $\chi^2$ distribution with degree of freedom $n$:
+            \item $\chi^2$ Distribution: Def. $\chi^2$ distribution with degree of freedom $n$:\index{Distribution!$ \chi^2 $ Distribution}
             \begin{equation}        
                 \xi =\sum_{i=1}^n X_i^2\sim \chi^2_n
             \end{equation}
@@ -655,7 +667,7 @@ Attachment: Independence:\begin{equation}    X_i || X_j\Rightarrow \begin{cases}
                     \xi_0=\sum_{i=1}^k\xi_i\sim\chi^2_{n_1+\ldots+n_k}\end{equation}
                 \item Denoted as $\Gamma(\alpha,\lambda)$: \begin{equation}            \xi=\sum_{i=1}^nX_i\sim\Gamma(\frac{n}{2},\frac{1}{2})=\chi^2_n\end{equation}
             \end{itemize}
-            \item $t$ Distribution: Def. $t$ distribution with degree of freedom $n$:
+            \item $t$ Distribution: Def. $t$ distribution with degree of freedom $n$:\index{Distribution!$ t $ Distribution}
             \begin{equation}        
                 T=\frac{Y}{\sqrt{\dfrac{\sum_{i=1}^nX_i^2}{n}}}=\frac{Y}{\sqrt{\dfrac{\xi}{n}}}\sim t_n
             \end{equation}
@@ -671,7 +683,7 @@ Attachment: Independence:\begin{equation}    X_i || X_j\Rightarrow \begin{cases}
             \end{equation}
             
             (Similar for $\chi^2_n$ and $F_{m,n}$ etc.)
-            \item $F$ Distribution: Def. $F$ distribution with degree of freedom $m$ and $n$:
+            \item $F$ Distribution: Def. $F$ distribution with degree of freedom $m$ and $n$:\index{Distribution!$ F $ Distribution}
             \begin{equation}        
                 F=\frac{\sum_{i=1}^mY_i}{\sum_{i=1}^nX_i}\sim F_{m,n}
             \end{equation}

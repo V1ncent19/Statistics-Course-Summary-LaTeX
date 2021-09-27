@@ -6,13 +6,13 @@
     \textbf{Statistical Inference}: use sample to estimate population.
     
     Two main tasks of Statistical Inference:
-    \begin{itemize}[topsep= -5 pt,itemsep= -5 pt,parsep= 0 pt]
+    \begin{itemize}[topsep= 2 pt,itemsep= 0 pt,parsep= 0 pt]
         \item Parameter Estimation
         \begin{itemize}
-            \item Point Estimation: \hyperref[SectionPointEstimation]{\ref{SectionPointEstimation}}
-            \item Interval Estimation: \hyperref[SectionIntervalEstimation]{\ref{SectionIntervalEstimation}}
+            \item Point Estimation: section \hyperref[SectionPointEstimation]{\ref{SectionPointEstimation}}
+            \item Interval Estimation: section \hyperref[SectionIntervalEstimation]{\ref{SectionIntervalEstimation}}
         \end{itemize}
-        \item Hypothesis Testing: \hyperref[SectionHypothesisTesting]{\ref{SectionHypothesisTesting}}
+        \item Hypothesis Testing: section \hyperref[SectionHypothesisTesting]{\ref{SectionHypothesisTesting}}
     \end{itemize}
 
 \subsection{Statistical Model and Statistics}\label{SectionStatisticalModelandStatistics}
@@ -25,7 +25,7 @@
 
     
 \subsubsection{Statistics}\label{SubSectionStatistics}
-    Statistic(s): function of random sample $\vec{T}(X_1,X_2,\ldots,X_n)$, \textbf{but not a function of parameter}.
+    Statistic(s): function of random sample $\vec{T}(X_1,X_2,\ldots,X_n)$, \textbf{but not a function of parameter}.\index{Statistics}
     
     Some useful statistics, e.g.
     \begin{itemize}
@@ -48,7 +48,7 @@
                 m_{n,k}=\frac{1}{n}\sum_{i=1}^n (X_i-\bar{X})^k\qquad k=2,3,4,\ldots    
             \end{equation}
         \end{itemize}
-        \item Order statistics
+        \item Order statistics\index{Order Statistics}
         \begin{equation}
             (X_{(1)},X_{(2)},\ldots,X_{(n)}),\,\text{for }X_{(1)}\leq X_{(2)} \leq \ldots\leq X_{(n)}    
         \end{equation}
@@ -72,7 +72,7 @@
     
         
 
-    Statistic $T$ is a function of random sample $\{X_i\}$, thus has distribution (say $g_T(t)$) called \textbf{Sampling Distribution}.
+    Statistic $T$ is a function of random sample $\{X_i\}$, thus has distribution (say $g_T(t)$) called \textbf{Sampling Distribution}.\index{Statistics!Sampling Distribution}
 
         For $X_i$ i.i.d. from $X\sim f(x)$ with population mean $\mu$ and variance $\sigma^2$
     \begin{itemize}
@@ -94,7 +94,7 @@
         \end{itemize}        
     \end{itemize}
 
-    \subsubsection{Exponential Family}\label{SubSectionExponentialFamily}
+\subsubsection{Exponential Family}\label{SubSectionExponentialFamily}
         Def. $\mathscr{F}=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf{Exponential Family} if $f(x;\vec{\theta})$ has the form as\index{EF (Exponential Family)}
 \begin{equation}
     f(x;\vec{\theta})=C(\vec{\theta})h(x)\exp \left[  \sum_{i=1}^k Q_i(\vec{\theta})T_i(x) \right]\quad\vec{\theta}\in\Theta
@@ -222,8 +222,8 @@
         \begin{equation}
             var(\hat{g}_1)\leq var(\hat{g}_2)  \quad\forall\theta\in\Theta  
         \end{equation}
-        \item Mean Squared Error (MSE)\index{MSE (Mean Squared Error)}
-        \begin{equation}
+        \item Mean Squared Error (MSE)\index{MSE (Mean Squared Error)}: Bias-Variance Trade-Off
+        \begin{equation}\label{EqaMSEExpansion}
             \text{MSE}=E[(\hat{\theta}-\theta)^2]=var(\hat{\theta})+[Bias(\hat{\theta})]^2
         \end{equation}
 
@@ -259,7 +259,7 @@
 \end{equation}
 
     Example: coefficient of variance \& skewness 
-    \begin{equation}\hat{\nu}=\dfrac{S}{\bar{X}}\quad\hat{\beta}_1=\dfrac{m_{n,3}}{m_{n,2^{3/2}}}=\sqrt{n}{\displaystyle\frac{\displaystyle{\sum_{i=1}^n(X_i-\bar{X})^3}}{\displaystyle{[\sum_{i=1}^n(X_i-\bar{X})^2]^{\frac{3}{2}}}  }}\end{equation}
+    \begin{equation}\hat{\nu}=\dfrac{S}{\bar{X}}\qquad\hat{\beta}_1=\dfrac{m_{n,3}}{m_{n,2^{3/2}}}=\sqrt{n}{\displaystyle\frac{\displaystyle{\sum_{i=1}^n(X_i-\bar{X})^3}}{\displaystyle{[\sum_{i=1}^n(X_i-\bar{X})^2]^{\frac{3}{2}}}  }}\end{equation}
 
     \begin{point}
         Note:
@@ -279,7 +279,7 @@
 
 
 \subsubsection{Maximum Likelihood Estimation}\label{SubSectionMLE}
-    \index{MLE (Maximum Likelihood Estimation)}For sample $\vec{X}=(X_1,X_2,\ldots,X_n)$ with distribution $f(\vec{x};\theta)$ from $\mathscr{F}=\{f(x;\theta),\theta\in\Theta\}$ , def. \textbf{Likelihood Function} $L(\theta;\vec{x})$, defined on $\Theta$ (as a function of $\theta)$
+    \index{MLE (Maximum Likelihood Estimation)}For sample $\vec{X}=(X_1,X_2,\ldots,X_n)$ with distribution $f(\vec{x};\theta)$ from $\mathscr{F}=\{f(x;\theta),\theta\in\Theta\}$ , def. \textbf{Likelihood Function} $L(\theta;\vec{x})$, defined on $\Theta$ (as a function of $\theta)$\index{Likelihood Function}
     \begin{equation}
         L(\theta;\vec{x})=f(\vec{x};\theta)\qquad \theta\in\Theta,\,\vec{x}\in\mathscr{X}    
     \end{equation}
@@ -471,7 +471,7 @@
 
 
 \item \textbf{Multi-Dimensional Cramer-Rao Inequality}
-
+    \index{CR Inequality (Cramer-Rao Inequality)}
     ReDef. Fisher Information:
     \begin{equation}
         \mathbf{I}(\theta)=\{I_{ij}(\theta)\}=\{E\left[\left(\frac{\partial\ln f(\vec{x};\theta)}{\partial\theta_i}\right)\left(\frac{\partial\ln f(\vec{x};\theta)}{\partial\theta_j}\right)\right]\}  
@@ -524,9 +524,9 @@
             (\hat{\beta_0},\hat{\beta_1})=\arg\min\sum_{i=1}^n(y_i-\beta_0-\beta_1 x_i)^2    
         \end{equation}
 
-        (Express in Matrix Notation (eqa.\ref{EqaMatrixRepreOfSSE}), so that it can be generalized to multidimensional case) SSE can be expressed as the \textbf{Excliean Distance }between $ \{y_i\} $ and $ \{\hat{\beta}_0+\hat{\beta}_1x_i\}  $, i.e.
+        (Express in Matrix Notation (eqa.\ref{EqaMatrixRepreOfSSE}), so that it can be generalized to multidimensional case) SSE can be expressed as the \textbf{Eucliean Distance }between $ \{y_i\} $ and $ \{\hat{\beta}_0+\hat{\beta}_1x_i\}  $, i.e.
         \begin{equation}
-            \arg\min d(y
+            \arg\min D(y
             ,X \hat{\beta})
         \end{equation}
 
@@ -615,6 +615,7 @@
     Linear Regression Model(Multi-dimension case):
 \end{point}
 
+    Detailed derivation see section \ref{SubSectionMultivariateLinearRegressionModel}
     
 \begin{equation}
     y_i=\beta_0+\beta_1x_{i1}+\beta_2x_{i2}+\cdots+\beta_px_{ip}+\epsilon_i    
@@ -722,7 +723,7 @@
     Interval Estimation: to estimate $g(\theta)$, give \textbf{two} estimators $\hat{g}_1(\vec{X}),\, \hat{g}_2(\vec{X})$ defined on $\mathscr{X}$ as the two ends of interval (i.e. give an interval $[\hat{g}_1(\vec{X}),\, \hat{g}_2(\vec{X})]$), then random interval $[\hat{g}_1(\vec{X}),\, \hat{g}_2(\vec{X})]$ is an \textbf{Interval Estimation} of $g(\theta)$.
 
     \subsubsection{Confidence Interval}\label{SubSectionConfidenceInterval}
-    \index{CI (Confidence Interval)}How to judge an interval estimation?
+    \index{CI (Confidence Interval)}\index{Confidence Region!Confidence Interval}How to judge an interval estimation?
     \begin{itemize}
         \item Reliability
         \begin{equation}P(g(\theta)\in[\hat{g}_1,\hat{g}_2])\end{equation}
@@ -752,12 +753,12 @@
 
     Other cases:
     \begin{itemize}[topsep=-4pt]
-        \item \textbf{Confidence Limit}:Upper/Lower Confidence Limit
+        \item \textbf{Confidence Limit}:Upper/Lower Confidence Limit\index{Confidence Region!Confidence Limit}
     \begin{align*}
         P(g\leq \hat{g}_U)\geq 1-\alpha\\
         P(\hat{g}_L\leq \theta)\geq 1-\alpha
     \end{align*}
-        \item \textbf{Confidence Region}: For high dimensional parameters $\vec{g}=(g_1,g_2,\ldots,g_k)$
+        \item \textbf{Confidence Region}: For high dimensional parameters $\vec{g}=(g_1,g_2,\ldots,g_k)$\index{Confeidence Region}
         \begin{equation}P(\vec{g}\in S(\vec{X}))\geq 1-\alpha\quad \forall \theta\in\Theta \end{equation}
         
     \end{itemize}
@@ -859,7 +860,7 @@
     \item Double normal population: $\vec{X}=\{X_1,X_2,\ldots,X_m\}$ i.i.d. from $N(\mu_1,\sigma_1^2)$; $\vec{Y}=\{Y_1,Y_2,\ldots,Y_n\}$ i.i.d. from $N(\mu_2,\sigma^2_2)$
 
     
-    Denote sample mean, sample variance and pooled sample variance:
+    Denote sample mean, sample variance and pooled sample variance:\index{Pooled Sample Variance}
 \begin{align*}
     \bar{X}&=\frac{1}{m}\sum_{i=1}^nX_i &S_X^2&=\frac{1}{m-1}\sum_{i=1}^m(X_i-\bar{X})^2& S_{\mu_1}^2 &=\dfrac{1}{m}\sum_{i=1}^m(X_i-\mu_1)^2,(\mu_1\text{ known}) \\\bar{Y}&=\frac{1}{n}\sum_{i=1}^n Y_i&S^2_Y&=\frac{1}{n-1}\sum_{i=1}^n(Y_i-\bar{Y})^2& S_{\mu_2}^2 &=\dfrac{1}{n}\sum_{i=1}^n(Y_i-\mu_2)^2,(\mu_2\text{ known})\\
     &&S_\omega^2&=\dfrac{(m-1)S_X^2+(n-1)S_Y^2}{m+n-2}&&
@@ -1094,7 +1095,7 @@
 \subsubsection{Basic Concepts}\label{SubSectionHypothesisTestingBasicConcepts}
     Parametric hypothesis testing.
 
-    For random sample $\vec{X}=(X_1,X_2,\ldots,X_n)\in\mathscr{X}$ i.i.d. from $\mathscr{F}=\{f(x;\theta);\theta\in\Theta\}$
+    For random sample $\vec{X}=(X_1,X_2,\ldots,X_n)\in\mathscr{X}$ i.i.d. from $\mathscr{F}=\{f(x;\theta);\theta\in\Theta\}$\index{Null Hypothesis}\index{Alternative Hypothesis}
     \begin{itemize}[topsep = -3 pt]
         \item Null Hypothesis $H_0$ \& Alternative Hypothesis $H_1$: Wonder whether a statement is true. Def. \textbf{Null Hypothesis}: $H_0:\theta\in\Theta_0\subset\Theta$, \textbf{a statement that we try to reject based on sample}; $H_1:\theta\in\Theta_1=\Theta-\Theta_0$ is \textbf{Alternative Hypothesis}.
         
@@ -1108,7 +1109,7 @@
             H_0:\theta\in\Theta_0\longleftrightarrow H_1:\theta\in\Theta_1
         \end{equation}
         
-        \item Rejection Region $R$ \& Acceptance Region $R^C$: Judge whether to reject $H_0$ from sample, Def. \textbf{Rejection Region}:
+        \item Rejection Region $R$ \& Acceptance Region $R^C$: Judge whether to reject $H_0$ from sample, Def. \textbf{Rejection Region}:\index{Rejection Region}
         \begin{equation}R\subset\mathscr{X}\text{: reject } H_0 \text{ if } \vec{X}\in R\end{equation}
 
         Acceptance Region: accept $H_0$ if $\vec{X}\in R^C$
@@ -1135,7 +1136,7 @@
 
         Where $R$ and $r$  to be determined.
     \end{itemize}
-        \item Type I Error \& Type II Error: Sample is random, possible to make a wrong judge.
+        \item Type I Error \& Type II Error: Sample is random, possible to make a wrong judge.\index{Type I Error}\index{Type II Error}
             
         \begin{itemize}[topsep = -4 pt]
             \item Type I Error (弃真): $H_0$ is true but sample falls in $R$, thus $H_0$ is rejected.
@@ -1162,7 +1163,7 @@
         Impossible to make probability of Type I \& II Error small simultaneously, how to pick a proper test $\varphi(\vec{x})$? 
         
 \begin{point}
-            \textbf{Neyman-Pearson Principle}: First control $\alpha\leq\alpha_0$, then take $\min \beta$.
+        \textbf{Neyman-Pearson Principle}\index{Neyman-Pearson Principle}: First control $\alpha\leq\alpha_0$, then take $\min \beta$.
 \end{point}
 
 
@@ -1309,6 +1310,7 @@
             \hline
         \end{tabularx}
     \end{table}
+    \item More than two normal population: Analysis of Variance.
 \end{enumerate}
 
 \subsubsection{Likelihood Ratio Test}\label{SubSectionLRT}
@@ -1345,7 +1347,7 @@
         \Lambda = \left( 1+\dfrac{T^2}{n-1} \right)^{-n/2}
     \]
     
-    The Multivariate case see sec. \hyperlink{PartHotellingT2Test}{\ref{SubSectionMultivariateHypothesisTesting}}, where $ T^2 $ itself is the Hotelling's $ T^2 $ statistic.
+    The Multivariate case see section \hyperlink{PartHotellingT2Test}{\ref{SubSectionMultivariateHypothesisTesting}}, where $ T^2 $ itself is the Hotelling's $ T^2 $ statistic.
     
     
 
@@ -1354,7 +1356,7 @@
 
 
 \begin{point}
-    Limiting Distribution of LR: Wilks' Thm.\index{Wilk's Thm.}
+    Limiting Distribution of LRT: Wilks' Thm.\index{Wilk's Thm.}
 \end{point}
 
     
@@ -1394,7 +1396,7 @@
 
     Note: UMT exist for\textbf{ simple }$H_0,H_1$, otherwise may not exist.
 
-    UMP and sufficient statistics: Test function $\varphi(\vec{X}$ given by eqa.\ref{UMPtestfunction} is function of sufficient statistics $T(\vec{X})$, i.e. $\varphi(\vec{X})=\varphi^*(T(\vec{X}))$.
+    UMP and sufficient statistics: Test function $\varphi(\vec{X}$ given by eqa(\ref{UMPtestfunction}) is function of sufficient statistics $T(\vec{X})$, i.e. $\varphi(\vec{X})=\varphi^*(T(\vec{X}))$.
 
     UMP and Exponential Family: For sample $\vec{X}=(X_1,X_2,\dots,X_n)$ from exponential family:
     \begin{equation}
@@ -1421,7 +1423,7 @@
 
     where $C$ and $r$ satisfies $E[\varphi(\vec{x})|\theta_0]=\alpha$.
 
-    Note: or take $Q(\theta)$ mono decreased, then in eqa.\ref{UMPtestfunctioninExponentialFamily}, take opposite inequality operators.
+    Note: or take $Q(\theta)$ mono decreased, then in eqa(\ref{UMPtestfunctioninExponentialFamily}), take opposite inequality operators.
     
 \begin{point}
     \textbf{General Steps of UMP}:
@@ -1430,7 +1432,7 @@
     
     \begin{enumerate}
         \item Find a point $\theta_0\in\Theta_0$ and a point $\theta_1\in\Theta_1$. (Note: \textbf{one} point)
-        \item Construct test function in the form of eqa.\hyperref[UMPtestfunction]{\ref{UMPtestfunction}}, use $E[\varphi(\vec{x})|\theta_0]=\alpha$ to determine $C$ and $r$.
+        \item Construct test function in the form of eqa.\hyperref[UMPtestfunction]{(\ref{UMPtestfunction})}, use $E[\varphi(\vec{x})|\theta_0]=\alpha$ to determine $C$ and $r$.
         \item Get $R$ and $\varphi(\vec{x})$.
         \item If $\varphi$ does \textbf{not} depend on $\theta_1$, then $H_1$ can be generalized to $H_1:\theta\in\Theta_1$.
         \item If $\varphi$ satisfies $E_{\theta\in\Theta_0}(\varphi)\leq\alpha$, then $H_0$ an be generalized to $H_0:\theta\in\Theta_0$.
@@ -1510,7 +1512,7 @@
 
         Rejection Region: $R=\{|T|>N_\frac{\alpha}{2}\}$
 
-        \item Wilcoxon Two-Sample Rank Sum Test: Used for two independent sample comparison.
+        \item Wilcoxon Two-Sample Rank Sum Test: Used for two independent sample comparison.\index{Wilcoxon Two-Sample Rank Sum Test}
         
         Assume $\vec{X}=(X_1,\ldots,X_m)$ i.i.d. $\sim f(x)$; $\vec{Y}=(Y_1,\ldots,Y_n)$ i.i.d. $\sim f(x-\theta)$, test $H_0:\theta=0\longleftrightarrow H_1:\theta\neq 0$.
 
@@ -1536,7 +1538,7 @@
 
 
 
-        \item Goodness-of-Fit Test: For $\vec{X}=(X_1,X_2,\ldots,X_n)$ i.i.d. from some certain population $X$. Test $H_0:X\sim F(x)$.
+        \item Goodness-of-Fit Test: For $\vec{X}=(X_1,X_2,\ldots,X_n)$ i.i.d. from some certain population $X$. Test $H_0:X\sim F(x)$.\index{Goodness-of-Fit Test}
         
         where $F$ is theoretical distribution, can be either parametric or non-parametric.
 
@@ -1553,7 +1555,7 @@
                 K_n=K_n(X_1,\ldots,X_n;F)=\sum_{i=1}^r\frac{(\nu_i-np_i)^2}{np_i}
             \end{equation}
 
-            Pearson Thm.: For $K_n$ defined as eqa.\ref{Pearson_chi_test_differenceKn}, then under $H_0$:
+            Pearson Thm.: For $K_n$ defined as eqa(\ref{Pearson_chi_test_differenceKn}), then under $H_0$:
             \begin{equation}
                 K_n\xrightarrow[]{\mathscr{L}}\chi^2_{r-1-s}
             \end{equation} 
@@ -1652,7 +1654,7 @@
     \begin{itemize}
         \item Kolmogorov-Smirnov Test\index{K-S Test (Kolmogorov-Smirnov Test)}: Assume $\vec{X}$ form population CDF $F(x)$, test $H_0:F(x)=F_0(x)$(where can take $F_0=\Phi$ or some other known CDF).
         
-        use $F_n(x)$ (as defined in eqa.\ref{empiricaldisreibutionfunction}) as approx. to $F(x)$, test
+        use $F_n(x)$ (as defined in eqa(\ref{empiricaldisreibutionfunction})) as approx. to $F(x)$, test
         \begin{equation}
             D_n=\sum_{-\infty< x<+\infty}|F_n(x)-F_0(x)|
         \end{equation}
