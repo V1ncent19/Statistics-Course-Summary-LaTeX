@@ -1,77 +1,119 @@
 \section{线性回归分析部分}\label{SecLinearRegressionAnalysis}
+\begin{center}
+    Instructor: Zaiying Zhou
+\end{center}
 \begin{point}
     Steps in Regression Analysis
 \end{point}
 
 \begin{enumerate}[topsep=2pt,itemsep=2pt]
-    \item Exploratory Data Analysis (EDA)\index{EDA (Exploratory Data Analysis)}
     \item Statement of the problem;
-    \item Selection of potentially relevant variables;
+    \item Selection of potentially relevant \textbf{variables};
     \item Data collection;
-    \item Model specification;
+    \item Exploratory Data Analysis (\textbf{EDA} )\index{EDA (Exploratory Data Analysis)}
+    \item \textbf{Model} specification;
     \item Choice of fitting method;
     \item Model fitting;
     \item Model validation and criticism;
-    \item Using the chosen model(s) for the solution of the posed problem.
+    \item Using the chosen model(s) for the solution of the posed problem;
+    \item \textbf{Explain} the result.
 \end{enumerate}
 
-    
+    \lstinline|R.| Code for EDA
+\begin{lstlisting}[language=R]
+libaray('GGally')
+head(df)
+ggpairs(df)
+str(df)
+summary(df)
+\end{lstlisting}
+
+
+
+\begin{point}
+    Used Packages in \lstinline|R.|
+\begin{lstlisting}[language=R]
+library('ggplot2')
+libaray('GGally')
+library('car')
+library('moments')
+library('lmtest')
+library('nortest')
+library('MASS')
+library('tseries')
+
+source('package.r')
+\end{lstlisting}
+
+\end{point}
+
 
 \subsection{Linear Regression Model}
-\begin{itemize}[topsep=6pt,itemsep=4pt]
-    \item Assume a Model
-    \begin{enumerate}[topsep=6pt,itemsep=4pt]
-        \item Parameter of the model
-        \item Basic Assumptions
-        \item Dsitribution of error
-    \end{enumerate}
-    \item Parametric Estimation
-    \begin{enumerate}[topsep=6pt,itemsep=4pt]
-        \item Ordinary Least Squares Estimation
-        \item Maximun Likelihood Estimation
-    \end{enumerate}
-    \item Statistics Inference
-    \begin{enumerate}[topsep=6pt,itemsep=4pt]
-        \item Hypotheses Testing
-        \item Interval Estimation
-    \end{enumerate}
+% \begin{itemize}[topsep=6pt,itemsep=4pt]
+%     \item Assume a Model
+%     \begin{enumerate}[topsep=6pt,itemsep=4pt]
+%         \item Parameter of the model
+%         \item Basic Assumptions
+%         \item Dsitribution of error
+%     \end{enumerate}
+%     \item Parametric Estimation
+%     \begin{enumerate}[topsep=6pt,itemsep=4pt]
+%         \item Ordinary Least Squares Estimation
+%         \item Maximun Likelihood Estimation
+%     \end{enumerate}
+%     \item Statistics Inference
+%     \begin{enumerate}[topsep=6pt,itemsep=4pt]
+%         \item Hypotheses Testing
+%         \item Interval Estimation
+%     \end{enumerate}
 
-\end{itemize}
+% \end{itemize}
 
 
     
 
 
         
-\subsubsection{Data for simple linear regression}
+\subsubsection{Data and Model for Simple Linear Regression}
 
-    We will observe pairs of variables, called 'cases'(样本点)
-        
-    A sample is $ (X_1,Y_1),\ldots,(X_n,Y_n) $
+    We will observe pairs of variables, called 'cases'(样本点). A sample is $ (X_1,Y_1),\ldots,(X_n,Y_n) $
+
+\begin{rcode}
+    Example data import:
+\begin{lstlisting}[language=R]
+df <- read.table('dataset/CH01PR27.txt',header=FALSE,
+    sep=',',col.names = c('y','x'))
+\end{lstlisting}
+\end{rcode}
 
     Linear Model: \footnote{Here in linear regression, we consider $ X_i $ only as real number, \textbf{without} randomness. So here $ Y_i $ can be considered as an r.v. with $ X_i $ as parameter, i.e. $ Y_i|_{X_i=x_i} $}
-
-%% 关于线性模型的X_i性质的假定
-    \[
-        Y_i=\beta _0+\beta _1X_i+\varepsilon _i 
-    \]
-    where $ \varepsilon_i  $ i.i.d.$ \sim \varepsilon  $ is a random error term, satisfies    \footnote{Note: Why we need $ \varepsilon $ as 'random error term'?
+    \footnote{Note: Why we need $ \varepsilon $ as 'random error term'?
     \begin{itemize}[topsep=6pt,itemsep=4pt]
         \item It represents the intrinsic random property of the model.
         \item Based on $ \varepsilon  $, we can take r.v. into our statistic model.
     \end{itemize}
     }
     
-    \[
-        E(\varepsilon _i)=0\qquad var(\varepsilon _i)=\sigma ^2 
-    \]
-    
-    
+%% 关于线性模型的X_i性质的假定
+    \begin{equation}
+        Y_i=\beta _0+\beta _1X_i+\varepsilon _i 
+    \end{equation}
+
+    with Guass-Markov Assumption:
+    \begin{equation}\label{EqaGaussMarkovAssumption}
+        \begin{aligned}
+            \text{Zero-Mean: }&E(\epsilon_i|X_i)=0 \\
+            \text{Homogeneity of Variance: }&var(\epsilon_i)=\sigma^2\\
+            \text{Independent: }&\epsilon_i\text{ i.i.d. }\sim \varepsilon
+        \end{aligned}
+    \end{equation}
+ 
+  
 
     Normal Error Assumption: Further in most cases, we consider $ \varepsilon \sim N(0,\sigma^2) $ ----because of its well-property distribution, $ \varepsilon _1,\varepsilon _2,\ldots,\varepsilon _n $ i.i.d. $ N(0,\sigma ^2) $.\footnote{i.e. $ Y_i $ are independent
-    \[
+    \begin{equation}
         Y_i\sim N(\beta _0+\beta _1X_i,\sigma^2)\quad i=1,2,\ldots ,n 
-    \]
+    \end{equation}
     
     }
         
@@ -91,18 +133,18 @@
     Estimate Principle: \footnote{Detailed Definition and Derivation see sec.\ref{SubSectionMoM_MLE_LinearRegression}.}
     \begin{itemize}[topsep=2pt,itemsep=2pt]
         \item Ordinary Least Squares\index{Ordinary Least Squares}:
-        \[
+        \begin{equation}
             (\hat{\beta  }_0,\hat{\beta _1})=\arg\min\sum_{i=1}^n (y-\beta _0-\beta _1x_i)^2
-        \]
+        \end{equation}
         \item MLE or MoM Estimation.
     \end{itemize}
     
 
     
     And get $ \hat{\beta _1},\hat{\beta _0}$ as well as $ \hat{\sigma^2} $(see eqa(\ref{EqaOLSEstimatorOfSigma}):\footnote{A memory trick: use $ \dfrac{Y}{\sqrt{s_Y}}=r_{XY}\dfrac{X}{\sqrt{s_X}} $ to get formular of $ Y\sim X $:
-    \[
+    \begin{equation}
         \hat{\beta }_1=r_{XY}\dfrac{\sqrt{s_Y}}{\sqrt{s_X}}=\dfrac{{\displaystyle\sum (x_i-\bar{x})(y_i-\bar{y})}}{{\displaystyle\sum (x_i-\bar{x})^2}} 
-    \]}
+    \end{equation}}
 
 %LSE beta_0 beta_1
 \begin{equation}\label{EqaOLSEstimatorOfBeta}
@@ -116,9 +158,9 @@
 
     
     Def. \index{Residual}\textbf{Residual}: distance from sample point to estimate point, to reflect how the sample points fit the model.
-    \[
+    \begin{equation}
         e_i=y_i-\hat{y}_i=\text{observed value of }\varepsilon _i 
-    \]
+    \end{equation}
     
     Note: under least square estimation, we have\footnote{Intuitively, they each means '$ E(\varepsilon )=0 $' and '$ X\parallel \varepsilon  $'.}
 \begin{equation}\label{Limit_to_Residual}
@@ -135,6 +177,52 @@
         \hat{\sigma^2}&=\dfrac{1}{n-p-1}\sum e_i^2=\dfrac{1}{n-2}\sum e_i^2\quad\text{(use OLS, unbiased)}
 \end{aligned}
 \end{equation}
+
+\textbf{Degree of Freedom}\index{$ dof $/$ df $ (Degree of Freedom)} of a Quadric Form:
+\begin{itemize}[topsep=2pt,itemsep=2pt]
+    \item Intuitively: the number of independent variable;
+    \item Rigorously: for quadric $ \mathrm{SS}=x'Ax $:
+    \begin{equation}\label{EqaDefinitionOfDegreeOfFreedom}
+        dof_{SS}=\mathrm{rank}(A)
+    \end{equation}
+    
+    
+    
+\end{itemize}
+
+     
+
+\begin{rcode}
+\begin{lstlisting}[language=R]
+lmfit <- lm(formula,df)
+summary(lmfit,cor=TRUE)
+ggcoef(lmfit)
+\end{lstlisting}
+
+    \lstinline|lmfit| includes parameters \lstinline|lmfit$coefficient| and \lstinline|lmfit$residuals|
+
+    Example \lstinline|lm()| output:
+\begin{lstlisting}[language=R]
+    Call:
+    lm(formula = y ~ x, data = df)
+    
+    Residuals:
+         Min       1Q   Median       3Q      Max 
+    -16.1368  -6.1968  -0.5969   6.7607  23.4731 
+    
+    Coefficients:
+                Estimate Std. Error t value Pr(>|t|)    
+    (Intercept) 156.3466     5.5123   28.36   <2e-16 ***
+    x            -1.1900     0.0902  -13.19   <2e-16 ***
+    ---
+    Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    
+    Residual standard error: 8.173 on 58 degrees of freedom
+    Multiple R-squared:  0.7501,    Adjusted R-squared:  0.7458 
+    F-statistic: 174.1 on 1 and 58 DF,  p-value: < 2.2e-16
+\end{lstlisting}
+
+\end{rcode}
 
     % MSE SSE dof
 
@@ -162,16 +250,16 @@
     % \end{itemize}
 
 
-\subsubsection{Statistical Inference to $ \beta _0 $,$ \beta _1 $}
+\subsubsection{Statistical Inference to $ \beta _0 $,$ \beta _1 $,$ e_i $}
 
 \begin{point}
     Sampling Distribution of $ \hat{\beta} _1,\hat{\beta} _0  $
 \end{point}
 
     Consider $ \hat{\beta} _1,\hat{\beta} _0 $ as statistics of sample, then we can examine the sampling distribution of $  \hat{\beta} _1,\hat{\beta} _0 $. Their randomness comes from
-    \[
+    \begin{equation}
         Y_i=\beta_0+\beta_1X_i+\varepsilon _i 
-    \]
+    \end{equation}
     
     
 
@@ -184,9 +272,9 @@
 \end{align*}
  
     Denote corresponding variance as $ \sigma^2_{\hat{\beta}_1} $ and $ \sigma^2_{\hat{\beta}_0} $, using eqa(\ref{EqaDistributionOfSumOfiidNormal}) to get:
-    \[
+    \begin{equation}
         \sigma^2_{\hat{\beta}_1}= \dfrac{\sigma^2}{S_{XX}}\qquad \sigma^2_{\hat{\beta}_0}=\sigma^2(\dfrac{1}{n}+\dfrac{\bar{X}^2}{S_{XX}})
-    \] 
+    \end{equation} 
     
      And under normal error assumption, distribution of $ \hat{\beta} _1,\hat{\beta} _0  $ are
     \begin{align*}
@@ -198,9 +286,9 @@
     
     % \begin{itemize}[topsep=2pt,itemsep=2pt]
     %     \item LSE of $ \beta _1 $ gives 
-    %     \[
+    %     \begin{equation}
     %         \hat{\beta _1}=\dfrac{\sum (x_i-\bar{x})(y_i-\bar{y})}{\sum (x_i-\bar{x})^2}
-    %     \]
+    %     \end{equation}
         
     %     and satisfies $ E(\hat{\beta}_1)=\beta_1 $. Can prove that $ \hat{\beta }_1\sim N(\beta _1,\dfrac{\sigma ^2}{\sum (x_i-\bar{x})^2})=N(\beta_1,\sigma^2(\hat{\beta}_1))$
        
@@ -209,13 +297,48 @@
     Note: In linear regression model, we usually focus more on $ \beta_1 $. And note that when $ 0 $ is \textbf{not} within the fitting range,$ \beta_0 $ is not so important.\footnote{Two reason:\begin{itemize}[topsep=2pt,itemsep=2pt]
         \item The etimation error of $ Y $ from $ \hat{\beta}_1 $ increases with $ X_h-\bar{X} $;
         \item $ \beta_1==0  $ is important: decides whether linear model can be used. 
-    \end{itemize}
-    
-        }
+    \end{itemize}}
 
-    Why we choose OLS to get regression coefficients?
 
 \begin{point}
+    Sampling Distribution of $ e_i $ 
+\end{point}
+    Consider $ e_i $ as r.v. satisfies
+    \begin{equation}
+        e_i= Y_i-\hat{Y}_i=Y_i-\hat{\beta }_0-\hat{\beta }_1X_i
+    \end{equation}
+
+    and get the expression of $ \hat{e}_i $
+    \begin{equation}
+        \begin{aligned}
+            \hat{e}_i=\varepsilon _i-\sum_{k=1}^n\left( \dfrac{1}{n}+\dfrac{(X_i-\bar{X})^2}{S_{XX}} \right)\varepsilon _k
+        \end{aligned}
+    \end{equation}
+    
+    
+    \begin{equation}
+        E(e_i)=0\qquad \sigma ^2_{e_i}=\sigma ^2 \left( 1-\dfrac{1}{n}-\dfrac{(X_i-\bar{X})^2}{S_{XX}} \right)
+    \end{equation}
+
+    Under normal assumption:
+    \begin{equation}\label{EqaSamplingDistributionOfResiduals}
+        e_i\sim N(0,\sigma ^2\left( 1-\dfrac{1}{n}-\dfrac{(X_i-\bar{X})^2}{S_{XX}} \right) ) 
+    \end{equation}
+    
+
+    Further we can get $ \hat{\sigma }^2=E(\dfrac{1}{n-2}\sum_{i=1}^ne_i^2) $ where $ e_i^2\sim \sigma ^2\left( 1-\dfrac{1}{n}-\dfrac{(X_i-\bar{X})^2}{S_{XX}} \right)\chi^2 $
+    \begin{equation}
+        \hat{\sigma }^2=\dfrac{1}{n-2}\sigma ^2\sum_{i=1}^n(1-\dfrac{1}{n}-\dfrac{(X_i-\bar{X})^2}{S_{XX}})=\sigma ^2
+    \end{equation}
+    
+    More definition of refined residuals see sec.\ref{SubSecDiagnostics} in page \ref{SubSecDiagnostics}.
+    
+
+
+\begin{point}
+    Why we choose OLS to get regression coefficients?
+
+
     \index{Gauss-Markov Thm.`'}Gauss–Markov Thm.: the OLS estimator has the lowest sampling variance within the class of linear unbiased estimators, i.e. OLS is the Best Linear Unbiased Estimator(BLUE).\footnote{This Thm. does \textbf{not }require normal error assumption.}
 \end{point}
     
@@ -224,33 +347,57 @@
 
 \subsubsection{Prediction to $ Y_h $}
     For a new $ X_h $ at which we wish to \textbf{predict }the corresponding $ Y_h $ (based on other known point $ (X_i,Y_i) $), denote the estimator as $ \hat{\mu}_h $:
-    \[
+    \begin{equation}
         \hat{\mu}_h=\hat{\beta}_1X_h+\hat{\beta}_0 =\beta_1X_h+\beta _0+\sum_{i=1}^n\left( \dfrac{1}{n}+\dfrac{(X_i-\bar{X})(X_h-\bar{X})}{S_{XX}} \right)\varepsilon _i
-    \]
+    \end{equation}
     
     Thus we can get\footnote{So $ \sigma ^2(\hat{\mu }_h) $ increases with $ X_h-\bar{X} $. Intuitively it make sense, because $ (\bar{X},\bar{Y})$ must falls on regression line.}
-    \[
+    \begin{equation}
         E(\hat{\mu}_h)= \beta _1X_h+\beta _0\qquad \sigma ^2_{\hat{\mu}_h}=\left( \dfrac{1}{n}+\dfrac{(X_h-\bar{X})^2}{S_{XX}} \right)\sigma^2
-    \]
+    \end{equation}
     
     Under Normal assumption:
-    \[
+    \begin{equation}
         \hat{\mu}_h\sim N(\beta _1X_h+\beta _0,\left( \dfrac{1}{n}+\dfrac{(X_h-\bar{X})^2}{S_{XX}} \right)\sigma^2) 
-    \]
+    \end{equation}
     
     Base on distribution we can give CI and HT.
 
-    Note: Remember that when we consider the estimator $ \hat{\mu } $, we \textbf{must } have the randomness of $ \hat{\beta }_0,\hat{\beta }_1 $ considered(if they are unknown).
-    
-    Prediction Error: $ Y_h $ itself is an $ Y $ of the linear model, i.e. $ Y_i=\beta_0+\beta_1X_h+\varepsilon _h $, we can consider \textbf{$ Y_h $ itself as an r.v. }v.s.\textbf{ predicted $ Y_h $ from other sample points} and define \textbf{Prediction Error}: 
-    \[
-        d_h=Y_h-\hat{\mu}_h 
-    \]
+    Note: We can either consider 
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item \textbf{$ Y_h $ itself as an r.v. }: Confidence Interval of $ Y_h $;
+        
+        And we can just use $  \sigma ^2_{\hat{\mu}_h} $ to construct CI;
 
+        \begin{rcode}
+\begin{lstlisting}[language=R]
+predict(lmfit,data.frame(x=c(df$x,40)),
+    interval="confidence",level=0.95)
+\end{lstlisting}
+        \end{rcode}
+        \item \textbf{predicted $ Y_h $ from other sample points}: Prediction Interval of $ Y_h $
+        
+        Need to  have the randomness of $ \hat{\beta }_0,\hat{\beta }_1 $ considered(if they are unknown).
+
+        Def. Prediction Error: $ Y_h $ itself is an $ Y $ of the linear model, i.e. $ Y_i=\beta_0+\beta_1X_h+\varepsilon _h $, we can  and define \textbf{Prediction Error}: 
+        \begin{equation}
+            d_h=Y_h-\hat{\mu}_h 
+        \end{equation}
     
-    \[
-        E(d_h)=0\qquad \sigma^2_{d_h}=var(Y_h-\hat{\mu }_h)=\sigma^2\left[ 1+\dfrac{1}{n}+\dfrac{(X_h-\bar{X})}{S_{XX}} \right] > \sigma ^2_{\hat{\mu}_h}
-    \]
+        
+        \begin{equation}
+            E(d_h)=0\qquad \sigma^2_{d_h}=var(Y_h-\hat{\mu }_h)=\sigma^2\left[ 1+\dfrac{1}{n}+\dfrac{(X_h-\bar{X})}{S_{XX}} \right] > \sigma ^2_{\hat{\mu}_h}
+        \end{equation}
+\begin{rcode}
+\begin{lstlisting}[language=R]
+predict(lmfit,data.frame(x=c(df$x,40)),
+    interval="prediction",level=0.95)
+\end{lstlisting}
+\end{rcode}
+    
+    \end{itemize}
+    
+    % Remember that when we consider the estimator $ \hat{\mu } $, we \textbf{must } have the randomness of $ \hat{\beta }_0,\hat{\beta }_1 $ considered(if they are unknown).
     
 
 
@@ -264,21 +411,21 @@
     
     
     Aim: Find lower and upper function $ L(x) $ and $ U(x) $ such that
-    \[
+    \begin{equation}
         P[L(x)<(\beta _0+\beta _1x)<U(x),\,\forall x\in I_x]=1-\alpha  
-    \]
+    \end{equation}
     
     and get \textbf{Confidence Band}:
-    \[
+    \begin{equation}
         \{(x,y)|L(x)<y<U(x)|\forall x\in I_x\} 
-    \]
+    \end{equation}
     
     % Note: \textbf{Cannot} use CI at each point to form Confidence Band. Band is wider. And we are actually conduce CI \textbf{simoutanesly} to all $ x $.
 
     Where $ (L(x),U(x)) $ can be derived as
-    \[
+    \begin{equation}
         (L(x),U(x))=\hat{\mu}_x\pm s_{\hat{\mu}_x}W_{2,n-2,1-\alpha}
-    \]
+    \end{equation}
 
     Where $ W $ correponds to $ W $ distribution: $ W_{m,n}=\sqrt{2F_{m,n}} $
     
@@ -286,7 +433,12 @@
     
     Small sample case: Bonferroni correction.
     
-
+\begin{rcode}
+\begin{lstlisting}[language=R]
+library(ggplot2)
+ggplot(df,aes(x,y))+geom_point()+geom_smooth(method='lm',formula=y~x)
+\end{lstlisting}
+\end{rcode}
 
 
 
@@ -300,140 +452,296 @@
 
 
 \subsection{Analysis of Variance}
-    \index{ANOVA (Analysis of Variance)}\textbf{AN}alysis \textbf{O}f \textbf{VA}riance (ANOVA): One-sample $ t $ test$ \rightsquigarrow $ Two sample $ t $ test$ \rightsquigarrow $ ANOVA
+    \index{ANOVA (Analysis of Variance)}\textbf{AN}alysis \textbf{O}f \textbf{VA}riance (ANOVA): \hyperlink{OneSampletTest}{One-sample $ t $ test} $\rightsquigarrow $ \hyperlink{TwoSampletTest}{Two sample $ t $ test} $\rightsquigarrow $ ANOVA
+
+\begin{point}
+    \textbf{Key Point Of ANOVA}: Take Partition of Total Sum of Square To Examine \textbf{Variation}.  
+
+    Because $ Y_i $ are not i.i.d. (different mean), so has different parts of variation from Regression Model/Error Term.
+\end{point}
+
+% \begin{itemize}[topsep=2pt,itemsep=2pt]
+%     \item Partition of Totla Sum of Squares;
+%     \item Partition of Degree of Freedom;
+%     \item MSS$ \rightsquigarrow $ F-test;
+%     \item ANOVA table;
+%     \item General linear test. --to be examined further in later sections.
+%     \item (Pearson) Correlation Coefficient $ \leftrightarrow \, R^2$
+% \end{itemize}
+
+\subsubsection{Monovariate ANOVA}
+
+    Measure of Variation: Sum of Square (SS) \& Mean Sum of Square (MS).
+
+    MS: Divide each SS by corresponding $ dof $. Definition of $ dof $ see eqa(\ref{EqaDefinitionOfDegreeOfFreedom}).
+    \begin{equation}
+        \mathrm{MS}=\dfrac{\mathrm{SS}}{dof} 
+    \end{equation}
+
 \begin{itemize}[topsep=2pt,itemsep=2pt]
-    \item Partition of Totla Sum of Squares;
-    \item Partition of Degree of Freedom;
-    \item MSS$ \rightsquigarrow $ F-test;
-    \item ANOVA table;
-    \item General linear test. --to be examined further in later sections.
-    \item (Pearson) Correlation Coefficient $ \leftrightarrow \, R^2$
+    \item SST: Total Sum of Squares\index{SST (Total Sum of Squares)}
+    \begin{equation}
+        \mathrm{SST}=\sum_{i=1}^n(Y_i-\bar{Y})^2 \qquad dof_{\mathrm{SST}}=n-1
+    \end{equation}
+    \item SSRegression: Variation due to Regression Model \index{SSR (Regression Sum of Squares)} (which is explained by regression line);\footnote{$ \mathrm{SSR}=\hat{\beta }_1^2\sum_{i=1}^n(X_i-\bar{X})^2$, so $ dof_R=1 $}
+    \begin{equation}
+        \mathrm{SSR}= \sum_{i=1}^n(\hat{Y}_i-\bar{Y})^2 \qquad dof_{\mathrm{SSR}}=1
+    \end{equation}
+    
+    \item SSError: Variation attribtes to $ \varepsilon  $ \index{SSE (Error Sum of Squares)} (which is reflected by residuals).
+    \begin{equation}
+        \mathrm{SSE}= \sum_{i=1}^n(Y_i-\hat{Y_i}) \qquad dof_{\mathrm{SSE}}=n-2
+    \end{equation}
 \end{itemize}
 
-    SST: Total Sum of Squares\index{SST (Total Sum of Squares)}
-    \[
-        \mathrm{SST}=\sum_{i=1}^n(Y_i-\bar{Y})^2 
-    \]
-    
-    Note: Here $ Y_i $ are not i.i.d. (different mean).
-
-    Idea: take partition of SST. For instance
-    \[
-        Y_i-\bar{Y}=(Y_i-\hat{Y})+(\hat{Y}-\bar{Y})=e_i 
-    \]
-    
-    Note: $ \bar{Y}=\bar{\hat{Y}} $
-
-    then we partition SST into\footnote{\textbf{IMPORTANT: }In some books \begin{itemize}[topsep=2pt,itemsep=2pt]
-        \item SSError $ \to $ SSResidual;
-        \item SSRegression $ \to $ SSExplained.
+\fbox{
+    \begin{minipage}{0.9\linewidth}
+        $ \Delta $ \textbf{IMPORTANT: }In some books \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item SSRegression $ \to $ SSExplained of SSModel;
+        \item SSError $ \to $ SSResidual.
     \end{itemize}
 
     And Cause \textbf{Confusion}! In this summary we take the former.
-         }
+    \end{minipage}
+}\\
 
-         \begin{itemize}[topsep=2pt,itemsep=2pt]
-        \item variation due to model \index{SSR (Regression Sum of Squares)}(SSRegression) (which is explained by regression line);
-        \[
-            \mathrm{SSR}= \sum_{i=1}^n(\hat{Y}_i-\bar{Y})^2
-        \]
-        
-        \item variation attribtes to $ \varepsilon  $ \index{SSE (Error Sum of Squares)}(SSError).
-        \[
-            \mathrm{SSE}= \sum_{i=1}^n(Y_i-\hat{Y_i})
-        \]
-        
-        
-    \end{itemize}
+
+
+    Idea: take partition of SST. i.e.
+    \begin{equation}
+        Y_i-\bar{Y}=(Y_i-\hat{Y})+(\hat{Y}-\bar{Y})=e_i 
+    \end{equation}
     
-    can prove
-    \[
+    And we can prove that
+    \begin{equation}
         \mathrm{SST}=\sum_{i=1}^n(Y_i-\bar{Y})^2=\sum_{i=1}^n(\hat{Y}_i-\bar{Y})^2+\sum_{i=1}^n(Y_i-\hat{Y_i})^2=\mathrm{SSR+SSE} 
-    \]
+    \end{equation}
 
     That is: we \textbf{partition} SST into two parts, so that we can examine them seperately.
+    
+Properties:
+    
+\begin{equation}
+    E(\mathrm{MSE})=\sigma ^2\qquad E(\mathrm{MSR})=\sigma ^2+\beta _1^2S_{XX} 
+\end{equation}
 
-    \begin{point}
-        ANOVA Table\footnote{$ \mathrm{SSR}=\hat{\beta }_1^2\sum_{i=1}^n(X_i-\bar{X})^2$, so $ dof_R=1 $}
-    \end{point}
+
+\subsubsection{Multivariate ANOVA}
+    Sampling Notation see eqa(\ref{EqaSampleNotationOfMultiLinear}), still consider $ p+1 $ -dim $ (\mathbf{1}_n,X_i) $ v.s. $ 1 $-dim $ Y $, and $ \beta=(\beta _0,\beta _1,\beta _2,\ldots,\beta _p) $
+
+\begin{itemize}[topsep=2pt,itemsep=2pt]
+    \item SST:
+    \begin{equation}
+        \mathrm{SST}=(Y-\bar{Y}\mathbf{1}_n)'(Y-\bar{Y}\mathbf{1}_n)\qquad dof_{\mathrm{SST}}=n-1
+    \end{equation}
+    \item SSR:
+    \begin{equation}
+         \mathrm{SSR}=(\hat{Y}-\bar{Y}\mathbf{1}_n)'(\hat{Y}-\bar{Y}\mathbf{1}_n)\qquad dof_{\mathrm{SSR}}=p
+    \end{equation}
+
+    Denoted in hat matrix $ H $ and $ \mathcal{J} $ in eqa(\ref{EqaAllOneMatrix})
+    
+    \begin{equation}\label{EqaSSMInMatrixNotation}
+        \mathrm{SSM}=Y'(H-\dfrac{1}{n}\mathcal{J})Y 
+    \end{equation}
+    
+    
+    \item SSE:
+    \begin{equation}
+         \mathrm{SSE}=(Y-\hat{Y})'(Y-\hat{Y})\qquad dof_\mathrm{SSE}=n-p-1
+    \end{equation}
+
+    Denoted in residual $ e $ and hat matrix $ H $:
+    \begin{equation}
+        \mathrm{SSE}=e'e=Y'(I-H)Y 
+    \end{equation}
+    
+    
+    
+\end{itemize}
+
+\subsubsection{ANOVA Table}
     \begin{table}[H]
         \centering
         \renewcommand\arraystretch{1}
-        \begin{tabular}{c|ccc}
+        \begin{tabular}{c|cccc}
             \hline
-            Source&$ dof $&SS&MS\\
-            Regression&1&$ \sum_{i=1}^n(\hat{Y}_i-\bar{Y})^2  $&SSR/$ dof_R $\\
-            Error&$ n-2 $&$ \sum_{i=1}^n(Y_i-\hat{Y}_i)^2  $&SSE/$ dof_E $\\
-            Total&$ n-1 $&$ \sum_{i=1}^n(Y_i-\bar{Y})^2  $&SST/$ dof_T $\\
+            Source&$ dof $&SS&MS&$ F $-Statistic\\\hline
+            SSRegression&$ p $&$ \sum_{i=1}^n(\hat{Y}_i-\bar{Y})^2  $&SSR/$ dof_R $& $ \mathrm{MSR}/\mathrm{MSE} $\\
+            SSError&$ n-p-1 $&$ \sum_{i=1}^n(Y_i-\hat{Y}_i)^2  $&SSE/$ dof_E $& \\
+            SSTotal&$ n-1 $&$ \sum_{i=1}^n(Y_i-\bar{Y})^2  $&SST/$ dof_T $& \\
             \hline
         \end{tabular}
     \end{table}
+\begin{rcode}
+    \begin{lstlisting}[language=R]
+anova(lmfit)
+    \end{lstlisting}
+\end{rcode}    
+
+% \begin{rcode}
+% \begin{lstlisting}[language=R]
+% anova(lmfit)
+% \end{lstlisting}
+
+% Example output:
+% \begin{lstlisting}[language=R]
+% Analysis of Variance Table
+
+% Response: y
+%             Df  Sum Sq Mean Sq F value    Pr(>F)    
+% x          1 11627.5 11627.5  174.06 < 2.2e-16 ***
+% Residuals 58  3874.4    66.8
+% ---
+% Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+% \end{lstlisting}
+% \end{rcode}
+
+
+\subsubsection{Hypotheses Testing to Slope}
+    Main focus: whether the linear relation exist:
+\begin{equation}
+    H_0:\beta _1=\beta _2=\ldots=\beta _p=0\longleftrightarrow H_1:\exists \beta _i\neq 0,\, i=1,2,\ldots,p
+\end{equation}
+\begin{itemize}[topsep=2pt,itemsep=2pt]
+\item ANOVA $ F $-Test:\index{ANOVA $ F $-test}
     
-    Properties:
-    
+    We can examine  
     \[
-        E(\mathrm{MSE})=\sigma ^2\qquad E(\mathrm{MSR})=\sigma ^2+\beta _1^2S_{XX} 
+        F=\dfrac{\mathrm{MSR}}{\mathrm{MSE}}\sim F_{p,n-p-1} 
     \]
     
-\begin{point}
-    Hypotheses Testing to $ H_0:\beta _1=0 $
-\end{point}
-\begin{itemize}[topsep=2pt,itemsep=2pt]
-    \item 
-    We can examine $ F=\dfrac{\mathrm{MSR}}{\mathrm{MSE}}\sim F_{dof_R,dof_E}=F_{1,n-2} $
-    \item    Or: General Linear Test (GLT)\index{GLT (General Linear Test)}\begin{itemize}[topsep=2pt,itemsep=2pt]
-        \item Full model: $ Y_i=\beta _0+\beta _1X_i+\varepsilon _i $.
-        \item Reduced model: $ Y_i=\beta _0+\varepsilon _i $.
+\item General Linear Test (GLT)\index{GLT (General Linear Test)}
+    
+    First we introduce the examine models:
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item Full model: 
+        \[
+            Y_i=X_i'\beta +\varepsilon _i=\beta _0+\sum_{j=1}^nX_{ij}\beta _j+\varepsilon _i
+        \]
+
+        And define $ \mathrm{SSE}_\mathrm{F} $ with $ dof_\mathrm{F}=n-p-1 $ under Full Model.
+        \item Reduced model: 
+        \[
+         Y_i=\beta _0+\varepsilon _i 
+        \]
+        
+        And define $ \mathrm{SSE}_\mathrm{R} $ with $ dof_\mathrm{R}=n-1 $ under Reduced Model.
     \end{itemize}
 
     and examine
+    \begin{equation}
+        F=\dfrac{(\mathrm{SSE_R-SSE_F})/(dof_\mathrm{R}-dof_\mathrm{F} )}{\mathrm{SSE_F}/dof_F} \sim F_{p,n-p-1}
+    \end{equation}
+\begin{rcode}
+\begin{lstlisting}[language=R]
+nullmodel <- lm(y ~ 1,df)
+anova(nullmodel,lmfit)
+\end{lstlisting}
+\end{rcode}
+
+\item Pearson Correlation Coefficient $ r $ and Coefficient of Multiple Determination $ R^2 $\index{CMD (Coefficient of Multiple Determination)}:
+
+    Pearson's $ r $:
     \[
-        F=\dfrac{(\mathrm{SSE_R-SSE_F})/dof_{R-F} }{\mathrm{SSE_F}/dof_F} \sim F_{dof_{R}-dof_F,dof_F}
+        r=\hat{cov}(Y,\hat{Y})=\dfrac{\sum\limits_{i=1}^n(Y_i-\bar{Y})(\hat{Y}_i-\bar{Y})}{\sqrt{\sum\limits_{i=1}^n(Y_i-\bar{Y})^2}\sqrt{\sum\limits_{i=1}^n(\hat{Y}_i-\bar{Y})^2}}=\sqrt{\dfrac{\sum\limits_{i=1}^n(\hat{Y}-\bar{Y})^2}{\sum\limits_{i=1}^n(Y_i-\bar{Y})^2}}
     \]
+    
+    CMD $ R^2 $:
+
+    \[
+        R^2=\dfrac{\mathrm{SSR}}{\mathrm{SST}}=1-\dfrac{\mathrm{SSE}}{\mathrm{SST}}
+    \]
+
+    Adjusted $ R^2 $:
+    \[
+        R^2_\mathrm{a}=1-\dfrac{\mathrm{MSE}}{\mathrm{MST}} =1-\dfrac{n-1}{n-p}\dfrac{\mathrm{SSE}}{\mathrm{SST}}
+    \]
+    
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item Relation between $ r $ and $ R^2 $: Under Simple Linear Model, we have 
+        \[
+            R^2=r^2 
+        \]
+        \item Relation between $ R^2 $ and $ F $-Statistic:
+        \[
+            F=\dfrac{R^2}{1-R^2}\dfrac{n-p}{n-1} 
+        \]
+    \end{itemize}
 \end{itemize}
 
-\begin{point}
-    Pearson Correlation Coefficient $ R^2 $
-\end{point}
-
-\[
-    R^2=\dfrac{\mathrm{SSR}}{\mathrm{SST}} 
-\]
-
-    Note: under simple linear model, $ r^2=R^2 $, where $ r=\hat{\beta}_1\dfrac{\sigma _X}{\sigma _Y} $
 
 
 
-\subsection{Model Assumption and Diagnostics}
+
+
+\subsection{Model Assumption, Diagnostics and Remedies}
+
+    To apply OLS, we need the basic Gauss–Markov Assumption eqa(\ref{EqaGaussMarkovAssumption}); or we further need better properties of the model, so need Normal Assumption.
     
+    Assumptions:
+    \begin{equation}
+        \begin{aligned}
+            \text{Zero-Mean: }&E(\epsilon_i|X_i)=0 \\
+            \text{Homogeneity of Variance: }&var(\epsilon_i)=\sigma^2\\
+            \text{Independent: }&\epsilon_i\text{ i.i.d. }\sim \varepsilon\\
+            \text{Normal: }&Y_i\sim N(\beta _0+\beta _1X_i,\sigma^2)
+        \end{aligned}
+    \end{equation}
+    
+    Or sum up as 
+    \begin{equation}
+        \vec{\varepsilon }\sim N_n(\vec{0},\sigma^2I_n) 
+    \end{equation}
+    
+    
+    
+    Thus we need to conduct Diagnostics and Remedies to 
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item examine whether these assumptions are satisfies;
+        \item perform correction to regression method.
+    \end{itemize}
+\subsubsection{Diagnostics}\label{SubSecDiagnostics}
+
+
+    Preliminary Diagnostics:
+\begin{rcode}
+\begin{lstlisting}[language=R]
+lmfit <- lm(y~x,lmfit)
+par(mfrow = c(2, 2))
+plot(lmfit)
+\end{lstlisting}
+
+\end{rcode}
+    
+
 \begin{point}
-    Diagonostics to $ X $
+    Diagnostics to $ X $
 \end{point}
 
-
-    Considering the dependence of $ Y_i $ on $ X_i $, we cannot just focus on the (marginal) distribution of $ Y_i $. Thus we also need a better 'distribution' of $ X_i $
+    Considering the dependence of $ Y_i $ on $ X_i $, to get a more reliable $ \hat{\beta }_1 $, we cannot just focus on the (marginal) distribution of $ Y_i $, we would also need a better 'distribution' of $ X_i $
     \begin{itemize}[topsep=2pt,itemsep=2pt]
         \item 4 statistics(parameters);\footnote{See sec.\ref{SubSectionStatistics}}
         \begin{itemize}[topsep=2pt,itemsep=2pt]
             \item Mean: Location;
-            \[
+            \begin{equation}
                 \bar{X}=\dfrac{1}{n}\sum_{i=1}^nX_i 
-            \]
+            \end{equation}
             \item Standard Deviation: Variability;
-            \[
+            \begin{equation}
                 S^2=\dfrac{1}{n-1}\sum_{i=1}^n(X_i-\bar{X}) ^2
-            \]
+            \end{equation}
             
             
             \item Skewness: Lack of Symmertry;
-            \[
+            \begin{equation}
                 \hat{g}_1=\dfrac{m_{n,3}}{m_{n,2}^{3/2}}=\dfrac{\frac{1}{n}\sum\limits_{i=1}^n(X_i-\bar{X})^3}{\left( \frac{1}{n}\sum\limits_{i=1}^n(X_i-\bar{X}) \right)^{3/2}} 
-            \]
+            \end{equation}
 
             Adjusted Skewness (Least MSE):
-            \[
+            \begin{equation}
                 \dfrac{\sqrt{n(n-1)}}{n-2}\hat{g}_1 
-            \]
+            \end{equation}
             
             \begin{itemize}[topsep=2pt,itemsep=2pt]
                 \item $ \hat{g}_1>0 $: Right skewness, longer right tail;
@@ -445,26 +753,62 @@
 
 
             \item Kurtosis: Heavy/Light Tailed.
-            \[
-                \hat{g}_2=\dfrac{m_{n,4}}{m_{n,2}^2}-3= \dfrac{\frac{1}{n}\sum\limits_{i=1}^n(X_i-\bar{X})^4}{\left( \frac{1}{n}\sum\limits_{i=1}^n(X_i-\bar{X}) \right)^{2}} -3
-            \]
+            \begin{equation}
+                \hat{g}_2=\dfrac{m_{n,4}}{m_{n,2}^2}-3= \dfrac{\frac{1}{n}\sum\limits_{i=1}^n(X_i-\bar{X})^4}{\left( \frac{1}{n}\sum\limits_{i=1}^n(X_i-\bar{X})^2 \right)^{2}} -3
+            \end{equation}
 
             $ \hat{g}_2=0 \Rightarrow $ similar to normal.
             \begin{itemize}[topsep=2pt,itemsep=2pt]
-                \item $ \hat{g}_2>0 $: Leptokurtic, heavy tail slender;
-                \item $ \hat{g}_2<0 $: Platykurtic, light tail  broad.
+                \item $ \hat{g}_2>0 $: Leptokurtic, heavy tail, slender;
+                \item $ \hat{g}_2<0 $: Platykurtic, light tail, broad.
             \end{itemize}
             
-            Note: In expression of $ \hat{g}_1 $ and $ \hat{g}_2 $, we already divide the variance. So Skewness and Kurtosis only reflect the difference from normal, but not related to variance!
+            Note: In expression of $ \hat{g}_1 $ and $ \hat{g}_2 $, we already divide the variance. So Skewness and Kurtosis only reflect the difference from normal, but \textbf{not}  related to variance.
                 
-            Best tool to determine Kurtosis: QQ-Plot.
+            Best tool to determine Kurtosis: \hyperlink{QQplot}{QQ-Plot}.
             
         \end{itemize}
+
+\begin{rcode}
+\begin{lstlisting}[language=R]
+summary(df$x)
+\end{lstlisting}
+
+    Other moments use package \lstinline|moments|
+\end{rcode}
         \item Useful Plots:
         \begin{itemize}[topsep=2pt,itemsep=2pt]
-            \item BoxPlot: a rough distribution.
+            \item BoxPlot: to examine the similarity of  distribution.
             
-            25\%-quantile$ - $ 1.5IQR$ \vdash \sqsubset  $ 25\%-quantile$ \square  $ 75\%-quantile $ \sqsupset \dashv  $ 75\%-quantile$ + $ 1.5IQR\footnote{IQR:InterQuartile Range\index{IQR (InterQuartile Range)}}
+            Notation:
+            \begin{enumerate}[topsep=2pt,itemsep=2pt]
+                \item min point above 25\% quantile-1.5IQR;
+                \item 25\% quantile;
+                \item median;
+                \item 75\% quantile;
+                \item max point below 75\% quantile+1.5IQR.
+            \end{enumerate}
+            
+                
+            \begin{center}
+                \begin{tikzpicture}
+                    \draw(-2,-0.6)rectangle(2,0.6);
+                    \draw (-5.5,0)--(-2,0);
+                    \draw (2,0)--(5.5,0);
+                    \draw(-5.5,-0.7)--(-5.5,0.7);
+                    \draw(5.5,-0.7)--(5.5,0.7);
+                    \draw(0,-0.6)--(0,0.6);
+                    \node at (-2,1){$ 2 $};
+                    \node at (2,1){$ 4 $};
+                    \node at (-5.5,1.1){$ 1 $};
+                    \node at (5.5,1.1){$ 5 $};
+                    \node at (0,1){$ 3 $};
+                \end{tikzpicture}
+            \end{center}
+
+
+    
+            
 
             \item Histogram Plots: Frequency distribution (can deal with many-peak)
             \item Quantile-Quantile Plots\index{QQ-Plot (Quantile-Quantile Plots)}: Examine the similarity  between distribution.
@@ -473,7 +817,22 @@
 
             Usually test normality, take $ G=\Phi  $
         \end{itemize}
-        
+\begin{rcode}
+\begin{lstlisting}[language=R]
+boxplot(df$x)
+
+hist(df$x)
+
+hist(df$x,freq=FALSE)
+lines(density(df$x))
+
+stem(df$x)
+
+qqnorm(df$x)
+qqline(df$x,col='red)
+\end{lstlisting}
+
+\end{rcode}
             
         \item Normality;
         \item Bias:
@@ -490,32 +849,642 @@
     Diagnostics to Residual
 \end{point}
 
-    Residual Plot: Reflect the linearity and variance assumption
+   
 
-    Testing of 
 \begin{itemize}[topsep=2pt,itemsep=2pt]
+    \item Linearity: use Residual Plot: Reflect the linearity and variance assumption.
+\begin{rcode}
+\begin{lstlisting}[language=R]
+lmfit <- lm(y~x,df)
+scatter(df$x,lmfit$residuals)
+abline(h=0)
+\end{lstlisting}
+
+\end{rcode}
     \item The Assumption of Equal Variances:
     \begin{itemize}[topsep=2pt,itemsep=2pt]
-        \item Bartlett's test: Comes from UMPT, useful when normality assumption satisfied.
-        \item Levene's test: 
-        \item Brown-Forsythe test (Modified Levene's test): 
-        \item Breusch-Pagan test:
-    \end{itemize}
+        \item Bartlett's test:\index{Bartlett's test}
+        
+        Idea: divide the sample into groups $ g $, and get each MSE
+        \begin{equation}
+             \mathrm{MSE}_g=\dfrac{1}{n_g}\sum_{i=1}^{n_g}(Y_{gi}-\hat{Y}_g)^2
+        \end{equation}
+        
+        and take statistic
+        \begin{equation}
+            S=-\dfrac{(N-g)\ln\left[ \sum\limits_g \dfrac{n_g}{N-n_g}\mathrm{MSE}_g \right]-\sum\limits_{g}(n_g-1)\ln \dfrac{n_g}{N-n_g}\mathrm{MSE}_g }{1+\dfrac{1}{3(G-1)}\sum\limits_g\left( \dfrac{1}{n_g-1}-\dfrac{1}{N-G} \right)} \sim \chi^2
+        \end{equation}
 
+        to conduct test. 
+
+        Note: \textbf{sensitive}  to normal assumption, not robust. Used when normal assumption is satisfied.
+        \item Levene's test: \index{Levene's Test}Divide the sample into $ G $ groups. Denote \textbf{mean}  of residual within each group as $ \tilde{e}_g $, and in each group compute
+        \begin{equation}
+            d_{ig}=|e_{ig}-\tilde{e}_g| \Rightarrow \bar{d}_{g}=\dfrac{1}{n_g}\sum_{j=1}^{n_g}d_{ig}
+        \end{equation}
+
+        Then conduct ANOVA to $ d_{ig} $.
+
+        If $ G=2 $: 2-sample $ t $-test,
+        \begin{equation}
+            T=\dfrac{\bar{d}_1-\bar{d}_2}{s\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}\xrightarrow[]{\mathscr{L}} t_{n-2}\qquad s^2=\dfrac{\sum(d_{i1}-\bar{d}_1)^2+\sum(d_{i2}-\bar{d}_2 )^2}{n-2}
+        \end{equation}
+        
+
+        
+        
+        \item Brown-Forsythe's Test\index{Brown-Forsythe's Test} (Modified Levene's test): For skewed sample, take the \textbf{mean} as \textbf{median}, more robust. 
+
+
+        \item Breusch-Pagan Test:\index{B-P Test (Breusch-Pagan Test)}
+        
+        Assume variance of $ \varepsilon _i $ dependent on $ X_i $ as $ m^{\mathrm{th}} $ polynomial:
+        \begin{equation}
+            \sigma_i^2=\alpha _0+\sum_{k=1}^m\alpha _kX_i^k
+        \end{equation}
+        
+        and test 
+        \begin{equation}
+            H_0:\alpha _k=0\,\forall k=1,2,\ldots,m\longleftrightarrow H_1 
+        \end{equation}
+
+        Method: First conduct OLS to get regression line $ \hat{l}_1 $ and residuals $ e_i $ and SSE, and conduct regression of $ e_i^2 $ over $ X_i $ to get another regression line $ \hat{l}_2 $ and corresponding SSR$ ^* $.
+
+        Then statistic
+        \begin{equation}
+            S=\dfrac{\mathrm{SSR^*}/2}{(\mathrm{SSE}/n)^2}\xrightarrow[]{\mathscr{L}} \chi^2_m
+        \end{equation}
+        
+    \end{itemize}
+\begin{rcode}
+    Example for $ G=2 $:
+\begin{lstlisting}[language=R]
+group <-factor(rep(c(1,2),length.out=length(df$x),
+    each=(ceiling(length(df$x)/2))))
+
+bartlett.test(lmfit$residuals~group,group)
+
+library(car)
+leveneTest(lmfit$residuals~group,group,center=mean)
+leveneTest(lmfit$residuals~group,group,center=median)
+
+library(lmtest)
+bptest(lmfit)
+\end{lstlisting}
+
+\end{rcode}
 
     \item The Assumption of Normality:
-    \begin{itemize}[topsep=2pt,itemsep=2pt]
-        \item Shapiro-Wilk Test (Most Powerful):
-    \end{itemize}
     
+    In most case we use S-W Test($ n<2000 $) and K-S Test($ n>2000 $):
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item QQ-plot of ordered residuals;
+        \item[$ \star  $] Shapiro-Wilk Test\index{S­-W Test(Shapiro-­Wilk Test)} (Most Powerful)\footnote{Detail of S-W Test and K-S Test see \hyperlink{testofnormality}{Test of Normality} in sec.\ref{SubSectionIntroToNonParametricHypothesisTesting}}:
+        \begin{equation}
+            R^2=\dfrac{\left(\sum_{i=1}^n(X_{(i)}-\bar{X})(m_i-\bar{m})\right)^2}{\sum_{i=1}^n(X_{i}-\bar{X})^2\sum_{i=1}^n(m_i-\bar{m})^2}=corr(X_{(i)},m_i) 
+        \end{equation}
+        
+        \item Kolmogorov-Smirnov Test\index{K-S Test (Kolmogorov-Smirnov Test)}: 
+        \begin{equation}
+            D_n=\sum_{x}|F_n(x)-\Phi(x)|
+        \end{equation}
+        
+        
+        \item Cramér-von Mises Test\index{CvM Test (Cramér-von Mises Test)}:
+        \begin{equation}
+            T=n\int_{-\infty}^\infty (F_n(x)-\Phi (x)) ^2\,\mathrm{d}\Phi(x)
+        \end{equation}
+        \item Anderson-Darling Test:\index{A-D Test (Anderson-Darling Test)}
+        \begin{equation}
+            A^2-n\int _{-\infty}^\infty (F_n(x)-\Phi(x))^2\dfrac{1}{\Phi(x)(1-\Phi(x))} \,\mathrm{d}\Phi(x)
+        \end{equation}
+    \end{itemize}
+\begin{rcode}
+\begin{lstlisting}[language=R]
+qqnorm(lmfit$residuals)
+qqline(lmfit$residuals)
+
+qqp <- qqnorm(lmfit$residuals)
+cor(qqp$x,qqp$y)
+
+shapiro.test(lmfit$residuals)
+
+ks.test(jitter(lmfit$residuals),pnorm,mean(lmfit$residuals),
+    sd(lmfit$residuals))
+
+library(nortest)
+cvm.test(lmfit$residuals)
+
+ad.test(lmfit$residuals)
+\end{lstlisting}
+
+\end{rcode}
 
 
     \item The Assumption of Independence:
+    \begin{itemize}
+        \item Durbin-Watson Test:  \index{DW Test (Durbin-Watson Test)}
+        \begin{equation}
+            d=\dfrac{\sum_{j=2}^n(e_j-e_{j-1})^2}{\sum_{j=1}^ne_j^2} 
+        \end{equation}
         
+        $ d\in (1.5,2.5) $ is fine.
+        \item Ljung-Box Test:\index{Ljung-Box Test}
+        
+        \begin{equation}
+            Q=n(n+2)\sum_{k=1}^n\dfrac{\hat{\rho}_k^2}{n-k} 
+        \end{equation}
+        
+        
+    \end{itemize}
+
+\begin{rcode}
+\begin{lstlisting}[language=R]
+dwtest(lmfit)
+\end{lstlisting}
+
+\end{rcode}   
+        
+\end{itemize}
+
+\begin{point}
+    Diagnostics to Influentials
+\end{point}
+
+    An intuitive explanation to extreme values:
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item Outliers: Extreme case for $ Y $;
+        \item High Leverage: Extreme case for $ X $;
+        \item Influentials: Cases that influence the regression line.
+    \end{itemize}
+
+    Influentials = Outliers $ \cap $ High Leverage
+
+    In OLS part, we got the $ \hat{\beta}  $ as $\hat{ \beta} = (X'X)^{-1}X'Y $ and got $ \hat{Y} $ as 
+    \begin{equation}
+        \hat{Y}= X\hat{\beta }=X(X'X)^{-1}X'y=\hat{H}Y
+    \end{equation}
+    
+    where $ \hat{H} $ is the \textbf{Hat Matrix}\footnote{It can also be considered as the projection matrix onto span$ \{X\} $.} 
+
+    Denote in matrix derivation as $ H=\dfrac{\partial^{} \hat{Y}}{\partial Y^{}} $. The diagonal elements of $ \hat{H} $ is self-sensitivity:
+    \begin{equation}
+    h_{ii}=\dfrac{\partial^{} \hat{Y}_i}{\partial Y_i^{}} =\dfrac{1}{n}+\dfrac{(X_i-\bar{X})^2}{S_{XX}}
+    \end{equation}
+
+    Note: the distribution of $ e_i $ in eqa.(\ref{EqaSamplingDistributionOfResiduals}) thus can be written in $ h_{ii} $ as 
+    \begin{equation}
+        e_i\sim (0,\sigma ^2(1-h_{ii})) 
+    \end{equation}
+
+    Some refined residuals to help conduct Diagnostics:
+\begin{itemize}[topsep=2pt,itemsep=2pt]
+    \item Standardized Residual:
+    \begin{equation}
+         \dfrac{e_i}{\sigma _{e_i}}=\dfrac{e_i}{\sigma \sqrt{1-h_{ii}}}
+    \end{equation}
+    \item (Internal) Studentized Residual: replace $ \sigma  $ with $ s=\hat{\sigma } $
+    
+    \begin{equation}
+         r_i=\dfrac{e_i}{\hat{\sigma }\sqrt{1-h_{ii}}}
+    \end{equation}
+    \item (External) Studentized Residual: To avoid self-influence, take \textbf{deleted} residual:
+    
+    Delete the $ i^{\mathrm{th}} $ case and conduct regression to the $ n-1 $ sample cases, denote the regression parameter as 
+    \begin{equation}
+        \hat{\beta }_{1(\wedge i)}\qquad \hat{\beta }_{0(\wedge i)} 
+    \end{equation}
+    
+    and deleted residual defined as 
+    \begin{equation}
+        d_i=Y_i-Y_{i(\wedge i)} =\dfrac{e_i}{1-h_{ii}}
+    \end{equation}
+
+    external studentized residual:
+    \begin{equation}
+         t_i=\dfrac{d_i}{\sigma _{(\wedge i)\sqrt{1-h_{ii}}}}
+    \end{equation}
+    
+    
+\end{itemize}
+
+
+    Cook's Distance: 
+    \begin{equation}
+        D_i=\dfrac{\sum_{k=1}^n(Y_k-\hat{Y}_{k(\wedge i)})^2}{p\hat{\sigma }^2} =\dfrac{e_i^2}{p\hat{\sigma }^2}\left[ \dfrac{h_{ii}}{(1-h_{ii})^2} \right]
+    \end{equation}
+
+    Comment:
+    \begin{equation}
+        D_i=\dfrac{e_i^2}{p\hat{\sigma }^2}\left[ \dfrac{h_{ii}}{(1-h_{ii})^2} \right]=\dfrac{1}{p}\dfrac{h_{ii}}{1-h_{ii}}\times r_i^2
+    \end{equation}
+
+    where $ \dfrac{1}{p}\dfrac{h_{ii}}{1-h_{ii}} $ correponds to hige leverage, and $ r_{i}^2 $ correponds to outliers, multiply to get influentials.
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
     
         
+
+
+
+
+
+
+
+
+
+
+\subsubsection{Remedies}
+\begin{point}
+    General Linear Model
+\end{point}
+    
+    \begin{equation}
+        E(Y)=g(\beta _0+\beta _1X_1+\beta _2X_2+\ldots) 
+    \end{equation}
+    
+\begin{point}
+    Remedies: Conduct Transformation
+\end{point}
+
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item Stablize Variance;
+        \item Improve Normality;
+        \item Simplify the Model.
+    \end{itemize}
+
+    Transformation Methods:
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item Variance Stabilizing Transformations:
+            For $ E(Y_X)=\mu_X$, $ var(Y_X)=h(\mu_X) $, take transformation $ f(Y) $ such that $ var(f(Y))=\mathrm{const} $, satisfies
+            \begin{equation}
+                f(\mu)=\int\dfrac{c\,\mathrm{d}\mu}{\sqrt{h(\mu)}} 
+            \end{equation}
+
+            Examples:
+            \begin{align*}
+                h(\mu)=&\mu^2\Rightarrow f(\mu )=\ln\mu\\
+                h(\mu)=&\mu^{2\nu}\Rightarrow f(\mu )=\mu ^{1-\nu}
+            \end{align*}
+        
+        \item Box-Cox Transformation: Take 
+    \begin{equation}
+        Y^*=\dfrac{Y^\lambda -1}{\lambda }
+    \end{equation}
+
+            Examples:
+        \begin{align*}
+            \lambda =1&\Rightarrow Y^*\sim Y\\
+            \lambda =0.5&\Rightarrow Y^*\sim \sqrt{Y}\\
+            \lambda =0&\Rightarrow Y^*\sim \ln Y\\
+            \lambda =-1&\Rightarrow Y^*\sim 1/Y
+        \end{align*}
+    
+        And conduct regression to model
+        \begin{equation}
+            Y^* =\beta _0+\beta _1X+\varepsilon_i 
+        \end{equation}
+        
+        Likelihood Function
+        \begin{equation}
+            L(\beta ,\sigma ^2;\lambda )=\dfrac{1}{(2\pi\sigma ^2)^{n/2}}\exp\left( -\dfrac{1}{2\sigma ^2}\sum_{i=1}^n (Y_i^*-\beta _0-\beta _1X_i)^2 \right) J(\dfrac{\partial^{} Y^*}{\partial Y^{}})
+        \end{equation}
+
+        where the Jacobi Matrix denoted in Geometric Mean $ \mathrm{GM}(Y)=\prod_{i=1}^n Y_i^{1/n}$
+        \begin{equation}
+            J(\dfrac{\partial^{} Y^*}{\partial Y^{}})=\prod_{i=1}^nY_i^{\lambda -1}=\mathrm{GM}(Y)^{n(\lambda -1)}
+        \end{equation}
+        
+        
+
+        MLE Estiamtor:
+        \begin{align*}
+            \hat{\beta }^*&= (X'X)^{-1}X'Y^*\\
+            \hat{\sigma }^2_n&=\dfrac{1}{n}\mathrm{SSE}^*\\
+            \mathrm{SSE}^*&=\sum_{i=1}^n(Y_i^*-\hat{Y}_i^*)^2
+        \end{align*}
+
+        And when $ \beta  $, $ \sigma ^2 $ take MLE estimator, $ L(\beta ,\sigma ^2;\lambda ) $ can be regarded a function of $ \lambda  $:
+        \begin{equation}
+            \ln L(\beta ,\sigma ^2;\lambda )=l(\lambda )=-\dfrac{n}{2}\ln \dfrac{\hat{\sigma}^2_n}{\mathrm{GM}(Y)^{2(\lambda -1)}}+\mathrm{const}
+        \end{equation}
+
+        For simplification, denote $ Z=Y*/J^{1/n} $ and get
+        \begin{equation}
+            l(\lambda )=-n\ln \sigma^2_{n_Z}+\mathrm{const} 
+        \end{equation}
+        
+        where 
+
+        \begin{equation}
+            Z_i^* =\begin{cases}
+                \dfrac{Y_i^\lambda-1 }{\lambda }\dfrac{1}{\prod\limits_{k=1}^n Y_k^{\frac{\lambda -1}{n}}},&\lambda \neq 0\\
+                \ln Y_i\prod\limits_{k=1}^n Y_k^{\frac{1}{n}},&\lambda =0
+            \end{cases}
+        \end{equation}
+
+        Plot $ l(\lambda ) $-$ \lambda  $ to determine a proper $ \lambda  $ and transform $ Y^*=\dfrac{Y^\lambda -1}{\lambda } $:
+        \begin{itemize}[topsep=2pt,itemsep=2pt]
+            \item Selected $ \lambda $ should be closed to $ \lambda_{\arg\max l} $, at least within CI\footnote{Here CI can be derived using Wilk's Thm.}
+            \begin{equation}
+                \{\lambda |l(\lambda )\geq l(\lambda_{\arg\max l})-\dfrac{1}{2}\chi^2_{1,1-\alpha }\}
+            \end{equation}
+            \item Should pick a $ \lambda  $ which is \textbf{Interpretable}. e.g. If $ \lambda =1 $ is within range, then take $ \lambda =1 $ (does not transform).
+            
+            
+        \end{itemize}
+        
+            
+        
+% \begin{rcode}
+% \begin{lstlisting}[language=R]
+% library(MASS)
+% bctrans <- boxcox(y~x,df,lambda = seq(-1.5, 1.5, length = 15))
+% bctrans$x[which.max(bctrans$y)]
+% \end{lstlisting}
+
+% \end{rcode}
+        
+        
+%     Note: we can transform on $ X $ or $ Y $ or simultaneously to get better regression model.
+    
+\end{itemize}
+
+
+
+    
+\subsection{Multiple Linear Regression}
+
+\begin{point}
+    Sample Geometry Notation
+\end{point}
+
+    In sample matrix notation:
+    \begin{equation}
+        Y=X\beta+\varepsilon \,\leftrightharpoons\, Y_i=X\beta _i+\varepsilon _i,\,\forall i=1,2,\ldots,q
+    \end{equation}
+    
+    where 
+\begin{subequations}\label{EqaSampleNotationOfMultiLinear}
+    \begin{align}
+        \mathop{Y}\limits_{n\times q} =&\begin{bmatrix}
+        y_{11}&y_{12}&\ldots&y_{1q}\\
+        y_{21}&y_{22}&\ldots&y_{2q}\\
+        \vdots&\vdots&\ddots&\vdots\\
+        y_{n1}&y_{n2}&\ldots&y_{nq}\\
+        \end{bmatrix}
+        =\begin{bmatrix}
+            y_1,y_2,\ldots,y_q
+        \end{bmatrix}
+        &
+        y _i=&\begin{bmatrix}
+                y _{1i}\\
+                y _{2i}\\
+                \vdots\\
+                y _{ni}
+            \end{bmatrix}\\
+        \mathop{X}\limits_{n\times (p+1)}=&\begin{bmatrix}
+        1&x_{11}&x_{12}&\ldots&x_{1p}\\
+        1&x_{21}&x_{22}&\ldots&x_{2p}\\
+        \vdots&\vdots&\ddots&\vdots\\
+        1&x_{n1}&x_{n2}&\ldots&x_{np}\\
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+        x_1'\\x_2'\\\vdots\\x_n'   
+        \end{bmatrix} 
+        &
+        x_i=&\begin{bmatrix}
+            1\\
+            x_{i1}\\
+            \vdots\\
+            x_{ip}
+        \end{bmatrix}\\
+        \mathop{\beta }\limits_{(p+1)\times q}=&\begin{bmatrix}
+        \beta _{01}&\beta _{02}&\ldots&\beta _{0q}\\
+        \beta _{11}&\beta _{12}&\ldots&\beta _{1q}\\
+        \beta _{21}&\beta _{22}&\ldots&\beta _{2q}\\
+        \vdots&\vdots&\ddots&\vdots\\
+        \beta _{p1}&\beta _{p2}&\ldots&\beta _{pq}\\
+        \end{bmatrix} =\begin{bmatrix}
+            \beta _1,\beta _2,\ldots,\beta _q
+        \end{bmatrix}
+        & \beta _i=&\begin{bmatrix}
+            \beta _{i0}\\
+            \beta_{i1}\\
+            \vdots\\
+            \beta_{ip}
+        \end{bmatrix}\\
+        \mathop{\varepsilon }\limits_{n\times q} =&
+        \begin{bmatrix}
+        \varepsilon _{11}&\varepsilon _{12}&\ldots&\varepsilon _{1q}\\
+        \varepsilon _{21}&\varepsilon _{22}&\ldots&\varepsilon _{2q}\\
+        \vdots&\vdots&\ddots&\vdots\\
+        \varepsilon _{n1}&\varepsilon _{n2}&\ldots&\varepsilon _{nq}\\
+        \end{bmatrix}=
+        \begin{bmatrix}
+            \varepsilon _1,\varepsilon _2,\ldots,\varepsilon _q
+        \end{bmatrix}
+        &
+        \varepsilon _i=&\begin{bmatrix}
+                \varepsilon _{1i}\\
+                \varepsilon _{2i}\\
+                \vdots\\
+                \varepsilon _{ni}
+            \end{bmatrix}
+    \end{align}
+
+    
+\end{subequations}
+
+
+    Under matrix notation, model and assumptions eqa(\ref{EqaGaussMarkovAssumption}) can be expressed in condensed notation:
+
+    \begin{equation}
+        Y_i=X\beta_i +\varepsilon_i  \sim N_n(X\beta_i ,\sigma_i^2I_n),\quad i=1,2,\ldots,q
+    \end{equation}
+
+    To conduct OLS
+    \begin{equation}
+        \hat{\beta }=\mathop{ \arg\min }\limits_{\beta \in \mathbb{R}^{p+1} } (Y-X\beta )^T(Y-X\beta )
+    \end{equation}
+    
+    Here we introduce two approaches:
+\begin{itemize}[topsep=2pt,itemsep=2pt]
+    \item Analytical: Take matrix differciation (See \hypertarget{MatrixDifferenciation}{sec.\ref{SubSubSectionMatrixNotationAndLemma}})
+    
+
+\begin{align*}
+    0&=\dfrac{\partial^{} (Y-X\beta )^T(Y-X\beta ) }{\partial \beta ^{}} =\dfrac{\partial^{} }{\partial\beta  ^{}}(Y^TY- Y^TX\beta -\beta ^TX^TY+\beta ^TX^TX\beta )\\ 
+    &=-X^TY-X^TY+(X^TX+XX^T)\beta 
+    =-2X^T(Y-X\beta )
+\end{align*}
+    
+    Thus we get OLS:
+    \begin{equation}
+        \hat{\beta }=(X'X)^{-1}X'Y 
+    \end{equation}
+    
+    
+    \item Geometric/Algebraical: Use hyper-projection.
+    \begin{equation}
+        \hat{\beta }=\mathop{ \arg\min }\limits_{\beta \in \mathbb{R}^{p+1} } d(Y,X\beta )
+    \end{equation}
+
+    i.e. $ \hat{\beta } $ is the (hyper-)projection of $ Y $ onto $ X $ (within Euclidean Space), naturally we have
+    \begin{equation}
+        (X\beta )^T(Y-X\beta )=0\Rightarrow \hat{\beta }=(X'X)^{-1}X'Y 
+    \end{equation}
+
+\end{itemize}
+
+\begin{point}
+    Matrix Notation of OLS Estimator:
+    \begin{equation}
+        \hat{\beta }=(X'X)^{-1}X'Y 
+    \end{equation}
+\end{point}
+
+    (For simplificaiton, the following part consider multivariate $ \mathop{X}\limits_{n\times (p+1)}  $ with one $ \mathop{Y}\limits_{n\times 1}  $)
+
+    Properties \& Extrapolation
+\begin{itemize}[topsep=2pt,itemsep=2pt]
+    \item Sampling Districution of $ \hat{\beta } $: (Here consider normal case $ Y\sim N(X\beta ,\sigma^2I_n) $, and use eqa(\ref{EqaTransformOfMultiNormal})) 
+    \begin{equation}
+        \hat{\beta }=(X'X)^{-1}X'Y \sim N_n(\beta,\sigma^2(X'X)^{-1})
+    \end{equation}
+
+    Comment: $ cov(\beta_i,\beta_j ) $ are generally not 0, $ \Rightarrow $ $ \beta _i,\beta _j $ dependent.
+    \item Predicted Response \& Hat Matrix $ H $:
+    \begin{equation}
+        \hat{Y}=X\hat{\beta }=X(X'X)^{-1}X'Y\equiv  HY=P_XY
+    \end{equation}
+
+    where \textbf{Hat Matrix}/Influence matrix/Projection matrix $ H=P_X=X(X'X)^{-1}X' $, with properties
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item Symmertric: $ H^T=H $;
+        \item Idempotence: $ H^2=H $
+        \item $ H $ and self-influene factor $ h_{ii} $: Note the linearity of $ \hat{Y} $ on $ Y $
+        \begin{equation}
+            \hat{Y}=HY \Rightarrow H=\dfrac{\partial^{} \hat{Y}}{\partial Y^{}}
+        \end{equation} 
+    
+        The diagonal elements of $ H $ is 
+        \begin{equation}
+            h_{ii}=\dfrac{\partial^{}\hat{y}_i}{\partial y_i^{}}=X_i(X'X)^{-1}X'_i
+        \end{equation}
+
+        Comment on $ h_{ii} $: $ var(e_i) =\sigma ^2(1-h_{ii})$, for $ h_{ii}\to 1 $, i.e. the regression line always pass $ y_i $, thus it's `influential'.
+        \item $ H $ and Residual $ e $
+    \end{itemize}
+
+
+
+
+    \item Residual:
+    \begin{equation}
+        e=Y-\hat{Y}=(I-H)Y\sim N_n\left(0 , \sigma ^2(I-H) \right)
+    \end{equation}
+
+    Covariance Matrix of Residual:
+    \begin{equation}
+        cov(e)=\sigma ^2(I-H)=
+        \sigma ^2\begin{bmatrix}
+        1-h_{11}&-h_{12}&\ldots&-h_{1n}\\
+        -h_{21}&1-h_{22}&\ldots&-h_{2n}\\
+        \vdots&\vdots&\ddots&\vdots\\
+        -h_{n1}&-h_{n2}&\ldots&1-h_{nn}\\
+        \end{bmatrix}
+    \end{equation}
+    
+    
+    \item Estimator and Distribution of  $ \sigma ^2 $:
+    
+    First use eqa(\ref{EqaExpectationOfQuadric}) to get \footnote{Also we need the property of idmpotnet matrix
+    \begin{equation}
+        \lambda_i=0\text{ or }1\Rightarrow tr(H)=\mathrm{rank}(H)=\sum_{i=1}^n\lambda _i=\# (\lambda =1) 
+    \end{equation}
+    }
+    \begin{equation}
+        E(\mathrm{SSE})=E(e'e)=E(Y'(I-H)Y)=(X\beta )'(I-H)X\beta +tr((I-H)\sigma ^2I_n) =\sigma ^2(n-p-1)
+    \end{equation}
+
+    $ dof $ of Residual $ e $ (use definition eqa(\ref{EqaDefinitionOfDegreeOfFreedom})):
+    \begin{equation}
+        dof_e=dof_{(I-H)Y}=\mathrm{rank}(I-H)=n-p-1 
+    \end{equation}
+    
+    
+    
+    Thus the unbiased estimator of $ \sigma ^2 $ is 
+    \begin{equation}
+        \hat{\sigma }^2=\mathrm{MSE}=\dfrac{e'e}{n-p-1}=\dfrac{Y'(I-H)Y}{n-p-1}
+    \end{equation}
+
+    Distribution (under normal assumption):
+    
+    \begin{equation}
+        \dfrac{(n-p-1)\hat{\sigma }^2}{\sigma ^2}\sim \chi^2_{n-p-1}
+    \end{equation}
+    
+    \item Gauss–Markov Thm.: OLS Estimator of $ \beta  $ is the BLUE Estimator.
+    \item Leverage and Mahalanobis Distance:
+    
+    Mahalanobis Distance between $ X $ and $ Y $ as defined in eqa(\ref{MahalanobisDistance})
+    \begin{equation}
+         d_M(\vec{x})=\sqrt{(\vec{x}-\vec{\mu})^TS ^{-1}(\vec{x}-\vec{\mu})} 
+    \end{equation}
+
+    And we can proof $ d_M $ of a case item $ X_{ i\cdot}=(1,X_{i1},X_{i2},\ldots,X_{ip}) $ is
+    \begin{equation}
+        d_{M}^2(X_{i\cdot})=(n-1)(h_{ii}-\dfrac{1}{n}) 
+    \end{equation}
+    
+    
+    
+    
+
+
 \end{itemize}
 
     
 
-    
+
+
+
+
+
+Test of Normality: Jarque-Bera Test \index{JB-test (Jarque-Bera test)}, using skewness $ \hat{g}_1 $ and kurtosis $ \hat{g}_2 $
+\begin{equation}
+    \mathrm{JB}=\dfrac{n}{6}(\hat{g}_1^2+\dfrac{1}{4}\hat{g}_2^2) \xrightarrow[]{\mathscr{L}} \chi^2_2
+\end{equation}
+
+\begin{rcode}
+\begin{lstlisting}[language=R]
+library(tseries)
+jarque.bera.test(df$y)
+\end{lstlisting}
+
+\end{rcode}
+
+
+
+
+
+
+
+
+
+
+
+        
+

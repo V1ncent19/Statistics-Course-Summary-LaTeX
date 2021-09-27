@@ -1,4 +1,8 @@
 \section{概率论部分}\label{Section1Probability}
+\begin{center}
+    Instructor: Wanlu Deng
+\end{center}
+
     Chapter Overview
 \begin{itemize}[topsep=2pt,itemsep=2pt]
     \item \hyperlink{Basic axioms}{Basic axioms}
@@ -76,17 +80,14 @@
 
 \begin{itemize}[itemsep=2pt,topsep=-2pt]
 \item Nonnegativity
-\[
-    P(A)\geq 0\qquad \forall A\in\Omega    
-\]
+\begin{equation}    P(A)\geq 0\qquad \forall A\in\Omega    
+\end{equation}
 \item Normalization
-\[
-    P(\Omega)=1    
-\]
+\begin{equation}    P(\Omega)=1    
+\end{equation}
 \item Countable Additivity
-\[
-    P(A_1\cup A_2\cup\cdots)=P(A_1)+P(A_2)+\cdots\quad \, (A_i\parallel A_j\quad \forall i\neq j)
-\]
+\begin{equation}    P(A_1\cup A_2\cup\cdots)=P(A_1)+P(A_2)+\cdots\quad \, (A_i\parallel A_j\quad \forall i\neq j)
+\end{equation}
 \end{itemize}
 
     Then $(\Omega,\mathscr{F},P)$ is probability space\index{Probability Space}.
@@ -94,13 +95,13 @@
     Properties of Probability:
     \begin{itemize}
         \item Monotonicity
-        \[
+        \begin{equation}    
             P(A)\leq P(B)\quad \text{for}\, A\subset B
-        \]
+        \end{equation}
         \item Finite Subadditivity (Boole Inequality)
-        \[
+        \begin{equation}    
             P(\bigcup_{i=1}^nA_i)\leq\sum_{i=1}^n P(A_i)    
-        \]
+        \end{equation}
         \item Inclusion-Exclusion Formula\index{Inclusion-Exclusion Formula}
         \begin{align*}
             P(\Cup_{i=1}^nA_i)&=\sum_{1\leq i\leq n}P(A_i)-\sum_{1\leq i<j\leq n}P(A_i\cap A_j)\\
@@ -117,32 +118,32 @@
 
 \subsubsection{Conditional Probability}
         Def. \textbf{Conditional Probability} of $B$ given $A$:
-        \[
+        \begin{equation}    
             P(B|A)=\frac{P(A\cap B)}{P(A)}    
-        \]
+        \end{equation}
 
         (Actually a change of $\sigma$-field from $\Omega$ to $B$)
 
         Application of conditional probability:
         \begin{itemize}
         \item Multiplication Formula
-        \[
+        \begin{equation}    
             P(\Cap_{i=1}^n A_i)=P(A_1)\prod_{i=2}^n P(A_i|A_1\cap A_2\cap \cdots\cap A_{i-1})    
-        \]
+        \end{equation}
         \item Total Probability Thm.
-        \[
+        \begin{equation}    
             P(B)=\sum_{i=1}^n P(A_i)P(B|A_i)  
-        \]
+        \end{equation}
         where $\{A_i\}$ is a partition of $\Omega$.
         \item Bayes's Rule
-        \[
+        \begin{equation}    
             P(A_i|B)=\frac{P(A_i)P(B|A_i)}{\sum_{j=1}^nP(A_j)P(B|A_j)}    
-        \]
+        \end{equation}
         where $\{A_i\}$ is a partition of $\Omega$.
         \item Statistically Independence
-        \[
+        \begin{equation}    
             P(A\cap B) =P(A)P(B),\text{ for }A\parallel B
-        \]
+        \end{equation}
     \end{itemize}
 
 \subsection{Properties of Random Variable and Vector}\label{SectionPropertiesOfRandomVariableAndVector}
@@ -151,9 +152,9 @@
     Def. \text{Random Variable}: a \textbf{function} $X$ defined on sample space $\Omega$, mapping from $\Omega$ to some $\mathscr{X}\in\mathbb{R} $.
 
     Then def. Cumulative Distribution Function (CDF)\index{CDF (Cumulative Distribution Function)}.
-    \[
+    \begin{equation}
         F_X(x)=P(X\leq x)
-    \]
+    \end{equation}
 
     For Discrete case, consider CDF as right-continuity.
 
@@ -161,50 +162,50 @@
         \item
 
         \begin{center}
-            \parbox[t]{8.65cm}{PMF:\index{PMF (Probability Mass Function)}\[p_X(x)=F_X(x^+)-F_X(x^-)\]}
+            \parbox[t]{8.65cm}{PMF:\index{PMF (Probability Mass Function)}\begin{equation}        p_X(x)=F_X(x^+)-F_X(x^-)\end{equation}}
             \parbox[t]{8.65cm}{PDF:\index{PDF (Probability Density Function)}
-            \[
+            \begin{equation}        
                 f_X(x)=\frac{\mathrm{d}F_X(x)}{\mathrm{d}x}
-            \]}
+            \end{equation}}
         \end{center}
         
         
         
         \item Indicator function:\index{Indicator Function}
-        \[
+        \begin{equation}    
             I_{x\in A}(x)=\begin{cases}
                 1& x\in  A\\
                 0& x\notin A
             \end{cases}
-        \]
+        \end{equation}
         \item Convolution
         \begin{itemize}
             \item $W=X+Y$
-            \[
+            \begin{equation}        
                 f_W(w)=\int_{-\infty}^\infty f_X(x)f_Y(w-x)\mathrm{d}x    
-            \]
+            \end{equation}
             \item $V=X-Y$
-            \[
+            \begin{equation}        
                 f_V(v)=\int_{-\infty}^\infty f_X(x)f_Y(x-v)\mathrm{d}x    
-            \]
+            \end{equation}
             \item $Z=XY$
-            \[
+            \begin{equation}        
                 f_Z(z)=\int_{-\infty}^\infty \frac{1}{|x|}f_X(x)f_Y(\frac{z}{x})\mathrm{d}x
-            \]
+            \end{equation}
         \end{itemize}
         
         \item Order Statistics
         
         Def $X_{(1)},X_{(2)},\cdots,X_{(n)}$ as order statistics of $\vec{X}$
-        \[
+        \begin{equation}    
             g_{X_{(i)}}=n!\prod f(x_i)\qquad \mathrm{for}\, x_1<x_2\cdots <x_n    
-        \]
+        \end{equation}
         PDF of $X_{(k)}$
-        \[
+        \begin{equation}    
             g_k(x_k)=nC_{n-1}^{k-1}[F(x_k)]^{k-1}[1-F(x_k)]^{n-k}f(x_k)
-        \]
+        \end{equation}
         \item $p$-fractile\index{Fractile!$ p $-fractile}
-        \[\xi_p=F^{-1}(p)=\inf\{x|F(x)\geq p\}\]
+        \begin{equation}    \xi_p=F^{-1}(p)=\inf\{x|F(x)\geq p\}\end{equation}
     \end{itemize}
 
 
@@ -218,37 +219,37 @@
     $n$-dimension Random Vector $\vec{X}=(X_1,X_2,\ldots,X_n)$ defined on $(\Omega,\mathscr{F},P)$.
 
     CDF $F(x_1,\ldots,x_n)$ defined on $\mathbb{R}^n$:
-    \[F(x_1,\ldots,x_n)=P(X_1\leq x_1,\ldots,X_n\leq x_n)\]
+    \begin{equation}F(x_1,\ldots,x_n)=P(X_1\leq x_1,\ldots,X_n\leq x_n)\end{equation}
 
     Joint PDF of random vector: 
-    \[
+    \begin{equation}
         f(x_1,\ldots,x_n)=\dfrac{\partial^n F(x_1,\ldots,x_n)}{\partial x_1\ldots\partial x_n}
-    \]
+    \end{equation}
 
     $k$-dimensional Marginal Distribution: For $1\leq k<n$ and index set $S_k=\{i_1.\ldots,i_k\}$, distribution of $\vec{X}=(X_{i_1},X_{i_2},\ldots,X_{i_k})$
-    \[F_{S_k}(x_{i_1},X_{i_2}\leq x_{i_2}\ldots,x_{i_k})=P(X_{i_1}\leq x_{i_1},\ldots,X_{i_k}\leq x_{i_k};X_{i_{k+1}},\ldots,X_{i_n}\leq\infty)\]
+    \begin{equation}F_{S_k}(x_{i_1},X_{i_2}\leq x_{i_2}\ldots,x_{i_k})=P(X_{i_1}\leq x_{i_1},\ldots,X_{i_k}\leq x_{i_k};X_{i_{k+1}},\ldots,X_{i_n}\leq\infty)\end{equation}
 
     Marginal distribution: 
-    \[
+    \begin{equation}
         g_{S_k}(x_{i_1},\ldots,x_{i_k})=\int_{\mathbb{R}^{n-k}}f(x_1,\ldots,x_n)\mathrm{d}x_{i_{k+1}}\ldots\mathrm{d}x_{j_n}=\dfrac{\partial^{n-k}F(x_1,\ldots,x_n)}{\partial x_{i_{k+1}}\ldots\partial x_{i_n}}
-    \]
+    \end{equation}
 
 
     \begin{itemize}
         \item[$\Delta$] \textbf{Function of r.v.}
         
         For $\vec{X}=(X_1,X_2,\cdots,X_n)$ with PDF $f(\vec{X})$ and define 
-        \[
+        \begin{equation}    
             \vec{Y}=(Y_1,Y_2,\cdots,Y_n)=(y_1(\vec{X}),y_2(\vec{X}),\cdots,y_n(\vec{X}))
-        \]
+        \end{equation}
         with inverse mapping
-        \[
+        \begin{equation}    
             \vec{X}=(X_1,X_2,\cdots,X_n)=(x_1(\vec{Y}),x_2(\vec{Y}),\cdots,x_n(\vec{Y}))
-        \]
+        \end{equation}
         then
-        \[
+        \begin{equation}    
             g(\vec{Y})= f(x_1(\vec{Y}),x_2(\vec{Y}),\cdots,x_n(\vec{Y}))\left|\frac{\partial \vec{X}}{\partial\vec{Y}}\right|I_{D_Y}
-        \]
+        \end{equation}
 
         (Intuitively: $g(\vec{Y})\mathrm{d}\vec{Y}=\mathrm{d}P=f(\vec{X})\mathrm{d}\vec{X}$)
     \end{itemize}
@@ -262,77 +263,77 @@
 
 \subsubsection{Expection}
     Expectation of r.v. $g(X)$ def.:
-    \[
+    \begin{equation}
     E[g(X)]=\begin{cases}
         {\displaystyle\int_\Omega g(x) f_X(x)\mathrm{d}x=\int_\Omega g(x)\mathrm{d}F(x)}\\
         {\displaystyle\sum_{\Omega}g(X)f_X(x)}
     \end{cases}
-\]
+\end{equation}
 
     Properties of expectation $E(\cdot)$:
 \begin{itemize}
-    \item Linearity of Expectation\[
+    \item Linearity of Expectation\begin{equation}
         E(aX+bY)=aE(X)+bE(Y)
-    \]
-    \item Conditional Expectation\[
+    \end{equation}
+    \item Conditional Expectation\begin{equation}
         E(X|A)=\frac{E(XI_A)}{P(A)}
-    \]
+    \end{equation}
     
     Note: if take $A$ as $Y$ is also a r.v. then 
-    \[m(Y)=E(X|Y)=\int xf_{X|Y}(x)\mathrm{d}x\]
+    \begin{equation}m(Y)=E(X|Y)=\int xf_{X|Y}(x)\mathrm{d}x\end{equation}
 
     is actually a function of $Y$
 
-    \item Law of Total Expectation\[
+    \item Law of Total Expectation\begin{equation}
     E\{E[g(X)|Y]\}=E[g(X)]
-    \]
+    \end{equation}
     \item r.v.\& Event
-    \[
+    \begin{equation}
         P(A|X)=E(I_A|X)\Rightarrow E[P(A|X)]=E(I_A)=P(A)
-    \]
-    \item \[
+    \end{equation}
+    \item \begin{equation}
         E[h(Y)g(X)|Y]=h(Y)E[g(X)|Y]
-    \]
+    \end{equation}
 \end{itemize}
 
 
 \subsubsection{Variance}
     Variance of r.v. $X$: 
-    \[
+    \begin{equation}
         var(X)=E[(X-E(X))^2]=E(X^2)-(E(X))^2
-    \]
+    \end{equation}
 
     (sometimes denoted as $\sigma^2_X$.)
 
     Properties:
 \begin{itemize} 
-    \item Linear combination of Variance\[
+    \item Linear combination of Variance\begin{equation}
         var(aX+b)=a^2var(X)
-    \]
+    \end{equation}
     \item Conditional Variance
-    \[
+    \begin{equation}
         var(X|Y)=E{[X-E(X|Y)]^2|Y}
-    \]
-    \item Law of Total Variance\[
+    \end{equation}
+    \item Law of Total Variance\begin{equation}
         var(X)=E[var(X|Y)]+var[E(X|Y)]
-    \]
+    \end{equation}
 \end{itemize}
 
     Standard Deviation def. as :
-    \[\sigma_X=\sqrt{var(X)}\]
+    \begin{equation}\sigma_X=\sqrt{var(X)}\end{equation}
 
     Then can construct \textbf{Standardization}\index{Standardization} of r.v.
-    \[Y=\frac{X-E(X)}{\sqrt{var(X)}}\]
+    \begin{equation}Y=\frac{X-E(X)}{\sqrt{var(X)}}\end{equation}
 
 
 \subsubsection{Covariance and Correlation}\label{SubSubSectionCovarianceAndCorrelation}
-    Covariance of r.v. $X$ and $Y$:\[
+    Covariance of r.v. $X$ and $Y$:\begin{equation}
         cov(X,Y)=E[(X-\mu_X)(Y-\mu_Y)]=E(XY)-E(X)E(Y)
-    \]
+    \end{equation}
 
-    And (Pearson's) Correlation Coefficient\index{Pearson's Correlation Coefficient}\[
+    And (Pearson's) Correlation Coefficient\index{Pearson's Correlation Coefficient}\begin{equation}
         \rho_{X,Y}=corr(X,Y)=\frac{cov(X,Y)}{\sqrt{var(X)var(Y)}}
-    \]
+    \end{equation}
 
     Remark: correlation $\nRightarrow$ cause and effect.
 
@@ -343,7 +344,7 @@
     cov(X,Y+Z)&=cov(X,Y)+cov(X,Z)
 \end{align*}
     
-\item Variance and Covariance\begin{equation}\label{EqaVarOfSumOfRV}
+\item Variance and Covariance\begin{equation}label{EqaVarOfSumOfRV}
     var(X+Y)=var(X)+var(Y)+2cov(X,Y)
 \end{equation}
 \item Covariance Matrix
@@ -360,14 +361,13 @@
     \end{equation}
 \end{itemize}
 
-Attachment: Independence:\[
-    X_i || X_j\Rightarrow \begin{cases}
+Attachment: Independence:\begin{equation}    X_i || X_j\Rightarrow \begin{cases}
         f(x_1,x_2,\cdots,x_n)=\prod f(x_i)\\
         F(x_1,x_2,\cdots,x_n)=\prod F(x_i)\\
         E(\prod X_i)=\prod E(X_i)\\
         var(\sum X_i)=\sum var(X_i)
     \end{cases}
-\]
+\end{equation}
 
 
 \subsection{PGF, MGF and C.F}\label{SectionPGFMGFCF}
@@ -376,9 +376,9 @@ Attachment: Independence:\[
 
 \subsubsection{Probability Generating Function}
     PGF\index{PGF (Probability Generating Function)}: used for non-negative, integer $X$
-    \[
+    \begin{equation}
         g(s)=E(s^X)=\sum_{j=0}^\infty s^jP(X=j)    ,s\in[-1,1]
-    \]
+    \end{equation}
 
     Properties
     \begin{itemize}
@@ -386,26 +386,26 @@ Attachment: Independence:\[
         \item $E(X)=g^{(1)}(1)$
         \item $var(X)=g^{(2)}(1)+g^{(1)}(1)-[g^{(1)}(1)]^2 $
         \item For $X_1,X_2,\cdots,X_n$ independent with $g_i(s)=E(s^{X_i})$, $Y={\displaystyle \sum_{i=1}^n} X_i$, then
-        \[
+        \begin{equation}    
             g_Y(s)=\prod_{i=1}^n g_i(s),s\in[-1,1]
-        \]
+        \end{equation}
         \item For ${X_i}$ i.i.d with $\psi(s)=E(s^{X_i})$, $Y$ with $G(s)=E(s^{Y})$, $W=X_1+X_2+\cdots +X_Y$,then
-        \[
+        \begin{equation}    
             g_W(s)=G[\psi(s)]    
-        \]
+        \end{equation}
         \item 2-Dimensional PGF of $(X,Y)$
-        \[
+        \begin{equation}    
             g(s,t)=E(s^Xt^Y)=\sum_{i=o}^\infty\sum_{j=0}^\infty P_{(X,Y)}(X=i,Y=j)s^it^j,\, s,t\in[-1,1]
-        \]
+        \end{equation}
     \end{itemize}
 \subsubsection{Moment Generating Function}
     MGF\index{MGF (Moment Generating Function)}: 
-    \[
+    \begin{equation}
         M_X(s)=E(e^{sX})=\begin{cases}
             \sum_je^{sx}P(X=x_j)\\
             \int_{-\infty}^\infty e^{sx}f_X(x)\mathrm{d}x
         \end{cases}
-    \]
+    \end{equation}
 
     Properties
     \begin{itemize}
@@ -414,30 +414,30 @@ Attachment: Independence:\[
         \item $E(X^k)=M^{(k)}(0)$
         \item $P(X=0)={\displaystyle\lim_{s\to -\infty}}M(s)$
         \item For $X_1,X_2,\cdots,X_n$ independent with $M_{X_i}(s)=E(e^{sX_i})$, $Y={\displaystyle \sum_{i=1}^n} X_i$, then
-        \[
+        \begin{equation}    
             M_Y(s)=\prod_{i=1}^n M_{X_i}(s)
-        \]
+        \end{equation}
     \end{itemize}
 \subsubsection{Characteristic Function}
     C.F \index{C.F. (Characteristic Function)}is actually the Fourier Transform of $f$.
-    \[
+    \begin{equation}
         \phi(t)=E(e^{itX}) = \int_{-\infty}^\infty e^{itx}f_X(x)\mathrm{d}x
-    \]
+    \end{equation}
 
     Properties
     \begin{itemize}
     \item if $E(|X|^k)<\infty$,then
-    \[
+    \begin{equation}
         \phi^{(k)}(t)=i^kE(X^ke^{itX})\qquad \phi^{(k)}(0)=i^kE(X^k)    
-    \]
+    \end{equation}
     \item For $X_1,X_2,\cdots,X_n$ independent with $\phi_{X_i}(t)=E(e^{itX_i})$, $Y={\displaystyle \sum_{i=1}^n} X_i$, then
-    \[
+    \begin{equation}
         \phi_Y(t)=\prod_{i=1}^n \phi_{X_i}(t)
-    \]
+    \end{equation}
     \item Inverse (Fourier) Transform
-    \[
+    \begin{equation}
         f(x)=\frac{1}{2\pi}\int_{-\infty}^\infty e^{-itx}\phi(t)\mathrm{d}t    
-    \]
+    \end{equation}
 \end{itemize}
 
 
@@ -445,14 +445,14 @@ Attachment: Independence:\[
 \subsection{Convergence and Limit Distribution}
 \subsubsection{Convergence Mode}
     \index{Convergence}
-    \[
+    \begin{equation}
         \begin{cases}
             \text{Convergence in Distribution }&{\displaystyle X_n\xrightarrow[]{\mathscr{L}}X:\lim_{n\to\infty}F_n(x)=F(x)}\\
             \text{Convergence in Probability }&{\displaystyle X_n\xrightarrow[]{p}X:\lim_{n\to\infty}P(|X_n-X)\geq\varepsilon)=0\, ,\forall\varepsilon>0}\\
             \text{Almost Sure Convergence }&{\displaystyle X_n\xrightarrow[]{\text{a.s.}}X:P(\lim_{n\to\infty}X_n=X)=1}\\
             L_p\text{ Convergence }&{\displaystyle X_n\xrightarrow[]{L_p}X:\lim_{n\to\infty}E(|X_n-X|^p)=0}
         \end{cases}
-    \]
+    \end{equation}
 
         Relations between convergence:
         \begin{center}
@@ -486,7 +486,7 @@ Attachment: Independence:\[
                 \item $X_n/Y_n\xrightarrow[]{\mathscr{L}}X/c$
             \end{enumerate}
             \item Continuity Thm.
-            \[\lim_{n\to\infty}\phi_n(t)=\varphi(t)\Leftrightarrow X_n\xrightarrow[]{\mathscr{L}}X\]
+            \begin{equation}        \lim_{n\to\infty}\phi_n(t)=\varphi(t)\Leftrightarrow X_n\xrightarrow[]{\mathscr{L}}X\end{equation}
         \end{itemize} 
 
 
@@ -494,25 +494,20 @@ Attachment: Independence:\[
 
 \begin{itemize}
     \item WLLN\index{LLN (Law of Large Number)}
-\[
-    \frac{1}{n}\sum X_i\xrightarrow[]{p} E(X_1)
-\]
+\begin{equation}    \frac{1}{n}\sum X_i\xrightarrow[]{p} E(X_1)
+\end{equation}
 \item SLLN
-\[
-    \frac{1}{n}\sum X_i\xrightarrow[]{\text{a.s.}}  C
-\]
+\begin{equation}    \frac{1}{n}\sum X_i\xrightarrow[]{\text{a.s.}}  C
+\end{equation}
 \item CLT\index{CLT (Central Limit Theorem)}
-\[
-    \frac{1}{\sigma\sqrt{n}}\sum(X_k-\mu)\xrightarrow[]{\mathscr{L}} N(0,1)
-\]
+\begin{equation}    \frac{1}{\sigma\sqrt{n}}\sum(X_k-\mu)\xrightarrow[]{\mathscr{L}} N(0,1)
+\end{equation}
 \item de Moivre-Laplace Thm.
-\[
-    P(k\leq S_n\leq m)\approx \Phi(\frac{m+0.5-np}{\sqrt{npq}})-\Phi(\frac{k-0.5-np}{\sqrt{npq}})
-\]
+\begin{equation}    P(k\leq S_n\leq m)\approx \Phi(\frac{m+0.5-np}{\sqrt{npq}})-\Phi(\frac{k-0.5-np}{\sqrt{npq}})
+\end{equation}
 \item Stirling Eqa
-\[
-    \frac{\lambda^k}{k!}e^{-\lambda}\approx \frac{1}{\sqrt{\lambda}\sqrt{2\pi}}e^{-\frac{(k-\lambda)^2}{2\lambda}}\xrightarrow[\lambda=n]{k=n}n!\approx\sqrt{2\pi n}(\frac{n}{e})^n
-\]
+\begin{equation}    \frac{\lambda^k}{k!}e^{-\lambda}\approx \frac{1}{\sqrt{\lambda}\sqrt{2\pi}}e^{-\frac{(k-\lambda)^2}{2\lambda}}\xrightarrow[\lambda=n]{k=n}n!\approx\sqrt{2\pi n}(\frac{n}{e})^n
+\end{equation}
 
 \end{itemize}
 
@@ -521,36 +516,32 @@ Attachment: Independence:\[
     
 \begin{itemize}
     \item Cauchy-Schwarz Inequality\index{Inequality!Cauchy-Schwarz Inequality}
-    \[
+    \begin{equation}
         |E(XY)|\leq\sqrt{E(X^2)E(Y^2)}
-    \]
+    \end{equation}
 
     \item Bonferroni Inequality\index{Inequality!Bonferroni Inequality}
-\[
-    P(\bigcup_{i=1}^n A_i)\geq \sum_{1\leq i\leq n} P(A_i)+\sum_{1\leq i <j\leq n} P(A_i\cap A_j)
-\]
+\begin{equation}    P(\bigcup_{i=1}^n A_i)\geq \sum_{1\leq i\leq n} P(A_i)+\sum_{1\leq i <j\leq n} P(A_i\cap A_j)
+\end{equation}
     \item Markov Inequality\index{Inequality!Markov Inequality}
-\[
-    P(|X|\geq \epsilon)\leq\frac{E(|X|^\alpha)}{\epsilon^\alpha}
-\]
+\begin{equation}    P(|X|\geq \epsilon)\leq\frac{E(|X|^\alpha)}{\epsilon^\alpha}
+\end{equation}
 
     \item Chebyshev Inequality\index{Inequality!Chebyshev Inequality}
-\[
-    P(|X-E(X)|\geq\epsilon)\leq\frac{var(X)}{\epsilon^2}
-\]
+\begin{equation}    P(|X-E(X)|\geq\epsilon)\leq\frac{var(X)}{\epsilon^2}
+\end{equation}
     \item Jensen Inequality: For convex function $g(x)$:
-\[
-    E[g(X)]\geq g(E(X))
-\]
+\begin{equation}    E[g(X)]\geq g(E(X))
+\end{equation}
 
 \end{itemize}
 
 
 \subsection{Multivariate Normal Distribution}\label{SubsectionDerivationMultivariateNormal}
     For $X_1,X_2,\cdots,X_n$ independent and $X_k\sim N(\mu_k,\sigma^2_k),\, k=1,\cdots,n$, $T={\displaystyle\sum_{k=1}^n c_kX_k}, (c_k$ const), then
-    \[
+    \begin{equation}
         T\sim N(\sum_{k=1}^nc_k\mu_k,\sum_{k=1}^n c_k^2\sigma^2_k)    
-    \]
+    \end{equation}
 
     Deduction in some special cases:
     \begin{itemize}
@@ -559,9 +550,9 @@ Attachment: Independence:\[
             T\sim   N(\mu\sum_{k=1}^n c_k,\sigma^2\sum_{k=1}^n c_k^2) 
         \end{equation}
         \item Further take $c_1=c_2=\cdots=c_n=\dfrac{1}{n}$, i.e. $T={\displaystyle \sum_{k=1}^n X_k /n}=\bar{X}$, then
-        \[
+        \begin{equation}    
             T=\bar{X}\sim N(\mu,\frac{\sigma^2}{n})    
-        \]
+        \end{equation}
     \end{itemize}
 
 
@@ -570,7 +561,7 @@ Attachment: Independence:\[
 
 \subsubsection{Linear Transform}
     First consider $\epsilon_1,\epsilon_2,\cdots,\epsilon_m$ i.i.d. $\sim N(0,1)$, $n\times 1$ const column vector $\vec{\mu}$, $n\times m$ const matrix $\mathbf{B}=\{b_{ij}\}$, def.$X_i={\displaystyle\sum_{j=1}^m b_{ij}\epsilon_j}$, i.e.
-    \[
+    \begin{equation}
         \vec{X}=
         \begin{pmatrix}
             X_1\\X_2\\ \vdots\\X_n
@@ -589,11 +580,11 @@ Attachment: Independence:\[
             \epsilon_m
         \end{pmatrix}
         +\vec{\mu}
-    \]
+    \end{equation}
 
     
     We have: $\vec{X}\sim N(\vec{\mu},\Sigma)$, where $\Sigma$, as defined in eqa.\ref{covariancematrix} is
-    \[
+    \begin{equation}
         \Sigma=E[(\vec{X}-\vec{\mu})(\vec{X}-\vec{\mu})^T]=\mathbf{BB}^T=
         \begin{pmatrix}
         var(X_1) & cov(X_1,X_2) & \ldots & cov(X_1,X_n)\\
@@ -602,10 +593,10 @@ Attachment: Independence:\[
         cov(X_n,X_1) & cov(X_n,X_2) & \ldots & var(X_n)\\
         \end{pmatrix}  
         =\{\sigma_{ij}\}  
-    \]
+    \end{equation}
 
     Furthur Consider $\vec{Y}=(Y_1,\cdots,Y_n)^T$, $n\times n$ const square matrix $\mathbf{A}=\{a_{ij}\}$ and def. $\vec{Y}=\mathbf{A}\vec{X}$ i.e.
-    \[
+    \begin{equation}
         \begin{pmatrix}
             Y_1\\
             Y_2\\
@@ -625,7 +616,7 @@ Attachment: Independence:\[
             \vdots\\
             X_n
         \end{pmatrix}
-    \]
+    \end{equation}
 
     Then $\vec{Y}\sim N(\mathbf{A}\vec{\mu},\mathbf{A}\Sigma\mathbf{A}^T)$
 %    Then $Y_1,\cdots,Y_n\sim N$ 
@@ -639,56 +630,56 @@ Attachment: Independence:\[
 
     Specially when 
     $\mathbf{A}=\{a_{ij}\}$ orthonormal, we have $Y_1,\cdots,Y_n$ independent
-    \[
+    \begin{equation}
         Y_i\sim N(\mu\sum_{k=1}^n a_{ik},\sigma^2)    
-    \]
+    \end{equation}
 
     \subsubsection{Distributions of Function of Normal Variable: $\chi^2,$ $t\,\& \,F$}\label{chi2_t_F_properties}
         Consider $X_1,X_2,\ldots,X_n$ i.i.d. $\sim N(0,1)$; $Y,Y_1,Y_2,\ldots,Y_m$ i.i.d. $\sim N(0,1)$
         \begin{itemize}
             \item $\chi^2$ Distribution: Def. $\chi^2$ distribution with degree of freedom $n$:
-            \[
+            \begin{equation}        
                 \xi =\sum_{i=1}^n X_i^2\sim \chi^2_n
-            \]
+            \end{equation}
 
             PDF of $\chi^2_n$:
-            \[
+            \begin{equation}        
                 g_n(x)=\dfrac{1}{2^{n/2}\Gamma(n/2)}x^{n/2}e^{-x/2}I_{x>0}  
-            \]
+            \end{equation}
 
             Properties
             \begin{itemize}
                 \item $E$ and $var$ of $\xi\sim\chi^2_n$
-                \[E(\xi)=n\qquad var(\xi)=2n\]
-                \item For independent $\xi_i\sim\chi^2_{n_i},\, i=1,2,\ldots,k$:\[
-                    \xi_0=\sum_{i=1}^k\xi_i\sim\chi^2_{n_1+\ldots+n_k}\]
-                \item Denoted as $\Gamma(\alpha,\lambda)$: \[\xi=\sum_{i=1}^nX_i\sim\Gamma(\frac{n}{2},\frac{1}{2})=\chi^2_n\]
+                \begin{equation}            E(\xi)=n\qquad var(\xi)=2n\end{equation}
+                \item For independent $\xi_i\sim\chi^2_{n_i},\, i=1,2,\ldots,k$:\begin{equation}            
+                    \xi_0=\sum_{i=1}^k\xi_i\sim\chi^2_{n_1+\ldots+n_k}\end{equation}
+                \item Denoted as $\Gamma(\alpha,\lambda)$: \begin{equation}            \xi=\sum_{i=1}^nX_i\sim\Gamma(\frac{n}{2},\frac{1}{2})=\chi^2_n\end{equation}
             \end{itemize}
             \item $t$ Distribution: Def. $t$ distribution with degree of freedom $n$:
-            \[
+            \begin{equation}        
                 T=\frac{Y}{\sqrt{\dfrac{\sum_{i=1}^nX_i^2}{n}}}=\frac{Y}{\sqrt{\dfrac{\xi}{n}}}\sim t_n
-            \]
+            \end{equation}
 
             (Usually take $\nu$ instead of $n$)
 
             PDF of $t_\nu$:
-            \[t_\nu(x)=\dfrac{\Gamma(\frac{\nu+1}{2})}{\Gamma(\frac{\nu}{2})\sqrt{\nu\pi}}\left(1+\frac{x^2}{\nu}\right)^{-\frac{\nu+1}{2}}\]
+            \begin{equation}        t_\nu(x)=\dfrac{\Gamma(\frac{\nu+1}{2})}{\Gamma(\frac{\nu}{2})\sqrt{\nu\pi}}\left(1+\frac{x^2}{\nu}\right)^{-\frac{\nu+1}{2}}\end{equation}
 
             Denote: Upper $\alpha$-fractile\index{Fractile!Upper $ \alpha $-fractile} of $t_\nu$, satisfies $P(T\geq c)=\alpha$:
-            \[
+            \begin{equation}        
                 c=t_{\nu,\alpha}
-            \]
+            \end{equation}
             
             (Similar for $\chi^2_n$ and $F_{m,n}$ etc.)
             \item $F$ Distribution: Def. $F$ distribution with degree of freedom $m$ and $n$:
-            \[
+            \begin{equation}        
                 F=\frac{\sum_{i=1}^mY_i}{\sum_{i=1}^nX_i}\sim F_{m,n}
-            \]
+            \end{equation}
 
             PDF of $F_{m,n}$:
-            \[
+            \begin{equation}        
                 f_{m,n}(x)=\frac{\Gamma(\frac{m+n}{2})m^\frac{m}{2}n^{\frac{n}{2}}}{\Gamma(\frac{m}{2})\Gamma(\frac{n}{2})}x^{\frac{m}{2}-1}(mx+n)^{-\frac{m+n}{2}} I_{x>0}
-            \]
+            \end{equation}
 
             Properties
             \begin{itemize}
@@ -705,26 +696,26 @@ Attachment: Independence:\[
             
         \begin{itemize}
             \item For $X_1,X_2,\ldots,X_n$ independent with $X_i\sim N(\mu_i,\sigma^2_i)$, then
-            \[
+            \begin{equation}        
                 \sum_{i=1}^n\left(\frac{X_i-\mu_i}{\sigma_i}\right)^2\sim \chi^2_n
-            \]  
+            \end{equation}  
             \item For $X_1,X_2,\ldots,X_n$ i.i.d.$\sim N(\mu,\sigma^2)$, then
-            \[
+            \begin{equation}        
                 T=\frac{\sqrt{n}(\bar{X}-\mu)}{S}\sim t_{n-1}   
-            \]
+            \end{equation}
             
             For $X_1,X_2,\ldots,X_m$ i.i.d.$\sim N(\mu_1,\sigma^2)$, $Y_1,Y_2,\ldots,Y_n$ i.i.d.$\sim N(\mu_2,\sigma^2)$, \\ denote sample pooled variance $S_{\omega}^2=\dfrac{(m-1)S^2_1+(n-1)S^2_2}{m+n-2}$, then
-            \[
+            \begin{equation}        
                 T=\frac{(\bar{X}-\bar{Y})-(\mu_1-\mu_2)}{S_{\omega}}\cdot \sqrt{\frac{mn}{m+n}}\sim t_{m+n-2}
-            \]
+            \end{equation}
             \item For $X_1,X_2,\ldots,X_m$ i.i.d.$\sim N(\mu,\sigma^2)$, $Y_1,Y_2,\ldots,Y_n$ i.i.d.$\sim N(\mu_2,\sigma^2)$, then
-            \[
+            \begin{equation}        
                 T=\frac{S_1^2}{S_2^2}\frac{\sigma^2_2}{\sigma^2_1}\sim F_{m-1,n-1}   
-            \]
+            \end{equation}
             \item For $X_1,X_2,\ldots,X_n$ i.i.d. $\sim \epsilon(\lambda)$, then
-            \[
+            \begin{equation}        
                 2\lambda n\bar{X}=2\lambda\sum_{i=1}^nX_i \sim\chi^2_{2n} 
-            \]
+            \end{equation}
 
             Remark: for $X_i\sim\epsilon(\lambda)=\Gamma(1,\lambda)\Rightarrow 2\lambda\sum_{i=1}^nX_i\sim\Gamma(n,1/2)=\chi^2_{2n}$. 
         \end{itemize}

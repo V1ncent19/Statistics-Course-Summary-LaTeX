@@ -1,4 +1,7 @@
 \section{多元统计分析部分}\label{SecMultivariateStatisticalAnalysis}
+\begin{center}
+    Instructor: Dong Li \& Tianying Wang
+\end{center}
 \subsection{Multivariate Data}
     In this section, we consider a \textbf{Multivariate Statistic Model}. Sample comes from $p$ dimension multivariate population $f(x_1,x_2,\ldots,x_p)$.
 
@@ -27,20 +30,20 @@
     \begin{itemize}[topsep=6pt,itemsep=4pt]
         \item Random Matrix: Definition and basic properties of r.v. see section \ref{SectionPropertiesOfRandomVariableAndVector}. Now extend the definition to matrix $ X=\{X_{ij}\} $. 
     
-    \[
+    \begin{equation}
         X=\{X_{ij}\}=\begin{bmatrix}
         X_{11}&X_{12}&\ldots&X_{1p}\\
         X_{21}&X_{22}&\ldots&X_{2p}\\
         \vdots&\vdots&\ddots&\vdots\\
         X_{1n}&X_{n2}&\ldots&X_{np}\\
         \end{bmatrix} 
-    \]
+    \end{equation}
 
     And we can further define $ E(X)=\{E(X_{ij})\} $.
     For any const matrix $ A,B $ we have
-    \[
+    \begin{equation}
         E(AXB)=AE(X)B 
-    \]
+    \end{equation}
 
     \item Random Vector: For a $ p\times 1 $ random vector $ \vec{X}=(X_{1},X_{2},\ldots,X_{p})^T  $, denote (Marginal) expectation and variance, and covariance, correlation coefficient between $ X_i,X_j $ as follows:
     \begin{align*}
@@ -51,7 +54,7 @@
     \end{align*}
     
     and we have covariance matrix (as defined in section \ref{SubSubSectionCovarianceAndCorrelation}, eqa.\ref{covariancematrix})
-    \[
+    \begin{equation}
         \Sigma =E[(X-\mu)(X-\mu)^T] =
         \begin{bmatrix}
         \sigma _{11}&\sigma _{12}&\ldots&\sigma _{1p}\\
@@ -59,12 +62,12 @@
         \vdots&\vdots&\ddots&\vdots\\
         \sigma _{1p}&\sigma _{p2}&\ldots&\sigma _{pp}\\
         \end{bmatrix}
-    \]
+    \end{equation}
 
     and Standard Deviation Matrix
-    \[
+    \begin{equation}
         V^{1/2}=diag\{\sqrt{\sigma _{ii}}\} 
-    \]
+    \end{equation}
 
     Based on $ \vec{X}=(X_{1},X_{2},\ldots,X_{p})  $, consider the linear combination:$ Y=c'X=c_1X_1+c_2X_2+\ldots c_pX_p $
     \begin{align*}
@@ -72,16 +75,16 @@
     \end{align*}
 
     and $ Z_i=\sum_{j=1}^p c_{ij}X_j $ (i.e. $ Z=CX $):
-    \[
+    \begin{equation}
         \mu_Z=E(Z)= C\mu_X\qquad \Sigma _Z=C\Sigma _XC^T
-    \]
+    \end{equation}
     
     
     
     
 
     and Correlation Matrix
-    \[
+    \begin{equation}
         \rho =\begin{bmatrix}
         \rho _{11}&\rho _{12}&\ldots&\rho _{1p}\\
         \rho _{21}&\rho _{22}&\ldots&\rho _{2p}\\
@@ -89,7 +92,7 @@
         \rho _{1p}&\rho _{p2}&\ldots&\rho _{pp}\\
         \end{bmatrix} 
         =V^{-1/2}\Sigma V^{-1/2}
-    \]
+    \end{equation}
     
     
 
@@ -123,7 +126,7 @@
     \end{table}
 
     Or represented in condense notation:
-    \[
+    \begin{equation}
         X=\{x_{ij}\}=
         \begin{bmatrix}
             x_1^T\\x_2^T\\ \vdots \\ x_n^T
@@ -139,56 +142,67 @@
         \begin{bmatrix}
             y_1&y_2&\ldots &y_p
         \end{bmatrix}
-    \]
+    \end{equation}
 \begin{point}
     \hypertarget{StatisticsRepresentation}{Statistics Representation}
 \end{point}
 
     \begin{itemize}[topsep=6pt,itemsep=4pt]
         \item Unit 1 vector:
-        \[
+        \begin{equation}
             \mathbf{1}_k=(\underbrace{1,1,\ldots,1}_{k\text{ 1 in total}})^T
-        \]
+        \end{equation}
+
+        Unit 1 matrix:
+        \begin{equation}\label{EqaAllOneMatrix}
+            \mathcal{J}_n  = \{1\}_{n\times n}=\begin{bmatrix}
+            1&1&\ldots&1\\
+            1&1&\ldots&1\\
+            \vdots&\vdots&\ddots&\vdots\\
+            1&1&\ldots&1\\
+            \end{bmatrix}_{n\times n}
+        \end{equation}
         
+
         \item Sample mean:
-        \[
+        \begin{equation}
             \bar{x}_i=\dfrac{x_{1i}+x_{2i}+\ldots+x_{ni}}{n}=\dfrac{y_i'\mathbf{1}_n}{n}
-        \]
+        \end{equation}
         
         \item Deviation of measurement of the $ i^\mathrm{th} $ variable:
-        \[
+        \begin{equation}
             d_i=y_i-\bar{x}_i\mathbf{1}_n=\begin{bmatrix}
                 x_{1i}-\bar{x}_i\\x_{2i}-\bar{x}_i\\\vdots\\x_{ni}-\bar{x}_i
             \end{bmatrix} 
-        \]
+        \end{equation}
         \item Covariance Matrix:
             \begin{itemize}[topsep=6pt,itemsep=4pt]      
             \item Variance of $ y_i $:
-            \[
+            \begin{equation}
                 s^2_i=s_{ii}=\dfrac{1}{n}d_i'd_i =\dfrac{1}{n}\sum_{k=1}^n (x_{ki}-\bar{x}_i)^2,\quad i=1,2,\ldots p
-            \]
+            \end{equation}
             \item Covariance between $ y_i $ and $ y_j $:
-            \[
+            \begin{equation}
                 s_{ij}=\dfrac{1}{n}d_i'd_j=\dfrac{1}{n}\sum_{k=1}^n(x_{ki}-\bar{x}_i)(x_{kj}-\bar{x}_j),\quad i,j=1,2,\ldots p
-            \]
+            \end{equation}
             \item Correlation Coefficient:
-            \[
+            \begin{equation}\label{EqaEstimatorOfCorrelationCoefficient}
                 r_{ij}=\dfrac{s_{ij}}{\sqrt{s_{ii}}\sqrt{s_{jj}}}=\dfrac{{\displaystyle\sum_{k=1}^n(x_{ki}-\bar{x}_i)(x_{kj}-\bar{x}_j)}}{\sqrt{{\displaystyle\sum_{k=1}^n(x_{ki}-\bar{x}_i)^2}}\sqrt{{\displaystyle\sum_{k=1}^n(x_{kj}-\bar{x}_j)^2}}},\quad i,j=1,2,\ldots p
-            \]
+            \end{equation}
             \end{itemize}
         
         In condense notation, define Covariance Matrix from sample of size $ n $:
-        \[
-            S_n=\begin{bmatrix}
+        \begin{equation}
+            S^2_n=\begin{bmatrix}
             s_{11}&s_{12}&\ldots&s_{1p}\\
             s_{21}&s_{22}&\ldots&s_{2p}\\
             \vdots&\vdots&\ddots&\vdots\\
             s_{1p}&s_{p2}&\ldots&s_{pp}\\
             \end{bmatrix}
-        \]
+        \end{equation}
 
         and sample Correlation Coefficient Matrix:
-        \[
+        \begin{equation}
             R_n=
             \begin{bmatrix}
             r_{11}&r_{12}&\ldots&r_{1p}\\
@@ -196,23 +210,23 @@
             \vdots&\vdots&\ddots&\vdots\\
             r_{1p}&r_{p2}&\ldots&r_{pp}\\
             \end{bmatrix}
-        \]
+        \end{equation}
         \item Generalized sample variance: $ |S|=\lambda _1\lambda _2 \ldots \lambda _p$, where $ \lambda_i  $ are eigenvalues.
         
         \item 'Statistical Distance' between vectors: to measure the difference between two vectors $ x=(x_1,x_2,\ldots,x_p) $ and $ y=(y_1,y_2,\ldots,y_p) $.
         \begin{itemize}[topsep=6pt,itemsep=4pt]
             \item Euclidean Distance:
-            \[
+            \begin{equation}
                 d_E(x,y) =\sqrt{(x-y)^T(x-y)}
-            \]
-            \item Mahalanobis Distance: Scale invariant distance, and include information about relativity:
-            \[
+            \end{equation}
+            \item \textbf{Mahalanobis Distance}\index{Mahalanobis Distance}: Scale invariant distance, and include information about relativity:
+            \begin{equation}
                 d_M(x,y)=\sqrt{(x-y)'S^{-1}(x-y)} 
-            \]
+            \end{equation}
 
             Note: $ P,Q $ are from the same distribution with covariance matrix $ S_p $. When $ S=I $, return to Euclidean distance.
             
-            Remark: Mahalanobis distance is actually the normalized Euclidean distance in principal component space. So we can actually define the Mahalanobis distance for one sample case $ \vec{x}=(x_1,x_2,\ldots ,x_p) $ from distribution of $ \vec{\mu},\Sigma  $
+            Remark: Mahalanobis distance is actually the normalized Euclidean distance in principal component space. So we can actually define the Mahalanobis distance for one sample case $ \vec{x}=(x_1,x_2,\ldots ,x_p) $ from distribution of $ (\vec{\mu},\Sigma)  $
             \begin{equation}\label{MahalanobisDistance}
                 d_M(\vec{x})=\sqrt{(\vec{x}-\vec{\mu})^T\Sigma ^{-1}(\vec{x}-\vec{\mu})} 
             \end{equation}
@@ -236,30 +250,33 @@
         
 
 
-\subsubsection{Review: Some Matrix Notation \& Lemma}
+\subsubsection{Review: Some Matrix Notation \& Lemma}\label{SubSubSectionMatrixNotationAndLemma}
 
     \begin{itemize}[topsep=6pt,itemsep=4pt]
         \item Orthonormality: For square matrix $ P $ satisfies:
-        \[
+        \begin{equation}
             x_i^Tx_j=\delta _{ij} 
-        \]
+        \end{equation}
 
         where $ x_i,x_j $ are columns of $ P $.
         \item Eigenvalue and Eigenvector: For square matrix $ A $, its eigenvalues $ \lambda_i $ and corresponding eigenvectors $ e_i $ satisfies:
-        \[
+        \begin{equation}
             Ae_i=\lambda_ie_i,\,\forall i=1,2,\ldots p 
-        \]
+        \end{equation}
 
-        Denote $ P=[e_1,e_2,\ldots ,e_p] $, which is an orthonormal matrix. And denote $ \Lambda =diag{\lambda _1,\lambda _2,\ldots,\lambda _p} $.
-        \[
+        Denote $ P=[e_1,e_2,\ldots ,e_p] $, which is an orthonormal matrix. And denote $ \Lambda =diag\{\lambda _1,\lambda _2,\ldots,\lambda _p\} $.
+        \begin{equation}
             A=\sum_{i=1}^p\lambda _ie_ie_i^T=P \Lambda P^T=P\Lambda P^{-1}
-        \]
+        \end{equation}
 
         is called the Spectral Decomposition of $ A $
+
+        
+        
         \item Square root matrix: Def. as
-        \[
+        \begin{equation}
             A^{1/2}=\sum_{i=1}^p\sqrt{\lambda _i}e_ie_i^T=P\Lambda ^{1/2}P^T 
-        \]
+        \end{equation}
 
         Properties:
         \begin{itemize}[topsep=0pt,itemsep=-2pt]
@@ -271,18 +288,18 @@
         
             
         \item (Symmetric) Positive Definite Matrix: Say $ A $ a Positive Definite Matrix if
-        \[
+        \begin{equation}
             x^TAx> 0,\,\forall x\in\mathbb{R}^p 
-        \]
+        \end{equation}
 
         where $ x^TAx $ is called a Quadric Form.
 
         Properties:
         \begin{itemize}[topsep=6pt,itemsep=4pt]
             \item Use the Spectral Decomposition of $ A $, we can write the Quadric Form as
-            \[
+            \begin{equation}
                 x^TAx=x^TP\Lambda P^Tx=y^T\Lambda y=\sum_{i=1}^p\lambda_iy_i^2=\sum_{i=1}^p(\sqrt{\lambda_i}y_i)^2 
-            \]
+            \end{equation}
             
             
             \item Eigenvalues $ \lambda _i>0,\,\forall i=1,2,\ldots,p $
@@ -291,9 +308,9 @@
 
         \item Trace of Matrix: For $ p\times p $ square matrix $ A $
             
-            \[
+            \begin{equation}
                 tr(A) =\sum_{i=1}^p a_{ii}
-            \]
+            \end{equation}
             
             Properties:
             \begin{itemize}[topsep=2pt,itemsep=2pt]
@@ -302,14 +319,31 @@
             \end{itemize}
             
                 
-            
+        \item Matrix Partition: partition matrix $ \mathop{A}\limits_{p\times p} $ as 
+        \[
+            A=         
+            \begin{bmatrix}
+                \mathop{A_{11} }\limits_{q_1\times q_1}&\mathop{A_{12} }\limits_{q_1\times q_2} \\
+                \mathop{A_{21} }\limits_{q_2\times q_1}&\mathop{A_{22} }\limits_{q_2\times q_2}   
+            \end{bmatrix}   
+        \]
+
+        where $ p=q_1+q_2 $
+        
+        Property:
+        \[
+            |A|= |A_{22}||A_{11}-A_{12}A_{22}^{-1}A_{21}|=|A_{11}||A_{22}-A_{21}A_{11}^{-1}A_{12}|
+        \]
+        
+        
+        | A |=| A22 || A11 - A12A-122A21 |=| A11 || A22 - A21A-111A12 |
                 
             
                        
         \item Calculus Notations: We want to take derivative of $ y=(y_1,y_2,\ldots,y_q)^T $ over $ x=(x_1,x_2,\ldots,x_p)^T $
         
         We use 'Denominator-layout', which is
-        \[
+        \begin{equation}
             \dfrac{\partial^{}y }{\partial ^{}x}=\dfrac{\partial^{} y^T}{\partial x^{}} =
             \begin{bmatrix}
             \dfrac{\partial^{} y_1}{\partial x_1 ^{}}&\dfrac{\partial^{} y_2}{\partial x_1 ^{}}&\ldots&\dfrac{\partial^{} y_q}{\partial x_1 ^{}}\\
@@ -317,9 +351,9 @@
             \vdots&\vdots&\ddots&\vdots\\
             \dfrac{\partial^{} y_1}{\partial x_p ^{}}&\dfrac{\partial^{} y_2}{\partial x_p ^{}}&\ldots&\dfrac{\partial^{} y_q}{\partial x_p ^{}}\\
             \end{bmatrix}
-        \]
+        \end{equation}
         
-        Properties (under denominator-layout):
+        \hypertarget{MatrixDifferenciation}{Properties (under denominator-layout):}
         \begin{itemize}[topsep=6pt,itemsep=2.5pt]
             \item $ \dfrac{\partial^{} }{\partial x^{}}Ax=A^T $;\\
             \item $ \dfrac{\partial^{} }{\partial x^{}}x^TA=A $;\\
@@ -333,14 +367,14 @@
           
         
         \item Kronecker Product: For matrix $ \mathop{A}\limits_{m\times n}=\{a_{ij}\},\,\mathop{B}\limits_{p\times q}=\{b_{ij}\} $. Their Kronecker product
-        \[
+        \begin{equation}
             A\otimes B=\begin{bmatrix}
             a_{11}B&a_{12}B&\ldots&a_{1n}B \\
             a_{21}B&a_{22}B&\ldots&a_{2n}B \\
             \vdots&\vdots&\ddots&\vdots\\
             a_{1m}B&a_{m2}B&\ldots&a_{mn}B \\
             \end{bmatrix} 
-        \]
+        \end{equation}
         
     \end{itemize}
     
@@ -349,27 +383,27 @@
 
     \subsubsection{Useful Inequalities}
     \begin{itemize}[topsep=6pt,itemsep=4pt]
-        \item Cauchy-Schwartz Inequality:
+        \item Cauchy-Schwartz Inequality:\index{Inequality!Cauchy-Schwarz Inequality}
         
         Let $ b,d$ are any $ p\times 1 $ vectors.
-        \[
+        \begin{equation}
             (b'd)^2\leq (b'b)(d'd) 
-        \]
+        \end{equation}
         
         \item Extended Cauchy-Schwartz Inequality: 
         
         Let $ B $ be a positive definite matrix.
         
-        \[
+        \begin{equation}
             (b'd)^2\leq(b'Bb)(d'B^{-1}d) 
-        \]
+        \end{equation}
         
-        \item Maximazation Lemma:
+        \item Maximazation Lemma:\index{Inequality!Maximazation Lemma}
         
         $ d $ be a given vector, for any non-zero vector $ x $,
-        \[
+        \begin{equation}
             \dfrac{(x'd)^2}{x'Bx}\leq d'B^{-1}d 
-        \]
+        \end{equation}
 
         Take Maximum when $ x=cB^{-1}d $.
         
@@ -401,44 +435,51 @@
 
 \subsection{Multivariate Normal Distribution}
     Univariate Noraml Distribution: $ N(\mu,\sigma^2) $
-    \[
-        f(x)=\dfrac{1}{\sqrt{2\pi\sigma ^2}}\exp{-\dfrac{(x-\mu)^2}{2\sigma ^2}} 
-    \]
+    \begin{equation}
+        f_X(x)=\dfrac{1}{\sqrt{2\pi\sigma ^2}}\exp{-\dfrac{(x-\mu)^2}{2\sigma ^2}} 
+    \end{equation}
     
     Multivariate Normal Distribution: $X\sim N_p(\vec{\mu},\Sigma) $\footnote{Detailed derivation see section \ref{SubsectionDerivationMultivariateNormal}}
-    \[
-        f(\vec{x})=\dfrac{1}{(2\pi)^{p/2}|\Sigma |^{1/2}}\exp\left({-\dfrac{(\vec{x}-\vec{\mu})'\Sigma^{-1}(\vec{x}-\vec{\mu})}{2}} \right)
-    \]
+    \begin{equation}
+        f_\mathbf{X}(\vec{x})=\dfrac{1}{(2\pi)^{p/2}|\Sigma |^{1/2}}\exp\left({-\dfrac{(\vec{x}-\vec{\mu})'\Sigma^{-1}(\vec{x}-\vec{\mu})}{2}} \right)
+    \end{equation}
 
     Note: Here in the $ \exp $, the $ (\vec{x}-\vec{\mu})'\Sigma^{-1}(\vec{x}-\vec{\mu}) $ is the Mahalanobis Distance $ d_M $ defined in eqa.\ref{MahalanobisDistance}
 
     % Further denote $ \mathop{Y}\limits_{q\times 1}=\mathop{A}\limits_{q\times p}\mathop{X}\limits_{p\times 1} $, where $ A $ is a const matrix. Then 
-    % \[
+    % \begin{equation}
     %     Y=AX\sim N_q(A\vec{\mu},A\Sigma A^T) 
-    % \]
+    % \end{equation}
     
     
 
-    Remark: A $ n $-dimension multivariate normal has $ p+\dfrac{p(p-1)}{2}=\dfrac{p(p+1)}{2} $ free parameters. Thus for a very high dimension, contains too many free parameters to be determined! 
+    Remark: A $ n $-dimension multivariate normal has $ \dfrac{p(p+1)}{2} $ free parameters. Thus for a very high dimension, contains too many free parameters to be determined! 
     
     Properties: Consider $ X\sim N_p(\mu,\Sigma) $
     \begin{itemize}[topsep=6pt,itemsep=4pt]
         \item Linear Transform:
         \begin{itemize}[topsep=6pt,itemsep=4pt]       
         \item For a $ p\times 1 $ vector $ a $:
-        \[
+        \begin{equation}
             X\sim N_p(\mu,\Sigma )\Leftrightarrow a'X\sim N(a'\mu,a'\Sigma a),\,\forall a\in\mathbb{R}^p 
-        \]
+        \end{equation}
 
         (Proof: use characteristic function.)
         
         \item For a $ q\times p $ const matrix $ A $:
-        \[
+        \begin{equation}\label{EqaTransformOfMultiNormal}
             AX+a\sim N_q(A\mu+a,A\Sigma  A')
-        \]
+        \end{equation}
+        \item For a $ p\times p    $ square matrix $ A $:
+        
+        \begin{equation}\label{EqaExpectationOfQuadric}
+            E(X'AX)= \mu'A\mu +tr(A\Sigma )            
+        \end{equation}
+        
+        
         \end{itemize}
-        \item Marginal Distribution: Take partition of $ \mathop{X}\limits_{p\times 1} $ into $ \mathop{X_1}\limits_{q_1\times 1} $ and $ \mathop{X_2}\limits_{q_2\times 1}  $, where $ q_1+q_2=p $. Write in matrix form:
-        \[
+        \item Conditional Distribution: Take partition of $ \mathop{X}\limits_{p\times 1}\sim N(\mathop{\mu}\limits_{p\times 1},\mathop{\Sigma }\limits_{p\times p}) $ into $ \mathop{X_1}\limits_{q_1\times 1} $ and $ \mathop{X_2}\limits_{q_2\times 1}  $, where $ q_1+q_2=p $. Write in matrix form:
+        \begin{equation}
             \mathop{X}\limits_{p\times 1}=
             \begin{bmatrix}
                 \mathop{X_1}\limits_{q_1\times 1}\\
@@ -457,10 +498,10 @@
                 \mathop{\Sigma_{21} }\limits_{q_2\times q_1}&\mathop{\Sigma_{22} }\limits_{q_2\times q_2}   
             \end{bmatrix}  
             \qquad 
-        \]
+        \end{equation}
         
             i.e. 
-        \[
+        \begin{equation}
             \mathop{X}\limits_{p\times 1}=\begin{bmatrix}
                 \mathop{X_1 }\limits_{q_1\times 1}\\
                 \mathop{X_2 }\limits_{q_2\times 2}  
@@ -474,26 +515,35 @@
                 \mathop{\Sigma_{21} }\limits_{q_2\times q_1}&\mathop{\Sigma_{22} }\limits_{q_2\times q_2}   
             \end{bmatrix}  
                 \right)
-        \]
+        \end{equation}
             
-        Properties: $ X_1\parallel X_2\Leftrightarrow \Sigma _{21}=\Sigma _{12}^T=0  $
+        Independence: $ X_1\parallel X_2\Leftrightarrow \Sigma _{21}=\Sigma _{12}^T=0  $
 
-        Then the marginal distribution of $ X_1 $ \footnote{i.e. the conditional dictribution $ X_1|X_2=x_2 $} is given by
+        And the conditional dictribution $ X_1|X_2=x_2 $ is given by \footnote{In eqa(\ref{EqaTransformOfMultiNormal}), take 
         \[
-            X_1|_{X_2=x_2}\sim N_p(\mu_1+\Sigma _{12}\Sigma _{22}^{-1}(x_2-\mu_2),\Sigma _{11}-\Sigma _{12}\Sigma _{22}^{-1}\Sigma _{21})
+            \mathop{A}\limits_{p\times p}=\begin{bmatrix}
+                \mathop{I}\limits_{q\times q} & -\mathop{\Sigma _{12}\Sigma _{22}^{-1}}\limits_{q\times (p-q)} \\
+                \mathop{0}\limits_{(p-q)\times q}&\mathop{I}\limits_{(p-q)\times (p-q)}  
+            \end{bmatrix}  
         \]
+        
+        }
+        \begin{equation}
+            X_1|_{X_2=x_2}\sim N_p(\mu_1+\Sigma _{12}\Sigma _{22}^{-1}(x_2-\mu_2),\,\Sigma _{11}-\Sigma _{12}\Sigma _{22}^{-1}\Sigma _{21})
+        \end{equation}
 
         \item Multivariate Normal \& $ \chi^2 $
+        
          Let $ X\sim N_p(\mu,\Sigma ) $, then 
-         \[
+         \begin{equation}
              (X-\mu)^T\Sigma ^{-1}(X-\mu)\sim \chi_p^2 
-         \]
+         \end{equation}
          
          \item Linear Combination:
-        Let $ X_1,X_2\ldots,X_n $ with $ X_i\sim N_p(\mu_i,\Sigma ) $ (different mean, same $ \Sigma  $). And denote $ V_1=\sum_{i=1}^nc_iX_i $, then
-        \[
-            V_1\sim N_p(\sum_{i=1}^n c_i\mu_i,\sum_{i=1}^nc_j^2\Sigma ) 
-        \]
+        Let $ X_1,X_2\ldots,X_n $ with $ X_i\sim N_p(\mu_i,\Sigma ) $ (different $ \mu_i $, same $ \Sigma  $). And denote $ V_1=\sum_{i=1}^nc_iX_i $, then
+        \begin{equation}
+            V_1\sim N_p(\sum_{i=1}^n c_i\mu_i,\sum_{i=1}^nc_i^2\Sigma ) 
+        \end{equation}
         
         
         
@@ -511,35 +561,40 @@
 
     % \begin{point}
     %     Problem: Property of 2-D Normal:
-    %     \[
+    %     \begin{equation}
     %         corr(X,Y)=\rho\Rightarrow corr(X^2,Y^2)=\rho ^2 
-    %     \]
+    %     \end{equation}
     % \end{point}
 
     
     
 \subsubsection{MLE of Multivariate Normal}
     Under the notation in eqa(\ref{EqaNPSampleMatrixNotation}), i.e. each sample case $ \mathbf{X}_i$ i.i.d. $\sim N_p(\mu,\Sigma ) $, we can get the joint PDF of $ \mathbf{X} $:
-    \[
+    \begin{equation}
         f_{\mathbf{X_1},\ldots,\mathbf{X_n};\mu,\Sigma }(x_1,\ldots,x_n)=\dfrac{1}{(2\pi)^{np/2}|\Sigma |^{n/2}}\exp\left( -\sum_{i=1}^n\dfrac{(x_i-\mu)'\Sigma ^{-1}(x_i-\mu)}{2} \right) 
-    \]
+    \end{equation}
   
     and at the same time get likelihood function\footnote{Here we need to use the property of trace
-    \[
+    \begin{equation}
         x'Ax=tr(x'Ax)=tr(Ax'x)
-    \]    }:
+    \end{equation}    }:
     
-    \[
+    \begin{equation}
         L(\mu ,\Sigma;x_1,\ldots,x_n)=\dfrac{1}{(2\pi)^{np/2}|\Sigma |^{n/2}}\exp\left[ -\dfrac{1}{2}tr\left( \Sigma ^{-1} \left(\sum_{i=1}^n(x_i-\bar{x})(x_i-\bar{x})'+n(\bar{x}-\mu)(\bar{x}-\mu)' \right) \right) \right]
-    \]
+    \end{equation}
         And we can get the MLE of $ \mu $ and $ \Sigma  $ as follows\footnote{Detailed proof see '\textit{Applied Multivariate Statistical Analysis}' P130}:
         \begin{align*}
             \hat{\mu}&= \dfrac{1}{n}\sum_{i=1}^n x_i=\bar{x} \\
-            \hat{\sigma }&= \dfrac{1}{n}\sum_{i=1}^n(x_i-\bar{x})(x_i-\bar{x})'=\dfrac{n-1}{n}S
+            \hat{\Sigma  }&= \dfrac{1}{n}\sum_{i=1}^n(x_i-\bar{x})(x_i-\bar{x})'=\dfrac{n-1}{n}S^2
         \end{align*}
 
     
-    And we can furthur construct MLE of function of $ \mu,\,\Sigma  $ (use invariance property of MLE).
+    And we can furthur construct MLE of function of $ \mu,\,\Sigma  $ (use invariance property of MLE), for example 
+    
+    \[
+        \hat{|\Sigma |}=|\hat{\Sigma }| 
+    \]
+    
     
         Note: $ (\hat{\mu} , \hat{\Sigma} ) $ is sufficient statistic of multi-normal population.
 
@@ -553,76 +608,366 @@
     % Consistency: Ensuring that when we get more data point, weare 'closer' to the real case.
     % \begin{itemize}[topsep=2pt,itemsep=2pt]
     %     \item Weak consistency:
-    %     \[
+    %     \begin{equation}
     %         \lim_{n\to\infty}P(||\hat{\mu}-\mu||>\varepsilon )=0 
-    %     \]
+    %     \end{equation}
     %     \item Strong consistency:
-    %     \[
+    %     \begin{equation}
     %         \hat{\mu}\xrightarrow[]{\mathrm{a.s.}} \mu 
-    %     \]
+    %     \end{equation}
     % \end{itemize}
     
         
-\subsubsection{Sampling distribution of $ \bar{X} $ and $ S $}
-
-Wishart Distribution:
-\begin{itemize}[topsep=2pt,itemsep=2pt]
-    \item Review: monovariate case:Consider $ (X_1,X_2,\ldots,X_n) $ i.i.d. $ \sim N(\mu,\sigma ^2) $
-
-    Then $ \bar{x}=\dfrac{1}{n}\sum_{i=1}^nx_i $, $ S^2=\dfrac{1}{n-1}\sum_{i=1}^n(x_i-\bar{x})^2 $
-    
-    Define an orthogonal matrix
-    \[
-        Q=\begin{bmatrix}
-            \dfrac{1}{\sqrt{n}}&\dfrac{1}{\sqrt{n}}&\ldots&\dfrac{1}{\sqrt{n}}\\
-            &&&\\
-            &&&\\
-            &&&
-        \end{bmatrix} _{n\times n}
-    \]
-    
-    and def 
-    \[
-        Y=QX\sim N(Q\mathbf{1}_n\mu,\sigma^2I) =N(\begin{bmatrix}
-            \sqrt{n}\mu\\0\\ \vdots\\0
-        \end{bmatrix})
-    \]
+\subsubsection{Sampling distribution of $ \bar{X} $ and $ S^2 $}
+        $ \hat{\mu}=\bar{X} $ and $ \hat{\Sigma}=\dfrac{n-1}{n}S^2 $ are statistics, with sampling distribution.
 
 
-
-
-    \item Multivariate case: 
-    
-
-
-
-
-
-    \begin{align*}
-        \sum_{i=1}^nY_iY_i'=\sum_{i=1^n}X_iX_i'=\sum_{i=1}^n(X_i-\bar{X})(X_i-\bar{X})'+n\bar{X}\bar{X}'=(n-1)S+Y_1Y_1' \\
-        \Rightarrow (n-1)S=\sum_{i=2}^nY_iY_i'\parallel \bar{X}=\dfrac{1}{\sqrt{n}}Y_1
-    \end{align*} 
-
-    Then consider the distribution of $ {\displaystyle\sum_{i=2}^nY_iY_i'} \sum W_p(n-1,\Sigma )$, which is Wishart distribution.
 
     \begin{point}
-        Wishart distribution is the matrix generization of $ \chi^2_n $
+        Sampling distribution of $ \bar{X} $
+    \end{point}
+
+    Similar to monovariate case:
+    \[
+        \bar{X}\sim N_p(\mu,\dfrac{1}{n}\Sigma ) 
+    \]
+    
+    \begin{point}
+        Sampling distribution of $ S^2 $
     \end{point}
     
-    For $ Z_1,Z_2,\ldots,Z_m $ i.i.d. $ \sim N_p(0,\sigma ) $, def $ p $ dimensional \textbf{Wishart Distribution } with dof $ m $ as $ W_p(n,\Sigma ) $.\footnote{$ W_p(m,\Sigma ) $ is adistribution defined on $ p\times p $ matrix space.}
+\begin{itemize}[topsep=2pt,itemsep=2pt]
+    \item Monovariate case: Consider $ (X_1,X_2,\ldots,X_n) $ i.i.d. $ \sim N(\mu,\sigma ^2) $
+
+    % Then $ \bar{x}=\dfrac{1}{n}\sum_{i=1}^nx_i $, $ S^2=\dfrac{1}{n-1}\sum_{i=1}^n(x_i-\bar{x})^2 $
+    
+    % Define an orthogonal matrix
+    % \begin{equation}
+    %     Q=\begin{bmatrix}
+    %         \dfrac{1}{\sqrt{n}}&\dfrac{1}{\sqrt{n}}&\ldots&\dfrac{1}{\sqrt{n}}\\
+    %         &&&\\
+    %         &&&\\
+    %         &&&
+    %     \end{bmatrix} _{n\times n}
+    % \end{equation}
+    
+    % and def 
+    % \begin{equation}
+    %     Y=QX\sim N(Q\mathbf{1}_n\mu,\sigma^2I) =N(\begin{bmatrix}
+    %         \sqrt{n}\mu\\0\\ \vdots\\0
+    %     \end{bmatrix})
+    % \end{equation}
+
+    Then 
     \[
-        W=\sum_{i=1}^nZ_iZ_i' 
+        \dfrac{(n-1)S^2}{\sigma ^2}\sim \chi^2_{n-1} 
     \]
     
-    PDF of $ W_p(n,\Sigma ) $:
+    \item Multivariate case: Consider $ (\mathbf{X}_{1},\mathbf{X}_{2},\ldots,\mathbf{X}_{n})  $ i.i.d. $ \sim N_p(\mu,\Sigma ) $
+    
+    Then
     \[
-        f_W(w)= \dfrac{|w|^{\frac{m-p-1}{2}}\exp\left( -\dfrac{1}{2}tr(\Sigma ^{-1}w) \right)}{2^{\frac{mp}{2}}|\Sigma |^{-1/2}\pi^{\frac{p(p-1)}{4}}{\displaystyle\prod_{i=1}^p\Gamma (\dfrac{m-i+1}{2})} }
+        (n-1) S^2\sim W_p(n-1,\Sigma )
     \]
     
-    C.F.
+    Where $ W_p(n-1,\Sigma ) $ is Wishart Distribution, details as follows:
+
+         For r.v. $ Z_1,Z_2,\ldots,Z_m $ i.i.d. $ \sim N_p(0,\Sigma  ) $, def $ p $ dimensional \textbf{Wishart Distribution } with dof $ m $ as $ W_p(m,\Sigma ) $.\footnote{$ W_p(m,\Sigma ) $ is a distribution defined on $ p\times p $ matrix space.}
+        \begin{equation}
+            W_p=\sum_{i=1}^nZ_iZ_i' 
+        \end{equation}
+
+        
+        PDF of $ W_p(m,\Sigma ) $:
+        \begin{equation}
+            f_W(w;p,m,\Sigma )= \dfrac{|w|^{\frac{m-p-1}{2}}\exp\left( -\dfrac{1}{2}tr(\Sigma ^{-1}w) \right)}{2^{\frac{mp}{2}}|\Sigma |^{-1/2}\pi^{\frac{p(p-1)}{4}}{\displaystyle\prod_{i=1}^p\Gamma (\dfrac{m-i+1}{2})} }
+        \end{equation}
+
+ 
+        
+        C.F.
+        \begin{equation}
+            \phi(T)=|I_p-2i\Sigma T|^{-\frac{m}{2}} 
+        \end{equation}
+    % \begin{align*}
+    %     \sum_{i=1}^nY_iY_i'=\sum_{i=1^n}X_iX_i'=\sum_{i=1}^n(X_i-\bar{X})(X_i-\bar{X})'+n\bar{X}\bar{X}'=(n-1)S+Y_1Y_1' \\
+    %     \Rightarrow (n-1)S=\sum_{i=2}^nY_iY_i'\parallel \bar{X}=\dfrac{1}{\sqrt{n}}Y_1
+    % \end{align*} 
+
+    % Then consider the distribution of $ {\displaystyle\sum_{i=2}^nY_iY_i'} \sum W_p(n-1,\Sigma )$, which is Wishart distribution.
+
+    Properties:
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item For independent $ A_1\sim W_p(m_1,\Sigma ) $ and $ A_2\sim W_p(m_2,\Sigma ) $, then 
+        \[
+            A_{1}+A_{2} \sim W_p(m_1+m_2,\Sigma )
+        \]
+        
+        \item For $ A\sim W_p(m,\Sigma ) $, then
+        \[
+            CAC'\sim W_p(m,C\Sigma C') 
+        \]
+        \item Wishart distribution is the matrix generization of $ \chi^2_n $. When $ p=1 $, $ \Sigma =\sigma ^2=1 $, $ W_p(m,\Sigma ) $ naturally reduce to $ \chi^2_m $.
+        \[
+            \chi^2_n=W_1(n,1) 
+        \]
+        
+
+\begin{rcode}
+    Distribution functions are in package \lstinline|MCMCpack|, or use \lstinline|rWishart()| function.
+\end{rcode}
+        
+
+    
+    
+\end{itemize}
+    
+\end{itemize}
+
+    
+
+\begin{point}
+    Large sample $ \bar{X} $ and $ S^2 $
+\end{point}
+\begin{itemize}[topsep=2pt,itemsep=2pt]
+    \item $ \sqrt{n}(\bar{X}-\mu)\xrightarrow[]{\mathscr{L}} N_p(0,\Sigma ) $；
+    \item $ n(\bar{X}-\mu)'S ^{-1}(\bar{X}-\mu)\xrightarrow[]{\mathscr{L}} \chi_p^2 $
+\end{itemize}
+
+    
+
+
+% Stein's method
+
+
+\subsection{Multivariate Statistical Inference}\label{SubSectionMultivariateHypothesisTesting}
+
+
+
+\subsubsection{Hypothesis Testing for Normal Population}
+\begin{itemize}[topsep=2pt,itemsep=2pt]
+    \item \textbf{One-Population Hypothesis Testing}: 
+    
+    Conduct hypothesis testing to $ \mu $:
     \[
-        \phi(T)=|I_p-2i\Sigma T|^{-\frac{m}{2}} 
+        H_0: \mu=\mu_0\longleftrightarrow H_1:\mu\neq \mu_0
     \]
+
+\begin{point}
+    Hotelling's $ T^2 $ test
+\end{point}
+
+    
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item One-Dimensional case: $ t $-test
+        \[
+            T=\dfrac{\sqrt{n}(\bar{X}-\mu_0)}{S}\sim t_{n-1}
+        \]
+        
+        i.e.
+        \[
+            T^2=[\sqrt{n}(\bar{X}-\mu_0)](S^2)^{-1}[\sqrt{n}(\bar{X}-\mu_0)] \sim t^2_{n-1}=F_{1,n-1}
+        \]
+
+
+        \item Multi-Dimensional case: Hotelling's $ T^2 $
+        \[
+            T^2 =[\sqrt{n}(\bar{X}-\mu_0)'](S^2)^{-1}[\sqrt{n}(\bar{X}-\mu _0)] \sim N_p(0,\Sigma )'\dfrac{W_p(n-1,\Sigma )}{n-1}N_p(0,\Sigma )=\dfrac{p}{n-p}(n-1)F_{p,n-p}
+        \]
+
+        And we can get the distribution of \textbf{Hotelling's $ T^2 $}:
+         \[ \dfrac{n-p}{p}\dfrac{T^2}{n-1}\sim F_{p,n-p} \]
+
+        Rejection Rule:
+        \[
+            T^2>\dfrac{p(n-1)}{n-p}F_{p,n-p,\alpha } 
+        \]
+        
+        
+
+        Property:
+
+        Invariant for $ X $ transform: For $ Y=CX+d $, then 
+            
+            \[
+                T^2_Y=n(\bar{X}-\mu_0)'S^{-1}(\bar{X}-\mu_0)=T^2_X 
+            \]
+    \end{itemize}      
+            
+\begin{point}
+    \hypertarget{PartHotellingT2Test}{LRT of $ \hat{\mu} $}
+\end{point}
+
+    Monovariate case see sec.\ref{SubSectionLRT}.
+
+    LRT uses the statistic:
+    \[
+        \Lambda =\dfrac{\max_{H_0 }L(\mu_0,\Sigma)}{\max_{H_0\cup H_1}L(\mu,\Sigma)}=(1+\dfrac{T^2}{n-1})^{-n/2} 
+    \]
+
+    where $ T^2=n(\bar{x}-\mu_0)'S^{-1}(\bar{x}-\mu_0) $
+    
+\item \textbf{Two-Population Hypothesis Testing}:
+
+    Conduct hypothesis testing to $ \delta =\mu _1-\mu _2 $:
+\[
+    H_0: \delta =\delta _0\longleftrightarrow H_1:\delta \neq \delta _0
+\]
+
+    Notation: The two sample of size $ n_1,n_2 $, each denoted as
+    \[
+        X_{1,ij}\qquad X_{2,ij} 
+    \]
+    
+    with mean $ \mu_1,\mu_2 $ and covariance matrix $ \Sigma_1,\Sigma_2 $
+
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item Paired Samples: $ n_1=n_2 $
+        
+        For two paires samples $ \{X_{1,ij}\} $, $ X_{2,ij} $, take subtraction as 
+        \[
+            D_{ij}=X_{1,ij}-X_{2,ij} 
+        \]
+
+        denote $ \bar{D}=\dfrac{1}{n}\sum_{j=1}^nD_{ j} $, $ S^2_D=\dfrac{1}{n-1}\sum_{j=1}^n(D_j-\bar{D}'(D_j-\bar{D})) $
+        
+        and conduct test to 
+        \[
+            H_0: \bar{D} =\delta _0\longleftrightarrow H_1:\bar{D} \neq \delta _0
+        \]
+
+        And the folloeing steps are as in One-population testing, test
+        \[
+            T^2=n(\bar{D}-\delta )'(S^2_D)^{-1}(\bar{D}-\delta )\sim \dfrac{(n-1)p}{n-p}F_{p,n-p}
+        \]
+        
+        \item Under Equal Unknown Variance: $ \Sigma_1=\Sigma_2 $
+        
+        \begin{align}
+            \bar{X}_1&=\dfrac{1}{n_1}\sum_{j=1}^{n_1} X_{1,j}&\bar{X}_2&=\dfrac{1}{n_2}\sum_{j=1}^{n_2} X_{1,j}\\
+            S^2_1&=\dfrac{1}{n_1-1}\sum_{j=1}^{n_1}(X_{1,j}-\bar{X}_1)(X_{1,j}-\bar{X}_1)'&S^2_2&=\dfrac{1}{n_2-1}\sum_{j=1}^{n_2}(X_{2,j}-\bar{X}_2)(X_{2,j}-\bar{X}_2)'
+        \end{align}
+        
+        And denote pooled variance
+        \[
+            S^2_\mathrm{pooled}=\dfrac{1}{n_1+n_2-2}\left((n_1-1)S^2_1+(n_2-1)S^2_2 \right)  \sim \dfrac{W_p(n_1+n_2-2,\Sigma )}{n_1+n_2-2}
+        \]
+        
+        Under $ H_0 $, we have 
+        \[
+            T^2= \dfrac{1}{\frac{1}{n_1}+\frac{1}{n_2}}(\bar{X}_1-\bar{X}_2-\delta _0)'(S^2_\mathrm{pooled})^{-1}(\bar{X}_1-\bar{X}_2-\delta _0)\sim \dfrac{p(n_1+n_2-2)}{n_1+n_2-p-1}F_{p,n_1+n_2-p-1}
+        \]
+        
+
+    \end{itemize}
+    
+    
+
+
+\end{itemize}
+
+
+
+
+    
+
+
+\subsubsection{Confidence Region}
+
+
+    Estimate the confidence region for $ \mu $ of $ X\sim N_p(\mu,\Sigma ) $, Monovariate case see sec.\ref{SubSectionConfidenceIntervalForDistributions}
+\begin{itemize}
+    \item Confidence Region:
+
+    Also use Hotelling's $ T^2 $
+    \[
+         \dfrac{n-p}{p}\dfrac{T^2}{n-1}\sim F_{p,n-p}
+    \]
+    
+    And take $ 100(1-\alpha )\% $ confidence region of $ \mu $ as
+    \[
+        R(x)=\{x|T^2\leq c^2\}\qquad c^2=\dfrac{p}{n-p}(n-1)F_{p,n-p,\frac{\alpha }{2}} 
+    \]
+
+    The shape of $ R(x) $ is an ellipsoid.
+    
+
+
+    \item Individual Converage Interval
+    
+    Use the decomposition of $ S^2 $ as a positive finite matrix $ S^2=A^TA $, where $ A $ is some $ p\times p $ matrix, then
+    \[
+        T^2= [\sqrt{n}(\bar{X}-\mu_0)'](S^2)^{-1}[\sqrt{n}(\bar{X}-\mu _0)]=[A^{-1\prime}\sqrt{n}(\bar{X}-\mu_0)]'[A^{-1\prime}\sqrt{n}(\bar{X}-\mu_0)]
+    \]
+
+    Thus denote $ Z=A^{-1\prime}(X-\mu_0) \sim N_p(0,A^{-1\prime}\Sigma A^{-1}) $, the $ T^2 $ estimator of $ Z $ would be
+    \[
+        T_Z^2=[\sqrt{n}\bar{Z}]'(S_Z^2)^{-1} [\sqrt{n}\bar{Z}]=n\bar{Z}'\bar{Z}=\dfrac{1}{n}\sum_{i=1}^n\bar{Z}_i^2\sim F_{p,n-p}
+    \]
+
+    As a simplified case, we can take the \textbf{Individual Converage Interval} of $ Z_i $, which is 
+    \[
+        \dfrac{\sqrt{n}Z_i}{s_{Z_i}}\sim t_{n-1} 
+    \]
+    
+    And we can take the Confidence Region\footnote{The confidence region of $ Z $ can be transformed to that of $ X $ using $ \hat{Z}=A^{-1\prime}(\hat{X}-\bar{X}) $. } as
+    \[
+        R(z)= \bigotimes\limits_{i=1}^n(\bar{Z}_i\pm s_{Z_i}t_{n-1,\frac{\beta }{2}})
+    \]
+    
+    where $ \beta  $ take 
+    \[
+        1-p\beta =1-\alpha  
+    \]
+    
+    Note: Consider that
+    \[
+        P(\text{all }Z_i\text{ in CI}_i)\geq 1-m\beta =1-\alpha  
+    \]
+
+    So the real CR for $ \mu $ should be larger.
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+    The shape of $ R(x) $ is an oblique cubold.
+    
+\end{itemize}
+        
+
+
+
+
+
+\subsubsection{Large Sample Multivariate Inference}
+    Basic point:
+    \[
+        \bar{X}\xrightarrow[]{\mathscr{L}} \mu\qquad S^2\xrightarrow[]{\mathscr{L}} \Sigma  
+    \]
+\begin{itemize}[topsep=2pt,itemsep=2pt]
+    \item One-sample Mean:
+    
+    \[
+        n(\bar{X}-\mu)(S^2)^{-1}(\bar{X}-\mu)\xrightarrow[]{\mathscr{L}} \chi^2_p 
+    \]
+
+    \item Unequal Variance Two-sample Mean:
+    
+    \[
+        \bar{X}_1-\bar{X}_2\xrightarrow[]{\mathscr{L}} N(\mu_1-\mu _2,\dfrac{1}{n_1}\Sigma _1+\dfrac{1}{n_2}\Sigma _2) \qquad\quad \dfrac{1}{n_1}S_1^2+\dfrac{1}{n_2}S_2^2\xrightarrow[]{\mathscr{L}} \dfrac{1}{n_1}\Sigma _1+\dfrac{1}{n_2}\Sigma _2
+    \]
+
+    Test:
+    \[
+        T^2=\left[(\bar{X}_1-\bar{X}_2)-(\mu _1-\mu _2) \right]'(\dfrac{1}{n_1}S_1^2+\dfrac{1}{n_2}S_2^2)^{-1}\left[(\bar{X}_1-\bar{X}_2)-(\mu _1-\mu _2) \right]\xrightarrow[]{\mathscr{L}} \chi^2_p
+    \]
+    
     
     
     
@@ -630,8 +975,17 @@ Wishart Distribution:
 
     
 
+    
+    
+    
+    
 
-Stein's method
+
+
+
+
+
+
 
 
 

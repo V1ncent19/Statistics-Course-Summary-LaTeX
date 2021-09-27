@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7250 64-bit) (preloaded format=xelatex 2020.10.26)  1 APR 2021 12:24
+This is XeTeX, Version 3.14159265-2.6-0.999991 (MiKTeX 2.9.7250 64-bit) (preloaded format=xelatex 2020.10.26)  21 APR 2021 11:14
 entering extended mode
 **c:/Users/彭拓锐Vincent/Desktop/辅修/总结/summary.tex
 (c:/Users/彭拓锐Vincent/Desktop/辅修/总结/summary.tex
@@ -899,47 +899,57 @@ Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 \backup@length=\skip66
 \ar@cellbox=\box65
 )
+("C:\Program Files\MiKTeX 2.9\tex/latex/tools\tabularx.sty"
+Package: tabularx 2016/02/03 v2.11b `tabularx' package (DPC)
+\TX@col@width=\dimen305
+\TX@old@table=\dimen306
+\TX@old@col=\dimen307
+\TX@target=\dimen308
+\TX@delta=\dimen309
+\TX@cols=\count314
+\TX@ftn=\toks40
+)
 (C:\Users\彭拓锐Vincent\AppData\Roaming\MiKTeX\2.9\tex/latex/makecell\makecell.sty
 Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
-\rotheadsize=\dimen305
-\c@nlinenum=\count314
-\TeXr@lab=\toks40
+\rotheadsize=\dimen310
+\c@nlinenum=\count315
+\TeXr@lab=\toks41
 ) (C:\Users\彭拓锐Vincent\AppData\Roaming\MiKTeX\2.9\tex/latex/siunitx\siunitx.sty
 Package: siunitx 2020/02/25 v2.8b A comprehensive (SI) units package
 \l__siunitx_tmp_box=\box66
-\l__siunitx_tmp_dim=\dimen306
-\l__siunitx_tmp_int=\count315
-\l__siunitx_number_mantissa_length_int=\count316
-\l__siunitx_number_uncert_length_int=\count317
-\l__siunitx_round_int=\count318
-\l__siunitx_process_decimal_int=\count319
-\l__siunitx_process_uncertainty_int=\count320
-\l__siunitx_process_fixed_int=\count321
-\l__siunitx_process_integer_min_int=\count322
-\l__siunitx_process_precision_int=\count323
-\l__siunitx_group_min_int=\count324
+\l__siunitx_tmp_dim=\dimen311
+\l__siunitx_tmp_int=\count316
+\l__siunitx_number_mantissa_length_int=\count317
+\l__siunitx_number_uncert_length_int=\count318
+\l__siunitx_round_int=\count319
+\l__siunitx_process_decimal_int=\count320
+\l__siunitx_process_uncertainty_int=\count321
+\l__siunitx_process_fixed_int=\count322
+\l__siunitx_process_integer_min_int=\count323
+\l__siunitx_process_precision_int=\count324
+\l__siunitx_group_min_int=\count325
 \l__siunitx_angle_marker_box=\box67
 \l__siunitx_angle_unit_box=\box68
-\l__siunitx_angle_marker_dim=\dimen307
-\l__siunitx_angle_unit_dim=\dimen308
-\l__siunitx_unit_int=\count325
-\l__siunitx_unit_denominator_int=\count326
-\l__siunitx_unit_numerator_int=\count327
-\l__siunitx_unit_prefix_int=\count328
-\l__siunitx_unit_prefix_base_int=\count329
-\l__siunitx_unit_prefix_gram_int=\count330
-\l__siunitx_number_product_int=\count331
+\l__siunitx_angle_marker_dim=\dimen312
+\l__siunitx_angle_unit_dim=\dimen313
+\l__siunitx_unit_int=\count326
+\l__siunitx_unit_denominator_int=\count327
+\l__siunitx_unit_numerator_int=\count328
+\l__siunitx_unit_prefix_int=\count329
+\l__siunitx_unit_prefix_base_int=\count330
+\l__siunitx_unit_prefix_gram_int=\count331
+\l__siunitx_number_product_int=\count332
 \c__siunitx_one_fill_skip=\skip67
 \l__siunitx_table_unit_align_skip=\skip68
-\l__siunitx_table_exponent_dim=\dimen309
-\l__siunitx_table_integer_dim=\dimen310
-\l__siunitx_table_mantissa_dim=\dimen311
-\l__siunitx_table_marker_dim=\dimen312
-\l__siunitx_table_result_dim=\dimen313
-\l__siunitx_table_uncert_dim=\dimen314
-\l__siunitx_table_fill_pre_dim=\dimen315
-\l__siunitx_table_fill_post_dim=\dimen316
-\l__siunitx_table_fill_mid_dim=\dimen317
+\l__siunitx_table_exponent_dim=\dimen314
+\l__siunitx_table_integer_dim=\dimen315
+\l__siunitx_table_mantissa_dim=\dimen316
+\l__siunitx_table_marker_dim=\dimen317
+\l__siunitx_table_result_dim=\dimen318
+\l__siunitx_table_uncert_dim=\dimen319
+\l__siunitx_table_fill_pre_dim=\dimen320
+\l__siunitx_table_fill_post_dim=\dimen321
+\l__siunitx_table_fill_mid_dim=\dimen322
 \l__siunitx_table_pre_box=\box69
 \l__siunitx_table_post_box=\box70
 \l__siunitx_table_mantissa_box=\box71
@@ -957,17 +967,17 @@ Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 (C:\Users\彭拓锐Vincent\AppData\Roaming\MiKTeX\2.9\tex/latex/enumitem\enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
 \labelindent=\skip71
-\enit@outerparindent=\dimen318
-\enit@toks=\toks41
+\enit@outerparindent=\dimen323
+\enit@toks=\toks42
 \enit@inbox=\box73
-\enit@count@id=\count332
-\enitdp@description=\count333
+\enit@count@id=\count333
+\enitdp@description=\count334
 ) ("C:\Program Files\MiKTeX 2.9\tex/latex/multirow\multirow.sty"
 Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
 \multirow@colwidth=\skip72
-\multirow@cntb=\count334
+\multirow@cntb=\count335
 \multirow@dima=\skip73
-\bigstrutjot=\dimen319
+\bigstrutjot=\dimen324
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\hyperref.sty"
 Package: hyperref 2019/11/10 v7.00c Hypertext links for LaTeX
@@ -1016,9 +1026,9 @@ Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 ty
 Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
 )
-\@linkdim=\dimen320
-\Hy@linkcounter=\count335
-\Hy@pagecounter=\count336
+\@linkdim=\dimen325
+\Hy@linkcounter=\count336
+\Hy@pagecounter=\count337
  ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\pd1enc.def"
 File: pd1enc.def 2019/11/10 v7.00c Hyperref: PDFDocEncoding definition (HO)
 )
@@ -1029,7 +1039,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 ty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count337
+\Hy@SavedSpaceFactor=\count338
  ("C:\Program Files\MiKTeX 2.9\tex/latex/00miktex\hyperref.cfg"
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
@@ -1046,14 +1056,14 @@ Package hyperref Info: Plain pages OFF on input line 4550.
 Package hyperref Info: Backreferencing OFF on input line 4555.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4788.
-\c@Hy@tempcnt=\count338
+\c@Hy@tempcnt=\count339
 
 (C:\Users\彭拓锐Vincent\AppData\Roaming\MiKTeX\2.9\tex/latex/url\url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5147.
-\XeTeXLinkMargin=\dimen321
+\XeTeXLinkMargin=\dimen326
 
 (C:\Users\彭拓锐Vincent\AppData\Roaming\MiKTeX\2.9\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -1063,9 +1073,9 @@ lc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count339
-\Field@Width=\dimen322
-\Fld@charsize=\dimen323
+\Fld@menulength=\count340
+\Field@Width=\dimen327
+\Fld@charsize=\dimen328
 Package hyperref Info: Hyper figures OFF on input line 6418.
 Package hyperref Info: Link nesting OFF on input line 6423.
 Package hyperref Info: Hyper index ON on input line 6426.
@@ -1080,9 +1090,9 @@ LaTeX Info: Redefining \pageref on input line 6492.
 ty
 Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
 )
-\Hy@abspage=\count340
-\c@Item=\count341
-\c@Hfootnote=\count342
+\Hy@abspage=\count341
+\c@Item=\count342
+\c@Hfootnote=\count343
 )
 Package hyperref Info: Driver (autodetected): hxetex.
  ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\hxetex.def"
@@ -1094,10 +1104,10 @@ Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
 \pdfm@box=\box74
-\c@Hy@AnnotLevel=\count343
-\HyField@AnnotCount=\count344
-\Fld@listcount=\count345
-\c@bookmark@seq@number=\count346
+\c@Hy@AnnotLevel=\count344
+\HyField@AnnotCount=\count345
+\Fld@listcount=\count346
+\c@bookmark@seq@number=\count347
 
 (C:\Users\彭拓锐Vincent\AppData\Roaming\MiKTeX\2.9\tex/latex/rerunfilecheck\rerunf
 ilecheck.sty
@@ -1118,10 +1128,10 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 \Hy@SectionHShift=\skip74
 ) ("C:\Program Files\MiKTeX 2.9\tex/latex/float\float.sty"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count347
-\float@exts=\toks42
+\c@float@type=\count348
+\float@exts=\toks43
 \float@box=\box75
-\@float@everytoks=\toks43
+\@float@everytoks=\toks44
 \@floatcapt=\box76
 )
 (C:\Users\彭拓锐Vincent\AppData\Roaming\MiKTeX\2.9\tex/latex/pict2e\pict2e.sty
@@ -1136,34 +1146,34 @@ Package pict2e Info: Driver file for pict2e: p2e-xetex.def on input line 114.
 (C:\Users\彭拓锐Vincent\AppData\Roaming\MiKTeX\2.9\tex/latex/pict2e\p2e-xetex.def
 File: p2e-xetex.def 2016/02/05 v0.1u Driver-dependant file (RN,HjG,JT)
 )
-\pIIe@GRAPH=\toks44
-\@arclen=\dimen324
-\@arcrad=\dimen325
-\pIIe@tempdima=\dimen326
-\pIIe@tempdimb=\dimen327
-\pIIe@tempdimc=\dimen328
-\pIIe@tempdimd=\dimen329
-\pIIe@tempdime=\dimen330
-\pIIe@tempdimf=\dimen331
+\pIIe@GRAPH=\toks45
+\@arclen=\dimen329
+\@arcrad=\dimen330
+\pIIe@tempdima=\dimen331
+\pIIe@tempdimb=\dimen332
+\pIIe@tempdimc=\dimen333
+\pIIe@tempdimd=\dimen334
+\pIIe@tempdime=\dimen335
+\pIIe@tempdimf=\dimen336
 ) (C:\Users\彭拓锐Vincent\AppData\Roaming\MiKTeX\2.9\tex/latex/fp\fp.sty
 Package: fp 1995/04/02
 
 `Fixed Point Package', Version 0.8, April 2, 1995 (C) Michael Mehlich
 (C:\Users\彭拓锐Vincent\AppData\Roaming\MiKTeX\2.9\tex/latex/fp\defpattern.sty
 Package: defpattern 1994/10/12
-\actioncount=\count348
+\actioncount=\count349
 )
 (C:\Users\彭拓锐Vincent\AppData\Roaming\MiKTeX\2.9\tex/latex/fp\fp-basic.sty
 Package: fp-basic 1996/05/13
-\FP@xs=\count349
-\FP@xia=\count350
-\FP@xib=\count351
-\FP@xfa=\count352
-\FP@xfb=\count353
-\FP@rega=\count354
-\FP@regb=\count355
-\FP@regs=\count356
-\FP@times=\count357
+\FP@xs=\count350
+\FP@xia=\count351
+\FP@xib=\count352
+\FP@xfa=\count353
+\FP@xfb=\count354
+\FP@rega=\count355
+\FP@regb=\count356
+\FP@regs=\count357
+\FP@times=\count358
 )
 (C:\Users\彭拓锐Vincent\AppData\Roaming\MiKTeX\2.9\tex/latex/fp\fp-addons.sty
 Package: fp-addons 1995/03/15
@@ -1182,7 +1192,7 @@ Package: fp-pas 1994/08/29
 )
 (C:\Users\彭拓锐Vincent\AppData\Roaming\MiKTeX\2.9\tex/latex/fp\fp-random.sty
 Package: fp-random 1995/02/23
-\FPseed=\count358
+\FPseed=\count359
 )
 (C:\Users\彭拓锐Vincent\AppData\Roaming\MiKTeX\2.9\tex/latex/fp\fp-eqn.sty
 Package: fp-eqn 1995/04/03
@@ -1198,53 +1208,53 @@ Package: diagbox 2020/02/09 v2.3 Making table heads with diagonal lines
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/tools\calc.sty"
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count359
-\calc@Bcount=\count360
-\calc@Adimen=\dimen332
-\calc@Bdimen=\dimen333
+\calc@Acount=\count360
+\calc@Bcount=\count361
+\calc@Adimen=\dimen337
+\calc@Bdimen=\dimen338
 \calc@Askip=\skip75
 \calc@Bskip=\skip76
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count361
+\calc@Ccount=\count362
 \calc@Cskip=\skip77
 )
 \diagbox@boxa=\box77
 \diagbox@boxb=\box78
 \diagbox@boxm=\box79
-\diagbox@wd=\dimen334
-\diagbox@ht=\dimen335
-\diagbox@insepl=\dimen336
-\diagbox@insepr=\dimen337
-\diagbox@outsepl=\dimen338
-\diagbox@outsepr=\dimen339
+\diagbox@wd=\dimen339
+\diagbox@ht=\dimen340
+\diagbox@insepl=\dimen341
+\diagbox@insepr=\dimen342
+\diagbox@outsepl=\dimen343
+\diagbox@outsepr=\dimen344
 )
 (C:\Users\彭拓锐Vincent\AppData\Roaming\MiKTeX\2.9\tex/latex/fancyvrb\fancyvrb.sty
 Package: fancyvrb 2020/05/03 v3.6 verbatim text (tvz,hv)
-\FV@CodeLineNo=\count362
+\FV@CodeLineNo=\count363
 \FV@InFile=\read3
 \FV@TabBox=\box80
-\c@FancyVerbLine=\count363
-\FV@StepNumber=\count364
+\c@FancyVerbLine=\count364
+\FV@StepNumber=\count365
 \FV@OutFile=\write4
 )
 (C:\Users\彭拓锐Vincent\AppData\Roaming\MiKTeX\2.9\tex/latex/listings\listings.sty
-\lst@mode=\count365
+\lst@mode=\count366
 \lst@gtempboxa=\box81
-\lst@token=\toks45
-\lst@length=\count366
-\lst@currlwidth=\dimen340
-\lst@column=\count367
-\lst@pos=\count368
-\lst@lostspace=\dimen341
-\lst@width=\dimen342
-\lst@newlines=\count369
-\lst@lineno=\count370
-\lst@maxwidth=\dimen343
+\lst@token=\toks46
+\lst@length=\count367
+\lst@currlwidth=\dimen345
+\lst@column=\count368
+\lst@pos=\count369
+\lst@lostspace=\dimen346
+\lst@width=\dimen347
+\lst@newlines=\count370
+\lst@lineno=\count371
+\lst@maxwidth=\dimen348
 (C:\Users\彭拓锐Vincent\AppData\Roaming\MiKTeX\2.9\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-\c@lstnumber=\count371
-\lst@skipnumbers=\count372
+\c@lstnumber=\count372
+\lst@skipnumbers=\count373
 \lst@framebox=\box82
 )
 (C:\Users\彭拓锐Vincent\AppData\Roaming\MiKTeX\2.9\tex/latex/listings\listings.cfg
@@ -1255,8 +1265,8 @@ Package: listings 2020/03/24 1.8d (Carsten Heinz)
 (C:\Users\彭拓锐Vincent\AppData\Roaming\MiKTeX\2.9\tex/xelatex/xecjk\xeCJK-listing
 s.sty
 Package: xeCJK-listings 2020/10/19 v3.8.6 xeCJK patch file for listings
-\l__xeCJK_listings_max_char_int=\count373
-\l__xeCJK_listings_flag_int=\count374
+\l__xeCJK_listings_max_char_int=\count374
+\l__xeCJK_listings_flag_int=\count375
 )
 (C:\Users\彭拓锐Vincent\AppData\Roaming\MiKTeX\2.9\tex/latex/minted\minted.sty
 Package: minted 2017/07/19 v2.5 Yet another Pygments shim for LaTeX
@@ -1269,7 +1279,7 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 (C:\Users\彭拓锐Vincent\AppData\Roaming\MiKTeX\2.9\tex/latex/etoolbox\etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count375
+\etb@tempcnta=\count376
 ) (C:\Users\彭拓锐Vincent\AppData\Roaming\MiKTeX\2.9\tex/latex/upquote\upquote.sty
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
 tim
@@ -1359,44 +1369,44 @@ Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 (C:\Users\彭拓锐Vincent\AppData\Roaming\MiKTeX\2.9\tex/latex/lineno\lineno.sty
 Package: lineno 2005/11/02 line numbers on paragraphs v4.41
 Invalid UTF-8 byte or sequence at line 296 replaced by U+FFFD.
-\linenopenalty=\count376
-\output=\toks46
-\linenoprevgraf=\count377
-\linenumbersep=\dimen344
-\linenumberwidth=\dimen345
-\c@linenumber=\count378
-\c@pagewiselinenumber=\count379
-\c@LN@truepage=\count380
-\c@internallinenumber=\count381
-\c@internallinenumbers=\count382
-\quotelinenumbersep=\dimen346
-\bframerule=\dimen347
-\bframesep=\dimen348
+\linenopenalty=\count377
+\output=\toks47
+\linenoprevgraf=\count378
+\linenumbersep=\dimen349
+\linenumberwidth=\dimen350
+\c@linenumber=\count379
+\c@pagewiselinenumber=\count380
+\c@LN@truepage=\count381
+\c@internallinenumber=\count382
+\c@internallinenumbers=\count383
+\quotelinenumbersep=\dimen351
+\bframerule=\dimen352
+\bframesep=\dimen353
 \bframebox=\box83
 LaTeX Info: Redefining \\ on input line 3056.
 )
-\c@FV@TrueTabGroupLevel=\count383
-\c@FV@TrueTabCounter=\count384
+\c@FV@TrueTabGroupLevel=\count384
+\c@FV@TrueTabCounter=\count385
 \FV@TabBox@Group=\box84
 \FV@TmpLength=\skip78
-\c@FV@HighlightLinesStart=\count385
-\c@FV@HighlightLinesStop=\count386
-\FV@LoopCount=\count387
+\c@FV@HighlightLinesStart=\count386
+\c@FV@HighlightLinesStop=\count387
+\FV@LoopCount=\count388
 \FV@NCharsBox=\box85
-\FV@BreakIndent=\dimen349
-\FV@BreakIndentNChars=\count388
-\FV@BreakSymbolSepLeft=\dimen350
-\FV@BreakSymbolSepLeftNChars=\count389
-\FV@BreakSymbolSepRight=\dimen351
-\FV@BreakSymbolSepRightNChars=\count390
-\FV@BreakSymbolIndentLeft=\dimen352
-\FV@BreakSymbolIndentLeftNChars=\count391
-\FV@BreakSymbolIndentRight=\dimen353
-\FV@BreakSymbolIndentRightNChars=\count392
-\c@FancyVerbLineBreakLast=\count393
+\FV@BreakIndent=\dimen354
+\FV@BreakIndentNChars=\count389
+\FV@BreakSymbolSepLeft=\dimen355
+\FV@BreakSymbolSepLeftNChars=\count390
+\FV@BreakSymbolSepRight=\dimen356
+\FV@BreakSymbolSepRightNChars=\count391
+\FV@BreakSymbolIndentLeft=\dimen357
+\FV@BreakSymbolIndentLeftNChars=\count392
+\FV@BreakSymbolIndentRight=\dimen358
+\FV@BreakSymbolIndentRightNChars=\count393
+\c@FancyVerbLineBreakLast=\count394
 \FV@LineBox=\box86
 \FV@LineIndentBox=\box87
-\FV@LineWidth=\dimen354
+\FV@LineWidth=\dimen359
 )
 ("C:\Program Files\MiKTeX 2.9\tex/latex/tools\shellesc.sty"
 Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
@@ -1415,9 +1425,9 @@ Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 )) (C:\Users\彭拓锐Vincent\AppData\Roaming\MiKTeX\2.9\tex/latex/xstring\xstring.st
 y
 (C:\Users\彭拓锐Vincent\AppData\Roaming\MiKTeX\2.9\tex/generic/xstring\xstring.tex
-\integerpart=\count394
+\integerpart=\count395
 Invalid UTF-8 byte or sequence at line 35 replaced by U+FFFD.
-\decimalpart=\count395
+\decimalpart=\count396
 Invalid UTF-8 byte or sequence at line 79 replaced by U+FFFD.
 Invalid UTF-8 byte or sequence at line 79 replaced by U+FFFD.
 Invalid UTF-8 byte or sequence at line 83 replaced by U+FFFD.
@@ -1558,18 +1568,18 @@ Package: xstring 2019/02/06 v1.83 String manipulations (CT)
 ) (C:\Users\彭拓锐Vincent\AppData\Roaming\MiKTeX\2.9\tex/latex/framed\framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \OuterFrameSep=\skip79
-\fb@frw=\dimen355
-\fb@frh=\dimen356
-\FrameRule=\dimen357
-\FrameSep=\dimen358
+\fb@frw=\dimen360
+\fb@frh=\dimen361
+\FrameRule=\dimen362
+\FrameSep=\dimen363
 )
 \minted@appexistsfile=\read4
 \minted@bgbox=\box88
 \minted@code=\write5
-\c@minted@FancyVerbLineTemp=\count396
-\c@minted@pygmentizecounter=\count397
-\@float@every@listing=\toks47
-\c@listing=\count398
+\c@minted@FancyVerbLineTemp=\count397
+\c@minted@pygmentizecounter=\count398
+\@float@every@listing=\toks48
+\c@listing=\count399
 )
 runsystem(if not exist _minted-summary mkdir _minted-summary)...executed.
 
@@ -1579,12 +1589,12 @@ Package: titlesec 2019/10/16 v2.13 Sectioning titles
 \ttl@box=\box89
 \beforetitleunit=\skip80
 \aftertitleunit=\skip81
-\ttl@plus=\dimen359
-\ttl@minus=\dimen360
-\ttl@toksa=\toks48
-\titlewidth=\dimen361
-\titlewidthlast=\dimen362
-\titlewidthfirst=\dimen363
+\ttl@plus=\dimen364
+\ttl@minus=\dimen365
+\ttl@toksa=\toks49
+\titlewidth=\dimen366
+\titlewidthlast=\dimen367
+\titlewidthfirst=\dimen368
 ) ("C:\Program Files\MiKTeX 2.9\tex/latex/base\makeidx.sty"
 Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
 )
@@ -1605,18 +1615,18 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 (C:\Users\彭拓锐Vincent\AppData\Roaming\MiKTeX\2.9\tex/generic/iftex\ifxetex.sty
 Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count399
-\Gm@cntv=\count400
-\c@Gm@tempcnt=\count401
-\Gm@bindingoffset=\dimen364
-\Gm@wd@mp=\dimen365
-\Gm@odd@mp=\dimen366
-\Gm@even@mp=\dimen367
-\Gm@layoutwidth=\dimen368
-\Gm@layoutheight=\dimen369
-\Gm@layouthoffset=\dimen370
-\Gm@layoutvoffset=\dimen371
-\Gm@dimlist=\toks49
+\Gm@cnth=\count400
+\Gm@cntv=\count401
+\c@Gm@tempcnt=\count402
+\Gm@bindingoffset=\dimen369
+\Gm@wd@mp=\dimen370
+\Gm@odd@mp=\dimen371
+\Gm@even@mp=\dimen372
+\Gm@layoutwidth=\dimen373
+\Gm@layoutheight=\dimen374
+\Gm@layouthoffset=\dimen375
+\Gm@layoutvoffset=\dimen376
+\Gm@dimlist=\toks50
 
 ("C:\Program Files\MiKTeX 2.9\tex/xelatex/xetexconfig\geometry.cfg"))
 
@@ -1651,7 +1661,7 @@ ext;"
 (fontspec)             Roman/BI/OT:script=latn;language=DFLT;+smcp;mapping=tex-
 text;"
 
-LaTeX Info: Redefining \rmfamily on input line 38.
+LaTeX Info: Redefining \rmfamily on input line 39.
 
 Package fontspec Info: Font family 'Consolas(0)' created for font 'Consolas'
 (fontspec)             with options [].
@@ -1679,95 +1689,95 @@ runsystem(del summary.aex)...executed.
 
 
 (summary.aux (sections/初等概率论.aux) (sections/统计推断.aux) (sections/R.aux)
-(sections/线性回归分析.aux) (sections/多元统计分析.aux))
+(sections/线性回归分析.aux) (sections/多元统计分析.aux) (sections/ReferenceBook.aux))
 \openout1 = `summary.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 91.
-LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
 
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 91.
+LaTeX Info: Redefining \selectfont on input line 95.
 
 Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
 (fontspec)             this).
 
 \symlegacymaths=\mathgroup7
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 91.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 91.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 91.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 91.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 91.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 91.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 91.
-LaTeX Font Info:    Redeclaring math accent \check on input line 91.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 91.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 91.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 91.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 91.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 91.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 91.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 91.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 91.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 91.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 91.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 91.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 91.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 91.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 91.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 91.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 91.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 95.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 95.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 95.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 95.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 95.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 95.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 95.
+LaTeX Font Info:    Redeclaring math accent \check on input line 95.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 95.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 95.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 95.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 95.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 95.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 95.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 95.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 95.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 95.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 95.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 95.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 95.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 95.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 95.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 95.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 95.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 91.
+(Font)              `operators' in the math version `normal' on input line 95.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> TU/TimesNewRoman(0)/m/n on input line 9
-1.
+5.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 91.
+(Font)              `operators' in the math version `bold' on input line 95.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/m/n on input line 
-91.
+95.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/m/n on 
-input line 91.
+input line 95.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/cmr/m/it --> TU/TimesNewRoman(0)/m/it on input line
- 91.
+ 95.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/bx/n on input line
- 91.
+ 95.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 91.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 95.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 91.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 95.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/bx/n on
- input line 91.
+ input line 95.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> TU/TimesNewRoman(0)/bx/it on input li
-ne 91.
+ne 95.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/bx/n on input line 91.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/bx/n on input line 95.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/bx/n on input line 91.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/bx/n on input line 95.
  ABD: EveryShipout initializing macros
 (C:\Users\彭拓锐Vincent\AppData\Roaming\MiKTeX\2.9\tex/latex/translator\translator
 -basic-dictionary-English.dict
@@ -1778,7 +1788,7 @@ viations.cfg
 File: siunitx-abbreviations.cfg 2017/11/26 v2.7k siunitx: Abbreviated units
 )
 \AtBeginShipoutBox=\box90
-Package hyperref Info: Link coloring ON on input line 91.
+Package hyperref Info: Link coloring ON on input line 95.
  ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\nameref.sty"
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 
@@ -1789,16 +1799,16 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 itlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count402
+\c@section@level=\count403
 )
-LaTeX Info: Redefining \ref on input line 91.
-LaTeX Info: Redefining \pageref on input line 91.
-LaTeX Info: Redefining \nameref on input line 91.
+LaTeX Info: Redefining \ref on input line 95.
+LaTeX Info: Redefining \pageref on input line 95.
+LaTeX Info: Redefining \nameref on input line 95.
  (summary.out) (summary.out)
 \@outlinefile=\write7
 \openout7 = `summary.out'.
 
-\c@lstlisting=\count403
+\c@lstlisting=\count404
 
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1833,18 +1843,18 @@ LaTeX Info: Redefining \nameref on input line 91.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 91.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 95.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 91.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 95.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 91
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 95
 .
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/jknappen\ursfs.fd"
@@ -1865,7 +1875,7 @@ t line 26.
 LaTeX Font Info:    Font shape `TU/SimSun(0)/m/sl' in size <10.95> not availabl
 e
 (Font)              Font shape `TU/SimSun(0)/m/it' tried instead on input line 
-61.
+62.
  [2])
 \tf@toc=\write8
 \openout8 = `summary.toc'.
@@ -1876,93 +1886,93 @@ e
  (sections/初等概率论.tex
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 59.
+(hyperref)                removing `math shift' on input line 63.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sigma' on input line 59.
+(hyperref)                removing `\sigma' on input line 63.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 59.
+(hyperref)                removing `math shift' on input line 63.
 
 [4
 
 ] [5] [6]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 259.
+(hyperref)                removing `math shift' on input line 260.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 259.
+(hyperref)                removing `math shift' on input line 260.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 259.
+(hyperref)                removing `math shift' on input line 260.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sigma' on input line 259.
+(hyperref)                removing `\sigma' on input line 260.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 259.
+(hyperref)                removing `superscript' on input line 260.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 259.
+(hyperref)                removing `math shift' on input line 260.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 259.
+(hyperref)                removing `math shift' on input line 260.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 259.
+(hyperref)                removing `math shift' on input line 260.
 
 [7] [8] [9] [10] [11] [12] [13]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 646.
+(hyperref)                removing `math shift' on input line 637.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\chi' on input line 646.
+(hyperref)                removing `\chi' on input line 637.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 646.
+(hyperref)                removing `superscript' on input line 637.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 646.
+(hyperref)                removing `math shift' on input line 637.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 646.
+(hyperref)                removing `math shift' on input line 637.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\leavevmode@ifvmode' on input line 646.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \kern 1.82538pt
-(hyperref)                removed on input line 646.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\leavevmode@ifvmode' on input line 646.
+(hyperref)                removing `\leavevmode@ifvmode' on input line 637.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 1.82538pt
-(hyperref)                removed on input line 646.
+(hyperref)                removed on input line 637.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 646.
+(hyperref)                removing `\leavevmode@ifvmode' on input line 637.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 1.82538pt
+(hyperref)                removed on input line 637.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 637.
 
 [14]) [15]
 \openout2 = `sections/统计推断.aux'.
@@ -1972,37 +1982,37 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 ] [17] [18] [19] [20] [21] [22] [23] [24]
 [25] [26]
-Underfull \hbox (badness 10000) in paragraph at lines 692--693
+Underfull \hbox (badness 10000) in paragraph at lines 697--698
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 693--694
+Underfull \hbox (badness 10000) in paragraph at lines 698--699
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 694--695
+Underfull \hbox (badness 10000) in paragraph at lines 699--700
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 695--696
+Underfull \hbox (badness 10000) in paragraph at lines 700--701
 
  []
 
 [27]
-Underfull \hbox (badness 10000) in paragraph at lines 784--785
+Underfull \hbox (badness 10000) in paragraph at lines 789--790
 
  []
 
 [28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38] [39]
-Underfull \hbox (badness 10000) in paragraph at lines 1658--1663
+Underfull \hbox (badness 10000) in paragraph at lines 1687--1692
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1658--1663
+Underfull \hbox (badness 10000) in paragraph at lines 1687--1692
 
  []
 
@@ -2013,139 +2023,192 @@ Underfull \hbox (badness 10000) in paragraph at lines 1658--1663
 No file sections/R.tex.
 \openout2 = `sections/线性回归分析.aux'.
 
-(sections/线性回归分析.tex [42
+(sections/线性回归分析.tex
+(C:\Users\彭拓锐Vincent\AppData\Roaming\MiKTeX\2.9\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+)
+(C:\Users\彭拓锐Vincent\AppData\Roaming\MiKTeX\2.9\tex/latex/listings\lstlang2.sty
+File: lstlang2.sty 2020/03/24 1.8d listings language file
+)
+(C:\Users\彭拓锐Vincent\AppData\Roaming\MiKTeX\2.9\tex/latex/listings\lstlang3.sty
+File: lstlang3.sty 2020/03/24 1.8d listings language file
+) [42
 
 
 
 
-] [43]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 165.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\beta' on input line 165.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 165.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 165.
+] [43] [44]
+Missing character: There is no ␣ in font Consolas/OT:script=latn;language=DFLT;
+!
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 165.
+(hyperref)                removing `math shift' on input line 253.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\beta' on input line 165.
+(hyperref)                removing `\beta' on input line 253.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 165.
+(hyperref)                removing `subscript' on input line 253.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 165.
-
-[44]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 225.
+(hyperref)                removing `math shift' on input line 253.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 225.
+(hyperref)                removing `math shift' on input line 253.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 225.
+(hyperref)                removing `\beta' on input line 253.
 
-[45] [46] [47] [48]) [49]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 253.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 253.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 253.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 253.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 253.
+
+[45]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 348.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 348.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 348.
+
+[46] [47]
+Underfull \hbox (badness 10000) in paragraph at lines 506--507
+
+ []
+
+[48] [49] [50] [51] [52] [53] [54] [55] [56] [57] [58] [59] [60]) [61]
 \openout2 = `sections/多元统计分析.aux'.
 
- (sections/多元统计分析.tex [50
+
+(sections/多元统计分析.tex [62
 
 
-] [51] [52] [53]
-Underfull \hbox (badness 10000) in paragraph at lines 324--325
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 325--326
+] [63] [64] [65] [66]
+Underfull \hbox (badness 10000) in paragraph at lines 358--359
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 326--327
+Underfull \hbox (badness 10000) in paragraph at lines 359--360
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 327--328
-
- []
-
-[54]
-Underfull \hbox (badness 10000) in paragraph at lines 328--329
+Underfull \hbox (badness 10000) in paragraph at lines 360--361
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 329--330
+Underfull \hbox (badness 10000) in paragraph at lines 361--362
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 330--331
+Underfull \hbox (badness 10000) in paragraph at lines 362--363
 
  []
 
-[55] [56]
+
+Underfull \hbox (badness 10000) in paragraph at lines 363--364
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 364--365
+
+ []
+
+[67] [68]
+Overfull \hbox (5.84242pt too wide) in paragraph at lines 542--544
+[]\TU/TimesNewRoman(0)/m/n/10.95 Linear Combination: Let $\OML/cmm/m/it/10.95 X
+[]; X[] [] ; X[]$ \TU/TimesNewRoman(0)/m/n/10.95 with $\OML/cmm/m/it/10.95 X[] 
+\OMS/cmsy/m/n/10.95 ^^X \OML/cmm/m/it/10.95 N[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/i
+t/10.95 ^^V[]; \OT1/cmr/m/n/10.95 ^^F)$ \TU/TimesNewRoman(0)/m/n/10.95 (differe
+nt $\OML/cmm/m/it/10.95 ^^V[]$\TU/TimesNewRoman(0)/m/n/10.95 , same $\OT1/cmr/m
+/n/10.95 ^^F$\TU/TimesNewRoman(0)/m/n/10.95 ). And denote $\OML/cmm/m/it/10.95 
+V[] \OT1/cmr/m/n/10.95 = [][] \OML/cmm/m/it/10.95 c[]X[]$\TU/TimesNewRoman(0)/m
+/n/10.95 ,
+ []
+
+[69]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 566.
+(hyperref)                removing `math shift' on input line 621.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 566.
+(hyperref)                removing `math shift' on input line 621.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 566.
+(hyperref)                removing `math shift' on input line 621.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 566.
-
-[57]) [58] (summary.ind [59
+(hyperref)                removing `superscript' on input line 621.
 
 
-] [60
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 621.
+
+[70] [71] [72] [73]) [74]
+\openout2 = `sections/ReferenceBook.aux'.
+
+ (sections/ReferenceBook.tex) [75
+
+
+] (summary.ind
+[76
+
+
+] [77
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 120.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 120.
- (summary.aux (sections/初等概率论.aux)
-(sections/统计推断.aux) (sections/R.aux) (sections/线性回归分析.aux) (sections/多元统计分析.aux
-))
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 120.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 120.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 128.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 128.
+ (summary.aux (sections/初等概率论.aux) (sections/统计推断.aux)
+(sections/R.aux) (sections/线性回归分析.aux) (sections/多元统计分析.aux)
+(sections/ReferenceBook.aux))
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 128.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 128.
 Package rerunfilecheck Info: File `summary.out' has not changed.
-(rerunfilecheck)             Checksum: 243E01C4C4A23C09E322CE0C4401FA55;12956.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 120.
+(rerunfilecheck)             Checksum: FDCB056A9CFF111C7C8561A023C2F17D;15189.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 128.
  ) 
 Here is how much of TeX's memory you used:
- 47258 strings out of 427233
- 954802 string characters out of 3145603
- 1099784 words of memory out of 3000000
- 51067 multiletter control sequences out of 15000+200000
- 545461 words of font info for 137 fonts, out of 3000000 for 9000
+ 48331 strings out of 427233
+ 969179 string characters out of 3145603
+ 1273142 words of memory out of 3000000
+ 52117 multiletter control sequences out of 15000+200000
+ 545477 words of font info for 139 fonts, out of 3000000 for 9000
  1348 hyphenation exceptions out of 8191
  60i,33n,82p,998b,2146s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on summary.pdf (60 pages).
+Output written on summary.pdf (77 pages).

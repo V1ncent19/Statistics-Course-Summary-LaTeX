@@ -8,6 +8,7 @@
 \usepackage{tikz}%作图
 \usepackage{appendix}%附录
 \usepackage{array}%多行公式/数组
+\usepackage{tabularx}%绘制定宽表格
 \usepackage{makecell}%表格缩并
 \usepackage{siunitx}%SI单位
 \usepackage{mathrsfs}%数学字体
@@ -40,6 +41,9 @@
 %其他设置
 \numberwithin{equation}{section}%公式按照章节编号
 \newenvironment{point}{\raggedright$\Box $ }{}%新环境，用于标示重点内容
+\newenvironment{rcode}{\raggedright$  \vartriangleright  $ \lstinline|R.| \textbf{Code}  \\}{}%新环境，用于建立R语言命令段落
+\newcolumntype{Y}{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}X}%tabularx中的居中表格格式
+\allowdisplaybreaks[2]%跨页公式
 
 %代码环境\lst设置
 \definecolor{CodeBlue}{HTML}{268BD2}
@@ -112,6 +116,10 @@
 \newpage
 
 
+
+
+\include{sections/ReferenceBook}
+\newpage
 
 \newpage
 \printindex

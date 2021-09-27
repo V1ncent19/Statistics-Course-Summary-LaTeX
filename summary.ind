@@ -1,31 +1,44 @@
 \begin{theindex}
 
   \item $ \sigma $-field, \hyperpage{4}
+  \item $ dof $/$ df $ (Degree of Freedom), \hyperpage{44}
   \item $ t $-test, \hyperpage{33}
 
   \indexspace
 
-  \item ANOVA (Analysis of Variance), \hyperpage{46}
+  \item A-D Test (Anderson-Darling Test), \hyperpage{55}
+  \item ANOVA $ F $-test, \hyperpage{50}
+  \item ANOVA (Analysis of Variance), \hyperpage{48}
 
   \indexspace
 
+  \item B-P Test (Breusch-Pagan Test), \hyperpage{54}
+  \item Bartlett's test, \hyperpage{53}
   \item Basu Thm., \hyperpage{19}
   \item Borel-Cantelli Lemma, \hyperpage{5}
+  \item Brown-Forsythe's Test, \hyperpage{54}
 
   \indexspace
 
   \item C.F. (Characteristic Function), \hyperpage{11}
-  \item CB (Confidence Band), \hyperpage{45}
+  \item CB (Confidence Band), \hyperpage{47}
   \item CDF (Cumulative Distribution Function), \hyperpage{6}
   \item CI (Confidence Interval), \hyperpage{27}
   \item CLT (Central Limit Theorem), \hyperpage{12}
+  \item CMD (Coefficient of Multiple Determination), \hyperpage{50}
   \item Confidence Coefficient, \hyperpage{28}
-  \item Contingency Table, \hyperpage{39}
+  \item Contingency Table, \hyperpage{38}
   \item Convergence, \hyperpage{11}
   \item CR Inequality (Cramer-Rao Inequality), \hyperpage{23}
+  \item CvM Test (Cramér-von Mises Test), \hyperpage{55}
 
   \indexspace
 
+  \item DW Test (Durbin-Watson Test), \hyperpage{55}
+
+  \indexspace
+
+  \item ECDF (Empirical CDF), \hyperpage{27}
   \item EDA (Exploratory Data Analysis), \hyperpage{42}
   \item EF (Exponential Family), \hyperpage{17}
 
@@ -39,8 +52,8 @@
 
   \indexspace
 
-  \item Gauss-Markov Thm.`', \hyperpage{45}
-  \item GLT (General Linear Test), \hyperpage{47}
+  \item Gauss-Markov Thm.`', \hyperpage{46}
+  \item GLT (General Linear Test), \hyperpage{50}
 
   \indexspace
 
@@ -52,25 +65,33 @@
   \item Indicator Function, \hyperpage{6}
   \item Inequality
     \subitem Bonferroni Inequality, \hyperpage{12}
-    \subitem Cauchy-Schwarz Inequality, \hyperpage{12}
+    \subitem Cauchy-Schwarz Inequality, \hyperpage{12}, \hyperpage{67}
     \subitem Chebyshev Inequality, \hyperpage{12}
     \subitem Markov Inequality, \hyperpage{12}
+    \subitem Maximazation Lemma, \hyperpage{68}
   \item Invariance of MLE, \hyperpage{21}
-  \item IQR (InterQuartile Range), \hyperpage{48}
 
   \indexspace
 
-  \item K-S Test (Kolmogorov-Smirnov Test), \hyperpage{40}
+  \item JB-test (Jarque-Bera test), \hyperpage{61}
+
+  \indexspace
+
+  \item K-S Test (Kolmogorov-Smirnov Test), \hyperpage{40}, 
+		\hyperpage{55}
   \item KDE (Kernel Density Estimation), \hyperpage{27}
 
   \indexspace
 
+  \item Levene's Test, \hyperpage{54}
+  \item Ljung-Box Test, \hyperpage{55}
   \item LLN (Law of Large Number), \hyperpage{12}
-  \item LRT (Likelihood Ratio Test), \hyperpage{35}
+  \item LRT (Likelihood Ratio Test), \hyperpage{34}
   \item LS Thm. (Lehmann-Scheffé Thm.), \hyperpage{23}
 
   \indexspace
 
+  \item Mahalanobis Distance, \hyperpage{65}
   \item MGF (Moment Generating Function), \hyperpage{10}
   \item MLE (Maximum Likelihood Estimation), \hyperpage{21}
   \item MoM (Method of Moments), \hyperpage{20}
@@ -83,7 +104,7 @@
   \indexspace
 
   \item OLS (Ordinary Least Squares), \hyperpage{24}
-  \item Ordinary Least Squares, \hyperpage{43}
+  \item Ordinary Least Squares, \hyperpage{44}
 
   \indexspace
 
@@ -97,7 +118,7 @@
 
   \indexspace
 
-  \item QQ-Plot (Quantile-Quantile Plots), \hyperpage{48}
+  \item QQ-Plot (Quantile-Quantile Plots), \hyperpage{52}
 
   \indexspace
 
@@ -108,17 +129,18 @@
 
   \item S-W Test (Shapiro-Wilk Test), \hyperpage{40}
   \item Sample Space, \hyperpage{16}
-  \item SCB (Simultaneous Confidence Band), \hyperpage{45}
+  \item SCB (Simultaneous Confidence Band), \hyperpage{47}
   \item Score Function, \hyperpage{23}
   \item Slutsky's Thm., \hyperpage{12}
-  \item SSE (Error Sum of Squares), \hyperpage{47}
-  \item SSR (Regression Sum of Squares), \hyperpage{47}
-  \item SST (Total Sum of Squares), \hyperpage{46}
+  \item SSE (Error Sum of Squares), \hyperpage{48}
+  \item SSR (Regression Sum of Squares), \hyperpage{48}
+  \item SST (Total Sum of Squares), \hyperpage{48}
   \item Standardization, \hyperpage{9}
   \item Statistics
     \subitem Ancillary Statistic, \hyperpage{19}
     \subitem Complete Statistic, \hyperpage{18}
     \subitem Sufficient Statistic, \hyperpage{18}
+  \item S­-W Test(Shapiro-­Wilk Test), \hyperpage{55}
 
   \indexspace
 
@@ -132,6 +154,7 @@
 
   \indexspace
 
+  \item Wilk's Thm., \hyperpage{35}
   \item WSRT (Wilcoxon Signed Rank Sum Test), \hyperpage{37}
 
 \end{theindex}
