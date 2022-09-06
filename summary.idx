@@ -191,14 +191,14 @@
 \indexentry{Clustering Analysis!Agglomerative Clustering Algorithm|hyperpage}{110}
 \indexentry{Clustering Analysis!Hierarchical Clustering|hyperpage}{110}
 \indexentry{Hierarchical Clustering|hyperpage}{110}
-\indexentry{Clustering Analysis!$ K $-Means Clustering Algorithm|hyperpage}{110}
-\indexentry{k-Means Clustering Algorithm@$ k $-Means Clustering Algorithm|hyperpage}{110}
-\indexentry{Clustering Analysis!Expectation Maximization Algorithm|hyperpage}{111}
-\indexentry{E-M Algorithm (Expectation Maximization Algorithm)|hyperpage}{111}
-\indexentry{GMM (Gaussian Mixture Model)|hyperpage}{111}
-\indexentry{Clustering Analysis!Density Clustering|hyperpage}{112}
-\indexentry{Clustering Analysis!DBSCAN (Density-Based Spatial Clustering of Application with Noise)|hyperpage}{112}
-\indexentry{Clustering Analysis!OPTICS (Ordering Point To Indentify the Cluster Structure)|hyperpage}{113}
+\indexentry{Clustering Analysis!$ K $-Means Clustering Algorithm|hyperpage}{111}
+\indexentry{k-Means Clustering Algorithm@$ k $-Means Clustering Algorithm|hyperpage}{111}
+\indexentry{Clustering Analysis!Expectation Maximization Algorithm|hyperpage}{112}
+\indexentry{E-M Algorithm (Expectation Maximization Algorithm)|hyperpage}{112}
+\indexentry{GMM (Gaussian Mixture Model)|hyperpage}{112}
+\indexentry{Clustering Analysis!Density Clustering|hyperpage}{113}
+\indexentry{Clustering Analysis!DBSCAN (Density-Based Spatial Clustering of Application with Noise)|hyperpage}{113}
+\indexentry{Clustering Analysis!OPTICS (Ordering Point To Indentify the Cluster Structure)|hyperpage}{114}
 \indexentry{CRAN (The Comprehensive R Archive Network)|hyperpage}{116}
 \indexentry{GUI (Graphical User Interface)|hyperpage}{116}
 \indexentry{Plot Parameters in R.|hyperpage}{127}
@@ -327,40 +327,40 @@
 \indexentry{Bagging Method (Bootstrap Aggregation Method)|hyperpage}{224}
 \indexentry{Bootstrap Aggregation|hyperpage}{224}
 \indexentry{Random Forest|hyperpage}{224}
-\indexentry{Boosting Method|hyperpage}{224}
-\indexentry{Adaboost|hyperpage}{224}
+\indexentry{Boosting Method|hyperpage}{225}
+\indexentry{Adaboost|hyperpage}{225}
 \indexentry{Neural Network|hyperpage}{225}
 \indexentry{Linear Perceptron|hyperpage}{225}
 \indexentry{Activate Function|hyperpage}{225}
-\indexentry{LTU (Linear Threshold Unit)|hyperpage}{225}
-\indexentry{Activate Function!LTU (Linear Threshold Unit)|hyperpage}{225}
-\indexentry{Activate Function!Logistic Function|hyperpage}{225}
-\indexentry{Activate Function!Hyperbolic Tangent Function|hyperpage}{225}
-\indexentry{ReLU (Rectified Linear Unit)|hyperpage}{225}
-\indexentry{Activate Function!ReLU (Rectified Linear Unit)|hyperpage}{225}
-\indexentry{MLP (MultiLayer Perceptron)|hyperpage}{225}
+\indexentry{LTU (Linear Threshold Unit)|hyperpage}{226}
+\indexentry{Activate Function!LTU (Linear Threshold Unit)|hyperpage}{226}
+\indexentry{Activate Function!Logistic Function|hyperpage}{226}
+\indexentry{Activate Function!Hyperbolic Tangent Function|hyperpage}{226}
+\indexentry{ReLU (Rectified Linear Unit)|hyperpage}{226}
+\indexentry{Activate Function!ReLU (Rectified Linear Unit)|hyperpage}{226}
+\indexentry{MLP (MultiLayer Perceptron)|hyperpage}{226}
 \indexentry{BP (Back Propagation)|hyperpage}{226}
-\indexentry{Time Series|hyperpage}{227}
-\indexentry{TSA (Time Series Analysis)|hyperpage}{227}
-\indexentry{STL Model (Seasonal and Trend Decomposition using Loess)|hyperpage}{227}
-\indexentry{Stochastic Process|hyperpage}{228}
-\indexentry{WN (White Noise)|hyperpage}{228}
-\indexentry{MDS (Martingale Difference Sequence)|hyperpage}{228}
-\indexentry{ACVF (Autocovariance)|hyperpage}{229}
-\indexentry{ACF (Autocorrelation)|hyperpage}{229}
-\indexentry{WS (Weakly Stationary)|hyperpage}{229}
-\indexentry{SS (Strictly Stationary)|hyperpage}{229}
-\indexentry{PACF (Partial Autocorrelation)|hyperpage}{230}
-\indexentry{Levinson-Durbin's Recursive Formula|hyperpage}{231}
-\indexentry{Wold Decomposition|hyperpage}{231}
-\indexentry{AR Model (Auto-Regression Model)|hyperpage}{234}
-\indexentry{Y-W Equation (Yule-Walker Equation)|hyperpage}{235}
-\indexentry{MA Model (Moving-Average Model)|hyperpage}{236}
-\indexentry{ARMA Model|hyperpage}{237}
-\indexentry{ARIMA Model|hyperpage}{238}
-\indexentry{SARIMA (Seasonal ARIMA Model)|hyperpage}{239}
-\indexentry{Box-Jenkins Approach|hyperpage}{239}
-\indexentry{EACF (Extended Autocorrelation)|hyperpage}{240}
-\indexentry{AO (Additive Outlier)|hyperpage}{241}
-\indexentry{IO (Innovative Outlier)|hyperpage}{241}
-\indexentry{PO (Potential Outcome)|hyperpage}{244}
+\indexentry{Time Series|hyperpage}{228}
+\indexentry{TSA (Time Series Analysis)|hyperpage}{228}
+\indexentry{STL Model (Seasonal and Trend Decomposition using Loess)|hyperpage}{228}
+\indexentry{Stochastic Process|hyperpage}{229}
+\indexentry{WN (White Noise)|hyperpage}{229}
+\indexentry{MDS (Martingale Difference Sequence)|hyperpage}{229}
+\indexentry{ACVF (Autocovariance)|hyperpage}{230}
+\indexentry{ACF (Autocorrelation)|hyperpage}{230}
+\indexentry{WS (Weakly Stationary)|hyperpage}{230}
+\indexentry{SS (Strictly Stationary)|hyperpage}{230}
+\indexentry{PACF (Partial Autocorrelation)|hyperpage}{231}
+\indexentry{Levinson-Durbin's Recursive Formula|hyperpage}{232}
+\indexentry{Wold Decomposition|hyperpage}{232}
+\indexentry{AR Model (Auto-Regression Model)|hyperpage}{235}
+\indexentry{Y-W Equation (Yule-Walker Equation)|hyperpage}{236}
+\indexentry{MA Model (Moving-Average Model)|hyperpage}{237}
+\indexentry{ARMA Model|hyperpage}{238}
+\indexentry{ARIMA Model|hyperpage}{239}
+\indexentry{SARIMA (Seasonal ARIMA Model)|hyperpage}{240}
+\indexentry{Box-Jenkins Approach|hyperpage}{240}
+\indexentry{EACF (Extended Autocorrelation)|hyperpage}{241}
+\indexentry{AO (Additive Outlier)|hyperpage}{242}
+\indexentry{IO (Innovative Outlier)|hyperpage}{242}
+\indexentry{PO (Potential Outcome)|hyperpage}{245}

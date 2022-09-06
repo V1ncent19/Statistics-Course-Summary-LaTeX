@@ -107,9 +107,9 @@
 \contentsline {subsubsection}{\numberline {4.6.4}Evaluation of Discriminant Model}{109}{subsubsection.4.6.4}%
 \contentsline {subsection}{\numberline {4.7}Clustering Analysis}{109}{subsection.4.7}%
 \contentsline {subsubsection}{\numberline {4.7.1}Agglomerative Clustering Algorithm}{110}{subsubsection.4.7.1}%
-\contentsline {subsubsection}{\numberline {4.7.2}$ K $-Means Clustering Algorithm}{110}{subsubsection.4.7.2}%
-\contentsline {subsubsection}{\numberline {4.7.3}Expectation Maximization Algorithm for Gaussian Mixture Model}{111}{subsubsection.4.7.3}%
-\contentsline {subsubsection}{\numberline {4.7.4}DBSCAN \& OPTICS Density Clustering Algorithm}{112}{subsubsection.4.7.4}%
+\contentsline {subsubsection}{\numberline {4.7.2}$ K $-Means Clustering Algorithm}{111}{subsubsection.4.7.2}%
+\contentsline {subsubsection}{\numberline {4.7.3}Expectation Maximization Algorithm for Gaussian Mixture Model}{112}{subsubsection.4.7.3}%
+\contentsline {subsubsection}{\numberline {4.7.4}DBSCAN \& OPTICS Density Clustering Algorithm}{113}{subsubsection.4.7.4}%
 \contentsline {section}{\numberline {5}数据科学导论部分}{115}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Basic R. Manipulation}{116}{subsection.5.1}%
 \contentsline {subsubsection}{\numberline {5.1.1}Installation and Maintenance of R.}{116}{subsubsection.5.1.1}%
@@ -215,39 +215,40 @@
 \contentsline {subsubsection}{\numberline {9.6.2}Bagging and Boosting}{224}{subsubsection.9.6.2}%
 \contentsline {subsection}{\numberline {9.7}Neural Network}{225}{subsection.9.7}%
 \contentsline {subsubsection}{\numberline {9.7.1}Back Propagation}{226}{subsubsection.9.7.1}%
-\contentsline {section}{\numberline {10}应用时间序列部分}{227}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Time Series Data and Model}{227}{subsection.10.1}%
-\contentsline {subsubsection}{\numberline {10.1.1}Time Series Data and Tasks}{227}{subsubsection.10.1.1}%
-\contentsline {subsubsection}{\numberline {10.1.2}Time Series Model}{227}{subsubsection.10.1.2}%
-\contentsline {subsection}{\numberline {10.2}Stochastic Process and Statistics}{228}{subsection.10.2}%
-\contentsline {subsubsection}{\numberline {10.2.1}Basic Knowledge of Stochastic Process}{228}{subsubsection.10.2.1}%
-\contentsline {subsection}{\numberline {10.3}ARMA Model}{233}{subsection.10.3}%
-\contentsline {subsubsection}{\numberline {10.3.1}Backshift Operator and Difference Equation}{233}{subsubsection.10.3.1}%
-\contentsline {subsubsection}{\numberline {10.3.2}AR Model}{234}{subsubsection.10.3.2}%
-\contentsline {subsubsection}{\numberline {10.3.3}MA Model}{236}{subsubsection.10.3.3}%
-\contentsline {subsubsection}{\numberline {10.3.4}ARMA Model}{237}{subsubsection.10.3.4}%
-\contentsline {subsubsection}{\numberline {10.3.5}ARIMA Model}{238}{subsubsection.10.3.5}%
-\contentsline {subsection}{\numberline {10.4}Seasonal Model for Time Series}{238}{subsection.10.4}%
-\contentsline {subsubsection}{\numberline {10.4.1}Regression Model}{238}{subsubsection.10.4.1}%
-\contentsline {subsubsection}{\numberline {10.4.2}Moving Average Model}{238}{subsubsection.10.4.2}%
-\contentsline {subsubsection}{\numberline {10.4.3}Seasonal ARIMA Model}{239}{subsubsection.10.4.3}%
-\contentsline {subsection}{\numberline {10.5}Model Selection and Diagnostics}{239}{subsection.10.5}%
-\contentsline {subsubsection}{\numberline {10.5.1}Model Building of ARIMA}{239}{subsubsection.10.5.1}%
-\contentsline {subsubsection}{\numberline {10.5.2}Order Determination of ARIMA Model}{239}{subsubsection.10.5.2}%
-\contentsline {subsubsection}{\numberline {10.5.3}Outlier Detection}{241}{subsubsection.10.5.3}%
-\contentsline {subsection}{\numberline {10.6}Forecast of Time Series}{241}{subsection.10.6}%
-\contentsline {subsubsection}{\numberline {10.6.1}MSE Forecast Criterion}{241}{subsubsection.10.6.1}%
-\contentsline {subsubsection}{\numberline {10.6.2}Best Linear Estimator}{241}{subsubsection.10.6.2}%
-\contentsline {subsubsection}{\numberline {10.6.3}Forecast of AR$ (p) $}{242}{subsubsection.10.6.3}%
-\contentsline {subsubsection}{\numberline {10.6.4}Forecast of MA$ (q) $}{242}{subsubsection.10.6.4}%
-\contentsline {subsubsection}{\numberline {10.6.5}Forecast of ARMA$ (p,q) $}{243}{subsubsection.10.6.5}%
-\contentsline {subsubsection}{\numberline {10.6.6}Forecast of ARIMA$ (p,d,q) $}{243}{subsubsection.10.6.6}%
-\contentsline {section}{\numberline {11}因果推断导论部分}{244}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Neyman-Rubin Framework}{244}{subsection.11.1}%
-\contentsline {subsubsection}{\numberline {11.1.1}Key Elements and Notations}{244}{subsubsection.11.1.1}%
-\contentsline {subsubsection}{\numberline {11.1.2}Assignment Mechanism}{246}{subsubsection.11.1.2}%
-\contentsline {subsubsection}{\numberline {11.1.3}Difficulty and Goal of Causal Inference}{246}{subsubsection.11.1.3}%
-\contentsline {subsubsection}{\numberline {11.1.4}Assumptions}{246}{subsubsection.11.1.4}%
-\contentsline {subsection}{\numberline {11.2}Pearl Framework}{247}{subsection.11.2}%
-\contentsline {section}{\numberline {12}应用随机过程部分}{248}{section.12}%
-\contentsline {section}{参考文献}{249}{section.12}%
+\contentsline {section}{\numberline {10}应用时间序列部分}{228}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Time Series Data and Model}{228}{subsection.10.1}%
+\contentsline {subsubsection}{\numberline {10.1.1}Time Series Data and Tasks}{228}{subsubsection.10.1.1}%
+\contentsline {subsubsection}{\numberline {10.1.2}Time Series Model}{228}{subsubsection.10.1.2}%
+\contentsline {subsection}{\numberline {10.2}Stochastic Process and Statistics}{229}{subsection.10.2}%
+\contentsline {subsubsection}{\numberline {10.2.1}Basic Knowledge of Stochastic Process}{229}{subsubsection.10.2.1}%
+\contentsline {subsection}{\numberline {10.3}ARMA Model}{234}{subsection.10.3}%
+\contentsline {subsubsection}{\numberline {10.3.1}Backshift Operator and Difference Equation}{234}{subsubsection.10.3.1}%
+\contentsline {subsubsection}{\numberline {10.3.2}AR Model}{235}{subsubsection.10.3.2}%
+\contentsline {subsubsection}{\numberline {10.3.3}MA Model}{237}{subsubsection.10.3.3}%
+\contentsline {subsubsection}{\numberline {10.3.4}ARMA Model}{238}{subsubsection.10.3.4}%
+\contentsline {subsubsection}{\numberline {10.3.5}ARIMA Model}{239}{subsubsection.10.3.5}%
+\contentsline {subsection}{\numberline {10.4}Seasonal Model for Time Series}{239}{subsection.10.4}%
+\contentsline {subsubsection}{\numberline {10.4.1}Regression Model}{239}{subsubsection.10.4.1}%
+\contentsline {subsubsection}{\numberline {10.4.2}Moving Average Model}{239}{subsubsection.10.4.2}%
+\contentsline {subsubsection}{\numberline {10.4.3}Seasonal ARIMA Model}{240}{subsubsection.10.4.3}%
+\contentsline {subsection}{\numberline {10.5}Model Selection and Diagnostics}{240}{subsection.10.5}%
+\contentsline {subsubsection}{\numberline {10.5.1}Model Building of ARIMA}{240}{subsubsection.10.5.1}%
+\contentsline {subsubsection}{\numberline {10.5.2}Order Determination of ARIMA Model}{240}{subsubsection.10.5.2}%
+\contentsline {subsubsection}{\numberline {10.5.3}Outlier Detection}{242}{subsubsection.10.5.3}%
+\contentsline {subsection}{\numberline {10.6}Forecast of Time Series}{242}{subsection.10.6}%
+\contentsline {subsubsection}{\numberline {10.6.1}MSE Forecast Criterion}{242}{subsubsection.10.6.1}%
+\contentsline {subsubsection}{\numberline {10.6.2}Best Linear Estimator}{242}{subsubsection.10.6.2}%
+\contentsline {subsubsection}{\numberline {10.6.3}Forecast of AR$ (p) $}{243}{subsubsection.10.6.3}%
+\contentsline {subsubsection}{\numberline {10.6.4}Forecast of MA$ (q) $}{243}{subsubsection.10.6.4}%
+\contentsline {subsubsection}{\numberline {10.6.5}Forecast of ARMA$ (p,q) $}{244}{subsubsection.10.6.5}%
+\contentsline {subsubsection}{\numberline {10.6.6}Forecast of ARIMA$ (p,d,q) $}{244}{subsubsection.10.6.6}%
+\contentsline {section}{\numberline {11}因果推断导论部分}{245}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Neyman-Rubin Framework}{245}{subsection.11.1}%
+\contentsline {subsubsection}{\numberline {11.1.1}Key Elements and Notations}{245}{subsubsection.11.1.1}%
+\contentsline {subsubsection}{\numberline {11.1.2}Assignment Mechanism}{247}{subsubsection.11.1.2}%
+\contentsline {subsubsection}{\numberline {11.1.3}Difficulty and Goal of Causal Inference}{247}{subsubsection.11.1.3}%
+\contentsline {subsubsection}{\numberline {11.1.4}Assumptions}{247}{subsubsection.11.1.4}%
+\contentsline {subsection}{\numberline {11.2}Pearl Framework}{248}{subsection.11.2}%
+\contentsline {section}{\numberline {12}应用随机过程部分}{249}{section.12}%
+\contentsline {section}{参考文献}{250}{section.12}%
+\contentsline {section}{索引}{252}{section.12}%
