@@ -3,21 +3,34 @@
     Instructor: Jiangdian Wang
 \end{center}
 
-    \textbf{Statistical Inference}: use sample to estimate population.
-    
-    Two main tasks of Statistical Inference:
+    \textbf{Statistical Inference}: Given sample $ X=(x_{1},x_{2},\ldots,x_{n})  $, we want to estimate some features of the population. This part focus on parametric statistical inference, thus our task is to estimate/testing parameters.
+
+\begin{point}
+    Example of statistical inference
+\end{point}
+
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Sample item $ x_i $, estimate its mean and variance
+    \item Sample item $ x_i=(\vec{x_i},y_i) $, use multivariate linear model $ Y\sim \vec{X}'\beta +\beta _0 $, estimate slope \& intercept $ \beta  $ and variance $ \sigma ^2 $
+\end{itemize}
+
+        
+\begin{point}
+    Two main tasks of Statistical Inference
+\end{point}
+
     \begin{itemize}[topsep= 2 pt,itemsep= 0 pt,parsep= 0 pt]
         \item Parameter Estimation
         \begin{itemize}
-            \item Point Estimation: section \hyperref[SectionPointEstimation]{\ref{SectionPointEstimation}}
-            \item Interval Estimation: section \hyperref[SectionIntervalEstimation]{\ref{SectionIntervalEstimation}}
+            \item Point Estimation: {\autoref{SectionPointEstimation}}
+            \item Interval Estimation: {\autoref{SectionIntervalEstimation}}
         \end{itemize}
-        \item Hypothesis Testing: section \hyperref[SectionHypothesisTesting]{\ref{SectionHypothesisTesting}}
+        \item Hypothesis Testing: {\autoref{SectionHypothesisTesting}}
     \end{itemize}
 
 \subsection{Statistical Model and Statistics}\label{SectionStatisticalModelandStatistics}
     Random sample comes from population $X$. In parametric model case, we have population distribution family:
-    \begin{equation}\mathscr{F}=\{f(x;\vec{\theta)}|\vec{\theta}\in\Theta\}\end{equation}
+    \begin{equation}\mathscr{F}=\{f(x;\vec{\theta})|\vec{\theta}\in\Theta\}\end{equation}
 
     where \text{parameter} $\vec{\theta}$ reflect some quantities of population (e.g. mean, variance, etc.), each $\vec{\theta}$ corresponds to a distribution of population $X$.
     
@@ -54,7 +67,7 @@
         \end{equation}
         \item Sample $p$-fractile
         \begin{equation}
-            m_p=X_{(m)},\quad m=[(n+1)p]   
+            m_p=X_{(m)},\quad m=\left\lfloor (n+1)p\right\rfloor    
         \end{equation}
         \item Sample coefficient of variation
         \begin{equation}
@@ -78,37 +91,47 @@
     \begin{itemize}
         \item Calculation of sample variance $S^2$
         \begin{equation}(n-1)S^2=\sum_{i=1}^n x_i^2-n\bar{x}^2\end{equation}
-        \item $E$ and $var$ of $\bar{X}$ and $S^2$
-        \begin{equation}E(\bar{X})=\mu\qquad var(\bar{X})=\frac{\sigma^2}{n}\qquad E(S^2)=\sigma^2\end{equation}
+        \item $\mathbb{E}$ and $var$ of $\bar{X}$ and $S^2$
+        \begin{equation}\mathbb{E}(\bar{X})=\mu\qquad var(\bar{X})=\frac{\sigma^2}{n}\qquad \mathbb{E}(S^2)=\sigma^2\end{equation}
     \end{itemize}
 
     Further if $X_i$ i.i.d. from $X\sim N(\mu,\sigma^2)$ where $\mu$ and $\sigma^2$ unknown.
     \begin{itemize}
         \item Independence of $\bar{X}$ and $S^2$ 
-            \begin{equation}\bar{X}\text{ and }S^2 \text{ are independent}\end{equation}
+            \begin{equation}
+            \bar{X}\independent S^2
+            \end{equation}
         \begin{itemize}[topsep=6pt,itemsep=4pt]
         \item Distribution of $\bar{X}={\displaystyle\frac{1}{n}\sum_{i=1}^n X_i}$
         \begin{equation}\bar{X}\sim N(\mu,\frac{\sigma^2}{n})\end{equation}
         \item Distribution of $S^2={\displaystyle\frac{1}{n-1}\sum_{i=1}^n(X_i-\bar{X})^2}$
         \begin{equation}\frac{(n-1)S^2}{\sigma^2}\sim\chi^2_{n-1}\end{equation}
-        \end{itemize}        
+        \end{itemize}     
+        Comment: the independence here can explain the $ n-1 $ degree of freedom of $ \chi^2_{n-1} $   
     \end{itemize}
 
 \subsubsection{Exponential Family}\label{SubSectionExponentialFamily}
-        Def. $\mathscr{F}=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf{Exponential Family} if $f(x;\vec{\theta})$ has the form as\index{EF (Exponential Family)}
+        Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf{Exponential Family} if $f(x;\vec{\theta})$ has the form as\index{EF (Exponential Family)}
 \begin{equation}
     f(x;\vec{\theta})=C(\vec{\theta})h(x)\exp \left[  \sum_{i=1}^k Q_i(\vec{\theta})T_i(x) \right]\quad\vec{\theta}\in\Theta
 \end{equation}    
 
+    Or equivalently express $ c(\vec{\theta })=\ln C(\vec{\theta }) $:
+\begin{equation}
+    f(x;\vec{\theta})=h(x)\exp \left[  \sum_{i=1}^k Q_i(\vec{\theta})T_i(x) +c(\vec{\theta }) \right]\quad\vec{\theta}\in\Theta
+\end{equation}   
+
     Canonical Form: Take $Q_i(\vec{\theta})=\varphi_i$, then $\vec{\varphi}=(\varphi_1,\varphi_2,\ldots,\varphi_k)=$$(Q_1(\vec{\theta}),Q_2(\vec{\theta}),\ldots,Q_k(\vec{\theta}))$ is a transform from $\Theta$ to $\Theta^*$, s.t. $\mathscr{F}$ has canonical form, i.e.
-    \begin{equation}
+    \begin{equation}\label{EqaExponentialDistributionFamily}
         f(x;\vec{\varphi})=C^*(\vec{\varphi})h(x)   \exp\left[  \sum_{i=1}^k \varphi_i T_i(x) \right] \quad \vec{\varphi}\in\Theta^*
     \end{equation}
 
     $\Theta^*$ is canonical parameter space.
 
+    
+
 \begin{point}
-    Why we need exponential family? Have some nice properties.
+    Why we need exponential family? It has some nice properties.
 \end{point}
 
 
@@ -147,18 +170,18 @@
 
         \item[$\blacktriangleright$] A \textbf{Complete Statistic}\index{Statistics!Complete Statistic} $T(\vec{X})$ for $\theta$ satisfies
         \begin{equation}
-            \forall\theta\in\Theta\, ;\,\forall\varphi\text{ satisfies }E[\varphi(T(\vec{X}))]=0\text{, we have }P[\varphi(T)=0;\theta]=1
+            \forall\theta\in\Theta\, ;\,\forall\varphi\text{ satisfies }\mathbb{E}[\varphi(T(\vec{X}))]=0\text{, we have }\mathbb{P}[\varphi(T)=0;\theta]=1
         \end{equation}
 
         Explanation: $T\sim g_T(t)$. Rewrite as
         \begin{equation}
-            \int\varphi (t) g_T(t)\,\mathrm{d} t=0  \,\,\forall\, \theta\Rightarrow\varphi(T)=0 \text{  a.s. }
+            \int\varphi (t) g_T(t)\,\mathrm{d} t=0  \, \Rightarrow\varphi(T)=0 \text{  a.s. }\,\forall\,\theta
         \end{equation}
 
-        i.e. \underline{$\mathrm{span}\{g_T(t);\forall\theta\}$ is a complete space}. Or to say that $\nexists$ none-zero $\varphi(t)$ so that $E(\varphi(T))=0$ (unbiased estimation)
+        i.e. \underline{$\mathrm{span}\{g_T(t);\forall\theta\}$ is a complete space}. Or to say that $\nexists$ none-zero $\varphi(t)$ so that $\mathbb{E}(\varphi(T))=0$ (unbiased estimation)
 
         \begin{equation}
-            \varphi(T)\neq 0 \,\,\forall \theta\Rightarrow E[\varphi(T(\vec{X}))]\neq 0  
+            \varphi(T)\neq 0 \,\,\forall \theta\Rightarrow \mathbb{E}[\varphi(T(\vec{X}))]\neq 0  
         \end{equation}
 
         So make sure the uniqueness of unbiased estimation of $\hat{\theta}$ using $T$.
@@ -171,7 +194,7 @@
         \end{itemize}
         \item[$\blacktriangleright$]\index{Statistics!Ancillary Statistic}  An \textbf{Ancillary Statistic} $S(\vec{X})$ is a statistic whose distribution does not depend on $\theta$
         
-        \textbf{Basu Thm.}\index{Basu Thm.}: $\vec{X}=(X_1,X_2,\ldots,X_n)$ is sample from $\mathscr{F}=\{f(x;\theta),\theta\in\Theta\}$. $T(\vec{X})$ is a complete and minimal sufficient statistic, $S(\vec{X})$ is ancillary statistic, then $S(\vec{X})\parallel T(\vec{X})$.
+        \textbf{Basu Thm.}\index{Basu Thm.}: $\vec{X}=(X_1,X_2,\ldots,X_n)$ is sample from $\mathscr{F}=\{f(x;\theta),\theta\in\Theta\}$. $T(\vec{X})$ is a complete and minimal sufficient statistic, $S(\vec{X})$ is ancillary statistic, then $S(\vec{X})\independent T(\vec{X})$.
 
         \item[$\blacktriangleright$] Exponential family: For $\vec{X}=(X_1,X_2,\ldots,X_n)$ from exponential family with canonical form, i.e.
     \begin{equation}
@@ -209,12 +232,12 @@
     \begin{itemize}
         \item Unbiasedness
         \begin{equation}
-            E(\hat{\theta})=\theta   \quad \text{or}\quad E(\hat{g}(\vec{X})) =g(\theta)
+            \mathbb{E}(\hat{\theta})=\theta   \quad \text{or}\quad \mathbb{E}(\hat{g}(\vec{X})) =g(\theta)
         \end{equation}
 
-        Otherwise, say $\hat{\theta}$ or $\hat{g}$ biased. Def. \textbf{Bias}: $E(\hat{\theta})-\theta$
+        Otherwise, say $\hat{\theta}$ or $\hat{g}$ biased. Def. \textbf{Bias}: $\mathbb{E}(\hat{\theta})-\theta$
 
-        Asymptotically unbiasedness
+        Asymptotically unbiasedness with $ n $ as sample size
         \begin{equation}
             \lim_{n\to\infty}  E(\hat{g}_n(\vec{X})) =g(\theta)  
         \end{equation}
@@ -224,16 +247,16 @@
         \end{equation}
         \item Mean Squared Error (MSE)\index{MSE (Mean Squared Error)}: Bias-Variance Trade-Off
         \begin{equation}\label{EqaMSEExpansion}
-            \text{MSE}=E[(\hat{\theta}-\theta)^2]=var(\hat{\theta})+[Bias(\hat{\theta})]^2
+            \text{MSE}=\mathbb{E}[(\hat{\theta}-\theta)^2]=var(\hat{\theta})+[Bias(\hat{\theta})]^2
         \end{equation}
 
         For unbiased estimator, i.e. $Bias(\hat{\theta})=0$, we have
         \begin{equation}
-            \text{MSE}=E[(\hat{\theta}-\theta)^2]=var(\hat{\theta})
+            \text{MSE}=\mathbb{E}[(\hat{\theta}-\theta)^2]=var(\hat{\theta})
         \end{equation}
         \item (Weak) Consistency
         \begin{equation}
-            \lim_{n\to\infty}P(|\hat{g}_n(\vec{X})-g(\theta)|\geq \varepsilon)=0\quad\forall\varepsilon>0    
+            \lim_{n\to\infty}\mathbb{P}(|\hat{g}_n(\vec{X})-g(\theta)|\geq \varepsilon)=0\quad\forall\varepsilon>0    
         \end{equation}
         \item Asymptotic Normality
     \end{itemize}
@@ -242,8 +265,8 @@
 \subsubsection{Method of Moments}\label{SubSectionMoM}
     Review: Population moments \& Sample moments\index{MoM (Method of Moments)}
     \begin{align*}
-        \alpha_k&=E(X^k)&\mu_k&=E[(X-E(X))^k]\\
-        a_{n,k}&=\frac{1}{n}\sum_{i=1}^nX_i^k&m_{n,k}&=\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^k
+        \alpha_k&=\mathbb{E}(X^k)&\mu_k&=\mathbb{E}[(X-\mathbb{E}(X))^k]\\
+        a_{n,k}&=\hat{\alpha }_k =\frac{1}{n}\sum_{i=1}^nX_i^k&m_{n,k}&=\hat{\mu }_k=\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^k
     \end{align*}
 
     Property: $a_{n,k}$ is the unbiased estimator of $\alpha_k$.(while $m_{n,k}$ unually biased for $\mu_k$)
@@ -259,7 +282,7 @@
 \end{equation}
 
     Example: coefficient of variance \& skewness 
-    \begin{equation}\hat{\nu}=\dfrac{S}{\bar{X}}\qquad\hat{\beta}_1=\dfrac{m_{n,3}}{m_{n,2^{3/2}}}=\sqrt{n}{\displaystyle\frac{\displaystyle{\sum_{i=1}^n(X_i-\bar{X})^3}}{\displaystyle{[\sum_{i=1}^n(X_i-\bar{X})^2]^{\frac{3}{2}}}  }}\end{equation}
+    \begin{equation}\hat{\nu}=\dfrac{S}{\bar{X}}\qquad\hat{\beta}_1=\dfrac{m_{n,3}}{m_{n,2^{3/2}}}=\sqrt{n}{\displaystyle\frac{\displaystyle{\sum_{i=1}^n(X_i-\bar{X})^3}}{\displaystyle{\left[\sum_{i=1}^n(X_i-\bar{X})^2\right]^{\frac{3}{2}}}  }}\end{equation}
 
     \begin{point}
         Note:
@@ -319,7 +342,7 @@
         \end{equation}
         \item Asymptotic Normality: 
         \begin{equation}
-            \sqrt{n}(\hat{\theta}_n-\theta) \xrightarrow[]{d}N(0,\sigma^2_\theta),\quad \sigma^2_\theta=\frac{1}{E_\theta[\frac{\partial}{\partial\theta}\ln f(\vec{X};\theta)]^2}   
+            \sqrt{n}(\hat{\theta}_n-\theta) \xrightarrow[]{d}N(0,\sigma^2_\theta),\quad \sigma^2_\theta=\frac{1}{\mathbb{E}_\theta[\frac{\partial}{\partial\theta}\ln f(\vec{X};\theta)]^2}   
         \end{equation}
 
         i.e.
@@ -350,7 +373,7 @@
         Likelihood function $L(\theta,\vec{x})=\prod_{j=i}^nf(x_j;\theta)$ and log-likelihood function $l(\theta,\vec{x})$
         \begin{align*}
             L(\theta,\vec{x})&=C^n(\theta)\prod_{j=1}^nh(x_j)\exp\left[\sum_{i=1}^k\theta_i\sum_{j=1}^n T_i(x_j)\right]\\
-            l(\theta,\vec{x})&=n\ln C(\theta)+\sum_{j=1}^n\ln h(x_j)+\sum_{i=1}^k\theta_i\sum_{j=1}^nT_i(x_j)
+            \ell(\theta,\vec{x})&=n\ln C(\theta)+\sum_{j=1}^n\ln h(x_j)+\sum_{i=1}^k\theta_i\sum_{j=1}^nT_i(x_j)
         \end{align*}
 
         Solution of MLE: (Require $\hat{\theta}\in\Theta$)
@@ -362,11 +385,11 @@
 \subsubsection{Uniformly Minimum Variance Unbiased Estimator}\label{SubSectionUMVUE}
         \index{UMVUE (Uniformly Minimum Variance Unbiased Estimator)}MSE: For $\hat{g}(\vec{X})$ is estimate of $g(\theta)$ ,then MSE
         \begin{equation}
-            \mathrm{MSE}(\hat{g}(\vec{X}))=E[(\hat{g}(\vec{X})-g(\theta))^2]=var(\hat{g})+[Bias(\hat{g})]^2
+            \mathrm{MSE}(\hat{g}(\vec{X}))=\mathbb{E}[(\hat{g}(\vec{X})-g(\theta))^2]=var(\hat{g})+[Bias(\hat{g})]^2
         \end{equation}
 
         Note:
-    Unbiased estimator (i.e. $Bias(\hat{g})=0$) not unique; not always exist.
+    Unbiased estimator (i.e. $Bias(\hat{g})=0$) is not unique; ang not always exists.
 
 
     
@@ -395,9 +418,9 @@
 \begin{enumerate}
 \item \textbf{Zero Unbiased Estimate Method}
             
-    Let $\hat{g}(\vec{X})$ be an unbiased estimate with $var(\hat{g})<\infty$. If $\forall$ $E(\hat{l}(\vec{X}))=0$ , $\hat{g}$ holds that
+    Let $\hat{g}(\vec{X})$ be an unbiased estimate with $var(\hat{g})<\infty$. If $\forall$ $\mathbb{E}(\hat{l}(\vec{X}))=0$ , $\hat{g}$ holds that
     \begin{equation}
-        cov(\hat{g},\hat{l})=E(\hat{g}\cdot\hat{l})=0,\quad\forall\theta\in\Theta    
+        cov(\hat{g},\hat{l})=\mathbb{E}(\hat{g}\cdot\hat{l})=0,\quad\forall\theta\in\Theta    
     \end{equation}
 
     Then $\hat{g}$ is a UMVUE of $g(\theta)$ (sufficient \& necessary).
@@ -410,7 +433,7 @@
 
     For $T(\vec{X})$ sufficient statistic, $\hat{g}(\vec{X})$ unbiased estimate of $g(\theta)$, then 
 \begin{equation}
-    h(T)=E(\hat{g}(\vec{X})| T)    
+    h(T)=\mathbb{E}(\hat{g}(\vec{X})| T)    
 \end{equation}
 
     is an unbiased estimate of $g(\theta)$ and $var(h(T))\leq var(\hat{g})$.
@@ -421,11 +444,11 @@
         \item A UMVUE has to be a function of sufficient statistic.
     \end{itemize}
 
-    \textbf{Lehmann-Scheffé Thm.}\index{LS Thm. (Lehmann-Scheffé Thm.)}: For $\vec{X}=(X_1,X_2,\ldots,X_n)$ from population $X\sim\mathscr{F}=\{f(x,\theta,\vec{\theta\in\Theta})\}$. $T(\vec{X})$ sufficient and complete, and $\hat{g}(T(\vec{X}))$ be an unbiased estimator, then $\hat{g}(T(\vec{X}))$ is the unique UMVUE.
+    \textbf{Lehmann-Scheffé Thm.}\index{LS Thm. (Lehmann-Scheffé Thm.)}: For $\vec{X}=(X_1,X_2,\ldots,X_n)$ from population $X\sim\mathscr{F}=\{f(x;\theta):\vec{\theta}\in\Theta\}$. $T(\vec{X})$ sufficient and complete, and $\hat{g}(T(\vec{X}))$ be an unbiased estimator, then $\hat{g}(T(\vec{X}))$ is the unique UMVUE.
 
     Can be used to construct UMVUE: given $T(\vec{X})$ sufficient and complete and some unbiased estimator $\hat{g}\prime(\theta)$ then 
     \begin{equation}
-        \hat{g}(T)=E(\hat{g}\prime|T)    
+        \hat{g}(T)=\mathbb{E}(\hat{g}\prime|T)    
     \end{equation}
 
     is the unique UMVUE.
@@ -438,14 +461,32 @@
 
     Consider $\theta=\theta$ (One dimension parameter); For $\{X_i\}$ i.i.d. $f(x,\theta)$: def.
     \begin{itemize}
-        \item \textbf{Score function}\index{Score Function}: Reflects the steepness/slope of likelihood function $f$.
-        \begin{equation}
-            S(\vec{x};\theta)=\frac{\partial\ln f(\vec{x};\theta)}{\partial\theta}=\sum_{i=1}^n\frac{\partial\ln f(x_i;\theta)}{\partial\theta}
+        \item \textbf{Score function}\index{Score Function}: Reflects the steepness/slope of likelihood function.
+        \begin{equation}\label{EqaScoreFunctionForMLE}
+            S(\vec{x};\theta)=\frac{\partial\ln f(\vec{x};\theta)}{\partial\theta}=\dfrac{\partial^{} \ell(\theta;\vec{x})}{\partial \theta^{}}=\sum_{i=1}^n\frac{\partial\ln f(x_i;\theta)}{\partial\theta}
         \end{equation}
-        \begin{equation}E[S(\vec{X};\theta)]=0\end{equation}
-        \item \textbf{Fisher Information}\index{Fisher Information}: Variance of $S(\vec{x};\theta)$, reflects the accuracy to conduct estimation, i.e. reflects information of statistic model that sample brings.
-        \begin{equation}
-            I(\theta)=E\left[\left(\frac{\partial \ln f(\vec{x};\theta)}{\partial\theta}\right)^2\right]=-E\left[\frac{\partial^2\ln f(\vec{x};\theta)}{\partial \theta^2}\right]
+        Property:\footnote{Proof of $ \mathbb{E}(S(\vec{x};\theta))=0 $:
+        \begin{align*}
+            \mathbb{E}(S|\theta)=&\int f(\vec{x};\theta ) \dfrac{\partial^{} \ln f(\vec{x};\theta )}{\partial \theta ^{}} \,\mathrm{d}\vec{x}\\
+            =&\int f(\vec{x};\theta )\dfrac{1}{f(\vec{x};\theta )}\dfrac{\partial^{}f(\vec{x};\theta ) }{\partial \theta ^{}} \,\mathrm{d}\vec{x}\\
+            =&\dfrac{\partial^{} }{\partial \theta ^{}}\int f(\vec{x};\theta ) \,\mathrm{d}\vec{x}=\dfrac{\partial^{} }{\partial \theta ^{}}1=0
+        \end{align*}
+        }
+        \begin{equation}\mathbb{E}[S(\vec{X};\theta)]=0\end{equation}
+        \item \textbf{Fisher Information}\index{Fisher Information}: Variance of $S(\vec{x};\theta)$, reflects the accuracy to conduct estimation, i.e. reflects information of statistic model that sample brings.\footnote{
+        Proof of $ I(\theta)=\mathbb{E}\left[\left(\dfrac{\partial \ln f(\vec{x};\theta)}{\partial\theta}\right)^2\right]=-\mathbb{E}\left[\dfrac{\partial^2\ln f(\vec{x};\theta)}{\partial \theta^2}\right] $:
+        \begin{align*}
+            0&=\dfrac{\partial^{} }{\partial \theta ^{T}}\mathbb{E}(S|\theta  )\\
+            &=\int\dfrac{\partial^{} }{\partial \theta ^{T}} \left\{\dfrac{\partial^{} \ln f(\vec{x};\theta ) }{\partial \theta ^{}}  f(\vec{x};\theta )\right\}\,\mathrm{d}\vec{x}\\
+            &=\int \left\{ \dfrac{\partial^{2} \ln  f(\vec{x};\theta )}{\partial \theta \partial \theta ^{T}} f(\vec{x};\theta )+\dfrac{\partial^{} \ln f(\vec{x};\theta )}{\partial \theta ^{}}   \dfrac{\partial^{}  f(\vec{x};\theta )}{\partial \theta ^{T}} \right\} \,\mathrm{d}\vec{x} \\
+            &=\int  \dfrac{\partial^{2} \ln  f(\vec{x};\theta )}{\partial \theta \partial \theta ^{T}} f(\vec{x};\theta ) \,\mathrm{d}\vec{x}  +\int \dfrac{\partial^{} \ln  f(\vec{x};\theta )}{\partial \theta ^{}} \dfrac{\partial^{} \ln f(\vec{x};\theta )}{\partial \theta^{T}} f(\vec{x};\theta )\,\mathrm{d}   \vec{x}\\
+            &=\mathbb{E}\left( \dfrac{\partial^{2} \ln f(\vec{x};\theta )}{\partial \theta \partial \theta ^{T}}\right)+\mathbb{E}\left( \dfrac{\partial^{} \ln f(\vec{x};\theta )}{\partial \theta ^{}} \dfrac{\partial^{} \ln f(\vec{x};\theta )}{\partial \theta ^{T}} \right)\\
+            \Rightarrow & \mathbb{E}\left( \dfrac{\partial^{2} \ln f(\vec{x};\theta )}{\partial \theta \partial \theta ^{T}}\right)=-\mathbb{E}\left( \dfrac{\partial^{} \ln f(\vec{x};\theta )}{\partial \theta ^{}} \dfrac{\partial^{} \ln f(\vec{x};\theta )}{\partial \theta ^{T}} \right)
+        \end{align*}
+        
+        }
+        \begin{equation}\label{EqaFisherInformation}
+            I(\theta)=\mathbb{E}\left[\left(\frac{\partial \ln f(\vec{x};\theta)}{\partial\theta}\right)^2\right]=-\mathbb{E}\left[\frac{\partial^2\ln f(\vec{x};\theta)}{\partial \theta^2}\right]
         \end{equation}
     \end{itemize}
 
@@ -474,15 +515,15 @@
     \index{CR Inequality (Cramer-Rao Inequality)}
     ReDef. Fisher Information:
     \begin{equation}
-        \mathbf{I}(\theta)=\{I_{ij}(\theta)\}=\{E\left[\left(\frac{\partial\ln f(\vec{x};\theta)}{\partial\theta_i}\right)\left(\frac{\partial\ln f(\vec{x};\theta)}{\partial\theta_j}\right)\right]\}  
+        \mathbf{I}(\theta)=\{I_{ij}(\theta)\}=\{\mathbb{E}\left[\left(\frac{\partial\ln f(\vec{x};\theta)}{\partial\theta_i}\right)\left(\frac{\partial\ln f(\vec{x};\theta)}{\partial\theta_j}\right)\right]\}  
     \end{equation}
 
     Then covariance matrix $\Sigma(\theta)$ satisfies \textbf{Cramer-Rao Inequality}
     \begin{equation}
-        \Sigma(\theta)\geq (n\mathbf{I}(\theta))^{-1}
+        \Sigma(\theta)\succeq  (n\mathbf{I}(\theta))^{-1}
     \end{equation}
 
-    Note: '$\geq$' holds for all diagonal elements, i.e.
+    Note: '$\succeq $' holds for all diagonal elements, i.e.
 \begin{equation}
     var(\hat{\theta}_i)\geq \frac{I^*_{ii}(\theta)}{n},\quad \forall\,i=1,2,\ldots,k  
 \end{equation}
@@ -497,7 +538,7 @@
 
 
 \subsubsection{MoM and MLE in Linear Regression}\label{SubSectionMoM_MLE_LinearRegression}
-    \textbf{Note:} More detailed knowledge see sec.\ref{SecLinearRegressionAnalysis} Linear Regression Analysis.
+    \textbf{Note:} More detailed knowledge see \autoref{SecLinearRegressionAnalysis} Linear Regression Analysis.
 
 \begin{point}
     Linear Regression Model(1-dimension case):
@@ -512,7 +553,7 @@
     Basic Assumptions (Guass-Markov Assumption):
     \begin{align*}
         \text{Zero-Mean: }&\epsilon_i\text{ are i.i.d.}\\
-        \text{Homogeneity of Variance: }&E(\epsilon_i|x_i)=0\\
+        \text{Homogeneity of Variance: }&\mathbb{E}(\epsilon_i|x_i)=0\\
         \text{Independent: }&var(\epsilon_i)=\sigma^2
     \end{align*}
 
@@ -524,7 +565,7 @@
             (\hat{\beta_0},\hat{\beta_1})=\arg\min\sum_{i=1}^n(y_i-\beta_0-\beta_1 x_i)^2    
         \end{equation}
 
-        (Express in Matrix Notation (eqa.\ref{EqaMatrixRepreOfSSE}), so that it can be generalized to multidimensional case) SSE can be expressed as the \textbf{Eucliean Distance }between $ \{y_i\} $ and $ \{\hat{\beta}_0+\hat{\beta}_1x_i\}  $, i.e.
+        (Express in Matrix Notation \autoref{EqaMatrixRepreOfSSE}, so that it can be generalized to multidimensional case) SSE can be expressed as the \textbf{Eucliean Distance }between $ \{y_i\} $ and $ \{\hat{\beta}_0+\hat{\beta}_1x_i\}  $, i.e.
         \begin{equation}
             \arg\min D(y
             ,X \hat{\beta})
@@ -536,7 +577,7 @@
          \end{equation}
         
 
-        Solution for 2-D case:
+        Solution for 1-D case:
         \begin{equation}
             \hat{\beta}=\begin{bmatrix}
                 \hat{\beta}_0\\ \hat{\beta}_1
@@ -563,7 +604,7 @@
         \begin{equation}\bar{\epsilon}=\bar{y}-\beta_0-\beta_1\bar{x}\end{equation}
 
         Take moment estimate of $\epsilon$, we have 
-        \begin{equation}E(\epsilon_i)=0\qquad E(\epsilon_i x_i)=0\text{ (note that}E(\epsilon|x)=0)\end{equation}
+        \begin{equation}\mathbb{E}(\epsilon_i)=0\qquad \mathbb{E}(\epsilon_i x_i)=0\text{ (note that }\mathbb{E}(\epsilon|x)=0)\end{equation}
         \begin{equation}\text{i.e.}\begin{cases}
             
             \dfrac{1}{n}\sum_{i=1}^n(y_i-\beta_0-\beta_1x_i)=0\\
@@ -576,7 +617,7 @@
             \hat{\beta_1}&=\dfrac{\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sum_{i=1}^n(x_i-\bar{x})^2}
         \end{cases}\end{equation}
 
-        (Same as OLS)
+        (the same as OLS)
 
         Moment estimate of $\sigma^2$
         \begin{equation}\hat{\sigma}^2_n=\frac{1}{n}\sum_{i=1}^n(y_i-\hat{\beta}_0-\hat{\beta}_1x_i)\end{equation}
@@ -588,7 +629,7 @@
 
     Log-likelihood:
     \begin{equation}
-        l(\beta _0,\beta _1,\sigma ^2;x_1,\ldots,x_n,y_1,\ldots,y_n)=-\dfrac{n}{2} \ln(2\pi\sigma ^2)-\dfrac{1}{2\sigma ^2}\sum_{i=1}^n(y_i-\beta _0-\beta _1x_i)^2
+        \ell(\beta _0,\beta _1,\sigma ^2;x_1,\ldots,x_n,y_1,\ldots,y_n)=-\dfrac{n}{2} \ln(2\pi\sigma ^2)-\dfrac{1}{2\sigma ^2}\sum_{i=1}^n(y_i-\beta _0-\beta _1x_i)^2
     \end{equation}
 
     MLE, use Fermat Lemma:
@@ -615,7 +656,7 @@
     Linear Regression Model(Multi-dimension case):
 \end{point}
 
-    Detailed derivation see section \ref{SubSectionMultivariateLinearRegressionModel}
+    Detailed derivation see \autoref{SubSectionMultivariateLinearRegressionModel}
     
 \begin{equation}
     y_i=\beta_0+\beta_1x_{i1}+\beta_2x_{i2}+\cdots+\beta_px_{ip}+\epsilon_i    
@@ -656,17 +697,17 @@
 
     Basic Assumptions: Gauss-Markov Assumptions
     \begin{itemize}
-        \item OLS unbiased\begin{equation}E(\epsilon_i|x_i)=0\qquad E(y_i|x_i)=x_i^T\beta\end{equation}
+        \item OLS unbiased\begin{equation}\mathbb{E}(\epsilon_i|x_i)=0\qquad \mathbb{E}(y_i|x_i)=x_i^T\beta\end{equation}
         \item Homogeneity of $\epsilon_i$\begin{equation}var(\epsilon_i)=\sigma^2\end{equation}
         \item Independent of $\epsilon$
         \item (For MLE) $\epsilon_i\text{ i.i.d.}\sim N(0,\sigma^2)$
     \end{itemize}
 
     Residuals:
-    \begin{equation}e_i=\hat{\epsilon}_i=y_i-\hat{y}_i=y_i-x_i^T\beta\end{equation}
+    \begin{equation}e_i=\hat{\epsilon}_i=y_i-\hat{y}_i=y_i-x_i^T\hat{\beta }\end{equation}
 
     Def. Error Sum of Squares (SSE)
-    \begin{equation}\mathrm{RSS}=\sum_{i=1}^ne_i^2=\sum_{i=1}^n(y_i-x_i^T\beta)^2\end{equation}
+    \begin{equation}\mathrm{SSE}=\sum_{i=1}^ne_i^2=\sum_{i=1}^n(y_i-x_i^T\hat{\beta })^2\end{equation}
 
     Estimator exists and unique:($\hat{\sigma}^2$ is after bias correction)
     \begin{align}
@@ -684,7 +725,7 @@
     \end{equation}
         
 
-    Problem: Overfitting when getting $\hat{f}$. Solution: Using \textbf{Kernel Estimate}, replace $I_{(-\infty,x]}(\cdot)$ with Kernel function $K(\cdot)$, then
+    Problem: Overfitting when getting $\hat{f}$. Solution: Using \textbf{Kernel Estimate}, replace $I_{(-\infty,x]}(\,\cdot\,)$ with Kernel function $K(\,\cdot\,)$, then
     \begin{equation}
         \hat{f}_n(x)=\dfrac{F_n(x+h_n)-F-n(x-h_n)}{2h_n}=\frac{1}{nh_n}\sum_{i=1}^nK(\frac{x-X_i}{h_n})
     \end{equation}
@@ -694,16 +735,17 @@
     Can be considered as a convolution of sample $\{X_i\}$ and kernel function $K$.
 
     Useful Kernel Functions:
-    \begin{itemize}[itemsep= -6 pt,parsep= 0 pt]
-        \item $K(x)=\dfrac{1}{2}I_{[-\frac{1}{2},\frac{1}{2}]}$\\
-        \item $K(x)=(1-|x|)I_{[-1,1]}$\\
-        \item $K(x)=\dfrac{1}{2\pi}e^{-\frac{x^2}{2}}$\\
-        \item $K(x)=\dfrac{1}{\pi(1+x^2)}$\\
-        \item $K(x)=\dfrac{1}{2\pi}\mathrm{sinc}^2(\dfrac{x}{2})$
-    \end{itemize}
     
-
-
+    \begin{align*}
+        K(x):=\begin{cases}
+            \,\mathbb{I}_{[-\frac{1}{2},\frac{1}{2}]},&\text{Square Kernel}\\
+            \,(1-|x|)\mathbb{I}_{[-1,1]},&\text{Triangle Kernel}\\
+            \,\dfrac{1}{\sqrt[]{2\pi}}e^{-\frac{x^2}{2}},&\text{Gaussian Kernel}\\
+            \,\dfrac{1}{\pi(1+x^2)},&\text{Cauchy Kernel}\\
+            \,\dfrac{1}{2\pi}\mathrm{sinc}^2\dfrac{x}{2}=\dfrac{1}{2\pi}\left(\dfrac{\sin x/2}{x/2}\right)^2,&\text{sinc Kernel}
+        \end{cases} 
+    \end{align*}
+    
 
 
 
@@ -726,9 +768,9 @@
     \index{CI (Confidence Interval)}\index{Confidence Region!Confidence Interval}How to judge an interval estimation?
     \begin{itemize}
         \item Reliability
-        \begin{equation}P(g(\theta)\in[\hat{g}_1,\hat{g}_2])\end{equation}
+        \begin{equation}\mathbb{P}(g(\theta)\in[\hat{g}_1,\hat{g}_2])\end{equation}
         \item Precision
-        \begin{equation}E(\hat{g}_2-\hat{g}_1)\end{equation}
+        \begin{equation}\mathbb{E}(\hat{g}_2-\hat{g}_1)\end{equation}
     \end{itemize}
 
     Trade off: (in most cases)
@@ -741,25 +783,25 @@
 \end{point}
 
     \begin{equation}
-        P(\hat{g}_1\leq g(\theta)\leq \hat{g}_2)\geq 1-\alpha
+        \mathbb{P}(\hat{g}_1\leq g(\theta)\leq \hat{g}_2)\geq 1-\alpha
     \end{equation}
 
     then $[\hat{g}_1,\hat{g}_2]$ is a \textbf{Confidence Interval} for $g(\theta)$, with \textbf{Confidence Level} $1-\alpha$. 
     
     \textbf{Confidence Coefficient}\index{Confidence Coefficient}:
-    \begin{equation}\inf_{\forall\theta\in\Theta}P(
+    \begin{equation}\inf_{\forall\theta\in\Theta}\mathbb{P}(
         \theta\in\mathrm{CI}
     )\end{equation}
 
     Other cases:
     \begin{itemize}[topsep=-4pt]
-        \item \textbf{Confidence Limit}:Upper/Lower Confidence Limit\index{Confidence Region!Confidence Limit}
+        \item \textbf{Confidence Limit}: (One-way) Upper/Lower Confidence Limit\index{Confidence Region!Confidence Limit}
     \begin{align*}
-        P(g\leq \hat{g}_U)\geq 1-\alpha\\
-        P(\hat{g}_L\leq \theta)\geq 1-\alpha
+        \mathbb{P}(g\leq \hat{g}_U)\geq 1-\alpha\\
+        \mathbb{P}(\hat{g}_L\leq g)\geq 1-\alpha
     \end{align*}
         \item \textbf{Confidence Region}: For high dimensional parameters $\vec{g}=(g_1,g_2,\ldots,g_k)$\index{Confeidence Region}
-        \begin{equation}P(\vec{g}\in S(\vec{X}))\geq 1-\alpha\quad \forall \theta\in\Theta \end{equation}
+        \begin{equation}\mathbb{P}(\vec{g}\in S(\vec{X}))\geq 1-\alpha\quad \forall \theta\in\Theta \end{equation}
         
     \end{itemize}
 
@@ -772,19 +814,19 @@
     Def. \textbf{Pivot Variable}\index{Pivot Variable} $T$, satisfies: 
     \begin{itemize}[itemsep= -2 pt,parsep= -2 pt]
         \item Expression of $T$ contains $\theta$ (thus $T$ is not a statistic).
-        \item Distribution of $T$ independent of $\theta$.
+        \item Distribution of $T$ independent of $\theta$.\footnote{Comment: $ T(X,\theta ) $ is both function of sample $ X $ an parameter in statistics model. Note that $ X $ also depends on $ \theta  $, but is fixed once we complete a sample.}
     \end{itemize}
 
     In different cases, construct different pivot variable, usually base on sufficient statistics and transform.
     
     Knowing a proper pivot variable $T=T(\hat{\varphi},g(\theta))\sim f$, ($f$ is some distribution independent of $\theta$), $\hat{\varphi}$ is a sufficient statistic), then we can take $T$ satisfies:
     \begin{equation}
-        P(f_{1-\frac{\alpha}{2}}\leq T\leq f_{\frac{\alpha}{2}})=1-\alpha
+        \mathbb{P}(f_{1-\frac{\alpha}{2}}\leq T\leq f_{\frac{\alpha}{2}})=1-\alpha
     \end{equation}
 
     Construct the inverse mapping of $T=T(\hat{\varphi},g(\theta))\rightleftarrows g(\theta)=T^{-1}(T,\hat{\varphi})$, we get
     \begin{equation}
-        P[T^{-1}(f_{1-\frac{\alpha}{2}},\hat{\varphi})\leq\hat{g}\leq T^{-1}(f_{\frac{\alpha}{2}},\hat{\varphi})]=1-\alpha
+        \mathbb{P}[T^{-1}(f_{1-\frac{\alpha}{2}},\hat{\varphi})\leq\hat{g}\leq T^{-1}(f_{\frac{\alpha}{2}},\hat{\varphi})]=1-\alpha
     \end{equation}
     
     Thus get a confidence interval for $\theta$ with confidence coefficient $1-\alpha$.\\
@@ -793,7 +835,7 @@
 \newpage
 \subsubsection{Confidence Interval for Common Distributions}\label{SubSectionConfidenceIntervalForDistributions}
 
-    Some important properties of $\chi^2$, $t$ and $F$ see section \hyperref[chi2_t_F_properties]{\ref{chi2_t_F_properties}}.
+    Some important properties of $\chi^2$, $t$ and $F$ see \autoref{chi2_t_F_properties}.
     \begin{enumerate}
         \item Single normal population: $\vec{X}=\{X_1,X_2,\ldots,X_n\}\in\mathscr{X}$ i.i.d from Normal Distribution population $N(\mu,\sigma^2)$. Denote sample mean and sample variance: 
         \begin{equation}\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i\qquad S^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\bar{X})^2\qquad S_\mu=\dfrac{1}{n}\sum_{i=1}^n(X_i-\mu)^2\text{,(for }\mu\text{ known)}\end{equation}
@@ -1074,11 +1116,11 @@
 \subsubsection{Fisher Fiducial Argument*}\label{SubSectionFisherFiducialArgument}
     Idea: When sample is known, we can get '\textbf{Fiducial Probability}' of $\theta$, thus can find an interval estimation based on fiducial distribution.(Similar to the idea of MLE)
 
-    Remark: Fiducial probability (denoted as $\tilde{P}(\theta)$) is 'probability of parameter', in the case that sample is known. \textbf{Fiducial probability is different from Probability}.
+    Remark: Fiducial probability (denoted as $\tilde{\mathbb{P}}(\theta)$) is 'probability of parameter', in the case that sample is known. \textbf{Fiducial probability is different from Probability}.
 
     Thus get
     \begin{equation}
-        \tilde{P}(\hat{g}_1\leq g(\theta)\leq \hat{g}_2)=1-\alpha
+        \tilde{\mathbb{P}}(\hat{g}_1\leq g(\theta)\leq \hat{g}_2)=1-\alpha
     \end{equation}
 
 
@@ -1088,7 +1130,7 @@
 
 
 \subsection{Hypothesis Testing}\label{SectionHypothesisTesting}
-    \index{HT (Hypothesis Testing)}Hypothesis is a statement about the characteristic of population, e.g. distribution form, parameters, etc. 
+    \index{Hypothesis Testing}Hypothesis is a statement about the characteristic of population, e.g. distribution form, parameters, etc. 
     
     Mission: Use sample to test the hypothesis, i.e. judge whether population has some characteristic.
 
@@ -1097,7 +1139,7 @@
 
     For random sample $\vec{X}=(X_1,X_2,\ldots,X_n)\in\mathscr{X}$ i.i.d. from $\mathscr{F}=\{f(x;\theta);\theta\in\Theta\}$\index{Null Hypothesis}\index{Alternative Hypothesis}
     \begin{itemize}[topsep = -3 pt]
-        \item Null Hypothesis $H_0$ \& Alternative Hypothesis $H_1$: Wonder whether a statement is true. Def. \textbf{Null Hypothesis}: $H_0:\theta\in\Theta_0\subset\Theta$, \textbf{a statement that we try to reject based on sample}; $H_1:\theta\in\Theta_1=\Theta-\Theta_0$ is \textbf{Alternative Hypothesis}.
+        \item Null Hypothesis $H_0$ \& Alternative Hypothesis $H_1$: Wonder whether a statement is true. Def. \textbf{Null Hypothesis}: $H_0:\theta\in\Theta_0\subset\Theta$, \textbf{a statement that we try to reject based on sample}; $H_1:\theta\in\Theta_1=\Theta/\Theta_0$ is \textbf{Alternative Hypothesis}.
         
 \begin{point}
     Note: \textbf{Cannot} exchange $ H_0 $ and $ H_1 $, because when the evidence is ambiguity, we have to accept $ H_0 $, regardless of what $ H_0 $ is. So it is \textbf{very important} to pick the proper $ H_0 $.
@@ -1119,7 +1161,7 @@
         \begin{equation}
             \varphi(\vec{X})=\begin{cases}
                 1,&\vec{X}\in R\\
-                0,&\vec{X}\in R^C
+                0,&\vec{X}\in R^\complement
             \end{cases}
         \end{equation}
 
@@ -1130,19 +1172,19 @@
         \varphi(\vec{X})=\begin{cases}
             1,&\vec{X}\in R-\partial R\\
             r,&\vec{X}\in \partial R\\
-            0,&\vec{X}\in R^C
+            0,&\vec{X}\in R^\complement
         \end{cases}    
         \end{equation}
 
-        Where $R$ and $r$  to be determined.
+        Where $R$ and $r$  to be determined. $\partial R$ means the boundary of $ R $
     \end{itemize}
         \item Type I Error \& Type II Error: Sample is random, possible to make a wrong judge.\index{Type I Error}\index{Type II Error}
             
         \begin{itemize}[topsep = -4 pt]
             \item Type I Error (弃真): $H_0$ is true but sample falls in $R$, thus $H_0$ is rejected.
-            \begin{equation}P(\text{type I error})=P(\vec{X}\in R|H_0)=\alpha(\theta)\end{equation}
+            \begin{equation}\mathbb{P}(\text{type I error})=\mathbb{P}(\vec{X}\in R|H_0)=\alpha(\theta)\end{equation}
             \item Type II Error (取伪): $H_0$ is wrong but sample falls in $R^C$, thus $H_0$ is accepted.
-            \begin{equation}P(\text{type II error})=P(\vec{X}\notin R|H_1)=\beta(\theta)\end{equation}
+            \begin{equation}\mathbb{P}(\text{type II error})=\mathbb{P}(\vec{X}\notin R|H_1)=\beta(\theta)\end{equation}
         \end{itemize}
 
     \begin{table}[htbp]
@@ -1161,6 +1203,16 @@
 
 
         Impossible to make probability of Type I \& II Error small simultaneously, how to pick a proper test $\varphi(\vec{x})$? 
+
+        
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.55\linewidth]{sections/images/2022-09-05-16-16-51.png}
+        \caption{Illustration of type I\&II error}
+        \label{}
+    \end{figure}
+    
+
         
 \begin{point}
         \textbf{Neyman-Pearson Principle}\index{Neyman-Pearson Principle}: First control $\alpha\leq\alpha_0$, then take $\min \beta$.
@@ -1173,19 +1225,21 @@
         
         e.g. For reject region $R=\{\vec{X}|T(\vec{X})\geq C\},$ $p$-value:
         \begin{equation}
-            p(\vec{x})=P[T(\vec{X})\geq t(\vec{x}_0)|H_0]
+            p_{H_0}(\vec{x})=\mathbb{P}[T(\vec{X})\geq t(\vec{x}_0)|H_0]
         \end{equation}
 
 
-        Remark: Under $H_0$, the probability to get a \textbf{worse} result than $\vec{x}_0$.
+        Remark: We believe that sample should reflect the property of model parameter, and $ p $-value is that under $H_0$, the probability to get a \textbf{worse} result than $\vec{x}$.
         
-        Rule: Reject $H_0$ if $p(\vec{x}_0)\leq\alpha_0$
+        Rule: Reject $H_0$ if $p(\vec{x}_0)\leq\alpha_0$.
+
+        Note: $ p $-value is \textbf{different from} $ \alpha $ or type I error. $ p $-value is generated before we make decision while $ \alpha  $ arises after we decide how to make decisions. (But they do target the same result.)
 
         \item Power Function\index{Power Function}: (when $H_0$ is given), probability to reject $H_0$ by sampling.
         \begin{equation}
             \pi(\theta)=\begin{cases}
-                P(\text{type I error}),& \theta\in\Theta_0\\
-                1-P(\text{type II error}),& \theta\in\Theta_1
+                \mathbb{P}(\text{type I error}),& \theta\in\Theta_0\\
+                1-\mathbb{P}(\text{type II error}),& \theta\in\Theta_1
             \end{cases}
             =
             \begin{cases}
@@ -1196,7 +1250,7 @@
 
         Express as test function:
         \begin{equation}
-            \pi(\theta)=E[\varphi(\vec{X})|\theta]
+            \pi(\theta)=\mathbb{E}[\varphi(\vec{X})|\theta]
         \end{equation}
 
         A nice test: $\pi(\theta)$ small under $H_0$, large under $H_1$ (and grows very fast at the boundary of $ H_0 $ and $ H_1 $).
@@ -1235,10 +1289,10 @@
 \subsubsection{Hypothesis Testing of Common Distributions}\label{SubSectionHypothesisTestingOfCommonDistributions}
     For some common distribution populations, determine rejection region $R$ under certain $H_0$ with confidence coefficient $\alpha$.
 
-    Definition of necessary statistics see section \hyperref[SubSectionConfidenceIntervalForDistributions]{\ref{SubSectionConfidenceIntervalForDistributions}}.
+    Definition of necessary statistics see section {\autoref{SubSectionConfidenceIntervalForDistributions}}.
 
     \begin{enumerate}
-        \item Single normal population:\index{$ t $-test}
+        \item Single normal population:\index{t-test@$ t $-test}
 
         \begin{table}[H]
             \centering
@@ -1325,7 +1379,7 @@
     Reject $H_0$ if $\Lambda(\vec{x})<\Lambda_0$. Or equivalently: Reject $H_0$ if $-2\ln\Lambda(\vec{x})>C(=-2\ln\Lambda_0)$.
 
     where $\Lambda_0$ (or equivalently $C=-2\ln\Lambda_0$) satisfies:
-    \begin{equation}E_{\Theta_0}[\varphi(\vec{X})]\leq\alpha,\quad\forall\theta\in\Theta_0\end{equation}
+    \begin{equation}\mathbb{E}_{\Theta_0}[\varphi(\vec{X})]\leq\alpha,\quad\forall\theta\in\Theta_0\end{equation}
 
     LR and sufficient statistic: $\Lambda(\vec{x})$ can be expressed as $\Lambda(\vec{x})=\Lambda^*(T(\vec{x}))$, where $T(\vec{X})$ is sufficient statistic.
 
@@ -1347,7 +1401,7 @@
         \Lambda = \left( 1+\dfrac{T^2}{n-1} \right)^{-n/2}
     \]
     
-    The Multivariate case see section \hyperlink{PartHotellingT2Test}{\ref{SubSectionMultivariateHypothesisTesting}}, where $ T^2 $ itself is the Hotelling's $ T^2 $ statistic.
+    The Multivariate case see {\autoref{SubSectionMultivariateHypothesisTesting}}, where $ T^2 $ itself is the Hotelling's $ T^2 $ statistic.
     
     
 
@@ -1388,7 +1442,7 @@
 
     Then there exists $C$ and $r$ such that
     \begin{itemize}
-        \item $E[\varphi(\vec{x})|\theta_0]=P(\dfrac{f(\vec{x};\theta_1)}{f(\vec{x};\theta_0)}>C)+rP(\dfrac{f(\vec{x};\theta_1)}{f(\vec{x};\theta_0)}=C)=\alpha$
+        \item $\mathbb{E}[\varphi(\vec{x})|\theta_0]=\mathbb{P}(\dfrac{f(\vec{x};\theta_1)}{f(\vec{x};\theta_0)}>C)+r\mathbb{P}(\dfrac{f(\vec{x};\theta_1)}{f(\vec{x};\theta_0)}=C)=\alpha$
         \item This $\varphi$ is UMP of level of significance $\alpha$
     \end{itemize}
 
@@ -1396,7 +1450,7 @@
 
     Note: UMT exist for\textbf{ simple }$H_0,H_1$, otherwise may not exist.
 
-    UMP and sufficient statistics: Test function $\varphi(\vec{X}$ given by eqa(\ref{UMPtestfunction}) is function of sufficient statistics $T(\vec{X})$, i.e. $\varphi(\vec{X})=\varphi^*(T(\vec{X}))$.
+    UMP and sufficient statistics: Test function $\varphi(\vec{X})$ given by \autoref{UMPtestfunction} is function of sufficient statistics $T(\vec{X})$, i.e. $\varphi(\vec{X})=\varphi^*(T(\vec{X}))$.
 
     UMP and Exponential Family: For sample $\vec{X}=(X_1,X_2,\dots,X_n)$ from exponential family:
     \begin{equation}
@@ -1421,9 +1475,9 @@
    
     
 
-    where $C$ and $r$ satisfies $E[\varphi(\vec{x})|\theta_0]=\alpha$.
+    where $C$ and $r$ satisfies $\mathbb{E}[\varphi(\vec{x})|\theta_0]=\alpha$.
 
-    Note: or take $Q(\theta)$ mono decreased, then in eqa(\ref{UMPtestfunctioninExponentialFamily}), take opposite inequality operators.
+    Note: or take $Q(\theta)$ mono decreased, then in \autoref{UMPtestfunctioninExponentialFamily}, take opposite inequality operators.
     
 \begin{point}
     \textbf{General Steps of UMP}:
@@ -1432,10 +1486,10 @@
     
     \begin{enumerate}
         \item Find a point $\theta_0\in\Theta_0$ and a point $\theta_1\in\Theta_1$. (Note: \textbf{one} point)
-        \item Construct test function in the form of eqa.\hyperref[UMPtestfunction]{(\ref{UMPtestfunction})}, use $E[\varphi(\vec{x})|\theta_0]=\alpha$ to determine $C$ and $r$.
+        \item Construct test function in the form of {\autoref{UMPtestfunction}}, use $\mathbb{E}[\varphi(\vec{x})|\theta_0]=\alpha$ to determine $C$ and $r$.
         \item Get $R$ and $\varphi(\vec{x})$.
         \item If $\varphi$ does \textbf{not} depend on $\theta_1$, then $H_1$ can be generalized to $H_1:\theta\in\Theta_1$.
-        \item If $\varphi$ satisfies $E_{\theta\in\Theta_0}(\varphi)\leq\alpha$, then $H_0$ an be generalized to $H_0:\theta\in\Theta_0$.
+        \item If $\varphi$ satisfies $\mathbb{E}_{\theta\in\Theta_0}(\varphi)\leq\alpha$, then $H_0$ an be generalized to $H_0:\theta\in\Theta_0$.
     \end{enumerate}
 
 \subsubsection{Duality of Hypothesis Testing and Interval Estimation}
@@ -1450,7 +1504,7 @@
 
     \item Thm.: $C(\vec{X})$ is a $1-\alpha$ confidence region for $\theta$. Then $\forall\theta_0\in C(\vec{X})$, the rejection region of hypothesis testing $H_0:\theta=\theta_0\longleftrightarrow H_1:\theta\neq\theta_0$ of level $\alpha$ satisfies
     \begin{equation}
-    R^C_{\theta_0}=\{\vec{X}:\theta_0\in C(\vec{X})\}
+    R^\complement_{\theta_0}=\{\vec{X}:\theta_0\in C(\vec{X})\}
     \end{equation}
 \end{itemize}
     
@@ -1462,9 +1516,9 @@
 \begin{itemize}[itemsep=-3pt]
     \item[] \centering $H_0:\theta=\theta_0\longleftrightarrow H_1:\theta\neq\theta_0$
     \begin{equation}\updownarrow\end{equation}
-    \item[] \centering $P(R^C(\vec{X})|H_0)=P(R^C(\vec{X})|\theta_0)=1-\alpha$
+    \item[] \centering $\mathbb{P}(R^\complement(\vec{X})|H_0)=\mathbb{P}(R^\complement(\vec{X})|\theta_0)=1-\alpha$
     \begin{equation}\updownarrow\end{equation}
-    \item[] Confidence Interval: $\theta_0\in R^C(\vec{X})$
+    \item[] Confidence Interval: $\theta_0\in R^\complement(\vec{X})$
 \end{itemize}
 
     Similar for Confidence Limit and One-Sided Testing.
@@ -1475,7 +1529,7 @@
 
     Useful Method:
     \begin{itemize}
-        \item Sign Test: Used for paired comparison $\vec{X}=(X_1,X_2,\ldots,X_n$, $\vec{Y}=(Y_1,Y_2,\ldots,Y_n)$.
+        \item Sign Test: Used for paired comparison $\vec{X}=(X_1,X_2,\ldots,X_n)$, $\vec{Y}=(Y_1,Y_2,\ldots,Y_n)$.
         
         Take $Z_i=Y_i-X_i$ i.i.d., denote $E(Z)=\mu$. Test $H_0:\mu=0\longleftrightarrow H_1:\mu\neq 0$.
 
@@ -1497,17 +1551,17 @@
 
         Def. \textbf{Sum of Wilcoxon Signed Rank}: 
         \begin{equation}
-        W^+=\sum_{i=1}^{n_0}R_iI_{Z_i>0} 
+        W^+=\sum_{i=1}^{n_0}R_i\mathbb{I}_{Z_i>0} 
         \end{equation}
 
         Distribution of $W^+$ is complex. $E$ and $var$ of $W^+$ under $H_0$:
         \begin{equation}
-        E(W^+)=\frac{n_0(n_0+1)}{4}\qquad var(W^+)=\frac{n_0(n_0+1)(2n_0+1)}{24}    
+            \mathbb{E}(W^+)=\frac{n_0(n_0+1)}{4}\qquad var(W^+)=\frac{n_0(n_0+1)(2n_0+1)}{24}    
         \end{equation}
 
         Usually consider large sample CLT, construct normal approximation:
         \begin{equation}
-            T=\frac{W^+-E(W^+)}{\sqrt{var(W^+)}}\xrightarrow[]{\mathscr{L}}N(0,1)
+            T=\frac{W^+-\mathbb{E}(W^+)}{\sqrt{var(W^+)}}\xrightarrow[]{\mathscr{L}}N(0,1)
         \end{equation}
 
         Rejection Region: $R=\{|T|>N_\frac{\alpha}{2}\}$
@@ -1524,12 +1578,12 @@
         in which denote rank of $Y_i$ as $R_i$, and def. \textbf{Wilcoxon two-sample rank sum}:
         \begin{equation}W=\sum_{i=1}^n R_i\end{equation}
 
-        $E$ and $var$ of $W$ under $H_0$:
-\begin{equation}E(W)=\frac{n(m+n+1)}{2}\qquad var(W)=\frac{mn(n+m+1)}{12}\end{equation}
+        $\mathbb{E}$ and $var$ of $W$ under $H_0$:
+\begin{equation}\mathbb{E}(W)=\frac{n(m+n+1)}{2}\qquad var(W)=\frac{mn(n+m+1)}{12}\end{equation}
 
         Use large sample approximation, construct CLT:
         \begin{equation}
-            T=\frac{W-E(W)}{\sqrt{var(W)}}\xrightarrow[]{\mathscr{L}}N(0,1)
+            T=\frac{W-\mathbb{E}(W)}{\sqrt{var(W)}}\xrightarrow[]{\mathscr{L}}N(0,1)
         \end{equation}
 
 
@@ -1543,19 +1597,19 @@
         where $F$ is theoretical distribution, can be either parametric or non-parametric.
 
         Idea: Define some \textit{quantity} $D=D(X_1,\ldots,X_n;F)$ to measure the difference between $F$ and sample. And def. \textit{Goodness-of-fit} when observed value of $D$ (say $d_0$) is given:
-        \begin{equation}p(d_0)=P(D\geq d_0|H_0)\end{equation}
+        \begin{equation}p(d_0)=\mathbb{P}(D\geq d_0|H_0)\end{equation}
 
         \textbf{Goodness-of-Fit Test}: Reject $H_0$ if $p(d_0)<\alpha$.
 
 
             Pearson $\chi^2$ Test: Usually used for discrete case. 
             
-            Test $H_0:P(X_i=a_i)=p_i,\, i=1,2,\ldots,r$. Denote $\#(X_j=a_i)=\nu_i$, take $D$ as:
+            Test $H_0:\mathbb{P}(X_i=a_i)=p_i,\, i=1,2,\ldots,r$. Denote $\#(X_j=a_i)=\nu_i$, take $D$ as:
             \begin{equation}\label{Pearson_chi_test_differenceKn}
                 K_n=K_n(X_1,\ldots,X_n;F)=\sum_{i=1}^r\frac{(\nu_i-np_i)^2}{np_i}
             \end{equation}
 
-            Pearson Thm.: For $K_n$ defined as eqa(\ref{Pearson_chi_test_differenceKn}), then under $H_0$:
+            Pearson Thm.: For $K_n$ defined as \autoref{Pearson_chi_test_differenceKn}, then under $H_0$:
             \begin{equation}
                 K_n\xrightarrow[]{\mathscr{L}}\chi^2_{r-1-s}
             \end{equation} 
@@ -1568,7 +1622,7 @@
                 \item For continuous case, construct division:
                 \begin{equation}\mathbb{R}\rightarrow(-\infty,a_1,a_2,\ldots,a_{r-1},\infty=a_r) \end{equation}
 
-                and test $H_0:P(X\in I_j)=p_j$
+                and test $H_0:\mathbb{P}(X\in I_j)=p_j$
 
                 Criterion: Pick proper interval so that $np_i$ and $\nu_i$ both $\geq 5$.
             \end{itemize}
@@ -1579,7 +1633,7 @@
         \index{Contingency Table}
  
 \begin{itemize}
-    \item Independence Test:
+    \item Independence Test:\index{Pearson's $ \chi^2 $ Test}
     
     Test a two-parameter sample and to see whether these two parameters(features) are independent. Denote $Z=(X,Y)$ are some 'level' of sample, $n_{ij}$ is number of sample with level $(i,j)$
 
@@ -1654,7 +1708,7 @@
     \begin{itemize}
         \item Kolmogorov-Smirnov Test\index{K-S Test (Kolmogorov-Smirnov Test)}: Assume $\vec{X}$ form population CDF $F(x)$, test $H_0:F(x)=F_0(x)$(where can take $F_0=\Phi$ or some other known CDF).
         
-        use $F_n(x)$ (as defined in eqa(\ref{empiricaldisreibutionfunction})) as approx. to $F(x)$, test
+        use $F_n(x)$ (as defined in \autoref{empiricaldisreibutionfunction}) as approx. to $F(x)$, test
         \begin{equation}
             D_n=\sum_{-\infty< x<+\infty}|F_n(x)-F_0(x)|
         \end{equation}
@@ -1663,14 +1717,14 @@
 
         or use goodness-of-fit: denote observed value of $D_n$ as $d_n$. Reject $H_0$ if
         \begin{equation}
-            p(d_n)=P(D_n>d_n|H_0)<\alpha
+            p(d_n)=\mathbb{P}(D_n>d_n|H_0)<\alpha
         \end{equation}
 
         \item Shapiro-Wilk Test:\index{S-W Test (Shapiro-Wilk Test)}
         
         Test $H_0:\text{exists }\mu\,\&\, \sigma^2$ such that $X_i$ i.i.d. $\sim N(\mu,\sigma^2)$.
 
-        Denote $Y_{(i)}=\dfrac{X_{(i)}-\mu}{\sigma}$, $m_i=E(Y_{(i)})$
+        Denote $Y_{(i)}=\dfrac{X_{(i)}-\mu}{\sigma}$, $m_i=\mathbb{E}(Y_{(i)})$
 
         Under $H_0$, $(X_{(i)},m_i)$ falls close to straight line. Test Statistic: Correlation
         \begin{equation}

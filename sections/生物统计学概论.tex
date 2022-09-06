@@ -1,0 +1,635 @@
+\section{生物统计学概论部分}
+\begin{center}
+    Instructor: Tianying Wang
+\end{center}
+
+Biostatistics is discipline to apply statistical methods to biological problems, including medicine, biology experiment, public health, etc. This section would focus on basic quantative skills to be used in advanced biostatistics research.
+
+
+\subsection{Factor Model and ANOVA}
+\index{Factor Model}\index{ANOVA (Analysis of Variance)}
+A major question in biostatistics is to study the difference between groups, i.e. explanatory variable $ X $ is categorical. A `way' to conduct grouping is called a \textbf{factor} , e.g. $ \{\alpha _i\} $ where each $ i $ correponds to a \textbf{level} of the factor.  
+
+To compare groups, e.g. to determine whether there is significant difference between $ Y $ of each group, ANOVA is used. The key thought is to analyze difference value and variance and see whether the difference is large enough to `exceed' variance.
+
+\begin{point}
+    Factor Notation
+\end{point}
+
+    Response $ Y $ is denoted by its subsript to declare its group and index in this group, e.g. $ Y_{ijkl} $ indicates it is the $ l^\mathrm{th}  $ sample in group $ (i,j,k) $
+
+\subsubsection{Single Factor Model and One-Way ANOVA}
+\index{Factor Model!Single Factor Model}
+
+\begin{point}
+    Cell Mean Model
+\end{point}
+
+\[
+    Y_{ij}=\mu_i +\varepsilon _{ij},\quad \varepsilon _{ij} \,\mathrm{i.i.d.}\,\sim N(0,\sigma ^2) 
+\]
+
+Estimation target: $ \mu _1,\ldots,\mu _r,\sigma ^2 $
+
+Hypothesis testing $ H_0 $: $ \mu _1=\ldots=\mu _r=\mu  $, v.s. $ H_1: $ at least 1 $ \mu _i $ is different.
+
+Estimation:
+\begin{align}
+    \hat{\mu }_i=&\bar{Y}_{i\cdot}=\dfrac{1}{n_i}\sum_{j=1}^{n_i}Y_{ij}\\
+    s_i^2=&\dfrac{1}{n_i-1}\sum_{j=1}^{n_i}(Y_{ij}-\bar{Y}_{i\cdot})^2\\
+    s^2=&\dfrac{\sum_{i=1}^r(n_i-1)s_i^2}{\sum_{i=1}^r(n_i-1)}=\dfrac{\sum_{i=1}^r(n_i-1)s_i^2}{n_T-r}
+\end{align}
+
+Key of ANOVA: Decomposition of variation SS:
+\begin{align}
+    \mathrm{SST}=  \sum_{i=1}^r\sum_{j=1}^{n_i}(Y_{ij}-\bar{Y}_{\cdot\cdot})^2=&\sum_{i=1}^r\sum_{j=1}^{n_i}\left( Y_{ij}-\bar{Y}_{i\cdot}+\bar{Y}_{i\cdot}-\bar{Y}_{\cdot\cdot} \right)^2\\
+    =&\sum_{i=1}^{r}+\sum_{j=1}^{n_i}(Y_{ij}-\bar{Y}_{i\cdot})^2+\sum_{i=1}^r(\bar{Y}_{i\cdot}-\bar{Y}_{\cdot\cdot})^2\\
+    =&\mathrm{SSE}+\mathrm{SSR}  
+\end{align}
+
+\begin{point}
+    Factor Model
+\end{point}
+
+    
+    \begin{align}
+        Y_{ij}=\mu+\alpha _i+\varepsilon _{ij}\quad \varepsilon _{ij}\text{ i.i.d. }\sim N(0,\sigma ^2) 
+    \end{align}    
+
+    Estimation target: $ \mu ,\alpha _1,\ldots,\alpha _r,\sigma ^2 $, w.r.t. $\sum_{i=1}^r\alpha _i=0$.
+
+    Hypothesis tesing: $ H_0:\,\alpha _1=\ldots=\alpha _r=0 $, v.s. $ H_1: $ at least 1 $ \alpha _i\neq 0 $
+
+    Estimation:
+    \begin{align}
+        \hat{\mu }=&\bar{Y}_{i\cdot }=\dfrac{1}{n_i}\sum_{j=1}^{n_i}Y_{ij}\\
+        s_i^2=&\dfrac{1}{n_i-1}\sum_{j=1}^{n_i}\left(Y_{ij}-\bar{Y}_{i\cdot     }\right)^2\\
+        s^2=&\dfrac{\sum_{i=1}^r(n_i-1)s_i^2}{n_T-r}
+\end{align}    
+    
+    
+
+
+\subsubsection{Fixed Effect and Random Effect}
+    When divided into groups/naturally assigned in groups, we need to specify whether the factor levels are specially chosen (fixed effect) of randomly chosen from a `population of levels' (random effect). 
+    \begin{itemize}[topsep=2pt,itemsep=0pt]
+        \item Fixed Effect: whether there is a difference between / estimating the value of mean value $ \mu _i $ of each specific levels
+        \item Random Effect: whether the overall behaviour of $ \mu _i $ comes from a `random distribution'
+    \end{itemize}
+
+    Comment on fised / random in actual model building and statistical inference:
+    \begin{itemize}[topsep=2pt,itemsep=0pt]
+        \item whether a factor is fixed or random should be determined by how the data are obtained and the research problem to be studied, i.e. determining fixed / random model does \textbf{not} come from mathematics.
+        \item for effect of interaction term, say $ (\alpha\beta )_{ij} $ as the interaction effect of factor $ \alpha _i $ and $ \beta _j $, then $ (\alpha \beta )_{ij} $ would be random once one of $ \alpha _i $ or $ \beta  _j$ is random.
+    \end{itemize}
+    
+
+    Here use a one-way factor model as example:
+    
+
+    \begin{point}
+        Fixed Effect:
+    \end{point}
+    
+        
+    \begin{align}
+        Y_{ij}=\mu+\alpha _i+\varepsilon _{ij}\quad \varepsilon _{ij}\text{ i.i.d. }\sim N(0,\sigma ^2) 
+    \end{align}    
+
+    Estimation target: $ \mu ,\alpha _1,\ldots,\alpha _r,\sigma ^2 $, w.r.t. $\sum_{i=1}^r\alpha _i=0$.
+
+    Hypothesis tesing: $ H_0:\,\alpha _1=\ldots=\alpha _r=0 $, v.s. $ H_1: $ at least 1 $ \alpha _i\neq 0 $
+
+    Estimation:
+    \begin{align}
+        \hat{\mu }=&\bar{Y}_{i\cdot }=\dfrac{1}{n_i}\sum_{j=1}^{n_i}Y_{ij}\\
+        s_i^2=&\dfrac{1}{n_i-1}\sum_{j=1}^{n_i}\left(Y_{ij}-\bar{Y}_{i\cdot     }\right)^2\\
+        s^2=&\dfrac{\sum_{i=1}^r(n_i-1)s_i^2}{n_T-r}
+\end{align}    
+
+    ANOVA table:
+    \begin{table}[H]
+        \centering
+        \renewcommand\arraystretch{1.15}
+        \begin{tabular}{cllll}
+            \hline
+            Source of Var&$ \mathrm{SS} $&$ dof $&$ \mathrm{MS}  $&$ \mathbb{E}\left( \mathrm{MS}  \right)  $\\
+            \hline
+            $ \alpha _i $&$ \mathrm{SS}\alpha=\sum_{i=1}^rn_i\left(\bar{Y}_{i\cdot }-\bar{Y}_{\cdot \cdot }\right)^2  $&$ r-1 $&$ \dfrac{\mathrm{SS}\alpha  }{r-1} $&$ \sigma ^2+\dfrac{\sum_{i=1}^rn_i\alpha _i^2}{r-1} $\\
+            $ \sigma ^2$&$ \mathrm{SSE} =\sum_{i=1}^r\sum_{j=1}^{n_i}\left(Y_{ij}-Y_{i\cdot }\right)^2 $&$ n_T-r $&$ \dfrac{\mathrm{SSE}}{n_T-r} $&$ \sigma ^2 $\\
+            \hline
+        \end{tabular}
+        \caption{}
+        \label{}
+    \end{table}
+
+    $ F $ statistics for $ H_0:\alpha _1=\ldots=\alpha _r=0 $:
+    \begin{align}
+        F=\dfrac{\mathrm{MS}\alpha }{\mathrm{MSE} } \sim F_{r-1,n_T-r}
+    \end{align}
+    
+    
+    
+    
+
+\begin{point}
+    Random Effect
+\end{point}
+
+\begin{align}
+    Y_{ij}=\mu+\alpha _i+\varepsilon _{ij}\quad \alpha _i\text{ i.i.d. }\sim N(0,\sigma _\alpha ^2),\quad \varepsilon _{ij}\text{ i.i.d. }\sim N(0,\sigma ^2) 
+\end{align}
+
+
+    Estimation target: $ \mu ,\sigma _\alpha ^2,\sigma ^2 $
+
+    Hypothesis testing $ H_0:\,\sigma _\alpha ^2=0$, v.s. $ H_1: \sigma _\alpha ^2\neq 0$
+
+    Estimation:
+    \begin{align}
+        \hat{\mu }=&\bar{Y}_{i\cdot }=\dfrac{1}{n_i}\sum_{j=1}^{n_i}Y_{ij}\\
+        s_i^2=&\dfrac{1}{n_i-1}\sum_{j=1}^{n_i}\left(Y_{ij}-\bar{Y}_{i\cdot     }\right)^2\\
+        s^2=&\dfrac{\sum_{i=1}^r(n_i-1)s_i^2}{n_T-r}
+\end{align}
+
+    ANOVA table:
+    \begin{table}[H]
+        \centering
+        \renewcommand\arraystretch{1.15}
+        \begin{tabular}{cllll}
+            \hline
+            Source of Var&$ \mathrm{SS} $&$ dof $&$ \mathrm{MS}  $&$ \mathbb{E}\left( \mathrm{MS}  \right)  $\\
+            \hline
+            $ \alpha _i $&$ \mathrm{SS}\alpha=\sum_{i=1}^rn_i\left(\bar{Y}_{i\cdot }-\bar{Y}_{\cdot \cdot }\right)^2  $&$ r-1 $&$ \dfrac{\mathrm{SS}\alpha  }{r-1} $&$ \sigma ^2+n\sigma _\alpha ^2 $\\
+            $ \sigma ^2$&$ \mathrm{SSE} =\sum_{i=1}^r\sum_{j=1}^{n_i}\left(Y_{ij}-Y_{i\cdot }\right)^2 $&$ n_T-r $&$ \dfrac{\mathrm{SSE}}{n_T-r} $&$ \sigma ^2 $\\
+            \hline
+        \end{tabular}
+        \caption{}
+        \label{}
+    \end{table}
+
+    $ F $ statistics for $ H_0:\alpha _1=\ldots=\alpha _r=0 $:
+    \begin{align}
+        F=\dfrac{\mathrm{MS}\alpha }{\mathrm{MSE} } \sim F_{r-1,n_T-r}
+    \end{align}
+
+
+
+
+\subsubsection{Two Factor Model and Two-Way ANOVA}
+
+Two factor model with interation term:
+
+\[
+    Y_{ijk}=\mu +\alpha _i+\beta _j+(\alpha \beta )_{ij}+\varepsilon _{ijk} 
+\]
+% \footnote{When we first introduced double factor model, we expressed interaction term as 
+% \begin{align}
+%     Y_{ijk} =& \mu +\alpha _i +\beta _j+(\alpha \beta ) _{ij}+\varepsilon _{ijk}
+% \end{align}
+
+
+
+% }
+\begin{align}
+    Y_{ijk}-\bar{Y}_{\cdot \cdot \cdot }=&\left(\bar{Y}_{i\cdot \cdot}-\bar{Y}_{\cdot \cdot \cdot}\right)+\left(\bar{Y}_{\cdot j\cdot }-\bar{Y}_{\cdot \cdot \cdot }\right)\\
+    &+\left(\bar{Y}_{ij\cdot }-\bar{Y}_{i\cdot \cdot }-\bar{Y}_{\cdot j\cdot }+\bar{Y}_{\cdot \cdot \cdot }\right)+  \left( Y_{ijk}-\bar{Y}_{ij\cdot}\right)\\
+    \alpha _i+\beta _j+(\alpha \beta )_{ij}+\varepsilon _{ijk}=&\left((\mu +\alpha _i)-\mu \right)+\left((\mu +\beta _j)-\mu \right)\\
+    &+\left( (\mu +\alpha _i+\beta _j+(\alpha \beta )_{ij})-(\mu +\alpha _i)-(\mu +\beta _j)+\mu  \right)+\left(\varepsilon _{ijk}\right)
+    \end{align}
+    
+    
+    
+    
+    
+    Here for convenience and clarity, when applying model with more factors, we use terms like $ (\alpha \beta )_{ij} $ to avoid confusion of too many symbols.
+
+
+\subsubsection{General Case for Factor Model}
+
+e.g. three factors model 
+\[
+    Y_{ijkl} = \mu +\alpha _i +\beta _j+\gamma _k +(\alpha \beta )_{ij}+(\alpha \gamma )_{ik}+(\beta \gamma )_{jk}+(\alpha \beta \gamma )_{ijk}+\varepsilon _{ijkl}
+\]
+
+
+\begin{point}
+    Montgomery's Method for Restricted Model
+\end{point}
+
+    Montgomery describe a useful trick to form the ANOVA table and to find correponding $ \mathbb{E}\left( \mathrm{MS} \right)  $ (EMS), and finally help construct proper $ F^* $ statistics.
+    Here an explicit example of three factor (1F+2R) model is provided to illustrate the procedure.
+
+    Model we use here as example:
+    \begin{align}
+         Y_{ijkl}=&\mu +\alpha _i+\beta _j+\gamma _k+(\alpha \beta )_{ij}+(\alpha \gamma )_{ik}+(\beta \gamma )_{jk}+(\alpha \beta \gamma )_{ijk}+\varepsilon _{ijkl}\\
+         i=&1,2,\ldots,a\\
+         j=&1,2,\ldots,b\\
+         k=&1,2,\ldots,c\\
+         l=&1,2,\ldots,n
+    \end{align}
+
+    where $ a $ is for fixed effect, $ b  $ and $ c  $ are for random effect.
+    
+    model parameter:
+    \begin{align}
+        \theta =\{\mu ,\alpha _i^{i=1,\ldots,a}, \sigma _{\beta }^2,\sigma ^2_\gamma ,\sigma ^2_{\alpha \beta },\sigma ^2_{\alpha \gamma },\sigma ^2_{\beta \gamma },\sigma ^2_{\alpha \beta \gamma },\sigma ^2\} 
+    \end{align}
+    
+
+\begin{enumerate}[topsep=2pt,itemsep=2pt]
+    \item Prepare the framework of the EMS table, including:
+    \begin{itemize}[topsep=2pt,itemsep=0pt]
+        \item column: list groups, and their {\color{red}random/fixed}, and their {\color{blue}number of levels}.
+        \item row: terms in the model
+        \item {\color{green}error term} written as $ \varepsilon _{(ijk)l} $, i.e. random term index excluded from the bracket.
+    \end{itemize}
+    
+    \begin{table}[H]
+        \centering
+        \renewcommand\arraystretch{1}
+        \begin{tabular}{cccccc}
+            \hline
+            \hline
+            Random/Fix                      &{\color{red}F}      &{\color{red}R}      &{\color{red}R}      &{\color{red}R}      &$ \qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad$\\
+            \# level                        &$ \color{blue}a $  &$ \color{blue}b $  &$ \color{blue}c $  &$ \color{blue}n $  &\\
+            Index                           &$ i $  &$ j $  &$ k $  &$ l $  &$ \mathbb{E}\left( \mathrm{MS}  \right)  $\\
+            \hline
+            $ \alpha _i $                   &       &       &       &       &\\
+            $ \beta _j $                    &       &       &       &       &\\
+            $ \gamma _k $                   &       &       &       &       &\\
+            $ (\alpha \beta )_{ij} $        &       &       &       &       &\\
+            $ (\alpha \gamma )_{ik} $       &       &       &       &       &\\
+            $ (\beta \gamma )_{jk} $        &       &       &       &       &\\
+            $ (\alpha \beta \gamma )_{ijk} $&       &       &       &       &\\
+            $ \color{green}\varepsilon _{(ijk)l} $       &       &       &       &       &\\
+            \hline
+            \hline
+        \end{tabular}
+        \label{}
+    \end{table}
+
+    \item For each row, copy the number of observations under each column subscripts, if the column subscript does not appear in the index subscripts of the term. e.g. $ (\alpha \beta )_{ij} $ does not contain, $ k,l $ so fill in the grid $ ((\alpha \beta )_{ij},k) $ with $ c $, and fill $ ((\alpha \beta )_{ij},l) $ with $ n $.
+    
+    \begin{table}[H]
+        \centering
+        \renewcommand\arraystretch{1}
+        \begin{tabular}{cccccc}
+            \hline
+            \hline
+            Random/Fix                      &F      &R      &R      &R      &$ \qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad$\\
+            \# level                        &$ \color{red}a $  &$ \color{blue}b $  &$ \color{green}c $  &$ \color{brown}n $  &\\
+            Index                           &$ i $  &$ j $  &$ k $  &$ l $  &$ \mathbb{E}\left( \mathrm{MS}  \right)  $\\
+            \hline
+            $ \alpha _i $                   &       &$ \color{blue}b $  &$ \color{green}c $  &$ \color{brown}n $  &\\
+            $ \beta _j $                    &$ \color{red}a $  &       &$ \color{green}c $  &$ \color{brown}n $  &\\
+            $ \gamma _k $                   &$ \color{red}a $  &$ \color{blue}b $  &       &$ \color{brown}n $  &\\
+            $ (\alpha \beta )_{ij} $        &       &       &$ \color{green}c $  &$ \color{brown}n $  &\\
+            $ (\alpha \gamma )_{ik} $       &       &$ \color{blue}b $  &       &$ \color{brown}n $  &\\
+            $ (\beta \gamma )_{jk} $        &$ \color{red}a $  &       &       &$ \color{brown}n $  &\\
+            $ (\alpha \beta \gamma )_{ijk} $&       &       &       &$ \color{brown}n $  &\\
+            $ \varepsilon _{(ijk)l} $       &       &       &       &       &\\
+            \hline
+            \hline
+        \end{tabular}
+        \label{}
+    \end{table}
+    \item $ \color{red}1 $ is filled in the row of error term $ (\varepsilon _{(ijk)l},\,\cdot) $
+    
+    \begin{table}[H]
+        \centering
+        \renewcommand\arraystretch{1}
+        \begin{tabular}{cccccc}
+            \hline
+            \hline
+            Random/Fix                      &F      &R      &R      &R      &$ \qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad$\\
+            \# level                        &$ a $  &$ b $  &$ c $  &$ n $  &\\
+            Index                           &$ i $  &$ j $  &$ k $  &$ l $  &$ \mathbb{E}\left( \mathrm{MS}  \right)  $\\
+            \hline
+            $ \alpha _i $                   &       &$ b $  &$ c $  &$ n $  &\\
+            $ \beta _j $                    &$ a $  &       &$ c $  &$ n $  &\\
+            $ \gamma _k $                   &$ a $  &$ b $  &       &$ n $  &\\
+            $ (\alpha \beta )_{ij} $        &       &       &$ c $  &$ n $  &\\
+            $ (\alpha \gamma )_{ik} $       &       &$ b $  &       &$ n $  &\\
+            $ (\beta \gamma )_{jk} $        &$ a $  &       &       &$ n $  &\\
+            $ (\alpha \beta \gamma )_{ijk} $&       &       &       &$ n $  &\\
+            $ \varepsilon _{(ijk)l} $       &$ \color{red}1 $  &$ \color{red}1 $  &$ \color{red}1 $  &$ \color{red}1 $  &\\
+            \hline
+            \hline
+        \end{tabular}
+        \label{}
+    \end{table}
+
+
+    \item for remaining grids, fill $ \color{blue}1     $ if the column is Fixed, or $ \color{green} 0$ if the column is Random
+    
+    \begin{table}[H]
+        \centering
+        \renewcommand\arraystretch{1}
+        \begin{tabular}{cccccc}
+            \hline
+            \hline
+            Random/Fix                      &{\color{blue}F  }    &{\color{green}R}      &{\color{green}R}      &R      &$ \qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad$\\
+            \# level                        &$ a $  &$ b $  &$ c $  &$ n $  &\\
+            Index                           &$ i $  &$ j $  &$ k $  &$ l $  &$ \mathbb{E}\left( \mathrm{MS}  \right)  $\\
+            \hline
+            $ \alpha _i $                   &$ \color{blue}0 $  &$ b $  &$ c $  &$ n $  &\\
+            $ \beta _j $                    &$ a $  &$ \color{green}1 $  &$ c $  &$ n $  &\\
+            $ \gamma _k $                   &$ a $  &$ b $  &$ \color{green}1 $  &$ n $  &\\
+            $ (\alpha \beta )_{ij} $        &$ \color{blue}0 $  &$ \color{green}1 $  &$ c $  &$ n $  &\\
+            $ (\alpha \gamma )_{ik} $       &$ \color{blue}0 $  &$ b $  &$ \color{green}1 $  &$ n $  &\\
+            $ (\beta \gamma )_{jk} $        &$ a $  &$ \color{green}1 $  &$ \color{green}1 $  &$ n $  &\\
+            $ (\alpha \beta \gamma )_{ijk} $&$ \color{blue}0 $  &$ \color{green}1 $  &$ \color{green}1 $  &$ n $  &\\
+            $ \varepsilon _{(ijk)l} $       &$ 1 $  &$ 1 $  &$ 1 $  &$ 1 $  &\\
+            \hline
+            \hline
+        \end{tabular}
+        \label{}
+    \end{table}
+
+
+    \item Now the $  \mathrm{L.H.S.} $ of the table is finished. To get the $ \mathbb{E}\left( \mathrm{MS}  \right)  $, we will need the coefficients in front of the variance term\footnote{Note the variance term is what we already know: for fixed effect it would be $ \dfrac{\sum_i\alpha _i^2}{a-1} $, for random effect it would be $ \sigma _{\beta }^2 $}. The approach is as follows: use the fourth row $ (\alpha \beta )_{ij} $ as example:
+    \begin{enumerate}[topsep=2pt,itemsep=2pt]
+        \item[*] (e.g. focus on row $ (\alpha \beta )_{ij} $)
+        \item ignore columns with the same indexes, here it would be column $ i $ and $ j $
+        \item select rows with the same or more extra indexes, here it would be row $ (\alpha \beta )_{ij} $, $ (\alpha \beta \gamma )_{ijk} $, $ \varepsilon _{(ijk)l} $
+        \item now the grids to be used are colored {\color{brown}brown}
+        \item for each row, multiply all used grids to form the correponding coefficient (of the variance of this row), here it would be 
+        \begin{align}
+            \mathbb{E}\left( \mathrm{MS}_{(\alpha \beta )}  \right)=&{\color{brown}c\times n} \sigma ^2_{\alpha \beta }+{\color{brown}1\times n}\sigma ^2_{\alpha \beta \gamma }+{\color{brown}1\times 1}\sigma ^2 ={\color{brown}\sigma ^2+cn\sigma ^2_{\alpha \beta }+n\sigma ^2_{\alpha \beta \gamma }} 
+        \end{align}
+    \end{enumerate}
+    
+
+        
+
+    \begin{table}[H]
+        \centering
+        \renewcommand\arraystretch{1}
+        \begin{tabular}{cccccc}
+            \hline
+            \hline
+            Random/Fix                      &F      &R      &R      &R      &$ \qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad$\\
+            \# level                        &$ a $  &$ b $  &$ c $  &$ n $  &\\
+            Index                           &$ i $  &$ j $  &$ k $  &$ l $  &$ \mathbb{E}\left( \mathrm{MS}  \right)  $\\
+            \hline
+            $ \alpha _i $                   &$ 0 $  &$ b $  &$ c $  &$ n $  &$ \sigma ^2+cn\sigma ^2_{\alpha \beta }+bn\sigma ^2_{\alpha \gamma}+n\sigma ^2_{\alpha \beta \gamma }+bcn\dfrac{\sum_{i}\alpha _i^2}{a-1} $\\
+            $ \beta _j $                    &$ a $  &$ 1 $  &$ c $  &$ n $  &$ \sigma ^2+an\sigma ^2_{\beta \gamma }+acn\sigma ^2_\beta  $\\
+            $ \gamma _k $                   &$ a $  &$ b $  &$ 1 $  &$ n $  &$ \sigma ^2+an\sigma ^2_{\beta \gamma }+abn\sigma ^2_\gamma $\\
+            $ (\alpha \beta )_{ij} $        &$ 0 $  &$ 1 $  &$ \color{brown}c $  &$\color{brown} n $  &$ \color{brown}\sigma ^2+cn\sigma ^2_{\alpha \beta }+n\sigma ^2_{\alpha \beta \gamma } $\\
+            $ (\alpha \gamma )_{ik} $       &$ 0 $  &$ b $  &$ 1 $  &$ n $  &$ \sigma ^2+bn\sigma ^2_{\alpha \gamma }+n\sigma^2_{\alpha \beta \gamma } $\\
+            $ (\beta \gamma )_{jk} $        &$ a $  &$ 1 $  &$ 1 $  &$ n $  &$ \sigma ^2+an\sigma ^2_{\beta \gamma } $\\
+            $ (\alpha \beta \gamma )_{ijk} $&$ 0 $  &$ 1 $  &$ \color{brown}1 $  &$ \color{brown}n $  &$ \sigma ^2+n\sigma ^2_{\alpha\beta \gamma } $\\
+            $ \varepsilon _{(ijk)l} $       &$ 1 $  &$ 1 $  &$ \color{brown}1 $  &$ \color{brown}1 $  &$ \sigma ^2 $\\
+            \hline
+            \hline
+        \end{tabular}
+        \label{}
+    \end{table}
+    \item Now we can use $ \mathbb{E}\left( \mathrm{MS}  \right)  $ to construct correponding $ F^* $. e.g. to test $ H_0:\alpha _1=\alpha _2=\ldots =\alpha _a $, test:
+    \begin{align}
+        \mathbb{E}\left( \mathrm{MS}_\alpha   \right)=&\sigma ^2+cn\sigma ^2_{\alpha \beta }+bn\sigma ^2_{\alpha \gamma}+n\sigma ^2_{\alpha \beta \gamma }+bcn\dfrac{\sum_{i}\alpha _i^2}{a-1} \\
+        \mathbb{E}\left( \mathrm{MS}_{\alpha \beta }+\mathrm{MS}_{\alpha \gamma }-\mathrm{MS}_{\alpha \beta \gamma }    \right)=& \sigma ^2+cn\sigma ^2_{\alpha \beta }+bn\sigma ^2_{\alpha \gamma}+n\sigma ^2_{\alpha \beta \gamma }\\
+        F^*_{\alpha _i}=&\dfrac{\mathrm{MS}_\alpha+\mathrm{MS}_{\alpha \beta \gamma }}{\mathrm{MS}_{\alpha \beta }+\mathrm{MS}_{\alpha \gamma }}\sim F_{(a-1)+(a-1)(b-1)(c-1),(a-1)(b-1)+(a-1)(c-1)} 
+    \end{align}
+
+    
+    
+\end{enumerate}
+
+    
+
+
+
+
+
+\subsubsection{Diagnosis}
+
+Some useful diagnosis to check assumptions:
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Levene's Test for homogeneity of variance: \index{Levene's Test}
+    \begin{rcode}
+    \begin{lstlisting}[language=R]
+dat %>% group_by(cat_1) %>% rstatix::levene_test(y ~ group)
+    \end{lstlisting}
+    \end{rcode}
+    \item Shapiro-Wilk Test for Normality:\index{Shapiro-Wilk Test}
+    \begin{rcode}
+    \begin{lstlisting}[language=R]
+dat %>% group_by(cat_1) %>% rstatix::shapiro_test(y)
+    \end{lstlisting}
+    \end{rcode}
+    \item Outlier test:
+    \begin{rcode}
+    \begin{lstlisting}[language=R]
+dat %>% group_by(cat_1) %>% rstatix::identify_outliers(y)
+    \end{lstlisting}
+    \end{rcode}
+\end{itemize}
+
+    
+
+\subsubsection{Miscellaneous Topics}
+Some miscellanea in design of experiment and about some advanced models:
+
+\begin{point}
+    Crossed and Nested Factors
+\end{point}
+
+In multi-factor studies, we may not be able to go through all possible factor settings.
+
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Crossed factor: all level combinations are covered in the experiment.
+    \item Nested factor: the levels of one factor are unique to a particular level of another factor.
+
+    
+\end{itemize}
+
+    
+
+\begin{point}
+    Longitudinal Study
+\end{point}
+
+    When discrete \textbf{time} is used as factors, say $ \tau_t^{t=\{t_1,\ldots,t_T\}} $ in $ Y_{ijt} $ where $ i $ for treatment, $ j $ for individuals, we may notice that response $ Y_{ijt} $ is effected by individual baseline, in such case we cannot use the ordinary factor model to study the difference of trent. Instead we would use \textbf{longitudinal study} to construct model and study the trend.\index{Longitudinal Study}. e.g.
+    \begin{align}
+        Y_{ijt}=\mu +\alpha _i+\beta _{j(i)}+\tau_t+\varepsilon _{ijt} 
+    \end{align}
+    
+    where $ \beta _{j(i)} $ stands for indivudual difference (say, with assumption $ \beta _{j(i)}\sim N(0,\sigma ^2_\beta ) $)
+
+% \begin{point}
+%     Linear Model in 
+% \end{point}
+
+    
+
+
+
+\subsection{Statistical Inference on Contingency Table}
+
+Contingency table is an easy way to display categorical variables, an example:
+\begin{table}[H]
+    \centering
+    \renewcommand\arraystretch{1}
+    \caption{A $ 2\times 2 $ contingency table}
+    \begin{tabular}{cccc}
+        \hline
+        \hline
+        &\multicolumn{2}{c}{Variable $ Z $}&\\
+        \cline{2-3}
+        Variable $ Y $&$ D $&$ D^\complement $&Total\\
+        \hline
+        $ E $&$ n_{11} $&$ n_{12} $&$ n_{1\cdot } $\\
+        $ E^\complement  $&$ n_{21} $&$ n_{22} $&$ n_{2\cdot } $\\
+        \hline
+        Total&$ n_{\cdot 1} $&$ n_{\cdot 2} $&$ n_{\cdot \cdot } $\\
+        \hline
+        \hline
+    \end{tabular}
+    \label{}
+\end{table}
+      
+
+\subsubsection{Quantities and Statistics from Contingency Table}
+
+\begin{point}
+    Prospective Study and Retrospective Study
+\end{point}
+
+    Contingency table itself is symmetric w.r.t. $ Y,\,Z $, but in experimental design we usually first specify and divide groups, and then conduct experiment (prospective) or conduct survey (retrospective), which would cause different conditional probability. An example in studying the effect of medicine
+    \begin{itemize}[topsep=2pt,itemsep=0pt]
+        \item Prospective Study: say, $ Y=E\big/E^\complement $ for drug$ \big/ $placebo group is assigned before experiment, and then $ Z=D\big/D^\complement $ for medicine effect is studied after treatment. 
+        
+        In this case $ n_{1\cdot },\,n_{2\cdot } $ are pre-determined fixed number.
+
+        Such design is a well-controlled experiment to study the effct, but sometimes faced with problem concerning survival analysis, see \autoref{SecReliabilityAndSurvivalAnalysis} for detail. And for some problems like, e.g. $ Z $ is related to rare disease, this method is \textbf{low-efficient}.
+
+        \item Retrospective Study: say, some $ Z=D\big/D^\complement $ for medicine effect patients are selected, and then their history of taking drug or not is collected.
+        
+        In this case $ n_{\cdot 1},\,n_{\cdot 2} $ are pre-determined fixed number.
+
+        This method is quick and convenient to conduct study, but usually we cannot control the exposure status $ Y $ accurately (because they are collected by, e.g. questionnaire)
+    \end{itemize}
+
+    Statistics and tests should be selected based on the data collection design (prospective/retrospective) because of different probability condition.
+    
+\begin{point}
+    Statistics and Estimation
+\end{point}
+
+
+    With respective probabilities in two groups $ E,\,E^\complement $ denoted as
+    \begin{align}
+        p_1=\mathbb{P}\left( D|E \right),\qquad p_2=\mathbb{P}\left( D|E^\complement \right)   
+    \end{align}
+        we usully focus on the `difference' between group $ E $ and $ E^\complement $, there are some quantities to help measure the group difference:
+\begin{align}
+    \text{Risk difference: }&\Delta =p_1-p_2\\
+    \text{Relative risk: }&\phi=p_1\big/p_2\\
+    \text{Odds ratio: }&\theta=\dfrac{p_1/(1-p_1)}{p_2/(1-p_2)}
+\end{align}
+
+    Their estimation:
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Respective probability $ p_1,p_2 $:
+    
+    \begin{align}
+        \text{Prospective: }  &\begin{cases}
+            \hat{p}_1=\dfrac{n_{11}}{n_{1\cdot }}\\
+            \hat{p}_2=\dfrac{n_{21}}{n_{2\cdot }}
+        \end{cases}  \\
+        \text{Retrospective: }&\begin{cases}
+            \hat{p}_1=\dfrac{\rho \frac{n_{11}}{n_{\cdot 1}}}{\rho \frac{n_{11}}{n_{\cdot 1}}+(1-\rho )\frac{n_{12}}{n_{\cdot 2}}}\\
+            \hat{p}_2=\dfrac{\rho \frac{n_{21}}{n_{\cdot 1}}}{\rho \frac{n_{21}}{n_{\cdot 1}}+(1-\rho )\frac{n_{22}}{n_{\cdot 2}}}
+        \end{cases}\\
+        \text{where }\rho &\text{ is the prevalence btw} D,D^\complement \text{ in natural condition}
+    \end{align}
+    
+    \item Relative Risk $ \phi  $:
+    \begin{align}
+        \text{Prospective: }  &\hat{\phi }= \dfrac{n_{11}\big/n_{1\cdot }}{n_{21}\big/n_{2\cdot }} \\
+        \text{Retrospective: }&\hat{\phi }=\dfrac{\hat{p}_1}{\hat{p}_2}
+    \end{align}
+
+    \item Odds Ratio $ \theta  $:
+    \begin{align}
+        \text{Prospective} \& \text{Retrospective: }& \hat{\theta }=\dfrac{n_{11}n_{22}}{n_{21}n_{12}}
+    \end{align}
+    
+    which is the same in either cases.
+
+    variance of $ \hat{\theta }  $: estimated at $ (n_{11},n_{12},n_{21},n_{22})\sim\mathrm{Multinomial}(n_{\cdot \cdot },\pi_{11},\pi_{12},\pi_{21},\pi_{22}) $:
+    \begin{align}
+        \hat{var}(\log \hat{\theta })=\dfrac{1}{n_{11}}+\dfrac{1}{n_{12}}+\dfrac{1}{n_{21}}+\dfrac{1}{n_{22}} 
+    \end{align}
+
+    
+        
+\end{itemize}
+
+\begin{point}
+    Hypothesis Testing
+\end{point}
+
+    The mostly used hypothesis is the dependence assumption: $ p_1=p_2 $, or more generally speaking for $ m\times n $ table:
+    \begin{align}
+        H_0:\pi_{ij}=\pi_{i\cdot }\pi_{\cdot j},\quad \forall i,j 
+    \end{align}
+
+    Denote $ O_{ij}=n_{ij} $ as the \textbf{O}bserved value, $ E_{ij}=n_{\cdot \cdot }\pi_{ij} $ as the \textbf{E}xpected value.\footnote{$ E_{ij} $ is calculated based on data and the model you choose, thus can be applied to more complexed cases, e.g. Hardy-Weinberg proportions with $ X^a $ gene grequency $ p $
+    \begin{align}
+        \mathbb{P}\left( X^aX^a;\mathrm{Female}  \right)  =&p^2\\
+        \mathbb{P}\left( X^AX^a;\mathrm{Female}  \right)  =&2p(1-p)\\
+        \mathbb{P}\left( X^AX^A;\mathrm{Female}  \right)  =&(1-p)^2\\
+        \mathbb{P}\left( X^aY;\mathrm{Male}  \right)=&p\\
+        \mathbb{P}\left( X^AY;\mathrm{Male}  \right) =&(1-p) 
+    \end{align}
+
+    In such complex case, parameter should be estimated using e.g. MLE estimation.And then calculate $ E_{ij} $s
+    \begin{align}
+        L(p)=\left[p^2\right]^{O_{a,\mathrm{F} }}\left[1-p^2\right] ^{O_{A,\mathrm{F} }}\left[p\right]^{O_{a,\mathrm{M}}}\left[1-p\right]^{O_{A,\mathrm{M} }}
+    \end{align}
+    
+    
+    } Expected value is calculated for the model used, under null hypothesis $ H_0 $. Example for independence test $ \pi_{ij}=\pi_{i\cdot }\pi_{\cdot j} $:
+    \begin{align}
+        \hat{\pi}_{ij}=\hat{\pi}_{i\cdot }\hat{\pi}_{.j}=\dfrac{n_{i\cdot }}{n_{\cdot \cdot }}\dfrac{n_{\cdot j}}{n_{\cdot \cdot }}\Rightarrow E_{ij}=n_{\cdot \cdot }\hat{\pi}_{ij}=\dfrac{n_{i\cdot }n_{\cdot j}}{n_{\cdot \cdot }} 
+    \end{align}
+    
+    Statistics:
+    \begin{itemize}[topsep=2pt,itemsep=0pt]
+        \item \textbf{Pearson's $ \chi^2 $ Test}:
+        \begin{align}
+            \chi^2_P=\sum_{i=1}^I\sum_{j=1}^J\dfrac{(O_{ij}-E_{ij})^2}{E_{ij}}\xrightarrow[]{\mathscr{L}} \chi^2_{(I-1)(J-1)}
+        \end{align}
+        
+        
+        \item \textbf{Likelihood Ratio Test}:
+        \begin{align}
+            G^2=-2\log(\Lambda )=2\sum_{i=1}^I\sum_{j=1}^JO_{ij}\log\dfrac{O_{ij}}{E_{ij}}\xrightarrow[]{\mathscr{L}} \chi^2_{(I-1)(L-1)} 
+        \end{align}
+    \end{itemize}
+    
+    Some other useful tests:
+    \begin{itemize}[topsep=2pt,itemsep=0pt]
+        \item McNemar test on $ \pi_{12}=\pi_{21} $ for matched pairs:\index{McNemar Test}
+        \begin{align}
+            z^2=\dfrac{(n_{12}-n_{21})^2}{{n_{12}+n_{21}}} \xrightarrow[]{\mathscr{L}} \chi^2_1
+        \end{align}
+        
+        
+    \end{itemize}
+    
+        
+
+% \subsection{Clinical Trial Design}
+% \subsubsection{Four-Stage Clinical Trial}
+
+% \subsubsection{Relative Statistical Inference}
+
+
+% \subsection{Survival Analysis}
+
+
+

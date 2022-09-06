@@ -1,0 +1,216 @@
+\section{因果推断导论部分}\label{SecCausalInference}
+\begin{center}
+    Instructor: Wanlu Deng
+\end{center}
+
+
+
+\subsection{Neyman-Rubin Framework}
+    Neyman-Rubin Framework (Donald B.Rubin, 1978), also called Potential Outcome Framework is based on \textbf{counter-factual outcome} inference to judge causal effect. Main problem is to deal with \textbf{Confounder}. 
+
+
+\begin{point}
+    Motivation of N-R Model: Difference Between `Correlation' and `Causality'
+\end{point}
+    
+        Assume we now has a set of $ \{(W_i,Y_i)\} $ where $ W_i $ happens before $ Y_i $ and $ i $ for $ i^\mathrm{th}  $ object.
+    
+        \begin{itemize}[topsep=2pt,itemsep=0pt]
+            \item \textbf{Correlation} describes the relation between $ W_i $ and $ Y_i $;
+            \item while \textbf{Causality} describes the relation between $ Y_i $ and some \textbf{unseen}  $ \tilde{Y}_i $ corresponding to \textbf{What If } $ W_i $ takes another value.
+        \end{itemize}
+        
+        Their difference is significant, correlation is mostly based on objective data, while causality contains a lot about how we \textbf{`imagine'} what did not happen, and compare to reality. The $ Y_i-\tilde{Y}_i $ is causal effect (Note that they both has $ _i $, acting on the same object, the different causal effect on different unit also make it not so useful to increase sample size).
+
+
+    
+\subsubsection{Key Elements and Notations}
+        In this part we first introduce a simple model: Two choice for causes and two (potential) outcomes. 
+
+        e.g. Take medicine or not $ \longrightarrow $ Headache level.
+
+
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item \textbf{Unit}: The atomic object in causal inference, e.g. one headache person at certain time. We infer `what would happen to unit $ i $ if $ \ldots $'.\footnote{Same object at different time should be considered as different unit. We may join some \textbf{hypothesis}  that time doesnot matter, but not for the \textbf{definition} of unit.}
+    \item \textbf{Treatment} $ W_i $: (when `cause' event had not happen), what we could had done, expressed as $ W_i $, $ W_i\in\{0,1,\ldots,$ $N_\mathrm{NUMBER\_OF\_TREATMENT}\} $, in simple model $ W_i\in\{0,1\} $, 1 for treated and 0 for controlled.
+    \begin{itemize}[topsep=2pt,itemsep=0pt]
+        \item Treatment Group: Set of $ \{\mathrm{Unit}_i|W_i=1\} $;
+        \item Controlled Group: Set of $ \{\mathrm{Unit}_i|W_i=0 \} $.
+    \end{itemize}
+    \item \textbf{Potential Outcome} $ Y_i $(PO)\index{PO (Potential Outcome)}: For each unit operating each treatment(or control), the potential outcome $ Y(W=w) $.\footnote{The `EigenOutcome' of the model, despite of what really happens.
+    
+    Maybe can be seen as what would happen when the operation had not been done.} In simple model, use $ Y_i(1) $ for treatment and $ Y_i(0) $ for control.
+    \item \textbf{Observed Outcome} $ Y_i^F $: The actually happened outcome, $ Y_i^F=Y_i(W=w_\mathrm{REAL\_CASE}):=Y_i(W=w^F_i) $
+    \item \textbf{CounterFactual Outcome} $ Y_i^{CF} $: The potential outcome when the $ !w_i^F $ would have been operated (does exist but we did not observed the `world line' where $ w^{CF}_i $ was operated, thus unknown to us), $ Y_i^{CF}=Y_i(W=1-w_\mathrm{REAL\_CASE}):=Y_i(W=w_i^{CF}) $ 
+    \begin{align*}
+        Y^F_i=Y_i(W_i^F)=&\begin{cases}
+            Y_i(1)&W_i=1\\
+            Y_i(0)&W_i=0
+        \end{cases}\\
+        Y^{CF}_i=Y_i(1-W_i^F)=&\begin{cases}
+            Y_i(0)&W_i=1\\
+            Y_i(1)&W_i=0
+        \end{cases}
+    \end{align*}
+    \item \textbf{Causal Effect} $ \tau_i $: Difference between potential outcome, $ \tau=Y_i(W=1)-Y_i(W=0)=Y_i(1)-Y_i(0) $
+    \item \textbf{Pre-Treatment Variables/Covariates} $ X_i $: Some background elements that might attribute to treatment selection/potential outcome. Anyway may cause confusion to causal inference.
+    \item \textbf{Subgroup}:   
+\end{itemize}
+
+
+\begin{point}
+    \textbf{Treatment Effect}  
+\end{point}
+
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item \textbf{ATE}: Average Treatment Effect (ATE) of the whole population:
+    \[
+        \mathrm{ATE}=E(Y(1)-Y(0))  
+    \]
+
+    Estimand:
+    \[
+        \hat{\mathrm{ATE} }=\dfrac{1}{N}\sum_{i=1}^N(Y_i(1)-Y_i(0)) 
+    \]
+
+    \item \textbf{ATT}/\textbf{ATC}: Average Treatment Effect of Treated/Controlled Group (ATT/ATC):
+    \[
+        \mathrm{ATT}=E(Y(1)|w=1)-E(Y(0)|w=1)  \qquad \mathrm{ATC}=E(Y(1)|w=0)-E(Y(0)|w=0) 
+    \]
+
+    Estimand:
+    \[
+        \hat{\mathrm{ATT} }=\dfrac{1}{N_t}\sum_{i:w_i=1}(Y_i(1)-Y_i(0))\qquad \hat{\mathrm{ATC} }=\dfrac{1}{N_c}\sum_{i:w_i=0}(Y_i(1)-Y_i(0)) 
+    \]
+    
+    
+    \item \textbf{CATE}: Conditional Average Treatment Effect (CATE): `Conditional' for `given covariant $ X $'
+    \[
+        \mathrm{CATE}_x=E(Y(1)|X=x)-E(Y(0)|X=x)
+    \]
+    Estimand: (Denote \# $ X_i=x $ as $ N(x) $)
+    \[
+        \hat{\mathrm{CATE} }=\dfrac{1}{N(x)}\sum_{i:X_i=x}(Y_i(1)-Y_i(0)) 
+    \]
+    
+    
+    \item \textbf{ITE}: Individual Treatment Effect:
+    \[
+        \mathrm{ITE}_i=Y_i(W=1)-Y_i(W=0)  
+    \]
+\end{itemize}
+
+    Where in Estimands, we only know one of $ Y_i(1)/Y_i(0) $ as $ Y^F $, the $ Y^{CF} $ needs to be \textbf{predicted}. 
+
+    
+
+
+
+\subsubsection{Assignment Mechanism}
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item  \textbf{Assignment Mechanism}: is a function $ \{X_i,Y_i(0),Y_i(1)\}\to P(W_i) $: The probability that how a unit would have been given treatment/control.
+
+\[
+    \sum_{\vec{W}\in \{0,1\}^N}P(\vec{W}|X,Y(1),Y(0))=1 
+\]
+
+    \item \textbf{Finite Population Propensity Score}: The average unit assignment probability for all unit with $ X_i=x $:
+    \[
+        e(x)=\dfrac{1}{N(x)}\sum_{i:X_i=x}P(W_i=1|X,Y(1),Y(0))
+    \]
+
+    For $ N(x)=0 $, define $ e(x)=0 $
+    
+    
+\end{itemize}
+
+    
+
+\subsubsection{Difficulty and Goal of Causal Inference}
+\begin{point}
+    Difficulty:
+\end{point}
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item \textbf{Inadequate Observation Points}: The \textbf{Causal Effect} we want to study is $ \mathrm{ATE}=E(Y(1)-Y(0))  $. Note that each unit has \textbf{two} potential outcomes $ Y(1) $ and $ Y(0) $ for treated/controlled respectively. However we can only observed one of them $ Y^C=Y(W=w_\mathrm{REAL\_CASE} ) $, i.e. at least \textbf{half of potential outcomes are unobserved}, we need to `predict' the missing point using covariants.
+    \item \textbf{Biased Assignment Mechanism}: Covariants may cause biased treatment/control assignment, from which we can never estimate an unbiased causal effect.
+\end{itemize}
+
+\begin{point}
+    Goal:
+\end{point}
+
+    The goal of causal inference is to estimate the treatment effects with $ \{X,W,Y^F\} $ given.
+
+
+\subsubsection{Assumptions}
+
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item \textbf{SUTVA} (Stable Unit Treatment Value Assumption): A usually reasonable assumption to simplify causal model:
+    \begin{itemize}[topsep=2pt,itemsep=0pt]
+        \item No interference between units;
+        \item No hidden variations of treatment.
+    \end{itemize}
+    \item \textbf{Individualistic Assignment}: Assignment probability of each unit does \textbf{not} depends on the covariants and PO of other units:
+    \[
+        P_i(W=w|X,Y(1),Y(0))=P_i(W|X_i,Y_i(1),Y_i(0))^w(1-P_i(W|X_i,Y_i(1),Y_i(0)))^{1-w},\,\forall i=1,2,\ldots,N
+    \]
+
+    For simplification, denote
+    \[
+        P_i(W=1|X,Y(1),Y(0))=q(X,Y(1),Y(0)) 
+    \]
+    
+    
+
+    Under individualistic assignment assumption, propensity score is simplified:
+    \[
+         e(x)=\dfrac{1}{N(x)}\sum_{i:X_i=x}P(W=1|X,Y(1),Y(0))=\dfrac{1}{N(x)}\sum_{i:X_i=x}P(W=1|X_i,Y_i(1),Y_i(0))
+    \]
+    
+    \item \textbf{Probabilistic Assignment}: Probility for both $ W_i=1 $ and $ W_i=0 $ are non-zero (to ensure a reasonable causal model)
+    \[
+        0<P(W|X,Y(1)Y(0))<1,\,\forall X,Y(1),Y(0) 
+    \]
+    
+    \item \textbf{Unconfounded Assignment}: Assignment mechanism is independent of PO
+    \[
+        P(W|X,Y(1),Y(0))=P(W|X)
+    \]
+\end{itemize}
+
+    
+\begin{point}
+    With above assumption, assignment mechanism and propemnsity score can be simplified:
+\end{point}
+
+\begin{align*}
+    \text{Assignment Mechanism:}&P(\vec{W}|X,Y(1),Y(0))=\dfrac{1}{Z}\prod_{i=1}^N q(X_i)^W_i(1-q(X_i))^{1-W_i}\\
+\end{align*}
+
+
+    
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Pearl Framework}
+ (Judea Pearl, 1995)
+
