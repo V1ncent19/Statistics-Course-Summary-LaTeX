@@ -430,8 +430,8 @@ glmnet(x, y, family="binomial", alpha, lambda) # with penalty
 
     Logistic Regression with $ \ell_2 $ norm regularized term is
     \begin{align}
-         \mathop{\arg\min}\limits_{\beta }\sum_{i=1}^N\log \mathbb{P}\left( Y\neq y_i|X=x_i;\beta  \right)+\dfrac{\lambda }{2}\left\Vert \beta  \right\Vert ^2\\
-         =\mathop{\arg\max}\limits_{\beta }\sum_{i=1}^N\log [1+e^{y_if(x_i)}]+\dfrac{\lambda }{2}\left\Vert \beta  \right\Vert ^2   ,\quad y_i\in\{+1,-1\}    
+         &\mathop{\arg\min}\limits_{\beta }\sum_{i=1}^N\log \mathbb{P}\left( Y\neq y_i|X=x_i;\beta  \right)+\dfrac{\lambda }{2}\left\Vert \beta  \right\Vert ^2\\
+         =&\mathop{\arg\max}\limits_{\beta }\sum_{i=1}^N\log [1+e^{y_if(x_i)}]+\dfrac{\lambda }{2}\left\Vert \beta  \right\Vert ^2   ,\quad y_i\in\{+1,-1\}    
     \end{align}
     where $ f(\,\cdot\,) $ is classification function, $ \beta _0+x'\beta  $ for linear classification. 
     
@@ -598,7 +598,7 @@ glmnet(x, y, family="binomial", alpha, lambda) # with penalty
 \begin{enumerate}[topsep=2pt,itemsep=2pt]
     \item Semi-Positive Definition:
     \begin{align}
-        \int\int K(x,y)g(x)g(y)\,\mathrm{d}x\mathrm{d}y\geq 0,\quad \forall g(\,\cdot\,)
+        \iint K(x,y)g(x)g(y)\,\mathrm{d}x\mathrm{d}y\geq 0,\quad \forall g(\,\cdot\,)
     \end{align}
     
     or an equivalent form:
@@ -727,8 +727,9 @@ Eigenvalue $ \gamma _i $ and eigen function $ \phi _i(x) $ of Kernel:
 \subsubsection{Kernel Support Vector Machine}
     Replace the inner produce term in Dual problem of SVM \autoref{EqaDualProblemOfSVM} into Kernel function to obtain Kernel SVM:\index{KSVM (Kernel Support Vector Machine)}
     \begin{align}
-         \mathop{\arg\min}\limits_{\hat{\alpha} }& \sum_{i=1}^N\hat{\alpha} _i-\dfrac{1}{2}\sum_{i=1}^N\sum_{j=1}^N\hat{\alpha} _i\hat{\alpha} _jy_iy_j K(x_i,x_j) \\
-         \hat{f}(x)=\sum_{i\in\mathcal{I}^\mathrm{sv} }\hat{\alpha }_iy_iK(x,x_i)+\hat{\beta }_0
+         &\mathop{\arg\max}\limits_{\alpha  } \sum_{i=1}^N\alpha  _i-\dfrac{1}{2}\sum_{i=1}^N\sum_{j=1}^N\alpha  _i\alpha  _jy_iy_j K(x_i,x_j) \\
+         &s.t.\, 0\leq \alpha _i\leq C,\qquad \sum_{i=1}^N\alpha _iy_i=0\\
+         &\hat{f}(x)=\sum_{i\in\mathcal{I}^\mathrm{sv} }\alpha _iy_iK(x,x_i)
     \end{align}
 
     Or use the loss+penalization primmal form of SVM:
@@ -740,7 +741,9 @@ Eigenvalue $ \gamma _i $ and eigen function $ \phi _i(x) $ of Kernel:
         \end{cases}
     \end{align}
     
-    Note that the loss function form is $ [1-y_if(x_i)]_+ $
+    Note: Here $ \alpha _i $ and $ \hat{\alpha }_i $ are not the same set of number, but the optimization problems are the same (if $ \{K(x_i,x_j)\} $ is non-singular). 
+
+\subsubsection{SMO Algorithm for Kernel SVM}
     
     
 \subsubsection{Kernel Regression}

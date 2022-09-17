@@ -16,7 +16,7 @@
     
     Further, extreme value of $ (M,E) $ is used for some `special value': denormalized number, NaN, inf, etc. 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item Denormalized number: to fill the gap $ [0,\pm 2^{-126}] $($ E=1 $), for $ E=0 $ extremely small number, definition use 
+    \item Denormalized number: to fill the gap $ [0,\pm 2^{-126}] $($ E=1 $), for $ E=0 $ extremely small number, definition use\index{Normalized Number} 
     \begin{align}
         v_\mathrm{denormalized}=(-1)^S\times 2^{1-127}\times \left({\color{red}0}+\sum_{i=1}^{23}(M_i\times 2^{-i})\right)  
     \end{align}
@@ -82,7 +82,7 @@
         
 
 
-    Key point for algorithm design: aviod plus/minus of numbers of significantly large magnitude difference.
+    Key point for algorithm design: \uline{aviod plus/minus of numbers of significantly large magnitude difference.}
     
 \subsubsection{Stability \& Accuracy} 
 
@@ -95,12 +95,18 @@
     \item Algorithm output: $ \tilde{y}\equiv \tilde{f}(x) $
     \item Forward Error: $ \Delta _F=\tilde{f}(x)-f(x) $
     \item Backward Error: $ \Delta _B=\mathop{\arg\min}\limits_{f(\tilde{x})=\tilde{f}(x)} |\tilde{x}-x|  $
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{sections/images/ForwardError.png}
+    \caption{Illustration of Forward/Backward Error}
+\end{figure}
+
 \end{itemize}
-    \item (Forward) Stability: An algorithm $ \tilde{f} $ is stable if 
+    \item (Forward) Stability: An algorithm $ \tilde{f} $ is stable if \index{Forward Stability}
     \begin{align}
         \dfrac{\Vert \tilde{f}(x)-f(\tilde{x})\Vert }{\Vert f(\tilde{x})\Vert }=O(\varepsilon _\mathrm{machine} ),\,\forall \dfrac{\Vert \tilde{x}-x\Vert }{\Vert x\Vert }=O(\varepsilon _\mathrm{machine} ) 
     \end{align}
-    \item Condition Number of problem $ f $:
+    \item Condition Number of problem $ f $:\index{Condition Number}
     \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item Absolute condition number:
         \begin{align}
@@ -112,7 +118,7 @@
         \end{align}
     \end{itemize}
 
-    Condition Number of Matrix $ \mathop{A}\limits_{m\times m}  $: 
+    (Relative) Condition Number of Matrix $ \mathop{A}\limits_{m\times m}  $: 
     \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item $ f(x)\equiv Ax $:
         \begin{align}
@@ -334,7 +340,7 @@
     \item Geometric structure preserved, e.g. inner product and norm.
 \end{itemize}
 
-    \item Projection: 
+    \item Projection: \index{Projection Operator}
     \begin{itemize}
         \item Basic definition of projector $ P_X $: idempotent matrix, project onto hyperplane $ X $ 
         \begin{align}
@@ -440,9 +446,10 @@
 
 
 \begin{point}
-    Task of OLS: Solve $ \hat{\beta }=(X^*X)^{-1}X^*Y $, or equivalently solve $ X^*X\hat{\beta }=X^*Y $
+    Task of OLS (Linear Model): Solve $ \hat{\beta }=(X^*X)^{-1}X^*Y $, or equivalently solve $ X^*X\hat{\beta }=X^*Y $
 \end{point}
 
+    Note: size of matrix denoted $ X=\mathop{X}\limits_{m\times n}  $
     % Algorithm using $ QR $ decomposition:
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item Cholesky decomposition algorithm: computation complexity $ \sim mn^2+\dfrac{n^3}{3} $
@@ -477,7 +484,7 @@
     
 \end{itemize}
     
-    Algorithm comparison: faster $ \leftrightsquigarrow $ less stable.
+    Algorithm comparison \& trade-off: faster $ \leftrightsquigarrow $ less stable.
 
 
 
@@ -880,12 +887,17 @@ for independent eigenvectors $ x_i $ and an arbitrary vector $ \xi =\sum_{i=1}^m
 
 
 
-\begin{itemize}[topsep=2pt,itemsep=0pt]
+
+\begin{algorithm}{Basic Eigen Decomposition}
+    \begin{enumerate}[topsep=2pt,itemsep=0pt]
     \item pick a random $ q_0 $
     \item compute normalized $ \dfrac{Aq_i}{\Vert Aq_i \Vert }=q_{i+1} $
     \item repeat until $ \Vert q_{i-1}-q_{i-2} \Vert<\varepsilon_\mathrm{preset}    $
     \item $ q_i $ as the eigenvector, $ q_i^TAq_i\approx q_i^T\lambda_1 q_i=\lambda _1 $
-\end{itemize}
+\end{enumerate}
+\end{algorithm}
+    
+
 
     This algorithm requires $ |\lambda _1|>|\lambda _2|\geq\ldots  $ for quick convergence.
     
@@ -1039,7 +1051,8 @@ for independent eigenvectors $ x_i $ and an arbitrary vector $ \xi =\sum_{i=1}^m
         A=QTQ^*,\, Q\text{ unitary, }T\text{ upper-triangular} 
     \end{align}
     
-    for $ A\in\mathbb{R}^{m\times m} $: $ T $ is quasi-triangular, diag of $ T $ is $ Re(\lambda _i) $
+    for $ A\in\mathbb{R}^{m\times m} $: $ T $ is quasi-triangular, diag of $ T $ is $ \mathrm{Re} (\lambda _i) $
+
 
 
 

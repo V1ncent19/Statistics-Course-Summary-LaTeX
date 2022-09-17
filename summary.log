@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.12.10) (preloaded format=xelatex 2022.1.15)  6 SEP 2022 17:48
+This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.12.10) (preloaded format=xelatex 2022.1.15)  17 SEP 2022 17:15
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1447,7 +1447,7 @@ LaTeX Warning: Label `' multiply defined.
 
 LaTeX Warning: Label `' multiply defined.
 
-) (sections/因果推断导论.aux) (sections/应用随机过程.aux) (sections/ReferenceBook.aux))
+) (sections/ReferenceBook.aux))
 \openout1 = `summary.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 117.
@@ -1726,7 +1726,12 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 287.
 
-[13] [14] [15] [16] [17] [18]
+[13]
+
+LaTeX Warning: Reference `SecCausalInference' on page 14 undefined on input lin
+e 372.
+
+[14] [15] [16] [17] [18]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 686.
@@ -1785,7 +1790,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 832--833
 [34] [35] [36] [37]
 File: sections/images/2022-09-05-16-16-51.png Graphic file (type bmp)
 <sections/images/2022-09-05-16-16-51.png>
- [38] [39] [40] [41] [42] [43] [44] [45]
+ [38] [39] [40] [41] [42] [43] [44] [45] [46]
 Underfull \hbox (badness 10000) in paragraph at lines 1743--1748
 
  []
@@ -1795,7 +1800,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1743--1748
 
  []
 
-[46]) [47]
+) [47]
 \openout2 = `sections/线性回归分析.aux'.
 
  (sections/线性回归分析.tex [48
@@ -2148,8 +2153,11 @@ Overfull \hbox (32.11694pt too wide) in paragraph at lines 994--995
 
 
 
-] [135] [136] [137]
-Overfull \hbox (23.80286pt too wide) in paragraph at lines 325--326
+]
+File: sections/images/ForwardError.png Graphic file (type bmp)
+<sections/images/ForwardError.png>
+ [135] [136] [137] [138]
+Overfull \hbox (23.80286pt too wide) in paragraph at lines 331--332
 []\TU/TimesNewRoman(0)/m/n/10.95 In the view of column space transfrom, $\OML/c
 mm/m/it/10.95 A$ \TU/TimesNewRoman(0)/m/n/10.95 and $\OML/cmm/m/it/10.95 A[]$ \
 TU/TimesNewRoman(0)/m/n/10.95 are mappings between space $[]\OMS/cmsy/m/n/10.95
@@ -2158,37 +2166,37 @@ m/n/10.95 and $[]\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 a[]; [] ; a[]\OMS/cms
 y/m/n/10.95 g$\TU/TimesNewRoman(0)/m/n/10.95 ,
  []
 
-[138] [139]
+[139]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 484.
+(hyperref)                removing `math shift' on input line 491.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 484.
+(hyperref)                removing `math shift' on input line 491.
 
 [140] [141]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 636.
+(hyperref)                removing `math shift' on input line 643.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 636.
+(hyperref)                removing `math shift' on input line 643.
 
-[142] [143] [144] [145] [146]
-Underfull \hbox (badness 10000) in paragraph at lines 1094--1095
-
- []
-
-[147] [148] [149] [150] [151] [152] [153] [154] [155] [156] [157] [158]
-[159] [160] [161] [162] [163]
-Underfull \hbox (badness 10000) in paragraph at lines 2211--2212
+[142] [143] [144] [145] [146] [147]
+Underfull \hbox (badness 10000) in paragraph at lines 1107--1108
 
  []
 
-[164] [165] [166]
-Overfull \hbox (33.62283pt too wide) in paragraph at lines 2410--2411
+[148] [149] [150] [151] [152] [153] [154] [155] [156] [157] [158] [159]
+[160] [161] [162] [163] [164]
+Underfull \hbox (badness 10000) in paragraph at lines 2224--2225
+
+ []
+
+[165] [166] [167]
+Overfull \hbox (33.62283pt too wide) in paragraph at lines 2423--2424
 []\TU/TimesNewRoman(0)/m/n/10.95 Further if $\OML/cmm/m/it/10.95 A$ \TU/TimesNe
 wRoman(0)/m/n/10.95 is full-rank and conjugate vector set has $\OML/cmm/m/it/10
 .95 n$ \TU/TimesNewRoman(0)/m/n/10.95 independent vector, it can span the whole
@@ -2196,8 +2204,8 @@ wRoman(0)/m/n/10.95 is full-rank and conjugate vector set has $\OML/cmm/m/it/10
 /cmsy/m/n/10.95 g \OT1/cmr/m/n/10.95 =
  []
 
-[167] [168] [169] [170] [171] [172] [173] [174] [175] [176]
-Overfull \hbox (5.15004pt too wide) in paragraph at lines 2928--2929
+[168] [169] [170] [171] [172] [173] [174] [175] [176]
+Overfull \hbox (5.15004pt too wide) in paragraph at lines 2941--2942
 []\TU/TimesNewRoman(0)/m/n/10.95 for discrete version $\OML/cmm/m/it/10.95 x \O
 MS/cmsy/m/n/10.95 2 f\OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.
 95 2\OML/cmm/m/it/10.95 ; []\OMS/cmsy/m/n/10.95 g$\TU/TimesNewRoman(0)/m/n/10.9
@@ -2314,21 +2322,6 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1061.
 
 ) [244]
-\openout2 = `sections/因果推断导论.aux'.
-
- (sections/因果推断导论.tex [245
-
-
-
-] [246] [247]) [248]
-\openout2 = `sections/应用随机过程.aux'.
-
- (sections/应用随机过程.tex)
-[249
-
-
-
-]
 \openout2 = `sections/ReferenceBook.aux'.
 
  (sections/ReferenceBook.tex
@@ -2339,11 +2332,11 @@ Underfull \hbox (badness 5563) in paragraph at lines 36--37
 [][] [] [][][][] [] [][][][] []
  []
 
-[250
+[245
 
 
 
-]) [251] (summary.ind
+]) [246] (summary.ind
 Overfull \hbox (10.39293pt too wide) in paragraph at lines 37--39
 []\TU/TimesNewRoman(0)/m/n/10.95 BFGS Updating Method (Broyden-Fletcher-Goldfar
 b-Shanno
@@ -2355,40 +2348,42 @@ Overfull \hbox (2.48534pt too wide) in paragraph at lines 75--77
 ter Struc-
  []
 
-[252
+[247
 
 
 
 ]
-Overfull \hbox (5.51572pt too wide) in paragraph at lines 144--146
+Overfull \hbox (5.51572pt too wide) in paragraph at lines 145--147
 []\TU/TimesNewRoman(0)/m/n/10.95 E-M Algorithm (Expectation Maximization Algori
 thm), [][]112[][],
  []
 
-[253] [254] [255]
-Overfull \hbox (9.91891pt too wide) in paragraph at lines 388--390
+[248] [249] [250]
+Overfull \hbox (9.91891pt too wide) in paragraph at lines 391--393
 []\TU/TimesNewRoman(0)/m/n/10.95 STL Model (Seasonal and Trend Decomposition us
 ing Loess),
  []
 
-[256]) (summary.aux (sections/初等概率论.aux) (sections/统计推断.aux)
+[251]) (summary.aux (sections/初等概率论.aux) (sections/统计推断.aux)
 (sections/线性回归分析.aux) (sections/多元统计分析.aux) (sections/数据科学导论.aux)
 (sections/统计计算与软件.aux) (sections/可靠性数据与生存分析.aux) (sections/生物统计学概论.aux)
-(sections/统计学习导论.aux) (sections/应用时间序列分析.aux) (sections/因果推断导论.aux)
-(sections/应用随机过程.aux) (sections/ReferenceBook.aux))
+(sections/统计学习导论.aux) (sections/应用时间序列分析.aux) (sections/ReferenceBook.aux))
+
+LaTeX Warning: There were undefined references.
+
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `summary.out' has not changed.
-(rerunfilecheck)             Checksum: D029B83ECE9F5F2545F0D77A8857C411;51607.
+(rerunfilecheck)             Checksum: C7F3D471D745BBDE4E094B54657671B4;50773.
  ) 
 Here is how much of TeX's memory you used:
- 46001 strings out of 411012
- 1004073 string characters out of 2831749
- 1645181 words of memory out of 3000000
- 65835 multiletter control sequences out of 15000+600000
+ 45951 strings out of 411012
+ 1002491 string characters out of 2831749
+ 1645196 words of memory out of 3000000
+ 65798 multiletter control sequences out of 15000+600000
  426871 words of font info for 184 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  89i,33n,97p,628b,1819s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on summary.pdf (256 pages).
+Output written on summary.pdf (251 pages).

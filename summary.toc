@@ -43,7 +43,7 @@
 \contentsline {subsubsection}{\numberline {2.4.1}Basic Concepts}{37}{subsubsection.2.4.1}%
 \contentsline {subsubsection}{\numberline {2.4.2}Hypothesis Testing of Common Distributions}{39}{subsubsection.2.4.2}%
 \contentsline {subsubsection}{\numberline {2.4.3}Likelihood Ratio Test}{41}{subsubsection.2.4.3}%
-\contentsline {subsubsection}{\numberline {2.4.4}Uniformly Most Powerful Test}{41}{subsubsection.2.4.4}%
+\contentsline {subsubsection}{\numberline {2.4.4}Uniformly Most Powerful Test}{42}{subsubsection.2.4.4}%
 \contentsline {subsubsection}{\numberline {2.4.5}Duality of Hypothesis Testing and Interval Estimation}{43}{subsubsection.2.4.5}%
 \contentsline {subsubsection}{\numberline {2.4.6}Introduction to Non-Parametric Hypothesis Testing}{43}{subsubsection.2.4.6}%
 \contentsline {section}{\numberline {3}线性回归分析部分}{48}{section.3}%
@@ -130,40 +130,40 @@
 \contentsline {subsubsection}{\numberline {6.1.1}Finite Precision Computation}{134}{subsubsection.6.1.1}%
 \contentsline {subsubsection}{\numberline {6.1.2}Stability \& Accuracy}{135}{subsubsection.6.1.2}%
 \contentsline {subsubsection}{\numberline {6.1.3}Iteration Algorithm}{136}{subsubsection.6.1.3}%
-\contentsline {subsubsection}{\numberline {6.1.4}Constrained Optimize Theory}{136}{subsubsection.6.1.4}%
+\contentsline {subsubsection}{\numberline {6.1.4}Constrained Optimize Theory}{137}{subsubsection.6.1.4}%
 \contentsline {subsection}{\numberline {6.2}Algebratic Problem in Statistics}{138}{subsection.6.2}%
-\contentsline {subsubsection}{\numberline {6.2.1}Matrix Operation}{138}{subsubsection.6.2.1}%
-\contentsline {subsubsection}{\numberline {6.2.2}Projection and Least Square Problem}{139}{subsubsection.6.2.2}%
-\contentsline {subsubsection}{\numberline {6.2.3}Gaussian $ LU $ Decomposition \& Cholesky Decomposition}{140}{subsubsection.6.2.3}%
+\contentsline {subsubsection}{\numberline {6.2.1}Matrix Operation}{139}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2}Projection and Least Square Problem}{140}{subsubsection.6.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.3}Gaussian $ LU $ Decomposition \& Cholesky Decomposition}{141}{subsubsection.6.2.3}%
 \contentsline {subsubsection}{\numberline {6.2.4}$ QR $ Decomposition: Gram-Schmidt/Householder/Givens Method}{142}{subsubsection.6.2.4}%
-\contentsline {subsubsection}{\numberline {6.2.5}Eigenvalue Decomposition}{144}{subsubsection.6.2.5}%
-\contentsline {subsubsection}{\numberline {6.2.6}SVD Decomposition}{145}{subsubsection.6.2.6}%
+\contentsline {subsubsection}{\numberline {6.2.5}Eigenvalue Decomposition}{145}{subsubsection.6.2.5}%
+\contentsline {subsubsection}{\numberline {6.2.6}SVD Decomposition}{146}{subsubsection.6.2.6}%
 \contentsline {subsubsection}{\numberline {6.2.7}Schur Decomposition}{147}{subsubsection.6.2.7}%
-\contentsline {subsection}{\numberline {6.3}Numeric Optimization Algorithm I}{147}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.3}Numeric Optimization Algorithm I}{148}{subsection.6.3}%
 \contentsline {subsubsection}{\numberline {6.3.1}Golden Section/Fibonacci Section Search}{149}{subsubsection.6.3.1}%
-\contentsline {subsubsection}{\numberline {6.3.2}Bisection Search Method}{150}{subsubsection.6.3.2}%
+\contentsline {subsubsection}{\numberline {6.3.2}Bisection Search Method}{151}{subsubsection.6.3.2}%
 \contentsline {subsubsection}{\numberline {6.3.3}Interpolation Methods: Linear/Quadratic/Lagrange Interpolation}{151}{subsubsection.6.3.3}%
-\contentsline {subsubsection}{\numberline {6.3.4}Hybrid Method: Dekker's/Brent's}{153}{subsubsection.6.3.4}%
-\contentsline {subsubsection}{\numberline {6.3.5}Fixed Point Iteration: Univariate}{154}{subsubsection.6.3.5}%
-\contentsline {subsubsection}{\numberline {6.3.6}Fixed Point Iteration: Multivariate Linear}{154}{subsubsection.6.3.6}%
-\contentsline {subsubsection}{\numberline {6.3.7}Nelder-Mead Method}{155}{subsubsection.6.3.7}%
+\contentsline {subsubsection}{\numberline {6.3.4}Hybrid Method: Dekker's/Brent's}{154}{subsubsection.6.3.4}%
+\contentsline {subsubsection}{\numberline {6.3.5}Fixed Point Iteration: Univariate}{155}{subsubsection.6.3.5}%
+\contentsline {subsubsection}{\numberline {6.3.6}Fixed Point Iteration: Multivariate Linear}{155}{subsubsection.6.3.6}%
+\contentsline {subsubsection}{\numberline {6.3.7}Nelder-Mead Method}{156}{subsubsection.6.3.7}%
 \contentsline {subsection}{\numberline {6.4}Numeric Optimization Algorithm II}{157}{subsection.6.4}%
-\contentsline {subsubsection}{\numberline {6.4.1}Gradient Descent Method}{157}{subsubsection.6.4.1}%
-\contentsline {subsubsection}{\numberline {6.4.2}Newton-Raphson Method}{157}{subsubsection.6.4.2}%
-\contentsline {subsubsection}{\numberline {6.4.3}Fisher's Scoring Method in MLE}{158}{subsubsection.6.4.3}%
+\contentsline {subsubsection}{\numberline {6.4.1}Gradient Descent Method}{158}{subsubsection.6.4.1}%
+\contentsline {subsubsection}{\numberline {6.4.2}Newton-Raphson Method}{158}{subsubsection.6.4.2}%
+\contentsline {subsubsection}{\numberline {6.4.3}Fisher's Scoring Method in MLE}{159}{subsubsection.6.4.3}%
 \contentsline {subsubsection}{\numberline {6.4.4}Linear Modification to Step Length}{163}{subsubsection.6.4.4}%
-\contentsline {subsubsection}{\numberline {6.4.5}Quasi Newton Method}{163}{subsubsection.6.4.5}%
-\contentsline {subsubsection}{\numberline {6.4.6}Steepest Descent*}{166}{subsubsection.6.4.6}%
-\contentsline {subsubsection}{\numberline {6.4.7}Trust Region Method}{166}{subsubsection.6.4.7}%
-\contentsline {subsubsection}{\numberline {6.4.8}Conjugate Gradient Method}{167}{subsubsection.6.4.8}%
-\contentsline {subsection}{\numberline {6.5}Expectation Maximization Algorithm}{169}{subsection.6.5}%
+\contentsline {subsubsection}{\numberline {6.4.5}Quasi Newton Method}{164}{subsubsection.6.4.5}%
+\contentsline {subsubsection}{\numberline {6.4.6}Steepest Descent*}{167}{subsubsection.6.4.6}%
+\contentsline {subsubsection}{\numberline {6.4.7}Trust Region Method}{167}{subsubsection.6.4.7}%
+\contentsline {subsubsection}{\numberline {6.4.8}Conjugate Gradient Method}{168}{subsubsection.6.4.8}%
+\contentsline {subsection}{\numberline {6.5}Expectation Maximization Algorithm}{170}{subsection.6.5}%
 \contentsline {subsubsection}{\numberline {6.5.1}Requisite Knowledge}{170}{subsubsection.6.5.1}%
-\contentsline {subsubsection}{\numberline {6.5.2}Derivation}{170}{subsubsection.6.5.2}%
-\contentsline {subsection}{\numberline {6.6}Statistical Simulation}{171}{subsection.6.6}%
+\contentsline {subsubsection}{\numberline {6.5.2}Derivation}{171}{subsubsection.6.5.2}%
+\contentsline {subsection}{\numberline {6.6}Statistical Simulation}{172}{subsection.6.6}%
 \contentsline {subsubsection}{\numberline {6.6.1}Random Number Generation}{172}{subsubsection.6.6.1}%
-\contentsline {subsubsection}{\numberline {6.6.2}Numerical Integration With Simulation}{174}{subsubsection.6.6.2}%
+\contentsline {subsubsection}{\numberline {6.6.2}Numerical Integration With Simulation}{175}{subsubsection.6.6.2}%
 \contentsline {subsubsection}{\numberline {6.6.3}Bootstrap}{176}{subsubsection.6.6.3}%
-\contentsline {subsubsection}{\numberline {6.6.4}Markov Chain Monte Carlo Method}{176}{subsubsection.6.6.4}%
+\contentsline {subsubsection}{\numberline {6.6.4}Markov Chain Monte Carlo Method}{177}{subsubsection.6.6.4}%
 \contentsline {section}{\numberline {7}可靠性数据与生存分析部分}{179}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Reliability Data}{179}{subsection.7.1}%
 \contentsline {subsubsection}{\numberline {7.1.1}Right Censor Data and Representation}{179}{subsubsection.7.1.1}%
@@ -186,6 +186,8 @@
 \contentsline {subsubsection}{\numberline {8.1.6}Miscellaneous Topics}{202}{subsubsection.8.1.6}%
 \contentsline {subsection}{\numberline {8.2}Statistical Inference on Contingency Table}{203}{subsection.8.2}%
 \contentsline {subsubsection}{\numberline {8.2.1}Quantities and Statistics from Contingency Table}{203}{subsubsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.3}Clinical Trial Design}{205}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}GWAS}{205}{subsection.8.4}%
 \contentsline {section}{\numberline {9}统计学习导论部分}{206}{section.9}%
 \contentsline {subsection}{\numberline {9.1}Linear Model}{206}{subsection.9.1}%
 \contentsline {subsubsection}{\numberline {9.1.1}Linear Model in Machine Learning Perspective}{206}{subsubsection.9.1.1}%
@@ -206,7 +208,8 @@
 \contentsline {subsubsection}{\numberline {9.4.1}Reproducing Kernel Hilbert Space and The Representer Theorem}{216}{subsubsection.9.4.1}%
 \contentsline {subsubsection}{\numberline {9.4.2}Useful Kernel}{218}{subsubsection.9.4.2}%
 \contentsline {subsubsection}{\numberline {9.4.3}Kernel Support Vector Machine}{219}{subsubsection.9.4.3}%
-\contentsline {subsubsection}{\numberline {9.4.4}Kernel Regression}{219}{subsubsection.9.4.4}%
+\contentsline {subsubsection}{\numberline {9.4.4}SMO Algorithm for Kernel SVM}{219}{subsubsection.9.4.4}%
+\contentsline {subsubsection}{\numberline {9.4.5}Kernel Regression}{219}{subsubsection.9.4.5}%
 \contentsline {subsection}{\numberline {9.5}Clustering}{220}{subsection.9.5}%
 \contentsline {subsubsection}{\numberline {9.5.1}Proximity Matrix}{220}{subsubsection.9.5.1}%
 \contentsline {subsubsection}{\numberline {9.5.2}Spectrum Clustering}{221}{subsubsection.9.5.2}%
@@ -242,13 +245,5 @@
 \contentsline {subsubsection}{\numberline {10.6.4}Forecast of MA$ (q) $}{243}{subsubsection.10.6.4}%
 \contentsline {subsubsection}{\numberline {10.6.5}Forecast of ARMA$ (p,q) $}{244}{subsubsection.10.6.5}%
 \contentsline {subsubsection}{\numberline {10.6.6}Forecast of ARIMA$ (p,d,q) $}{244}{subsubsection.10.6.6}%
-\contentsline {section}{\numberline {11}因果推断导论部分}{245}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Neyman-Rubin Framework}{245}{subsection.11.1}%
-\contentsline {subsubsection}{\numberline {11.1.1}Key Elements and Notations}{245}{subsubsection.11.1.1}%
-\contentsline {subsubsection}{\numberline {11.1.2}Assignment Mechanism}{247}{subsubsection.11.1.2}%
-\contentsline {subsubsection}{\numberline {11.1.3}Difficulty and Goal of Causal Inference}{247}{subsubsection.11.1.3}%
-\contentsline {subsubsection}{\numberline {11.1.4}Assumptions}{247}{subsubsection.11.1.4}%
-\contentsline {subsection}{\numberline {11.2}Pearl Framework}{248}{subsection.11.2}%
-\contentsline {section}{\numberline {12}应用随机过程部分}{249}{section.12}%
-\contentsline {section}{参考文献}{250}{section.12}%
-\contentsline {section}{索引}{252}{section.12}%
+\contentsline {section}{参考文献}{245}{subsubsection.10.6.6}%
+\contentsline {section}{索引}{247}{subsubsection.10.6.6}%

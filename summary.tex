@@ -50,7 +50,7 @@
 \newenvironment{point}{\raggedright$\Box $ \bfseries}{}%新环境，用于标示重点内容
 \newenvironment{rcode}{\raggedright$  \vartriangleright  $ \lstinline|R.| \textbf{Code}  \\}{}%新环境，用于建立R语言命令段落
 \renewenvironment{proof}{\textit{proof:} }{$ \square  $} % 证明环境回退到英文版 以proof开头
-\newenvironment{algorithm}[1]{\vspace{12pt} \hrule\hrule \vspace{3pt} \noindent\textbf{Algorithm } \,\textit{#1} \vspace{3pt} \hrule\vspace{6pt}
+\newenvironment{algorithm}[1]{\vspace{12pt} \hrule\hrule \vspace{3pt} \noindent\textbf{\color[HTML]{E63F00}Algorithm } \,\textit{#1} \vspace{3pt} \hrule\vspace{6pt}
 }{\vspace{6pt}\hrule\hrule \vspace{12pt}} % 算法环境
 
 \newcolumntype{Y}{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}X}%tabularx中的居中表格格式
@@ -181,11 +181,11 @@
 \include{sections/应用时间序列分析}
 \newpage
 
-\include{sections/因果推断导论}
-\newpage
+% \include{sections/因果推断导论}
+% \newpage
 
-\include{sections/应用随机过程}
-\newpage
+% \include{sections/应用随机过程}
+% \newpage
 
 
 

@@ -1374,7 +1374,7 @@ bptest(lmfit)
         
         \item[$ {\color{red}\star}  $] Shapiro-Wilk Test\index{S-W Test (Shapiro-Wilk Test)} (Most Powerful)\footnote{Detail of S-W Test and K-S Test see \hyperlink{testofnormality}{Test of Normality} in \autoref{SubSectionIntroToNonParametricHypothesisTesting}}: To test $ H_0: \,\exists \sigma ^2, \,s.t. \,\varepsilon \sim N_n(0,\sigma ^2I_n)  $, denote 
         \begin{equation}
-            m_i=E(\dfrac{\varepsilon _{(i)} }{\sigma }) 
+            m_i=\mathbb{E}(\dfrac{\varepsilon _{(i)} }{\sigma }) 
         \end{equation}
 
         then under $H_0 $, $ \varepsilon _{(i)}\sim m_i \to $ linear, thus test correlation 
@@ -2247,7 +2247,7 @@ leapSet$which[which.min(leapSet$Cp),]
             \begin{align*}
                 \hat{\beta }^*&= (X'X)^{-1}X'Y^*\\
                 \hat{\sigma }^2_n&=\dfrac{1}{n}\mathrm{SSE}^*\\
-                \mathrm{SSE}^*&=\sum_{i=1}^n(Y_i^*-\hat{Y}_i^*)^2
+                \mathrm{SSE}^*&=\sum_{i=1}^n(Y_i^*-\hat{Y}^*)^2
             \end{align*}
     
             And when $ \beta  $, $ \sigma ^2 $ take MLE estimator, $ L(\beta ,\sigma ^2;\lambda ) $ can be regarded a function of $ \lambda  $:
@@ -2255,7 +2255,7 @@ leapSet$which[which.min(leapSet$Cp),]
                 \ln L(\beta ,\sigma ^2;\lambda )=l(\lambda )=-\dfrac{n}{2}\ln \dfrac{\hat{\sigma}^2_n}{\mathrm{GM}(Y)^{2(\lambda -1)}}+\mathrm{const}
             \end{equation}
     
-            For simplification, denote $ Z=Y*/J^{1/n} $ and get
+            For simplification, denote $ Z=Y^*/J^{1/n} $ and get
             \begin{equation}
                 \ell (\lambda )=-n\ln \sigma^2_{n_Z}+\mathrm{const} 
             \end{equation}

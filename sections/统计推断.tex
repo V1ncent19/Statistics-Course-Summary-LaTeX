@@ -239,7 +239,7 @@
 
         Asymptotically unbiasedness with $ n $ as sample size
         \begin{equation}
-            \lim_{n\to\infty}  E(\hat{g}_n(\vec{X})) =g(\theta)  
+            \lim_{n\to\infty}  \mathbb{E}(\hat{g}_n(\vec{X})) =g(\theta)  
         \end{equation}
         \item Efficiency: say $\hat{g}_1(\vec{X})$ is more efficient than $\hat{g}_2(\vec{X})$, if
         \begin{equation}
@@ -515,12 +515,12 @@
     \index{CR Inequality (Cramer-Rao Inequality)}
     ReDef. Fisher Information:
     \begin{equation}
-        \mathbf{I}(\theta)=\{I_{ij}(\theta)\}=\{\mathbb{E}\left[\left(\frac{\partial\ln f(\vec{x};\theta)}{\partial\theta_i}\right)\left(\frac{\partial\ln f(\vec{x};\theta)}{\partial\theta_j}\right)\right]\}  
+        \bm{I}(\theta)=\{I_{ij}(\theta)\}=\{\mathbb{E}\left[\left(\frac{\partial\ln f(\vec{x};\theta)}{\partial\theta_i}\right)\left(\frac{\partial\ln f(\vec{x};\theta)}{\partial\theta_j}\right)\right]\}  
     \end{equation}
 
     Then covariance matrix $\Sigma(\theta)$ satisfies \textbf{Cramer-Rao Inequality}
     \begin{equation}
-        \Sigma(\theta)\succeq  (n\mathbf{I}(\theta))^{-1}
+        \Sigma(\theta)\succeq  (n\bm{I}(\theta))^{-1}
     \end{equation}
 
     Note: '$\succeq $' holds for all diagonal elements, i.e.
@@ -721,13 +721,13 @@
 \subsubsection{Kernel Density Estimation}\label{SubSectionKernelDensityEstimation}
     \index{KDE (Kernel Density Estimation)}Given random sample $\{X_i\}$. Def. Empirical CDF.\index{ECDF (Empirical CDF)}
     \begin{equation}\label{empiricaldisreibutionfunction}
-        \hat{F}_n(x)=\frac{1}{n}\sum_{i=1}^nI_{(-\infty,x]}(X_i) 
+        \hat{F}_n(x)=\frac{1}{n}\sum_{i=1}^n\mathbb{I}_{(-\infty,x]}(X_i) 
     \end{equation}
         
 
     Problem: Overfitting when getting $\hat{f}$. Solution: Using \textbf{Kernel Estimate}, replace $I_{(-\infty,x]}(\,\cdot\,)$ with Kernel function $K(\,\cdot\,)$, then
     \begin{equation}
-        \hat{f}_n(x)=\dfrac{F_n(x+h_n)-F-n(x-h_n)}{2h_n}=\frac{1}{nh_n}\sum_{i=1}^nK(\frac{x-X_i}{h_n})
+        \hat{f}_n(x)=\dfrac{F_n(x+h_n)-F_n(x-h_n)}{2h_n}=\frac{1}{nh_n}\sum_{i=1}^nK(\frac{x-X_i}{h_n})
     \end{equation}
 
     where $h_n$ is \textbf{bandwidth}. Take proper kernel function $K$ to get estimate of $f$.
@@ -1381,7 +1381,7 @@
     where $\Lambda_0$ (or equivalently $C=-2\ln\Lambda_0$) satisfies:
     \begin{equation}\mathbb{E}_{\Theta_0}[\varphi(\vec{X})]\leq\alpha,\quad\forall\theta\in\Theta_0\end{equation}
 
-    LR and sufficient statistic: $\Lambda(\vec{x})$ can be expressed as $\Lambda(\vec{x})=\Lambda^*(T(\vec{x}))$, where $T(\vec{X})$ is sufficient statistic.
+    LR and sufficient statistic: $\Lambda(\vec{x})$ can be expressed as $\Lambda(\vec{x})=\Lambda^*(T(\vec{x}))$, where $T(\vec{X})$ is sufficient statistic. We usually denote $ \lambda =\log \Lambda  $
 
 
 \begin{point}
@@ -1393,12 +1393,12 @@
 
     Can prove:
     \[
-        \Lambda^{2/n}=\dfrac{\sum\limits_{i=1}^n(x_i-\bar{x})^2}{\sum\limits_{i=1}^n(x_i-\mu_0)^2} 
+        \lambda ^{2/n}=\dfrac{\sum\limits_{i=1}^n(x_i-\bar{x})^2}{\sum\limits_{i=1}^n(x_i-\mu_0)^2} 
     \]
     
-    Denote $ T=\dfrac{\sqrt{n}(\bar{x}-\mu_0)}{S}$, then LRT is
+    Denote $ T=\dfrac{\sqrt{n}(\bar{x}-\mu_0)}{S}$, then LRT could be expressed in equivalent form 
     \[
-        \Lambda = \left( 1+\dfrac{T^2}{n-1} \right)^{-n/2}
+        \lambda  = \left( 1+\dfrac{T^2}{n-1} \right)^{-n/2}
     \]
     
     The Multivariate case see {\autoref{SubSectionMultivariateHypothesisTesting}}, where $ T^2 $ itself is the Hotelling's $ T^2 $ statistic.
@@ -1418,7 +1418,7 @@
     
     If $\dim\Theta=k>\dim\mathrm{span}\{\Theta_0\}=s$\footnote{Here 'dimension' refers to 'degree of freedom'.}, then under $H_0:\theta\in\Theta_0$:
     \begin{equation}
-        \Lambda_{\theta\in\Theta_0}(\vec{x})=-2\ln \lambda(\vec{x})\xrightarrow[]{\mathscr{L}}\chi_{k-s}^2
+        -2\lambda =-2\ln \Lambda (\vec{x})\xrightarrow[]{\mathscr{L}}\chi_{k-s}^2
     \end{equation}
 
 \subsubsection{Uniformly Most Powerful Test}\label{SUbSectionUMP}

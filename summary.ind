@@ -2,7 +2,7 @@
 
   \item A-D Test (Anderson-Darling Test), \hyperpage{66}
   \item Acceptance Ratio, \hyperpage{178}
-  \item Acceptance-Rejection Method, \hyperpage{173}
+  \item Acceptance-Rejection Method, \hyperpage{174}
   \item ACF (Autocorrelation), \hyperpage{230}
   \item Activate Function, \hyperpage{225}
     \subitem Hyperbolic Tangent Function, \hyperpage{226}
@@ -35,9 +35,9 @@
   \item Bayes Optimal Classifier, \hyperpage{211}
   \item Bayes's Rule, \hyperpage{11}
   \item BFGS Updating Method (Broyden-Fletcher-Goldfarb-Shanno Updating), 
-		\hyperpage{165}
+		\hyperpage{166}
   \item BIC (Bayesian Information Criterion), \hyperpage{76}
-  \item Bisection Search, \hyperpage{150}
+  \item Bisection Search, \hyperpage{151}
   \item BLUE (Best Linear Unbiased Estimator), \hyperpage{54}
   \item Boosting Method, \hyperpage{225}
   \item Bootstrap, \hyperpage{176}
@@ -49,7 +49,7 @@
   \item Brent-Dekker Method, \hyperpage{154}
   \item Breslow's Approximation, \hyperpage{192}
   \item Brown-Forsythe's Test, \hyperpage{65}
-  \item Broyden Class, \hyperpage{166}
+  \item Broyden Class, \hyperpage{167}
 
   \indexspace
 
@@ -59,9 +59,9 @@
   \item CCA (Canonical Correction Analysis), \hyperpage{105}
   \item CDF (Cumulative Distribution Function), \hyperpage{11}
   \item Censoring Data, \hyperpage{179}
-  \item CGS (Classical Gram-Schmidt Orthogonalization), \hyperpage{142}
+  \item CGS (Classical Gram-Schmidt Orthogonalization), \hyperpage{143}
   \item CI (Confidence Interval), \hyperpage{33}
-  \item Circulant Matrix, \hyperpage{144}
+  \item Circulant Matrix, \hyperpage{145}
   \item Classification Metrics, \hyperpage{209}
   \item CLT (Central Limit Thm.), \hyperpage{17}
   \item Clustering Analysis, \hyperpage{109}
@@ -76,6 +76,7 @@
 		\hyperpage{114}
   \item CMD (Coefficient of Multiple Determination), \hyperpage{72}
   \item CMH Test (Cochran-Mantel-Haenszel Test), \hyperpage{188}
+  \item Condition Number, \hyperpage{135}
   \item Confeidence Region, \hyperpage{34}
   \item Confidence Band, \hyperpage{56}
   \item Confidence Coefficient, \hyperpage{34}
@@ -88,8 +89,8 @@
   \item Contingency Table, \hyperpage{45}
   \item Continuous Mapping Thm., \hyperpage{16}
   \item Convergence, \hyperpage{16}
-  \item Convergence and Ergodic Theorem, \hyperpage{177}
-  \item Convergence Order, \hyperpage{136}
+  \item Convergence and Ergodic Theorem, \hyperpage{178}
+  \item Convergence Order, \hyperpage{137}
   \item Convolution, \hyperpage{11}
   \item Cook's Distance, \hyperpage{69}
   \item Correlation Coefficient
@@ -115,17 +116,17 @@
   \item DA (Discriminant Analysis), \hyperpage{107}
   \item de Moivre-Laplace Thm., \hyperpage{17}
   \item Degree of Freedom, \hyperpage{52}
-  \item Dekker's Method, \hyperpage{153}
+  \item Dekker's Method, \hyperpage{154}
   \item Delta-Beta Residual, \hyperpage{193}
   \item Denominator-layout, \hyperpage{93}
-  \item Detailed Balance Condition, \hyperpage{177}
+  \item Detailed Balance Condition, \hyperpage{178}
   \item DFBETAS (Studentized Difference in Beta Estimates), 
 		\hyperpage{70}
   \item DFP Updating Method (Davidon-Fletcher-Powell Updating), 
 		\hyperpage{165}
   \item DIFFITS (Studentized Difference caused to Fitted values), 
 		\hyperpage{69}
-  \item Discrete Newton Method, \hyperpage{163}
+  \item Discrete Newton Method, \hyperpage{164}
   \item Distribution
     \subitem $ F $ Distribution, \hyperpage{20}
     \subitem $ \Gamma  $ Distribution, \hyperpage{182}
@@ -136,13 +137,13 @@
     \subitem Wishart Distribution, \hyperpage{97}
   \item $ dof $/$ df $ (Degree of Freedom), \hyperpage{52}
   \item $ d^\mathrm{th}  $ Degree Polynomial Kernel, \hyperpage{218}
-  \item Dual Problem, \hyperpage{137}
+  \item Dual Problem, \hyperpage{137, 138}
   \item DW Test (Durbin-Watson Test), \hyperpage{67}
 
   \indexspace
 
   \item E-M Algorithm (Expectation Maximization Algorithm), 
-		\hyperpage{112}, \hyperpage{169}
+		\hyperpage{112}, \hyperpage{170}
   \item EACF (Extended Autocorrelation), \hyperpage{241}
   \item ECDF (Empirical CDF), \hyperpage{33}
   \item ECM (Expected Cost of Misclassification), \hyperpage{107}
@@ -150,7 +151,7 @@
   \item EF (Exponential Family), \hyperpage{23}
   \item Efron's Approximation, \hyperpage{193}
   \item Elastic Net, \hyperpage{80}, \hyperpage{208}
-  \item ELBO (Evidence Lower Bound), \hyperpage{170}
+  \item ELBO (Evidence Lower Bound), \hyperpage{171}
 
   \indexspace
 
@@ -163,9 +164,10 @@
   \item FH Estimator (Fleming-Harrington Estimator), \hyperpage{186}
   \item Fibonacci Section Search, \hyperpage{149}
   \item Fisher Information, \hyperpage{29}, \hyperpage{183}
-  \item Fisher's Scoring Method, \hyperpage{158}
-  \item Fixed Point Iteration, \hyperpage{154}
-  \item Fletcher-Reeves Method, \hyperpage{169}
+  \item Fisher's Scoring Method, \hyperpage{159}
+  \item Fixed Point Iteration, \hyperpage{155}
+  \item Fletcher-Reeves Method, \hyperpage{170}
+  \item Forward Stability, \hyperpage{135}
   \item Fractile
     \subitem $ p $-fractile, \hyperpage{12}
     \subitem Upper $ \alpha $-fractile, \hyperpage{20}
@@ -189,7 +191,7 @@
   \indexspace
 
   \item Hazard Function, \hyperpage{180}
-  \item Hermitian Matrix, \hyperpage{144}
+  \item Hermitian Matrix, \hyperpage{145}
   \item Hierarchical Clustering, \hyperpage{110}
   \item Hierarchical Principle, \hyperpage{71}
   \item Hinge Loss, \hyperpage{216}
@@ -210,10 +212,10 @@
     \subitem Maximazation Lemma, \hyperpage{95}
   \item Interpolation, \hyperpage{151}
   \item Invariance of MLE, \hyperpage{27}
-  \item Inverse Transform Method, \hyperpage{173}
+  \item Inverse Transform Method, \hyperpage{174}
   \item IO (Innovative Outlier), \hyperpage{242}
   \item IQI (Inverse Parabolic Interpolation), \hyperpage{153}
-  \item IRLS (Iteratively Re-weighted Least Squares), \hyperpage{158}
+  \item IRLS (Iteratively Re-weighted Least Squares), \hyperpage{159}
 
   \indexspace
 
@@ -228,7 +230,7 @@
   \item KDE (Kernel Density Estimation), \hyperpage{33}
   \item Kernel Function, \hyperpage{216}
   \item Kernel Trick, \hyperpage{217}
-  \item KKT Condition (Karush-Kuhn-Tucker Condition), \hyperpage{137}
+  \item KKT Condition (Karush-Kuhn-Tucker Condition), \hyperpage{138}
   \item KL Divergence (Kullback-Leibler Divergence), \hyperpage{170}
   \item KM Estimator (Kaplan-Meier Estimator), \hyperpage{185}
   \item KNN ($ k $-Nearest Neighours), \hyperpage{211}
@@ -239,9 +241,9 @@
 
   \indexspace
 
-  \item L-BFGS Method, \hyperpage{166}
-  \item Lagrange Dual Problem, \hyperpage{137}
-  \item Lagrange Polynomial Interpolation, \hyperpage{152}
+  \item L-BFGS Method, \hyperpage{167}
+  \item Lagrange Dual Problem, \hyperpage{138}
+  \item Lagrange Polynomial Interpolation, \hyperpage{153}
   \item LASSO (Least Absolute Shrinkage and Selection Operator), 
 		\hyperpage{79}, \hyperpage{208}
   \item LCM (Linear Congruential Method), \hyperpage{172}
@@ -261,7 +263,7 @@
 
   \indexspace
 
-  \item M-H Algorithm, \hyperpage{177}
+  \item M-H Algorithm, \hyperpage{178}
   \item M-M Algorithm (Maximization-Maximization Algorithm), 
 		\hyperpage{171}
   \item MA Model (Moving-Average Model), \hyperpage{237}
@@ -270,14 +272,14 @@
   \item Mann-Whitney Form, \hyperpage{189}
   \item Mantel-Haenszel Logrank Test, \hyperpage{187}
   \item Matrix Differentiation, \hyperpage{92}
-  \item MCMC (Markov Chain Monte Carlo), \hyperpage{176}
+  \item MCMC (Markov Chain Monte Carlo), \hyperpage{177}
   \item McNemar Test, \hyperpage{205}
   \item MDS (Martingale Difference Sequence), \hyperpage{229}
   \item Mean Residual Life Time, \hyperpage{181}
   \item Mercer's Theorem, \hyperpage{217}
-  \item Metropolis-Hastings Algorithm, \hyperpage{177}
+  \item Metropolis-Hastings Algorithm, \hyperpage{178}
   \item MGF (Moment Generating Function), \hyperpage{15}
-  \item MGS (Modified Gram-Schmidt Orthogonalization), \hyperpage{142}
+  \item MGS (Modified Gram-Schmidt Orthogonalization), \hyperpage{143}
   \item MH Test (Mental-Haenszel Test), \hyperpage{188}
   \item MLE (Maximum Likelihood Estimation), \hyperpage{26}, 
 		\hyperpage{96}
@@ -287,14 +289,15 @@
 
   \indexspace
 
-  \item N-M Search Method (Nelder-Mead Search Method), \hyperpage{155}
+  \item N-M Search Method (Nelder-Mead Search Method), \hyperpage{156}
   \item NA Estimator (Nelson-Aalen Estimator), \hyperpage{186}
   \item Na\"\i ve Bayes Classifier, \hyperpage{212}
   \item Neural Network, \hyperpage{225}
-  \item Newton-Raphson Iteration Method, \hyperpage{157}
+  \item Newton-Raphson Iteration Method, \hyperpage{158}
   \item Neyman-Pearson Principle, \hyperpage{38}
   \item Norm, \hyperpage{93}
-  \item Normal Matrix, \hyperpage{144}
+  \item Normal Matrix, \hyperpage{145}
+  \item Normalized Number, \hyperpage{134}
   \item NP-Lemma (Neyman-Pearson Lemma), \hyperpage{42}
   \item Null Hypothesis, \hyperpage{37}
 
@@ -319,15 +322,15 @@
   \item Pivot Variable, \hyperpage{34}
   \item Plot Parameters in R., \hyperpage{127}
   \item PMF (Probability Mass Function), \hyperpage{11}
-  \item PO (Potential Outcome), \hyperpage{245}
-  \item Polak-Ribi$ \grave{e} $re Method, \hyperpage{169}
+  \item Polak-Ribi$ \grave{e} $re Method, \hyperpage{170}
   \item Pooled Sample Variance, \hyperpage{35}
   \item Power Function, \hyperpage{39}
   \item PRESS (Predictive Residual Error Sum of Squares), 
 		\hyperpage{76}
-  \item Primal Problem, \hyperpage{136, 137}
+  \item Primal Problem, \hyperpage{137}
   \item Probability Space, \hyperpage{10}
-  \item Proposal Distribution, \hyperpage{177}
+  \item Projection Operator, \hyperpage{139}
+  \item Proposal Distribution, \hyperpage{178}
   \item Proximity Matrix, \hyperpage{220}
 
   \indexspace
@@ -335,7 +338,7 @@
   \item QDA (Quadratic Discriminant Analysis), \hyperpage{108}, 
 		\hyperpage{212}
   \item QQ-Plot (Quartile-Quartile Plots), \hyperpage{62}
-  \item Quasi-Newton Condition, \hyperpage{164}
+  \item Quasi-Newton Condition, \hyperpage{165}
 
   \indexspace
 
@@ -362,17 +365,17 @@
   \item SCB (Simultaneous Confidence Band), \hyperpage{55}
   \item Score Function, \hyperpage{29}, \hyperpage{183}
   \item Score Test, \hyperpage{184}
-  \item Secant Condition, \hyperpage{164}
+  \item Secant Condition, \hyperpage{165}
   \item Shapiro-Wilk Test, \hyperpage{202}
   \item $ \sigma $-Field, \hyperpage{9}
   \item Sigmoid Kernel, \hyperpage{219}
-  \item Simplex Search Method, \hyperpage{155}
+  \item Simplex Search Method, \hyperpage{156}
   \item Skewness, \hyperpage{63}
     \subitem Adjusted Skewness, \hyperpage{63}
   \item SLLN (Strong Law of Large Number), \hyperpage{17}
   \item Slutsky's Thm., \hyperpage{17}
-  \item SOR Method (Successive Over-Relaxation Method), \hyperpage{155}
-  \item SPD (Symmetric Positive Definite), \hyperpage{167}
+  \item SOR Method (Successive Over-Relaxation Method), \hyperpage{156}
+  \item SPD (Symmetric Positive Definite), \hyperpage{168}
   \item SS (Strictly Stationary), \hyperpage{230}
   \item SSE (Error Sum of Squares), \hyperpage{56}
   \item SSPE (Sum Squared Prediction Error), \hyperpage{75}
@@ -384,13 +387,13 @@
     \subitem Complete Statistic, \hyperpage{24}
     \subitem Sampling Distribution, \hyperpage{22}
     \subitem Sufficient Statistic, \hyperpage{23}
-  \item Steepest Descent Method, \hyperpage{166}
+  \item Steepest Descent Method, \hyperpage{167}
   \item STL Model (Seasonal and Trend Decomposition using Loess), 
 		\hyperpage{228}
   \item Stochastic Process, \hyperpage{229}
   \item Studentized Range Distribution, \hyperpage{84}
   \item Survival Function, \hyperpage{180}
-  \item SVD (Singular Value Decomposition), \hyperpage{145}
+  \item SVD (Singular Value Decomposition), \hyperpage{146}
   \item SVM (Support Vector Machine), \hyperpage{213}
 
   \indexspace
@@ -407,7 +410,7 @@
 
   \indexspace
 
-  \item UMPT (Uniformly Most Powerful Test), \hyperpage{41}
+  \item UMPT (Uniformly Most Powerful Test), \hyperpage{42}
   \item UMVUE (Uniformly Minimum Variance Unbiased Estimator), 
 		\hyperpage{27}
 
@@ -428,7 +431,7 @@
   \item WN (White Noise), \hyperpage{229}
   \item Wold Decomposition, \hyperpage{232}
   \item WS (Weakly Stationary), \hyperpage{230}
-  \item WSRT (Wilcoxon Signed Rank Sum Test), \hyperpage{43}
+  \item WSRT (Wilcoxon Signed Rank Sum Test), \hyperpage{44}
 
   \indexspace
 

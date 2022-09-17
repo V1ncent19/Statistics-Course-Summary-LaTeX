@@ -80,9 +80,9 @@
 \indexentry{t-test@$ t $-test|hyperpage}{39}
 \indexentry{LRT (Likelihood Ratio Test)|hyperpage}{41}
 \indexentry{Wilk's Thm.|hyperpage}{41}
-\indexentry{UMPT (Uniformly Most Powerful Test)|hyperpage}{41}
+\indexentry{UMPT (Uniformly Most Powerful Test)|hyperpage}{42}
 \indexentry{NP-Lemma (Neyman-Pearson Lemma)|hyperpage}{42}
-\indexentry{WSRT (Wilcoxon Signed Rank Sum Test)|hyperpage}{43}
+\indexentry{WSRT (Wilcoxon Signed Rank Sum Test)|hyperpage}{44}
 \indexentry{Wilcoxon Two-Sample Rank Sum Test|hyperpage}{44}
 \indexentry{Goodness-of-Fit Test|hyperpage}{44}
 \indexentry{Contingency Table|hyperpage}{45}
@@ -203,62 +203,66 @@
 \indexentry{GUI (Graphical User Interface)|hyperpage}{116}
 \indexentry{Plot Parameters in R.|hyperpage}{127}
 \indexentry{ggplot2|hyperpage}{131}
-\indexentry{Convergence Order|hyperpage}{136}
-\indexentry{Primal Problem|hyperpage}{136}
+\indexentry{Normalized Number|hyperpage}{134}
+\indexentry{Forward Stability|hyperpage}{135}
+\indexentry{Condition Number|hyperpage}{135}
+\indexentry{Convergence Order|hyperpage}{137}
+\indexentry{Primal Problem|hyperpage}{137}
 \indexentry{Primal Problem|hyperpage}{137}
 \indexentry{Generalized Lagrange Function|hyperpage}{137}
 \indexentry{Dual Problem|hyperpage}{137}
-\indexentry{Lagrange Dual Problem|hyperpage}{137}
-\indexentry{Dual Problem|hyperpage}{137}
-\indexentry{KKT Condition (Karush-Kuhn-Tucker Condition)|hyperpage}{137}
-\indexentry{CGS (Classical Gram-Schmidt Orthogonalization)|hyperpage}{142}
-\indexentry{MGS (Modified Gram-Schmidt Orthogonalization)|hyperpage}{142}
-\indexentry{Normal Matrix|hyperpage}{144}
-\indexentry{Hermitian Matrix|hyperpage}{144}
-\indexentry{Circulant Matrix|hyperpage}{144}
-\indexentry{SVD (Singular Value Decomposition)|hyperpage}{145}
+\indexentry{Lagrange Dual Problem|hyperpage}{138}
+\indexentry{Dual Problem|hyperpage}{138}
+\indexentry{KKT Condition (Karush-Kuhn-Tucker Condition)|hyperpage}{138}
+\indexentry{Projection Operator|hyperpage}{139}
+\indexentry{CGS (Classical Gram-Schmidt Orthogonalization)|hyperpage}{143}
+\indexentry{MGS (Modified Gram-Schmidt Orthogonalization)|hyperpage}{143}
+\indexentry{Normal Matrix|hyperpage}{145}
+\indexentry{Hermitian Matrix|hyperpage}{145}
+\indexentry{Circulant Matrix|hyperpage}{145}
+\indexentry{SVD (Singular Value Decomposition)|hyperpage}{146}
 \indexentry{Golden Section Search|hyperpage}{149}
 \indexentry{Fibonacci Section Search|hyperpage}{149}
-\indexentry{Bisection Search|hyperpage}{150}
+\indexentry{Bisection Search|hyperpage}{151}
 \indexentry{Interpolation|hyperpage}{151}
-\indexentry{Lagrange Polynomial Interpolation|hyperpage}{152}
+\indexentry{Lagrange Polynomial Interpolation|hyperpage}{153}
 \indexentry{IQI (Inverse Parabolic Interpolation)|hyperpage}{153}
-\indexentry{Dekker's Method|hyperpage}{153}
+\indexentry{Dekker's Method|hyperpage}{154}
 \indexentry{Brent-Dekker Method|hyperpage}{154}
-\indexentry{Fixed Point Iteration|hyperpage}{154}
-\indexentry{SOR Method (Successive Over-Relaxation Method)|hyperpage}{155}
-\indexentry{N-M Search Method (Nelder-Mead Search Method)|hyperpage}{155}
-\indexentry{Simplex Search Method|hyperpage}{155}
-\indexentry{Newton-Raphson Iteration Method|hyperpage}{157}
-\indexentry{Fisher's Scoring Method|hyperpage}{158}
-\indexentry{IRLS (Iteratively Re-weighted Least Squares)|hyperpage}{158}
-\indexentry{Discrete Newton Method|hyperpage}{163}
-\indexentry{Secant Condition|hyperpage}{164}
-\indexentry{Quasi-Newton Condition|hyperpage}{164}
+\indexentry{Fixed Point Iteration|hyperpage}{155}
+\indexentry{SOR Method (Successive Over-Relaxation Method)|hyperpage}{156}
+\indexentry{N-M Search Method (Nelder-Mead Search Method)|hyperpage}{156}
+\indexentry{Simplex Search Method|hyperpage}{156}
+\indexentry{Newton-Raphson Iteration Method|hyperpage}{158}
+\indexentry{Fisher's Scoring Method|hyperpage}{159}
+\indexentry{IRLS (Iteratively Re-weighted Least Squares)|hyperpage}{159}
+\indexentry{Discrete Newton Method|hyperpage}{164}
+\indexentry{Secant Condition|hyperpage}{165}
+\indexentry{Quasi-Newton Condition|hyperpage}{165}
 \indexentry{DFP Updating Method (Davidon-Fletcher-Powell Updating)|hyperpage}{165}
-\indexentry{BFGS Updating Method (Broyden-Fletcher-Goldfarb-Shanno Updating)|hyperpage}{165}
-\indexentry{Broyden Class|hyperpage}{166}
-\indexentry{L-BFGS Method|hyperpage}{166}
-\indexentry{Steepest Descent Method|hyperpage}{166}
-\indexentry{SPD (Symmetric Positive Definite)|hyperpage}{167}
-\indexentry{Fletcher-Reeves Method|hyperpage}{169}
-\indexentry{Polak-Ribi$ \grave{e} $re Method|hyperpage}{169}
-\indexentry{E-M Algorithm (Expectation Maximization Algorithm)|hyperpage}{169}
+\indexentry{BFGS Updating Method (Broyden-Fletcher-Goldfarb-Shanno Updating)|hyperpage}{166}
+\indexentry{Broyden Class|hyperpage}{167}
+\indexentry{L-BFGS Method|hyperpage}{167}
+\indexentry{Steepest Descent Method|hyperpage}{167}
+\indexentry{SPD (Symmetric Positive Definite)|hyperpage}{168}
+\indexentry{Fletcher-Reeves Method|hyperpage}{170}
+\indexentry{Polak-Ribi$ \grave{e} $re Method|hyperpage}{170}
+\indexentry{E-M Algorithm (Expectation Maximization Algorithm)|hyperpage}{170}
 \indexentry{KL Divergence (Kullback-Leibler Divergence)|hyperpage}{170}
-\indexentry{ELBO (Evidence Lower Bound)|hyperpage}{170}
+\indexentry{ELBO (Evidence Lower Bound)|hyperpage}{171}
 \indexentry{M-M Algorithm (Maximization-Maximization Algorithm)|hyperpage}{171}
 \indexentry{Random Number Generator|hyperpage}{172}
 \indexentry{LCM (Linear Congruential Method)|hyperpage}{172}
-\indexentry{Inverse Transform Method|hyperpage}{173}
-\indexentry{Acceptance-Rejection Method|hyperpage}{173}
+\indexentry{Inverse Transform Method|hyperpage}{174}
+\indexentry{Acceptance-Rejection Method|hyperpage}{174}
 \indexentry{Importance Sampling|hyperpage}{175}
 \indexentry{Bootstrap|hyperpage}{176}
-\indexentry{MCMC (Markov Chain Monte Carlo)|hyperpage}{176}
-\indexentry{Convergence and Ergodic Theorem|hyperpage}{177}
-\indexentry{Detailed Balance Condition|hyperpage}{177}
-\indexentry{Metropolis-Hastings Algorithm|hyperpage}{177}
-\indexentry{M-H Algorithm|hyperpage}{177}
-\indexentry{Proposal Distribution|hyperpage}{177}
+\indexentry{MCMC (Markov Chain Monte Carlo)|hyperpage}{177}
+\indexentry{Convergence and Ergodic Theorem|hyperpage}{178}
+\indexentry{Detailed Balance Condition|hyperpage}{178}
+\indexentry{Metropolis-Hastings Algorithm|hyperpage}{178}
+\indexentry{M-H Algorithm|hyperpage}{178}
+\indexentry{Proposal Distribution|hyperpage}{178}
 \indexentry{Acceptance Ratio|hyperpage}{178}
 \indexentry{Censoring Data|hyperpage}{179}
 \indexentry{Survival Function|hyperpage}{180}
@@ -363,4 +367,3 @@
 \indexentry{EACF (Extended Autocorrelation)|hyperpage}{241}
 \indexentry{AO (Additive Outlier)|hyperpage}{242}
 \indexentry{IO (Innovative Outlier)|hyperpage}{242}
-\indexentry{PO (Potential Outcome)|hyperpage}{245}
