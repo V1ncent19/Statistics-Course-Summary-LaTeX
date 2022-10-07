@@ -83,7 +83,17 @@
     
     
 
-    and Correlation Matrix\index{Correlation Matrix}
+    and Correlation Matrix\footnote{Here the correlation matrix is the matrix of Pearson's Correlation Coefficients. Another frequently use correlation matrix called Cross Correlation Matrix is\index{Correlation Matrix@(Cross) Correlation Matrix} 
+    \begin{align*}
+            \mathrm{cross}(X,Y)= \mathbb{E}\left[ X'Y \right]
+    \end{align*}
+
+    and correlation matrix with $ Y=X $:
+    \begin{align*}
+        \mathrm{cross}(X,X)=  \mathbb{E}\left[ X'X\right]
+    \end{align*}
+    }
+    \index{Correlation Matrix@(Pearson's) Correlation Matrix}
     \begin{equation}
         \rho =\begin{bmatrix}
         \rho _{11}&\rho _{12}&\ldots&\rho _{1p}\\
@@ -93,12 +103,6 @@
         \end{bmatrix} 
         =V^{-1/2}\Sigma V^{-1/2}
     \end{equation}
-    
-    
-
-    
-    
-    
     
     
     \end{itemize}
@@ -1413,7 +1417,7 @@
 
 
 
-\subsection{Canonical Correction Analysis}
+\subsection{Canonical Correlation Analysis}
     Key idea of CCA\index{CCA (Canonical Correction Analysis)}: For a model with two multivariate population $ X^{(1)}=(X^{(1)}_{1},X^{(1)}_{2},\ldots,X^{(1)}_{p})  $, \\$ X^{(2)}=(X^{(2)}_{1},X^{(2)}_{2},\ldots,X^{(2)}_{q})  $ with covariance
     \begin{equation}
         \mathop{\Sigma }\limits_{(p+q)\times (p+q)}  =\begin{bmatrix}

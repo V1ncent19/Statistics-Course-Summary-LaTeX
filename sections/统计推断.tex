@@ -40,7 +40,10 @@
 \subsubsection{Statistics}\label{SubSectionStatistics}
     Statistic(s): function of random sample $\vec{T}(X_1,X_2,\ldots,X_n)$, \textbf{but not a function of parameter}.\index{Statistics}
     
+\begin{point}
     Some useful statistics, e.g.
+\end{point}
+    
     \begin{itemize}
         \item Sample mean (Consider $X_i$ i.i.d.)
         \begin{equation}
@@ -235,7 +238,12 @@
             \mathbb{E}(\hat{\theta})=\theta   \quad \text{or}\quad \mathbb{E}(\hat{g}(\vec{X})) =g(\theta)
         \end{equation}
 
-        Otherwise, say $\hat{\theta}$ or $\hat{g}$ biased. Def. \textbf{Bias}: $\mathbb{E}(\hat{\theta})-\theta$
+        Otherwise, say $\hat{\theta}$ or $\hat{g}$ biased. Def. \textbf{Bias}:
+        \begin{align*}
+            Bias(\hat{\theta }):= \mathbb{E}(\hat{\theta})-\theta
+        \end{align*}
+        
+        in this way, an unbiased estimator is one with $ Bias(\hat{\theta })=0 $
 
         Asymptotically unbiasedness with $ n $ as sample size
         \begin{equation}
@@ -245,9 +253,9 @@
         \begin{equation}
             var(\hat{g}_1)\leq var(\hat{g}_2)  \quad\forall\theta\in\Theta  
         \end{equation}
-        \item Mean Squared Error (MSE)\index{MSE (Mean Squared Error)}: Bias-Variance Trade-Off
+        \item Mean Squared Error (MSE)\index{MSE (Mean Squared Error)}: Most efficient in the sense with Bias-Variance trade-off\index{Bias-Variance Trade-Off}
         \begin{equation}\label{EqaMSEExpansion}
-            \text{MSE}=\mathbb{E}[(\hat{\theta}-\theta)^2]=var(\hat{\theta})+[Bias(\hat{\theta})]^2
+            \text{MSE}=\mathbb{E}[(\hat{\theta}-\theta)^2]=\mathbb{E}\left[ (\hat{\theta }-\mathbb{E}\left[ \hat{\theta}  \right] +\mathbb{E}\left[ \hat{\theta } \right]-\theta  )^2 \right] =var(\hat{\theta})+[Bias(\hat{\theta})]^2
         \end{equation}
 
         For unbiased estimator, i.e. $Bias(\hat{\theta})=0$, we have
@@ -383,37 +391,29 @@
 
 
 \subsubsection{Uniformly Minimum Variance Unbiased Estimator}\label{SubSectionUMVUE}
-        \index{UMVUE (Uniformly Minimum Variance Unbiased Estimator)}MSE: For $\hat{g}(\vec{X})$ is estimate of $g(\theta)$ ,then MSE
+        \index{UMVUE (Uniformly Minimum Variance Unbiased Estimator)}Recall MSE: If $\hat{g}(\vec{X})$ is an estimator of $g(\theta)$ ,then MSE
         \begin{equation}
             \mathrm{MSE}(\hat{g}(\vec{X}))=\mathbb{E}[(\hat{g}(\vec{X})-g(\theta))^2]=var(\hat{g})+[Bias(\hat{g})]^2
         \end{equation}
 
         Note:
-    Unbiased estimator (i.e. $Bias(\hat{g})=0$) is not unique; ang not always exists.
-
-
-    
-
-
-        Now only consider unbiased estimators of $g(\theta)$ exists, say $\hat{g}(\vec{X})$, then
+    Unbiased estimator (i.e. $Bias(\hat{g})=0$) is not unique; and not always exists. But now anyway for UMVUE we only consider the case that unbiased estimators of $g(\theta)$ exists, say $\hat{g}(\vec{X})$, then
         \begin{equation} \mathrm{MSE}(\hat{g}(\vec{X}))=var(\hat{g}(\vec{X})) \end{equation}
 
-        If $\forall$ unbiased estimate $\hat{g}\prime(\vec{X})$, $\hat{g}$ satisfies
+    If $\forall$ unbiased estimate $\tilde{g}(\vec{X})$, $\hat{g}$ satisfies
         \begin{equation}
-            var[\hat{g}(\vec{X})]\leq var[\hat{g}\prime(\vec{X})]    
+            var[\hat{g}(\vec{X})]\leq var[\tilde{g}(\vec{X})]    
         \end{equation}
+        Then $\hat{g}(\vec{X})$ is \textbf{Uniformly Minimum Variance Unbiased Estimator(UMVUE)} of $g(\theta)$
 
 \begin{point}
-        Then $\hat{g}(\vec{X})$ is \textbf{Uniformly Minimum Variance Unbiased Estimator(UMVUE)} of $g(\theta)$
+    How to determine UMVUE? (Which is not an easy task)
 \end{point}
-
-
-        How to determine UMVUE? (Not an easy task)
-        \begin{itemize}
-            \item Zero Unbiased Estimate Method
-            \item Sufficient and Complete Statistic Method
-            \item Cramer-Rao Inequality
-        \end{itemize}
+    % \begin{itemize}
+    %     \item Zero Unbiased Estimate Method
+    %     \item Sufficient and Complete Statistic Method
+    %     \item Cramer-Rao Inequality
+    % \end{itemize}
 
 \begin{enumerate}
 \item \textbf{Zero Unbiased Estimate Method}
@@ -541,7 +541,7 @@
     \textbf{Note:} More detailed knowledge see \autoref{SecLinearRegressionAnalysis} Linear Regression Analysis.
 
 \begin{point}
-    Linear Regression Model(1-dimension case):
+    Linear Regression Model (1-dimension case):
 \end{point}
 
     \begin{equation}
@@ -617,7 +617,7 @@
             \hat{\beta_1}&=\dfrac{\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sum_{i=1}^n(x_i-\bar{x})^2}
         \end{cases}\end{equation}
 
-        (the same as OLS)
+        (the same as OLS estimation)
 
         Moment estimate of $\sigma^2$
         \begin{equation}\hat{\sigma}^2_n=\frac{1}{n}\sum_{i=1}^n(y_i-\hat{\beta}_0-\hat{\beta}_1x_i)\end{equation}
@@ -636,9 +636,9 @@
 
 \begin{equation}
     \begin{cases}
-        \dfrac{\partial^{} l}{\partial \beta _0^{}}=0&\Rightarrow -\dfrac{1}{\sigma ^2}{\displaystyle\sum_{i=1}^n(y_i-\beta _0-\beta _1x_i)}=0\\
-        \dfrac{\partial^{} l}{\partial \beta _1^{}}=0&\Rightarrow -\dfrac{1}{\sigma ^2}{\displaystyle\sum_{i=1}^nx_i(y_i-\beta _0-\beta _1x_i)}=0\\
-        \dfrac{\partial^{} l}{\partial \sigma^2}=0&\Rightarrow -\dfrac{n}{2}\dfrac{1}{\sigma ^2}+\dfrac{1}{2(\sigma ^2)^2} {\displaystyle\sum_{i=1}^n(y_i-\beta _0-\beta _1x_i)}=0
+        \dfrac{\partial^{} \ell}{\partial \beta _0^{}}=0&\Rightarrow -\dfrac{1}{\sigma ^2}{\displaystyle\sum_{i=1}^n(y_i-\beta _0-\beta _1x_i)}=0\\
+        \dfrac{\partial^{} \ell}{\partial \beta _1^{}}=0&\Rightarrow -\dfrac{1}{\sigma ^2}{\displaystyle\sum_{i=1}^nx_i(y_i-\beta _0-\beta _1x_i)}=0\\
+        \dfrac{\partial^{} \ell}{\partial \sigma^2}=0&\Rightarrow -\dfrac{n}{2}\dfrac{1}{\sigma ^2}+\dfrac{1}{2(\sigma ^2)^2} {\displaystyle\sum_{i=1}^n(y_i-\beta _0-\beta _1x_i)}=0
     \end{cases} 
 \end{equation}
 
@@ -653,7 +653,7 @@
     \end{enumerate}
 
 \begin{point}
-    Linear Regression Model(Multi-dimension case):
+    Linear Regression Model (Multi-dimension case):
 \end{point}
 
     Detailed derivation see \autoref{SubSectionMultivariateLinearRegressionModel}
@@ -742,7 +742,7 @@
             \,(1-|x|)\mathbb{I}_{[-1,1]},&\text{Triangle Kernel}\\
             \,\dfrac{1}{\sqrt[]{2\pi}}e^{-\frac{x^2}{2}},&\text{Gaussian Kernel}\\
             \,\dfrac{1}{\pi(1+x^2)},&\text{Cauchy Kernel}\\
-            \,\dfrac{1}{2\pi}\mathrm{sinc}^2\dfrac{x}{2}=\dfrac{1}{2\pi}\left(\dfrac{\sin x/2}{x/2}\right)^2,&\text{sinc Kernel}
+            \,\dfrac{1}{2\pi}\mathrm{sinc}^2\dfrac{x}{2}=\dfrac{1}{2\pi}\left(\dfrac{\sin x/2}{x/2}\right)^2&\text{sinc Kernel}
         \end{cases} 
     \end{align*}
     

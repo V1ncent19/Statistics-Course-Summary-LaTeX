@@ -86,7 +86,7 @@ df <- read.table('dataset/testdata.txt', header=FALSE, sep=',', col.names = c('y
 
 
 \begin{point}
-    Sample Geometry Notation
+    Sample Geometry Notation (Full Version)
 \end{point}
 
     For most general case, in sample matrix notation:
@@ -388,6 +388,8 @@ and Normality Error Assumption:
     \begin{equation}\label{EqaDefinitionOfDegreeOfFreedom}
         dof_{SS}=\mathrm{rank}(A)
     \end{equation}
+
+    Which comes from Cochran's Theorem. A proof can be found here: \url{https://v1ncent19.github.io//texts/Cochran/}\index{Cochran's Theorem}
     
     
     
@@ -539,12 +541,10 @@ ggcoef(lmfit)
 
 
 \begin{point}
-    Why we choose OLS to get regression coefficients?
-
-
-    \index{Gauss-Markov Thm.}Gauss–Markov Thm.: the OLS estimator has the lowest sampling variance within the class of linear unbiased estimators, i.e. OLS is the Best Linear Unbiased Estimator(BLUE).\footnote{This Thm. does \textbf{not }require normal error assumption.}\index{BLUE (Best Linear Unbiased Estimator)}
+    Why we choose OLS to get regression coefficients?\index{Gauss-Markov Thm.}
 \end{point}
-    
+
+    Gauss–Markov Thm.: the OLS estimator has the lowest sampling variance within the class of linear unbiased estimators, i.e. OLS is the \textbf{Best Linear Unbiased Estimator(BLUE)}.\footnote{This Thm. does \textbf{not }require normal error assumption.}\index{BLUE (Best Linear Unbiased Estimator)}
 
 
 
@@ -566,11 +566,13 @@ ggcoef(lmfit)
     
     Base on distribution we can give CI and HT.
 
-    Note: We can either consider 
+\begin{point}
+    We can either consider :
+\end{point}
+
     \begin{itemize}[topsep=2pt,itemsep=2pt]
-        \item \textbf{$ Y_h $ itself as an r.v. }: Confidence Interval of $ Y_h $;
-        
-        And we can just use $  \sigma ^2_{\hat{\mu}_h} $ to construct CI;
+        \item $ \hat{\mu }_h $ as a function of all data points: 
+        We can just use $  \sigma ^2_{\hat{\mu}_h} $ to construct Confidence Interval of $ Y_h $;
 
         \begin{rcode}
 \begin{lstlisting}[language=R]
@@ -578,18 +580,16 @@ predict(lmfit,newdata = 40),
     interval="confidence",level=0.95)
 \end{lstlisting}
         \end{rcode}
-        \item \textbf{predicted $ Y_h $ from other sample points}: Prediction Interval of $ Y_h $
-        
-        Need to  have the randomness of $ \hat{\beta }_0,\hat{\beta }_1 $ considered(if they are unknown).
+        \item $ \hat{\mu }_h $ as a function of all data points, and $ Y_h $ in generated from the model, which also has randomness: Prediction Interval of $ Y_h $ need to  have both the randomness of $ Y_h,\,\hat{\mu }_h $ considered.
 
-        Def. Prediction Error: $ Y_h $ itself is an $ Y $ of the linear model, i.e. $ Y_i=\beta_0+\beta_1X_h+\varepsilon _h $, we can  and define \textbf{Prediction Error}: 
+        Def. Prediction Error: $ Y_h $ itself is an $ Y $ of the linear model, i.e. $ Y_i=\beta_0+\beta_1X_h+\varepsilon _h $, we can define \textbf{Prediction Error}: 
         \begin{equation}
             d_h=Y_h-\hat{\mu}_h 
         \end{equation}
     
-        
+        with
         \begin{equation}
-            \mathbb{E}(d_h)=0\qquad \sigma^2_{d_h}=var(Y_h-\hat{\mu }_h)=\sigma^2\left[ 1+\dfrac{1}{n}+\dfrac{(X_h-\bar{X})}{S_{XX}} \right] > \sigma ^2_{\hat{\mu}_h}
+            \mathbb{E}(d_h)=0\qquad \sigma^2_{d_h}=var(Y_h-\hat{\mu }_h)=\left[ 1+\dfrac{1}{n}+\dfrac{(X_h-\bar{X})}{S_{XX}} \right]\sigma^2 > \sigma ^2_{\hat{\mu}_h}
         \end{equation}
 \begin{rcode}
 \begin{lstlisting}[language=R]
@@ -599,13 +599,15 @@ predict(lmfit,newdata = 40),
 \end{rcode}
     
     \end{itemize}
+
+    Comment: in prediction error, we considered more random component, thus the CI is also larger.
     
     % Remember that when we consider the estimator $ \hat{\mu } $, we \textbf{must } have the randomness of $ \hat{\beta }_0,\hat{\beta }_1 $ considered(if they are unknown).
     
 
 
     \begin{point}
-       Simultaneous Confidence Band(SCB)\index{SCB (Simultaneous Confidence Band)}\index{CB (Confidence Band)}\index{Confidence Region!Confidence Band}
+       Simultaneous Confidence Band (SCB)\index{SCB (Simultaneous Confidence Band)}\index{CB (Confidence Band)}\index{Confidence Region!Confidence Band}
     \end{point}
 
     Confidence Band is \textbf{not} the CI at each point, but really a \textbf{band} for the \textbf{entire} regression line.\footnote{Why they are different? We require the confidence band have a \textbf{simultaneous} converage probability. For the same band $ (L(x),U(x)) $, $ P(\text{the whole line})< P(\text{each point})$, so Confidence Band is wider than $ \bigcup $CIs to hold the same $ 1-\alpha $.
@@ -732,9 +734,9 @@ ggplot(df,aes(x,y))+geom_point()+geom_smooth(method='lm',formula=y~x)
             \end{tabular}
         \end{table}
     \begin{rcode}
-        \begin{lstlisting}[language=R]
-    anova(lmfit)
-        \end{lstlisting}
+\begin{lstlisting}[language=R]
+anova(lmfit)
+\end{lstlisting}
     \end{rcode}    
 
 
@@ -1319,7 +1321,7 @@ avPlots(lmfit)
 
         If $ G=2 $: 2-sample $ t $-test,
         \begin{equation}
-            T=\dfrac{\bar{d}_1-\bar{d}_2}{s\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}\xrightarrow[]{\mathscr{L}} t_{n-2}\qquad s^2=\dfrac{\sum(d_{i1}-\bar{d}_1)^2+\sum(d_{i2}-\bar{d}_2 )^2}{n-2}
+            T=\dfrac{\bar{d}_1-\bar{d}_2}{s\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}\xrightarrow[]{\mathrm{d}} t_{n-2}\qquad s^2=\dfrac{\sum(d_{i1}-\bar{d}_1)^2+\sum(d_{i2}-\bar{d}_2 )^2}{n-2}
         \end{equation}
         
 
@@ -1344,7 +1346,7 @@ avPlots(lmfit)
 
         Then statistic
         \begin{equation}
-            S=\dfrac{\mathrm{SSR^*}/2}{(\mathrm{SSE}/n)^2}\xrightarrow[]{\mathscr{L}} \chi^2_m
+            S=\dfrac{\mathrm{SSR^*}/2}{(\mathrm{SSE}/n)^2}\xrightarrow[]{\mathrm{d}} \chi^2_m
         \end{equation}
         
     \end{itemize}
@@ -1399,7 +1401,7 @@ bptest(lmfit)
         \end{equation}
         \item Jarque-Bera Test \index{JB-test (Jarque-Bera test)}, using skewness $ \hat{g}_1 $ and kurtosis $ \hat{g}_2 $ of $ \vec{e} $
         \begin{equation}
-            \mathrm{JB}=\dfrac{n}{6}(\hat{g}_1^2+\dfrac{1}{4}\hat{g}_2^2) \xrightarrow[]{\mathscr{L}} \chi^2_2
+            \mathrm{JB}=\dfrac{n}{6}(\hat{g}_1^2+\dfrac{1}{4}\hat{g}_2^2) \xrightarrow[]{\mathrm{d}} \chi^2_2
         \end{equation}
     \end{itemize}
 \begin{rcode}
@@ -1511,16 +1513,16 @@ dwtest(lmfit)
 \end{point}
     
 \begin{itemize}[topsep=2pt,itemsep=2pt]
-    \item Standardized Residual:
+    \item Standardized Residual:\index{Standardized Residual}
     \begin{equation}
          e_{\mathrm{sd}i}=\dfrac{e_i}{\sigma _{e_i}}=\dfrac{e_i}{\sigma \sqrt{1-h_{ii}}}
     \end{equation}
-    \item (Internal) Studentized Residual: replace $ \sigma  $ with $ s=\hat{\sigma } $
+    \item (Internally) Studentized Residual: replace $ \sigma  $ with $ s=\hat{\sigma } $\index{Studentized Residual}\index{Internally Studentized Residual}
     \begin{equation}\label{EqaInternalStudentizedResidual}
-         r_i=\dfrac{e_i}{\hat{\sigma }\sqrt{1-h_{ii}}}=\dfrac{e_i}{\sqrt{\mathrm{MSE} }\sqrt{1-h_{ii}}}
+         r_i=\dfrac{e_i}{\hat{\sigma }\sqrt{1-h_{ii}}}=\dfrac{e_i}{\sqrt{\mathrm{MSE} }\sqrt{1-h_{ii}}}\sim t_{n-p-1}
     \end{equation}
     
-    \item Deleted Residual:\footnote{
+    \item Deleted Residual\index{Deleted Residual}:\footnote{
         \textit{Proof:}
 
         Lemma: $ (A+B)^{-1}=A^{-1}-\dfrac{1}{1+tr(BA^{-1})}A^{-1}BA^{-1} $, where $ \mathrm{rk}(B)=1  $.
@@ -1572,20 +1574,27 @@ dwtest(lmfit)
          \hat{\beta} _{(\wedge i)}=(X_{(\wedge i)}'X_{(\wedge i)})^{-1}X_{(\wedge i)}'Y_{(\wedge i)}\qquad \hat{Y}_{i(\wedge i)}=X_i'\hat{\beta} _{(\wedge i)}
     \end{equation}
         
-    \item (External) Studentized Residual: To avoid self-influence, take deleted residual in \autoref{EqaInternalStudentizedResidual}
+    \item (Externally) Studentized Residual\index{Externally Studentized Residual}: To avoid self-influence, take deleted residual in \autoref{EqaInternalStudentizedResidual}
     
     % Delete the $ i^{\mathrm{th}} $ case and conduct regression to the $ n-1 $ sample cases, denote the regression parameter as 
     % \begin{equation}
     %     \hat{\beta }_{(\wedge i)}=(\hat{\beta }_{1(\wedge i)},\hat{\beta }_{0(\wedge i)} )
     % \end{equation}
     \begin{equation}
-         t_i=\dfrac{d_i}{\hat{\sigma} _{(\wedge i)}\sqrt{1-h_{ii}}}= \dfrac{d_i}{\sqrt{\mathrm{MSE}_{(\wedge i)} }\sqrt{1-h_{ii}}}\sim t_{n-p-2}
+         t_i=\dfrac{d_i}{s^2(d_i)}=\dfrac{e_i}{\hat{\sigma} _{(\wedge i)}\sqrt{1-h_{ii}}}= \dfrac{e_i}{\sqrt{\mathrm{MSE}_{(\wedge i)} }\sqrt{1-h_{ii}}}\sim t_{n-p-2}
     \end{equation}
 
     Relation between $ \mathrm{MSE}  $ and $ \mathrm{MSE}_{(\wedge i)}  $:
     \begin{equation}
         (n-p-1)\mathrm{MSE}=(n-p-2)\mathrm{MSE}_{(\wedge i)}+\dfrac{e_i^2}{1-h_{ii}}   
     \end{equation}
+
+    which also gives the relation between $ t_i $ and $ r_i $:
+    \begin{align*}
+        t_i=r_i\left(\dfrac{n-p-2}{n-p-1-r_i^2}\right)^{1/2}\Leftrightarrow r_i=t_i\left(\dfrac{n-p-1}{n-p-2+t_i^2}\right)^{1/2} 
+    \end{align*}
+    
+    
     
     
     
@@ -1613,7 +1622,7 @@ dwtest(lmfit)
     
     DIFFIT:
     \begin{equation}
-        \mathrm{DIFFIT}_i=\hat{Y}_i-\hat{Y}_i(\wedge i)=e_i\dfrac{h_{ii}}{1-h_{ii}} 
+        \mathrm{DIFFIT}_i=\hat{Y}_i-\hat{Y}_{i(\wedge i)}=e_i\dfrac{h_{ii}}{1-h_{ii}} 
     \end{equation}
 
     DIFFITS:
@@ -1718,11 +1727,16 @@ Mahalanobis Distance between $ X $ and $ Y $ as defined in \autoref{MahalanobisD
      d_M(\vec{x})=\sqrt{(\vec{x}-\vec{\mu})^TS ^{-1}(\vec{x}-\vec{\mu})} 
 \end{equation}
 
-And we can proof $ d_M $ of a case item $ X_{ i\cdot}=(1,X_{i1},X_{i2},\ldots,X_{ip}) $ is
+And we can proof $ d_M $ of a case item $ X_{ i\cdot}=(1,X_{i1},X_{i2},\ldots,X_{ip}) $ is\footnote{Proof hint: use lemma 
+\begin{align*}
+    (A+B)^{-1}=A^{-1}-\dfrac{A^{-1}BA^{-1}}{1+tr(B^{-1}A)},\quad \mathrm{rank}(B)=1 
+\end{align*}
+and note that $ X_{:,1}=\mathbf{1}_n $
+}
 \begin{equation}
     d_{M}^2(X_{i\cdot})=(n-1)(h_{ii}-\dfrac{1}{n}) 
 \end{equation}
-
+here $ S=\mathop{S}\limits_{(p+1)\times (p+1)}  $. Note that $  \mathrm{L.H.S.}\geq 0$, thus it's also an evidence that $ h_{ii}\geq \dfrac{1}{n} $
 
 \subsubsection{Extra Sum Of Square}\label{SubSubSectionExtraSumOfSquare}
     Def. Extra SS: the part of SSE explained by a new $ X_2 $ when adding to model $ Y\sim X_1 $:

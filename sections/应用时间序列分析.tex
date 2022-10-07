@@ -224,7 +224,7 @@
         
            deduction:
         \begin{itemize}[topsep=2pt,itemsep=0pt]
-            \item Best linear estimation $ \hat{X}_\tau \equiv L(X_\tau|X_{t+1},\ldots,X_{t+k-1}) $ satisfies 
+            \item Best MMSE linear estimation $ \hat{X}_\tau \equiv L(X_\tau|X_{t+1},\ldots,X_{t+k-1}) $ satisfies \footnote{Detailed theory about MMSE and linear estimator see \autoref{SubSecMMSE}, \hyperlink{MMSELinear}{Linear MMSEstimator}.}
             \begin{equation}
                 \{\beta _0,\beta \}=\mathop{\arg\min}\limits_{\beta _0,\beta }  \mathbb{E}\left( \hat{X}_\tau-\beta _0-\sum_{j=1}^{k-1}\beta _jX_{t+j} \right)  ^2
             \end{equation}

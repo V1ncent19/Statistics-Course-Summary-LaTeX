@@ -34,6 +34,7 @@
 \usepackage{fbox}%更多浮动体盒子
 
 
+
 %页边距设置
 \usepackage[left=0.5in,right=0.5in,top=0.7in,bottom=0.57in]{geometry}
 
@@ -47,15 +48,58 @@
 \newfontfamily\consolas{Consolas}
 
 %其他设置
-\newenvironment{point}{\raggedright$\Box $ \bfseries}{}%新环境，用于标示重点内容
-\newenvironment{rcode}{\raggedright$  \vartriangleright  $ \lstinline|R.| \textbf{Code}  \\}{}%新环境，用于建立R语言命令段落
+\newenvironment{point}{\raggedright$\Box $ \bfseries}{}%新环境point，用于标示重点内容
+\newenvironment{rcode}{\raggedright$  \vartriangleright  $ \lstinline|R.| \textbf{Code}  \\}{}%新环境rcode，用于建立R语言命令段落
 \renewenvironment{proof}{\textit{proof:} }{$ \square  $} % 证明环境回退到英文版 以proof开头
 \newenvironment{algorithm}[1]{\vspace{12pt} \hrule\hrule \vspace{3pt} \noindent\textbf{\color[HTML]{E63F00}Algorithm } \,\textit{#1} \vspace{3pt} \hrule\vspace{6pt}
-}{\vspace{6pt}\hrule\hrule \vspace{12pt}} % 算法环境
+}{\vspace{6pt}\hrule\hrule \vspace{12pt}} % 算法伪代码格式环境
 
 \newcolumntype{Y}{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}X}%tabularx中的居中表格格式
 \allowdisplaybreaks[2]%跨页公式
 \newcommand{\independent}{\bot\!\!\!\bot} % 简易的“独立于”符号
+
+%页眉页脚设置
+\usepackage{fancyhdr} % 页眉页脚格式包
+\fancypagestyle{preContent}{
+  \fancyhead{}
+  \fancyhead[L]{Tuorui Peng} % 位置 左中右LCR + 奇偶 OE
+  \fancyhead[R]{\thepage}
+  \fancyhead[C]{Table of Contents} 
+  \fancyfoot[C]{}
+  \renewcommand{\headrulewidth}{0.5pt}  % 页眉线粗细
+  \renewcommand{\footrulewidth}{0.5pt}  % 页脚线粗细
+}
+
+\fancypagestyle{Main}{
+  \fancyhead{}
+  \fancyhead[L]{Tuorui Peng}
+  \fancyhead[R]{\thepage}
+  \fancyhead[C]{Chapter \kaishu\leftmark}
+  \fancyfoot[C]{}
+  \renewcommand{\headrulewidth}{0.5pt}
+  \renewcommand{\footrulewidth}{0.5pt}
+}
+\fancypagestyle{SectionPage}{
+  \fancyhead{}
+  \fancyhead[L]{Tuorui Peng}
+  \fancyhead[R]{\thepage}
+  \fancyhead[C]{}
+  \fancyfoot[C]{}
+  \renewcommand{\headrulewidth}{0.5pt}
+  \renewcommand{\footrulewidth}{0.5pt}
+}
+\fancypagestyle{postContent}{
+  \fancyhead{}
+  \fancyhead[L]{Tuorui Peng}
+  \fancyhead[R]{\thepage}
+  \fancyhead[C]{\kaishu\leftmark}
+  \fancyfoot[C]{}
+  \renewcommand{\headrulewidth}{0.5pt}
+  \renewcommand{\footrulewidth}{0.5pt}
+}
+
+
+
 
 
 %代码环境\lst设置
@@ -83,8 +127,8 @@
     xleftmargin=2em,xrightmargin=2em, aboveskip=1em, %设置边距
     tabsize=4, %设置tab空格数
     showspaces=false, %不显示空格
-    emph={TRUE,FALSE,NULL,NAN,NaN,Inf,NA,\$,<-,T,F,:},emphstyle=\color{CodeBlue2} ,%逻辑符
-    emph={[2]in,for,if,else,ifelse,function,return,stopifnot,switch,stop},emphstyle=[2]\color{purple} ,%流程控制
+    emph={TRUE,FALSE,NULL,NAN,NaN,Inf,NA,\$,<-},emphstyle=\color{CodeBlue2} ,%逻辑符
+    emph={[2]in,for,if,else,ifelse,function,return,stopifnot,switch,stop,c},emphstyle=[2]\color{purple} ,%流程控制
 }
 
 % 节标题格式设置
@@ -110,7 +154,7 @@
 
 \begin{titlepage}
     \title{\textbf{A Brief Summary of Statistics Course}\\统计学课程知识总结}
-    \author[]{Vincent\thanks{V1ncent19@outlook.com}}
+    \author[]{Tuorui Peng\thanks{V1ncent19@outlook.com}}
     \affil[]{Department of Physics, Tsinghua University}
 \end{titlepage}
 
@@ -118,7 +162,10 @@
 
 \maketitle\thispagestyle{myheadings}\markright{Complied using \LaTeX}
 
+\pagestyle{preContent}
 \tableofcontents
+% \thispagestyle{plain}
+% \afterpage{\thispagestyle{fancy}}
 \newpage
 
 
@@ -147,50 +194,66 @@
 
 
 
+\pagestyle{Main}
+\thispagestyle{SectionPage}
 
 \include{sections/初等概率论}
 \newpage
+\thispagestyle{SectionPage}
 
 \include{sections/统计推断}
 \newpage
+\thispagestyle{SectionPage}
 
 %  \include{sections/R}
 %  \newpage
 
 \include{sections/线性回归分析}
 \newpage
+\thispagestyle{SectionPage}
 
 \include{sections/多元统计分析}
 \newpage
+\thispagestyle{SectionPage}
 
 \include{sections/数据科学导论}
 \newpage
+\thispagestyle{SectionPage}
 
 \include{sections/统计计算与软件}
 \newpage
+\thispagestyle{SectionPage}
 
 \include{sections/可靠性数据与生存分析}
 \newpage
+\thispagestyle{SectionPage}
 
 \include{sections/生物统计学概论}
 \newpage
+\thispagestyle{SectionPage}
 
 \include{sections/统计学习导论}
 \newpage
+\thispagestyle{SectionPage}
 
 \include{sections/应用时间序列分析}
 \newpage
+\thispagestyle{SectionPage}
 
-% \include{sections/因果推断导论}
-% \newpage
+\include{sections/因果推断导论}
+\newpage
+\thispagestyle{SectionPage}
 
-% \include{sections/应用随机过程}
-% \newpage
+\include{sections/应用随机过程}
+\newpage
 
 
+
+\pagestyle{postContent}
 
 \include{sections/ReferenceBook}
 \newpage
+
 
 
 \addcontentsline{toc}{section}{索引}

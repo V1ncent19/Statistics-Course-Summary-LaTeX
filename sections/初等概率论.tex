@@ -29,7 +29,7 @@
     \centering
     \begin{tabular}{c|ccccc}
         \hline
-        $X$&$p_X(k)//f_X(x)$&$\quad E\quad$&$\sigma^2$&PGF&MGF\\
+        $X$&$p_X(k)\big/f_X(x)$&$\quad \mathbb{E}\quad$&$var$&PGF&MGF\\
         \hline
         $B(p)$& &$p$&$pq$&&$q+pe^s$\\
         $B(n,p)$&$C_n^k p^k(1-p)^{n-k}$&$np$&$npq$&$(q+ps)^n$&$(q+pe^s)^n$\\
@@ -196,7 +196,7 @@
         
         \item Indicator function:\index{Indicator Function}
         \begin{equation}    
-            I_{x\in A}(x)=\begin{cases}
+            \mathbb{I}_{x\in A}(x)=\begin{cases}
                 1& x\in  A\\
                 0& x\notin A
             \end{cases}
@@ -250,7 +250,7 @@
     \end{equation}
 
     $k$-dimensional Marginal Distribution: For $1\leq k<n$ and index set $S_k=\{i_1.\ldots,i_k\}$, distribution of $\vec{X}=(X_{i_1},X_{i_2},\ldots,X_{i_k})$
-    \begin{equation}F_{S_k}(x_{i_1},X_{i_2}\leq x_{i_2}\ldots,x_{i_k})=\mathbb{P}(X_{i_1}\leq x_{i_1},\ldots,X_{i_k}\leq x_{i_k};X_{i_{k+1}},\ldots,X_{i_n}\leq\infty)\end{equation}
+    \begin{equation}F_{S_k}(X_{i_1}\leq x_{i_1},X_{i_2}\leq x_{i_2}\ldots,X_{i_k}\leq x_{i_k})=\mathbb{P}(X_{i_1}\leq x_{i_1},\ldots,X_{i_k}\leq x_{i_k};X_{i_{k+1}},\ldots,X_{i_n}\leq\infty)\end{equation}
 
     Marginal distribution: 
     \begin{equation}
@@ -274,7 +274,7 @@
             g(\vec{Y})= f\left(x_1(\vec{Y}),x_2(\vec{Y}),\cdots,x_n(\vec{Y})\right)\left|\frac{\partial \vec{X}}{\partial\vec{Y}}\right|\mathbb{I}_{D_Y}
         \end{equation}
 
-        (Intuitively: $g\left(\vec{Y} \right)\mathrm{d}\vec{Y}=\mathrm{d}\mathbb{P}=f(\vec{X})\mathrm{d}\vec{X}$)
+        (Intuitively: $g(\vec{Y} )\mathrm{d}\vec{Y}=\mathrm{d}\mathbb{P}=f(\vec{X})\mathrm{d}\vec{X}$)
     \end{itemize}
 
 
@@ -289,11 +289,11 @@
     \begin{equation}
     \mathbb{E} [g(X)]=\begin{cases}
         {\displaystyle\int_\Omega g(x) f_X(x)\mathrm{d}x=\int_\Omega g(x)\mathrm{d}F(x)}\\
-        {\displaystyle\sum_{\Omega}g(X)f_X(x)}
+        {\displaystyle\sum_{\Omega}g(x)f_X(x)}
     \end{cases}
 \end{equation}
 
-    Sometimes when there are $ >1 $ variables, say $ x,y $, we would use $ \mathbb{E}_X\left( g(X,Y) \right)  $ to avoid confusion.
+    Sometimes when there are more than 1 variables, say $ x,y $, we would use notation $ \mathbb{E}_X\left( g(X,Y) \right)  $ to specify the variable to avoid confusion.
  
 \begin{point}
         Properties of expectation $E(\,\cdot\,)$:
@@ -331,8 +331,14 @@
     \begin{equation}
         var(X)=\mathbb{E}\big[(X-\mathbb{E}(X))^2\big]=\mathbb{E}(X^2)-(\mathbb{E}(X))^2
     \end{equation}
-
     (sometimes denoted as $\sigma^2_X$.)
+
+    Another definition comes from the MMSE estimation, 
+    \begin{align*}
+        var(X)=\mathop{\min}\limits_{c}\mathbb{E}\left[ (X-c)^2 \right]   
+    \end{align*}
+    
+    its solution is $ c=\mathbb{E}\left[ X \right]  $.See \autoref{SubSecMMSE} for more.
 
 \begin{point}
     Properties:
@@ -363,7 +369,7 @@
         cov(X,Y)=\mathbb{E}\big[(X-\mu_X)(Y-\mu_Y)\big]=\mathbb{E}(XY)-\mathbb{E}(X)\mathbb{E}(Y)
     \end{equation}
 
-    And (Pearson's) Correlation Coefficient\index{Pearson's Correlation Coefficient}\index{Correlation Coefficient!Pearson's Correlation Coefficient}
+    And Correlation Coefficient\index{Correlation Coefficient!Pearson's Correlation Coefficient}
     \begin{equation}
         r=\rho_{X,Y}=corr(X,Y)=\frac{cov(X,Y)}{\sqrt{var(X)var(Y)}}
     \end{equation}
@@ -407,7 +413,7 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
 
 \subsection{PGF, MGF and C.F}\label{SectionPGFMGFCF}
 
-    Generating Function: Representation of $P$ in function space. $P\Leftrightarrow$ Generating Function.
+    Generating Function: Representation of $\mathbb{P}$ in function space. $\mathbb{P}\Leftrightarrow$ Generating Function.
 
 \subsubsection{Probability Generating Function}
     PGF\index{PGF (Probability Generating Function)}: used for non-negative, integer $X$
@@ -427,7 +433,7 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
         \begin{equation}    
             g_Y(s)=\prod_{i=1}^n g_i(s),s\in[-1,1]
         \end{equation}
-        \item For ${X_i}$ i.i.d with $\psi(s)=\mathbb{E}(s^{X_i})$, $Y$ with $G(s)\equiv\mathbb{E}(s^{Y})$, $W=X_1+X_2+\cdots +X_Y$,then
+        \item For ${X_i}$ i.i.d with $\psi_i(s)=\psi(s)\equiv \mathbb{E}(s^{X_i})$, $Y$ with $G(s)\equiv\mathbb{E}(s^{Y})$, $W=X_1+X_2+\cdots +X_Y$,then
         \begin{equation}    
             g_W(s)=G[\psi(s)]    
         \end{equation}
@@ -437,7 +443,7 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
         \end{equation}
     \end{itemize}
 \subsubsection{Moment Generating Function}
-    MGF\index{MGF (Moment Generating Function)}: 
+    MGF\index{MGF (Moment Generating Function)}: used for non-negative $ X $, which is the Laplacian transformation of $ f_X $.
     \begin{equation}
         M_X(s)=\mathbb{E}(e^{sX})=\begin{cases}
             \sum_je^{sx}\mathbb{P}(X=x_j)\\
@@ -457,7 +463,7 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
         \end{equation}
     \end{itemize}
 \subsubsection{Characteristic Function}
-    C.F \index{C.F. (Characteristic Function)}is actually the Fourier Transform of $f$.
+    C.F \index{C.F. (Characteristic Function)}is actually the Fourier Transform of $f_X$.
     \begin{equation}
         \phi(t)=\mathbb{E}(e^{itX}) = \int_{-\infty}^\infty e^{itx}f_X(x)\mathrm{d}x
     \end{equation}
@@ -485,8 +491,8 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
     \index{Convergence}
     \begin{equation}
         \begin{cases}
-            \text{Convergence in Distribution }&{\displaystyle X_n\xrightarrow[]{\mathscr{L}}X:\lim_{n\to\infty}F_n(x)=F(x)}\\
-            \text{Convergence in Probability }&{\displaystyle X_n\xrightarrow[]{p}X:\lim_{n\to\infty}\mathbb{P}(|X_n-X)\geq\varepsilon)=0\, ,\forall\varepsilon>0}\\
+            \text{Convergence in Distribution }&{\displaystyle X_n\xrightarrow[]{\mathrm{d}}X:\lim_{n\to\infty}F_n(x)=F(x)}\\
+            \text{Convergence in Probability }&{\displaystyle X_n\xrightarrow[]{\mathrm{p}}X:\lim_{n\to\infty}\mathbb{P}(|X_n-X)\geq\varepsilon)=0\, ,\forall\varepsilon>0}\\
             \text{Almost Sure Convergence }&{\displaystyle X_n\xrightarrow[]{\text{a.s.}}X:\mathbb{P}(\lim_{n\to\infty}X_n=X)=1}\\
             L_p\text{ Convergence }&{\displaystyle X_n\xrightarrow[]{L_p}X:\lim_{n\to\infty}\mathbb{E}(|X_n-X|^p)=0}
         \end{cases}
@@ -502,10 +508,10 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
                 \draw[-latex](-3,-1.5)--(-1,-0.5);
                 \draw[-latex](-3,1.5)--(-1,0.5);
                 \draw[-latex](1,0)--(3,0);
-                \node at (0,0){$X_n\xrightarrow[]{p}X$};
+                \node at (0,0){$X_n\xrightarrow[]{\mathrm{p}}X$};
                 \node at (-4,-1.5){$X_n\xrightarrow[]{L_p}X$};
                 \node at (-4,1.5){$X_n\xrightarrow[]{\text{a.s.}}X$};
-                \node at (4,0){$X_n\xrightarrow[]{\mathscr{L}}X$};
+                \node at (4,0){$X_n\xrightarrow[]{\mathrm{d}}X$};
             \end{tikzpicture}
         \end{center}
 
@@ -514,31 +520,37 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
             \item Continuous Mapping Thm.: For continuous function $g(\cdot)$\index{Continuous Mapping Thm.}
             \begin{enumerate}
                 \item $X_n\xrightarrow[]{\text{a.s.}}X\Rightarrow g(X_n)\xrightarrow[]{\text{a.s.}}g(X)$
-                \item $X_n\xrightarrow[]{p}X\Rightarrow g(X_n)\xrightarrow[]{p}g(X)$
-                \item $X_n\xrightarrow[]{\mathscr{L}}X\Rightarrow g(X_n)\xrightarrow[]{\mathscr{L}}g(X)$
+                \item $X_n\xrightarrow[]{\mathrm{p}}X\Rightarrow g(X_n)\xrightarrow[]{\mathrm{p} }g(X)$
+                \item $X_n\xrightarrow[]{\mathrm{d}}X\Rightarrow g(X_n)\xrightarrow[]{\mathrm{d}}g(X)$
             \end{enumerate}
-            \item Slutsky's Thm.\index{Slutsky's Thm.}: For $X_n\xrightarrow[]{\mathscr{L}}X,Y_n\xrightarrow[]{p}c$
+            \item Slutsky's Thm.\index{Slutsky's Thm.}: For $X_n\xrightarrow[]{\mathrm{d}}X,Y_n\xrightarrow[]{\mathrm{p}}c$
             \begin{enumerate}
-                \item $X_n+Y_n\xrightarrow[]{\mathscr{L}}X+c$
-                \item $X_nY_n\xrightarrow[]{\mathscr{L}}cX$
-                \item $X_n/Y_n\xrightarrow[]{\mathscr{L}}X/c$
+                \item $X_n+Y_n\xrightarrow[]{\mathrm{d}}X+c$
+                \item $X_nY_n\xrightarrow[]{\mathrm{d}}cX$
+                \item $X_n/Y_n\xrightarrow[]{\mathrm{d}}X/c$
             \end{enumerate}
             \item Continuity Thm.
-            \begin{equation}        \lim_{n\to\infty}\phi_n(t)=\varphi(t)\Leftrightarrow X_n\xrightarrow[]{\mathscr{L}}X\end{equation}
+            \begin{equation}        \lim_{n\to\infty}\phi_n(t)=\varphi(t)\Leftrightarrow X_n\xrightarrow[]{\mathrm{d}}X\end{equation}
         \end{itemize} 
 
 
 \subsubsection{Law of Large Number \& Central Limit Theorem}
 
 \begin{itemize}
-    \item WLLN\index{LLN (Law of Large Number)}\index{WLLN (Weak Law of Large Number)}
-\begin{equation}    \frac{1}{n}\sum X_i\xrightarrow[]{p} E(X_1)
+\item m.s. LLN\index{m.s. LLN (Mean-Squared Law of Large Number)}: For $ X_i $ with $ cov(X_i,X_j)=0$, if $ i\neq j $, and $ \mathbb{E}\left[ X_i \right] =\mu <\infty $
+\begin{align}
+    \frac{1}{n}\sum X_i\xrightarrow[]{L_2} \mathbb{E}\left[ X_1 \right]
+\end{align}
+
+
+\item WLLN\index{LLN (Law of Large Number)}\index{WLLN (Weak Law of Large Number)}: For $ X_i $ i.i.d. $ \sim f_X $, with $ \mathbb{E}\left[ X_i \right]=\mu <\infty $
+\begin{equation}    \frac{1}{n}\sum X_i\xrightarrow[]{\mathrm{p}}\mu 
 \end{equation}
-\item SLLN\index{SLLN (Strong Law of Large Number)}
-\begin{equation}    \frac{1}{n}\sum X_i\xrightarrow[]{\text{a.s.}}  C
+\item SLLN\index{SLLN (Strong Law of Large Number)}: For $ X_i $ i.i.d. $ \sim f_X $, with $ \mathbb{E}\left[ X_i \right] =\mu <\infty $
+\begin{equation}    \frac{1}{n}\sum X_i\xrightarrow[]{\text{a.s.}}  \mu 
 \end{equation}
-\item CLT\index{CLT (Central Limit Thm.)}
-\begin{equation}    \frac{1}{\sigma\sqrt{n}}\sum(X_k-\mu)\xrightarrow[]{\mathscr{L}} N(0,1)
+\item CLT\index{CLT (Central Limit Thm.)}: For $ X_i $ i.i.d. $ \sim f_X $, with $ \mathbb{E}\left[ X_i \right] =\mu <\infty $, $ var(X_i)=\sigma ^2<\infty $
+\begin{equation}    \frac{1}{\sigma\sqrt{n}}\sum(X_k-\mu)\xrightarrow[]{\mathrm{d}} N(0,1)
 \end{equation}
 \item de Moivre-Laplace Thm.\index{de Moivre-Laplace Thm.}
 \begin{equation}    \mathbb{P}(k\leq S_n\leq m)\approx \Phi(\frac{m+0.5-np}{\sqrt{npq}})-\Phi(\frac{k-0.5-np}{\sqrt{npq}})
@@ -578,7 +590,7 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
 \subsection{Multivariate Normal Distribution}\label{SubsectionDerivationMultivariateNormal}
     General Case and more discussion see \autoref{SubSubSectionMultivariateNormalDistribution}.
 
-    Distribution of Normal $ X\sim B(\mu ,\sigma ^2) $:\index{Distribution!Normal Distribution}
+    Distribution of Normal $ X\sim N(\mu ,\sigma ^2) $:\index{Distribution!Normal Distribution}
     \[
         f(x)=\dfrac{1}{\sqrt{2\pi}\sigma }e^{-\frac{(x-\mu )^2}{2\sigma ^2}} 
     \]
@@ -693,7 +705,7 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
 
             PDF of $\chi^2_n$:
             \begin{equation}        
-                g_n(x)=\dfrac{1}{2^{n/2}\Gamma(n/2)}x^{n/2}e^{-x/2}I_{x>0}  
+                g_n(x)=\dfrac{1}{2^{n/2}\Gamma(n/2)}x^{n/2}e^{-x/2}\mathbb{I}_{x>0}  
             \end{equation}
 
             Properties
@@ -724,7 +736,7 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
             (Similar for $\chi^2_n$ and $F_{m,n}$ etc.)
             \item $F$ Distribution: Def. $F$ distribution with degree of freedom $m$ and $n$:\index{Distribution!$ F $ Distribution}
             \begin{equation}        
-                F=\frac{\sum_{i=1}^mY_i}{\sum_{i=1}^nX_i}\sim F_{m,n}
+                F=\frac{\sum_{i=1}^mY_i^2}{\sum_{i=1}^nX_i^2}\sim F_{m,n}
             \end{equation}
 
             PDF of $F_{m,n}$:

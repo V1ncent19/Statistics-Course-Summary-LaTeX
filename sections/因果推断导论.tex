@@ -6,60 +6,120 @@
 
 
 \subsection{Neyman-Rubin Framework}
-    Neyman-Rubin Framework (Donald B.Rubin, 1978), also called Potential Outcome Framework is based on \textbf{counter-factual outcome} inference to judge causal effect. Main problem is to deal with \textbf{Confounder}. 
+    Neyman-Rubin Framework\index{Neyman-Rubin Framework} (Donald B.Rubin, 1978), also called Potential Outcome Framework\index{Potential Outcome Framework} is based on \textbf{counter-factual outcome} inference to judge causal effect. 
 
+
+% \begin{point}
+%     Motivation of N-R Model: Difference Between `Correlation' and `Causality'
+% \end{point}
+    
+%         Assume we now has a set of $ \{(W_i,Y_i)\} $ where $ W_i $ happens before $ Y_i $ and $ i $ for $ i^\mathrm{th}  $ object.
+    
+%         \begin{itemize}[topsep=2pt,itemsep=0pt]
+%             \item \textbf{Correlation} describes the relation between $ W_i $ and $ Y_i $;
+%             \item while \textbf{Causality} describes the relation between $ Y_i $ and some \textbf{unseen}  $ \tilde{Y}_i $ corresponding to \textbf{What If } $ W_i $ takes another value.
+%         \end{itemize}
+        
+%         Their difference is significant, correlation is mostly based on objective data, while causality contains a lot about how we \textbf{`imagine'} what did not happen, and compare to reality. The $ Y_i-\tilde{Y}_i $ is causal effect (Note that they both has $ _i $, acting on the same object, the different causal effect on different unit also make it not so useful to increase sample size).
+
+\subsubsection{Description of Causal Effect and Challenge}
+    Causality concerns `what would happen when \textbf{an action} is applied to \textbf{a unit}'. Here the `unit' is how causality is different from correlation.
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item A unit is the physical object at that specific time, which is similar to the event in Einstein's relativity.\footnote{Which means that one object at different time ($ (x,t) $ \& $ (x,t') $) is not the same unit (event). However if the assumption of time independency is valid, then object in different time could be the same unit (usually less resonable for human subjects).}
+    \item An action is the treatment/intervention that could be \textbf{potentially} applied to the unit. 
+\end{itemize}
+
+    In this section we mainly focus on cases with binary intervention, i.e.\footnote{Habitually we denote the more `active' intervention as treatment, but in mathematical form they are symmetric.}
+    \begin{align*}
+        \{\mathrm{treatment},\,\mathrm{control} \}=\{1,0\} 
+    \end{align*}
+
+    To estimate the causal effect (on a unit), we need to obtain both potential outcomes of $ Y(1) $ and $ Y(0) $, but in the real world we can only observe one of them, say, the patient took the medicine, and we got $ Y(1) $, while $ Y(0) $ is missing.
+
+    With this notation, the causal effect could be expressed by the \textbf{estimand} as follows by  comparing the \textbf{potential outcomes}, here's the most commonly used form:
+    \begin{align*}
+        \tau:=Y_\mathrm{treatment} -Y_\mathrm{control} =Y(1)-Y(0)
+    \end{align*}
+
+    In the following parts, we use indicator $ W_i\in\{1,0\} $ to represent the treatment/control \textbf{assigned} to unit $ i $.
 
 \begin{point}
-    Motivation of N-R Model: Difference Between `Correlation' and `Causality'
+    SUTVA Assumption (Stable Unit Treatment Value Assumption)\index{SUTVA (Stable Unit Treatment Value Assumption)}
 \end{point}
-    
-        Assume we now has a set of $ \{(W_i,Y_i)\} $ where $ W_i $ happens before $ Y_i $ and $ i $ for $ i^\mathrm{th}  $ object.
-    
-        \begin{itemize}[topsep=2pt,itemsep=0pt]
-            \item \textbf{Correlation} describes the relation between $ W_i $ and $ Y_i $;
-            \item while \textbf{Causality} describes the relation between $ Y_i $ and some \textbf{unseen}  $ \tilde{Y}_i $ corresponding to \textbf{What If } $ W_i $ takes another value.
-        \end{itemize}
-        
-        Their difference is significant, correlation is mostly based on objective data, while causality contains a lot about how we \textbf{`imagine'} what did not happen, and compare to reality. The $ Y_i-\tilde{Y}_i $ is causal effect (Note that they both has $ _i $, acting on the same object, the different causal effect on different unit also make it not so useful to increase sample size).
 
+    To solve the problem of omitted treatment (e.g. $ Y_i\in\{Y_i(0),Y_i(1),Y_i(2)\} $), and the intervention between units (e.g. $ Y_i(W_{j=1:N}) $) to simplify the model, we usually put the assumption of SUTVA, which has two components:
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item No Interference
+    \begin{align*}
+        Y_i(W_{j=1:N})=Y_i(W_i) 
+    \end{align*}
+    \item No Hidden Variation of Treatment:
+    \begin{align*}
+        Y_i(W_{j=1:N})=Y_i(W_i)\in\{Y_i(1),Y_i(0)\},\quad W_i\in \{1,0\}:=\mathbb{T}_i=\mathbb{T}
+    \end{align*}
+\end{itemize}
+
+    In this way the model is simplified, and we could expressed some population/subpopulation level causal estimand.
+
+
+    \begin{table}[H]
+        \centering
+        \renewcommand\arraystretch{1}
+        \caption{Illustration of Causal Data}
+        \begin{tabular}{cccccc}
+            \hline
+            \hline
+            &\multicolumn{2}{c}{Potential Outcomes}&Assignment&Observation&Causal Estimand\\
+            \cline{2-3}
+            Unit $ i $&$ Y_i(1) $&$ Y_i(0) $&$ W_i $&$ Y^\mathrm{obs}_i  $&$ Y_i(1)-Y_i(0) $\\
+            \hline
+            \# 1&$ \color{brown}Y_1(1) $&$ \color{gray}Y_1(0) $&$ W_1={\color{brown}1} $&$ Y^\mathrm{obs}_1=\color{brown}Y_1(1)  $&$ {\color{brown}Y_1(1)}-{\color{gray}Y_1(0)} $\\
+            \# 2&$ \color{gray}Y_2(1) $&$ \color{brown}Y_2(0) $&$ W_2={\color{brown}0} $&$ Y^\mathrm{obs}_2=\color{brown}Y_2(0)  $&$ {\color{gray}Y_2(1)}-{\color{brown}Y_2(0)} $\\
+            \# 3&$ \color{gray}Y_3(1) $&$ \color{brown}Y_3(0) $&$ W_3={\color{brown}0} $&$ Y^\mathrm{obs}_3=\color{brown}Y_3(0)  $&$ {\color{gray}Y_3(1)}-{\color{brown}Y_3(0)} $\\
+            \# 4&$ \color{brown}Y_4(1) $&$ \color{gray}Y_4(0) $&$ W_4={\color{brown}1} $&$ Y^\mathrm{obs}_4=\color{brown}Y_4(1)  $&$ {\color{brown}Y_4(1)}-{\color{gray}Y_4(0)} $\\
+            $ \vdots $&$ \vdots $&$ \vdots $&$ \vdots $&$ \vdots $&$ \vdots $\\
+            \hline
+            \hline
+        \end{tabular}
+        \label{}
+    \end{table}
+    
+     
+
+    
 
     
 \subsubsection{Key Elements and Notations}
-        In this part we first introduce a simple model: Two choice for causes and two (potential) outcomes. 
-
-        e.g. Take medicine or not $ \longrightarrow $ Headache level.
-
 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item \textbf{Unit}: The atomic object in causal inference, e.g. one headache person at certain time. We infer `what would happen to unit $ i $ if $ \ldots $'.\footnote{Same object at different time should be considered as different unit. We may join some \textbf{hypothesis}  that time doesnot matter, but not for the \textbf{definition} of unit.}
-    \item \textbf{Treatment} $ W_i $: (when `cause' event had not happen), what we could had done, expressed as $ W_i $, $ W_i\in\{0,1,\ldots,$ $N_\mathrm{NUMBER\_OF\_TREATMENT}\} $, in simple model $ W_i\in\{0,1\} $, 1 for treated and 0 for controlled.
+    \item \textbf{Unit}: The atomic object in causal inference. $ i=1,2,\ldots,N $
+    \item \textbf{Treatment} $ W_i $: (possible) assignment.
     \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item Treatment Group: Set of $ \{\mathrm{Unit}_i|W_i=1\} $;
         \item Controlled Group: Set of $ \{\mathrm{Unit}_i|W_i=0 \} $.
     \end{itemize}
-    \item \textbf{Potential Outcome} $ Y_i $(PO)\index{PO (Potential Outcome)}: For each unit operating each treatment(or control), the potential outcome $ Y(W=w) $.\footnote{The `EigenOutcome' of the model, despite of what really happens.
+    \item \textbf{Potential Outcome}(PO) $ Y_i $\index{PO (Potential Outcome)}: For each unit with action  treatment(or control), the potential outcome $ Y(W=w),\,w=0,1 $ is the `Eigen Outcome' of the model, despite of what really happens. It can be seen as what would happen when the operation had not been done.
+    \item \textbf{Observed Outcome} $ Y_i^\mathrm{obs}  $: The actually happened outcome, $ Y_i^\mathrm{obs}=Y_i(W=w_\mathrm{REAL\_CASE}):=Y_i(W=w_i^\mathrm{obs} ) $.
     
-    Maybe can be seen as what would happen when the operation had not been done.} In simple model, use $ Y_i(1) $ for treatment and $ Y_i(0) $ for control.
-    \item \textbf{Observed Outcome} $ Y_i^F $: The actually happened outcome, $ Y_i^F=Y_i(W=w_\mathrm{REAL\_CASE}):=Y_i(W=w^F_i) $
-    \item \textbf{CounterFactual Outcome} $ Y_i^{CF} $: The potential outcome when the $ !w_i^F $ would have been operated (does exist but we did not observed the `world line' where $ w^{CF}_i $ was operated, thus unknown to us), $ Y_i^{CF}=Y_i(W=1-w_\mathrm{REAL\_CASE}):=Y_i(W=w_i^{CF}) $ 
+    \item \textbf{Missing Outcome} $ Y_i^{\mathrm{mis} } $: The potential outcome when the $ w-i^\mathrm{mis}:= !w_i^\mathrm{obs}  $ would have been operated (it does exist but we cannot observe the `world-line' where $ w^{\mathrm{mis} }_i $ was operated, thus is unknown to us), $ Y_i^{\mathrm{mis} }=Y_i(W=1-w_\mathrm{REAL\_CASE}):=Y_i(W=w_i^{\mathrm{mis} }) $ 
     \begin{align*}
-        Y^F_i=Y_i(W_i^F)=&\begin{cases}
+        Y^\mathrm{obs} _i=Y_i(W_i^\mathrm{obs} )=&\begin{cases}
             Y_i(1)&W_i=1\\
             Y_i(0)&W_i=0
         \end{cases}\\
-        Y^{CF}_i=Y_i(1-W_i^F)=&\begin{cases}
+        Y^{\mathrm{mis} }_i=Y_i(1-W_i^\mathrm{obs} )=&\begin{cases}
             Y_i(0)&W_i=1\\
             Y_i(1)&W_i=0
         \end{cases}
     \end{align*}
-    \item \textbf{Causal Effect} $ \tau_i $: Difference between potential outcome, $ \tau=Y_i(W=1)-Y_i(W=0)=Y_i(1)-Y_i(0) $
-    \item \textbf{Pre-Treatment Variables/Covariates} $ X_i $: Some background elements that might attribute to treatment selection/potential outcome. Anyway may cause confusion to causal inference.
-    \item \textbf{Subgroup}:   
+    \item \textbf{Causal Effect}\index{Causal Effect} $ \tau_i $ (defined by difference of PO): Difference between potential outcome, $ \tau=Y_i(W=1)-Y_i(W=0)=Y_i(1)-Y_i(0) $
+    \item \textbf{Pre-Treatment Variables/Covariates} $ X_i $\index{Pre-Treatment Variable}\index{Covariate}: Some background elements that might attribute to treatment selection/potential outcome. Anyway they may cause confusion to causal inference. For example, the gender of patients $ X_i\in\{\mathrm{female}, \mathrm{male}  \}:=\{1,0\} $.
+    \item \textbf{Subgroup}: Treatment/Contorl group could be further divided in subgroup according to covariates.
 \end{itemize}
 
 
 \begin{point}
-    \textbf{Treatment Effect}  
+    \textbf{Causal Effect}  
 \end{point}
 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
@@ -94,52 +154,52 @@
     \]
     
     
-    \item \textbf{ITE}: Individual Treatment Effect:
-    \[
-        \mathrm{ITE}_i=Y_i(W=1)-Y_i(W=0)  
-    \]
+    % \item \textbf{ITE}: Individual Treatment Effect:
+    % \[
+    %     \mathrm{ITE}_i=Y_i(W=1)-Y_i(W=0)  
+    % \]
 \end{itemize}
 
-    Where in Estimands, we only know one of $ Y_i(1)/Y_i(0) $ as $ Y^F $, the $ Y^{CF} $ needs to be \textbf{predicted}. 
+    Where in Estimands, we only know one of $ Y_i(1)/Y_i(0) $ as $ Y^\mathrm{obs}  $, the $ Y^{\mathrm{mis} } $ needs to be \textbf{predicted} (or at least we need to know about the property).
 
     
 
 
 
-\subsubsection{Assignment Mechanism}
-\begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item  \textbf{Assignment Mechanism}: is a function $ \{X_i,Y_i(0),Y_i(1)\}\to P(W_i) $: The probability that how a unit would have been given treatment/control.
+% \subsubsection{Assignment Mechanism}
+% \begin{itemize}[topsep=2pt,itemsep=0pt]
+%     \item  \textbf{Assignment Mechanism}: is a function $ \{X_i,Y_i(0),Y_i(1)\}\to P(W_i) $: The probability that how a unit would have been given treatment/control.
 
-\[
-    \sum_{\vec{W}\in \{0,1\}^N}P(\vec{W}|X,Y(1),Y(0))=1 
-\]
+% \[
+%     \sum_{\vec{W}\in \{0,1\}^N}P(\vec{W}|X,Y(1),Y(0))=1 
+% \]
 
-    \item \textbf{Finite Population Propensity Score}: The average unit assignment probability for all unit with $ X_i=x $:
-    \[
-        e(x)=\dfrac{1}{N(x)}\sum_{i:X_i=x}P(W_i=1|X,Y(1),Y(0))
-    \]
+%     \item \textbf{Finite Population Propensity Score}: The average unit assignment probability for all unit with $ X_i=x $:
+%     \[
+%         e(x)=\dfrac{1}{N(x)}\sum_{i:X_i=x}P(W_i=1|X,Y(1),Y(0))
+%     \]
 
-    For $ N(x)=0 $, define $ e(x)=0 $
+%     For $ N(x)=0 $, define $ e(x)=0 $
     
     
-\end{itemize}
+% \end{itemize}
 
     
 
-\subsubsection{Difficulty and Goal of Causal Inference}
-\begin{point}
-    Difficulty:
-\end{point}
-\begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item \textbf{Inadequate Observation Points}: The \textbf{Causal Effect} we want to study is $ \mathrm{ATE}=E(Y(1)-Y(0))  $. Note that each unit has \textbf{two} potential outcomes $ Y(1) $ and $ Y(0) $ for treated/controlled respectively. However we can only observed one of them $ Y^C=Y(W=w_\mathrm{REAL\_CASE} ) $, i.e. at least \textbf{half of potential outcomes are unobserved}, we need to `predict' the missing point using covariants.
-    \item \textbf{Biased Assignment Mechanism}: Covariants may cause biased treatment/control assignment, from which we can never estimate an unbiased causal effect.
-\end{itemize}
+% \subsubsection{Difficulty and Goal of Causal Inference}
+% \begin{point}
+%     Difficulty:
+% \end{point}
+% \begin{itemize}[topsep=2pt,itemsep=0pt]
+%     \item \textbf{Inadequate Observation Points}: The \textbf{Causal Effect} we want to study is $ \mathrm{ATE}=E(Y(1)-Y(0))  $. Note that each unit has \textbf{two} potential outcomes $ Y(1) $ and $ Y(0) $ for treated/controlled respectively. However we can only observed one of them $ Y^C=Y(W=w_\mathrm{REAL\_CASE} ) $, i.e. at least \textbf{half of potential outcomes are unobserved}, we need to `predict' the missing point using covariants.
+%     \item \textbf{Biased Assignment Mechanism}: Covariants may cause biased treatment/control assignment, from which we can never estimate an unbiased causal effect. 
+% \end{itemize}
 
-\begin{point}
-    Goal:
-\end{point}
+% \begin{point}
+%     Goal:
+% \end{point}
 
-    The goal of causal inference is to estimate the treatment effects with $ \{X,W,Y^F\} $ given.
+%     The goal of causal inference is to estimate the treatment effects with $ \{X,W,Y^F\} $ given.
 
 
 \subsubsection{Assumptions}

@@ -3,4 +3,304 @@
     Instructor: Pengkun Yang 
 \end{center}
 
+% \subsection{Review of Probability}
+    
+
+
+
+
+
+\subsection{Minimum Mean Squared Estimator}\label{SubSecMMSE}
+    Motivation: Here's a signal transmission process in which source is $ X\sim f_{X} $ and observation is $ \vec{Z}\sim f_Z $, we need to find a (theoretically best) information process function $ g(\, \cdot \, ) $ such that we can reproduce $ X $ with $ g(\vec{Z}) $ with minimum `error' (Note that $ X$ and $\vec{Z} $ can be dependent)., i.e.
+    \begin{align*}
+        \hat{g}=\mathop{\arg\min}\limits_{g(\, \cdot \, )\in \mathscr{F}} \mathbb{E}\left[ (X-g(\vec{Z}))^2 \right] 
+    \end{align*}
+
+    which is the \textbf{Minimum Mean Squared Estimator} (MMSE)\index{MMSE (Minimum Mean Squared Estimator)}. \footnote{\textbf{Note}: the function space $ \mathscr{F}(\vec{Z}) $ (by default) is the arbitrary measurable function space $ :=\mathscr{V}(\vec{Z}) $, but you can specifically select a proper one, e.g. linear combination of some power function $ \mathbb{V}(1,\vec{Z},\vec{Z}^2):=\{a+bZ+cZ^2\}_{a,b\in\mathbb{R}}\subset \mathscr{F}(\vec{Z}) $.
+    
+    I am not quite sure (actually I believe it's wrong lol) but maybe for some commonly used function form, we could view that
+    \begin{align*}
+        \mathscr{V}(\vec{Z})\approx \mathbb{V}(\{\vec{Z}^p\}_{p=0}^\infty) 
+    \end{align*}
+    
+    }
+
+\begin{point}
+    General Solution to MMSE
+\end{point}
+
+    The solution to MMSE is that
+    \begin{align*}
+         \hat{g}(\, \cdot \, )\, s.t. \begin{cases}
+            \hat{g}(\vec{Z})\in \mathscr{F}(Z)\\
+            e:=X-\hat{g}(\vec{Z})\perp h(\vec{Z}),\quad \forall h(\vec{Z})\in\mathscr{F}(Z)
+         \end{cases}
+    \end{align*}
+    
+    here $ \perp $ in the sense that $ \imath \perp \jmath \Leftrightarrow \mathbb{E}\left[ \imath\jmath \right]=0  $
+    
+    \begin{proof}
+        Denote $ \mathscr{F}(Z)\ni g(Z)=\hat{g}(Z)+c h(Z)  ,\,h(Z)\in\mathscr{F}(Z)$, then
+        \begin{align*}
+            \mathbb{E}\left[ (X-g(Z))^2 \right]  =&\mathbb{E}\left[ (X-\hat{g}(Z)-ch(Z))^2 \right]=\mathbb{E}\left[ (X-\hat{g}(Z))^2 \right] -2c\mathbb{E}\left[ (X-\hat{g}(Z))h(Z) \right]+c^2\mathbb{E}\left[ h(Z)^2 \right]  
+        \end{align*}
+        
+        \begin{itemize}[topsep=2pt,itemsep=0pt]
+            \item If $ X-\hat{g}(\vec{Z})\perp h(\vec{Z})  $:
+            \begin{align*}
+                \mathbb{E}\left[ (X-g(Z))^2 \right]  =&\mathbb{E}\left[ (X-\hat{g}(Z))^2 \right] +c^2\mathbb{E}\left[ h(Z)^2 \right]  \geq \mathbb{E}\left[ (X-\hat{g}(Z))^2 \right]
+            \end{align*}
+            \item If $ X-\hat{g}(\vec{Z})\not\!\perp h(\vec{Z})  $, then for $ |c| $ small enough we could have $ \mathbb{E}\left[ (X-g(Z))^2 \right]< \mathbb{E}\left[ (X-\hat{g}(Z))^2 \right]$.          
+        \end{itemize}
+        
+        which gives that the above condition is  necessary and sufficient.
+    \end{proof}
+    
+    
+    
+    . The above expression is similar to the projection operator onto space $ \mathscr{F} $, i.e.
+    \begin{align*}
+        \hat{g}(\, \cdot \, )=\Pi_{\mathscr{F(\, \cdot \, )}}(X),\quad \begin{cases}
+            \Pi_{\mathscr{F(\, \cdot \, )}}(X)\in \mathscr{F}\\
+            X-\Pi_{\mathscr{F(\, \cdot \, )}}(X)\perp \mathscr{F}
+        \end{cases}
+    \end{align*}
+    
+\begin{point}
+    Properties of $ \Pi_{\mathcal{V}} $ (where function space $ \mathscr{F} $ is a kind of linear space $ \mathcal{V} $)
+\end{point}
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Linearity
+    \begin{align*}
+        \Pi_{\mathcal{V}}(aX+bY)=a\Pi_{\mathcal{V}}(X)+b\Pi_{\mathcal{V}}(Y)
+    \end{align*}
+    \item Project within subspace: for $\mathcal{V}_2\subset \mathcal{V}_1 $
+    \begin{align*}
+        \Pi_{\mathcal{V}_2}(X)=\Pi_{\mathcal{V}_2}\left(\Pi_{\mathcal{V}_1}(X)\right) 
+    \end{align*}
+    \item Projection onto orthogonal space: for $ \mathcal{V}_1\perp\mathcal{V}_2 $
+    \begin{align*}
+        \Pi_{\mathcal{V}_1\oplus\mathcal{V}_2}(X)=\Pi_{\mathcal{V}_1}(X)+\Pi_{\mathcal{V}_2}(X) 
+    \end{align*}
+\end{itemize}
+
+\begin{point}
+    Important Cases
+\end{point}
+
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item $ \mathscr{F}(Z)=\mathscr{V}(Z) $: Solution is 
+    \begin{align*}
+        \mathbb{E}\left[ X|Z \right] 
+    \end{align*}
+    
+    in which
+    \begin{align*}
+        \begin{cases}
+            \mathbb{E}\left[ X|Z \right] \in\mathscr{F}(Z)\\
+            \mathbb{E}\left[(X-\mathbb{E}\left[ X|Z \right] )g(Z) \right]=\mathbb{E}\left[ Xg(Z) \right] -\mathbb{E}\left[ \mathbb{E}\left[ g(Z)X|Z \right]  \right] =0 
+        \end{cases} 
+    \end{align*}
+    \item $ \mathscr{F}(Z)=\mathrm{const} $: Solution is
+    \begin{align*}
+         \mathbb{E}\left[ X \right]  
+    \end{align*}
+    
+    in which
+    \begin{align*}
+        \begin{cases}
+            \mathbb{E}\left[ X \right]\in \mathcal{R}\\
+            \mathbb{E}\left[ (X-\mathbb{E}\left[ X \right] )\mathrm{const} \right]=0 
+        \end{cases} 
+    \end{align*}
+
+    which is also a kind of variance definition:
+    \begin{align*}
+        var(X):=\min_{c\in\mathbb{R}}\mathbb{E}\left[ (X-c)^2 \right]  
+    \end{align*}
+    
+    \item \hypertarget{MMSELinear}{}$ \mathscr{F}(Z)=\mathbb{V}(1,\vec{Z}) $ i.e. linear conbination of $ \vec{Z} $ as $ a+\vec{Z}'b $. Solution is
+    \begin{align*}
+        L(X|\vec{Z}):=\mathbb{E}\left[ X \right] +cov(X,\vec{Z})var(\vec{Z})^{-1}\left(\vec{Z}-\mathbb{E}\left[ \vec{Z} \right] \right)
+    \end{align*}
+    
+    in which
+    \begin{align*}
+        \mathbb{E}\left[ X \right] +cov(X,\vec{Z})var(\vec{Z})^{-1}\left(\vec{Z}-\mathbb{E}\left[ \vec{Z} \right] \right)\in \mathbb{V}(1,\vec{Z})\\
+        \mathbb{E}\left[ (X-L(X|\vec{Z}))(a+\vec{Z}'b) \right] = 0
+    \end{align*}
+    
+\end{itemize}
+
+
+\begin{point}
+    Innovation Sequence (新息序列)\index{Innovation Sequence}
+\end{point}
+
+    % Note that after projection, say $ \Pi_X(Y) $, we could have independence $ \Pi_{X}(Y)\perp X $. 
+
+    
+% Lecture 4 BasicRandomProcess & BasicMarkovChain
+
+% Random Process / Stochastic Process $ X:\Omega \mapsto \mathscr{F},\quad \mathscr{F}=\{\mathcal{T}\mapsto\mathbb{R}\} $, or simply $ X:\Omega\times \mathcal{T} \mapsto \mathbb{R}$, i.e.
+% \begin{align*}
+%     X_t(\, \cdot \, ):&\Omega \mapsto\mathbb{R},\text{ is an r.v.}\\
+%     X_\cdot (\omega ):&\mathcal{T}\mapsto\mathbb{R},\text{ is a function of }t,\,\text{i.e. a sample path} 
+% \end{align*}
+
+% Coin toss example: each initial condition gives a exact path, but the initial state is given randomly.
+% \begin{align*}
+%     X_t=A+Bt+t^2,\quad A,B\sim N(0,1) 
+% \end{align*}
+
+
+
+
+
+% Basic category
+% \begin{itemize}[topsep=2pt,itemsep=0pt]
+%     \item Discrete-time / Continuous-time 
+%     \item Discrete-state / Continuous-state
+% \end{itemize}
+
+    
+% Jointly distributed Gaussian $ N_n $. Question: infinite dimensional $ n=\infty
+%  $ v.s. true for arbitrary $ n $?
+
+
+% \begin{align*}
+%     f_{X_1,X_2,\ldots,X_p}:=&\dfrac{1}{(2\pi)^{p/2}\sqrt{|\Sigma |}}\exp\left[ -\dfrac{1}{2}(x-\mu )'\Sigma  ^{-1}(x-\mu ) \right] \\
+%     (\Sigma =\Lambda )=&\prod_{i=1}^p\dfrac{1}{\sqrt[]{2\pi \lambda _i}}\exp\left[ -\dfrac{(x_i-\mu _i)^2}{2\lambda _i} \right]
+% \end{align*}
+
+% Conditional Pr with relation chain $ X-Y-Z $:
+% \begin{align*}
+%     f_{Z|XY}=f_{Z|Y}\Leftrightarrow f_{Z|Y}f_{X|Y}=f_{XZ|Y} 
+% \end{align*}
+
+
+% Markov Process with $ t_1<t_2<\ldots t_{n}<t_{n+1}<\ldots $
+% \begin{align*}
+%     \mathbb{P}\left( X_{t_{n+1}}|X_{t_1},\ldots,X_{t_n} \right)=&\mathbb{P}\left( X_{t_{n+1}}|X_{t_n} \right)   \\
+%     \Rightarrow \mathbb{P}\left( X_{t_{n+1}},X_{t_{n}},\ldots,x_{t_1} \right)=\prod_{i=1}^n \mathbb{P}\left( X_{t_{i+1}}|X_{t_{i}} \right)  \cdot \mathbb{P}\left( X_{t_1} \right) 
+% \end{align*}
+
+% Random vector with index $ n=1,2,\ldots ,N $ v.s. random process with index set $ \mathcal{T} $
+
+\subsection{Markon Process}
+\subsubsection{Discrete Time Markov Chain}
+
+% Lecture 5 DiscreteTimeMarkovChain (DTMC)
+
+% εγω ειμαι
+% εσυ εισαι
+% αυτος αυτη αυτο ειναι
+
+% εμεις ειμαστε
+% εσεις ειστε 
+% αυτοι αυτος αυτα ειναι
+
+
+
+
+
+% % Class 3 Random vector and covariance matrix
+
+% \begin{align*}
+%     X=\begin{bmatrix}
+%         X_1\\
+%         X_2\\
+%         \vdots\\
+%         X_n
+%     \end{bmatrix} : \Omega \mapsto \mathbb{R}^n,\quad \text{in which }X:\Omega \mapsto \mathbb{R} 
+% \end{align*}
+
+% and corresponding
+% \begin{align*}
+%     \mathbb{E}\left( X \right) = \begin{bmatrix}
+%         \mathbb{E}\left( X_1 \right) \\
+%         \mathbb{E}\left( X_2 \right) \\
+%         \vdots\\
+%         \mathbb{E}\left( X_n \right) 
+%     \end{bmatrix}
+% \end{align*}
+
+% for $ X\in\mathbb{R}^n $ and $ Y\in\mathbb{R}^m $, define cross covariance
+% \begin{align*}
+%     cov(X,Y)=\begin{bmatrix}
+%     cov(X_1,Y_1)&cov(X_1,Y_2)&\ldots&cov(X_1,Y_m)\\
+%     cov(X_2,Y_1)&cov(X_2,Y_2)&\ldots&cov(X_2,Y_m)\\
+%     \vdots&\vdots&\ddots&\vdots\\
+%     cov(X_n,Y_1)&cov(X_n,Y_2)&\ldots&cov(X_n,Y_m)\\
+%     \end{bmatrix}_{n\times m}
+% \end{align*}
+
+% and cross correlation (互相关矩阵)
+% \begin{align*}
+%     \mathbb{E}\left( XY' \right)  
+% \end{align*}
+
+% their relation
+% \begin{align*}
+%     cov(X,Y)=\mathbb{E}\left( (X-\mathbb{E}\left( X \right) )(Y-\mathbb{E}\left( Y \right) )' \right)=\mathbb{E}\left( XY' \right)  -\mathbb{E}\left( X \right) \mathbb{E}\left( Y \right) ' 
+% \end{align*}
+
+% Linearity:
+% \begin{align*}
+%     \mathbb{E}\left( AX+\xi  \right) =A\mathbb{E}\left( X \right) +\xi  
+% \end{align*}
+
+% \begin{align*}
+%     cov(AX+b,CY+DZ+e) =A cov(X,Y)C'+Acov(X,\vec{Z})D'
+% \end{align*}
+
+% For $ X=Y $: covariance \& correlation matrix.
+
+% \begin{point}
+%     Mathematical preparation
+% \end{point}
+
+% Symmetric, positive (semi)-definite, eigen value / vector.
+
+% \begin{itemize}[topsep=2pt,itemsep=0pt]
+%     \item Positive semi-definition of correlation / covariance $ \Big/ $ a PSD matrix has a random vector corresponse
+%     \item Characteristic Function of Gaussian r.v.
+%     \begin{align*}
+%         \phi (u)=\mathscr{F}\left[ Y \right] =\mathbb{E}\left( e^{iu'x} \right)=\exp\left[ iu'\mathbb{E}\left( Y \right) -\dfrac{1}{2}u var(Y)u \right]
+%     \end{align*}  
+% \end{itemize}
+
+% \begin{point}
+%     MMSE (Minimum Mean-Squared Error) Estimation
+% \end{point}
+
+
+% \begin{align*}
+%     \hat{X}=\mathop{\arg\min}\limits_{Y\in \mathbb{V}} \mathbb{E}_X\left( X-Y \right)^2  ,\quad w.r.t. \mathbb{V}\text{ is linear.}
+% \end{align*}
+
+% minimizer:
+% \begin{itemize}[topsep=2pt,itemsep=0pt]
+%     \item $ \hat{X}\in\mathbb{V} $
+%     \item $ X-\hat{X}\perp Y,\quad \forall Y\in\mathbb{V} $. Here $ \perp $ in the sense that $ \mathbb{E}\left( (X-\hat{X})Y   \right)=0  $
+% \end{itemize}
+% MMSE requires $ \mathbb{E}\left( X^2 \right) <\infty $ (existence of second moment).
+    
+% \begin{point}
+%     Linear MMSE $ Y\in\mathbb{V}=\{aY+b\} $
+% \end{point}
+
+% Note: property of projection operator $ \Pi_\mathbb{V}  $ in the slides might be helpful to some intuition of MMSE.
+
+% Esimator proof see time series analysis or BLM \url{https://v1ncent19.github.io//texts/BestLinearEstimator/}
+
+
+% Note: $ var(X)=var(e)+var(\hat{X}) $ is similar to $ c^2=a^2+b^2 $ in Euclidean space.
+
+
+
+
+
+
+
 
