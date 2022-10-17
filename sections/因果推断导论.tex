@@ -34,222 +34,314 @@
         \{\mathrm{treatment},\,\mathrm{control} \}=\{1,0\} 
     \end{align*}
 
+\begin{point}
+    Potential Outcome
+\end{point}
+
+    With this notation, the causal effect could be expressed by the \textbf{estimand} as follows by  comparing the \textbf{potential outcomes}, here's a commonly used form:
+    \begin{align*}
+        \tau:=Y_\mathrm{treatment} -Y_\mathrm{control} :=Y(1)-Y(0)
+    \end{align*}
+
     To estimate the causal effect (on a unit), we need to obtain both potential outcomes of $ Y(1) $ and $ Y(0) $, but in the real world we can only observe one of them, say, the patient took the medicine, and we got $ Y(1) $, while $ Y(0) $ is missing.
 
-    With this notation, the causal effect could be expressed by the \textbf{estimand} as follows by  comparing the \textbf{potential outcomes}, here's the most commonly used form:
-    \begin{align*}
-        \tau:=Y_\mathrm{treatment} -Y_\mathrm{control} =Y(1)-Y(0)
-    \end{align*}
-
-    In the following parts, we use indicator $ W_i\in\{1,0\} $ to represent the treatment/control \textbf{assigned} to unit $ i $.
-
-\begin{point}
-    SUTVA Assumption (Stable Unit Treatment Value Assumption)\index{SUTVA (Stable Unit Treatment Value Assumption)}
-\end{point}
-
-    To solve the problem of omitted treatment (e.g. $ Y_i\in\{Y_i(0),Y_i(1),Y_i(2)\} $), and the intervention between units (e.g. $ Y_i(W_{j=1:N}) $) to simplify the model, we usually put the assumption of SUTVA, which has two components:
-\begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item No Interference
-    \begin{align*}
-        Y_i(W_{j=1:N})=Y_i(W_i) 
-    \end{align*}
-    \item No Hidden Variation of Treatment:
-    \begin{align*}
-        Y_i(W_{j=1:N})=Y_i(W_i)\in\{Y_i(1),Y_i(0)\},\quad W_i\in \{1,0\}:=\mathbb{T}_i=\mathbb{T}
-    \end{align*}
-\end{itemize}
-
-    In this way the model is simplified, and we could expressed some population/subpopulation level causal estimand.
+    Relevant Notation:
 
 
-    \begin{table}[H]
-        \centering
-        \renewcommand\arraystretch{1}
-        \caption{Illustration of Causal Data}
-        \begin{tabular}{cccccc}
-            \hline
-            \hline
-            &\multicolumn{2}{c}{Potential Outcomes}&Assignment&Observation&Causal Estimand\\
-            \cline{2-3}
-            Unit $ i $&$ Y_i(1) $&$ Y_i(0) $&$ W_i $&$ Y^\mathrm{obs}_i  $&$ Y_i(1)-Y_i(0) $\\
-            \hline
-            \# 1&$ \color{brown}Y_1(1) $&$ \color{gray}Y_1(0) $&$ W_1={\color{brown}1} $&$ Y^\mathrm{obs}_1=\color{brown}Y_1(1)  $&$ {\color{brown}Y_1(1)}-{\color{gray}Y_1(0)} $\\
-            \# 2&$ \color{gray}Y_2(1) $&$ \color{brown}Y_2(0) $&$ W_2={\color{brown}0} $&$ Y^\mathrm{obs}_2=\color{brown}Y_2(0)  $&$ {\color{gray}Y_2(1)}-{\color{brown}Y_2(0)} $\\
-            \# 3&$ \color{gray}Y_3(1) $&$ \color{brown}Y_3(0) $&$ W_3={\color{brown}0} $&$ Y^\mathrm{obs}_3=\color{brown}Y_3(0)  $&$ {\color{gray}Y_3(1)}-{\color{brown}Y_3(0)} $\\
-            \# 4&$ \color{brown}Y_4(1) $&$ \color{gray}Y_4(0) $&$ W_4={\color{brown}1} $&$ Y^\mathrm{obs}_4=\color{brown}Y_4(1)  $&$ {\color{brown}Y_4(1)}-{\color{gray}Y_4(0)} $\\
-            $ \vdots $&$ \vdots $&$ \vdots $&$ \vdots $&$ \vdots $&$ \vdots $\\
-            \hline
-            \hline
-        \end{tabular}
-        \label{}
-    \end{table}
-    
-     
-
-    
-
-    
-\subsubsection{Key Elements and Notations}
-
-\begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item \textbf{Unit}: The atomic object in causal inference. $ i=1,2,\ldots,N $
-    \item \textbf{Treatment} $ W_i $: (possible) assignment.
     \begin{itemize}[topsep=2pt,itemsep=0pt]
-        \item Treatment Group: Set of $ \{\mathrm{Unit}_i|W_i=1\} $;
-        \item Controlled Group: Set of $ \{\mathrm{Unit}_i|W_i=0 \} $.
+        \item \textbf{Unit}: The atomic object in causal inference. $ i=1,2,\ldots,N $
+        \item \textbf{Treatment} $ W_i $: (possible) assignment.
+        \begin{itemize}[topsep=2pt,itemsep=0pt]
+            \item Treatment Group: Set of $ \{\mathrm{Unit}_i|W_i=1\} $;
+            \item Controlled Group: Set of $ \{\mathrm{Unit}_i|W_i=0 \} $.
+        \end{itemize}
+        \item \textbf{Potential Outcome} (PO) $ Y_i $\index{PO (Potential Outcome)}: For each unit with action  treatment(or control), the potential outcome $ Y(W=w),\,w=0,1 $ is the `Eigen Outcome' of the model, despite of what really happens. It can be seen as what would happen when the operation had not been done.
+        \item \textbf{Observed Outcome} $ Y_i^\mathrm{obs}  $: The actually happened outcome, $ Y_i^\mathrm{obs}=Y_i(W=w_\mathrm{REAL\_CASE}):=Y_i(W=w_i^\mathrm{obs} ) $.
+        
+        \item \textbf{Missing Outcome} $ Y_i^{\mathrm{mis} } $: The potential outcome when the $ w_i^\mathrm{mis}:= !w_i^\mathrm{obs}  $ would have been operated (it does exist but we cannot observe the `world-line' where $ w^{\mathrm{mis} }_i $ was operated, thus is unknown to us), $ Y_i^{\mathrm{mis} }=Y_i(W_i=1-w_\mathrm{REAL\_CASE}):=Y_i(W_i=w_i^{\mathrm{mis} }) $ 
+        \begin{align*}
+            Y^\mathrm{obs} _i=Y_i(W_i^\mathrm{obs} )=&\begin{cases}
+                Y_i(1)&W_i=1\\
+                Y_i(0)&W_i=0
+            \end{cases}\\
+            Y^{\mathrm{mis} }_i=Y_i(1-W_i^\mathrm{obs} )=&\begin{cases}
+                Y_i(0)&W_i=1\\
+                Y_i(1)&W_i=0
+            \end{cases}
+        \end{align*}
+        \item \textbf{Causal Effect}\index{Causal Effect} $ \tau_i $ (defined by difference of PO): Difference between potential outcome, $ \tau_i=Y_i(W_i=1)-Y_i(W_i=0)=Y_i(1)-Y_i(0) $
+        \item \textbf{Pre-Treatment Variables/Covariates} $ X_i $\index{Pre-Treatment Variable}\index{Covariate}: Some background elements that might attribute to treatment selection/potential outcome. Anyway they may cause confusion to causal inference. For example, the gender of patients $ X_i\in\{\mathrm{female}, \mathrm{male}  \}:=\{1,0\} $.
+        \item \textbf{Subgroup}: Treatment/Contorl group could be further divided in subgroup according to covariates, e.g.
+        \begin{align*}
+            \{(Y_i,W_i)\}_{i:X_i=0}\text{ v.s. }  \{(Y_i,W_i)\}_{i:X_i=1}
+        \end{align*}
     \end{itemize}
-    \item \textbf{Potential Outcome}(PO) $ Y_i $\index{PO (Potential Outcome)}: For each unit with action  treatment(or control), the potential outcome $ Y(W=w),\,w=0,1 $ is the `Eigen Outcome' of the model, despite of what really happens. It can be seen as what would happen when the operation had not been done.
-    \item \textbf{Observed Outcome} $ Y_i^\mathrm{obs}  $: The actually happened outcome, $ Y_i^\mathrm{obs}=Y_i(W=w_\mathrm{REAL\_CASE}):=Y_i(W=w_i^\mathrm{obs} ) $.
-    
-    \item \textbf{Missing Outcome} $ Y_i^{\mathrm{mis} } $: The potential outcome when the $ w-i^\mathrm{mis}:= !w_i^\mathrm{obs}  $ would have been operated (it does exist but we cannot observe the `world-line' where $ w^{\mathrm{mis} }_i $ was operated, thus is unknown to us), $ Y_i^{\mathrm{mis} }=Y_i(W=1-w_\mathrm{REAL\_CASE}):=Y_i(W=w_i^{\mathrm{mis} }) $ 
-    \begin{align*}
-        Y^\mathrm{obs} _i=Y_i(W_i^\mathrm{obs} )=&\begin{cases}
-            Y_i(1)&W_i=1\\
-            Y_i(0)&W_i=0
-        \end{cases}\\
-        Y^{\mathrm{mis} }_i=Y_i(1-W_i^\mathrm{obs} )=&\begin{cases}
-            Y_i(0)&W_i=1\\
-            Y_i(1)&W_i=0
-        \end{cases}
-    \end{align*}
-    \item \textbf{Causal Effect}\index{Causal Effect} $ \tau_i $ (defined by difference of PO): Difference between potential outcome, $ \tau=Y_i(W=1)-Y_i(W=0)=Y_i(1)-Y_i(0) $
-    \item \textbf{Pre-Treatment Variables/Covariates} $ X_i $\index{Pre-Treatment Variable}\index{Covariate}: Some background elements that might attribute to treatment selection/potential outcome. Anyway they may cause confusion to causal inference. For example, the gender of patients $ X_i\in\{\mathrm{female}, \mathrm{male}  \}:=\{1,0\} $.
-    \item \textbf{Subgroup}: Treatment/Contorl group could be further divided in subgroup according to covariates.
-\end{itemize}
 
+    With the above basic notation, a dataset / sample can be expressed as
+    \begin{align*}
+        \mathcal{D}=\{(X_i,Y_i,W_i)\}_{i=1}^N 
+    \end{align*}
+    
 
 \begin{point}
-    \textbf{Causal Effect}  
+    Assignment Mechanism and Super Population\index{Finite Sample}\index{Super Population}
 \end{point}
 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item \textbf{ATE}: Average Treatment Effect (ATE) of the whole population:
-    \[
-        \mathrm{ATE}=E(Y(1)-Y(0))  
-    \]
-
-    Estimand:
-    \[
-        \hat{\mathrm{ATE} }=\dfrac{1}{N}\sum_{i=1}^N(Y_i(1)-Y_i(0)) 
-    \]
-
-    \item \textbf{ATT}/\textbf{ATC}: Average Treatment Effect of Treated/Controlled Group (ATT/ATC):
-    \[
-        \mathrm{ATT}=E(Y(1)|w=1)-E(Y(0)|w=1)  \qquad \mathrm{ATC}=E(Y(1)|w=0)-E(Y(0)|w=0) 
-    \]
-
-    Estimand:
-    \[
-        \hat{\mathrm{ATT} }=\dfrac{1}{N_t}\sum_{i:w_i=1}(Y_i(1)-Y_i(0))\qquad \hat{\mathrm{ATC} }=\dfrac{1}{N_c}\sum_{i:w_i=0}(Y_i(1)-Y_i(0)) 
-    \]
+    \item Our observation sample is a \textbf{finite sample} $\{X_i,Y_i\}_{i=1}^N $ in which $ Y_i $ is perceived fixed as potential outcome. And the above notation are studying the causal information within the finite sample. The randomness of the causal effect in the sample is the \textbf{assignment mechanism}\index{Assignment Mechanism} $ W_i\sim f_{W|X,Y} $. i.e. in finite sample, POs are fixed and actually different assignment mechanisms give randomized data (in a finite sample).
     
-    
-    \item \textbf{CATE}: Conditional Average Treatment Effect (CATE): `Conditional' for `given covariant $ X $'
-    \[
-        \mathrm{CATE}_x=E(Y(1)|X=x)-E(Y(0)|X=x)
-    \]
-    Estimand: (Denote \# $ X_i=x $ as $ N(x) $)
-    \[
-        \hat{\mathrm{CATE} }=\dfrac{1}{N(x)}\sum_{i:X_i=x}(Y_i(1)-Y_i(0)) 
-    \]
-    
-    
-    % \item \textbf{ITE}: Individual Treatment Effect:
-    % \[
-    %     \mathrm{ITE}_i=Y_i(W=1)-Y_i(W=0)  
-    % \]
+    Some widely used mechanism includes Completely Randomized Experiment, Stratified Randomized Experiment, Pairwise Randomized Experiment, etc. Proper assignment can help avoid the influence of covariants (recall Simpson's Paradox).
+    \item Before that, the finite sample of $ \{X_i,Y_i\}_{i=1}^N $ is drawn from a \textbf{super population} with some distribution.
 \end{itemize}
 
-    Where in Estimands, we only know one of $ Y_i(1)/Y_i(0) $ as $ Y^\mathrm{obs}  $, the $ Y^{\mathrm{mis} } $ needs to be \textbf{predicted} (or at least we need to know about the property).
-
-    
-
-
-
-% \subsubsection{Assignment Mechanism}
-% \begin{itemize}[topsep=2pt,itemsep=0pt]
-%     \item  \textbf{Assignment Mechanism}: is a function $ \{X_i,Y_i(0),Y_i(1)\}\to P(W_i) $: The probability that how a unit would have been given treatment/control.
-
-% \[
-%     \sum_{\vec{W}\in \{0,1\}^N}P(\vec{W}|X,Y(1),Y(0))=1 
-% \]
-
-%     \item \textbf{Finite Population Propensity Score}: The average unit assignment probability for all unit with $ X_i=x $:
-%     \[
-%         e(x)=\dfrac{1}{N(x)}\sum_{i:X_i=x}P(W_i=1|X,Y(1),Y(0))
-%     \]
-
-%     For $ N(x)=0 $, define $ e(x)=0 $
-    
-    
-% \end{itemize}
-
-    
-
-% \subsubsection{Difficulty and Goal of Causal Inference}
-% \begin{point}
-%     Difficulty:
-% \end{point}
-% \begin{itemize}[topsep=2pt,itemsep=0pt]
-%     \item \textbf{Inadequate Observation Points}: The \textbf{Causal Effect} we want to study is $ \mathrm{ATE}=E(Y(1)-Y(0))  $. Note that each unit has \textbf{two} potential outcomes $ Y(1) $ and $ Y(0) $ for treated/controlled respectively. However we can only observed one of them $ Y^C=Y(W=w_\mathrm{REAL\_CASE} ) $, i.e. at least \textbf{half of potential outcomes are unobserved}, we need to `predict' the missing point using covariants.
-%     \item \textbf{Biased Assignment Mechanism}: Covariants may cause biased treatment/control assignment, from which we can never estimate an unbiased causal effect. 
-% \end{itemize}
-
-% \begin{point}
-%     Goal:
-% \end{point}
-
-%     The goal of causal inference is to estimate the treatment effects with $ \{X,W,Y^F\} $ given.
+    To summarize, The whole model has 2 stages of randomness: sampling from super population, and assign treatment to the finite sample.
+\begin{align*}
+    \text{Super Population}\xrightarrow[\text{sample }N]{f_{X}, f_{Y|X}}\text{Finite Sample }\{X,Y\}\xrightarrow[\text{assignment}]{f_{W|X,Y}}\text{Observation }\mathcal{D}=\{X,Y,W\}
+\end{align*}
 
 
 \subsubsection{Assumptions}
 
+The null model is complicated, say, there could be multiple PO levels / interference between assignments / complex assignment mechanism, etc. There are some basic assumptions to help simplified the model.
+
+\textbf{Note}: In actual usage of causal model, the assumptions should be checked.  
+
 \begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item \textbf{SUTVA} (Stable Unit Treatment Value Assumption): A usually reasonable assumption to simplify causal model:
+    \item \textbf{SUTVA}:\index{SUTVA (Stable Unit Treatment Value Assumption)} To solve the problem of omitted treatment (e.g. $ Y_i\in\{Y_i(0),Y_i(1),Y_i(2)\} $), and the intervention between units (e.g. $ Y_i(W_{j=1:N}) $) to simplify the model, we usually put the assumption of SUTVA, which has two components:
     \begin{itemize}[topsep=2pt,itemsep=0pt]
-        \item No interference between units;
-        \item No hidden variations of treatment.
+        \item No Interference
+        \begin{align*}
+            Y_i(W_{j=1:N})=Y_i(W_i) 
+        \end{align*}
+        \item No Hidden Variation of Treatment:
+        \begin{align*}
+            Y_i(W_{j=1:N})=Y_i(W_i)\in\{Y_i(1),Y_i(0)\},\quad W_i\in \{1,0\}:=\mathbb{T}_i=\mathbb{T}
+        \end{align*}
     \end{itemize}
     \item \textbf{Individualistic Assignment}: Assignment probability of each unit does \textbf{not} depends on the covariants and PO of other units:
     \[
-        P_i(W=w|X,Y(1),Y(0))=P_i(W|X_i,Y_i(1),Y_i(0))^w(1-P_i(W|X_i,Y_i(1),Y_i(0)))^{1-w},\,\forall i=1,2,\ldots,N
+        \mathbb{P}(W_i=w_i|X,Y(1),Y(0))=P(W_i|X_i,Y_i(1),Y_i(0))^{w_i}(1-\mathbb{P}(W|X_i,Y_i(1),Y_i(0)))^{1-w_i},\,\forall i=1,2,\ldots,N
     \]
 
-    For simplification, denote
+    Sometimes for simplification, denote
     \[
-        P_i(W=1|X,Y(1),Y(0))=q(X,Y(1),Y(0)) 
+        \mathbb{P}_i(W=1|X,Y(1),Y(0))=p(X,Y(1),Y(0)) 
     \]
     
-    
-
-    Under individualistic assignment assumption, propensity score is simplified:
-    \[
-         e(x)=\dfrac{1}{N(x)}\sum_{i:X_i=x}P(W=1|X,Y(1),Y(0))=\dfrac{1}{N(x)}\sum_{i:X_i=x}P(W=1|X_i,Y_i(1),Y_i(0))
-    \]
+    % Under individualistic assignment assumption, propensity score is simplified:
+    % \[
+    %      e(x)=\dfrac{1}{N(x)}\sum_{i:X_i=x}P(W=1|X,Y(1),Y(0))=\dfrac{1}{N(x)}\sum_{i:X_i=x}P(W=1|X_i,Y_i(1),Y_i(0))
+    % \]
     
     \item \textbf{Probabilistic Assignment}: Probility for both $ W_i=1 $ and $ W_i=0 $ are non-zero (to ensure a reasonable causal model)
     \[
-        0<P(W|X,Y(1)Y(0))<1,\,\forall X,Y(1),Y(0) 
+        0<\mathbb{P}(W|X,Y(1)Y(0))<1,\,\forall X,Y(1),Y(0) 
     \]
     
     \item \textbf{Unconfounded Assignment}: Assignment mechanism is independent of PO
     \[
-        P(W|X,Y(1),Y(0))=P(W|X)
+        \mathbb{P}(W|X,Y(1),Y(0))=P(W|X)
     \]
 \end{itemize}
 
+
     
 \begin{point}
-    With above assumption, assignment mechanism and propemnsity score can be simplified:
+    With all the above assumptions, assignment mechanism can be simplified in the following form:
 \end{point}
 
 \begin{align*}
-    \text{Assignment Mechanism:}&P(\vec{W}|X,Y(1),Y(0))=\dfrac{1}{Z}\prod_{i=1}^N q(X_i)^W_i(1-q(X_i))^{1-W_i}\\
+    \text{Assignment Mechanism:}\,&\mathbb{P}(W|X,Y(1),Y(0))=\dfrac{1}{Z}\prod_{i=1}^N p(X_i)^W_i(1-p(X_i))^{1-W_i}\\
+\end{align*}
+
+% \subsubsection{Causal Effect Measurement}
+
+
+% \begin{itemize}[topsep=2pt,itemsep=0pt]
+%     \item \textbf{ACE}: Average Causal Effect (ACE) of the whole population:\footnote{Some uses the name Average Treatment Effect (ATE), the following parts are similar for ACT}
+%     \[
+%         \mathrm{ATE}=E(Y(1)-Y(0))  
+%     \]
+
+%     Estimand:
+%     \[
+%         \hat{\mathrm{ATE} }=\dfrac{1}{N}\sum_{i=1}^N(Y_i(1)-Y_i(0)) 
+%     \]
+
+%     \item \textbf{ATT}/\textbf{ATC}: Average Treatment Effect of Treated/Controlled Group (ATT/ATC):
+%     \[
+%         \mathrm{ATT}=E(Y(1)|w=1)-E(Y(0)|w=1)  \qquad \mathrm{ATC}=E(Y(1)|w=0)-E(Y(0)|w=0) 
+%     \]
+
+%     Estimand:
+%     \[
+%         \hat{\mathrm{ATT} }=\dfrac{1}{N_t}\sum_{i:w_i=1}(Y_i(1)-Y_i(0))\qquad \hat{\mathrm{ATC} }=\dfrac{1}{N_c}\sum_{i:w_i=0}(Y_i(1)-Y_i(0)) 
+%     \]
+    
+    
+%     \item \textbf{CATE}: Conditional Average Treatment Effect (CATE): `Conditional' for `given covariant $ X $'
+%     \[
+%         \mathrm{CATE}_x=E(Y(1)|X=x)-E(Y(0)|X=x)
+%     \]
+%     Estimand: (Denote \# $ X_i=x $ as $ N(x) $)
+%     \[
+%         \hat{\mathrm{CATE} }=\dfrac{1}{N(x)}\sum_{i:X_i=x}(Y_i(1)-Y_i(0)) 
+%     \]
+    
+    
+%     % \item \textbf{ITE}: Individual Treatment Effect:
+%     % \[
+%     %     \mathrm{ITE}_i=Y_i(W=1)-Y_i(W=0)  
+%     % \]
+% \end{itemize}
+
+%     Where in Estimands, we only know one of $ Y_i(1)/Y_i(0) $ as $ Y^\mathrm{obs}  $, the $ Y^{\mathrm{mis} } $ needs to be \textbf{predicted} (or at least we need to know about the property).
+
+    
+
+
+    \begin{point}
+        Data Example
+    \end{point}
+    
+        \begin{table}[H]
+            \centering
+            \renewcommand\arraystretch{1}
+            \caption{Illustration of Causal Data}
+            \begin{tabular}{cccccc}
+                \hline
+                \hline
+                &\multicolumn{2}{c}{Potential Outcomes}&Assignment&Observation&Causal Estimand\\
+                \cline{2-3}
+                Unit $ i $&$ Y_i(1) $&$ Y_i(0) $&$ W_i $&$ Y^\mathrm{obs}_i  $&$ Y_i(1)-Y_i(0) $\\
+                \hline
+                \# 1&$ \color{brown}Y_1(1) $&$ \color{gray}Y_1(0) $&$ W_1={\color{brown}1} $&$ Y^\mathrm{obs}_1=\color{brown}Y_1(1)  $&$ {\color{brown}Y_1(1)}-{\color{gray}Y_1(0)} $\\
+                \# 2&$ \color{gray}Y_2(1) $&$ \color{brown}Y_2(0) $&$ W_2={\color{brown}0} $&$ Y^\mathrm{obs}_2=\color{brown}Y_2(0)  $&$ {\color{gray}Y_2(1)}-{\color{brown}Y_2(0)} $\\
+                \# 3&$ \color{gray}Y_3(1) $&$ \color{brown}Y_3(0) $&$ W_3={\color{brown}0} $&$ Y^\mathrm{obs}_3=\color{brown}Y_3(0)  $&$ {\color{gray}Y_3(1)}-{\color{brown}Y_3(0)} $\\
+                \# 4&$ \color{brown}Y_4(1) $&$ \color{gray}Y_4(0) $&$ W_4={\color{brown}1} $&$ Y^\mathrm{obs}_4=\color{brown}Y_4(1)  $&$ {\color{brown}Y_4(1)}-{\color{gray}Y_4(0)} $\\
+                $ \vdots $&$ \vdots $&$ \vdots $&$ \vdots $&$ \vdots $&$ \vdots $\\
+                \hline
+                \hline
+            \end{tabular}
+            \label{}
+        \end{table}
+    
+
+    
+
+
+\subsection{Inference to Causal Effect}
+
+First we focus on the randomness in finite sample, i.e. randomness of assignment mechanism. Specifically we usually consider the case of completely randomized experiment: $ N_t $ in $ N $ items are given treatment and $ N_c=N-N_t $ in $ N $ are given control.
+\begin{align*}
+    \mathbb{P}\left( W|X,Y \right)=1\bigg/\binom{N}{N_\mathrm{t} },\,\text{case }\sum_{i=1}^NW_i=N_\mathrm{t}   
 \end{align*}
 
 
+
+\subsubsection{Fisher's Exact $ p $-value}
+
+Test of Fisher's Sharp Null Hypothesis\index{Fisher's Sharp Null Hypothesis}:
+\begin{align*}
+    H_0:\tau_i=0,\,\forall i=1,2,\ldots,N  \leftrightsquigarrow H_a:\,\exists j\,s.t. \tau_j\neq 0
+\end{align*}
+
+With the hypothesis, we could fill in all the $ Y^\mathrm{mis}  $ by $ Y^\mathrm{mis}_i=Y^\mathrm{obs}_i   \,\forall i$. And by traversing all possible $ \tilde{W} $ assignments and calculate corresponding $ \tau_{\tilde{W}} $, we could calculate the Fisher's exact $ p $-value
+\begin{align*}
+     \hat{p}=N_{\#(|\tau_{\tilde{W}}|<\tau_{W})}\bigg/\binom{N}{N_t}
+\end{align*}
+
+Comments:
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Since the basic idea is traversing all $ W $, so it could be applied to differenet deigns of $ \tau $, say 
+    \begin{align*}
+        \hat{\tau}^\mathrm{diff}=&|\bar{Y}_\mathrm{t}^\mathrm{obs}-\bar{Y}_\mathrm{c}^\mathrm{obs}|\\
+        \hat{\tau}^\mathrm{median}=&|\mathrm{med}_\mathrm{t}(Y^\mathrm{obs} )-\mathrm{med}_\mathrm{c}(Y^\mathrm{obs} )    |  \\
+        \hat{\tau}^{t\text{-}\mathrm{stat} }=&\left\vert \dfrac{\bar{Y}_\mathrm{t}^\mathrm{obs}-\bar{Y}_\mathrm{c}^\mathrm{obs}}{\sqrt{ s_\mathrm{t}^2/N_t+s_\mathrm{c}^2/N_c   }} \right\vert \\
+        \hat{\tau}^\mathrm{reg}=&\mathop{\arg\min}\limits_{\beta _W:(\beta _0,\beta _X,\beta _W)}\sum_{i=1}^N\left(Y_i^{\mathrm{obs}}-\beta _0-X_i'\beta _X'-W_i\beta _W\right)^2  
+    \end{align*}
+    \item High computation complexity for large $ N $. e.g. for $ N_t\approx \dfrac{N}{2} $
+    \begin{align*}
+        \mathrm{flops}\sim \binom{N}{N_t}\sim 2^N 
+    \end{align*}
+    \item Random simulation for large $ N $: the $ p $-value is actually
+    \begin{align*}
+        \hat{\mathbb{P}}\left( \text{more extreme }\hat{\tau} \right)=\hat{\mathbb{E}}\left[\mathbf{1}(\text{more extreme }\hat{\tau})\right] 
+    \end{align*}
+    which can be approached by random sampling.
+    \item A fiducial interval can be constructed. But generally speaking the hypothesis testing just help reject the sharp hypothesis, but cannot help determine the casual effect strength.
+\end{itemize}
+
     
-   
+\subsubsection{Neyman's Repeated Sampling}
+
+Neyman's method uses the distribution of $ W $ for completely randomized experiment to obtain the property of the finite sample estimator
+\begin{align*}
+    \hat{\tau}_\mathrm{fs}=\bar{Y}_\mathrm{t}^\mathrm{obs}-\bar{Y}_\mathrm{c}^\mathrm{obs}= \dfrac{1}{N_\mathrm{t} }\sum_{i=1}^N W_iY_i(1)-\dfrac{1}{N_\mathrm{c} } \sum_{i=1}^N(1-W_i)Y_i(0)   
+\end{align*}
+
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Property
+    \begin{align*}
+        \mathbb{E}_W\left[ \hat{\tau}_\mathrm{fs}  \right] = & \tau_\mathrm{fs}=\dfrac{1}{N}\sum_{i=1}^NY_(1)-Y_i(0) \\
+        var_W(\hat{\tau}_\mathrm{fs} )=&\dfrac{S_\mathrm{t} ^2}{N_\mathrm{t} }+\dfrac{S_\mathrm{c} ^2}{N_\mathrm{c} }-\dfrac{S^2_{\mathrm{tc} }}{N}\\
+        =&\dfrac{N_\mathrm{c} }{NN_\mathrm{t} }S_\mathrm{t} ^2+\dfrac{N_\mathrm{t} }{NN_\mathrm{c} }S_\mathrm{c}^2+\dfrac{2}{N}\rho _{\mathrm{tc} }S_\mathrm{t}S_\mathrm{c}    \\
+        &\begin{cases}
+            S_\mathrm{t}^2=\dfrac{1}{N-1}\sum_{i=1}^N(Y_i(1)-\bar{Y}(1))^2\\
+            S_\mathrm{c}^2=\dfrac{1}{N-1}\sum_{i=1}^N(Y_i(0)-\bar{Y}(0))^2\\
+            S_\mathrm{tc}^2=\dfrac{1}{N-1}\sum_{i=1}^N\left([Y_i(1)-Y_i(0)]-[\bar{Y}(1)-\bar{Y}(0)]\right)^2=S_\mathrm{t}^2+S_\mathrm{c}^2-2\rho _\mathrm{tc}S_\mathrm{t}S_{\mathrm{c} }    \\
+            \rho _\mathrm{tc}=\dfrac{1}{(N-1)S_\mathrm{t}S_{\mathrm{c} } }\sum_{i=1}^N\left(Y_i(1)-\bar{Y}(1)\right)\left(Y_i(0)-\bar{Y}(0)\right) 
+        \end{cases}
+    \end{align*}
+    \item Estimator
+    \begin{align*}
+        \hat{\tau}_\mathrm{fs}= & \bar{Y}_\mathrm{t}^\mathrm{obs}-\bar{Y}_\mathrm{c}^\mathrm{obs}\\
+        \hat{var}(\hat{\tau}_\mathrm{fs} )=&\dfrac{s^2_\mathrm{t} }{N_t}+\dfrac{s^2_\mathrm{c} }{N_c}\\
+        \hat{var}_\rho (\hat{\tau}_\mathrm{fs} )=&\dfrac{N_\mathrm{c} }{NN_\mathrm{t} }s_\mathrm{t} ^2+\dfrac{N_\mathrm{t} }{NN_\mathrm{c} }s_\mathrm{c}^2+\dfrac{2}{N}\rho s_\mathrm{t}s_\mathrm{c},\,\, -1\leq \rho \leq 1 \\
+        \mathrm{e.g.}\hat{var}_{\rho =1}(\hat{\tau}_\mathrm{fs} )=& \dfrac{s^2_\mathrm{t} }{N_t}+\dfrac{s^2_\mathrm{c} }{N_c}-\dfrac{(s_\mathrm{t}-s_\mathrm{c}  )^2}{N}\leq \hat{var}(\hat{\tau}_\mathrm{fs} )\\ 
+        &\begin{cases}
+            s^2_\mathrm{t}=\dfrac{1}{N_t-1}\sum_{i:W_i=1}\left(Y_i^\mathrm{obs} -\bar{Y}^\mathrm{obs} \right)^2 \\
+            s^2_\mathrm{c}=\dfrac{1}{N_c-1}\sum_{i:W_i=0}\left(Y_i^\mathrm{obs} -\bar{Y}^\mathrm{obs} \right)^2
+        \end{cases}
+    \end{align*}
+
+    i.e. $ \hat{var}(\hat{\tau}_\mathrm{fs} ) $ provides an upper bound of $ \hat{var}_\rho (\hat{\tau}_\mathrm{fs} ) $ (equal when $ \rho =1 $). And $  \hat{var}(\hat{\tau}_\mathrm{fs} )  $ also acts as the estimator at $ \tau_i=\mathrm{const},\,\forall i $.\footnote{Actually in this case we should have $ s_\mathrm{t}=s_\mathrm{c}:=s    $ and the estimator reduces to $ \hat{var}(\hat{\tau}_\mathrm{fs} )=s^2(1/N_\mathrm{t}+1/N_\mathrm{c}  ) $}
+
+    
+    
+    \item Confidence Interval
+    
+    \begin{align*}
+        \mathrm{CI}=&  \hat{\tau}_\mathrm{fs}\pm N_{\alpha /2}\sqrt{\hat{var}(\hat{\tau}_\mathrm{fs} )}  \\
+        \mathrm{CI}_\rho =&  \hat{\tau}_\mathrm{fs}\pm N_{\alpha /2}\sqrt{\hat{var}_\rho (\hat{\tau}_\mathrm{fs} )}  
+    \end{align*}
+    
+    where the version with pre-specified $ \rho  $ is applied to improve accuracy, if we have prior knowledge about $ \rho_\mathrm{tc}   $. 
+    
+    \item Hypothesis Testing
+    \begin{align*}
+        H_0:\bar{Y}(1)-\bar{Y}(0)=0\leftrightsquigarrow H_a: \bar{Y}(1)-\bar{Y}(0)\neq 0
+    \end{align*}
+
+    and $ t $-test
+    \begin{align*}
+        T=\dfrac{\hat{\tau}_\mathrm{fs}    }{\sqrt{\hat{var}(\hat{\tau}_\mathrm{fs} )}} \sim t_1
+    \end{align*}
+    \item Comment on three components $ S^2_\mathrm{t}$ / $S^2_{\mathrm{c} }$ / $S^2_{\mathrm{tc} }  $: they each corresponds to the natural distribution of treatment / natrual distribution of control / variation arises from assigning on finite sample.
+    
+    So when dealing with the estimator under distribution of super population, in which we need to add the randomness of $ f_{X,Y} $ back, the $ S^2_\mathrm{tc}  $ term eliminates (which can be proven).
+    \begin{align*}
+        \mathbb{E}_\mathrm{sp} \left[ \hat{\tau}_\mathrm{fs}  \right] = & \mathbb{E}_\mathrm{sp} \left[ \mathbb{E}_W \left[ \hat{\tau}_\mathrm{fs}  \right] \right] = \tau_\mathrm{sp}  \\
+        var_\mathrm{sp} (\hat{\tau}_\mathrm{fs} )=&\mathbb{E}_\mathrm{sp} \left[( \bar{Y}_\mathrm{t} ^\mathrm{obs}-\bar{Y}_\mathrm{c}^\mathrm{obs}-\mathbb{E}_\mathrm{sp} \left[ \bar{Y}(1)-\bar{Y}(0) \right]    )^2 \right] = \dfrac{\sigma _\mathrm{t}^2 }{N_t}+\dfrac{\sigma _\mathrm{c}^2 }{N_c}\\
+        \hat{var}_\mathrm{sp}(\hat{\tau}_\mathrm{fs} )=&\dfrac{s_\mathrm{t}^2 }{N_t}+\dfrac{s_\mathrm{c}^2 }{N_c} 
+    \end{align*}
+
+    where $ \sigma ^2_\cdot $ is the variance under the distribution of super population.
+    
+    
+\end{itemize}
+
+
 
 
 

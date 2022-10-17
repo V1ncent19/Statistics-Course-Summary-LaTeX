@@ -224,6 +224,7 @@
 \contentsline {subsubsection}{\numberline {10.1.2}Time Series Model}{230}{subsubsection.10.1.2}%
 \contentsline {subsection}{\numberline {10.2}Stochastic Process and Statistics}{231}{subsection.10.2}%
 \contentsline {subsubsection}{\numberline {10.2.1}Basic Knowledge of Stochastic Process}{231}{subsubsection.10.2.1}%
+\contentsline {subsubsection}{\numberline {10.2.2}Statistics}{235}{subsubsection.10.2.2}%
 \contentsline {subsection}{\numberline {10.3}ARMA Model}{236}{subsection.10.3}%
 \contentsline {subsubsection}{\numberline {10.3.1}Backshift Operator and Difference Equation}{236}{subsubsection.10.3.1}%
 \contentsline {subsubsection}{\numberline {10.3.2}AR Model}{237}{subsubsection.10.3.2}%
@@ -248,12 +249,15 @@
 \contentsline {section}{\numberline {11}因果推断导论部分}{247}{section.11}%
 \contentsline {subsection}{\numberline {11.1}Neyman-Rubin Framework}{247}{subsection.11.1}%
 \contentsline {subsubsection}{\numberline {11.1.1}Description of Causal Effect and Challenge}{247}{subsubsection.11.1.1}%
-\contentsline {subsubsection}{\numberline {11.1.2}Key Elements and Notations}{248}{subsubsection.11.1.2}%
-\contentsline {subsubsection}{\numberline {11.1.3}Assumptions}{249}{subsubsection.11.1.3}%
-\contentsline {subsection}{\numberline {11.2}Pearl Framework}{250}{subsection.11.2}%
-\contentsline {section}{\numberline {12}应用随机过程部分}{251}{section.12}%
-\contentsline {subsection}{\numberline {12.1}Minimum Mean Squared Estimator}{251}{subsection.12.1}%
-\contentsline {subsection}{\numberline {12.2}Markon Process}{252}{subsection.12.2}%
-\contentsline {subsubsection}{\numberline {12.2.1}Discrete Time Markov Chain}{252}{subsubsection.12.2.1}%
-\contentsline {section}{参考文献}{253}{subsubsection.12.2.1}%
-\contentsline {section}{索引}{255}{subsubsection.12.2.1}%
+\contentsline {subsubsection}{\numberline {11.1.2}Assumptions}{248}{subsubsection.11.1.2}%
+\contentsline {subsection}{\numberline {11.2}Inference to Causal Effect}{250}{subsection.11.2}%
+\contentsline {subsubsection}{\numberline {11.2.1}Fisher's Exact $ p $-value}{250}{subsubsection.11.2.1}%
+\contentsline {subsubsection}{\numberline {11.2.2}Neyman's Repeated Sampling}{251}{subsubsection.11.2.2}%
+\contentsline {subsection}{\numberline {11.3}Pearl Framework}{252}{subsection.11.3}%
+\contentsline {section}{\numberline {12}应用随机过程部分}{253}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Minimum Mean Squared Estimator}{253}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Markov Process}{255}{subsection.12.2}%
+\contentsline {subsubsection}{\numberline {12.2.1}Stochastic Process}{255}{subsubsection.12.2.1}%
+\contentsline {subsubsection}{\numberline {12.2.2}Conditional Independence}{256}{subsubsection.12.2.2}%
+\contentsline {subsubsection}{\numberline {12.2.3}Discrete Time Markov Chain}{256}{subsubsection.12.2.3}%
+\contentsline {section}{参考文献}{260}{subsubsection.12.2.3}%

@@ -32,6 +32,11 @@
 \usepackage{authblk}%titlepage作者信息
 \usepackage{nicematrix}%更好的矩阵标定
 \usepackage{fbox}%更多浮动体盒子
+\usepackage{tkz-graph}%制图 graph
+% \tikzset{
+%   LabelStyle/.style = { draw, rectangle, rounded corners, fill = white},
+%   VertexStyle/.append style = { font = \bfseries, fill = white},
+%   EdgeStyle/.append style = {->, bend left} }
 
 
 
@@ -50,7 +55,7 @@
 %其他设置
 \newenvironment{point}{\raggedright$\Box $ \bfseries}{}%新环境point，用于标示重点内容
 \newenvironment{rcode}{\raggedright$  \vartriangleright  $ \lstinline|R.| \textbf{Code}  \\}{}%新环境rcode，用于建立R语言命令段落
-\renewenvironment{proof}{\textit{proof:} }{$ \square  $} % 证明环境回退到英文版 以proof开头
+\renewenvironment{proof}{\textit{proof}: \begin{minipage}[t]{\linewidth} }{ $ \square  $\end{minipage}} % 证明环境回退到英文版 以proof开头
 \newenvironment{algorithm}[1]{\vspace{12pt} \hrule\hrule \vspace{3pt} \noindent\textbf{\color[HTML]{E63F00}Algorithm } \,\textit{#1} \vspace{3pt} \hrule\vspace{6pt}
 }{\vspace{6pt}\hrule\hrule \vspace{12pt}} % 算法伪代码格式环境
 

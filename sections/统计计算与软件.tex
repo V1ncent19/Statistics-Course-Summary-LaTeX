@@ -640,7 +640,7 @@
 
 
 
-\subsubsection{$ QR $ Decomposition: Gram-Schmidt/Householder/Givens Method}
+\subsubsection{$ QR $ Decomposition: Gram-Schmidt/Householder/Givens Method}\label{SubSubSectionQRDecomposition}
     
     $ QR $ Decomposition: Orthogonal Triangularization of matrix $ A $
 \begin{align}
@@ -2917,7 +2917,7 @@ set.seed(INI_NUM)
     
     
 
-\subsubsection{Markov Chain Monte Carlo Method}
+\subsubsection{Markov Chain Monte Carlo Method}\label{SubSubSectionMCMCAlgorithm}
 Markov Chain Monte Carlo (MCMC) aims at solving integration and simulation problems by sampling from some distribution.\index{MCMC (Markov Chain Monte Carlo)} MCMC can deal with complex distribution in high dimensional, an example is Gibbs distribution
 \begin{align}
     \mathbb{P}\left( s \right) =\dfrac{e^{-\beta E(s)}}{\sum_{\sigma }e^{-\beta E(\sigma )}}, s\in\text{phase space} 
@@ -2947,30 +2947,46 @@ Markov Chain Monte Carlo (MCMC) aims at solving integration and simulation probl
     
     Further, $ n $-step transition denoted
     \begin{align}
-        p^{(n)}_{ij}:&=\mathbb{P}\left( X_{t+n}=j|X_t=i \right) \\
+        p^{(n)}_{ij}:=&\mathbb{P}\left( X_{t+n}=j|X_t=i \right) \\
         =&\sum_{k}p^{(n-1)}_{ij}p_{kj}\\
         =&\sum_{k_1,k_2,\ldots ,k_{n-1}}p_{ik_1}p_{k_1k_2}\ldots p_{k_{n-1}j}\\
         =&P^n
     \end{align}
 
-    \textbf{Stationary Distribution} $ \pi_\infty $ of a markov satisfies
+    \textbf{Stationary Distribution} / equilibrium distribution / invariant distribution $ \pi_\infty $ of a markov satisfies\index{Stationary Distribution}\index{Equilibrium Distribution}\index{Invariant Distribution}
     \begin{align}
-         \pi_\infty=P\pi_\infty=P^n\pi_{\infty}
+         \pi_\infty=\pi_\infty P=\pi_{\infty}P^n
     \end{align}
     
-    Convergence and Ergodic Thm.:\index{Convergence and Ergodic Theorem} An ergodic markov chain converges to a unique stationary distribution $ \pi_\infty $
+    Convergence and Ergodic Thm.:\index{Convergence and Ergodic Theorem} An ergodic markov chain converges to a unique stationary distribution $ \pi_\infty $\footnote{Ergodic = Irreducible + Aperiodic. Denote $ i\leadsto j $ if $ \exists n\,s.t.  \mathbb{P}\left( X_n=j|X_0=i \right) \neq 0 $
+    \begin{itemize}[topsep=2pt,itemsep=0pt]
+        \item Irreducible:
+        \begin{align*}
+            i\leadsto j,\, j\leadsto i,\quad \forall i,j 
+        \end{align*}
+
+        All states of irreducible chain have the same period $ T_i=T $. 
+
+        \item Aperiodic: if one of the state is aperiodic $ T=1 $, then all states are, where
+        \begin{align*}
+            \text{Period }T_i=\gcd \{n: \mathbb{P}\left( X_n=i|X_0=i \right)>0 \} 
+        \end{align*}
+        % Sojour time.
+    \end{itemize}
+    
+        }
     \begin{align}
-        \pi_{\infty}=\lim_{n\to\infty}P^n\pi_0 
+        \pi_{\infty}=\pi_0 \lim_{n\to\infty}P^n
     \end{align}
     where $ \pi_0 $ is an arbitrary initial distribution.
     
-    Detailed Balance Condition of stationart distribution $ \pi $:\index{Detailed Balance Condition}
+    \textbf{Detailed Balance Condition} of stationart distribution $ \pi $:\index{Detailed Balance Condition}\footnote{Detailed balance condition has a similar correspondence in Quantum Mechanics, in which $ \pi(i) $ is the state density at $ i $, and $ p_{ij} $ is the transition probability.}
     \begin{align}
-        \pi(i)p_{ij}=\pi(j)p_{ji} 
+        \pi(i)p_{ij}=\pi(j)p_{ji} ,\quad \forall i,j
     \end{align}
-    is a sufficient condition for stationary distribution.
+    is a sufficient condition for stationary distribution. Proof see \autoref{SubSubSectionDTMC}.
     
-    MCMC aims at designing a proper chain $ p_{ij} $, starting from some arbitrary state $ \pi_0 $, and after some transitions $ t $ we would expect $ \pi_{t+n}\to \pi_\infty,\,n=1,2,\ldots  $.
+    MCMC aims at designing a proper chain $ p_{ij} $, starting from some arbitrary state $ \pi_0 $, and after some (large enough) transitions $ t $ we would expect $ \pi_{t+n}\to \pi_\infty,\,n=1,2,\ldots  $.
     
 
     
@@ -3012,7 +3028,7 @@ Markov Chain Monte Carlo (MCMC) aims at solving integration and simulation probl
 \end{align}
 
     i.e. $ p_{xy}=q(y|x)\alpha (y|x) $ is the transition matrix to generate the stationary distribution as $ \pi_{\infty}=p(x) $
-    \item Choice of proposal $ q(\cdot|x) $ is flexible, but should be properly chosen for higher acceptance to increase efficiency. 
+    \item Choice of proposal $ q(\, \cdot \, |x) $ is flexible, but should be properly chosen for higher acceptance to increase efficiency. 
     \end{itemize}
     
     

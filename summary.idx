@@ -266,8 +266,11 @@
 \indexentry{Importance Sampling|hyperpage}{177}
 \indexentry{Bootstrap|hyperpage}{178}
 \indexentry{MCMC (Markov Chain Monte Carlo)|hyperpage}{179}
+\indexentry{Stationary Distribution|hyperpage}{179}
+\indexentry{Equilibrium Distribution|hyperpage}{179}
+\indexentry{Invariant Distribution|hyperpage}{179}
 \indexentry{Convergence and Ergodic Theorem|hyperpage}{179}
-\indexentry{Detailed Balance Condition|hyperpage}{179}
+\indexentry{Detailed Balance Condition|hyperpage}{180}
 \indexentry{Metropolis-Hastings Algorithm|hyperpage}{180}
 \indexentry{M-H Algorithm|hyperpage}{180}
 \indexentry{Proposal Distribution|hyperpage}{180}
@@ -377,10 +380,22 @@
 \indexentry{IO (Innovative Outlier)|hyperpage}{244}
 \indexentry{Neyman-Rubin Framework|hyperpage}{247}
 \indexentry{Potential Outcome Framework|hyperpage}{247}
-\indexentry{SUTVA (Stable Unit Treatment Value Assumption)|hyperpage}{247}
-\indexentry{PO (Potential Outcome)|hyperpage}{248}
+\indexentry{PO (Potential Outcome)|hyperpage}{247}
 \indexentry{Causal Effect|hyperpage}{248}
 \indexentry{Pre-Treatment Variable|hyperpage}{248}
 \indexentry{Covariate|hyperpage}{248}
-\indexentry{MMSE (Minimum Mean Squared Estimator)|hyperpage}{251}
-\indexentry{Innovation Sequence|hyperpage}{252}
+\indexentry{Finite Sample|hyperpage}{248}
+\indexentry{Super Population|hyperpage}{248}
+\indexentry{Assignment Mechanism|hyperpage}{248}
+\indexentry{SUTVA (Stable Unit Treatment Value Assumption)|hyperpage}{249}
+\indexentry{Fisher's Sharp Null Hypothesis|hyperpage}{250}
+\indexentry{MMSE (Minimum Mean Squared Estimator)|hyperpage}{253}
+\indexentry{Innovation Sequence|hyperpage}{254}
+\indexentry{Sample Path|hyperpage}{255}
+\indexentry{Conditional Independence|hyperpage}{256}
+\indexentry{DTMC|hyperpage}{256}
+\indexentry{Detailed Balance Condition|hyperpage}{257}
+\indexentry{Irreducible|hyperpage}{257}
+\indexentry{GCD (Greatest Common Divisor)|hyperpage}{257}
+\indexentry{Aperiodic|hyperpage}{258}
+\indexentry{Sojourn Time|hyperpage}{258}
