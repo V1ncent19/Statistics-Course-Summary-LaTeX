@@ -41,361 +41,366 @@
 \indexentry{Statistics|hyperpage}{22}
 \indexentry{Order Statistics|hyperpage}{23}
 \indexentry{Statistics!Sampling Distribution|hyperpage}{23}
-\indexentry{EF (Exponential Family)|hyperpage}{24}
-\indexentry{Statistics!Sufficient Statistic|hyperpage}{24}
-\indexentry{Factorization Thm.|hyperpage}{24}
+\indexentry{Exponential Family|hyperpage}{24}
+\indexentry{Statistics!Sufficient Statistic|hyperpage}{25}
+\indexentry{Factorization Thm.|hyperpage}{25}
 \indexentry{Statistics!Complete Statistic|hyperpage}{25}
-\indexentry{Statistics!Ancillary Statistic|hyperpage}{25}
-\indexentry{Basu Thm.|hyperpage}{25}
-\indexentry{MSE (Mean Squared Error)|hyperpage}{26}
-\indexentry{Bias-Variance Trade-Off|hyperpage}{26}
-\indexentry{MoM (Method of Moments)|hyperpage}{26}
-\indexentry{MLE (Maximum Likelihood Estimation)|hyperpage}{27}
-\indexentry{Likelihood Function|hyperpage}{27}
-\indexentry{Invariance of MLE|hyperpage}{28}
-\indexentry{UMVUE (Uniformly Minimum Variance Unbiased Estimator)|hyperpage}{28}
-\indexentry{LS Thm. (Lehmann-Scheffé Thm.)|hyperpage}{29}
-\indexentry{CR Inequality (Cramer-Rao Inequality)|hyperpage}{29}
-\indexentry{Score Function|hyperpage}{29}
-\indexentry{Fisher Information|hyperpage}{30}
-\indexentry{CR Inequality (Cramer-Rao Inequality)|hyperpage}{30}
-\indexentry{OLS (Ordinary Least Squares)|hyperpage}{31}
-\indexentry{KDE (Kernel Density Estimation)|hyperpage}{33}
-\indexentry{ECDF (Empirical CDF)|hyperpage}{33}
-\indexentry{CI (Confidence Interval)|hyperpage}{34}
-\indexentry{Confidence Region!Confidence Interval|hyperpage}{34}
-\indexentry{Confidence Coefficient|hyperpage}{35}
-\indexentry{Confidence Region!Confidence Limit|hyperpage}{35}
-\indexentry{Confeidence Region|hyperpage}{35}
-\indexentry{Pivot Variable|hyperpage}{35}
-\indexentry{Pooled Sample Variance|hyperpage}{36}
-\indexentry{Hypothesis Testing|hyperpage}{38}
-\indexentry{Null Hypothesis|hyperpage}{38}
-\indexentry{Alternative Hypothesis|hyperpage}{38}
-\indexentry{Rejection Region|hyperpage}{38}
-\indexentry{Test Function|hyperpage}{39}
-\indexentry{Type I Error|hyperpage}{39}
-\indexentry{Type II Error|hyperpage}{39}
-\indexentry{Neyman-Pearson Principle|hyperpage}{39}
-\indexentry{Power Function|hyperpage}{40}
-\indexentry{t-test@$ t $-test|hyperpage}{40}
+\indexentry{Statistics!Ancillary Statistic|hyperpage}{26}
+\indexentry{Basu Thm.|hyperpage}{26}
+\indexentry{MSE (Mean Squared Error)|hyperpage}{27}
+\indexentry{Bias-Variance Trade-Off|hyperpage}{27}
+\indexentry{MoM (Method of Moments)|hyperpage}{28}
+\indexentry{MLE (Maximum Likelihood Estimation)|hyperpage}{28}
+\indexentry{Likelihood Function|hyperpage}{28}
+\indexentry{Log-likelihood Function|hyperpage}{29}
+\indexentry{Invariance of MLE|hyperpage}{29}
+\indexentry{UMVUE (Uniformly Minimum Variance Unbiased Estimator)|hyperpage}{30}
+\indexentry{LS Thm. (Lehmann-Scheffé Thm.)|hyperpage}{31}
+\indexentry{CR Inequality (Cramer-Rao Inequality)|hyperpage}{31}
+\indexentry{Score Function|hyperpage}{31}
+\indexentry{Fisher Information|hyperpage}{31}
+\indexentry{CR Inequality (Cramer-Rao Inequality)|hyperpage}{32}
+\indexentry{OLS (Ordinary Least Squares)|hyperpage}{32}
+\indexentry{KDE (Kernel Density Estimation)|hyperpage}{35}
+\indexentry{ECDF (Empirical CDF)|hyperpage}{35}
+\indexentry{CI (Confidence Interval)|hyperpage}{36}
+\indexentry{Confidence Region!Confidence Interval|hyperpage}{36}
+\indexentry{Confidence Coefficient|hyperpage}{36}
+\indexentry{Confidence Region!Confidence Limit|hyperpage}{36}
+\indexentry{Confeidence Region|hyperpage}{36}
+\indexentry{Pivot Variable|hyperpage}{36}
+\indexentry{Pooled Sample Variance|hyperpage}{37}
+\indexentry{Hypothesis Testing|hyperpage}{39}
+\indexentry{Null Hypothesis|hyperpage}{39}
+\indexentry{Alternative Hypothesis|hyperpage}{39}
+\indexentry{Rejection Region|hyperpage}{40}
+\indexentry{Test Function|hyperpage}{40}
+\indexentry{Type I Error|hyperpage}{40}
+\indexentry{Type II Error|hyperpage}{40}
+\indexentry{Neyman-Pearson Principle|hyperpage}{41}
+\indexentry{Power Function|hyperpage}{41}
+\indexentry{t-test@$ t $-test|hyperpage}{42}
 \indexentry{LRT (Likelihood Ratio Test)|hyperpage}{42}
-\indexentry{Wilk's Thm.|hyperpage}{42}
-\indexentry{UMPT (Uniformly Most Powerful Test)|hyperpage}{43}
-\indexentry{NP-Lemma (Neyman-Pearson Lemma)|hyperpage}{43}
-\indexentry{WSRT (Wilcoxon Signed Rank Sum Test)|hyperpage}{45}
-\indexentry{Wilcoxon Two-Sample Rank Sum Test|hyperpage}{45}
-\indexentry{Goodness-of-Fit Test|hyperpage}{45}
-\indexentry{Contingency Table|hyperpage}{46}
-\indexentry{Pearson's $ \chi^2 $ Test|hyperpage}{46}
-\indexentry{K-S Test (Kolmogorov-Smirnov Test)|hyperpage}{47}
-\indexentry{S-W Test (Shapiro-Wilk Test)|hyperpage}{47}
-\indexentry{EDA (Exploratory Data Analysis)|hyperpage}{49}
-\indexentry{Gauss-Markov Assumption|hyperpage}{51}
-\indexentry{OLS (Ordinary Least Squares)|hyperpage}{52}
-\indexentry{OLS (Ordinary Least Squares)|hyperpage}{53}
-\indexentry{Residual|hyperpage}{53}
-\indexentry{dof/df (Degree of Freedom)@$ dof $/$ df $ (Degree of Freedom)|hyperpage}{53}
-\indexentry{Degree of Freedom|hyperpage}{53}
-\indexentry{Cochran's Theorem|hyperpage}{53}
-\indexentry{Gauss-Markov Thm.|hyperpage}{55}
-\indexentry{BLUE (Best Linear Unbiased Estimator)|hyperpage}{55}
-\indexentry{SCB (Simultaneous Confidence Band)|hyperpage}{56}
-\indexentry{CB (Confidence Band)|hyperpage}{56}
-\indexentry{Confidence Region!Confidence Band|hyperpage}{56}
-\indexentry{Confidence Band|hyperpage}{57}
-\indexentry{ANOVA (Analysis of Variance)|hyperpage}{57}
-\indexentry{SST (Total Sum of Squares)|hyperpage}{57}
-\indexentry{SSR (Regression Sum of Squares)|hyperpage}{57}
-\indexentry{SSE (Error Sum of Squares)|hyperpage}{57}
-\indexentry{OLS (Ordinary Least Squares)|hyperpage}{58}
-\indexentry{ANOVA (Analysis of Variance)|hyperpage}{60}
-\indexentry{QQ-Plot (Quartile-Quartile Plots)|hyperpage}{63}
-\indexentry{Partial Regression Plot|hyperpage}{63}
-\indexentry{AV Plot (Added Variable Plot)|hyperpage}{63}
-\indexentry{Skewness|hyperpage}{64}
-\indexentry{Skewness!Adjusted Skewness|hyperpage}{64}
-\indexentry{Kurtosis|hyperpage}{64}
-\indexentry{Kurtosis!Leptokurtic|hyperpage}{65}
-\indexentry{Kurtosis!Platykurtic|hyperpage}{65}
-\indexentry{Bartlett's test|hyperpage}{65}
-\indexentry{Levene's Test|hyperpage}{66}
-\indexentry{Brown-Forsythe's Test|hyperpage}{66}
-\indexentry{B-P Test (Breusch-Pagan Test)|hyperpage}{66}
-\indexentry{S-W Test (Shapiro-Wilk Test)|hyperpage}{67}
-\indexentry{K-S Test (Kolmogorov-Smirnov Test)|hyperpage}{67}
-\indexentry{CvM Test (Cramér-von Mises Test)|hyperpage}{67}
-\indexentry{A-D Test (Anderson-Darling Test)|hyperpage}{67}
-\indexentry{JB-test (Jarque-Bera test)|hyperpage}{67}
-\indexentry{DW Test (Durbin-Watson Test)|hyperpage}{68}
-\indexentry{Ljung-Box Test|hyperpage}{68}
-\indexentry{Standardized Residual|hyperpage}{69}
-\indexentry{Studentized Residual|hyperpage}{69}
-\indexentry{Internally Studentized Residual|hyperpage}{69}
-\indexentry{Deleted Residual|hyperpage}{69}
-\indexentry{Externally Studentized Residual|hyperpage}{70}
-\indexentry{DIFFITS (Studentized Difference caused to Fitted values)|hyperpage}{70}
-\indexentry{Cook's Distance|hyperpage}{71}
-\indexentry{DFBETAS (Studentized Difference in Beta Estimates)|hyperpage}{71}
-\indexentry{Hierarchical Principle|hyperpage}{72}
-\indexentry{ANOVA $ F $-test|hyperpage}{73}
-\indexentry{GLT (General Linear Test)|hyperpage}{73}
-\indexentry{CMD (Coefficient of Multiple Determination)|hyperpage}{73}
-\indexentry{Pearson's Correlation Coefficient|hyperpage}{73}
-\indexentry{Correlation Coefficient!Pearson's Correlation Coefficient|hyperpage}{73}
-\indexentry{Correlation Coefficient!CMD $ R^2 $|hyperpage}{74}
-\indexentry{Correlation Coefficient!Adjusted $ R^2 $|hyperpage}{74}
-\indexentry{Correlation Coefficient!Coefficient of Partial Determination $ R^2_{Yk|\wedge X_k} $|hyperpage}{74}
-\indexentry{Correlation Coefficient!Coefficient of Partial Correlation|hyperpage}{74}
-\indexentry{Venn Diagram|hyperpage}{74}
-\indexentry{VIF (Variance Inflation Factor)|hyperpage}{75}
-\indexentry{CV ($ k $-Fold Cross Validation)|hyperpage}{76}
-\indexentry{Mallow's $ C_p $|hyperpage}{76}
-\indexentry{SSPE (Sum Squared Prediction Error)|hyperpage}{77}
-\indexentry{AIC (Akaike Information Criterion)|hyperpage}{77}
-\indexentry{BIC (Bayesian Information Criterion)|hyperpage}{77}
-\indexentry{SBC (Schwarz's Bayesian Criterion)|hyperpage}{77}
-\indexentry{PRESS (Predictive Residual Error Sum of Squares)|hyperpage}{77}
-\indexentry{Box-Cox Transformation|hyperpage}{78}
-\indexentry{WLS (Weighted Least Squares)|hyperpage}{80}
-\indexentry{Greedy Algorithm|hyperpage}{80}
-\indexentry{LASSO (Least Absolute Shrinkage and Selection Operator)|hyperpage}{80}
-\indexentry{Ridge Regression|hyperpage}{81}
-\indexentry{Tikhonov Regularization|hyperpage}{81}
-\indexentry{Elastic Net|hyperpage}{81}
-\indexentry{Studentized Range Distribution|hyperpage}{85}
-\indexentry{r.v. (Random Variable or Random Vector)|hyperpage}{89}
-\indexentry{Correlation Matrix@(Pearson's) Correlation Matrix|hyperpage}{90}
-\indexentry{Correlation Matrix@(Cross) Correlation Matrix|hyperpage}{90}
-\indexentry{Covariance Matrix|hyperpage}{91}
-\indexentry{Correlation Coefficient!Correlation Coefficient Matrix|hyperpage}{92}
-\indexentry{Mahalanobis Distance|hyperpage}{92}
-\indexentry{Matrix Differentiation|hyperpage}{94}
-\indexentry{Denominator-layout|hyperpage}{94}
-\indexentry{Norm|hyperpage}{95}
-\indexentry{Inequality!Cauchy-Schwarz Inequality|hyperpage}{96}
-\indexentry{Inequality!Maximazation Lemma|hyperpage}{96}
-\indexentry{MLE (Maximum Likelihood Estimation)|hyperpage}{98}
-\indexentry{Distribution!Wishart Distribution|hyperpage}{99}
-\indexentry{Wishart Distribution|hyperpage}{99}
-\indexentry{Hotelling's $ T^2 $|hyperpage}{100}
-\indexentry{Confidence Region|hyperpage}{101}
-\indexentry{Confidence Region!Individual Converage Interval|hyperpage}{101}
-\indexentry{Curse of Dimensionality|hyperpage}{103}
-\indexentry{PCA (Principal Component Analysis)|hyperpage}{103}
-\indexentry{Factor Loading|hyperpage}{103}
-\indexentry{FA (Factor Analysis)|hyperpage}{105}
-\indexentry{CCA (Canonical Correction Analysis)|hyperpage}{107}
-\indexentry{Canonical Variable Pair|hyperpage}{107}
-\indexentry{DA (Discriminant Analysis)|hyperpage}{109}
-\indexentry{ECM (Expected Cost of Misclassification)|hyperpage}{109}
-\indexentry{TPM (Total Probability of Misclassification)|hyperpage}{109}
-\indexentry{LDA (Linear Discriminant Analysis)|hyperpage}{110}
-\indexentry{QDA (Quadratic Discriminant Analysis)|hyperpage}{110}
-\indexentry{FDA (Fisher's Discriminant Analysis)|hyperpage}{110}
+\indexentry{Wilk's Thm.|hyperpage}{44}
+\indexentry{UMPT (Uniformly Most Powerful Test)|hyperpage}{44}
+\indexentry{NP-Lemma (Neyman-Pearson Lemma)|hyperpage}{44}
+\indexentry{Sign Test|hyperpage}{46}
+\indexentry{WSRT (Wilcoxon Signed Rank Sum Test)|hyperpage}{46}
+\indexentry{Wilcoxon Two-Sample Rank Sum Test|hyperpage}{47}
+\indexentry{Goodness-of-Fit Test|hyperpage}{47}
+\indexentry{Contingency Table|hyperpage}{48}
+\indexentry{Pearson's $ \chi^2 $ Test|hyperpage}{48}
+\indexentry{Homogeneity Test|hyperpage}{48}
+\indexentry{Normality Test|hyperpage}{49}
+\indexentry{K-S Test (Kolmogorov-Smirnov Test)|hyperpage}{49}
+\indexentry{S-W Test (Shapiro-Wilk Test)|hyperpage}{49}
+\indexentry{EDA (Exploratory Data Analysis)|hyperpage}{51}
+\indexentry{Gauss-Markov Assumption|hyperpage}{53}
+\indexentry{OLS (Ordinary Least Squares)|hyperpage}{54}
+\indexentry{OLS (Ordinary Least Squares)|hyperpage}{55}
+\indexentry{Residual|hyperpage}{55}
+\indexentry{dof/df (Degree of Freedom)@$ dof $/$ df $ (Degree of Freedom)|hyperpage}{55}
+\indexentry{Degree of Freedom|hyperpage}{55}
+\indexentry{Cochran's Theorem|hyperpage}{55}
+\indexentry{Gauss-Markov Thm.|hyperpage}{57}
+\indexentry{BLUE (Best Linear Unbiased Estimator)|hyperpage}{57}
+\indexentry{SCB (Simultaneous Confidence Band)|hyperpage}{58}
+\indexentry{CB (Confidence Band)|hyperpage}{58}
+\indexentry{Confidence Region!Confidence Band|hyperpage}{58}
+\indexentry{Confidence Band|hyperpage}{59}
+\indexentry{ANOVA (Analysis of Variance)|hyperpage}{59}
+\indexentry{SST (Total Sum of Squares)|hyperpage}{59}
+\indexentry{SSR (Regression Sum of Squares)|hyperpage}{59}
+\indexentry{SSE (Error Sum of Squares)|hyperpage}{59}
+\indexentry{OLS (Ordinary Least Squares)|hyperpage}{60}
+\indexentry{ANOVA (Analysis of Variance)|hyperpage}{62}
+\indexentry{QQ-Plot (Quartile-Quartile Plots)|hyperpage}{65}
+\indexentry{Partial Regression Plot|hyperpage}{65}
+\indexentry{AV Plot (Added Variable Plot)|hyperpage}{65}
+\indexentry{Skewness|hyperpage}{66}
+\indexentry{Skewness!Adjusted Skewness|hyperpage}{66}
+\indexentry{Kurtosis|hyperpage}{66}
+\indexentry{Kurtosis!Leptokurtic|hyperpage}{67}
+\indexentry{Kurtosis!Platykurtic|hyperpage}{67}
+\indexentry{Bartlett's test|hyperpage}{67}
+\indexentry{Levene's Test|hyperpage}{68}
+\indexentry{Brown-Forsythe's Test|hyperpage}{68}
+\indexentry{B-P Test (Breusch-Pagan Test)|hyperpage}{68}
+\indexentry{S-W Test (Shapiro-Wilk Test)|hyperpage}{69}
+\indexentry{K-S Test (Kolmogorov-Smirnov Test)|hyperpage}{69}
+\indexentry{CvM Test (Cramér-von Mises Test)|hyperpage}{69}
+\indexentry{A-D Test (Anderson-Darling Test)|hyperpage}{69}
+\indexentry{JB-test (Jarque-Bera test)|hyperpage}{69}
+\indexentry{DW Test (Durbin-Watson Test)|hyperpage}{70}
+\indexentry{Ljung-Box Test|hyperpage}{70}
+\indexentry{Standardized Residual|hyperpage}{71}
+\indexentry{Studentized Residual|hyperpage}{71}
+\indexentry{Internally Studentized Residual|hyperpage}{71}
+\indexentry{Deleted Residual|hyperpage}{71}
+\indexentry{Externally Studentized Residual|hyperpage}{72}
+\indexentry{DIFFITS (Studentized Difference caused to Fitted values)|hyperpage}{72}
+\indexentry{Cook's Distance|hyperpage}{73}
+\indexentry{DFBETAS (Studentized Difference in Beta Estimates)|hyperpage}{73}
+\indexentry{Hierarchical Principle|hyperpage}{74}
+\indexentry{ANOVA $ F $-test|hyperpage}{75}
+\indexentry{GLT (General Linear Test)|hyperpage}{75}
+\indexentry{CMD (Coefficient of Multiple Determination)|hyperpage}{75}
+\indexentry{Pearson's Correlation Coefficient|hyperpage}{75}
+\indexentry{Correlation Coefficient!Pearson's Correlation Coefficient|hyperpage}{75}
+\indexentry{Correlation Coefficient!CMD $ R^2 $|hyperpage}{76}
+\indexentry{Correlation Coefficient!Adjusted $ R^2 $|hyperpage}{76}
+\indexentry{Correlation Coefficient!Coefficient of Partial Determination $ R^2_{Yk|\wedge X_k} $|hyperpage}{76}
+\indexentry{Correlation Coefficient!Coefficient of Partial Correlation|hyperpage}{76}
+\indexentry{Venn Diagram|hyperpage}{76}
+\indexentry{VIF (Variance Inflation Factor)|hyperpage}{77}
+\indexentry{CV ($ k $-Fold Cross Validation)|hyperpage}{78}
+\indexentry{Mallow's $ C_p $|hyperpage}{78}
+\indexentry{SSPE (Sum Squared Prediction Error)|hyperpage}{79}
+\indexentry{AIC (Akaike Information Criterion)|hyperpage}{79}
+\indexentry{BIC (Bayesian Information Criterion)|hyperpage}{79}
+\indexentry{SBC (Schwarz's Bayesian Criterion)|hyperpage}{79}
+\indexentry{PRESS (Predictive Residual Error Sum of Squares)|hyperpage}{79}
+\indexentry{Box-Cox Transformation|hyperpage}{80}
+\indexentry{WLS (Weighted Least Squares)|hyperpage}{82}
+\indexentry{Greedy Algorithm|hyperpage}{82}
+\indexentry{LASSO (Least Absolute Shrinkage and Selection Operator)|hyperpage}{82}
+\indexentry{Ridge Regression|hyperpage}{83}
+\indexentry{Tikhonov Regularization|hyperpage}{83}
+\indexentry{Elastic Net|hyperpage}{83}
+\indexentry{Studentized Range Distribution|hyperpage}{87}
+\indexentry{r.v. (Random Variable or Random Vector)|hyperpage}{91}
+\indexentry{Correlation Matrix@(Pearson's) Correlation Matrix|hyperpage}{92}
+\indexentry{Correlation Matrix@(Cross) Correlation Matrix|hyperpage}{92}
+\indexentry{Covariance Matrix|hyperpage}{93}
+\indexentry{Correlation Coefficient!Correlation Coefficient Matrix|hyperpage}{94}
+\indexentry{Mahalanobis Distance|hyperpage}{94}
+\indexentry{Matrix Differentiation|hyperpage}{96}
+\indexentry{Denominator-layout|hyperpage}{96}
+\indexentry{Norm|hyperpage}{97}
+\indexentry{Inequality!Cauchy-Schwarz Inequality|hyperpage}{98}
+\indexentry{Inequality!Maximazation Lemma|hyperpage}{98}
+\indexentry{MLE (Maximum Likelihood Estimation)|hyperpage}{100}
+\indexentry{Distribution!Wishart Distribution|hyperpage}{101}
+\indexentry{Wishart Distribution|hyperpage}{101}
+\indexentry{Hotelling's $ T^2 $|hyperpage}{102}
+\indexentry{Confidence Region|hyperpage}{103}
+\indexentry{Confidence Region!Individual Converage Interval|hyperpage}{103}
+\indexentry{Curse of Dimensionality|hyperpage}{105}
+\indexentry{PCA (Principal Component Analysis)|hyperpage}{105}
+\indexentry{Factor Loading|hyperpage}{105}
+\indexentry{FA (Factor Analysis)|hyperpage}{107}
+\indexentry{CCA (Canonical Correction Analysis)|hyperpage}{109}
+\indexentry{Canonical Variable Pair|hyperpage}{109}
+\indexentry{DA (Discriminant Analysis)|hyperpage}{111}
+\indexentry{ECM (Expected Cost of Misclassification)|hyperpage}{111}
 \indexentry{TPM (Total Probability of Misclassification)|hyperpage}{111}
-\indexentry{APER (Apparent Error Rate)|hyperpage}{111}
-\indexentry{Clustering Analysis|hyperpage}{111}
-\indexentry{Clustering Analysis!Agglomerative Clustering Algorithm|hyperpage}{111}
-\indexentry{Clustering Analysis!Hierarchical Clustering|hyperpage}{111}
-\indexentry{Hierarchical Clustering|hyperpage}{111}
-\indexentry{Clustering Analysis!$ K $-Means Clustering Algorithm|hyperpage}{113}
-\indexentry{k-Means Clustering Algorithm@$ k $-Means Clustering Algorithm|hyperpage}{113}
-\indexentry{Clustering Analysis!Expectation Maximization Algorithm|hyperpage}{114}
-\indexentry{E-M Algorithm (Expectation Maximization Algorithm)|hyperpage}{114}
-\indexentry{GMM (Gaussian Mixture Model)|hyperpage}{114}
-\indexentry{Clustering Analysis!Density Clustering|hyperpage}{115}
-\indexentry{Clustering Analysis!DBSCAN (Density-Based Spatial Clustering of Application with Noise)|hyperpage}{115}
-\indexentry{Clustering Analysis!OPTICS (Ordering Point To Indentify the Cluster Structure)|hyperpage}{116}
-\indexentry{CRAN (The Comprehensive R Archive Network)|hyperpage}{118}
-\indexentry{GUI (Graphical User Interface)|hyperpage}{118}
-\indexentry{Plot Parameters in R.|hyperpage}{129}
-\indexentry{ggplot2|hyperpage}{133}
-\indexentry{Normalized Number|hyperpage}{136}
-\indexentry{Forward Stability|hyperpage}{137}
-\indexentry{Condition Number|hyperpage}{137}
-\indexentry{Convergence Order|hyperpage}{139}
-\indexentry{Primal Problem|hyperpage}{139}
-\indexentry{Primal Problem|hyperpage}{139}
-\indexentry{Generalized Lagrange Function|hyperpage}{139}
-\indexentry{Dual Problem|hyperpage}{139}
-\indexentry{Lagrange Dual Problem|hyperpage}{139}
-\indexentry{Dual Problem|hyperpage}{139}
-\indexentry{KKT Condition (Karush-Kuhn-Tucker Condition)|hyperpage}{140}
-\indexentry{Projection Operator|hyperpage}{141}
-\indexentry{CGS (Classical Gram-Schmidt Orthogonalization)|hyperpage}{144}
-\indexentry{MGS (Modified Gram-Schmidt Orthogonalization)|hyperpage}{145}
-\indexentry{Normal Matrix|hyperpage}{147}
-\indexentry{Hermitian Matrix|hyperpage}{147}
-\indexentry{Circulant Matrix|hyperpage}{147}
-\indexentry{SVD (Singular Value Decomposition)|hyperpage}{148}
-\indexentry{Golden Section Search|hyperpage}{151}
-\indexentry{Fibonacci Section Search|hyperpage}{151}
-\indexentry{Bisection Search|hyperpage}{153}
-\indexentry{Interpolation|hyperpage}{153}
-\indexentry{Lagrange Polynomial Interpolation|hyperpage}{155}
-\indexentry{IQI (Inverse Parabolic Interpolation)|hyperpage}{155}
-\indexentry{Dekker's Method|hyperpage}{155}
-\indexentry{Brent-Dekker Method|hyperpage}{156}
-\indexentry{Fixed Point Iteration|hyperpage}{156}
-\indexentry{SOR Method (Successive Over-Relaxation Method)|hyperpage}{157}
-\indexentry{N-M Search Method (Nelder-Mead Search Method)|hyperpage}{158}
-\indexentry{Simplex Search Method|hyperpage}{158}
-\indexentry{Newton-Raphson Iteration Method|hyperpage}{160}
-\indexentry{Fisher's Scoring Method|hyperpage}{160}
-\indexentry{IRLS (Iteratively Re-weighted Least Squares)|hyperpage}{160}
-\indexentry{Discrete Newton Method|hyperpage}{166}
-\indexentry{Secant Condition|hyperpage}{166}
-\indexentry{Quasi-Newton Condition|hyperpage}{166}
-\indexentry{DFP Updating Method (Davidon-Fletcher-Powell Updating)|hyperpage}{167}
-\indexentry{BFGS Updating Method (Broyden-Fletcher-Goldfarb-Shanno Updating)|hyperpage}{168}
-\indexentry{Broyden Class|hyperpage}{169}
-\indexentry{L-BFGS Method|hyperpage}{169}
-\indexentry{Steepest Descent Method|hyperpage}{169}
-\indexentry{SPD (Symmetric Positive Definite)|hyperpage}{170}
-\indexentry{Fletcher-Reeves Method|hyperpage}{172}
-\indexentry{Polak-Ribi$ \grave{e} $re Method|hyperpage}{172}
-\indexentry{E-M Algorithm (Expectation Maximization Algorithm)|hyperpage}{172}
-\indexentry{KL Divergence (Kullback-Leibler Divergence)|hyperpage}{172}
-\indexentry{ELBO (Evidence Lower Bound)|hyperpage}{173}
-\indexentry{M-M Algorithm (Maximization-Maximization Algorithm)|hyperpage}{173}
-\indexentry{Random Number Generator|hyperpage}{174}
-\indexentry{LCM (Linear Congruential Method)|hyperpage}{174}
-\indexentry{Inverse Transform Method|hyperpage}{175}
-\indexentry{Acceptance-Rejection Method|hyperpage}{176}
-\indexentry{Importance Sampling|hyperpage}{177}
-\indexentry{Bootstrap|hyperpage}{178}
-\indexentry{MCMC (Markov Chain Monte Carlo)|hyperpage}{179}
-\indexentry{Stationary Distribution|hyperpage}{179}
-\indexentry{Equilibrium Distribution|hyperpage}{179}
-\indexentry{Invariant Distribution|hyperpage}{179}
-\indexentry{Convergence and Ergodic Theorem|hyperpage}{179}
-\indexentry{Detailed Balance Condition|hyperpage}{180}
-\indexentry{Metropolis-Hastings Algorithm|hyperpage}{180}
-\indexentry{M-H Algorithm|hyperpage}{180}
-\indexentry{Proposal Distribution|hyperpage}{180}
-\indexentry{Acceptance Ratio|hyperpage}{180}
-\indexentry{Censoring Data|hyperpage}{181}
-\indexentry{Survival Function|hyperpage}{182}
-\indexentry{Hazard Function|hyperpage}{182}
-\indexentry{Mean Residual Life Time|hyperpage}{183}
-\indexentry{Distribution!$ \Gamma  $ Distribution|hyperpage}{184}
-\indexentry{Distribution!Log-Normal Distribution|hyperpage}{184}
-\indexentry{Likelihood Function|hyperpage}{184}
-\indexentry{Score Function|hyperpage}{185}
-\indexentry{Fisher Information|hyperpage}{185}
-\indexentry{Hypothesis Testing|hyperpage}{186}
-\indexentry{Score Test|hyperpage}{186}
-\indexentry{Wald Test|hyperpage}{186}
-\indexentry{KM Estimator (Kaplan-Meier Estimator)|hyperpage}{187}
-\indexentry{NA Estimator (Nelson-Aalen Estimator)|hyperpage}{188}
-\indexentry{FH Estimator (Fleming-Harrington Estimator)|hyperpage}{188}
-\indexentry{Mantel-Haenszel Logrank Test|hyperpage}{189}
-\indexentry{MH Test (Mental-Haenszel Test)|hyperpage}{190}
-\indexentry{CMH Test (Cochran-Mantel-Haenszel Test)|hyperpage}{190}
-\indexentry{Wilcoxon Two-Sample Rank Sum Test|hyperpage}{191}
-\indexentry{Mann-Whitney Form|hyperpage}{191}
-\indexentry{PH Model (Cox's Proportion Hazard Model)|hyperpage}{192}
-\indexentry{Partial Likelihood|hyperpage}{193}
-\indexentry{Breslow's Approximation|hyperpage}{194}
-\indexentry{Efron's Approximation|hyperpage}{195}
-\indexentry{Cox-Snell Residual|hyperpage}{195}
-\indexentry{Delta-Beta Residual|hyperpage}{195}
-\indexentry{AFT Model (Accelerated Failure Tome Model)|hyperpage}{196}
-\indexentry{Factor Model|hyperpage}{198}
-\indexentry{ANOVA (Analysis of Variance)|hyperpage}{198}
-\indexentry{Factor Model!Single Factor Model|hyperpage}{198}
-\indexentry{Levene's Test|hyperpage}{204}
-\indexentry{Shapiro-Wilk Test|hyperpage}{204}
-\indexentry{Longitudinal Study|hyperpage}{205}
-\indexentry{McNemar Test|hyperpage}{207}
-\indexentry{Generalization Ability|hyperpage}{209}
-\indexentry{Ridge Regression|hyperpage}{210}
-\indexentry{LASSO (Least Absolute Shrinkage and Selection Operator)|hyperpage}{210}
-\indexentry{Elastic Net|hyperpage}{210}
-\indexentry{Adaptive LASSO|hyperpage}{211}
-\indexentry{Classification Metrics|hyperpage}{211}
-\indexentry{Confusion Matrix|hyperpage}{211}
-\indexentry{ROC Curve (Receive Operating Characteristic Curve)|hyperpage}{212}
-\indexentry{AUC (Area Under ROC Curve)|hyperpage}{212}
-\indexentry{CV (Cross-Validation)|hyperpage}{213}
-\indexentry{Bayes Optimal Classifier|hyperpage}{213}
-\indexentry{KNN ($ k $-Nearest Neighours)|hyperpage}{213}
-\indexentry{LDA (Linear Discriminant Analysis)|hyperpage}{214}
-\indexentry{QDA (Quadratic Discriminant Analysis)|hyperpage}{214}
-\indexentry{Na\"\i ve Bayes Classifier|hyperpage}{214}
-\indexentry{Logistic Regression|hyperpage}{214}
-\indexentry{SVM (Support Vector Machine)|hyperpage}{215}
-\indexentry{Hinge Loss|hyperpage}{218}
-\indexentry{Kernel Function|hyperpage}{218}
-\indexentry{Mercer's Theorem|hyperpage}{219}
-\indexentry{Kernel Trick|hyperpage}{219}
-\indexentry{RKHS (Reproducing Kernel Hilbert Space)|hyperpage}{219}
-\indexentry{Representer Theorem|hyperpage}{220}
-\indexentry{dth Degree Polynomial Kernel@$ d^\mathrm{th}  $ Degree Polynomial Kernel|hyperpage}{220}
-\indexentry{RBF Kernel (Radical Base Function Kernel)|hyperpage}{220}
-\indexentry{Sigmoid Kernel|hyperpage}{221}
-\indexentry{KSVM (Kernel Support Vector Machine)|hyperpage}{221}
-\indexentry{Proximity Matrix|hyperpage}{222}
-\indexentry{Graph Laplacian|hyperpage}{223}
-\indexentry{Gini Impurity|hyperpage}{225}
-\indexentry{Bagging Method (Bootstrap Aggregation Method)|hyperpage}{226}
-\indexentry{Bootstrap Aggregation|hyperpage}{226}
-\indexentry{Random Forest|hyperpage}{226}
-\indexentry{Boosting Method|hyperpage}{227}
-\indexentry{Adaboost|hyperpage}{227}
-\indexentry{Neural Network|hyperpage}{227}
-\indexentry{Linear Perceptron|hyperpage}{227}
-\indexentry{Activate Function|hyperpage}{227}
-\indexentry{LTU (Linear Threshold Unit)|hyperpage}{228}
-\indexentry{Activate Function!LTU (Linear Threshold Unit)|hyperpage}{228}
-\indexentry{Activate Function!Logistic Function|hyperpage}{228}
-\indexentry{Activate Function!Hyperbolic Tangent Function|hyperpage}{228}
-\indexentry{ReLU (Rectified Linear Unit)|hyperpage}{228}
-\indexentry{Activate Function!ReLU (Rectified Linear Unit)|hyperpage}{228}
-\indexentry{MLP (MultiLayer Perceptron)|hyperpage}{228}
-\indexentry{BP (Back Propagation)|hyperpage}{228}
-\indexentry{Time Series|hyperpage}{230}
-\indexentry{TSA (Time Series Analysis)|hyperpage}{230}
-\indexentry{STL Model (Seasonal and Trend Decomposition using Loess)|hyperpage}{230}
-\indexentry{Stochastic Process|hyperpage}{231}
-\indexentry{WN (White Noise)|hyperpage}{231}
-\indexentry{MDS (Martingale Difference Sequence)|hyperpage}{231}
-\indexentry{ACVF (Autocovariance)|hyperpage}{232}
-\indexentry{ACF (Autocorrelation)|hyperpage}{232}
-\indexentry{WS (Weakly Stationary)|hyperpage}{232}
-\indexentry{SS (Strictly Stationary)|hyperpage}{232}
-\indexentry{PACF (Partial Autocorrelation)|hyperpage}{233}
-\indexentry{Levinson-Durbin's Recursive Formula|hyperpage}{234}
-\indexentry{Wold Decomposition|hyperpage}{234}
-\indexentry{AR Model (Auto-Regression Model)|hyperpage}{237}
-\indexentry{Y-W Equation (Yule-Walker Equation)|hyperpage}{238}
-\indexentry{MA Model (Moving-Average Model)|hyperpage}{239}
-\indexentry{ARMA Model|hyperpage}{240}
-\indexentry{ARIMA Model|hyperpage}{241}
-\indexentry{SARIMA (Seasonal ARIMA Model)|hyperpage}{242}
-\indexentry{Box-Jenkins Approach|hyperpage}{242}
-\indexentry{EACF (Extended Autocorrelation)|hyperpage}{243}
-\indexentry{AO (Additive Outlier)|hyperpage}{244}
-\indexentry{IO (Innovative Outlier)|hyperpage}{244}
-\indexentry{Neyman-Rubin Framework|hyperpage}{247}
-\indexentry{Potential Outcome Framework|hyperpage}{247}
-\indexentry{PO (Potential Outcome)|hyperpage}{247}
-\indexentry{Causal Effect|hyperpage}{248}
-\indexentry{Pre-Treatment Variable|hyperpage}{248}
-\indexentry{Covariate|hyperpage}{248}
-\indexentry{Finite Sample|hyperpage}{248}
-\indexentry{Super Population|hyperpage}{248}
-\indexentry{Assignment Mechanism|hyperpage}{248}
-\indexentry{SUTVA (Stable Unit Treatment Value Assumption)|hyperpage}{249}
-\indexentry{Fisher's Sharp Null Hypothesis|hyperpage}{250}
-\indexentry{MMSE (Minimum Mean Squared Estimator)|hyperpage}{253}
-\indexentry{Innovation Sequence|hyperpage}{254}
-\indexentry{Sample Path|hyperpage}{255}
-\indexentry{Conditional Independence|hyperpage}{256}
-\indexentry{DTMC|hyperpage}{256}
-\indexentry{Detailed Balance Condition|hyperpage}{257}
-\indexentry{Irreducible|hyperpage}{257}
-\indexentry{GCD (Greatest Common Divisor)|hyperpage}{257}
-\indexentry{Aperiodic|hyperpage}{258}
-\indexentry{Sojourn Time|hyperpage}{258}
+\indexentry{LDA (Linear Discriminant Analysis)|hyperpage}{112}
+\indexentry{QDA (Quadratic Discriminant Analysis)|hyperpage}{112}
+\indexentry{FDA (Fisher's Discriminant Analysis)|hyperpage}{112}
+\indexentry{TPM (Total Probability of Misclassification)|hyperpage}{113}
+\indexentry{APER (Apparent Error Rate)|hyperpage}{113}
+\indexentry{Clustering Analysis|hyperpage}{113}
+\indexentry{Clustering Analysis!Agglomerative Clustering Algorithm|hyperpage}{113}
+\indexentry{Clustering Analysis!Hierarchical Clustering|hyperpage}{113}
+\indexentry{Hierarchical Clustering|hyperpage}{113}
+\indexentry{Clustering Analysis!$ K $-Means Clustering Algorithm|hyperpage}{115}
+\indexentry{k-Means Clustering Algorithm@$ k $-Means Clustering Algorithm|hyperpage}{115}
+\indexentry{Clustering Analysis!Expectation Maximization Algorithm|hyperpage}{116}
+\indexentry{E-M Algorithm (Expectation Maximization Algorithm)|hyperpage}{116}
+\indexentry{GMM (Gaussian Mixture Model)|hyperpage}{116}
+\indexentry{Clustering Analysis!Density Clustering|hyperpage}{117}
+\indexentry{Clustering Analysis!DBSCAN (Density-Based Spatial Clustering of Application with Noise)|hyperpage}{117}
+\indexentry{Clustering Analysis!OPTICS (Ordering Point To Indentify the Cluster Structure)|hyperpage}{118}
+\indexentry{CRAN (The Comprehensive R Archive Network)|hyperpage}{120}
+\indexentry{GUI (Graphical User Interface)|hyperpage}{120}
+\indexentry{Plot Parameters in R.|hyperpage}{131}
+\indexentry{ggplot2|hyperpage}{135}
+\indexentry{Normalized Number|hyperpage}{138}
+\indexentry{Forward Stability|hyperpage}{139}
+\indexentry{Condition Number|hyperpage}{139}
+\indexentry{Convergence Order|hyperpage}{141}
+\indexentry{Primal Problem|hyperpage}{141}
+\indexentry{Primal Problem|hyperpage}{141}
+\indexentry{Generalized Lagrange Function|hyperpage}{141}
+\indexentry{Dual Problem|hyperpage}{141}
+\indexentry{Lagrange Dual Problem|hyperpage}{141}
+\indexentry{Dual Problem|hyperpage}{141}
+\indexentry{KKT Condition (Karush-Kuhn-Tucker Condition)|hyperpage}{142}
+\indexentry{Projection Operator|hyperpage}{143}
+\indexentry{CGS (Classical Gram-Schmidt Orthogonalization)|hyperpage}{146}
+\indexentry{MGS (Modified Gram-Schmidt Orthogonalization)|hyperpage}{147}
+\indexentry{Normal Matrix|hyperpage}{149}
+\indexentry{Hermitian Matrix|hyperpage}{149}
+\indexentry{Circulant Matrix|hyperpage}{149}
+\indexentry{SVD (Singular Value Decomposition)|hyperpage}{150}
+\indexentry{Golden Section Search|hyperpage}{153}
+\indexentry{Fibonacci Section Search|hyperpage}{153}
+\indexentry{Bisection Search|hyperpage}{155}
+\indexentry{Interpolation|hyperpage}{155}
+\indexentry{Lagrange Polynomial Interpolation|hyperpage}{157}
+\indexentry{IQI (Inverse Parabolic Interpolation)|hyperpage}{157}
+\indexentry{Dekker's Method|hyperpage}{157}
+\indexentry{Brent-Dekker Method|hyperpage}{158}
+\indexentry{Fixed Point Iteration|hyperpage}{158}
+\indexentry{SOR Method (Successive Over-Relaxation Method)|hyperpage}{159}
+\indexentry{N-M Search Method (Nelder-Mead Search Method)|hyperpage}{160}
+\indexentry{Simplex Search Method|hyperpage}{160}
+\indexentry{Newton-Raphson Iteration Method|hyperpage}{162}
+\indexentry{Fisher's Scoring Method|hyperpage}{162}
+\indexentry{IRLS (Iteratively Re-weighted Least Squares)|hyperpage}{162}
+\indexentry{Discrete Newton Method|hyperpage}{168}
+\indexentry{Secant Condition|hyperpage}{168}
+\indexentry{Quasi-Newton Condition|hyperpage}{168}
+\indexentry{DFP Updating Method (Davidon-Fletcher-Powell Updating)|hyperpage}{169}
+\indexentry{BFGS Updating Method (Broyden-Fletcher-Goldfarb-Shanno Updating)|hyperpage}{170}
+\indexentry{Broyden Class|hyperpage}{171}
+\indexentry{L-BFGS Method|hyperpage}{171}
+\indexentry{Steepest Descent Method|hyperpage}{171}
+\indexentry{SPD (Symmetric Positive Definite)|hyperpage}{172}
+\indexentry{Fletcher-Reeves Method|hyperpage}{174}
+\indexentry{Polak-Ribi$ \grave{e} $re Method|hyperpage}{174}
+\indexentry{E-M Algorithm (Expectation Maximization Algorithm)|hyperpage}{174}
+\indexentry{KL Divergence (Kullback-Leibler Divergence)|hyperpage}{174}
+\indexentry{ELBO (Evidence Lower Bound)|hyperpage}{175}
+\indexentry{M-M Algorithm (Maximization-Maximization Algorithm)|hyperpage}{175}
+\indexentry{Random Number Generator|hyperpage}{176}
+\indexentry{LCM (Linear Congruential Method)|hyperpage}{176}
+\indexentry{Inverse Transform Method|hyperpage}{177}
+\indexentry{Acceptance-Rejection Method|hyperpage}{178}
+\indexentry{Importance Sampling|hyperpage}{179}
+\indexentry{Bootstrap|hyperpage}{180}
+\indexentry{MCMC (Markov Chain Monte Carlo)|hyperpage}{181}
+\indexentry{Stationary Distribution|hyperpage}{181}
+\indexentry{Equilibrium Distribution|hyperpage}{181}
+\indexentry{Invariant Distribution|hyperpage}{181}
+\indexentry{Convergence and Ergodic Theorem|hyperpage}{181}
+\indexentry{Detailed Balance Condition|hyperpage}{182}
+\indexentry{Metropolis-Hastings Algorithm|hyperpage}{182}
+\indexentry{M-H Algorithm|hyperpage}{182}
+\indexentry{Proposal Distribution|hyperpage}{182}
+\indexentry{Acceptance Ratio|hyperpage}{182}
+\indexentry{Censoring Data|hyperpage}{183}
+\indexentry{Survival Function|hyperpage}{184}
+\indexentry{Hazard Function|hyperpage}{184}
+\indexentry{Mean Residual Life Time|hyperpage}{185}
+\indexentry{Distribution!$ \Gamma  $ Distribution|hyperpage}{186}
+\indexentry{Distribution!Log-Normal Distribution|hyperpage}{186}
+\indexentry{Likelihood Function|hyperpage}{186}
+\indexentry{Score Function|hyperpage}{187}
+\indexentry{Fisher Information|hyperpage}{187}
+\indexentry{Hypothesis Testing|hyperpage}{188}
+\indexentry{Score Test|hyperpage}{188}
+\indexentry{Wald Test|hyperpage}{188}
+\indexentry{KM Estimator (Kaplan-Meier Estimator)|hyperpage}{189}
+\indexentry{NA Estimator (Nelson-Aalen Estimator)|hyperpage}{190}
+\indexentry{FH Estimator (Fleming-Harrington Estimator)|hyperpage}{190}
+\indexentry{Mantel-Haenszel Logrank Test|hyperpage}{191}
+\indexentry{MH Test (Mental-Haenszel Test)|hyperpage}{192}
+\indexentry{CMH Test (Cochran-Mantel-Haenszel Test)|hyperpage}{192}
+\indexentry{Wilcoxon Two-Sample Rank Sum Test|hyperpage}{193}
+\indexentry{Mann-Whitney Form|hyperpage}{193}
+\indexentry{PH Model (Cox's Proportion Hazard Model)|hyperpage}{194}
+\indexentry{Partial Likelihood|hyperpage}{195}
+\indexentry{Breslow's Approximation|hyperpage}{196}
+\indexentry{Efron's Approximation|hyperpage}{197}
+\indexentry{Cox-Snell Residual|hyperpage}{197}
+\indexentry{Delta-Beta Residual|hyperpage}{197}
+\indexentry{AFT Model (Accelerated Failure Tome Model)|hyperpage}{198}
+\indexentry{Factor Model|hyperpage}{200}
+\indexentry{ANOVA (Analysis of Variance)|hyperpage}{200}
+\indexentry{Factor Model!Single Factor Model|hyperpage}{200}
+\indexentry{Levene's Test|hyperpage}{206}
+\indexentry{Shapiro-Wilk Test|hyperpage}{206}
+\indexentry{Longitudinal Study|hyperpage}{207}
+\indexentry{McNemar Test|hyperpage}{209}
+\indexentry{Generalization Ability|hyperpage}{211}
+\indexentry{Ridge Regression|hyperpage}{212}
+\indexentry{LASSO (Least Absolute Shrinkage and Selection Operator)|hyperpage}{212}
+\indexentry{Elastic Net|hyperpage}{212}
+\indexentry{Adaptive LASSO|hyperpage}{213}
+\indexentry{Classification Metrics|hyperpage}{213}
+\indexentry{Confusion Matrix|hyperpage}{213}
+\indexentry{ROC Curve (Receive Operating Characteristic Curve)|hyperpage}{214}
+\indexentry{AUC (Area Under ROC Curve)|hyperpage}{214}
+\indexentry{CV (Cross-Validation)|hyperpage}{215}
+\indexentry{Bayes Optimal Classifier|hyperpage}{215}
+\indexentry{KNN ($ k $-Nearest Neighours)|hyperpage}{215}
+\indexentry{LDA (Linear Discriminant Analysis)|hyperpage}{216}
+\indexentry{QDA (Quadratic Discriminant Analysis)|hyperpage}{216}
+\indexentry{Na\"\i ve Bayes Classifier|hyperpage}{216}
+\indexentry{Logistic Regression|hyperpage}{216}
+\indexentry{SVM (Support Vector Machine)|hyperpage}{217}
+\indexentry{Hinge Loss|hyperpage}{220}
+\indexentry{Kernel Function|hyperpage}{220}
+\indexentry{Mercer's Theorem|hyperpage}{221}
+\indexentry{Kernel Trick|hyperpage}{221}
+\indexentry{RKHS (Reproducing Kernel Hilbert Space)|hyperpage}{221}
+\indexentry{Representer Theorem|hyperpage}{222}
+\indexentry{dth Degree Polynomial Kernel@$ d^\mathrm{th}  $ Degree Polynomial Kernel|hyperpage}{222}
+\indexentry{RBF Kernel (Radical Base Function Kernel)|hyperpage}{222}
+\indexentry{Sigmoid Kernel|hyperpage}{223}
+\indexentry{KSVM (Kernel Support Vector Machine)|hyperpage}{223}
+\indexentry{Proximity Matrix|hyperpage}{224}
+\indexentry{Graph Laplacian|hyperpage}{225}
+\indexentry{Gini Impurity|hyperpage}{227}
+\indexentry{Bagging Method (Bootstrap Aggregation Method)|hyperpage}{228}
+\indexentry{Bootstrap Aggregation|hyperpage}{228}
+\indexentry{Random Forest|hyperpage}{228}
+\indexentry{Boosting Method|hyperpage}{229}
+\indexentry{Adaboost|hyperpage}{229}
+\indexentry{Neural Network|hyperpage}{229}
+\indexentry{Linear Perceptron|hyperpage}{229}
+\indexentry{Activate Function|hyperpage}{229}
+\indexentry{LTU (Linear Threshold Unit)|hyperpage}{230}
+\indexentry{Activate Function!LTU (Linear Threshold Unit)|hyperpage}{230}
+\indexentry{Activate Function!Logistic Function|hyperpage}{230}
+\indexentry{Activate Function!Hyperbolic Tangent Function|hyperpage}{230}
+\indexentry{ReLU (Rectified Linear Unit)|hyperpage}{230}
+\indexentry{Activate Function!ReLU (Rectified Linear Unit)|hyperpage}{230}
+\indexentry{MLP (MultiLayer Perceptron)|hyperpage}{230}
+\indexentry{BP (Back Propagation)|hyperpage}{230}
+\indexentry{Time Series|hyperpage}{232}
+\indexentry{TSA (Time Series Analysis)|hyperpage}{232}
+\indexentry{STL Model (Seasonal and Trend Decomposition using Loess)|hyperpage}{232}
+\indexentry{Stochastic Process|hyperpage}{233}
+\indexentry{WN (White Noise)|hyperpage}{233}
+\indexentry{MDS (Martingale Difference Sequence)|hyperpage}{233}
+\indexentry{ACVF (Autocovariance)|hyperpage}{234}
+\indexentry{ACF (Autocorrelation)|hyperpage}{234}
+\indexentry{WS (Weakly Stationary)|hyperpage}{234}
+\indexentry{SS (Strictly Stationary)|hyperpage}{234}
+\indexentry{PACF (Partial Autocorrelation)|hyperpage}{235}
+\indexentry{Levinson-Durbin's Recursive Formula|hyperpage}{236}
+\indexentry{Wold Decomposition|hyperpage}{236}
+\indexentry{AR Model (Auto-Regression Model)|hyperpage}{239}
+\indexentry{Y-W Equation (Yule-Walker Equation)|hyperpage}{240}
+\indexentry{MA Model (Moving-Average Model)|hyperpage}{241}
+\indexentry{ARMA Model|hyperpage}{242}
+\indexentry{ARIMA Model|hyperpage}{243}
+\indexentry{SARIMA (Seasonal ARIMA Model)|hyperpage}{244}
+\indexentry{Box-Jenkins Approach|hyperpage}{244}
+\indexentry{EACF (Extended Autocorrelation)|hyperpage}{245}
+\indexentry{AO (Additive Outlier)|hyperpage}{246}
+\indexentry{IO (Innovative Outlier)|hyperpage}{246}
+\indexentry{Neyman-Rubin Framework|hyperpage}{249}
+\indexentry{Potential Outcome Framework|hyperpage}{249}
+\indexentry{PO (Potential Outcome)|hyperpage}{249}
+\indexentry{Causal Effect|hyperpage}{250}
+\indexentry{Pre-Treatment Variable|hyperpage}{250}
+\indexentry{Covariate|hyperpage}{250}
+\indexentry{Finite Sample|hyperpage}{250}
+\indexentry{Super Population|hyperpage}{250}
+\indexentry{Assignment Mechanism|hyperpage}{250}
+\indexentry{SUTVA (Stable Unit Treatment Value Assumption)|hyperpage}{251}
+\indexentry{CRE (Completely Randomized Experiment)|hyperpage}{252}
+\indexentry{Fisher's Sharp Null Hypothesis|hyperpage}{252}
+\indexentry{MMSE (Minimum Mean Squared Estimator)|hyperpage}{255}
+\indexentry{Innovation Sequence|hyperpage}{256}
+\indexentry{Sample Path|hyperpage}{257}
+\indexentry{Conditional Independence|hyperpage}{258}
+\indexentry{DTMC|hyperpage}{258}
+\indexentry{Detailed Balance Condition|hyperpage}{259}
+\indexentry{Irreducible|hyperpage}{259}
+\indexentry{GCD (Greatest Common Divisor)|hyperpage}{259}
+\indexentry{Aperiodic|hyperpage}{260}
+\indexentry{Sojourn Time|hyperpage}{260}
