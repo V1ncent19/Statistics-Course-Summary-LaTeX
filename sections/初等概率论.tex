@@ -56,35 +56,71 @@
 
 \subsection{Probability and Probability Model}
 
-    What is \textbf{Probability}? 
+    What is \textbf{Probability}? A 'belief' in `what would happen'.
+
+
+\subsubsection{Sample Space and $\sigma$-Field}
+
+\begin{point}
+    Experiment and Sample Space
+\end{point}
+
+    Def. sample space $\Omega$: The set of \text{all} possible outcomes of one particular \textbf{experiment} . Conducting the experiment would result in a result/sample point $ \omega  $ in sample space $ \Omega  $. These results should be mutually exclusive, e.g. Tossing two coins simultaneously, the sample space is the set of all possible results
+    \begin{align}
+        \Omega = \{(0,0),(0,1),(1,0),(1,1)\}, \quad \omega \in \Omega 
+    \end{align}
+
+    On the sample space, the `belief' in results happening is measured by probability $ \mathbb{P}\left( \omega  \right),\,\omega \in\Omega   $
+
+    \textbf{Note}: Randomness comes from the random result $ \omega  $ that an experiment generates.
     
-    $\quad$ A 'belief' in the chance of an event occurring?
+\begin{point}
+    Event 
+\end{point}
 
-
-\subsubsection{Sample and $\sigma$-Field}
-    Def. sample space $\Omega$: The set of \text{all} possible outcomes of one particular experiment.
-
-    \index{Sigma-field@$ \sigma $-Field}Def. $\mathscr{F}$ a $\sigma$-field(or a $\sigma$-algebra) as a collection of some subsets of $\Omega$ \textbf{if}
+    We may care about a conbination of some results, say `at least one of the coin lands tails-up'. It's like a kind of `structure' on sample space describing how we put results together to form \textbf{Events}. The definition is \index{Sigma-field@$ \sigma $-Field} a $\sigma$-field(or a $\sigma$-algebra) $\mathscr{F}$ as a collection of some subsets of $\Omega$, with properties:
     \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item $\Omega\in\mathscr{F}$
         \item if $A\in\mathscr{F}$,then $A^\complement \in\mathscr{F}$
         \item if $A_n\in\mathscr{F}$, then ${\displaystyle\bigcup_{n=1}^\infty} A_n\in\mathscr{F}$
     \end{itemize}
 
-    And $(\Omega,\mathscr{F})$ is a measurable space.
-    
+    And $(\Omega,\mathscr{F})$ is a measurable space, on which we can select the events that we care about.
 
+    Events (and their properties) can be described in the language of set, e.g. for events $ A $, $ B\in\mathscr{F} $
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item $ A=B $ means they are the same event
+    \item $ A\cup B $ means one of them happens
+    \item $ A\cap B $ or $ AB $ means both happen 
+\end{itemize}
+
+And some more complex ones
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item $ A\cup B=B\cup A $, $ A\cap B=B\cap A $
+    \item $ A\cup (B\cup C)=A\cup B\cup C $, $ A\cap (B\cap C)=A\cap B\cap C $
+    \item $ A\cap (B\cup C)=(A\cap B)\cup (B\cap C) $, $ A\cup (B \cap C)=(A\cup B)\cap (A\cup C) $
+    \item $ A\cup B=A+ A^\complement\cap B $, $ A=A\cap B+A\cap B^\complement $
+    \item[$ \Delta  $] $ (A\cup B)^\complement =A^\complement\cap B^\complement $, $ (A\cap B)^\complement = A^\complement \cup B^\complement  $
+    \item $ (\bigcup_{j=1}^\infty A_j)^\complement =\bigcap_{j=1}^\infty A_j^\complement $, $ (\bigcap{j=1}^\infty A_j)^\complement =\bigcup{j=1}^\infty A_j^\complement $
+\end{itemize}
     
 \subsubsection{Axioms of Probability}
 
-    $\mathbb{P}(\,\cdot\,)$ is probability measure (or probability function) defined on $(\Omega,\mathscr{F})$ describing the possibility that some event $ A\in\Omega  $ happens. Definition of probability $ \mathbb{P}(A) $ in useful models:
-    
-    \[
-        \mathbb{P}\left( A \right) :=\begin{cases}
+    $\mathbb{P}(\,\cdot\,)$ is the probability measure (or probability function) defined on $(\Omega,\mathscr{F})$ describing the possibility that some event $ A\in\mathscr{F}  $ happens. Definition of probability $ \mathbb{P}(A) $ in useful models:
+    \begin{align}
+       \mathbb{P}\left( A \right) :=\begin{cases}
             \dfrac{\#A}{\#\Omega }&\text{Classical Model}\\
             \dfrac{m(A)}{m(\Omega )}&\text{Geometric Model}
-        \end{cases} 
-    \]
+        \end{cases}   
+    \end{align}
+    
+    Where $ m(\, \cdot \, ) $ is some measure of events in continuous space, say integral in Euclidean Space $ \mathbb{R}^r $
+    \begin{align}
+        m_\mathrm{\mathbb{R}^r}(A)=\int_A \,\mathrm{d}x_1\,\mathrm{d}x_2\ldots\,\mathrm{d}x_r  
+    \end{align}
+    
+    
+    
     
 
     
@@ -95,15 +131,24 @@
 \end{point}
 
 \begin{itemize}[itemsep=2pt,topsep=-2pt]
-\item Nonnegativity
+\item Non-negativity
 \begin{equation}    \mathbb{P}(A)\geq 0\qquad \forall A\in\Omega    
 \end{equation}
-\item Normalization
+\item Normalization\footnote{Note: In other sections when dealing with not-yet-normalized distribution (say in Bayesian statistics), I usually use $ Z $ as the normalize constant, following the tradition in statistical physics where $ Z $ is the partition function.
+\begin{align}
+    \mathbb{P}=\dfrac{1}{Z}\tilde{\mathbb{P}},\quad Z=\int \mathbb{\tilde{P}} 
+\end{align}}
 \begin{equation}    \mathbb{P}(\Omega)=1    
 \end{equation}
-\item Countable Additivity
+
+
+
+
+\item Countable Subadditivity\index{Countable Additivity}
 \begin{equation}    \mathbb{P}(A_1\cup A_2\cup\cdots)=\mathbb{P}(A_1)+\mathbb{P}(A_2)+\cdots\quad ,\, (A_i\bot\!\!\!\bot  A_j\quad \forall i\neq j)
 \end{equation}
+
+where `countable subadditivity' means the events can be sequentially listed.
 \end{itemize}
 
     Then $(\Omega,\mathscr{F},\mathbb{P})$ is probability space\index{Probability Space}.
@@ -113,6 +158,10 @@
 \end{point}
 
     \begin{itemize}
+        \item Addition Formula
+        \begin{align}
+            \mathbb{P}\left( A\cup B \right) =\mathbb{P}\left( A \right) +\mathbb{P}\left( B \right) -\mathbb{P}\left( A\cap B \right)  
+        \end{align}
         \item Monotonicity
         \begin{equation}    
             \mathbb{P}(A)\leq \mathbb{P}(B)\quad \text{for}\, A\subset B
@@ -121,12 +170,25 @@
         \begin{equation}    
             \mathbb{P}(\bigcup_{i=1}^nA_i)\leq\sum_{i=1}^n \mathbb{P}(A_i)    
         \end{equation}
-        \item Inclusion-Exclusion Formula(Jordan Formula)\index{Inclusion-Exclusion Formula}\index{Jordan Formula}
+        \item Countable Subadditivity ($ \sigma  $-Subadditivity)\index{Sigma-Subadditivity@$ \sigma  $-Subadditivity}
         \begin{align}
-            \mathbb{P}(\Cup_{i=1}^nA_i)&=\sum_{1\leq i\leq n}\mathbb{P}(A_i)-\sum_{1\leq i<j\leq n}\mathbb{P}(A_i\cap A_j)\\
+            \mathbb{P}(\bigcup_{i=1}^\infty A_i)\leq\sum_{i=1}^\infty \mathbb{P}(A_i)  
+        \end{align}
+        
+        
+        \item Inclusion-Exclusion Formula (Jordan Formula)\index{Inclusion-Exclusion Formula}\index{Jordan Formula}
+        \begin{align}
+            \mathbb{P}(\bigcup_{i=1}^nA_i)&=\sum_{1\leq i\leq n}\mathbb{P}(A_i)-\sum_{1\leq i<j\leq n}\mathbb{P}(A_i\cap A_j)\\
             &+\sum_{1\leq i<j<k\leq n}\mathbb{P}(A_i\cap A_j\cap A_k)-\cdots\\
             &+(-1)^{n-1}\mathbb{P}(A_1 \cap A_2\cap\cdots \cap A_n)
         \end{align}
+
+        Or in condensed notation:
+        \begin{align}
+            \mathbb{P}( \bigcup_{i=1}^n A_i)=&\sum_{k=1}^n (-1)^{k-1}\sum_{1\leq j_1<j_2<\ldots<j_k\leq n}\mathbb{P}\left( A_{j_1}\cap A_{j_2}\cap\ldots\cap A_{j_k} \right)   
+        \end{align}
+        
+        
         \item Borel-Cantelli Lemma\index{Borel-Cantelli Lemma}
         \begin{align}
             &\sum_{n=1}^\infty \mathbb{P}(A_n)<\infty\Rightarrow \mathbb{P}(\lim_{n\to\infty}\sup A_n)=0\\
@@ -136,13 +198,62 @@
     \end{itemize}
 
 
-\subsubsection{Conditional Probability}
-        Def. \textbf{Conditional Probability} of $B$ given $A$:
-        \begin{equation}    
-            \mathbb{P}(B|A)=\frac{\mathbb{P}(A\cap B)}{\mathbb{P}(A)}    
-        \end{equation}
+\begin{point}
+    An Example 
+\end{point}
 
-        (Actually a change of $\sigma$-field: $\Omega$ $ \to $ $B$)
+    We have $ n $ different balls. Draw $ m $ times with replacement. What is the number of results regardless of order the balls drawn (e.g. $ \{\mathrm{red,red,black} \} $ is the same as $ \{\mathrm{red,black,red} \} $)? 
+
+    The model is the same as we are `voting' for $ n $ different balls, with total ballot ticket $ m $. The $ m $ tickets are divided by $ n-1 $ plates (making them similar to ballot boxes), e.g. here's a $ n=4,m=5 $ vote corresponding to a result $ \omega \in\Omega  $:
+    \begin{align}
+         \bullet  \big|  \big| \bullet \bullet \bullet \big|  \bullet \bullet 
+    \end{align}
+
+    which the same as inserting plates sequentially and then cancel the order of plates:
+    \begin{align}
+        \# \Omega  = (m+1)*(m+2)\ldots (m+n-1)\bigg/ (n-1)! = \dfrac{(n+m-1)!}{m!(n-1)!}=\binom{n+m-1}{m}
+    \end{align}
+
+    (The idea of spacer plate is quite useful in dealing with some troublesome discrete cases, I think.)
+    
+    \begin{table}[H]
+        \centering
+        \renewcommand\arraystretch{1}
+        \caption{$ \# \Omega  $ of Sampling $ n $ balls $ m $ draw}
+        \begin{tabular}{ccc}
+            \hline
+            \hline
+            &\multicolumn{2}{c}{Replacement}\\
+            \cline{2-3}
+            &Yes&No\\
+            \hline
+            Ordered&$ n^m $&$ A_{n}^m $\\
+            Unordered&$ \binom{n+m-1}{m} $&$ \binom{n}{m} $\\
+            \hline
+            \hline
+        \end{tabular}
+        \label{}
+    \end{table}
+
+
+    
+    
+    
+
+
+\subsubsection{Conditional Probability}
+    Motivation: To update the knowledge of probability measure.
+
+    Def. \textbf{Conditional Probability} of $B$ given $A$:
+    \begin{equation}    
+        \mathbb{P}(B|A)=\frac{\mathbb{P}(A\cap B)}{\mathbb{P}(A)}    
+    \end{equation}
+
+    Actually it's a change of $\sigma$-field: $\Omega$ $ \to $ $B$
+    \begin{align}
+        \mathbb{P}\left( B|A \right) = \dfrac{m(B)}{m(A)} 
+    \end{align}
+
 
 \begin{point}
     Application of conditional probability:
@@ -151,39 +262,68 @@
         \begin{itemize}
         \item Multiplication Formula
         \begin{equation}    
-            \mathbb{P}(\Cap_{i=1}^n A_i)=\mathbb{P}(A_1)\prod_{i=2}^n \mathbb{P}(A_i|A_1\cap A_2\cap \cdots\cap A_{i-1})    
+            \mathbb{P}(\bigcap_{i=1}^n A_i)=\mathbb{P}(A_1)\prod_{i=2}^n \mathbb{P}(A_i|A_1\cap A_2\cap \cdots\cap A_{i-1})    
         \end{equation}
-        \item Total Probability Thm.
+        \item Total Probability Thm.\index{Total Probability Thm.}
         \begin{equation}    
             \mathbb{P}(B)=\sum_{i=1}^n \mathbb{P}(A_i)\mathbb{P}(B|A_i)  
         \end{equation}
-        where $\{A_i\}$ is a partition of $\Omega$.
+        where $\{A_i\}$ is a partition of $\Omega$: $ \Omega =\bigcup_{i}A_i $
+
+        (Actually just $ B\subset \bigcup_{i}A_i $ is enough, similar for Bayes's rule)
         \item Bayes's Rule\index{Bayes's Rule}
         \begin{equation}    
             \mathbb{P}(A_i|B)=\dfrac{\mathbb{P}(A_i)\mathbb{P}(B|A_i)}{\sum_{j=1}^\mathbb{P}(A_j)\mathbb{P}(B|A_j)}    ,\quad 1\leq i\leq n
         \end{equation}
-        where $\{A_i\}$ is a partition of $\Omega$.
-        \item Statistically Independence
-        \begin{equation}    
-            \mathbb{P}(A\cap B) =\mathbb{P}(A)\mathbb{P}(B),\text{ for }A\independent B
-        \end{equation}
+        where $\{A_i\}$ is a partition of $\Omega$: $ \Omega =\bigcup_{i}A_i $
     \end{itemize}
 
-\subsection{Properties of Random Variable and Vector}\label{SectionPropertiesOfRandomVariableAndVector}
-
-\subsubsection{Random Variable}
-    Def. \text{Random Variable}: a \textbf{function} $X$ defined on sample space $\Omega$, mapping from $\Omega$ to some $\mathscr{X}\in\mathbb{R} $.
-
-    Then def. Cumulative Distribution Function (CDF)\index{CDF (Cumulative Distribution Function)}.
-    \begin{equation}
-        F_X(x)=\mathbb{P} (X\leq x)
+\subsubsection{Independency}
+    Statistical Independency is defined as:
+    \begin{equation}    
+        A\independent B:\,\mathbb{P}(A\cap B) =\mathbb{P}(A)\mathbb{P}(B)
     \end{equation}
 
-    For Discrete case, consider CDF as \textbf{right-continuity}. 
+    Properties
+    \begin{itemize}[topsep=2pt,itemsep=0pt]
+        \item 
+        \begin{align}
+            A\independent B\Leftrightarrow A^\complement \independent B 
+        \end{align}
+        \item Independency of multiple events
+        \begin{align}
+            A_1\independent A_2\independent\ldots \independent A_n \Leftrightarrow \mathbb{P}\left( A_{j_1}\cap A_{j_2}\cap\ldots\cap A_{j_k} \right)=\mathbb{P}\left( A_{j_1} \right) \mathbb{P}\left( A_{j_2} \right) \ldots \mathbb{P}\left( A_{j_k} \right)   \,\forall 1\leq j_1\leq j_2\leq \ldots \leq j_k\leq n\,\forall k\leq n
+        \end{align}
+    \end{itemize}
+    
+        
+
+\subsection{Random Variable and Distribution}\label{SectionPropertiesOfRandomVariableAndVector}
+
+Motivation: defining events is troublesome, and unhelpful to extract the key feature of events. A wise approach is to map samples \& events to numbers $ \Omega \mapsto \mathbb{R}^r $.
+
+\subsubsection{Random Variable}
+    Def. \text{Random Variable}: a \textbf{function}/mapping $X$ defined on sample space $\Omega$,  from $\Omega$ to some $\mathscr{X}\in\mathbb{R} $.
+    \begin{align}
+        X(\omega ):\, \Omega \mapsto \mathscr{X}\in\mathbb{R} 
+    \end{align}
+
+    \textbf{Note}: The mapping itself is non-random, the heart of randomness is still sample $ \omega  $ experimented. 
+
+    Naturally $ X $ induces a mapping of probability measure
+    \begin{align}
+        F_X: \mathscr{X} \mapsto \Omega \mapsto \mathbb{P} 
+    \end{align}
+
+    To describe the mapping of probability, def. Cumulative Distribution Function (CDF)\index{CDF (Cumulative Distribution Function)}. (Here $ X(\omega ) $ is still used to remind the origin of randomness, in most case we simply use $ X $. )
+    \begin{equation}
+        F_X(x)=\mathbb{P} (X(\omega )\leq x)
+    \end{equation}
+
+
 
     \begin{itemize}
         \item
-
         \begin{center}
             \parbox[t]{8.65cm}{PMF:\index{PMF (Probability Mass Function)}\begin{equation}        p_X(x)=F_X(x^+)-F_X(x^-)\end{equation}}
             \parbox[t]{8.65cm}{PDF:\index{PDF (Probability Density Function)}
@@ -191,7 +331,23 @@
                 f_X(x)=\frac{\mathrm{d}F_X(x)}{\mathrm{d}x}
             \end{equation}}
         \end{center}
-        
+        \item Right-Continuity of CDF: A physical perspective is that PMF could be written as 
+        \begin{align}
+            p_X(x)=\sum_{\tilde{x}\in\mathcal{X}}\mathbb{P}\left( X=\tilde{x} \right) \delta (x-\tilde{x})
+        \end{align}
+        where discrete $ X $ take values in $ \mathcal{X} $. In this way for any infinitesimal interval containing $ x $: $ \mathbb{I}_{x}\ni x$, we have 
+        \begin{align}
+            F_X(x^+)-F_X(x^-)=\int_{\mathbb{I}_{x}} p_X(x)\,\mathrm{d}x= \int_{\mathbb{I}_{x}}\sum_{\tilde{x}\in\mathcal{X}}\mathbb{P}\left( X=\tilde{x} \right) \delta (x-\tilde{x})\,\mathrm{d}x=\begin{cases}
+                F_X(x^+)-F_X(x^-),&x\in \mathcal{X}\\
+                0,&\text{others}
+            \end{cases}
+        \end{align}
+
+        With such notation, in this note I sometimes ignore the difference between discrete cases / continuous cases.
+        \item Representation of events: We could use random variable to express, say event $ A $ defined as        
+        \begin{align}
+            A:=\{\omega :X(\omega )\leq x\} 
+        \end{align}
         
         
         \item Indicator function:\index{Indicator Function}
@@ -216,6 +372,21 @@
                 f_Z(z)=\int_{-\infty}^\infty \frac{1}{|x|}f_X(x)f_Y(\frac{z}{x})\mathrm{d}x
             \end{equation}
         \end{itemize}
+
+            Examples:        
+        \begin{itemize}[topsep=2pt,itemsep=0pt]
+            \item Poisson
+            \begin{align}
+                P(\lambda _1)+P(\lambda _2)\sim P(\lambda _1)+P(\lambda _2) 
+            \end{align}
+            \item Binomial
+            \begin{align}
+                B(n_1,p)+B(n_2,p)\sim B(n_1+n_2,p) 
+            \end{align}
+            \item More relations of distributions see \url{http://www.math.wm.edu/~leemis/chart/UDR/UDR.html}
+            
+            
+        \end{itemize}
         
         \item Order Statistics\index{Order Statistics}
         
@@ -237,9 +408,11 @@
 
 
 \subsubsection{Random Vector}
-    A general case of random variable.\index{r.v. (Random Variable or Random Vector)}
-
-    $n$-dimension Random Vector $\vec{X}=(X_1,X_2,\ldots,X_n)$ defined on $(\Omega,\mathscr{F},\mathbb{P})$.
+    A general case of random variable.\index{r.v. (Random Variable or Random Vector)} Its definition is similar    
+    \begin{align}
+        \vec{X}(\omega ):\, \Omega \mapsto \mathscr{X}\in\mathbb{R}^n 
+    \end{align}
+    a $n$-dimension Random Vector $\vec{X}=(X_1,X_2,\ldots,X_n)$ defined on $(\Omega,\mathscr{F},\mathbb{P})$.
 
     CDF $F(x_1,\ldots,x_n)$ defined on $\mathbb{R}^n$:
     \begin{equation}F(x_1,\ldots,x_n)=\mathbb{P}(X_1\leq x_1,\ldots,X_n\leq x_n)\end{equation}
@@ -279,10 +452,15 @@
 
 
 
+    
 
-\subsection{Properties of $\mathbb{E}$ , $var$ and $cov$}
 
-    Expectation and Variance of common distributions see \autoref{SectionImportantDistributions}.
+
+
+\subsection{Expectation $\mathbb{E}$, Variance $var$ and Covariance $cov$}
+Motivation: what would happen `on average'?
+
+Expectation and Variance of common distributions see \autoref{SectionImportantDistributions}.
 
 \subsubsection{Expection $ \mathbb{E}(\,\cdot\,) $}
     Expectation of r.v. $g(X)$ def.:
@@ -294,9 +472,16 @@
 \end{equation}
 
     Sometimes when there are more than 1 variables, say $ x,y $, we would use notation $ \mathbb{E}_X\left( g(X,Y) \right)  $ to specify the variable to avoid confusion.
+
+    \textbf{Note}: For discrete r.v. the expectation always exists, but for continuous \& unbounded r.v. the expectation might diverge, rigorously speaking:
+    \begin{align}
+        \mathbb{E}\left[ X \right]\exists:\, \int_{\mathbb{R}}|x|f(x)\,\mathrm{d}x<\infty  
+    \end{align}
+    
+    
  
 \begin{point}
-        Properties of expectation $E(\,\cdot\,)$:
+    Properties of Expectation $E(\,\cdot\,)$:
 \end{point}
 
 \begin{itemize}
@@ -307,10 +492,10 @@
         \mathbb{E}(X|A)=\frac{\mathbb{E}(X\mathbb{I}_A)}{\mathbb{P}(A)}
     \end{equation}
     
-    Note: if take $A$ as $Y$ is also a r.v. then 
+    Note: if take $A$ as $Y$ is also a r.v. then conditional expectation is actually a function of $Y$
     \begin{equation}\xi (Y)=\mathbb{E}(X|Y)=\int xf_{X|Y}(x)\mathrm{d}x\end{equation}
 
-    is actually a function of $Y$
+    
 
     \item Law of Total Expectation\begin{equation}
         \mathbb{E}_Y\big\{\mathbb{E}_X[g(X)|Y]\big\}=\mathbb{E}_X[g(X)]
@@ -334,11 +519,11 @@
     (sometimes denoted as $\sigma^2_X$.)
 
     Another definition comes from the MMSE estimation, 
-    \begin{align*}
+    \begin{align}
         var(X)=\mathop{\min}\limits_{c}\mathbb{E}\left[ (X-c)^2 \right]   
-    \end{align*}
+    \end{align}
     
-    its solution is $ c=\mathbb{E}\left[ X \right]  $.See \autoref{SubSecMMSE} for more.
+    its solution is $ c=\mathbb{E}\left[ X \right]  $. See \autoref{SubSecMMSE} for more.
 
 \begin{point}
     Properties:
@@ -379,10 +564,10 @@
 
     Properties:
 \begin{itemize}
-\item Bilinear of Covariance\begin{align*}
+\item Bilinear of Covariance\begin{align}
     cov(X+Y,Z)&=cov(X,Z)+cov(Y,Z)\\
     cov(X,Y+Z)&=cov(X,Y)+cov(X,Z)
-\end{align*}
+\end{align}
     
 \item Variance and Covariance
 \begin{equation}\label{EqaVarOfSumOfRV}
@@ -416,7 +601,7 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
     Generating Function: Representation of $\mathbb{P}$ in function space. $\mathbb{P}\Leftrightarrow$ Generating Function.
 
 \subsubsection{Probability Generating Function}
-    PGF\index{PGF (Probability Generating Function)}: used for non-negative, integer $X$
+    PGF\index{PGF (Probability Generating Function)}: used for non-negative, integer $X$, which is the $ z $-transform of $ p_X $
     \begin{equation}
         g(s)=\mathbb{E}(s^X)=\sum_{j=0}^\infty s^j\mathbb{P}(X=j)    ,s\in[-1,1]
     \end{equation}
@@ -424,8 +609,7 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
 \begin{point}
         Properties
 \end{point}
-
-    \begin{itemize}
+    \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item $\mathbb{P}(X=k)=\dfrac{g^{(k)}(0)}{k!}$
         \item $\mathbb{E}(X)=g^{(1)}(1)$
         \item $var(X)=g^{(2)}(1)+g^{(1)}(1)-[g^{(1)}(1)]^2 $
@@ -506,14 +690,18 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
                 \draw(-3,0.5)rectangle(-5,2.5);
                 \draw(3,-1)rectangle(5,1);
                 \draw[-latex](-3,-1.5)--(-1,-0.5);
+                \draw[-latex](-1,-0.75)--(-3,-1.75);
                 \draw[-latex](-3,1.5)--(-1,0.5);
                 \draw[-latex](1,0)--(3,0);
                 \node at (0,0){$X_n\xrightarrow[]{\mathrm{p}}X$};
                 \node at (-4,-1.5){$X_n\xrightarrow[]{L_p}X$};
                 \node at (-4,1.5){$X_n\xrightarrow[]{\text{a.s.}}X$};
                 \node at (4,0){$X_n\xrightarrow[]{\mathrm{d}}X$};
+                \node at (-1.5,-1.5){$L_p<\infty $};
             \end{tikzpicture}
         \end{center}
+
+        Note: $ L_2 $ convergence is also denoted m.s. (mean squared) convergence $ \xrightarrow[]{\mathrm{m.s.}}  $.
 
         Useful Thm.:
         \begin{itemize}
@@ -529,7 +717,7 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
                 \item $X_nY_n\xrightarrow[]{\mathrm{d}}cX$
                 \item $X_n/Y_n\xrightarrow[]{\mathrm{d}}X/c$
             \end{enumerate}
-            \item Continuity Thm.
+            \item Continuity Thm. for characteristic function:
             \begin{equation}        \lim_{n\to\infty}\phi_n(t)=\varphi(t)\Leftrightarrow X_n\xrightarrow[]{\mathrm{d}}X\end{equation}
         \end{itemize} 
 
@@ -555,7 +743,7 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
 \item de Moivre-Laplace Thm.\index{de Moivre-Laplace Thm.}
 \begin{equation}    \mathbb{P}(k\leq S_n\leq m)\approx \Phi(\frac{m+0.5-np}{\sqrt{npq}})-\Phi(\frac{k-0.5-np}{\sqrt{npq}})
 \end{equation}
-\item Stirling Eqa.
+\item Stirling Eqa. derived from CLT
 \begin{equation}    \frac{\lambda^k}{k!}e^{-\lambda}\approx \frac{1}{\sqrt{\lambda}\sqrt{2\pi}}e^{-\frac{(k-\lambda)^2}{2\lambda}}\xrightarrow[\lambda=n]{k=n}n!\approx\sqrt{2\pi n}(\frac{n}{e})^n
 \end{equation}
 
@@ -580,10 +768,45 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
     \item Chebyshev Inequality\index{Inequality!Chebyshev Inequality}
 \begin{equation}     \mathbb{P}(|X-E(X)|\geq\epsilon)\leq\frac{var(X)}{\epsilon^2}
 \end{equation}
-    \item Jensen Inequality: For convex function $g(x)$:
-\begin{equation}    \mathbb{E}[g(X)]\geq g(\mathbb{E}(X))
+    \item Jensen Inequality: For convex function $h(x)$:\footnote{Or equivalently for concave function $ \tilde{h}(x) $L
+    \begin{align}
+         \mathbb{E}[\tilde{h}(X)]\leq \tilde{h}(\mathbb{E}(X))
+    \end{align}
+    }
+\begin{equation}    \mathbb{E}[h(X)]\geq h(\mathbb{E}(X))
 \end{equation}
-
+    
+    Example of using Jensen Eqa. to proof some other inequalities:
+    \begin{itemize}[topsep=2pt,itemsep=0pt]
+        \item Non-negativity of Kullback-Leibler Divergence: For two distributions $ f(\, \cdot \, ) $ and $ g(\, \cdot \, ) $, the K-L Divergence is defined as 
+        \begin{align}
+            \mathrm{KL}(f|g):=-\int f(x)\log \dfrac{g(x)}{f(x)}  \,\mathrm{d}x
+        \end{align}
+        
+        Take $ h(\xi ):=\log \xi  $ a concave function for $ \xi \in(0,\infty) $ and $ Z:=\dfrac{g(X)}{f(X)} $ with $ X\sim f(x) $, then
+        \begin{align}
+            \mathbb{E}\left( h(Z) \right) =&\int _A \left(\log z\right) f_Z(z) \,\mathrm{d}z=\int _A \left(\log \dfrac{g(x)}{f(x)}\right) f(x) \,\mathrm{d}x\\
+            \leq &h(\mathbb{E}\left( Z \right) )=\log \int _A zf_Z(z) \,\mathrm{d}z=\log \int _A \dfrac{g(x)}{f(x)}f(x) \,\mathrm{d}x=0\\
+            \Rightarrow& -\int _A \log f(x)\dfrac{g(x)}{f(x)} \,\mathrm{d}x\geq 0
+        \end{align}
+        % \item Non-negativity of \hyperlink{NormDefinition}{$ \ell_p $ Norm}:
+        % \begin{align}
+        %     \left\Vert x \right\Vert _p= \left(\sum_{i=1}^n |x_i|^p \right)^{1/p},\quad p\geq 1
+        % \end{align}
+        
+        % Take $ h(\xi ):=|\xi |^p  $ a convex function for $ p\geq 1 $ and r.v. $ Z_n $ is defined a discrete one with distribution
+        % \begin{align}
+        %     Z_n=x_1,x_2\,\ldots, x_n ,\,\mathrm{w.p.} \dfrac{1}{n}
+        % \end{align}
+        
+        % i.e. $ Z_n $ has equal probability to be assigned value in $ \{x_1,x_2\,\ldots, x_n\} $. Then
+        % \begin{align}
+        %     \mathbb{E}\left( h(Z) \right) =&\sum_{i=1}^n\dfrac{1}{n}|x_i|^p\\
+        %     \geq&h(\mathbb{E}\left( Z \right) )=\left|\sum_{i=1}^n\dfrac{1}{n}x_i\right|^p\\
+        %     \Rightarrow & \left|\sum_{i=1}^nx_i\right|^p\leq n^{p-1}\sum_{i=1}^n\dfrac{1}{n}|x_i|^p,\quad p\geq 1
+        % \end{align}
+    \end{itemize}
+    
 \end{itemize}
 
 
@@ -683,17 +906,31 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
 %    Then $Y_1,\cdots,Y_n\sim N$ 
 
     Special case: $X_1,\cdots,X_n$ i.i.d. $\sim N(\mu,\sigma^2)$, $\vec{X}=(X_1,\cdots,X_n)^T$, 
-    \begin{align*}
+    \begin{align}
         \mathbb{E}(Y_i)=&\mu\sum_{k=1}^n a_{ik}\\
         var(Y_i)=&\sigma^2\sum_{k=1}^n a_{ik}^2\\
         cov(Y_i,Y_j)=&\sigma^2\sum_{k=1}^n a_{ik} a_{jk}
-    \end{align*}
+    \end{align}
 
     Specially when 
     $\bm{A}=\{a_{ij}\}$ orthonormal, we have $Y_1,\cdots,Y_n$ independent
     \begin{equation}
         Y_i\sim N(\mu\sum_{k=1}^n a_{ik},\sigma^2)    
     \end{equation}
+
+    \begin{point}
+        Definition of Jointly Gaussian/Normal\index{Jointly Gaussian Variable}
+    \end{point}
+
+    A random vector $ \vec{X} $ is called jointly Gaussian if and only if any (finite) linear combination of $ \vec{X} $ is still Gaussian (Normal)
+    \begin{align}
+        \sum_{k=1}^m\alpha _{k}X_{i_k}\sim N(\, \cdot \, , \, \cdot \, ),\,\forall \{\alpha _k\}_{k=1}^m,\,\forall \{i_k\}_{k=1}^m,\,\forall m\leq n
+    \end{align}
+
+    Counter Example: $ [X,Y] $ in which $ X\sim N(0,1) $, $ Y=-X $ is not jointly Gaussian.
+    
+    
+    
 
     \subsubsection{Distributions of Function of Normal Variable: $\chi^2,$ $t\,\& \,F$}\label{chi2_t_F_properties}
         Consider $X_1,X_2,\ldots,X_n$ i.i.d. $\sim N(0,1)$; $Y,Y_1,Y_2,\ldots,Y_m$ i.i.d. $\sim N(0,1)$

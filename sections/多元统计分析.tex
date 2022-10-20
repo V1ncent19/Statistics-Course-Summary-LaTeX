@@ -46,12 +46,12 @@
     \end{equation}
 
     \item Random Vector\index{r.v. (Random Variable or Random Vector)}: For a $ p\times 1 $ random vector $ \vec{X}=(X_{1},X_{2},\ldots,X_{p})^T  $, denote (Marginal) expectation and variance, and covariance, correlation coefficient between $ X_i,X_j $ as follows:
-    \begin{align*}
+    \begin{align}
         \mu_i&=\mathbb{E}(X_i)\\
         \sigma _{ii}&=\sigma_i ^2=\mathbb{E}(X_i-\mu_i)^2\\
         \sigma_{ij}&=\mathbb{E}[(X_i-\mu_i)(X_j-\mu_j)]\\
         \rho _{ij}&=\dfrac{\sigma _{ij}}{\sqrt{\sigma _{ii}}\sqrt{\sigma _{jj}}}
-    \end{align*}
+    \end{align}
     
     and we have covariance matrix (as defined in \autoref{SubSubSectionCovarianceAndCorrelation}, \autoref{covariancematrix})
     \begin{equation}
@@ -70,9 +70,9 @@
     \end{equation}
 
     Based on $ \vec{X}=(X_{1},X_{2},\ldots,X_{p})  $, consider the linear combination:$ Y=c'X=c_1X_1+c_2X_2+\ldots c_pX_p $
-    \begin{align*}
+    \begin{align}
         \mathbb{E}(y)=c'\mu\qquad var(Y)=c'\Sigma c
-    \end{align*}
+    \end{align}
 
     and $ Z_i=\sum_{j=1}^p c_{ij}X_j $ (i.e. $ Z=CX $):
     \begin{equation}
@@ -84,14 +84,14 @@
     
 
     and Correlation Matrix\footnote{Here the correlation matrix is the matrix of Pearson's Correlation Coefficients. Another frequently use correlation matrix called Cross Correlation Matrix is\index{Correlation Matrix@(Cross) Correlation Matrix} 
-    \begin{align*}
+    \begin{align}
             \mathrm{cross}(X,Y)= \mathbb{E}\left[ X'Y \right]
-    \end{align*}
+    \end{align}
 
     and correlation matrix with $ Y=X $:
-    \begin{align*}
+    \begin{align}
         \mathrm{cross}(X,X)=  \mathbb{E}\left[ X'X\right]
-    \end{align*}
+    \end{align}
     }
     \index{Correlation Matrix@(Pearson's) Correlation Matrix}
     \begin{equation}
@@ -400,11 +400,11 @@
         \item \hypertarget{NormDefinition}{Norm}: \index{Norm}
         \begin{itemize}[topsep=2pt,itemsep=0pt]
             \item Vector Norm: for vector $ x,y\in \mathbb{C}^m $, norm $ \Vert \cdot \Vert  $ is a function $ \mathbb{C}^m\to \mathbb{R} $, with:
-            \begin{align*}
+            \begin{align}
                 \text{Semi-definiteness: }&\Vert x \Vert \geq 0,\, =\text{ for }x=0\\
                 \text{Absolute homogeneity: }&\Vert kx \Vert = |k|\Vert x \Vert,\, k\in \mathbb{C} \\
                 \text{Triangle inequality: }& \Vert x \Vert + \Vert y \Vert \geq \Vert x+y \Vert 
-            \end{align*}
+            \end{align}
         
         
         the $ \ell_p $-norm of $ x $ is
@@ -420,17 +420,17 @@
             \item $ \ell_\infty $-norm: $ \max |x_i| $.
         \end{itemize}
         \item Matrix Norm:  for matrix $ A,B\in \mathbb{C}^{m\times n} $, norm $ \Vert \cdot \Vert  $ is a function $ \mathbb{C}^{m\times n}\to \mathbb{R} $, with:
-        \begin{align*}
+        \begin{align}
             \text{Semi-definiteness: }&\Vert A \Vert \geq 0,\, =\text{ for }x=0\\
             \text{Absolute homogeneity: }&\Vert kA \Vert = |k|\Vert A \Vert,\, k\in \mathbb{C} \\
             \text{Triangle inequality: }& \Vert A \Vert + \Vert B \Vert \geq \Vert A+B \Vert 
-        \end{align*}
+        \end{align}
 
         further for $ m=n $, i.e. $ A,B\in \mathbb{C}^{m\times m} $, usually append
-        \begin{align*}
+        \begin{align}
             \text{Sub-multiplicative: }&\Vert A \Vert \Vert B \Vert \geq \Vert AB \Vert \\
             \text{Hermite: }&\Vert A \Vert =\Vert A^* \Vert 
-        \end{align*}
+        \end{align}
 
         Matrix norm induced by vector norm:
         \begin{equation}
@@ -459,9 +459,16 @@
             
         \end{itemize}
     \item Sherman-Morrison Formula:
-    \[
-        \left(A+u^Tv\right)^{-1}=A^{-1}-\dfrac{A^{-1}u^TvA^{-1}}{1+v^TA^{-1}u} 
-    \]
+    \begin{align}
+         \left(A+u^Tv\right)^{-1}=A^{-1}-\dfrac{A^{-1}u^TvA^{-1}}{1+v^TA^{-1}u} 
+    \end{align}
+    
+    Or in matrix form:
+    \begin{align}
+         \left(A+B\right)^{-1}=A^{-1}-\dfrac{A^{-1}BA^{-1}}{1+tr(A^{-1}B)},\quad \mathrm{rank}(B)=1 
+    \end{align}
+    
+    Application instances see \url{https://v1ncent19.github.io//texts/MahalanobisAndLeverage/} and \url{https://v1ncent19.github.io//texts/DeletedResidual/}.
     
     
     \end{itemize}
@@ -672,10 +679,10 @@
         L(\mu ,\Sigma;x_1,\ldots,x_n)=\dfrac{1}{(2\pi)^{np/2}|\Sigma |^{n/2}}\exp\left[ -\dfrac{1}{2}tr\left( \Sigma ^{-1} \left(\sum_{i=1}^n(x_i-\bar{x})(x_i-\bar{x})'+n(\bar{x}-\mu)(\bar{x}-\mu)' \right) \right) \right]
     \end{equation}
         And we can get the MLE of $ \mu $ and $ \Sigma  $ as follows\footnote{Detailed proof see '\textit{Applied Multivariate Statistical Analysis}' P130}:
-        \begin{align*}
+        \begin{align}
             \hat{\mu}&= \dfrac{1}{n}\sum_{i=1}^n x_i=\bar{x} \\
             \hat{\Sigma  }&= \dfrac{1}{n}\sum_{i=1}^n(x_i-\bar{x})(x_i-\bar{x})'=\dfrac{n-1}{n}S
-        \end{align*}
+        \end{align}
 
         \fbox{
             \begin{minipage}{0.9\linewidth}
@@ -783,10 +790,10 @@
         \begin{equation}
             \phi(T)=|I_p-2i\Sigma T|^{-\frac{m}{2}} 
         \end{equation}
-    % \begin{align*}
+    % \begin{align}
     %     \sum_{i=1}^nY_iY_i'=\sum_{i=1^n}X_iX_i'=\sum_{i=1}^n(X_i-\bar{X})(X_i-\bar{X})'+n\bar{X}\bar{X}'=(n-1)S+Y_1Y_1' \\
     %     \Rightarrow (n-1)S=\sum_{i=2}^nY_iY_i'\parallel \bar{X}=\dfrac{1}{\sqrt{n}}Y_1
-    % \end{align*} 
+    % \end{align} 
 
     % Then consider the distribution of $ {\displaystyle\sum_{i=2}^nY_iY_i'} \sum W_p(n-1,\Sigma )$, which is Wishart distribution.
 
@@ -824,8 +831,8 @@
     Large sample $ \bar{X} $ and $ S $
 \end{point}
 \begin{itemize}[topsep=2pt,itemsep=2pt]
-    \item $ \sqrt{n}(\bar{X}-\mu)\xrightarrow[]{\mathscr{L}} N_p(0,\Sigma ) $；
-    \item $ n(\bar{X}-\mu)'S ^{-1}(\bar{X}-\mu)\xrightarrow[]{\mathscr{L}} \chi_p^2 $
+    \item $ \sqrt{n}(\bar{X}-\mu)\xrightarrow[]{\mathrm{d}} N_p(0,\Sigma ) $；
+    \item $ n(\bar{X}-\mu)'S ^{-1}(\bar{X}-\mu)\xrightarrow[]{\mathrm{d}} \chi_p^2 $
 \end{itemize}
 
     
@@ -1039,24 +1046,24 @@
 \subsubsection{Large Sample Multivariate Inference}
     Basic point:
     \begin{equation}
-        \bar{X}\xrightarrow[]{\mathscr{L}} \mu\qquad S\xrightarrow[]{\mathscr{L}} \Sigma  
+        \bar{X}\xrightarrow[]{\mathrm{d}} \mu\qquad S\xrightarrow[]{\mathrm{d}} \Sigma  
     \end{equation}
 \begin{itemize}[topsep=2pt,itemsep=2pt]
     \item One-sample Mean:
     
     \begin{equation}
-        n(\bar{X}-\mu)S^{-1}(\bar{X}-\mu)\xrightarrow[]{\mathscr{L}} \chi^2_p 
+        n(\bar{X}-\mu)S^{-1}(\bar{X}-\mu)\xrightarrow[]{\mathrm{d}} \chi^2_p 
     \end{equation}
 
     \item Unequal Variance Two-sample Mean:
     
     \begin{equation}
-        \bar{X}_1-\bar{X}_2\xrightarrow[]{\mathscr{L}} N\left(\mu_1-\mu _2,\dfrac{1}{n_1}\Sigma _1+\dfrac{1}{n_2}\Sigma _2\right) \qquad \dfrac{1}{n_1}S_1+\dfrac{1}{n_2}S_2\xrightarrow[]{\mathscr{L}} \dfrac{1}{n_1}\Sigma _1+\dfrac{1}{n_2}\Sigma _2
+        \bar{X}_1-\bar{X}_2\xrightarrow[]{\mathrm{d}} N\left(\mu_1-\mu _2,\dfrac{1}{n_1}\Sigma _1+\dfrac{1}{n_2}\Sigma _2\right) \qquad \dfrac{1}{n_1}S_1+\dfrac{1}{n_2}S_2\xrightarrow[]{\mathrm{d}} \dfrac{1}{n_1}\Sigma _1+\dfrac{1}{n_2}\Sigma _2
     \end{equation}
 
     Test:
     \begin{equation}
-        T^2=\left[(\bar{X}_1-\bar{X}_2)-(\mu _1-\mu _2) \right]'(\dfrac{1}{n_1}S_1+\dfrac{1}{n_2}S_2)^{-1}\left[(\bar{X}_1-\bar{X}_2)-(\mu _1-\mu _2) \right]\xrightarrow[]{\mathscr{L}} \chi^2_p
+        T^2=\left[(\bar{X}_1-\bar{X}_2)-(\mu _1-\mu _2) \right]'(\dfrac{1}{n_1}S_1+\dfrac{1}{n_2}S_2)^{-1}\left[(\bar{X}_1-\bar{X}_2)-(\mu _1-\mu _2) \right]\xrightarrow[]{\mathrm{d}} \chi^2_p
     \end{equation}
     
     
@@ -1217,7 +1224,7 @@
     
     Under normal assumption or large sample case, i.e. 
     \begin{equation}
-        X\sim N_p(\mu,\Sigma ) \text{ or } X\xrightarrow[]{\mathscr{L}} N_p(\mu,\Sigma )
+        X\sim N_p(\mu,\Sigma ) \text{ or } X\xrightarrow[]{\mathrm{d}} N_p(\mu,\Sigma )
     \end{equation}
     
     We can examine the (asymptotic) distribution of $ (\hat{\lambda} _{1},\hat{\lambda} _{2},\ldots,\hat{\lambda} _{p})  $ and $ (\hat{e}_{1},\hat{e}_{2},\ldots,\hat{e}_{p})  $:
@@ -1259,7 +1266,7 @@
     \end{equation}
     
     where $ L $ is the $ \mathrm{const} $ \textbf{loading matrix} ; $ F $ is r.v. \textbf{factor}; and $ \varepsilon  $ is r.v. error.
-    \begin{align*}
+    \begin{align}
         X=\begin{bmatrix}
             X_1\\X_2\\\vdots\\X_p
         \end{bmatrix}\quad
@@ -1276,7 +1283,7 @@
         \varepsilon =\begin{bmatrix}
             \varepsilon _1\\\varepsilon _2\\\vdots\\\varepsilon _p
         \end{bmatrix}
-    \end{align*}
+    \end{align}
 
     Note: Intuitively, we cannot estimate $ (m+p) $ （unobserable) r.v. from $ p $ r.v., so we need the following assumptions on $ F $ and $ \varepsilon  $
     \begin{equation}
@@ -1506,11 +1513,11 @@
     \end{equation}
 
     and 
-    \begin{align*}
+    \begin{align}
         S_{12}=&\sum_{i=1}^p \hat{\rho }^*_i\alpha _i\beta _i'\\
         S_{11}=&\hat{A}^{-1}(\hat{A}^{-1})'=\sum_{i=1}^p\alpha _i\alpha _i'\\
         S_{22}=&\hat{B}^{-1}(\hat{B}^{-1})'=\sum_{i=1}^p\beta _i\beta _i'
-    \end{align*}
+    \end{align}
     
     Total sample variance explained by the first $ r $ canonical variables:
     \begin{equation}
@@ -1546,10 +1553,10 @@ Determination Criterion:
     \end{equation}
     
     For two-category problem, $ R_1 $, $ R_2 $ can be determined as
-    \begin{align*}
+    \begin{align}
         R_1=&\dfrac{f_{\pi_1}(x)}{f_{\pi_2}(x)}\geq \dfrac{c(1|2)}{c(2|1)}\dfrac{p_2}{p_1}\\
         R_2=&\complement_{R_x}^{R_1}=\mathop{\arg}\limits_{x\in R} \,  \dfrac{f_{\pi_1}(x)}{f_{\pi_2}(x)}<\dfrac{c(1|2)}{c(2|1)}\dfrac{p_2}{p_1}
-    \end{align*}
+    \end{align}
     \item Total Probability of Misclassification (TPM) Criterion: Minimizing $\mathrm{TPM}$,\index{TPM (Total Probability of Misclassification)}
     \begin{equation}
         \mathrm{TPM}=\mathbb{P}(\mathrm{misclass})=\mathbb{P}(2|1)p_1+\mathbb{P}(1|2)p_2 
@@ -1564,10 +1571,10 @@ Determination Criterion:
     Also equivalent to $ \mathrm{ECM} $ for $ c(1|2)=c(2|1) $
 \end{itemize}
     \item Here only introduce ECM: $ \{R_i\}=\arg\min\mathrm{ECM} $
-    \begin{align*}
+    \begin{align}
         \mathrm{ECM}(i)=&\sum_{j\neq i}c(j|i)\mathbb{P}(j|i)\\
         \mathrm{ECM}=&\sum_{i=1}^gp_i\mathrm{ECM}_i=\sum_{i=1}^g\sum_{j\neq i} c(j|i)p(j|i)p_i
-    \end{align*}
+    \end{align}
 \end{itemize}
 
     
@@ -1589,10 +1596,10 @@ Determination Criterion:
         \end{equation}
         
         then 
-        \begin{align*}
+        \begin{align}
             R_1=&\mathop{\arg}\limits_{x\in R} \,(\mu_1-\mu _2)'\Sigma ^{-1}x-\dfrac{1}{2}(\mu _1-\mu _2)'\Sigma ^{-1}(\mu _1-\mu _2)\geq \ln\left(\dfrac{c(1|2)}{c(2|1)}\dfrac{p_2}{p_1}\right)\\
             R_2=&\mathop{\arg}\limits_{x\in R}\,(\mu_1-\mu _2)'\Sigma ^{-1}x-\dfrac{1}{2}(\mu _1-\mu _2)'\Sigma ^{-1}(\mu _1-\mu _2)< \ln\left(\dfrac{c(1|2)}{c(2|1)}\dfrac{p_2}{p_1}\right)
-        \end{align*}
+        \end{align}
 
         Note that $  \mathrm{L.H.S.} $ is a linear combination of $ x $, thus called LinearDA.
 
@@ -1605,10 +1612,10 @@ Determination Criterion:
         \end{equation}
         
         then 
-        \begin{align*}
+        \begin{align}
             R_1=&-\dfrac{1}{2}x'(\Sigma _1^{-1}-\Sigma _2^{-1})x+(\mu _1'\Sigma _1^{-1}-\mu _2'\Sigma _2^{-1})x-\dfrac{1}{2}\ln\left(\dfrac{|\Sigma _1|}{|\Sigma _2|}\right)+\dfrac{1}{2}(\mu _1'\Sigma _1^{-1}\mu _1-\mu _2'\Sigma _2^{-1}\mu _2)\geq \ln\left(\dfrac{c(1|2)}{c(2|1)}\dfrac{p_2}{p_1}\right)\\
             R_2=&-\dfrac{1}{2}x'(\Sigma _1^{-1}-\Sigma _2^{-1})x+(\mu _1'\Sigma _1^{-1}-\mu _2'\Sigma _2^{-1})x-\dfrac{1}{2}\ln\left(\dfrac{|\Sigma _1|}{|\Sigma _2|}\right)+\dfrac{1}{2}(\mu _1'\Sigma _1^{-1}\mu _1-\mu _2'\Sigma _2^{-1}\mu _2)< \ln\left(\dfrac{c(1|2)}{c(2|1)}\dfrac{p_2}{p_1}\right)
-        \end{align*}
+        \end{align}
 
         Note that $  \mathrm{L.H.S.} $ is a quadric form of $ x $, thus called QuadraticDA.
         \item Two extension: allow more flexible estimation to variance:
@@ -1626,17 +1633,17 @@ Determination Criterion:
 
     Project $ x $ onto some hyperplane by $ y=a'x  $, then we maximize $ \psi =\dfrac{\text{mean of treatment}^2}{\text{variance}} $\footnote{MANOVA Model:    
     For $ g $ groups with same $ \Sigma  $, consider an MANOVA model: $ X_{ij}=\mu +\tau_i+e_{ij} $. Then MANOVA table gives Sum of Squares and cross Products (SSP):
-    \begin{align*}
+    \begin{align}
         \text{Treatment:}&B=\sum_{i=1}^gn_i(\bar{x}_i-\bar{x})(\bar{x}_i-\bar{x})'\\
         \text{Residual:}&W=\sum_{i=1}^g\sum_{j=1}^{n_i}(x_{ij}-\bar{x}_i)(x_{ij}-\bar{x}_i)'\\
         \text{Total:}&T=B+W=\sum_{i=1}^g\sum_{j=1}^{n_i}(x_{ij}-\bar{x})(x_{ij}-\bar{x})'
-    \end{align*}
+    \end{align}
 
     use $ B $ and $ W $ to measure the variance of sample.
     }. i.e.
-    \begin{align*}
+    \begin{align}
         \psi =\dfrac{\sum\limits_{i=1}^g(\mu_{iY}-\mu_Y)^2}{\sigma ^2_Y}=\dfrac{a'\left(\sum\limits_{i=1}^g(\mu_i-\mu)(\mu_i-\mu)'\right)a}{a'\Sigma a}=\dfrac{a'B_\mu a}{a'\Sigma a}
-    \end{align*}
+    \end{align}
     
     Result: $ a $ is the largest eigen vector of $ W^{-1}B $.
 
@@ -1775,10 +1782,10 @@ Note: pros­and­cons of $ K $-Means clustering algorithm
     % We can also label each object, then conduct discriminant analysis (e.g. QDA).
 
     %  Assumption and notation:  
-    % \begin{align*}
+    % \begin{align}
     %     Y\sim& \sum_{l=1}^k\pi_lN()\text{ where }\pi\text{ is a set }\{\pi_l\}\\
     %     X|Y=l\sim& N(\mu_l,\Sigma _l)=N(\theta_l),\, 1\leq l\leq k
-    % \end{align*}
+    % \end{align}
 
     % Our aim is to estimate $ \pi,(\mu_i,\Sigma _i) ,\,1\leq i\leq k$. 
     % Take two-component gaussion mixture model $ k=2 $ as example.
@@ -1793,9 +1800,9 @@ Note: pros­and­cons of $ K $-Means clustering algorithm
     \end{equation}
     
     E-M Algorithm uses the ELBO maximizing method, detail see \autoref{SubSectionExpectationMaximumAlgorithm}. For simplification express $ \theta \equiv \{ \cup \pi_l,\cup \mu_l,\cup \Sigma _l \} $. The maximizing function $ Q(\theta |\theta ^{(t)}) $ for GMM model and corresponding iteration: 
-\begin{align*}
+\begin{align}
     \theta ^{(t+1)}=\mathop{\arg\max}\limits_{\theta }  Q(\theta |\theta ^{(t)})=&\mathop{\arg\max}\limits_{\theta }\sum_{i=1}^N\sum_{l=1}^K\gamma _{il}^{(t)}\log \pi_l\phi (x_i|\mu _l,\Sigma _l),\quad \gamma _{il}^{(t)}\equiv \dfrac{\pi_l^{(t)}\phi(x_i|\mu _l^{(t)},\Sigma _l^{(t)})}{\sum\limits_{j=1}^K\pi_j^{(t)}\phi (x_i|\mu _j^{(t)},\Sigma _j^{(t)})}
-\end{align*}
+\end{align}
     Lagrange Multiplier: Extreme value $ \mathop{\arg\max}\limits_{\theta }Q(\theta |\theta ^{(t)})  $ with constraint $ \sum_{l=1}^K \pi_l=1 $ requires 
     \begin{equation}
          \dfrac{\partial^{}  Q(\theta |\theta ^{(t)})}{\partial \mu _l^{}}=0\quad \dfrac{\partial^{}  Q(\theta |\theta ^{(t)})}{\partial \Sigma ^{-1}_l}=0 \quad \dfrac{\partial^{}  Q(\theta |\theta ^{(t)})+\lambda (\sum_{j=1}^K\pi_l-1)}{\partial \pi_j^{}}=0,\quad \forall l=1,2,\ldots,K
@@ -1890,10 +1897,10 @@ Note: pros­and­cons of $ K $-Means clustering algorithm
     \end{itemize}
     
     DBSCAN algorithm classify all points that are Density Connected to each other into a cluster $ C\subset X $, i.e.
-    \begin{align*}
+    \begin{align}
         \text{Maximality:}& x\in C\&\& y\text{ DR from } x \Rightarrow y\in C\\
         \text{Connectivity:}& x,y\in C\Rightarrow x,y\text{ DC}.
-    \end{align*} 
+    \end{align} 
         
     Pros and cons of DBSCAN:
 \begin{itemize}[topsep=2pt,itemsep=2pt]

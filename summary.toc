@@ -1,264 +1,267 @@
 \contentsline {section}{\numberline {1}概率论部分}{9}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Some Important Distributions}{9}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Probability and Probability Model}{9}{subsection.1.2}%
-\contentsline {subsubsection}{\numberline {1.2.1}Sample and $\sigma $-Field}{9}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.1}Sample Space and $\sigma $-Field}{9}{subsubsection.1.2.1}%
 \contentsline {subsubsection}{\numberline {1.2.2}Axioms of Probability}{10}{subsubsection.1.2.2}%
-\contentsline {subsubsection}{\numberline {1.2.3}Conditional Probability}{11}{subsubsection.1.2.3}%
-\contentsline {subsection}{\numberline {1.3}Properties of Random Variable and Vector}{11}{subsection.1.3}%
-\contentsline {subsubsection}{\numberline {1.3.1}Random Variable}{11}{subsubsection.1.3.1}%
-\contentsline {subsubsection}{\numberline {1.3.2}Random Vector}{12}{subsubsection.1.3.2}%
-\contentsline {subsection}{\numberline {1.4}Properties of $\mathbb {E}$ , $var$ and $cov$}{13}{subsection.1.4}%
-\contentsline {subsubsection}{\numberline {1.4.1}Expection $ \mathbb {E}(\,\cdot \,) $}{13}{subsubsection.1.4.1}%
-\contentsline {subsubsection}{\numberline {1.4.2}Variance}{13}{subsubsection.1.4.2}%
-\contentsline {subsubsection}{\numberline {1.4.3}Covariance and Correlation}{14}{subsubsection.1.4.3}%
-\contentsline {subsection}{\numberline {1.5}PGF, MGF and C.F}{15}{subsection.1.5}%
-\contentsline {subsubsection}{\numberline {1.5.1}Probability Generating Function}{15}{subsubsection.1.5.1}%
-\contentsline {subsubsection}{\numberline {1.5.2}Moment Generating Function}{15}{subsubsection.1.5.2}%
-\contentsline {subsubsection}{\numberline {1.5.3}Characteristic Function}{16}{subsubsection.1.5.3}%
-\contentsline {subsection}{\numberline {1.6}Convergence and Limit Distribution}{16}{subsection.1.6}%
-\contentsline {subsubsection}{\numberline {1.6.1}Convergence Mode}{16}{subsubsection.1.6.1}%
-\contentsline {subsubsection}{\numberline {1.6.2}Law of Large Number \& Central Limit Theorem}{17}{subsubsection.1.6.2}%
-\contentsline {subsection}{\numberline {1.7}Inequalities}{18}{subsection.1.7}%
-\contentsline {subsection}{\numberline {1.8}Multivariate Normal Distribution}{18}{subsection.1.8}%
-\contentsline {subsubsection}{\numberline {1.8.1}Linear Transform}{19}{subsubsection.1.8.1}%
-\contentsline {subsubsection}{\numberline {1.8.2}Distributions of Function of Normal Variable: $\chi ^2,$ $t\,\& \,F$}{19}{subsubsection.1.8.2}%
-\contentsline {section}{\numberline {2}统计推断部分}{22}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Statistical Model and Statistics}{22}{subsection.2.1}%
-\contentsline {subsubsection}{\numberline {2.1.1}Statistics}{22}{subsubsection.2.1.1}%
-\contentsline {subsubsection}{\numberline {2.1.2}Exponential Family}{24}{subsubsection.2.1.2}%
-\contentsline {subsubsection}{\numberline {2.1.3}Sufficient and Complete Statistics}{25}{subsubsection.2.1.3}%
-\contentsline {subsection}{\numberline {2.2}Point Estimation}{26}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Optimal Criterion}{27}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}Method of Moments}{28}{subsubsection.2.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.3}Maximum Likelihood Estimation}{28}{subsubsection.2.2.3}%
-\contentsline {subsubsection}{\numberline {2.2.4}Uniformly Minimum Variance Unbiased Estimator}{30}{subsubsection.2.2.4}%
-\contentsline {subsubsection}{\numberline {2.2.5}MoM and MLE in Linear Regression}{32}{subsubsection.2.2.5}%
-\contentsline {subsubsection}{\numberline {2.2.6}Kernel Density Estimation}{35}{subsubsection.2.2.6}%
-\contentsline {subsection}{\numberline {2.3}Interval Estimation}{35}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Confidence Interval}{36}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}Pivot Variable Method}{36}{subsubsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.3}Confidence Interval for Common Distributions}{37}{subsubsection.2.3.3}%
-\contentsline {subsubsection}{\numberline {2.3.4}Fisher Fiducial Argument*}{39}{subsubsection.2.3.4}%
-\contentsline {subsection}{\numberline {2.4}Hypothesis Testing}{39}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Basic Concepts}{39}{subsubsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}Hypothesis Testing of Common Distributions}{42}{subsubsection.2.4.2}%
-\contentsline {subsubsection}{\numberline {2.4.3}Likelihood Ratio Test}{42}{subsubsection.2.4.3}%
-\contentsline {subsubsection}{\numberline {2.4.4}Uniformly Most Powerful Test}{44}{subsubsection.2.4.4}%
-\contentsline {subsubsection}{\numberline {2.4.5}Duality of Hypothesis Testing and Interval Estimation}{45}{subsubsection.2.4.5}%
-\contentsline {subsubsection}{\numberline {2.4.6}Introduction to Non-Parametric Hypothesis Testing}{46}{subsubsection.2.4.6}%
-\contentsline {section}{\numberline {3}线性回归分析部分}{51}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Regression Model}{52}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Linear Regression Model}{52}{subsubsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.2}Factor Analysis Model}{53}{subsubsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.2}Monovariate Linear Regression Model}{54}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}The Ordinary Least Square Estimation}{54}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Statistical Inference to $ \beta _0 $, $ \beta _1 $, $ \sigma ^2 $, $ e_i $}{56}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Prediction to $ Y_h $}{58}{subsubsection.3.2.3}%
-\contentsline {subsubsection}{\numberline {3.2.4}Analysis of Variance: Monovariate}{59}{subsubsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.3}Multivariate Linear Regression Model}{60}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}The Ordinary Least Estimation}{60}{subsubsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.2}Statistical Inference to $ \beta $, $ \sigma ^2 $, $ e $}{61}{subsubsection.3.3.2}%
-\contentsline {subsubsection}{\numberline {3.3.3}Prediction to $ Y_h $}{62}{subsubsection.3.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.4}Analysis of Variance: Multivariate}{62}{subsubsection.3.3.4}%
-\contentsline {subsection}{\numberline {3.4}Diagnostics}{63}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Useful Diagnostics Plots}{65}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Diagnostics to $ X $ Distribution}{66}{subsubsection.3.4.2}%
-\contentsline {subsubsection}{\numberline {3.4.3}Diagnostics to Residual}{67}{subsubsection.3.4.3}%
-\contentsline {subsubsection}{\numberline {3.4.4}Diagnostics to Influentials}{70}{subsubsection.3.4.4}%
-\contentsline {subsubsection}{\numberline {3.4.5}Extra Sum Of Square}{74}{subsubsection.3.4.5}%
-\contentsline {subsubsection}{\numberline {3.4.6}Hypotheses Testing to Slope}{75}{subsubsection.3.4.6}%
-\contentsline {subsubsection}{\numberline {3.4.7}Diagnostics to Multi-collinearity}{76}{subsubsection.3.4.7}%
-\contentsline {subsubsection}{\numberline {3.4.8}Diagnostics to Model Variable Selection}{78}{subsubsection.3.4.8}%
-\contentsline {subsection}{\numberline {3.5}Remedies}{80}{subsection.3.5}%
-\contentsline {subsubsection}{\numberline {3.5.1}Variable Transformation}{80}{subsubsection.3.5.1}%
-\contentsline {subsubsection}{\numberline {3.5.2}Weighted Least Squares Regression}{82}{subsubsection.3.5.2}%
-\contentsline {subsubsection}{\numberline {3.5.3}Remedies for Model Variable Selection \& More Regression Model}{82}{subsubsection.3.5.3}%
-\contentsline {subsection}{\numberline {3.6}Factor Analysis of Variance}{85}{subsection.3.6}%
-\contentsline {subsubsection}{\numberline {3.6.1}Single Factor Model}{85}{subsubsection.3.6.1}%
-\contentsline {subsubsection}{\numberline {3.6.2}Double Factor Model}{87}{subsubsection.3.6.2}%
-\contentsline {subsection}{\numberline {3.7}Generalized Linear Model}{88}{subsection.3.7}%
-\contentsline {section}{\numberline {4}多元统计分析部分}{91}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Multivariate Data}{91}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Matrix Representation}{91}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Review: Some Matrix Notation \& Lemma}{95}{subsubsection.4.1.2}%
-\contentsline {subsubsection}{\numberline {4.1.3}Useful Inequalities}{98}{subsubsection.4.1.3}%
-\contentsline {subsection}{\numberline {4.2}Statistical Inference to Multivariate Population}{98}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Multivariate Normal Distribution}{98}{subsubsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2}MLE of Multivariate Normal}{100}{subsubsection.4.2.2}%
-\contentsline {subsubsection}{\numberline {4.2.3}Sampling distribution of $ \bar {X} $ and $ S $}{100}{subsubsection.4.2.3}%
-\contentsline {subsubsection}{\numberline {4.2.4}Hypothesis Testing for Normal Population}{101}{subsubsection.4.2.4}%
-\contentsline {subsubsection}{\numberline {4.2.5}Confidence Region}{103}{subsubsection.4.2.5}%
-\contentsline {subsubsection}{\numberline {4.2.6}Large Sample Multivariate Inference}{104}{subsubsection.4.2.6}%
-\contentsline {subsection}{\numberline {4.3}Principal Component Analysis}{105}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}Population Principal Component}{105}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.2}Sample Principal Component}{106}{subsubsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.4}Factor Analysis}{107}{subsection.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.1}Orthogonal Factor Model}{107}{subsubsection.4.4.1}%
-\contentsline {subsubsection}{\numberline {4.4.2}Principal Component Approach}{108}{subsubsection.4.4.2}%
-\contentsline {subsubsection}{\numberline {4.4.3}MLE Method}{109}{subsubsection.4.4.3}%
-\contentsline {subsection}{\numberline {4.5}Canonical Correlation Analysis}{109}{subsection.4.5}%
-\contentsline {subsubsection}{\numberline {4.5.1}Canonical Variate Pair}{109}{subsubsection.4.5.1}%
-\contentsline {subsubsection}{\numberline {4.5.2}Canonical Correlation based on Standardized Variables}{110}{subsubsection.4.5.2}%
-\contentsline {subsubsection}{\numberline {4.5.3}Sample Canonical Correlation}{110}{subsubsection.4.5.3}%
-\contentsline {subsection}{\numberline {4.6}Discriminant Analysis}{111}{subsection.4.6}%
-\contentsline {subsubsection}{\numberline {4.6.1}Classification Criterion}{111}{subsubsection.4.6.1}%
-\contentsline {subsubsection}{\numberline {4.6.2}Linear \& Quadratic Discriminant Analysis}{112}{subsubsection.4.6.2}%
-\contentsline {subsubsection}{\numberline {4.6.3}Fisher's Discriminant Analysis}{112}{subsubsection.4.6.3}%
-\contentsline {subsubsection}{\numberline {4.6.4}Evaluation of Discriminant Model}{113}{subsubsection.4.6.4}%
-\contentsline {subsection}{\numberline {4.7}Clustering Analysis}{113}{subsection.4.7}%
-\contentsline {subsubsection}{\numberline {4.7.1}Agglomerative Clustering Algorithm}{113}{subsubsection.4.7.1}%
-\contentsline {subsubsection}{\numberline {4.7.2}$ K $-Means Clustering Algorithm}{115}{subsubsection.4.7.2}%
-\contentsline {subsubsection}{\numberline {4.7.3}Expectation Maximization Algorithm for Gaussian Mixture Model}{116}{subsubsection.4.7.3}%
-\contentsline {subsubsection}{\numberline {4.7.4}DBSCAN \& OPTICS Density Clustering Algorithm}{117}{subsubsection.4.7.4}%
-\contentsline {section}{\numberline {5}数据科学导论部分}{119}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Basic R. Manipulation}{120}{subsection.5.1}%
-\contentsline {subsubsection}{\numberline {5.1.1}Installation and Maintenance of R.}{120}{subsubsection.5.1.1}%
-\contentsline {subsubsection}{\numberline {5.1.2}Data Structure and Basic Manipulation in R.}{121}{subsubsection.5.1.2}%
-\contentsline {subsubsection}{\numberline {5.1.3}Functions and Control Flow}{123}{subsubsection.5.1.3}%
-\contentsline {subsubsection}{\numberline {5.1.4}Vectorized Operation}{125}{subsubsection.5.1.4}%
-\contentsline {subsubsection}{\numberline {5.1.5}Subsetting}{125}{subsubsection.5.1.5}%
-\contentsline {subsubsection}{\numberline {5.1.6}Data Manipulation With dplyr. And tidyr.}{126}{subsubsection.5.1.6}%
-\contentsline {subsection}{\numberline {5.2}Text Processing \& Text Mining}{128}{subsection.5.2}%
-\contentsline {subsubsection}{\numberline {5.2.1}Basic Text Manipulation With stringr.}{128}{subsubsection.5.2.1}%
-\contentsline {subsubsection}{\numberline {5.2.2}Regular Expression}{129}{subsubsection.5.2.2}%
-\contentsline {subsubsection}{\numberline {5.2.3}Web Scraping}{131}{subsubsection.5.2.3}%
-\contentsline {subsection}{\numberline {5.3}Graphic in R.}{131}{subsection.5.3}%
-\contentsline {subsubsection}{\numberline {5.3.1}R::base Plotting}{131}{subsubsection.5.3.1}%
-\contentsline {subsubsection}{\numberline {5.3.2}R::ggplot2 Plotting}{135}{subsubsection.5.3.2}%
-\contentsline {section}{\numberline {6}统计计算与软件部分}{138}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Algorithm Theory Introduction}{138}{subsection.6.1}%
-\contentsline {subsubsection}{\numberline {6.1.1}Finite Precision Computation}{138}{subsubsection.6.1.1}%
-\contentsline {subsubsection}{\numberline {6.1.2}Stability \& Accuracy}{139}{subsubsection.6.1.2}%
-\contentsline {subsubsection}{\numberline {6.1.3}Iteration Algorithm}{140}{subsubsection.6.1.3}%
-\contentsline {subsubsection}{\numberline {6.1.4}Constrained Optimize Theory}{141}{subsubsection.6.1.4}%
-\contentsline {subsection}{\numberline {6.2}Algebratic Problem in Statistics}{142}{subsection.6.2}%
-\contentsline {subsubsection}{\numberline {6.2.1}Matrix Operation}{142}{subsubsection.6.2.1}%
-\contentsline {subsubsection}{\numberline {6.2.2}Projection and Least Square Problem}{143}{subsubsection.6.2.2}%
-\contentsline {subsubsection}{\numberline {6.2.3}Gaussian $ LU $ Decomposition \& Cholesky Decomposition}{144}{subsubsection.6.2.3}%
-\contentsline {subsubsection}{\numberline {6.2.4}$ QR $ Decomposition: Gram-Schmidt/Householder/Givens Method}{146}{subsubsection.6.2.4}%
-\contentsline {subsubsection}{\numberline {6.2.5}Eigenvalue Decomposition}{148}{subsubsection.6.2.5}%
-\contentsline {subsubsection}{\numberline {6.2.6}SVD Decomposition}{150}{subsubsection.6.2.6}%
-\contentsline {subsubsection}{\numberline {6.2.7}Schur Decomposition}{151}{subsubsection.6.2.7}%
-\contentsline {subsection}{\numberline {6.3}Numeric Optimization Algorithm I}{151}{subsection.6.3}%
-\contentsline {subsubsection}{\numberline {6.3.1}Golden Section/Fibonacci Section Search}{153}{subsubsection.6.3.1}%
-\contentsline {subsubsection}{\numberline {6.3.2}Bisection Search Method}{155}{subsubsection.6.3.2}%
-\contentsline {subsubsection}{\numberline {6.3.3}Interpolation Methods: Linear/Quadratic/Lagrange Interpolation}{155}{subsubsection.6.3.3}%
-\contentsline {subsubsection}{\numberline {6.3.4}Hybrid Method: Dekker's/Brent's}{157}{subsubsection.6.3.4}%
-\contentsline {subsubsection}{\numberline {6.3.5}Fixed Point Iteration: Univariate}{158}{subsubsection.6.3.5}%
-\contentsline {subsubsection}{\numberline {6.3.6}Fixed Point Iteration: Multivariate Linear}{159}{subsubsection.6.3.6}%
-\contentsline {subsubsection}{\numberline {6.3.7}Nelder-Mead Method}{160}{subsubsection.6.3.7}%
-\contentsline {subsection}{\numberline {6.4}Numeric Optimization Algorithm II}{161}{subsection.6.4}%
-\contentsline {subsubsection}{\numberline {6.4.1}Gradient Descent Method}{162}{subsubsection.6.4.1}%
-\contentsline {subsubsection}{\numberline {6.4.2}Newton-Raphson Method}{162}{subsubsection.6.4.2}%
-\contentsline {subsubsection}{\numberline {6.4.3}Fisher's Scoring Method in MLE}{162}{subsubsection.6.4.3}%
-\contentsline {subsubsection}{\numberline {6.4.4}Linear Modification to Step Length}{167}{subsubsection.6.4.4}%
-\contentsline {subsubsection}{\numberline {6.4.5}Quasi Newton Method}{168}{subsubsection.6.4.5}%
-\contentsline {subsubsection}{\numberline {6.4.6}Steepest Descent*}{171}{subsubsection.6.4.6}%
-\contentsline {subsubsection}{\numberline {6.4.7}Trust Region Method}{171}{subsubsection.6.4.7}%
-\contentsline {subsubsection}{\numberline {6.4.8}Conjugate Gradient Method}{172}{subsubsection.6.4.8}%
-\contentsline {subsection}{\numberline {6.5}Expectation Maximization Algorithm}{174}{subsection.6.5}%
-\contentsline {subsubsection}{\numberline {6.5.1}Requisite Knowledge}{174}{subsubsection.6.5.1}%
-\contentsline {subsubsection}{\numberline {6.5.2}Derivation}{174}{subsubsection.6.5.2}%
-\contentsline {subsection}{\numberline {6.6}Statistical Simulation}{176}{subsection.6.6}%
-\contentsline {subsubsection}{\numberline {6.6.1}Random Number Generation}{176}{subsubsection.6.6.1}%
-\contentsline {subsubsection}{\numberline {6.6.2}Numerical Integration With Simulation}{178}{subsubsection.6.6.2}%
-\contentsline {subsubsection}{\numberline {6.6.3}Bootstrap}{180}{subsubsection.6.6.3}%
-\contentsline {subsubsection}{\numberline {6.6.4}Markov Chain Monte Carlo Method}{181}{subsubsection.6.6.4}%
-\contentsline {section}{\numberline {7}可靠性数据与生存分析部分}{183}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Reliability Data}{183}{subsection.7.1}%
-\contentsline {subsubsection}{\numberline {7.1.1}Right Censor Data and Representation}{183}{subsubsection.7.1.1}%
-\contentsline {subsubsection}{\numberline {7.1.2}Life Table Data}{183}{subsubsection.7.1.2}%
-\contentsline {subsection}{\numberline {7.2}Survival Model and Statistical Inference}{184}{subsection.7.2}%
-\contentsline {subsubsection}{\numberline {7.2.1}Survival Function and Hazard}{184}{subsubsection.7.2.1}%
-\contentsline {subsubsection}{\numberline {7.2.2}Parametric Statistical Inference to Survival Function}{185}{subsubsection.7.2.2}%
-\contentsline {subsubsection}{\numberline {7.2.3}Non-Parametric Estimation to Survival Function}{189}{subsubsection.7.2.3}%
-\contentsline {subsubsection}{\numberline {7.2.4}Hypothesis Testing to Group Comparison}{191}{subsubsection.7.2.4}%
-\contentsline {subsection}{\numberline {7.3}Survival Model with Covariants}{194}{subsection.7.3}%
-\contentsline {subsubsection}{\numberline {7.3.1}Cox's Proportion Hazard Model}{194}{subsubsection.7.3.1}%
-\contentsline {subsubsection}{\numberline {7.3.2}Accelerated Failure Time Model}{198}{subsubsection.7.3.2}%
-\contentsline {section}{\numberline {8}生物统计学概论部分}{200}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Factor Model and ANOVA}{200}{subsection.8.1}%
-\contentsline {subsubsection}{\numberline {8.1.1}Single Factor Model and One-Way ANOVA}{200}{subsubsection.8.1.1}%
-\contentsline {subsubsection}{\numberline {8.1.2}Fixed Effect and Random Effect}{201}{subsubsection.8.1.2}%
-\contentsline {subsubsection}{\numberline {8.1.3}Two Factor Model and Two-Way ANOVA}{202}{subsubsection.8.1.3}%
-\contentsline {subsubsection}{\numberline {8.1.4}General Case for Factor Model}{203}{subsubsection.8.1.4}%
-\contentsline {subsubsection}{\numberline {8.1.5}Diagnosis}{206}{subsubsection.8.1.5}%
-\contentsline {subsubsection}{\numberline {8.1.6}Miscellaneous Topics}{206}{subsubsection.8.1.6}%
-\contentsline {subsection}{\numberline {8.2}Statistical Inference on Contingency Table}{207}{subsection.8.2}%
-\contentsline {subsubsection}{\numberline {8.2.1}Quantities and Statistics from Contingency Table}{207}{subsubsection.8.2.1}%
-\contentsline {subsection}{\numberline {8.3}Clinical Trial Design}{209}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}GWAS}{209}{subsection.8.4}%
-\contentsline {section}{\numberline {9}统计学习导论部分}{210}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Linear Model}{210}{subsection.9.1}%
-\contentsline {subsubsection}{\numberline {9.1.1}Linear Model in Machine Learning Perspective}{210}{subsubsection.9.1.1}%
-\contentsline {subsubsection}{\numberline {9.1.2}Linear Regression}{211}{subsubsection.9.1.2}%
-\contentsline {subsubsection}{\numberline {9.1.3}Normalization Methods}{211}{subsubsection.9.1.3}%
-\contentsline {subsection}{\numberline {9.2}Basic Classification Model}{213}{subsection.9.2}%
-\contentsline {subsubsection}{\numberline {9.2.1}Classification Metrics}{213}{subsubsection.9.2.1}%
-\contentsline {subsubsection}{\numberline {9.2.2}Cross-Validation}{215}{subsubsection.9.2.2}%
-\contentsline {subsubsection}{\numberline {9.2.3}Bayes Optimal Classifier}{215}{subsubsection.9.2.3}%
-\contentsline {subsubsection}{\numberline {9.2.4}$ k $-Nearest Neighbours Approach}{215}{subsubsection.9.2.4}%
-\contentsline {subsubsection}{\numberline {9.2.5}Density Based Classification}{215}{subsubsection.9.2.5}%
-\contentsline {subsubsection}{\numberline {9.2.6}Logistic Regression}{216}{subsubsection.9.2.6}%
-\contentsline {subsection}{\numberline {9.3}Support Vector Machine}{217}{subsection.9.3}%
-\contentsline {subsubsection}{\numberline {9.3.1}Derivation of Basic Optimize Problem}{217}{subsubsection.9.3.1}%
-\contentsline {subsubsection}{\numberline {9.3.2}Support Vector Machine as Loss-Penalization Method}{220}{subsubsection.9.3.2}%
-\contentsline {subsubsection}{\numberline {9.3.3}Kernel Support Vector Machine}{220}{subsubsection.9.3.3}%
-\contentsline {subsection}{\numberline {9.4}Feature Expansion and Kernel Methods}{220}{subsection.9.4}%
-\contentsline {subsubsection}{\numberline {9.4.1}Reproducing Kernel Hilbert Space and The Representer Theorem}{220}{subsubsection.9.4.1}%
-\contentsline {subsubsection}{\numberline {9.4.2}Useful Kernel}{222}{subsubsection.9.4.2}%
-\contentsline {subsubsection}{\numberline {9.4.3}Kernel Support Vector Machine}{223}{subsubsection.9.4.3}%
-\contentsline {subsubsection}{\numberline {9.4.4}SMO Algorithm for Kernel SVM}{223}{subsubsection.9.4.4}%
-\contentsline {subsubsection}{\numberline {9.4.5}Kernel Regression}{223}{subsubsection.9.4.5}%
-\contentsline {subsection}{\numberline {9.5}Clustering}{224}{subsection.9.5}%
-\contentsline {subsubsection}{\numberline {9.5.1}Proximity Matrix}{224}{subsubsection.9.5.1}%
-\contentsline {subsubsection}{\numberline {9.5.2}Spectrum Clustering}{225}{subsubsection.9.5.2}%
-\contentsline {subsection}{\numberline {9.6}Tree-Based Classification Model}{226}{subsection.9.6}%
-\contentsline {subsubsection}{\numberline {9.6.1}Tree-Based Classification}{227}{subsubsection.9.6.1}%
-\contentsline {subsubsection}{\numberline {9.6.2}Bagging and Boosting}{228}{subsubsection.9.6.2}%
-\contentsline {subsection}{\numberline {9.7}Neural Network}{229}{subsection.9.7}%
-\contentsline {subsubsection}{\numberline {9.7.1}Back Propagation}{230}{subsubsection.9.7.1}%
-\contentsline {section}{\numberline {10}应用时间序列部分}{232}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Time Series Data and Model}{232}{subsection.10.1}%
-\contentsline {subsubsection}{\numberline {10.1.1}Time Series Data and Tasks}{232}{subsubsection.10.1.1}%
-\contentsline {subsubsection}{\numberline {10.1.2}Time Series Model}{232}{subsubsection.10.1.2}%
-\contentsline {subsection}{\numberline {10.2}Stochastic Process and Statistics}{233}{subsection.10.2}%
-\contentsline {subsubsection}{\numberline {10.2.1}Basic Knowledge of Stochastic Process}{233}{subsubsection.10.2.1}%
-\contentsline {subsubsection}{\numberline {10.2.2}Statistics}{237}{subsubsection.10.2.2}%
-\contentsline {subsection}{\numberline {10.3}ARMA Model}{238}{subsection.10.3}%
-\contentsline {subsubsection}{\numberline {10.3.1}Backshift Operator and Difference Equation}{238}{subsubsection.10.3.1}%
-\contentsline {subsubsection}{\numberline {10.3.2}AR Model}{239}{subsubsection.10.3.2}%
-\contentsline {subsubsection}{\numberline {10.3.3}MA Model}{241}{subsubsection.10.3.3}%
-\contentsline {subsubsection}{\numberline {10.3.4}ARMA Model}{242}{subsubsection.10.3.4}%
-\contentsline {subsubsection}{\numberline {10.3.5}ARIMA Model}{243}{subsubsection.10.3.5}%
-\contentsline {subsection}{\numberline {10.4}Seasonal Model for Time Series}{243}{subsection.10.4}%
-\contentsline {subsubsection}{\numberline {10.4.1}Regression Model}{243}{subsubsection.10.4.1}%
-\contentsline {subsubsection}{\numberline {10.4.2}Moving Average Model}{243}{subsubsection.10.4.2}%
-\contentsline {subsubsection}{\numberline {10.4.3}Seasonal ARIMA Model}{244}{subsubsection.10.4.3}%
-\contentsline {subsection}{\numberline {10.5}Model Selection and Diagnostics}{244}{subsection.10.5}%
-\contentsline {subsubsection}{\numberline {10.5.1}Model Building of ARIMA}{244}{subsubsection.10.5.1}%
-\contentsline {subsubsection}{\numberline {10.5.2}Order Determination of ARIMA Model}{244}{subsubsection.10.5.2}%
-\contentsline {subsubsection}{\numberline {10.5.3}Outlier Detection}{246}{subsubsection.10.5.3}%
-\contentsline {subsection}{\numberline {10.6}Forecast of Time Series}{246}{subsection.10.6}%
-\contentsline {subsubsection}{\numberline {10.6.1}MSE Forecast Criterion}{246}{subsubsection.10.6.1}%
-\contentsline {subsubsection}{\numberline {10.6.2}Best Linear Estimator}{246}{subsubsection.10.6.2}%
-\contentsline {subsubsection}{\numberline {10.6.3}Forecast of AR$ (p) $}{247}{subsubsection.10.6.3}%
-\contentsline {subsubsection}{\numberline {10.6.4}Forecast of MA$ (q) $}{247}{subsubsection.10.6.4}%
-\contentsline {subsubsection}{\numberline {10.6.5}Forecast of ARMA$ (p,q) $}{248}{subsubsection.10.6.5}%
-\contentsline {subsubsection}{\numberline {10.6.6}Forecast of ARIMA$ (p,d,q) $}{248}{subsubsection.10.6.6}%
-\contentsline {section}{\numberline {11}因果推断导论部分}{249}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Neyman-Rubin Framework}{249}{subsection.11.1}%
-\contentsline {subsubsection}{\numberline {11.1.1}Description of Causal Effect and Challenge}{249}{subsubsection.11.1.1}%
-\contentsline {subsubsection}{\numberline {11.1.2}Assumptions}{250}{subsubsection.11.1.2}%
-\contentsline {subsection}{\numberline {11.2}Inference to Causal Effect}{252}{subsection.11.2}%
-\contentsline {subsubsection}{\numberline {11.2.1}Fisher's Exact $ p $-value}{252}{subsubsection.11.2.1}%
-\contentsline {subsubsection}{\numberline {11.2.2}Neyman's Repeated Sampling}{253}{subsubsection.11.2.2}%
-\contentsline {subsection}{\numberline {11.3}Pearl Framework}{254}{subsection.11.3}%
-\contentsline {section}{\numberline {12}应用随机过程部分}{255}{section.12}%
-\contentsline {subsection}{\numberline {12.1}Minimum Mean Squared Estimator}{255}{subsection.12.1}%
-\contentsline {subsection}{\numberline {12.2}Markov Process}{257}{subsection.12.2}%
-\contentsline {subsubsection}{\numberline {12.2.1}Stochastic Process}{257}{subsubsection.12.2.1}%
-\contentsline {subsubsection}{\numberline {12.2.2}Conditional Independence}{258}{subsubsection.12.2.2}%
-\contentsline {subsubsection}{\numberline {12.2.3}Discrete Time Markov Chain}{258}{subsubsection.12.2.3}%
-\contentsline {section}{参考文献}{262}{subsubsection.12.2.3}%
-\contentsline {section}{索引}{264}{subsubsection.12.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.3}Conditional Probability}{12}{subsubsection.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.4}Independency}{13}{subsubsection.1.2.4}%
+\contentsline {subsection}{\numberline {1.3}Random Variable and Distribution}{13}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Random Variable}{13}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Random Vector}{15}{subsubsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.4}Expectation $\mathbb {E}$, Variance $var$ and Covariance $cov$}{15}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {1.4.1}Expection $ \mathbb {E}(\,\cdot \,) $}{15}{subsubsection.1.4.1}%
+\contentsline {subsubsection}{\numberline {1.4.2}Variance}{16}{subsubsection.1.4.2}%
+\contentsline {subsubsection}{\numberline {1.4.3}Covariance and Correlation}{17}{subsubsection.1.4.3}%
+\contentsline {subsection}{\numberline {1.5}PGF, MGF and C.F}{18}{subsection.1.5}%
+\contentsline {subsubsection}{\numberline {1.5.1}Probability Generating Function}{18}{subsubsection.1.5.1}%
+\contentsline {subsubsection}{\numberline {1.5.2}Moment Generating Function}{18}{subsubsection.1.5.2}%
+\contentsline {subsubsection}{\numberline {1.5.3}Characteristic Function}{19}{subsubsection.1.5.3}%
+\contentsline {subsection}{\numberline {1.6}Convergence and Limit Distribution}{19}{subsection.1.6}%
+\contentsline {subsubsection}{\numberline {1.6.1}Convergence Mode}{19}{subsubsection.1.6.1}%
+\contentsline {subsubsection}{\numberline {1.6.2}Law of Large Number \& Central Limit Theorem}{20}{subsubsection.1.6.2}%
+\contentsline {subsection}{\numberline {1.7}Inequalities}{20}{subsection.1.7}%
+\contentsline {subsection}{\numberline {1.8}Multivariate Normal Distribution}{21}{subsection.1.8}%
+\contentsline {subsubsection}{\numberline {1.8.1}Linear Transform}{22}{subsubsection.1.8.1}%
+\contentsline {subsubsection}{\numberline {1.8.2}Distributions of Function of Normal Variable: $\chi ^2,$ $t\,\& \,F$}{23}{subsubsection.1.8.2}%
+\contentsline {section}{\numberline {2}统计推断部分}{25}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Statistical Model and Statistics}{25}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Statistics}{25}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Exponential Family}{27}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}Sufficient and Complete Statistics}{28}{subsubsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.2}Point Estimation}{29}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Optimal Criterion}{30}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Method of Moments}{31}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Maximum Likelihood Estimation}{31}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}Uniformly Minimum Variance Unbiased Estimator}{33}{subsubsection.2.2.4}%
+\contentsline {subsubsection}{\numberline {2.2.5}MoM and MLE in Linear Regression}{35}{subsubsection.2.2.5}%
+\contentsline {subsubsection}{\numberline {2.2.6}Kernel Density Estimation}{38}{subsubsection.2.2.6}%
+\contentsline {subsection}{\numberline {2.3}Interval Estimation}{38}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Confidence Interval}{39}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Pivot Variable Method}{39}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Confidence Interval for Common Distributions}{40}{subsubsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.4}Fisher Fiducial Argument*}{42}{subsubsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.4}Hypothesis Testing}{42}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Basic Concepts}{42}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Hypothesis Testing of Common Distributions}{45}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Likelihood Ratio Test}{45}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.4}Uniformly Most Powerful Test}{47}{subsubsection.2.4.4}%
+\contentsline {subsubsection}{\numberline {2.4.5}Duality of Hypothesis Testing and Interval Estimation}{48}{subsubsection.2.4.5}%
+\contentsline {subsubsection}{\numberline {2.4.6}Introduction to Non-Parametric Hypothesis Testing}{49}{subsubsection.2.4.6}%
+\contentsline {section}{\numberline {3}线性回归分析部分}{54}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Regression Model}{55}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Linear Regression Model}{55}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Factor Analysis Model}{56}{subsubsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.2}Monovariate Linear Regression Model}{57}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}The Ordinary Least Square Estimation}{57}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Statistical Inference to $ \beta _0 $, $ \beta _1 $, $ \sigma ^2 $, $ e_i $}{59}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Prediction to $ Y_h $}{61}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Analysis of Variance: Monovariate}{62}{subsubsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.3}Multivariate Linear Regression Model}{63}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}The Ordinary Least Estimation}{63}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Statistical Inference to $ \beta $, $ \sigma ^2 $, $ e $}{64}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Prediction to $ Y_h $}{65}{subsubsection.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.4}Analysis of Variance: Multivariate}{65}{subsubsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.4}Diagnostics}{66}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Useful Diagnostics Plots}{68}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Diagnostics to $ X $ Distribution}{69}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}Diagnostics to Residual}{70}{subsubsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.4}Diagnostics to Influentials}{73}{subsubsection.3.4.4}%
+\contentsline {subsubsection}{\numberline {3.4.5}Extra Sum Of Square}{77}{subsubsection.3.4.5}%
+\contentsline {subsubsection}{\numberline {3.4.6}Hypotheses Testing to Slope}{78}{subsubsection.3.4.6}%
+\contentsline {subsubsection}{\numberline {3.4.7}Diagnostics to Multi-collinearity}{79}{subsubsection.3.4.7}%
+\contentsline {subsubsection}{\numberline {3.4.8}Diagnostics to Model Variable Selection}{81}{subsubsection.3.4.8}%
+\contentsline {subsection}{\numberline {3.5}Remedies}{83}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}Variable Transformation}{83}{subsubsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.2}Weighted Least Squares Regression}{85}{subsubsection.3.5.2}%
+\contentsline {subsubsection}{\numberline {3.5.3}Remedies for Model Variable Selection \& More Regression Model}{85}{subsubsection.3.5.3}%
+\contentsline {subsection}{\numberline {3.6}Factor Analysis of Variance}{88}{subsection.3.6}%
+\contentsline {subsubsection}{\numberline {3.6.1}Single Factor Model}{88}{subsubsection.3.6.1}%
+\contentsline {subsubsection}{\numberline {3.6.2}Double Factor Model}{90}{subsubsection.3.6.2}%
+\contentsline {subsection}{\numberline {3.7}Generalized Linear Model}{91}{subsection.3.7}%
+\contentsline {section}{\numberline {4}多元统计分析部分}{94}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Multivariate Data}{94}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Matrix Representation}{94}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Review: Some Matrix Notation \& Lemma}{98}{subsubsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.3}Useful Inequalities}{101}{subsubsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.2}Statistical Inference to Multivariate Population}{101}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Multivariate Normal Distribution}{102}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}MLE of Multivariate Normal}{103}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Sampling distribution of $ \bar {X} $ and $ S $}{103}{subsubsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.4}Hypothesis Testing for Normal Population}{105}{subsubsection.4.2.4}%
+\contentsline {subsubsection}{\numberline {4.2.5}Confidence Region}{106}{subsubsection.4.2.5}%
+\contentsline {subsubsection}{\numberline {4.2.6}Large Sample Multivariate Inference}{107}{subsubsection.4.2.6}%
+\contentsline {subsection}{\numberline {4.3}Principal Component Analysis}{108}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Population Principal Component}{108}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Sample Principal Component}{109}{subsubsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.4}Factor Analysis}{110}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}Orthogonal Factor Model}{110}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}Principal Component Approach}{111}{subsubsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.3}MLE Method}{112}{subsubsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.5}Canonical Correlation Analysis}{112}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}Canonical Variate Pair}{112}{subsubsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {4.5.2}Canonical Correlation based on Standardized Variables}{113}{subsubsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.3}Sample Canonical Correlation}{113}{subsubsection.4.5.3}%
+\contentsline {subsection}{\numberline {4.6}Discriminant Analysis}{114}{subsection.4.6}%
+\contentsline {subsubsection}{\numberline {4.6.1}Classification Criterion}{114}{subsubsection.4.6.1}%
+\contentsline {subsubsection}{\numberline {4.6.2}Linear \& Quadratic Discriminant Analysis}{115}{subsubsection.4.6.2}%
+\contentsline {subsubsection}{\numberline {4.6.3}Fisher's Discriminant Analysis}{115}{subsubsection.4.6.3}%
+\contentsline {subsubsection}{\numberline {4.6.4}Evaluation of Discriminant Model}{116}{subsubsection.4.6.4}%
+\contentsline {subsection}{\numberline {4.7}Clustering Analysis}{116}{subsection.4.7}%
+\contentsline {subsubsection}{\numberline {4.7.1}Agglomerative Clustering Algorithm}{116}{subsubsection.4.7.1}%
+\contentsline {subsubsection}{\numberline {4.7.2}$ K $-Means Clustering Algorithm}{118}{subsubsection.4.7.2}%
+\contentsline {subsubsection}{\numberline {4.7.3}Expectation Maximization Algorithm for Gaussian Mixture Model}{119}{subsubsection.4.7.3}%
+\contentsline {subsubsection}{\numberline {4.7.4}DBSCAN \& OPTICS Density Clustering Algorithm}{120}{subsubsection.4.7.4}%
+\contentsline {section}{\numberline {5}数据科学导论部分}{122}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Basic R. Manipulation}{123}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Installation and Maintenance of R.}{123}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Data Structure and Basic Manipulation in R.}{124}{subsubsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.3}Functions and Control Flow}{126}{subsubsection.5.1.3}%
+\contentsline {subsubsection}{\numberline {5.1.4}Vectorized Operation}{128}{subsubsection.5.1.4}%
+\contentsline {subsubsection}{\numberline {5.1.5}Subsetting}{128}{subsubsection.5.1.5}%
+\contentsline {subsubsection}{\numberline {5.1.6}Data Manipulation With dplyr. And tidyr.}{129}{subsubsection.5.1.6}%
+\contentsline {subsection}{\numberline {5.2}Text Processing \& Text Mining}{131}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Basic Text Manipulation With stringr.}{131}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}Regular Expression}{132}{subsubsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.3}Web Scraping}{134}{subsubsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.3}Graphic in R.}{134}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}R::base Plotting}{134}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}R::ggplot2 Plotting}{138}{subsubsection.5.3.2}%
+\contentsline {section}{\numberline {6}统计计算与软件部分}{141}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Algorithm Theory Introduction}{141}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Finite Precision Computation}{141}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}Stability \& Accuracy}{142}{subsubsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.3}Iteration Algorithm}{143}{subsubsection.6.1.3}%
+\contentsline {subsubsection}{\numberline {6.1.4}Constrained Optimize Theory}{144}{subsubsection.6.1.4}%
+\contentsline {subsection}{\numberline {6.2}Algebratic Problem in Statistics}{145}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Matrix Operation}{145}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2}Projection and Least Square Problem}{146}{subsubsection.6.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.3}Gaussian $ LU $ Decomposition \& Cholesky Decomposition}{147}{subsubsection.6.2.3}%
+\contentsline {subsubsection}{\numberline {6.2.4}$ QR $ Decomposition: Gram-Schmidt/Householder/Givens Method}{149}{subsubsection.6.2.4}%
+\contentsline {subsubsection}{\numberline {6.2.5}Eigenvalue Decomposition}{151}{subsubsection.6.2.5}%
+\contentsline {subsubsection}{\numberline {6.2.6}SVD Decomposition}{153}{subsubsection.6.2.6}%
+\contentsline {subsubsection}{\numberline {6.2.7}Schur Decomposition}{154}{subsubsection.6.2.7}%
+\contentsline {subsection}{\numberline {6.3}Numeric Optimization Algorithm I}{154}{subsection.6.3}%
+\contentsline {subsubsection}{\numberline {6.3.1}Golden Section/Fibonacci Section Search}{156}{subsubsection.6.3.1}%
+\contentsline {subsubsection}{\numberline {6.3.2}Bisection Search Method}{158}{subsubsection.6.3.2}%
+\contentsline {subsubsection}{\numberline {6.3.3}Interpolation Methods: Linear/Quadratic/Lagrange Interpolation}{158}{subsubsection.6.3.3}%
+\contentsline {subsubsection}{\numberline {6.3.4}Hybrid Method: Dekker's/Brent's}{160}{subsubsection.6.3.4}%
+\contentsline {subsubsection}{\numberline {6.3.5}Fixed Point Iteration: Univariate}{161}{subsubsection.6.3.5}%
+\contentsline {subsubsection}{\numberline {6.3.6}Fixed Point Iteration: Multivariate Linear}{162}{subsubsection.6.3.6}%
+\contentsline {subsubsection}{\numberline {6.3.7}Nelder-Mead Method}{163}{subsubsection.6.3.7}%
+\contentsline {subsection}{\numberline {6.4}Numeric Optimization Algorithm II}{164}{subsection.6.4}%
+\contentsline {subsubsection}{\numberline {6.4.1}Gradient Descent Method}{165}{subsubsection.6.4.1}%
+\contentsline {subsubsection}{\numberline {6.4.2}Newton-Raphson Method}{165}{subsubsection.6.4.2}%
+\contentsline {subsubsection}{\numberline {6.4.3}Fisher's Scoring Method in MLE}{165}{subsubsection.6.4.3}%
+\contentsline {subsubsection}{\numberline {6.4.4}Linear Modification to Step Length}{170}{subsubsection.6.4.4}%
+\contentsline {subsubsection}{\numberline {6.4.5}Quasi Newton Method}{171}{subsubsection.6.4.5}%
+\contentsline {subsubsection}{\numberline {6.4.6}Steepest Descent*}{174}{subsubsection.6.4.6}%
+\contentsline {subsubsection}{\numberline {6.4.7}Trust Region Method}{174}{subsubsection.6.4.7}%
+\contentsline {subsubsection}{\numberline {6.4.8}Conjugate Gradient Method}{175}{subsubsection.6.4.8}%
+\contentsline {subsection}{\numberline {6.5}Expectation Maximization Algorithm}{177}{subsection.6.5}%
+\contentsline {subsubsection}{\numberline {6.5.1}Requisite Knowledge}{177}{subsubsection.6.5.1}%
+\contentsline {subsubsection}{\numberline {6.5.2}Derivation}{177}{subsubsection.6.5.2}%
+\contentsline {subsection}{\numberline {6.6}Statistical Simulation}{179}{subsection.6.6}%
+\contentsline {subsubsection}{\numberline {6.6.1}Random Number Generation}{179}{subsubsection.6.6.1}%
+\contentsline {subsubsection}{\numberline {6.6.2}Numerical Integration With Simulation}{181}{subsubsection.6.6.2}%
+\contentsline {subsubsection}{\numberline {6.6.3}Bootstrap}{183}{subsubsection.6.6.3}%
+\contentsline {subsubsection}{\numberline {6.6.4}Markov Chain Monte Carlo Method}{184}{subsubsection.6.6.4}%
+\contentsline {section}{\numberline {7}可靠性数据与生存分析部分}{186}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Reliability Data}{186}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}Right Censor Data and Representation}{186}{subsubsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.2}Life Table Data}{186}{subsubsection.7.1.2}%
+\contentsline {subsection}{\numberline {7.2}Survival Model and Statistical Inference}{187}{subsection.7.2}%
+\contentsline {subsubsection}{\numberline {7.2.1}Survival Function and Hazard}{187}{subsubsection.7.2.1}%
+\contentsline {subsubsection}{\numberline {7.2.2}Parametric Statistical Inference to Survival Function}{188}{subsubsection.7.2.2}%
+\contentsline {subsubsection}{\numberline {7.2.3}Non-Parametric Estimation to Survival Function}{192}{subsubsection.7.2.3}%
+\contentsline {subsubsection}{\numberline {7.2.4}Hypothesis Testing to Group Comparison}{194}{subsubsection.7.2.4}%
+\contentsline {subsection}{\numberline {7.3}Survival Model with Covariants}{197}{subsection.7.3}%
+\contentsline {subsubsection}{\numberline {7.3.1}Cox's Proportion Hazard Model}{197}{subsubsection.7.3.1}%
+\contentsline {subsubsection}{\numberline {7.3.2}Accelerated Failure Time Model}{201}{subsubsection.7.3.2}%
+\contentsline {section}{\numberline {8}生物统计学概论部分}{203}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Factor Model and ANOVA}{203}{subsection.8.1}%
+\contentsline {subsubsection}{\numberline {8.1.1}Single Factor Model and One-Way ANOVA}{203}{subsubsection.8.1.1}%
+\contentsline {subsubsection}{\numberline {8.1.2}Fixed Effect and Random Effect}{204}{subsubsection.8.1.2}%
+\contentsline {subsubsection}{\numberline {8.1.3}Two Factor Model and Two-Way ANOVA}{205}{subsubsection.8.1.3}%
+\contentsline {subsubsection}{\numberline {8.1.4}General Case for Factor Model}{206}{subsubsection.8.1.4}%
+\contentsline {subsubsection}{\numberline {8.1.5}Diagnosis}{209}{subsubsection.8.1.5}%
+\contentsline {subsubsection}{\numberline {8.1.6}Miscellaneous Topics}{209}{subsubsection.8.1.6}%
+\contentsline {subsection}{\numberline {8.2}Statistical Inference on Contingency Table}{210}{subsection.8.2}%
+\contentsline {subsubsection}{\numberline {8.2.1}Quantities and Statistics from Contingency Table}{210}{subsubsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.3}Clinical Trial Design}{212}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}GWAS}{212}{subsection.8.4}%
+\contentsline {section}{\numberline {9}统计学习导论部分}{213}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Linear Model}{213}{subsection.9.1}%
+\contentsline {subsubsection}{\numberline {9.1.1}Linear Model in Machine Learning Perspective}{213}{subsubsection.9.1.1}%
+\contentsline {subsubsection}{\numberline {9.1.2}Linear Regression}{214}{subsubsection.9.1.2}%
+\contentsline {subsubsection}{\numberline {9.1.3}Normalization Methods}{214}{subsubsection.9.1.3}%
+\contentsline {subsection}{\numberline {9.2}Basic Classification Model}{216}{subsection.9.2}%
+\contentsline {subsubsection}{\numberline {9.2.1}Classification Metrics}{216}{subsubsection.9.2.1}%
+\contentsline {subsubsection}{\numberline {9.2.2}Cross-Validation}{218}{subsubsection.9.2.2}%
+\contentsline {subsubsection}{\numberline {9.2.3}Bayes Optimal Classifier}{218}{subsubsection.9.2.3}%
+\contentsline {subsubsection}{\numberline {9.2.4}$ k $-Nearest Neighbours Approach}{218}{subsubsection.9.2.4}%
+\contentsline {subsubsection}{\numberline {9.2.5}Density Based Classification}{218}{subsubsection.9.2.5}%
+\contentsline {subsubsection}{\numberline {9.2.6}Logistic Regression}{219}{subsubsection.9.2.6}%
+\contentsline {subsection}{\numberline {9.3}Support Vector Machine}{220}{subsection.9.3}%
+\contentsline {subsubsection}{\numberline {9.3.1}Derivation of Basic Optimize Problem}{220}{subsubsection.9.3.1}%
+\contentsline {subsubsection}{\numberline {9.3.2}Support Vector Machine as Loss-Penalization Method}{223}{subsubsection.9.3.2}%
+\contentsline {subsubsection}{\numberline {9.3.3}Kernel Support Vector Machine}{223}{subsubsection.9.3.3}%
+\contentsline {subsection}{\numberline {9.4}Feature Expansion and Kernel Methods}{223}{subsection.9.4}%
+\contentsline {subsubsection}{\numberline {9.4.1}Reproducing Kernel Hilbert Space and The Representer Theorem}{223}{subsubsection.9.4.1}%
+\contentsline {subsubsection}{\numberline {9.4.2}Useful Kernel}{225}{subsubsection.9.4.2}%
+\contentsline {subsubsection}{\numberline {9.4.3}Kernel Support Vector Machine}{226}{subsubsection.9.4.3}%
+\contentsline {subsubsection}{\numberline {9.4.4}SMO Algorithm for Kernel SVM}{226}{subsubsection.9.4.4}%
+\contentsline {subsubsection}{\numberline {9.4.5}Kernel Regression}{226}{subsubsection.9.4.5}%
+\contentsline {subsection}{\numberline {9.5}Clustering}{227}{subsection.9.5}%
+\contentsline {subsubsection}{\numberline {9.5.1}Proximity Matrix}{227}{subsubsection.9.5.1}%
+\contentsline {subsubsection}{\numberline {9.5.2}Spectrum Clustering}{228}{subsubsection.9.5.2}%
+\contentsline {subsection}{\numberline {9.6}Tree-Based Classification Model}{229}{subsection.9.6}%
+\contentsline {subsubsection}{\numberline {9.6.1}Tree-Based Classification}{230}{subsubsection.9.6.1}%
+\contentsline {subsubsection}{\numberline {9.6.2}Bagging and Boosting}{231}{subsubsection.9.6.2}%
+\contentsline {subsection}{\numberline {9.7}Neural Network}{232}{subsection.9.7}%
+\contentsline {subsubsection}{\numberline {9.7.1}Back Propagation}{233}{subsubsection.9.7.1}%
+\contentsline {section}{\numberline {10}应用时间序列部分}{235}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Time Series Data and Model}{235}{subsection.10.1}%
+\contentsline {subsubsection}{\numberline {10.1.1}Time Series Data and Tasks}{235}{subsubsection.10.1.1}%
+\contentsline {subsubsection}{\numberline {10.1.2}Time Series Model}{235}{subsubsection.10.1.2}%
+\contentsline {subsection}{\numberline {10.2}Stochastic Process and Statistics}{236}{subsection.10.2}%
+\contentsline {subsubsection}{\numberline {10.2.1}Basic Knowledge of Stochastic Process}{236}{subsubsection.10.2.1}%
+\contentsline {subsubsection}{\numberline {10.2.2}Statistics}{240}{subsubsection.10.2.2}%
+\contentsline {subsection}{\numberline {10.3}ARMA Model}{241}{subsection.10.3}%
+\contentsline {subsubsection}{\numberline {10.3.1}Backshift Operator and Difference Equation}{241}{subsubsection.10.3.1}%
+\contentsline {subsubsection}{\numberline {10.3.2}AR Model}{242}{subsubsection.10.3.2}%
+\contentsline {subsubsection}{\numberline {10.3.3}MA Model}{244}{subsubsection.10.3.3}%
+\contentsline {subsubsection}{\numberline {10.3.4}ARMA Model}{245}{subsubsection.10.3.4}%
+\contentsline {subsubsection}{\numberline {10.3.5}ARIMA Model}{246}{subsubsection.10.3.5}%
+\contentsline {subsection}{\numberline {10.4}Seasonal Model for Time Series}{246}{subsection.10.4}%
+\contentsline {subsubsection}{\numberline {10.4.1}Regression Model}{246}{subsubsection.10.4.1}%
+\contentsline {subsubsection}{\numberline {10.4.2}Moving Average Model}{246}{subsubsection.10.4.2}%
+\contentsline {subsubsection}{\numberline {10.4.3}Seasonal ARIMA Model}{247}{subsubsection.10.4.3}%
+\contentsline {subsection}{\numberline {10.5}Model Selection and Diagnostics}{247}{subsection.10.5}%
+\contentsline {subsubsection}{\numberline {10.5.1}Model Building of ARIMA}{247}{subsubsection.10.5.1}%
+\contentsline {subsubsection}{\numberline {10.5.2}Order Determination of ARIMA Model}{247}{subsubsection.10.5.2}%
+\contentsline {subsubsection}{\numberline {10.5.3}Outlier Detection}{249}{subsubsection.10.5.3}%
+\contentsline {subsection}{\numberline {10.6}Forecast of Time Series}{249}{subsection.10.6}%
+\contentsline {subsubsection}{\numberline {10.6.1}MSE Forecast Criterion}{249}{subsubsection.10.6.1}%
+\contentsline {subsubsection}{\numberline {10.6.2}Best Linear Estimator}{249}{subsubsection.10.6.2}%
+\contentsline {subsubsection}{\numberline {10.6.3}Forecast of AR$ (p) $}{250}{subsubsection.10.6.3}%
+\contentsline {subsubsection}{\numberline {10.6.4}Forecast of MA$ (q) $}{250}{subsubsection.10.6.4}%
+\contentsline {subsubsection}{\numberline {10.6.5}Forecast of ARMA$ (p,q) $}{251}{subsubsection.10.6.5}%
+\contentsline {subsubsection}{\numberline {10.6.6}Forecast of ARIMA$ (p,d,q) $}{251}{subsubsection.10.6.6}%
+\contentsline {section}{\numberline {11}因果推断导论部分}{252}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Neyman-Rubin Framework}{252}{subsection.11.1}%
+\contentsline {subsubsection}{\numberline {11.1.1}Description of Causal Effect and Challenge}{252}{subsubsection.11.1.1}%
+\contentsline {subsubsection}{\numberline {11.1.2}Assumptions}{253}{subsubsection.11.1.2}%
+\contentsline {subsection}{\numberline {11.2}Inference to Causal Effect}{255}{subsection.11.2}%
+\contentsline {subsubsection}{\numberline {11.2.1}Fisher's Exact $ p $-value}{255}{subsubsection.11.2.1}%
+\contentsline {subsubsection}{\numberline {11.2.2}Neyman's Repeated Sampling}{256}{subsubsection.11.2.2}%
+\contentsline {subsection}{\numberline {11.3}Pearl Framework}{257}{subsection.11.3}%
+\contentsline {section}{\numberline {12}应用随机过程部分}{258}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Minimum Mean Squared Estimator}{258}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Stochastic Process}{260}{subsection.12.2}%
+\contentsline {subsubsection}{\numberline {12.2.1}Basic Concepts}{260}{subsubsection.12.2.1}%
+\contentsline {subsubsection}{\numberline {12.2.2}Conditional Independence}{261}{subsubsection.12.2.2}%
+\contentsline {subsubsection}{\numberline {12.2.3}Discrete Time Markov Chain}{261}{subsubsection.12.2.3}%
+\contentsline {subsubsection}{\numberline {12.2.4}Random Walk}{264}{subsubsection.12.2.4}%
+\contentsline {subsubsection}{\numberline {12.2.5}Branching Process}{264}{subsubsection.12.2.5}%
+\contentsline {section}{参考文献}{265}{subsubsection.12.2.5}%
+\contentsline {section}{索引}{267}{subsubsection.12.2.5}%
