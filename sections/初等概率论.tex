@@ -31,17 +31,17 @@
         \hline
         $X$&$p_X(k)\big/f_X(x)$&$\quad \mathbb{E}\quad$&$var$&PGF&MGF\\
         \hline
-        $B(p)$& &$p$&$pq$&&$q+pe^s$\\
-        $B(n,p)$&$C_n^k p^k(1-p)^{n-k}$&$np$&$npq$&$(q+ps)^n$&$(q+pe^s)^n$\\
-        $G(p)$&$(1-p)^{k-1}p$&$\dfrac{1}{p}$&$\dfrac{q}{p^2}$&$\dfrac{ps}{1-qs}$&$\dfrac{pe^s}{1-qe^s}$\\
+        $\mathrm{Bern} (p)$& &$p$&$pq$&&$q+pe^s$\\
+        $B (n,p)$&$C_n^k p^k(1-p)^{n-k}$&$np$&$npq$&$(q+ps)^n$&$(q+pe^s)^n$\\
+        $\mathrm{Geo} (p)$&$(1-p)^{k-1}p$&$\dfrac{1}{p}$&$\dfrac{q}{p^2}$&$\dfrac{ps}{1-qs}$&$\dfrac{pe^s}{1-qe^s}$\\
         $H(n,M,N)$&$\dfrac{C_M^kC_{N-M}^{n-k}}{C_N^n}$&$n\dfrac{M}{N}$&$\dfrac{nM(N-n)(N-M)}{N^2(n-1)}$&&\\
         $P(\lambda)$&$\dfrac{\lambda^k}{k!}e^{-\lambda}$&$\lambda$&$\lambda$&$e^{\lambda(s-1)}$&$e^{\lambda(e^s-1)}$\\
-        $U(a,b)$&$\dfrac{1}{b-a}$&$\dfrac{a+b}{2}$&$\dfrac{(b-a)^2}{12}$&&$\dfrac{e^{sb}-e^{sa}}{(b-a)s}$\\
+        $U(a,b)$&$\dfrac{1}{b-a}$&$\dfrac{a+b}{2}$&$\dfrac{(b-a)^2}{12}$&&$\dfrac{e^{sb}-e^{sa}}{(b-a)^s}$\\
         $N(\mu,\sigma^2)$&$\dfrac{1}{\sigma \sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$&$\mu$&$\sigma^2$&&$e^{\frac{\sigma^2s^2}{2}+\mu s}$\\
         $\epsilon(\lambda)$&$\lambda e^{-\lambda x}$&$\dfrac{1}{\lambda}$&$\dfrac{1}{\lambda^2}$&&$\frac{\lambda}{\lambda-s}$\\
-        $\Gamma(\alpha,\lambda)$&$\dfrac{\lambda^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\lambda x}$&$\dfrac{\alpha}{\lambda}$&$\dfrac{\alpha}{\lambda^2}$&&\\
+        $\Gamma(\alpha,\lambda)$&$\dfrac{\lambda^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\lambda x}$&$\dfrac{\alpha}{\lambda}$&$\dfrac{\alpha}{\lambda^2}$&&$\left(\frac{\lambda}{\lambda-s}\right)^\alpha $\\
         $B(\alpha,\beta)$&$\dfrac{1}{B(\alpha,\beta)}x^{\alpha-1}(1-x)^{\beta-1}$&$\dfrac{\alpha}{\alpha+\beta}$&$\dfrac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}$&&\\
-        $\chi^2_n$&$\dfrac{1}{2^{\frac{n}{2}}\Gamma(\frac{n}{2})}x^{\frac{n}{2}-1}e^{-\frac{x}{2}}$&$n$&$2n$&&\\
+        $\chi^2_n$&$\dfrac{1}{2^{\frac{n}{2}}\Gamma(\frac{n}{2})}x^{\frac{n}{2}-1}e^{-\frac{x}{2}}$&$n$&$2n$&&$ (1-2s)^{-n/2} $\\
         $t_\nu$&$\dfrac{\Gamma(\frac{\nu+1}{2})}{\sqrt{\nu\pi}\Gamma(\frac{\nu}{2})}(1+\frac{x^2}{\nu})^{-\frac{\nu+1}{2}}$&$0$&$\dfrac{\nu}{\nu-2}$&&\\
         $F_{m,n}$&$\dfrac{\Gamma(\frac{m+n}{2})}{\Gamma(\frac{m}{2})\Gamma(\frac{n}{2})}\dfrac{m^\frac{m}{2}n^\frac{n}{2}x^{\frac{m}{2}-1}}{(mx+n)^{\frac{m+n}{2}}}$&$\dfrac{n}{n-2}$&$\dfrac{2n^2(m+n-2)}{m(n-2)^2(n-4)}$&&\\
         \hline
@@ -52,11 +52,17 @@
 
     More Properties of $\chi^2,t,F$ see {\autoref{chi2_t_F_properties}}.
 
-    Relation between distributions and more properties see \url{http://www.math.wm.edu/~leemis/chart/UDR/UDR.html}
+    Relation between distributions and more properties see \url{http://www.math.wm.edu/~leemis/chart/UDR/UDR.html}. Distribution support in \lstinline|R.| see \url{https://CRAN.R-project.org/view=Distributions}
+
+Use the following command for all distributions supported in \lstinline|R. stats::|.
+\begin{lstlisting}[language=R]
+?Distributions
+\end{lstlisting}
+
 
 \subsection{Probability and Probability Model}
 
-    What is \textbf{Probability}? A 'belief' in `what would happen'.
+    What is \textbf{Probability}? A `belief' in `what would happen'.
 
 
 \subsubsection{Sample Space and $\sigma$-Field}
@@ -106,7 +112,7 @@ And some more complex ones
     
 \subsubsection{Axioms of Probability}
 
-    $\mathbb{P}(\,\cdot\,)$ is the probability measure (or probability function) defined on $(\Omega,\mathscr{F})$ describing the possibility that some event $ A\in\mathscr{F}  $ happens. Definition of probability $ \mathbb{P}(A) $ in useful models:
+    $\mathbb{P}(\,\cdot\,):\,\mathscr{F}\mapsto [0,1]$ is the probability measure (or probability function) defined on $(\Omega,\mathscr{F})$ describing the possibility that some event $ A\in\mathscr{F}  $ happens. Definition of probability $ \mathbb{P}(A) $ in useful models:
     \begin{align}
        \mathbb{P}\left( A \right) :=\begin{cases}
             \dfrac{\#A}{\#\Omega }&\text{Classical Model}\\
@@ -148,10 +154,15 @@ And some more complex ones
 \begin{equation}    \mathbb{P}(A_1\cup A_2\cup\cdots)=\mathbb{P}(A_1)+\mathbb{P}(A_2)+\cdots\quad ,\, (A_i\bot\!\!\!\bot  A_j\quad \forall i\neq j)
 \end{equation}
 
-where `countable subadditivity' means the events can be sequentially listed.
+where `countable subadditivity' means the events can be sequentially listed. e.g. $ [0,1]=\bigcup _{x\in [0,1]}\{x\} $ is not countable, thus
+\begin{align}
+    1=\mathbb{P}\left( [0,1] \right)=\mathbb{P}\left( \bigcup _{x\in [0,1]}\{x\} \right)   {\color{red}\neq} \sum_{x\in[0,1]}\mathbb{P}\left( x \right) =0
+\end{align}
+
+
 \end{itemize}
 
-    Then $(\Omega,\mathscr{F},\mathbb{P})$ is probability space\index{Probability Space}.
+    Then $(\Omega,\mathscr{F},\mathbb{P})$ is probability space\index{Probability Space}, where $ \Omega  $ for experiment outcomes and randomness, $ \mathscr{F} $ for events and their algebra, $ \mathbb{P} $ for probability measure.
 
 \begin{point}
         Properties of Probability:
@@ -204,7 +215,7 @@ where `countable subadditivity' means the events can be sequentially listed.
 
     We have $ n $ different balls. Draw $ m $ times with replacement. What is the number of results regardless of order the balls drawn (e.g. $ \{\mathrm{red,red,black} \} $ is the same as $ \{\mathrm{red,black,red} \} $)? 
 
-    The model is the same as we are `voting' for $ n $ different balls, with total ballot ticket $ m $. The $ m $ tickets are divided by $ n-1 $ plates (making them similar to ballot boxes), e.g. here's a $ n=4,m=5 $ vote corresponding to a result $ \omega \in\Omega  $:
+    The model is the same as we are `voting' for $ n $ different balls, with total ballot ticket $ m $. The $ m $ tickets are divided by $ n-1 $ plates (making them similar to ballot boxes), e.g. here's a $ n=4,m=6 $ vote corresponding to a result $ \omega \in\Omega  $:
     \begin{align}
          \bullet  \big|  \big| \bullet \bullet \bullet \big|  \bullet \bullet 
     \end{align}
@@ -225,7 +236,7 @@ where `countable subadditivity' means the events can be sequentially listed.
             \hline
             &\multicolumn{2}{c}{Replacement}\\
             \cline{2-3}
-            &Yes&No\\
+            &With&Without\\
             \hline
             Ordered&$ n^m $&$ A_{n}^m $\\
             Unordered&$ \binom{n+m-1}{m} $&$ \binom{n}{m} $\\
@@ -268,14 +279,14 @@ where `countable subadditivity' means the events can be sequentially listed.
         \begin{equation}    
             \mathbb{P}(B)=\sum_{i=1}^n \mathbb{P}(A_i)\mathbb{P}(B|A_i)  
         \end{equation}
-        where $\{A_i\}$ is a partition of $\Omega$: $ \Omega =\bigcup_{i}A_i $
+        where $\{A_i\}$ is a partition of $\Omega$: $ \Omega =\bigcup_{i}A_i ,\, A_i\cap A_j=\delta _{ij}\emptyset$
 
         (Actually just $ B\subset \bigcup_{i}A_i $ is enough, similar for Bayes's rule)
         \item Bayes's Rule\index{Bayes's Rule}
         \begin{equation}    
             \mathbb{P}(A_i|B)=\dfrac{\mathbb{P}(A_i)\mathbb{P}(B|A_i)}{\sum_{j=1}^\mathbb{P}(A_j)\mathbb{P}(B|A_j)}    ,\quad 1\leq i\leq n
         \end{equation}
-        where $\{A_i\}$ is a partition of $\Omega$: $ \Omega =\bigcup_{i}A_i $
+        where $\{A_i\}$ is a partition of $\Omega$: $ \Omega =\bigcup_{i}A_i,\, A_i\cap A_j=\delta _{ij}\emptyset $
     \end{itemize}
 
 \subsubsection{Independency}
@@ -286,13 +297,14 @@ where `countable subadditivity' means the events can be sequentially listed.
 
     Properties
     \begin{itemize}[topsep=2pt,itemsep=0pt]
-        \item 
+        \item Complement set and indepency
         \begin{align}
             A\independent B\Leftrightarrow A^\complement \independent B 
         \end{align}
         \item Independency of multiple events
         \begin{align}
-            A_1\independent A_2\independent\ldots \independent A_n \Leftrightarrow \mathbb{P}\left( A_{j_1}\cap A_{j_2}\cap\ldots\cap A_{j_k} \right)=\mathbb{P}\left( A_{j_1} \right) \mathbb{P}\left( A_{j_2} \right) \ldots \mathbb{P}\left( A_{j_k} \right)   \,\forall 1\leq j_1\leq j_2\leq \ldots \leq j_k\leq n\,\forall k\leq n
+            A_1\independent A_2\independent\ldots \independent A_n \Leftrightarrow &\mathbb{P}\left( A_{j_1}\cap A_{j_2}\cap\ldots\cap A_{j_k} \right)=\mathbb{P}\left( A_{j_1} \right) \mathbb{P}\left( A_{j_2} \right) \ldots \mathbb{P}\left( A_{j_k} \right) \\
+            &  \,\forall 1\leq j_1\leq j_2\leq \ldots \leq j_k\leq n\quad \forall k\leq n
         \end{align}
     \end{itemize}
     
@@ -375,7 +387,7 @@ Motivation: defining events is troublesome, and unhelpful to extract the key fea
 
             Examples:        
         \begin{itemize}[topsep=2pt,itemsep=0pt]
-            \item Poisson
+            \item Poisson\footnote{More about Poisson Distribution / Poisson Process see \autoref{SubSubSectionIndepedentProcess}}
             \begin{align}
                 P(\lambda _1)+P(\lambda _2)\sim P(\lambda _1)+P(\lambda _2) 
             \end{align}
@@ -383,19 +395,31 @@ Motivation: defining events is troublesome, and unhelpful to extract the key fea
             \begin{align}
                 B(n_1,p)+B(n_2,p)\sim B(n_1+n_2,p) 
             \end{align}
+            \item Gamma / Exponential
+            \begin{align}
+                \Gamma (\alpha _1,\lambda )+\Gamma (\alpha _2,\lambda )\sim \Gamma (\alpha _1+\alpha _2,\lambda ) 
+            \end{align}
+            with 
+            \begin{align}
+                \varepsilon (\lambda )=\Gamma (1,\lambda ) 
+            \end{align}
+            
+            
+            
+            
             \item More relations of distributions see \url{http://www.math.wm.edu/~leemis/chart/UDR/UDR.html}
             
             
         \end{itemize}
         
-        \item Order Statistics\index{Order Statistics}
+        \item Order Statistics\index{Order Statistics}\footnote{A relative object is Rank statistics, see \autoref{SubSectionIntroToNonParametricHypothesisTesting}.}
         
         Def $X_{(1)},X_{(2)},\cdots,X_{(n)}$ as order statistics of $\vec{X}$
         \begin{equation}    
             g_{X_{(i)}}=n!\prod_i f(x_i)\qquad \mathrm{for}\, x_1<x_2\cdots <x_n    
         \end{equation}
         PDF of $X_{(k)}$
-        \begin{equation}    
+        \begin{equation}\label{EqaDistributionOfOrderStatistics} 
             g_k(x_k)=nC_{n-1}^{k-1}[F(x_k)]^{k-1}[1-F(x_k)]^{n-k}f(x_k)
         \end{equation}
         \item $p$-fractile\index{Fractile!$ p $-fractile}
@@ -511,7 +535,7 @@ Expectation and Variance of common distributions see \autoref{SectionImportantDi
 \end{itemize}
 
 
-\subsubsection{Variance}
+\subsubsection{Variance $ var(\, \cdot \, ) $}
     Variance of r.v. $X$: 
     \begin{equation}
         var(X)=\mathbb{E}\big[(X-\mathbb{E}(X))^2\big]=\mathbb{E}(X^2)-(\mathbb{E}(X))^2
@@ -549,14 +573,14 @@ Expectation and Variance of common distributions see \autoref{SectionImportantDi
     \begin{equation}X_\mathrm{sd} =\frac{X-\mathbb{E}(X)}{\sqrt{var(X)}}\end{equation}
 
 
-\subsubsection{Covariance and Correlation}\label{SubSubSectionCovarianceAndCorrelation}
+\subsubsection{Covariance $ cov(\, \cdot \, ) $ and Correlation $ corr(\, \cdot \, ) $}\label{SubSubSectionCovarianceAndCorrelation}
     Covariance of r.v. $X$ and $Y$:\begin{equation}
         cov(X,Y)=\mathbb{E}\big[(X-\mu_X)(Y-\mu_Y)\big]=\mathbb{E}(XY)-\mathbb{E}(X)\mathbb{E}(Y)
     \end{equation}
 
-    And Correlation Coefficient\index{Correlation Coefficient!Pearson's Correlation Coefficient}
+    And Correlation Coefficient\index{Correlation Coefficient}
     \begin{equation}
-        r=\rho_{X,Y}=corr(X,Y)=\frac{cov(X,Y)}{\sqrt{var(X)var(Y)}}
+        \rho_{X,Y}=corr(X,Y)=\frac{cov(X,Y)}{\sqrt{var(X)var(Y)}}
     \end{equation}
 
     Remark: correlation $\nRightarrow$ cause and effect. 
@@ -705,7 +729,7 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
 
         Useful Thm.:
         \begin{itemize}
-            \item Continuous Mapping Thm.: For continuous function $g(\cdot)$\index{Continuous Mapping Thm.}
+            \item Continuous Mapping Thm.: For continuous function $g(\cdot)$\index{Continuous Mapping Thm.}\hypertarget{ContinuousMapping}{}
             \begin{enumerate}
                 \item $X_n\xrightarrow[]{\text{a.s.}}X\Rightarrow g(X_n)\xrightarrow[]{\text{a.s.}}g(X)$
                 \item $X_n\xrightarrow[]{\mathrm{p}}X\Rightarrow g(X_n)\xrightarrow[]{\mathrm{p} }g(X)$
@@ -732,25 +756,30 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
 
 
 \item WLLN\index{LLN (Law of Large Number)}\index{WLLN (Weak Law of Large Number)}: For $ X_i $ i.i.d. $ \sim f_X $, with $ \mathbb{E}\left[ X_i \right]=\mu <\infty $
-\begin{equation}    \frac{1}{n}\sum X_i\xrightarrow[]{\mathrm{p}}\mu 
+\begin{equation}\label{EqaWLLN}    \frac{1}{n}\sum X_i\xrightarrow[]{\mathrm{p}}\mu 
 \end{equation}
 \item SLLN\index{SLLN (Strong Law of Large Number)}: For $ X_i $ i.i.d. $ \sim f_X $, with $ \mathbb{E}\left[ X_i \right] =\mu <\infty $
 \begin{equation}    \frac{1}{n}\sum X_i\xrightarrow[]{\text{a.s.}}  \mu 
 \end{equation}
 \item CLT\index{CLT (Central Limit Thm.)}: For $ X_i $ i.i.d. $ \sim f_X $, with $ \mathbb{E}\left[ X_i \right] =\mu <\infty $, $ var(X_i)=\sigma ^2<\infty $
+\begin{align}
+     \dfrac{\sqrt{n}\left(\bar{X}-\mu \right)}{\sigma }\xrightarrow[]{d} N(0,1)
+\end{align}
+or in equivalent form
 \begin{equation}    \frac{1}{\sigma\sqrt{n}}\sum(X_k-\mu)\xrightarrow[]{\mathrm{d}} N(0,1)
 \end{equation}
-\item de Moivre-Laplace Thm.\index{de Moivre-Laplace Thm.}
+
+\item de Moivre-Laplace Thm.\index{de Moivre-Laplace Thm.} is a special case of CLT at $ S_n\sim B (n,p) $
 \begin{equation}    \mathbb{P}(k\leq S_n\leq m)\approx \Phi(\frac{m+0.5-np}{\sqrt{npq}})-\Phi(\frac{k-0.5-np}{\sqrt{npq}})
 \end{equation}
 \item Stirling Eqa. derived from CLT
-\begin{equation}    \frac{\lambda^k}{k!}e^{-\lambda}\approx \frac{1}{\sqrt{\lambda}\sqrt{2\pi}}e^{-\frac{(k-\lambda)^2}{2\lambda}}\xrightarrow[\lambda=n]{k=n}n!\approx\sqrt{2\pi n}(\frac{n}{e})^n
+\begin{equation}    \frac{\lambda^k}{k!}e^{-\lambda}\approx \frac{1}{\sqrt{\lambda}\sqrt{2\pi}}e^{-\frac{(k-\lambda)^2}{2\lambda}}\xrightarrow[\lambda=n]{k=n}n!\approx\sqrt{2\pi n}(\frac{n}{e})^n\sim O\left((\dfrac{n}{e})^n\right)
 \end{equation}
 
 \end{itemize}
 
 
-\subsection{Inequalities}
+\subsection{Inequalities}\label{SubSectionUsefulInequality}
     
 \begin{itemize}
     \item Cauchy-Schwarz Inequality\index{Inequality!Cauchy-Schwarz Inequality}
@@ -765,10 +794,18 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
 \begin{equation}     \mathbb{P}(|X|\geq \epsilon)\leq\frac{\mathbb{E}(|X|^\alpha)}{\epsilon^\alpha}
 \end{equation}
 
+    with $ \alpha =1 $, and $ \varepsilon  $ selected as a multiple of $ \mathbb{E}\left[ |X| \right]  $:
+    \begin{align}
+        \mathbb{P}\left( |X|\geq m\mathbb{E}\left[ |X| \right]  \right) \leq \dfrac{1}{m} 
+    \end{align}
+    
+    
     \item Chebyshev Inequality\index{Inequality!Chebyshev Inequality}
-\begin{equation}     \mathbb{P}(|X-E(X)|\geq\epsilon)\leq\frac{var(X)}{\epsilon^2}
+\begin{equation}     \mathbb{P}(|X-\mathbb{E}(X)|\geq\epsilon)\leq\frac{var(X)}{\epsilon^2}
 \end{equation}
-    \item Jensen Inequality: For convex function $h(x)$:\footnote{Or equivalently for concave function $ \tilde{h}(x) $L
+
+    Chebyshev inequality is used to proof WLLN \autoref{EqaWLLN}
+    \item Jensen Inequality\index{Jensen Inequality}: For convex function $h(x)$:\footnote{Or equivalently for concave function $ \tilde{h}(x) $:
     \begin{align}
          \mathbb{E}[\tilde{h}(X)]\leq \tilde{h}(\mathbb{E}(X))
     \end{align}
@@ -780,7 +817,7 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
     \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item Non-negativity of Kullback-Leibler Divergence: For two distributions $ f(\, \cdot \, ) $ and $ g(\, \cdot \, ) $, the K-L Divergence is defined as 
         \begin{align}
-            \mathrm{KL}(f|g):=-\int f(x)\log \dfrac{g(x)}{f(x)}  \,\mathrm{d}x
+            \mathrm{KL}(f\Vert g):=-\int f(x)\log \dfrac{g(x)}{f(x)}  \,\mathrm{d}x
         \end{align}
         
         Take $ h(\xi ):=\log \xi  $ a concave function for $ \xi \in(0,\infty) $ and $ Z:=\dfrac{g(X)}{f(X)} $ with $ X\sim f(x) $, then
@@ -806,6 +843,52 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
         %     \Rightarrow & \left|\sum_{i=1}^nx_i\right|^p\leq n^{p-1}\sum_{i=1}^n\dfrac{1}{n}|x_i|^p,\quad p\geq 1
         % \end{align}
     \end{itemize}
+    \item Cantelli Inequality\index{Cantelli Inequality}
+    \begin{align}
+        \mathbb{P}\left( X-\mathbb{E}\left[ X \right] \geq \lambda  \right) \leq \dfrac{var(X)}{var(X)+\lambda ^2} 
+    \end{align}
+    with $ \lambda =\sqrt{var(X)}:=\sigma  $, we have
+    \begin{align}
+        \begin{cases}
+            \mathbb{P}\left( X\geq \mathbb{E}\left[ X \right] + \sigma \right) \leq \dfrac{1}{2}\\
+            \mathbb{P}\left( X\leq \mathbb{E}\left[ X \right] - \sigma \right) \leq \dfrac{1}{2}
+        \end{cases}
+    \end{align}
+    i.e. difference between mean and median is upperly bounded by standard deviation
+    \begin{align}
+        |\mathbb{E}\left[ X \right] - \mathrm{med}(X ) |\leq \sigma  
+    \end{align}
+    \item Hoeffding Inequality\index{Hoeffding Inequality}: with independent r.v. sequence $ X_i\in [a_i,b_i] $, and $ S_n:=\sum_{i=1}^nX_i $
+    \begin{align}
+        \mathbb{P}\left( \left\vert S_n-\mathbb{E}\left[ S_n \right]  \right\vert \geq \varepsilon   \right)  \leq 2\exp\left[ -\dfrac{2\varepsilon ^2}{\sum_{i=1}^n (b_i-a_i)^2} \right]
+    \end{align}
+
+    Or in equivalent form $ \varepsilon =nt $
+    \begin{align*}
+        \mathbb{P}\left( \dfrac{1}{n}\left\vert \sum_{i=1}^n\left(X_i-\mathbb{E}\left[ X_i \right] \right) \right\vert \geq t   \right)  \leq 2\exp\left[ -\dfrac{2n^2t ^2}{\sum_{i=1}^n (b_i-a_i)^2} \right]
+    \end{align*}
+    
+    For special case of $ [a_i,b_i]=[a,b] $, $ \forall i $, $ |[a,b]|:=L $,
+    \begin{align*}
+        \mathbb{P}\left( \dfrac{1}{n}\left\vert \sum_{i=1}^n\left(X_i-\mathbb{E}\left[ X_i \right] \right)  \right\vert \geq t   \right)  \leq 2\exp\left[ -\dfrac{2nt^2}{L^2} \right]
+    \end{align*}
+    
+    
+
+    The proof needs the Hoeffding Lemma: for $ \mathbb{E}\left[ Z \right]=0  $ and $ Z\in[a,b] $
+    \begin{align}
+        \mathbb{E}\left[ e^{tZ} \right]\leq \exp\left[ \dfrac{t^2(b-a)^2}{8} \right],\quad \forall t  
+    \end{align}
+    
+    \item McDiarmid Inequality\index{McDiarmid Inequality}: with independent r.v. sequence $ X_i $, and a function $ f(\, \cdot \, ) $ with bounded difference $ c_i $:
+    \begin{align*}
+        \left| f\left(X_1,X_2,\ldots,X_{n+1}\right)- f\left(X_1,X_2,\ldots,X_{n}\right) \right| \leq c_i
+    \end{align*}
+
+    we have McDiarmid inequality
+    \begin{align*}
+        \mathbb{P}\left( \left| f(X_1,\ldots,X_n)-\mathbb{E}\left[ f(X_1,\ldots,X_n) \right]  \right| \geq nt\right) \leq 2\exp\left[ -\dfrac{2n^2t^2}{\sum_{i=1}^nc_i^2} \right] 
+    \end{align*}
     
 \end{itemize}
 
@@ -967,13 +1050,13 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
 
             Denote: Upper $\alpha$-fractile\index{Fractile!Upper $ \alpha $-fractile} of $t_\nu$, satisfies $\mathbb{P}(T\geq c)=\alpha$:
             \begin{equation}        
-                c=t_{\nu,\alpha}
+                t_{\nu,\alpha}=\mathop{\arg}\limits_{c}\mathbb{P}(T\geq c)=\alpha,\quad T\sim t_\nu 
             \end{equation}
             
-            (Similar for $\chi^2_n$ and $F_{m,n}$ etc.)
+            (Similar for $ N $, $\chi^2_n$ and $F_{m,n}$ etc.)
             \item $F$ Distribution: Def. $F$ distribution with degree of freedom $m$ and $n$:\index{Distribution!$ F $ Distribution}
             \begin{equation}        
-                F=\frac{\sum_{i=1}^mY_i^2}{\sum_{i=1}^nX_i^2}\sim F_{m,n}
+                F=\frac{\sum_{i=1}^mY_i^2\big/ m}{\sum_{i=1}^nX_i^2\big/ n}\sim F_{m,n}
             \end{equation}
 
             PDF of $F_{m,n}$:

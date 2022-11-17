@@ -109,10 +109,10 @@ Comparison of \lstinline|R|, \lstinline|python|:focus on different aspects of `S
     Atomic Classes
 \end{point}
 \begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item \lstinline|'abc'| Character;
-    \item \lstinline|3L| Integer;
-    \item \lstinline|2.4| Numeric;
-    \item \lstinline|TRUE,FALSE,T,F| Logical;
+    \item Character: \lstinline|'abc'|;
+    \item Integer: \lstinline|3L|;
+    \item Numeric: \lstinline|2.4|;
+    \item Logical: \lstinline|TRUE,FALSE,T,F|;
     \item Special types: \lstinline|NA|, \lstinline|NaN|, \lstinline|NULL|, \lstinline|Inf|
 \end{itemize}
 
@@ -167,26 +167,31 @@ Comparison of \lstinline|R|, \lstinline|python|:focus on different aspects of `S
         
         where \lstinline|c()| for `combine'; 
         
-        \lstinline|c()| combines all things into one vector, e.g. \lstinline|c(c(1,2,3),c(1,2))=c(1,2,3,4,5)|.
+        \lstinline|c()| combines all `vector-like objects' into one vector, e.g. \lstinline|c(c(1,2,3),c(1,2)) >> c(1,2,3,1,2)|.
         \item Sequence vector: 
         \begin{itemize}[topsep=2pt,itemsep=0pt]
-            \item \lstinline|1:3.5=c(1,2,3)|, \lstinline|3:1=c(3,2,1)|
-            \item \lstinline|seq(from, to ,by, length.out)|, \lstinline|length.out| for total vector length;
-            \item \lstinline|rep(SEQ_TO_REP, times, lenght.out ,each)|, used in $ k $-fold cross validation labelling.
+            \item \lstinline|1:3.5 >> c(1,2,3)|, \lstinline|3:1 >> c(3,2,1)|
+            \item \lstinline|seq(from, to , by, length.out)|, \lstinline|length.out| for total vector length;
+            \item \lstinline|rep(SEQ_TO_REP, times, lenght.out, each)|, used in $ k $-fold cross validation labelling.
         \end{itemize}
     \end{itemize}
     
     Operations:
     \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item between vectors of different length \lstinline|SHORT| and \lstinline|LONG|: First \lstinline|SHORT <- rep(SHORT,|\\\lstinline| length.out=length(LONG))|. Then operate \lstinline|SHORT| and \lstinline|LONG|.
-        \item Element access: \lstinline|a[i]|
+        
+        e.g.
+        \lstinline|c(1,2) + c(1,2,3) >> c(1,2,1) + c(1,2,3) >> c(2,4,4)|
+        \item Element access: \lstinline|a[i]|, \lstinline|i| starts from \lstinline|1|
     \end{itemize}
     
          
     \fbox{
         \begin{minipage}{0.9\linewidth}
 
-    \textbf{Vectorized Operation}: All operation in \lstinline|R.| are based on vector, and vectorized operation is Parallel Arithmetic, which is \textbf{much faster} than loop such as \lstinline|for| $ \longrightarrow $ Consider using vectorized opertion when writing code for \textbf{Speed}! Detail see \autoref{SubSubSectionVectorizedOperation}.
+    \textbf{Vectorized Operation}: All operation in \lstinline|R.| are based on vector, and vectorized operation is Parallel Arithmetic, which is \textbf{much faster} than loop such as \lstinline|for| 
+    
+    $ \bm{\Delta }$ Consider using vectorized opertion when writing code for \textbf{Speed}! Detail see \autoref{SubSubSectionVectorizedOperation}.
         \end{minipage}
     }
 
@@ -202,13 +207,9 @@ Comparison of \lstinline|R|, \lstinline|python|:focus on different aspects of `S
 
     \item \textbf{Matrix} : Only data of the same class can be held in one matrix.
     
-    Initilaization:
-    
-    \lstinline|matrix(DATA_SEQ, nrow, ncol, byrow = FALSE, dimnames = NULL)|
+    Initilaization: \lstinline|matrix(DATA_SEQ, nrow, ncol, byrow = FALSE, dimnames = NULL)|. Default \lstinline|byrow = FALSE| because matrix data is stored as combination of column vectors.
     
     If \lstinline|length(DATA_SEQ) < nrow*ncol|, then \lstinline|DATA_SEQ| is repeated with \lstinline|length.out=nrow*ncol|. 
-    
-    Default: fill by column (because matrix is stored by column).
 
     Operation:
     \begin{itemize}[topsep=2pt,itemsep=0pt]
@@ -232,7 +233,7 @@ Comparison of \lstinline|R|, \lstinline|python|:focus on different aspects of `S
     
     Initialization: \lstinline|list(OBJECT1,OBJECT2,...)|
 
-    Element access: \lstinline|a[[i]]|
+    Element access: \lstinline|a[[i]]|, \lstinline|a$OBJ_NAME|
     \item \lstinline|data.frame|: `Mixture' of matrix and list. \lstinline|data.frame| is actually a kind of list(with some constraint), organized in the shape of matrix (but allowing different datatype for different columns, each column is a list object).
     
     Each column of \lstinline|data.frame| has name: \lstinline|names(DATA_FRAME)|, \lstinline|colnames(DATA_FRAME)|
@@ -245,7 +246,7 @@ Comparison of \lstinline|R|, \lstinline|python|:focus on different aspects of `S
     Data Read \& Write
 \end{point}
 \begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item Common R\&W: \lstinline|read.|/\lstinline|write.|
+    \item Common R\&W: \lstinline|read.| / \lstinline|write.|
     \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item \lstinline|read.table(FILE_NAME,header = FALSE,sep,colClasses,stringAsFactors = FALSE)|
         \item[${\color{red}\star }$] \lstinline|read.csv()| basically the same as \lstinline|read.table|
@@ -301,7 +302,7 @@ dat <- read.table(FILE_NAME, colClasses = classes)
     \item \lstinline|do.call('FUN_NAME',LIST_OF_ARGUs)|, look for a function naming \lstinline|FUN_NAME| in \lstinline|R.| and call. 
     \item \lstinline|a % NEW_OPRTR % b| to call self-defined binary operator.
     \item \lstinline|'*'| etc. used in \lstinline|apply(FUN = '*')|
-    \item \lstinline|R.| allows auto-completion to \lstinline|ARGUs|, e.g. \lstinline|rep(0,length.out=10)| = \lstinline|rep(0,length=0)|
+    \item \lstinline|R.| allows auto-completion to \lstinline|ARGUs|, e.g. \lstinline|rep(0,length.out = 10)| >> \lstinline|rep(0,length = 10)|
 \end{itemize}
 
 
@@ -312,7 +313,7 @@ dat <- read.table(FILE_NAME, colClasses = classes)
 \begin{rcode}
     Basic function definition in \lstinline|R.|
 \begin{lstlisting}[language=R]
-FUNC_NAME <- function(ARG1 = ARG1_DEF_VALUE , ARG2, ...) {
+FUNC_NAME <- function(ARG1 = ARG1_VALUE , ARG2, ...) {
     FUNCTION_BODY
 }
 \end{lstlisting}
@@ -350,7 +351,7 @@ if(COND1) {
     STATEMENT
 }
 \end{lstlisting}
-    \item \lstinline|ifelse(COND,IF_YES_STAT,IF_NO_STAT)| a vectorized version of \lstinline|for+if else|.
+    \item \lstinline|ifelse(COND,IF_YES_STAT,IF_NO_STAT)| a vectorized version of \lstinline|for + if else|.
 
     \item \lstinline|for|: Loop in \lstinline|R.| is \textbf{Extremely Slow}, avoid loop, use \textbf{vectorized operation}.  
 \begin{lstlisting}[language=R]
@@ -377,6 +378,12 @@ for(VAR in SEQ) {
     \item \lstinline|apply()| function series:
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item \lstinline|apply(MAT,MARGIN,FUN)| for matrix apply, \lstinline|MARGIN=1| for each row, \lstinline|2| for each column
+    
+Example:
+\begin{lstlisting}[language=R]
+apply(matrix(c(1,2,3,4),2,2), 1, sum) >> c(4,6)
+apply(matrix(c(1,2,3,4),2,2), 2, sum) >> c(3,7)
+\end{lstlisting}
     \item \lstinline|lapply(LIST,FUN)| for list/\lstinline|data.frame|, apply \lstinline|FUN| on each list elements,\lstinline|list| returned
     \item[$ \color{red}\star $] \lstinline|sapply(X,FUN)| for list/\lstinline|data.frame| apply+simplify, \lstinline|vector/matrix/list| returned
     \item \lstinline|tapply(X,INDEX,FUN)|: for each index, use \lstinline|FUN| respectively.
@@ -408,7 +415,7 @@ mapply(function(x,y,z,k){(x+k)^(y+z)} , x = ,y = ,z = ,k = )
     \item By position: \lstinline|x[RANGE]|
     \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item \lstinline|x[4]|
-        \item \lstinline|x[-4]|: without the $ 4^\mathrm{th} $ item (different from \lstinline|python|, where selects reciprocal $ \mathrm{4^{th}}  $ element).
+        \item \lstinline|x[-4]|: \lstinline|x| without the $ 4^\mathrm{th} $ item (which is different from \lstinline|python|, where selects the  reciprocal $ \mathrm{4^{th}}  $ element).
         \item \lstinline|x[2:4]|
         \item \lstinline|x[c(1,2,5)]|
     \end{itemize}
@@ -423,7 +430,7 @@ mapply(function(x,y,z,k){(x+k)^(y+z)} , x = ,y = ,z = ,k = )
     \item Subsetting for \lstinline|data.frame| and list: \lstinline|x[[RANGE]]|
 
 
-    Simplified/Preserved subsetting: whether preserved datatype, e.g. df $ \to $ df (preserved) v.s. df $ \to $ vector (simplified).
+    Simplified / Preserved subsetting: whether preserved datatype, e.g. df $ \to $ df (preserved) v.s. df $ \to $ vector (simplified).
 \begin{table}[H]
     \centering
     \renewcommand\arraystretch{1.15}
@@ -435,7 +442,7 @@ mapply(function(x,y,z,k){(x+k)^(y+z)} , x = ,y = ,z = ,k = )
         list&\lstinline|x[[1]]|&\lstinline|x[1]|\\
         factor&\lstinline|x[1:4,drop=T]|&\lstinline|x[1:4]|\\
         matrix&\lstinline|x[,1]|&\lstinline|x[,1,drop=F]|\\
-        \lstinline|data.frame|&\lstinline|x[,1]|,\lstinline|x[[1]]|&\lstinline|x[,1,drop=F]|,\lstinline|x[1]|\\
+        \lstinline|data.frame|&\lstinline|x[,1]|,\lstinline|x[[1]]|&\lstinline|x[,1,drop=F]|, \lstinline|x[1]|\\
         \hline
     \end{tabular}
     \caption{Simplified/Preserved subsetting}
@@ -470,9 +477,10 @@ match(vec1,vec2)
     \lstinline|tidyverse| for \lstinline|tidy|uni\lstinline|verse|, includes \lstinline|dplyr|, \lstinline|tidyr|, \lstinline|readr|, \lstinline|ggplot2|, \lstinline|stringr|, etc.
 
 \begin{point}
-    \lstinline|%>%| pipe in \lstinline|tidyverse|: functions in \lstinline|tidyverse| use \lstinline|FUNC(DF,...)|, where \lstinline|DF| can be passed on by \lstinline|%>%|.
-
+    \lstinline|%>%|: pipe in \lstinline|tidyverse|, so that functions in \lstinline|tidyverse| with format \lstinline|FUNC(DF,...)| can pass on \lstinline|DF| results along the pipeline.
 \end{point}
+
+Some examples see \autoref{SubSubSectionDiagnosticsToFactorModel}.
 
 
 \begin{point}
@@ -574,7 +582,7 @@ match(vec1,vec2)
     \item \lstinline|python.|: best
     \item \lstinline|java|: strong, but not suitable for deep learning
     \item \lstinline|c++|: fast, inadequate package
-    \item \lstinline|Notepad++|/\lstinline|Vim|
+    \item \lstinline|Notepad++| / \lstinline|Vim| / \lstinline|VSCode|, etc.
 \end{itemize}
 
     

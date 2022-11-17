@@ -9,5 +9,12 @@ $$
 \end{aligned}
 $$ 
 
+$$
+\begin{aligned}
+        \vec{7}=\begin{bmatrix}
+                \xi ,\xi ,\xi ,\xi ,\xi ,\xi ,\xi 
+        \end{bmatrix}
+\end{aligned}
+$$ 
 
     

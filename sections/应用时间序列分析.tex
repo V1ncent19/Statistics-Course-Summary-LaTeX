@@ -49,9 +49,9 @@
     There are plenty of useful modelling methods:
     \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item Regression Model: View $ y $ as function of $ t $, regression on some model $ y=f(t) $ with loss $ \mathcal{L} $. e.g. linear regression
-        \begin{align*}
+        \begin{align}
             y=\beta _0+\beta _1t+\varepsilon ,\quad \mathcal{L}=\sum_{t\in T}(y_t-\hat{y}_t)^2 
-        \end{align*}
+        \end{align}
         
         Modelling strategy is similar to that introduced in linear regression, see \autoref{SecLinearRegressionAnalysis} 
         
@@ -89,10 +89,10 @@
     \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item i.i.d. sequence: $ \varepsilon _t\,\mathrm{i.i.d.}\sim \varepsilon   $        
         \item White Noise\index{WN (White Noise)}: uncorrelated for different subscript $ t $ in the sense of $ 2^\mathrm{nd}  $ moment, $ \varepsilon _t\sim \mathrm{WN}(\mu ,\sigma ^2)  $. where
-        \begin{align*}
+        \begin{align}
             \mathbb{E}\left( \varepsilon _t \right) =&\mu \\
             cov(\varepsilon _t,\varepsilon _s)=&\sigma ^2\delta _{t,s}
-        \end{align*}
+        \end{align}
 
         Further we can append more constraints on $ \mathrm{WN}  $:
         \begin{itemize}[topsep=2pt,itemsep=0pt]
@@ -102,10 +102,10 @@
             \item[+] $ \varepsilon \sim N(\mu ,\sigma ^2) $: normal white noise.
         \end{itemize}
         \item Martingale difference sequence (MDS)\index{MDS (Martingale Difference Sequence)}: zero expectation given history information: $ \varepsilon _t\sim \mathrm{MDS}  $, where
-        \begin{align*}
+        \begin{align}
             \mathbb{E}\left( |\varepsilon _t| \right) <&\infty\\
             \mathbb{E}\left( \varepsilon _t|\mathcal{F}_{t-1} \right) =&0
-        \end{align*}
+        \end{align}
 
         where $ \mathcal{F}_\tau $ denotes the history until time $ \tau $:
         \begin{equation}
@@ -163,18 +163,18 @@
         \end{equation}        
         
         \item AutoCovariance Function (ACVF) and AutoCorrelation Function (ACF):\index{ACVF (Autocovariance)}\index{ACF (Autocorrelation)}
-        \begin{align*}
+        \begin{align}
             \text{ACVF: }\gamma _{t,s}\equiv &cov(X_t,X_s),& \mathcal{T}\times \mathcal{T}\to&\mathbb{R}\\
             \text{ACF: }\rho  _{t,s}\equiv &corr(X_t,X_s)=\dfrac{\gamma _{t,s}}{\sqrt[]{\gamma _{t,t}\gamma _{s,s}}},& \mathcal{T}\times \mathcal{T}\to& [-1,1]
-        \end{align*}
+        \end{align}
 
         \item Stationarity: Stationarity is a measure that the `correlation structure of stochastic process looks the same' at any time $ t $, i.e. is stationary through time.
         \begin{itemize}[topsep=2pt,itemsep=0pt]
             \item Weakly Stationary (WS)\index{WS (Weakly Stationary)}: given $ \mathbb{E}\left( X_t^2 \right) < \infty $, has const mean and $ cov  $ independent of time
-            \begin{align*}
+            \begin{align}
                 \mathbb{E}\left( X_t \right) =&\mu _t=\mu \\
                 cov(X_t,X_t+k)=&\gamma _{t,t+k}=\gamma _k\independent t
-            \end{align*}
+            \end{align}
 
             \item Strictly Stationary (SS)\index{SS (Strictly Stationary)}: joint distribution invariant through time. For any given $ \{t_1,t_2,\ldots,t_n\}\subset \mathcal{T} $
             \begin{equation}
@@ -188,10 +188,10 @@
             \item Generally speaking, WS and SS are not equivalant, WS $ \nLeftrightarrow $ SS (note that SS does not put constraint on $ \mathbb{E}\left( X_t^2 \right)  $)
             \item equivalent for gaussian stochastic process.
             \item ACF and ACVF of WS: 
-            \begin{align*}
+            \begin{align}
                 \gamma _{t,t+k}=&\gamma _k=\gamma _{-k},\quad \forall t\in\mathcal{T}\\
                 \rho _{t,t+k}=&\rho _k=\dfrac{\gamma _k}{\gamma _0},\quad\, \forall t\in\mathcal{T}
-            \end{align*}
+            \end{align}
 
             Notation of ACVF matrix:
             \begin{equation}
@@ -218,9 +218,9 @@
         \end{align}
 
         where $ L(X_{\tau}|X_{t+1},\ldots,X_{t+k-1}) $ is the \textbf{Best Linear Estimation}  of linear model 
-        \begin{align*}
+        \begin{align}
              X_\tau = \beta _0+\beta _1X_{t+1}+\ldots+\beta _{k-1}X_{t+k-1}+\epsilon
-        \end{align*}
+        \end{align}
         
            deduction:
         \begin{itemize}[topsep=2pt,itemsep=0pt]
@@ -230,10 +230,10 @@
             \end{equation}
 
             solution: denote $ X=(X_{t+1},\ldots,X_{t+k-1}) $, $ \beta =(\beta _1,\ldots,\beta _{k-1}) $
-            \begin{align*}
+            \begin{align}
                 \hat{\beta }=&\Sigma ^{-1}_X\Sigma _{X,X_{\tau}}\\
                 \hat{\beta }_0=&\mathbb{E}\left( X_{\tau} \right) -\mathbb{E}\left( X \right)' \hat{\beta }
-            \end{align*}
+            \end{align}
             i.e.
             \begin{equation}\label{EqaBestLinearEstimationOfTS}
                 L(X_\tau|X_{t+1},\ldots,X_{t+k-1}) =\mathbb{E}\left( X_{\tau} \right) + \Sigma _{X_\tau,X}\Sigma _X^{-1}(X-\mathbb{E}\left( X \right) )
@@ -249,16 +249,16 @@
         \end{itemize}
 
         % then we could get 
-        % \begin{align*}
+        % \begin{align}
         %     \phi _{kk}=&corr\left(X_t-L(X_t|X_{t+1},\ldots,X_{t+k-1}),X_{t+k}-L(X_{t+k}|X_{t+1},\ldots,X_{t+k-1})\right),\quad k\geq 2\\
         %     =&
-        % \end{align*}
+        % \end{align}
 
     
         Calculation formula for zero-mean Weakly Stationary:
         \begin{itemize}[topsep=2pt,itemsep=0pt]
             \item using determinant form
-            \begin{align*}
+            \begin{align}
             \phi _{11}=&\rho _1\\
             \phi _{kk}=&\dfrac{\begin{vmatrix}
                 1&\rho _1&\rho _2&\cdots&\rho _{k-2}&{\color{red}\rho _1}\\
@@ -271,7 +271,7 @@
                 \vdots&\vdots&\vdots&\ddots&\vdots&{\color{blue}\vdots}\\
                 \rho _{k-1}&\rho _{k-2}&\rho _{k-3}&\cdots&\rho _1&{\color{blue}1}
             \end{vmatrix}_{k\times k}}
-        \end{align*}
+        \end{align}
             
         \item Levinson-Durbin's recursive formula\index{Levinson-Durbin's Recursive Formula}
         \begin{align}\label{EqaLevinsonDurbin}
@@ -293,10 +293,10 @@
             X_t=\sum_{j=-\infty}^\infty \phi _j\varepsilon _{t-j}+V_t 
         \end{equation}
         where
-        \begin{align*}
+        \begin{align}
             \phi _0=&1\\
             \varepsilon _t\sim &\mathrm{WN}(0,\sigma ^2) 
-        \end{align*}
+        \end{align}
 
 
         \item Spectrum of zero-mean weak stationary time series $ \{X_t\} $:
@@ -306,15 +306,15 @@
 
         We can use this form to construct ACF, ACVF, etc.
         \begin{itemize}[topsep=2pt,itemsep=0pt]
-            \item ACVF:
-            \begin{align*}
+            \item Spectrum and ACVF:\footnote{I am not quite sure about the validity of the expression.}
+            \begin{align}
                 \gamma _k=&cov(X_t,X_{t+k})\\
                 =&\mathbb{E}\left( X_t^*X_{t+k} \right)\\
                 =&\int _{t}\int _{\lambda _1}\int _{\lambda _2} \xi ^*(\lambda _1)\xi  \,\mathrm{d}\lambda _2 e^{i(\lambda _2-\lambda _1)t+i\lambda _2k} f(t) \,\mathrm{d}\lambda _1 \,\mathrm{d}t \\
                 =&\int _{\lambda _1}\int _{\lambda _2} \xi ^*(\lambda _1)\xi  \,\mathrm{d}\lambda _2  \,\mathrm{d}\lambda _1 \\
                 =&\int _{\lambda _2}e^{-\lambda _2k} {\color{blue} \int _t\int _{\lambda_1} \xi ^*(\lambda _1)\xi  \,\mathrm{d}\lambda _2 e^{i(\lambda _2-\lambda _1)t} f(t) \,\mathrm{d}\lambda _1 \,\mathrm{d}t }  \,\mathrm{d}\lambda _2\\
                 \equiv&\int _{\lambda } e^{-\lambda k}{\color{blue}\nu (\lambda )}  \,\mathrm{d}\lambda 
-            \end{align*}
+            \end{align}
             here function $ F(\lambda )=\int \nu (\lambda ) \,\mathrm{d}\lambda  $ is the \textbf{spectrum} of $ \gamma _k $ 
 
             For $ k=0,1,2,\ldots $:
@@ -349,36 +349,36 @@
 
         $ \hat{\mu } $ is the unbiased, consistent estimator, with
         \[
-            \sqrt[]{n}(\hat{\mu }-\mu )\xrightarrow[]{\mathscr{L}} N(0,\sigma ^2) 
+            \sqrt[]{n}(\hat{\mu }-\mu )\xrightarrow[]{\mathrm{d}} N(0,\sigma ^2) 
         \]
         
         an estimator using spectrum:
         \begin{align}
-            &\sqrt[]{n}(\hat{\mu }-\mu )\xrightarrow[]{\mathscr{L}} N(0,2\pi \nu (0))\\
+            &\sqrt[]{n}(\hat{\mu }-\mu )\xrightarrow[]{\mathrm{d}} N(0,2\pi \nu (0))\\
             &2\pi \nu (0)=\gamma _0+2\sum_{j=1}^\infty \gamma _j=\sum_{j=-\infty}^\infty \gamma _j 
         \end{align}
         
         \item ACVF $ \gamma _k $:
-        \begin{align*}
+        \begin{align}
             \hat{\gamma }_k=&\dfrac{1}{n}\sum_{t=1}^{n-k}(x_t-\hat{\mu })(x_{t+k}-\hat{\mu }) \\
             \hat{\hat{\gamma }}_k=&\dfrac{1}{n-k}\sum_{t=1}^{n-k}(x_t-\hat{\mu })(x_{t+k}-\hat{\mu }) 
-        \end{align*}
+        \end{align}
 
         Note for actual usage:
         \begin{itemize}[topsep=2pt,itemsep=0pt]
-            \item We usually avoid estimation for $ k\to n $ due to large error when $ n-k $ is small
+            \item We usually avoid estimation for $ k\sim  n $ due to large error when $ n-k $ is small
             \item In most cases we use $ \hat{\gamma }_k $ rather than $ \hat{\hat{\gamma }}_k $, for two reasons:
             \begin{itemize}[topsep=2pt,itemsep=0pt]
                 \item We often estimate $ \gamma _k $ for small $ k $, which means $ \hat{\gamma }_k\approx \hat{\hat{\gamma }}_k $
                 \item $ \hat{\gamma }_k $ could guarantee the semi-positive-definition of $ \hat{\Gamma }_k $:
-                \[
-                     \hat{\Gamma }_k=\{\hat{\gamma }_{i-j}\}_{i,j=1}^k
-                \]
+                \begin{align}
+                    \hat{\Gamma }_k=\{\hat{\gamma }_{i-j}\}_{i,j=1}^k\succeq 0
+                \end{align}                
             \end{itemize}
             
             asymptotic distribution: denote i.i.d. standard normal time series $ W_t\sim \mathrm{i.i.d.} \,N(0,1)  $
             \begin{align}
-                &\sqrt[]{n}(\hat{\gamma }_0-\gamma _0,\hat{\gamma }_1-\gamma _1,\ldots,\hat{\gamma }_h-\gamma _h)\xrightarrow[]{\mathscr{L}} (\xi _0,\xi _1,\ldots,\xi _h)\\
+                &\sqrt[]{n}(\hat{\gamma }_0-\gamma _0,\hat{\gamma }_1-\gamma _1,\ldots,\hat{\gamma }_h-\gamma _h)\xrightarrow[]{\mathrm{d}} (\xi _0,\xi _1,\ldots,\xi _h)\\
                 &\xi _j=(\dfrac{\sqrt[]{\mathbb{E}\left( \varepsilon ^4 \right) -\sigma ^4}}{\sigma ^2}\gamma _j)W_0+\sum_{t=1}^\infty (\gamma _{t+j}+\gamma _{t-j})W_t,\quad j\geq 0
             \end{align}
                 
@@ -386,13 +386,13 @@
         
             
         \item ACF $ \rho _k $:
-        \begin{align*}
+        \begin{align}
             \hat{\rho }_k=\dfrac{\hat{\gamma }_k}{\hat{\gamma }_0}=\dfrac{\sum_{t=1}^{n-k}(x_t-\hat{\mu })(x_{t+k}-\hat{\mu })}{\sum_{t=1}^{n-k}(x_t-\hat{\mu })^2}
-        \end{align*}
+        \end{align}
 
         asymptotic distribution: denote i.i.d. standard normal time series $ W_t\sim \mathrm{i.i.d.} \,N(0,1)  $
         \begin{align}\label{EqaEstimationDistributionOfACF}
-            &\sqrt[]{n}(\hat{\gamma }_0-\gamma _0,\hat{\gamma }_1-\gamma _1,\ldots,\hat{\gamma }_h-\gamma _h)\xrightarrow[]{\mathscr{L}} (R _0,R _1,\ldots,R _h)\\
+            &\sqrt[]{n}(\hat{\gamma }_0-\gamma _0,\hat{\gamma }_1-\gamma _1,\ldots,\hat{\gamma }_h-\gamma _h)\xrightarrow[]{\mathrm{d}} (R _0,R _1,\ldots,R _h)\\
             &R _j=\sum_{t=1}^\infty(\phi _{t+j}\rho _{t-j}-2\rho _t\rho _j)W(t),\quad j\geq 1
         \end{align}
         \item PACF $ \phi _{kk} $: take $ \hat{\rho }_k $ in the calculation equation of $ \phi _{kk} $.
@@ -411,11 +411,11 @@
 \end{point}
 
     For clearer notation of ARMA and induce the solution, we first introduce backshift operator $ \mathscr{B}  $ of time series: given time series $ \{X_t\} $\footnote{Backshift operator could be used to construct difference operator $ \Delta =(1-\mathscr{B} ) $, e.g.
-    \begin{align*}
+    \begin{align}
         \Delta X_t&=(1-\mathscr{B} )X_t=X_t-X_{t-1}\\
         \Delta ^2X_t=&(1-\mathscr{B} )^2X_t=X_t-2X_{t-1}+X_{t-2}\\
         \ldots&
-    \end{align*}
+    \end{align}
     
     or seasonal difference operator $ \Delta _k=(1-\mathscr{B} ^k) $, e.g.
     \begin{equation}
@@ -428,11 +428,11 @@
     \end{equation}
     
     further it can be used as variable of function by Laurant function series expansion:
-    \begin{align*}
+    \begin{align}
         \psi (z)=&\sum_{j=-\infty}^\infty \psi _{j}z^j\\
         \psi (\mathscr{B} )=&\sum_{j=-\infty}^\infty \psi _{j}\mathscr{B}^j \\
         \psi (\mathscr{B} )X_t=&\sum_{j=-\infty}^\infty \psi _{j}\mathscr{B}^jX_t=\sum_{j=-\infty}^\infty \psi _{j}X_{t-j}
-    \end{align*} 
+    \end{align} 
 
     for time series $ \{X_t\} $, $ \{Y_t\} $. r.v. $ U,V,W $:
     \begin{equation}
@@ -448,13 +448,13 @@
         X_t-\left[a_1X_{t-1}+a_2X_{t-2}+\ldots+a_pX_{t-p}\right]=0 
     \end{equation}
     can be solved using backshift operator: define characteristic equation which would have $ p $ roots $ \zeta _j $
-    \begin{align*}
+    \begin{align}
         A(z)=&1-\left[a_1z+a_2z^2+\ldots+a_pz^p\right]\\
         =&1-\sum_{j=1}^pa_jz^j\\
         =&\prod_{j=1}^p(1-\zeta _jz)\\
         A(\mathscr{B} )=&1-\sum_{j=1}^pa_j\mathscr{B} ^j\\
         =&\prod_{j=1}^p(1-\zeta _j\mathscr{B} )
-    \end{align*}
+    \end{align}
     
     similar to ODE, we can construct general solution from $ \zeta _j $, and particular solution.\footnote{Cases for multiple root see \url{https://www.math.pku.edu.cn/teachers/lidf/course/atsa/atsanotes/html/_atsanotes/atsa-lagdiff.html}}
 
@@ -465,10 +465,10 @@
         X_t=\phi _1X_{t-1}+\phi _2X_{t-2}+\ldots+\phi _pX_{t-p}+\varepsilon _t,\quad \varepsilon _t\sim \mathrm{WN}(\mu_\varepsilon  ,\sigma ^2)  
     \end{equation}
     or expressed in backshift operator with $ \phi (z)=1-\sum_{j=1}^p\phi _jz^j $, where the root of $ \phi (z)=0 $ denoted $ \alpha _j $
-    \begin{align*}
+    \begin{align}
         &\phi (\mathscr{B} )X_t=\varepsilon _t,\quad\varepsilon _t\sim \mathrm{WN}(\mu_\varepsilon  ,\sigma ^2)   \\
         &\phi (z)=1-\sum_{j=1}^p\phi _jz^j=\prod_{j=1}^p(1-\alpha _jz)
-    \end{align*}
+    \end{align}
 
 \begin{point}
     Properties and Solution: (here we consider stationary case $ \mu_\varepsilon  =0 $)
@@ -481,42 +481,42 @@
         \end{equation}
         
         \item Solution of $ X_t $: using the expansion of $ \phi ^{-1} $
-        \begin{align*}
+        \begin{align}
             \phi (z)=&1-\sum_{j=1}^p\phi _jz^j\\
             \phi ^{-1}(z)=&\sum_{j=0}^\infty \psi _{j}z^j,\quad \psi _0=1
-        \end{align*}
+        \end{align}
 
         naturally expressed in the form of Wold Decomposition:
-        \begin{align*}
+        \begin{align}
             \phi (\mathscr{B} )X_t=\varepsilon _t\Rightarrow & X_t=\phi ^{-1}(\mathscr{B} )\varepsilon _t=\sum_{j=0}^\infty \psi _j\varepsilon _{t-j},\quad \psi _0=1
-        \end{align*}
+        \end{align}
 
         \item ACF and ACVF:
-        \begin{align*}
+        \begin{align}
             \gamma _k=&\sigma ^2\sum_{j=0}^\infty \psi _j\psi _{j+k}\\
             \rho _k=&\dfrac{\sum_{j=0}^\infty\psi _j\psi _{j+k}}{\sum_{j=0}^\infty\psi _j^2}
-        \end{align*}
+        \end{align}
         \item Spectrum density $ \nu (\lambda ) $:
-        \begin{align*}
+        \begin{align}
             \nu  (\lambda )=&\dfrac{\sigma ^2}{2\pi}\left\vert \sum_{j=0}^\infty \psi _je^{i\lambda j} \right\vert^2\\
             =& \dfrac{\sigma ^2}{2\pi}\left\vert\phi ^{-1}(e^{i\lambda })\right\vert^2
-        \end{align*}
+        \end{align}
         \item Yule-Walker Equation\index{Y-W Equation (Yule-Walker Equation)}: we have
-        \begin{align*}
+        \begin{align}
             \mathbb{E}\left( X_tX_{t-k} \right) =&\phi _1\mathbb{E}\left( X_{t-1}X_{t-k} \right) +\ldots+\phi _p\mathbb{E}\left( X_{t-p}X_{t-k} \right) +\mathbb{E}\left( \varepsilon _tX_{t-k} \right)  ,\quad \forall k=1,2,\ldots,p\\
             \Rightarrow \gamma _k=&\phi _1\gamma_{k-1}+\ldots+\phi _p\gamma _{k-p}, \quad \forall k=1,2,\ldots,p
-        \end{align*}
+        \end{align}
 
         and for $ k=0 $:
-        \begin{align*}
+        \begin{align}
             \gamma _0=\phi _1\gamma _1+\ldots+\phi _p\gamma _p+\sigma ^2
-        \end{align*}
+        \end{align}
 
 
 
         write in matrix form to get Yule-Walker Equation:
         
-        \begin{align*}
+        \begin{align}
             \begin{bmatrix}
                 \gamma _1\\\gamma _2\\ \vdots\\\gamma _p
             \end{bmatrix} =&
@@ -530,13 +530,13 @@
                 \phi _1\\\phi _2\\ \vdots \\\phi _p
             \end{bmatrix}\\
             \sigma ^2 =& \gamma _0-\phi _1\gamma _1-\ldots-\phi _p\gamma _p
-        \end{align*}
+        \end{align}
         
         or in dense matrix form (1):
-        \begin{align*}
+        \begin{align}
             \gamma =&\Gamma \phi \\
             \sigma ^2=&\gamma _0-\phi '\gamma 
-        \end{align*}
+        \end{align}
 
         dense form (2):
         \begin{equation}
@@ -556,9 +556,9 @@
         \end{equation}
 
         \item PACF: the coefficient of AR$ (p) $ has straight relation with $ \phi _{k,j} $: for all given $ k\geq p $
-        \begin{align*}
+        \begin{align}
             (\phi _1,\ldots,\phi _p,0,\ldots,0)=(\phi _{k,1},\ldots,\phi _{k,p},\phi _{k,p+1},\ldots,\phi _{k,k})
-        \end{align*}
+        \end{align}
 
         (Note that $ \phi _{p,j}=\phi _{p+1,j}=\phi _{p+2,j}=\ldots $ using Levinson-Durbin' recursion \autoref{EqaLevinsonDurbin}).       
         
@@ -573,14 +573,14 @@
 
     \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item Yule-Walker Estimation: use $ \gamma =\Gamma \phi  $. First estimate $ \hat{\gamma } $, as well as $ \hat{\Gamma } $, and get estimation for $ \phi ,\sigma ^2 $
-        \begin{align*}
+        \begin{align}
             \hat{\phi }=& \hat{\Gamma }^{-1}\hat{\gamma }\\
             \hat{\sigma }^2=&\hat{\gamma }_0-\hat{\gamma }'\hat{\Gamma }^{-1}\hat{\gamma }
-        \end{align*}
+        \end{align}
 
         Asymptotic distribution:
         \begin{equation}
-            \sqrt{n}(\hat{\phi }-\phi )\xrightarrow[]{\mathscr{L}} N_p(0,\sigma ^2\Gamma ^{-1}) 
+            \sqrt{n}(\hat{\phi }-\phi )\xrightarrow[]{\mathrm{d}} N_p(0,\sigma ^2\Gamma ^{-1}) 
         \end{equation}
         
 
@@ -615,12 +615,12 @@
         \end{equation}
 
         Likelihood: define $ \theta =\{\phi _1,\ldots,\phi _p,\sigma ^2\} $
-        \begin{align*}
+        \begin{align}
             L(\theta ; x_1,\ldots ,x_n)=&f(x_1,\ldots,x_p|\theta )\prod_{t=p+1}^nf(x_t|x_{t-1},\ldots,x_{1};\theta )\\
             \approx \propto &\prod_{t=p+1}^nf(x_t|x_{t-1},\ldots,x_{1};\theta )\\
             =&\prod_{t=p+1}^n \dfrac{1}{\sqrt[]{2\pi \sigma ^2}}\exp\left\{ -\dfrac{1}{2\sigma ^2}(x_t-\sum_{j=1}^p \phi _jx_{t-j})^2 \right\}\\
             =&(2\pi\sigma ^2)^{-(n-p)/2}\exp\left\{ -\dfrac{1}{2\sigma ^2}\sum_{t=p+1}^n (x_t-\sum_{j=1}^p \phi _jx_{t-j})^2\right\}
-        \end{align*}
+        \end{align}
         
         \item Estimation to spectrum density:
         \begin{equation}
@@ -821,22 +821,22 @@
 
     for all given $ k> p $: Asymptotic distribution:
     \begin{equation}
-        \sqrt[]{n}(\hat{\phi }_{k,1}-\phi _{k,1},\ldots, \hat{\phi }_{k,k}-\phi _{k,k})\xrightarrow[]{\mathscr{L}} N(0,\sigma ^2\Gamma _k^{-1}) 
+        \sqrt[]{n}(\hat{\phi }_{k,1}-\phi _{k,1},\ldots, \hat{\phi }_{k,k}-\phi _{k,k})\xrightarrow[]{\mathrm{d}} N(0,\sigma ^2\Gamma _k^{-1}) 
     \end{equation}
 
     specially it could be proved that $ \left(\sigma ^2\Gamma ^{-1}_{k}\right)_{k,k}=\left(\sigma ^2\Gamma ^{-1}_{k}\right)_{1,1}=1,\quad k>p $.
     
     i.e. test statistics for AR$ (p) $:
     \begin{equation}
-        \hat{\phi }_{k,k}\xrightarrow[]{\mathscr{L}}  N(0,1),\quad w.r.t.\, H_0:\phi _{k,k}=0 ,\quad k>p
+        \hat{\phi }_{k,k}\xrightarrow[]{\mathrm{d}}  N(0,1),\quad w.r.t.\, H_0:\phi _{k,k}=0 ,\quad k>p
     \end{equation}
     
     Plot $ \hat{\phi }_{k,k} $-$ k $ to determine the proper $ k $ as $ \hat{p} $.
     \item AIC/BIC method: use $\hat{p}= \arg\min \mathrm{AIC}(k)  $ or $ \arg\min\mathrm{BIC}(k)  $:
-    \begin{align*}
+    \begin{align}
         \mathrm{AIC}(k)=&\ln \hat{\sigma }_k^2+\dfrac{2k}{n}\\
         \mathrm{BIC}(k)=&\ln \hat{\sigma }_k^2+\dfrac{k\ln n}{n}
-    \end{align*}
+    \end{align}
 \end{itemize}
 
 
@@ -855,7 +855,7 @@
 
     use the asymptotic distribution of $ \hat{\rho }_m $ in \autoref{EqaEstimationDistributionOfACF}, for $ m>q $:
     \begin{align}
-        \sqrt[]{n}\hat{\rho }_m\xrightarrow[]{\mathscr{L}}& R_m\\
+        \sqrt[]{n}\hat{\rho }_m\xrightarrow[]{\mathrm{d}}& R_m\\
          =&\sum_{t=1}^\infty(\rho _{t+m}+\rho _{t-m}-\rho _t\rho _m)W_t\\
          =&\sum_{l=-q}^q\rho _lW_{l+m},\quad m>q\\
          \sim&N(0,1+2\sum_{j=1}^q\rho _j^2)
@@ -863,14 +863,14 @@
     
     i.e. test statistics for MA$ (q) $:
     \[
-        T_q(m)=\dfrac{\sqrt[]{n}\hat{\rho }_m}{\sqrt[]{1+2\sum_{j=1}^q\hat{\rho }_j^2}}\xrightarrow[]{\mathscr{L}} N(0,1),\quad H_0:\rho _m=0, \quad m>q 
+        T_q(m)=\dfrac{\sqrt[]{n}\hat{\rho }_m}{\sqrt[]{1+2\sum_{j=1}^q\hat{\rho }_j^2}}\xrightarrow[]{\mathrm{d}} N(0,1),\quad H_0:\rho _m=0, \quad m>q 
     \]
     
     \item AIC/BIC method: use $\hat{q}= \arg\min \mathrm{AIC}(m)  $ or $ \arg\min\mathrm{BIC}(m)  $:
-    \begin{align*}
+    \begin{align}
         \mathrm{AIC}(m)=&\ln \hat{\sigma }_m^2+\dfrac{2m}{n}\\
         \mathrm{BIC}(m)=&\ln \hat{\sigma }_m^2+\dfrac{m\ln n}{n}
-    \end{align*}
+    \end{align}
 
 \end{itemize}
 
@@ -880,10 +880,10 @@
 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item AIC/BIC method:
-    \begin{align*}
+    \begin{align}
         \hat{p},\hat{q}=&\mathop{\arg\min}\limits_{k,m}\mathrm{AIC}(k,m)=  \mathop{\arg\min}\limits_{k,m}\ln \hat{\sigma }^2_{k,m}+\dfrac{2(k+m)}{n}\\
         \hat{p},\hat{q}=&\mathop{\arg\min}\limits_{k,m}\mathrm{BIC}(k,m)=  \mathop{\arg\min}\limits_{k,m}\ln \hat{\sigma }^2_{k,m}+\dfrac{(k+m)\ln n}{n}
-    \end{align*}
+    \end{align}
     \item EACF for ARIMA$ (p,d,q) $: Extended ACF forms a matrix for determining $ (p,d,q) $\index{EACF (Extended Autocorrelation)} using extended Yule-Walker Equation 
 \end{itemize}
 

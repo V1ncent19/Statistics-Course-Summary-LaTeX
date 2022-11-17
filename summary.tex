@@ -33,6 +33,8 @@
 \usepackage{nicematrix}%更好的矩阵标定
 \usepackage{fbox}%更多浮动体盒子
 \usepackage{tkz-graph}%制图 graph
+\usepackage{fontawesome5}
+
 % \tikzset{
 %   LabelStyle/.style = { draw, rectangle, rounded corners, fill = white},
 %   VertexStyle/.append style = { font = \bfseries, fill = white},
@@ -156,21 +158,18 @@
 %SumatraPDF反向搜索命令行
 % "C:\Users\彭拓锐Vincent\AppData\Local\Programs\Microsoft VS Code\Code.exe" "C:/Users/彭拓锐Vincent/AppData/Local/Programs/Microsoft VS Code\resources\app\out\cli.js" -r -g "%f:%l"
 
-
 \begin{titlepage}
     \title{\textbf{A Brief Summary of Statistics Course}\\统计学课程知识总结}
-    \author[]{Tuorui Peng\thanks{V1ncent19@outlook.com}}
+    \author[]{Tuorui Peng\thanks{E-mail: {v1ncent19@outlook.com} | HomePage: {https://v1ncent19.github.io}}}
     \affil[]{Department of Physics, Tsinghua University}
 \end{titlepage}
 
 \begin{document}
 
-\maketitle\thispagestyle{myheadings}\markright{Complied using \LaTeX}
+\maketitle\thispagestyle{myheadings}\markright{Compiled using \LaTeX}
 
 \pagestyle{preContent}
 \tableofcontents
-% \thispagestyle{plain}
-% \afterpage{\thispagestyle{fancy}}
 \newpage
 
 
@@ -221,11 +220,11 @@
 \newpage
 \thispagestyle{SectionPage}
 
-\include{sections/数据科学导论}
+\include{sections/统计计算与软件}
 \newpage
 \thispagestyle{SectionPage}
 
-\include{sections/统计计算与软件}
+\include{sections/数据科学导论}
 \newpage
 \thispagestyle{SectionPage}
 

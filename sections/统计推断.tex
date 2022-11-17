@@ -28,6 +28,17 @@
         \item Hypothesis Testing: {\autoref{SectionHypothesisTesting}}
     \end{itemize}
 
+\begin{rcode}
+    Example data \lstinline|x|, \lstinline|y|, \lstinline|df| used in this section:
+\begin{lstlisting}[language=R]
+set.seed(42)
+x <- rnorm(n = 50, mean = 2, sd = 2)
+y <- 0.5*x + rnorm(n = 50, mean = 2.1, sd = 2.1)
+df <- data.frame(x=x,y=y)
+\end{lstlisting}
+\end{rcode}
+
+
 \subsection{Statistical Model and Statistics}\label{SectionStatisticalModelandStatistics}
     Random sample comes from population $X$. In parametric model case, we have population distribution family:
     \begin{equation}\mathscr{F}=\{f(x;\vec{\theta})|\vec{\theta}\in\Theta\}\end{equation}
@@ -38,7 +49,7 @@
 
     
 \subsubsection{Statistics}\label{SubSectionStatistics}
-    Statistic(s): function of random sample $\vec{T}(X_1,X_2,\ldots,X_n)$, \textbf{but not a function of parameter}.\index{Statistics}\footnote{Maybe to be more precise, the sample are drawn from the distribution $ f(x;\vec{\theta }) $, so naturally the data $ \{X_i\} $ is related to parameters. So I think here a better description would be `expression of statistics does not contain parameters explicitly'. And thus we could calculate the value to statistics as long as we have the sample data.}
+    Statistic(s): function of random sample $\vec{T}(X_1,X_2,\ldots,X_n)$, \textbf{but not a function of parameter}.\index{Statistics}\footnote{Maybe to be more precise, the sample are drawn from the distribution $ f(x;\vec{\theta }) $, so naturally the data $ \{X_i\} $ is related to parameters. Here a better description would be `expression of statistics does not contain parameters explicitly'. And thus we could calculate the value to statistics as long as we have the sample data. Detail see \hyperlink{SamplingDistribution}{Sampling Distribution}.}
     
 \begin{point}
     Some useful statistics, e.g.
@@ -64,6 +75,11 @@
                 m_{n,k}=\frac{1}{n}\sum_{i=1}^n (X_i-\bar{X})^k\qquad k=2,3,4,\ldots    
             \end{equation}
         \end{itemize}
+        \item Pearson's Correlation Coefficient $ r $\index{Correlation Coefficient!Pearson's Correlation Coefficient $ r $}
+        \begin{align}
+            r_{X,Y}=\hat{cov}(X,Y)=\dfrac{\sum_{i=1}^n(X_i-\bar{X})(Y_i-\bar{Y})}{\sqrt{\sum_{i=1}^n(X_i-\bar{X})^2}\sqrt{\sum_{i=1}^n(Y_i-\bar{Y})^2}} 
+        \end{align}        
+        Multivariate version see \autoref{EqaEstimatorOfCorrelationCoefficient}
         \item Order statistics\index{Order Statistics}
         \begin{equation}
             (X_{(1)},X_{(2)},\ldots,X_{(n)}),\,\text{for }X_{(1)}\leq X_{(2)} \leq \ldots\leq X_{(n)}    
@@ -82,13 +98,33 @@
         \end{equation}
     \end{itemize}
 
+\begin{rcode}
+    \lstinline|R.| code for some statistics
+\begin{lstlisting}[language=R]
+# mean function
+mean(x)
+mean(df)
+# variance / covariance
+var(x)
+var(x,y)
+var(df)
+cov(x,y)
+cov(df)
+# correlation
+cor(x,y)
+cor(df)
+cov2cor(cov(df))
+# moments
+library('moments')
+moments::moment(df, order = ORDER_OF_M, central = FALSE, na.rm = FALSE)
+\end{lstlisting}
+\end{rcode}
+
     \begin{point}
         Properties
     \end{point}
     
-        
-
-    Statistic $T$ is a function of random sample $\{X_i\}$, thus has distribution (say $g_T(t)$) called \textbf{Sampling Distribution}.\index{Statistics!Sampling Distribution}
+    \hypertarget{Statistic}{SamplingDistribution} $T$ is a function of random sample $\vec{X}=\{X_i\}$. Since the sample is drawn `at random', then$ T(\vec{X}) $ certainly also has its own distribution (say $g_T(t)$) called \textbf{Sampling Distribution}.\footnote{Now recap the statement that `statistic is not a function of parameter $ \theta  $': Recall that random variable (the sample is a set of r.v.) $ X $ is a mapping, so $ T:\,\Omega \mapsto \mathscr{X}\mapsto \mathbb{R} $ also. Parameter $ \theta  $ does not involve in the mapping process, instead it influence the sample probability $ \mathbb{P}_\theta(\vec{X}) $, and thus the distribution of statistics $ g_T(t(\vec{X});\theta ) $. Sometimes I use notation like $ T(\vec{X};\theta ) $ to remind me of this, but actually statistic should not contain $ \theta  $ (at least in its expression).}\index{Statistics!Sampling Distribution}
 
         For $X_i$ i.i.d. from $X\sim f(x)$ with population mean $\mu$ and variance $\sigma^2$
     \begin{itemize}
@@ -140,7 +176,7 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
 \end{point}
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item Normal Distribution $ X\sim N(\mu ,\sigma ^2) $
-    \begin{align*}
+    \begin{align}
         f(x;\mu ,\sigma ^2)=&\dfrac{1}{\sqrt{2\pi}\sigma }\exp\left[ -\dfrac{(x-\mu )^2}{2\sigma ^2} \right]=\dfrac{1}{\sqrt{2\pi}\sigma }\exp\left[ -\dfrac{x^2-2x\mu +\mu ^2}{2\sigma ^2} \right]\\
         C(\theta )=&\dfrac{1}{\sqrt{2\pi}\sigma }\\
         Q_1(\theta )=&-\dfrac{1}{2\sigma ^2}\\
@@ -149,24 +185,24 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
         T_2(x)=&x\\
         Q_3(\theta )=&-\dfrac{\mu ^2}{2\sigma ^2}\\
         T_3(x)=&1
-    \end{align*}
+    \end{align}
     \item Gamma Distribution $ X\sim \Gamma (\alpha ,\lambda ) $
-    \begin{align*}
+    \begin{align}
         f(x;\alpha ,\lambda )=&\dfrac{\lambda ^\alpha }{\Gamma (\alpha )}x^{\alpha -1}e^{-\lambda x}\\
         C(\theta )=&\dfrac{\lambda ^\alpha }{\Gamma (\alpha )}\\
         Q_1(\theta )=&-\lambda \\
         T_1(x)=&x\\
         Q_2(\theta )=&\alpha -1\\
         T_2(x)=&\log x
-    \end{align*}
+    \end{align}
     \item Binomial Distribution $ X\sim B(n,p) $
-    \begin{align*}
+    \begin{align}
         p(k;n,p)=&\binom{n}{k}p^k(1-p)^{n-k}=\binom{n}{k}(1-p)^n\exp\left[ k\log\dfrac{p }{1-p} \right]\\
         C(\theta )=&(1-p)^n\\
         h(x)\mathop{=}\limits_{x=k} &\binom{n}{k}\\
         Q_1(\theta )=&\log\dfrac{p}{1-p}\\
         T_1(x)\mathop{=}\limits_{x=k}&k 
-    \end{align*}
+    \end{align}
     
     
 \end{itemize}
@@ -289,9 +325,9 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
         \end{equation}
 
         Otherwise, say $\hat{\theta}$ or $\hat{g}$ is biased. Define \textbf{Bias}:
-        \begin{align*}
+        \begin{align}
             Bias(\hat{\theta }):= \mathbb{E}(\hat{\theta})-\theta
-        \end{align*}
+        \end{align}
         
         in this way, an unbiased estimator is one with $ Bias(\hat{\theta })=0 $
 
@@ -319,9 +355,9 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
             \lim_{n\to\infty}\mathbb{P}(|\hat{\theta }_n(\vec{X})-\theta (\theta)|\geq \varepsilon)=0\quad\forall\varepsilon>0    
         \end{equation}
         \item Asymptotic Normality
-        \begin{align*}
+        \begin{align}
             \hat{\theta }_n-\theta \xrightarrow[]{d} N(0,\sigma ^2_{\hat{\theta }}) 
-        \end{align*}
+        \end{align}
         
         
     \end{itemize}
@@ -329,10 +365,10 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
 
 \subsubsection{Method of Moments}\label{SubSectionMoM}
     Review: Population moments \& Sample moments\index{MoM (Method of Moments)}
-    \begin{align*}
+    \begin{align}
         \alpha_k&=\mathbb{E}(X^k)&\mu_k&=\mathbb{E}[(X-\mathbb{E}(X))^k]\\
         a_{n,k}&=\hat{\alpha }_k =\frac{1}{n}\sum_{i=1}^nX_i^k&m_{n,k}&=\hat{\mu }_k=\frac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^k
-    \end{align*}
+    \end{align}
 
     Property: $a_{n,k}$ is the unbiased estimator of $\alpha_k$.(while $m_{n,k}$ unually biased for $\mu_k$)
 
@@ -373,9 +409,9 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
     \end{equation}
 
     for $ X_i $ i.i.d. $ \sim f(x;\theta ) $ case:
-    \begin{align*}
+    \begin{align}
         L(\theta ;\vec{x})=\prod_{i=1}^nf (x_i;\theta )
-    \end{align*}
+    \end{align}
     
     
 
@@ -406,9 +442,9 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
         
     \begin{itemize}
         \item \textbf{Not Always} unbiased, an example is variance estimator, where
-        \begin{align*}
+        \begin{align}
             \hat{\sigma }^2_\mathrm{MLE}=\dfrac{1}{n}\sum_{i=1}^n(x_i-\bar{x})^2  
-        \end{align*}
+        \end{align}
         
          
         \item Invariance of MLE\index{Invariance of MLE}: If $\hat{\theta}$ is MLE of $\theta$,  then $h(\hat{\theta})$ is MLE of $h(\theta)$, where $ h(\, \cdot \, ) $ is an invertible function.
@@ -426,7 +462,12 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
             \hat{\theta}_n\xrightarrow[]{d}N(\theta,\frac{\sigma^2_\theta}{n})    
         \end{equation}
         
-        We will later see that $ \sigma _\theta ^2 $ is called Fisher Information.
+        We will later see that $ \sigma _\theta ^2 $ is the inversed Fisher Information.
+        \begin{align}\label{EqaAsymptoticDistributionMLE}
+            \hat{\theta }_n\xrightarrow[]{d} N(\theta ,\dfrac{I(\theta )^{-1}}{n})
+        \end{align}
+        
+        
     \end{itemize}
 
     \begin{point}
@@ -451,10 +492,10 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
         \end{equation}
 
         Likelihood function $L(\theta,\vec{x})=\prod_{j=i}^nf(x_j;\theta)$ and log-likelihood function $l(\theta,\vec{x})$
-        \begin{align*}
+        \begin{align}
             L(\theta,\vec{x})&=C^n(\theta)\prod_{j=1}^nh(x_j)\exp\left[\sum_{i=1}^k\theta_i\sum_{j=1}^n T_i(x_j)\right]\\
             \ell(\theta,\vec{x})&=n\ln C(\theta)+\sum_{j=1}^n\ln h(x_j)+\sum_{i=1}^k\theta_i\sum_{j=1}^nT_i(x_j)
-        \end{align*}
+        \end{align}
 
         Solution of MLE: (Require $\hat{\theta}\in\Theta$)
         \begin{equation}
@@ -533,23 +574,23 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
                 S(\vec{x};\theta)=\frac{\partial\ln f(\vec{x};\theta)}{\partial\theta}=\dfrac{\partial^{} \ell(\theta;\vec{x})}{\partial \theta^{}}=\sum_{i=1}^n\frac{\partial\ln f(x_i;\theta)}{\partial\theta}
             \end{equation}
             Property:\footnote{Proof of $ \mathbb{E}(S(\vec{x};\theta))=0 $:
-            \begin{align*}
+            \begin{align}
                 \mathbb{E}(S|\theta)=&\int f(\vec{x};\theta ) \dfrac{\partial^{} \ln f(\vec{x};\theta )}{\partial \theta ^{}} \,\mathrm{d}\vec{x}\\
                 =&\int f(\vec{x};\theta )\dfrac{1}{f(\vec{x};\theta )}\dfrac{\partial^{}f(\vec{x};\theta ) }{\partial \theta ^{}} \,\mathrm{d}\vec{x}\\
                 =&\dfrac{\partial^{} }{\partial \theta ^{}}\int f(\vec{x};\theta ) \,\mathrm{d}\vec{x}=\dfrac{\partial^{} }{\partial \theta ^{}}1=0
-            \end{align*}
+            \end{align}
             }
             \begin{equation}\mathbb{E}[S(\vec{X};\theta)]=0\end{equation}
             \item \textbf{Fisher Information}\index{Fisher Information}: Variance of $S(\vec{x};\theta)$, reflects the accuracy to conduct estimation, i.e. reflects information of statistic model that sample brings.\footnote{
             Proof of $ I(\theta)=\mathbb{E}\left[\left(\dfrac{\partial \ln f(\vec{x};\theta)}{\partial\theta}\right)^2\right]=-\mathbb{E}\left[\dfrac{\partial^2\ln f(\vec{x};\theta)}{\partial \theta^2}\right] $:
-            \begin{align*}
+            \begin{align}
                 0&=\dfrac{\partial^{} }{\partial \theta ^{T}}\mathbb{E}(S|\theta  )\\
                 &=\int\dfrac{\partial^{} }{\partial \theta ^{T}} \left\{\dfrac{\partial^{} \ln f(\vec{x};\theta ) }{\partial \theta ^{}}  f(\vec{x};\theta )\right\}\,\mathrm{d}\vec{x}\\
                 &=\int \left\{ \dfrac{\partial^{2} \ln  f(\vec{x};\theta )}{\partial \theta \partial \theta ^{T}} f(\vec{x};\theta )+\dfrac{\partial^{} \ln f(\vec{x};\theta )}{\partial \theta ^{}}   \dfrac{\partial^{}  f(\vec{x};\theta )}{\partial \theta ^{T}} \right\} \,\mathrm{d}\vec{x} \\
                 &=\int  \dfrac{\partial^{2} \ln  f(\vec{x};\theta )}{\partial \theta \partial \theta ^{T}} f(\vec{x};\theta ) \,\mathrm{d}\vec{x}  +\int \dfrac{\partial^{} \ln  f(\vec{x};\theta )}{\partial \theta ^{}} \dfrac{\partial^{} \ln f(\vec{x};\theta )}{\partial \theta^{T}} f(\vec{x};\theta )\,\mathrm{d}   \vec{x}\\
                 &=\mathbb{E}\left( \dfrac{\partial^{2} \ln f(\vec{x};\theta )}{\partial \theta \partial \theta ^{T}}\right)+\mathbb{E}\left( \dfrac{\partial^{} \ln f(\vec{x};\theta )}{\partial \theta ^{}} \dfrac{\partial^{} \ln f(\vec{x};\theta )}{\partial \theta ^{T}} \right)\\
                 \Rightarrow & \mathbb{E}\left( \dfrac{\partial^{2} \ln f(\vec{x};\theta )}{\partial \theta \partial \theta ^{T}}\right)=-\mathbb{E}\left( \dfrac{\partial^{} \ln f(\vec{x};\theta )}{\partial \theta ^{}} \dfrac{\partial^{} \ln f(\vec{x};\theta )}{\partial \theta ^{T}} \right)
-            \end{align*}
+            \end{align}
             
             }
             \begin{equation}\label{EqaFisherInformation}
@@ -618,11 +659,11 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
     where $\beta_0,\beta_1$ are regression coefficient, and $\epsilon_i$ are unknown random \textbf{error}. 
     
     Basic Assumptions (Guass-Markov Assumption):
-    \begin{align*}
+    \begin{align}
         \text{Zero-Mean: }&\epsilon_i\text{ are i.i.d.}\\
         \text{Homogeneity of Variance: }&\mathbb{E}(\epsilon_i|x_i)=0\\
         \text{Independent: }&var(\epsilon_i)=\sigma^2
-    \end{align*}
+    \end{align}
 
     Mission: use data $\{(x_i,y_i)\}$ to estimate $\beta_0,\beta_1$(i.e. regression line), and error $\epsilon_i$.
 
@@ -710,11 +751,11 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
 \end{equation}
 
     Solution:
-    \begin{align*}
+    \begin{align}
         \hat{\beta_0}&=\bar{y}-\beta_1\bar{x}\\
         \hat{\beta_1}&=\dfrac{\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})}{\sum_{i=1}^n(x_i-\bar{x})^2}\\
         \hat{\sigma}^2_n&=\frac{1}{n}\sum_{i=1}^n(y_i-\hat{\beta}_0-\hat{\beta}_1x_i)
-    \end{align*}
+    \end{align}
     
     
     \end{enumerate}
@@ -783,6 +824,14 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
         \hat{\sigma}^2&=\frac{1}{n-p-1}\sum_{i=1}^n(y_i-x_i^T\hat{\beta})^2\label{EqaEstimatorSigmaWithDoF}
     \end{align}
 
+\begin{rcode}
+    Example of linear regression model $ Y = \beta _0+x\beta +\varepsilon  $
+\begin{lstlisting}[language=R]
+lmfit <- lm(y~x, df)
+summary(lmfit)
+\end{lstlisting}
+\end{rcode}
+
     
 
 \subsubsection{Kernel Density Estimation}\label{SubSectionKernelDensityEstimation}
@@ -800,9 +849,9 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
     where $h_n$ is \textbf{bandwidth}. Take proper kernel function $K$ to get estimate of $f$.
 
     Kernel density estimation can be considered as a convolution $ \otimes $ of sample $\{X_i\}$ and kernel function $K(\, \cdot \, )$.
-    \begin{align*}
+    \begin{align}
         \hat{f}_K= \dfrac{1}{n}\sum_{i=1}^n\delta (x-X_i) \otimes K(x)
-    \end{align*}
+    \end{align}
     
     
 
@@ -811,7 +860,7 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
 \end{point}
 
     
-    \begin{align*}
+    \begin{align}
         K(x):=\begin{cases}
             \,\mathbb{I}_{[-\frac{1}{2},\frac{1}{2}]},&\text{Square Kernel}\\
             \,(1-|x|)\mathbb{I}_{[-1,1]},&\text{Triangle Kernel}\\
@@ -819,10 +868,15 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
             \,\dfrac{1}{\pi(1+x^2)},&\text{Cauchy Kernel}\\
             \,\dfrac{1}{2\pi}\mathrm{sinc}^2\dfrac{x}{2}=\dfrac{1}{2\pi}\left(\dfrac{\sin x/2}{x/2}\right)^2&\text{sinc Kernel}
         \end{cases} 
-    \end{align*}
+    \end{align}
     
 
-
+\begin{rcode}
+    Plot kernel density in \lstinline|R.| 
+\begin{lstlisting}[language=R]
+plot(density(x, kernel = KERNEL_TO_USE))
+\end{lstlisting}
+\end{rcode}
 
 
 
@@ -842,7 +896,7 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
 
     \fbox{
     \begin{minipage}{0.9\linewidth}
-        $ \Delta $ \textbf{NOTE:} Here $ g(\theta ) $ is the parameter, which is fixed, while confidence interval, as a function of data, is random. So all the probabilities discussed below are \textbf{Probability that the interval covers the real value}, rather that the real value falls in the interval. There is a huge difference.
+        $ \Delta $ \textbf{NOTE:} Here $ g(\theta ) $ is the parameter, which is fixed, while confidence interval, as a function of data, is random. So all the probabilities discussed below are \textbf{Probability that the interval covers the true value}, rather that the true value falls in the interval. There is a huge difference.\footnote{A good example: Consider a bi-classification task into $ \uparrow$ or $\downarrow\} $. A confidence interval algorithm can randomly produce $ \{\uparrow, \downarrow\} $ 19 times, and $ \emptyset $ 1 time. This is still a 95\% cofidence interval algorithm (covers true label 19 in 20), but true label falls in $ \{\uparrow,\downarrow\} $ with pr 1, and in $ \emptyset $ with pr 0.}
     \end{minipage}
     }
     
@@ -851,7 +905,7 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
     \index{CI (Confidence Interval)}\index{Confidence Region!Confidence Interval}How to judge an interval estimation?
     \begin{itemize}
         \item Reliability
-        \begin{equation}\mathbb{P}(g(\theta)\in[\hat{g}_1,\hat{g}_2])\end{equation}
+        \begin{equation}\mathbb{P}_{\hat{g}_1,\hat{g}_2}([\hat{g}_1,\hat{g}_2]\ni g(\theta))\end{equation}
         \item Precision
         \begin{equation}\mathbb{E}(\hat{g}_2-\hat{g}_1)\end{equation}
     \end{itemize}
@@ -877,10 +931,10 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
     Other cases:
     \begin{itemize}[topsep=-4pt]
         \item \textbf{Confidence Limit}: (One-way) Upper/Lower Confidence Limit\index{Confidence Region!Confidence Limit}
-    \begin{align*}
+    \begin{align}
         \mathbb{P}(g\leq \hat{g}_U)\geq 1-\alpha\\
         \mathbb{P}(\hat{g}_L\leq g)\geq 1-\alpha
-    \end{align*}
+    \end{align}
         \item \textbf{Confidence Region}: For high dimensional parameters $\vec{g}=(g_1,g_2,\ldots,g_k)$\index{Confeidence Region}
         \begin{equation}\mathbb{P}(\vec{g}\in S(\vec{X}))\geq 1-\alpha\quad \forall \theta\in\Theta \end{equation}
         
@@ -984,19 +1038,19 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
 
     
     Denote sample mean, sample variance and pooled sample variance:\index{Pooled Sample Variance}
-\begin{align*}
+\begin{align}
     \bar{X}&=\frac{1}{m}\sum_{i=1}^nX_i &S_X^2&=\frac{1}{m-1}\sum_{i=1}^m(X_i-\bar{X})^2& S_{\mu_1}^2 &=\dfrac{1}{m}\sum_{i=1}^m(X_i-\mu_1)^2,(\mu_1\text{ known}) \\\bar{Y}&=\frac{1}{n}\sum_{i=1}^n Y_i&S^2_Y&=\frac{1}{n-1}\sum_{i=1}^n(Y_i-\bar{Y})^2& S_{\mu_2}^2 &=\dfrac{1}{n}\sum_{i=1}^n(Y_i-\mu_2)^2,(\mu_2\text{ known})\\
     &&S_\omega^2&=\dfrac{(m-1)S_X^2+(n-1)S_Y^2}{m+n-2}&&
-\end{align*}
+\end{align}
 
 
 
-    % \begin{align*}
+    % \begin{align}
     %     \bar{X}&=\frac{1}{m}\sum_{i=1}^nX_i &\bar{Y}&=\frac{1}{n}\sum_{i=1}^n Y_i  \\
     %     S_X^2&=\frac{1}{m-1}\sum_{i=1}^m(X_i-\bar{X})^2& S^2_Y&=\frac{1}{n-1}\sum_{i=1}^n(Y_i-\bar{Y})^2\\
     %     S_{\mu_1}^2 &=\dfrac{1}{m}\sum_{i=1}^m(X_i-\mu_1)^2,(\mu_1\text{ known}) & S_{\mu_2}^2 &=\dfrac{1}{n}\sum_{i=1}^n(Y_i-\mu_2)^2,(\mu_2\text{ known})\\
     %     S_\omega^2&=\dfrac{(m-1)S_X^2+(n-1)S_Y^2}{m+n-2}&&
-    % \end{align*}
+    % \end{align}
     
 
     \begin{enumerate}[topsep=2pt,itemsep=2pt]
@@ -1144,10 +1198,10 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
 
 
     % Denote sample mean and sample variance:
-    % \begin{align*}
+    % \begin{align}
     %     \bar{X}&=\frac{1}{m}\sum_{i=1}^nX_i & S_X^2&=\frac{1}{m-1}\sum_{i=1}^m(X_i-\bar{X})^2\\
     %     \bar{Y}&=\frac{1}{n}\sum_{i=1}^n Y_i & S^2_Y&=\frac{1}{n-1}\sum_{i=1}^n(Y_i-\bar{Y})^2
-    % \end{align*}
+    % \end{align}
         
 
 
@@ -1194,15 +1248,16 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
     \end{equation}
 
     If $ I(\theta ) $ is unknown, we can estimate it by sample:
-    \begin{align*}
+    \begin{align}
         \hat{I}(\theta )=\hat{\mathbb{E}}\left[\left(\dfrac{\partial^{} \ln f(\vec{x};\theta )}{\partial \theta ^{}}\right)^2\right]=\sum_{i=1}^n \left(\dfrac{\partial^{} \ln f(x_i;\theta )}{\partial \hat{\theta}^*}\right)^2
-    \end{align*}
+    \end{align}
 
     confidence interval:
     \begin{equation}
         \left[\hat{\theta}^*-\frac{N_{\frac{\alpha}{2}}}{\sqrt{n}}\sigma(\hat{\theta}^*),\hat{\theta}^*+\frac{N_{\frac{\alpha}{2}}}{\sqrt{n}}\sigma(\hat{\theta}^*)\right]
     \end{equation}
     \end{enumerate}
+
 
 \subsubsection{Fisher Fiducial Argument*}\label{SubSectionFisherFiducialArgument}
     (Not complete yet)
@@ -1319,11 +1374,11 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
 
         How to determine $\alpha_0$? Depend on specific problem.\footnote{In most cases, take $\alpha_0=0.05$.}
 
-        \item[$ \bm{\Delta } $] $p$-value: probability to get larger bias (or simply `more extreme data') than observed $\vec{x}_0$ \uline{with $H_0$ as ground truth.}
+        \item[$ \bm{\Delta } $] $p$-value: probability to get larger bias (or simply `more extreme data') than observed $\vec{x}_0$ \uline{if $H_0$ as ground truth, and $ H_1 $ as alternative.}
         
         e.g. For reject region defined with statistics $R=\{\vec{X}|T(\vec{X})\geq C\},$ $p$-value:
         \begin{equation}
-            p_{H_0}(\vec{x})=\mathbb{P}[T(\vec{X})\geq t(\vec{x}_0)|H_0]
+            p_{H_0,H_1}(\vec{x})=\mathbb{P}[T(\vec{X})\geq t(\vec{x}_0)|H_0,H_1]
         \end{equation}
 
 
@@ -1628,6 +1683,19 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
 
     Similar for Confidence Limit and One-Sided Testing.
 
+\hypertarget{CODEttest}{}
+\begin{rcode}
+The test function for one-way / two-way test. The function gives both interval estimation and hypothesis testing results.
+\begin{lstlisting}[language=R]
+# one-way
+t.test(x, alternative = c("two.sided", "less", "greater"), mu = 0, conf.level = 0.95, ...)
+# two-way
+t.test(x, y, alternative = c("two.sided", "less", "greater"), mu = 0, paired = FALSE, var.equal = FALSE, conf.level = 0.95, ...)
+t.test(df, ...) 
+\end{lstlisting}
+where \lstinline|paired = TRUE| for pairwise comparison requires $ |x|=|y| $.
+\end{rcode}
+
 \subsubsection{Introduction to Non-Parametric Hypothesis Testing}\label{SubSectionIntroToNonParametricHypothesisTesting}
 
     Motivation: Usually distribution form unknown, cannot use parametric hypothesis testing.
@@ -1636,11 +1704,9 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
     \begin{itemize}
         \item Sign Test: Used for paired comparison $\vec{X}=(X_1,X_2,\ldots,X_n)$, $\vec{Y}=(Y_1,Y_2,\ldots,Y_n)$.\index{Sign Test}
         
-        Take $Z_i=Y_i-X_i$ i.i.d., denote $E(Z)=\mu$. Test $H_0:\mu=0\longleftrightarrow H_1:\mu\neq 0$.
-
-        Denote $n_+=\#(\text{positive } Z_i)$ and $n_-=\#(\text{negative }Z_i)$, $n_0=n_++n_-$. Then $n_+\sim B(n_0,\theta)$, test $H_0:\theta=\dfrac{1}{2}\longleftrightarrow H_1:\theta\neq\dfrac{1}{2}$
+        Take $Z_i=Y_i-X_i$ i.i.d., denote $\mathbb{E}(Z)=\mu$. Test $H_0:\mu=0\longleftrightarrow H_1:\mu\neq 0$. Denote $n_+=\#(\text{positive } Z_i)$ and $n_-=\#(\text{negative }Z_i)$, $n_0=n_++n_-$. Then $n_+\sim B(n_0,\theta)$, thus the test is $H_0:\theta=\dfrac{1}{2}\longleftrightarrow H_1:\theta\neq\dfrac{1}{2}$
         
-        Then use Binomial Testing or large sample CLT Normal Testing.
+        Then use Binomial Testing or large sample CLT Normal Testing on $ H_0 $.
 
         Remark:
         \begin{itemize}
@@ -1648,18 +1714,28 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
             \item Drawback: ignores magnitudes.
         \end{itemize}
         
-        \item \index{WSRT (Wilcoxon Signed Rank Sum Test)}Wilcoxon Signed Rank Sum Test: Improvement of Sign Test. Base on order statistics.
+        \item \index{WSRT (Wilcoxon Signed Rank Sum Test)}Wilcoxon Signed Rank Sum Test: Improvement of Sign Test. Based on order statistics.
         
-        Order Statistics of $Z_i$: $Z_{(1)}<Z_{(2)}<\ldots<Z_{(n)}$, where each $Z_{(j)}$ corresponds to some $Z_i$, denote as $Z_i=Z_{(R_i)}$, then $R_i$ is the rank of $Z_i$.\footnote{If some $X_i,X_j,\ldots$ equal, then take same rank $R=\mathrm{mean}\{R_i,R_j,\ldots\}$.}
+        Order Statistics of $Z_i$: $Z_{(1)}<Z_{(2)}<\ldots<Z_{(n)}$, where each $Z_{(j)}$ corresponds to some $Z_i$ as $Z_i=Z_{(R_i)}$, then $R_i$ is the rank of $Z_i$.\footnote{If some $X_i,X_j,\ldots$ equal, then take same rank $R=\mathrm{mean}\{R_i,R_j,\ldots\}$.}
+        \begin{align*}
+            R_i=\sum_{i=1}^n 
+        \end{align*}
         
-        Def. $\vec{R}=(R_1,R_2,\ldots,R_n)$ is \textbf{Rank Statistics} of $(Z_1,Z_2,\ldots,Z_n)$
+        
+        
+        Def. $\vec{R}=(R_1,R_2,\ldots,R_n)$ is \textbf{Rank Statistics} of $(Z_1,Z_2,\ldots,Z_n)$\index{Rank Statistics}
+        \begin{align*}
+            R_i=\sum_{j=1}^n\mathbb{I}_{Z_j<Z_i}+\dfrac{1}{2}\left(1+\sum_{j=1}^n\mathbb{I}_{Z_j=Z_i} \right)
+        \end{align*}
+        
+        
 
         Def. \textbf{Sum of Wilcoxon Signed Rank}: 
         \begin{equation}
-        W^+=\sum_{i=1}^{n_0}R_i\mathbb{I}_{Z_i>0} 
+        W^+=\sum_{i=1}^{n_0}R_i\mathbb{I}_{Z_{R_i}>0} 
         \end{equation}
 
-        Distribution of $W^+$ is complex. $E$ and $var$ of $W^+$ under $H_0$:
+        Distribution of $W^+$ is complex. $\mathbb{E}$ and $var$ of $W^+$ under $H_0$:
         \begin{equation}
             \mathbb{E}(W^+)=\frac{n_0(n_0+1)}{4}\qquad var(W^+)=\frac{n_0(n_0+1)(2n_0+1)}{24}    
         \end{equation}
@@ -1692,7 +1768,11 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
         \end{equation}
 
 
-
+\begin{rcode}
+\begin{lstlisting}[language=R]
+wilcox.test(x, y, alternative = c("two.sided", "less", "greater"), mu = 0, paired = FALSE)
+\end{lstlisting}
+\end{rcode}
 
 
 
@@ -1806,6 +1886,15 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
     Then under $H_0$, $D\xrightarrow[]{\mathrm{d}}\chi^2_{R(C-1)-(C-1)}=\chi^2_{(R-1)(C-1)}$
     \end{itemize}
 
+\begin{rcode}
+    Contingency table test example:
+\begin{lstlisting}[language=R]
+table_df <- matrix(c(10,20,15,25), 2, 2)
+chisq.test(table_df)
+fisher.test(table_df)
+\end{lstlisting}
+\end{rcode}
+
     \item \hypertarget{testofnormality}{Test of Normality}: normality is a good \& useful assumption.\index{Normality Test}
     
     For $\vec{Y}=(Y_1,Y_2,\ldots,Y_n)$,
@@ -1844,6 +1933,11 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
         \begin{equation}
             W=\dfrac{\left(\sum_{i=1}^{[n/2]}a_i(X_{(n+1-i)}-X_{(i)})\right)^2}{\sum_{i=1}^n(X_{(i)}-\bar{X})^2}
         \end{equation}
+\begin{rcode}
+\begin{lstlisting}[language=R]
+shapiro.test(x)
+\end{lstlisting}
+\end{rcode}
     \end{itemize}
 \end{itemize}
 

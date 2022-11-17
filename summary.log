@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.12.10) (preloaded format=xelatex 2022.1.15)  20 OCT 2022 22:28
+This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.12.10) (preloaded format=xelatex 2022.1.15)  4 NOV 2022 20:20
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1300,7 +1300,21 @@ Package: tkz-graph 2021/01/20 2.00 base for graphs
 \c@tkz@gr@n=\count439
 \c@tkz@gr@ta=\count440
 \c@tkz@gr@tb=\count441
-) (D:\MiKTeX\tex/latex/geometry\geometry.sty
+) (D:\MiKTeX\tex/latex/fontawesome5\fontawesome5.sty
+Package: fontawesome5 2022/05/02 v5.15.4 Font Awesome 5
+
+(D:\MiKTeX\tex/latex/fontawesome5\fontawesome5-utex-helper.sty
+Package: fontawesome5-utex-helper 2022/05/02 v5.15.4 uTeX helper for fontawesom
+e5
+LaTeX Font Info:    Trying to load font information for TU+fontawesomefree on i
+nput line 69.
+
+(D:\MiKTeX\tex/latex/fontawesome5\tufontawesomefree.fd)
+LaTeX Font Info:    Trying to load font information for TU+fontawesomebrands on
+ input line 70.
+
+(D:\MiKTeX\tex/latex/fontawesome5\tufontawesomebrands.fd)))
+(D:\MiKTeX\tex/latex/geometry\geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
 
 (D:\MiKTeX\tex/generic/iftex\ifvtex.sty
@@ -1396,7 +1410,7 @@ File: lstlang2.sty 2020/03/24 1.8d listings language file
 File: lstlang3.sty 2020/03/24 1.8d listings language file
 )
 Package translations Info: No language package found. I am going to use `englis
-h' as default language. on input line 166.
+h' as default language. on input line 167.
 runsystem(for ^%i in (pygmentize.exe pygmentize.bat pygmentize.cmd) do set > su
 mmary.aex <nul: /p x=^%~$PATH:i>> summary.aex)...executed.
 
@@ -1411,17 +1425,17 @@ LaTeX Warning: Label `' multiply defined.
 
 LaTeX Warning: Label `' multiply defined.
 
+) (sections/统计计算与软件.aux
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
 ) (sections/数据科学导论.aux
 
 LaTeX Warning: Label `' multiply defined.
 
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-) (sections/统计计算与软件.aux
 
 LaTeX Warning: Label `' multiply defined.
 
@@ -1484,90 +1498,90 @@ LaTeX Warning: Label `' multiply defined.
 ) (sections/应用随机过程.aux) (sections/ReferenceBook.aux))
 \openout1 = `summary.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 166.
-LaTeX Font Info:    ... okay on input line 166.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 166.
-LaTeX Font Info:    ... okay on input line 166.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 166.
-LaTeX Font Info:    ... okay on input line 166.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 166.
-LaTeX Font Info:    ... okay on input line 166.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 166.
-LaTeX Font Info:    ... okay on input line 166.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 166.
-LaTeX Font Info:    ... okay on input line 166.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 166.
-LaTeX Font Info:    ... okay on input line 166.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 166.
-LaTeX Font Info:    ... okay on input line 166.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 166.
-LaTeX Font Info:    ... okay on input line 166.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 166.
-LaTeX Font Info:    ... okay on input line 166.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 167.
+LaTeX Font Info:    ... okay on input line 167.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 167.
+LaTeX Font Info:    ... okay on input line 167.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 167.
+LaTeX Font Info:    ... okay on input line 167.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 167.
+LaTeX Font Info:    ... okay on input line 167.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 167.
+LaTeX Font Info:    ... okay on input line 167.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 167.
+LaTeX Font Info:    ... okay on input line 167.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 167.
+LaTeX Font Info:    ... okay on input line 167.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 167.
+LaTeX Font Info:    ... okay on input line 167.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 167.
+LaTeX Font Info:    ... okay on input line 167.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 167.
+LaTeX Font Info:    ... okay on input line 167.
 
 Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
 (fontspec)             this).
 
 \symlegacymaths=\mathgroup10
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 166.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 166.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 166.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 166.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 166.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 166.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 166.
-LaTeX Font Info:    Redeclaring math accent \check on input line 166.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 166.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 166.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 166.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 166.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 166.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 166.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 166.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 166.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 166.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 166.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 166.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 166.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 166.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 166.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 166.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 166.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 167.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 167.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 167.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 167.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 167.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 167.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 167.
+LaTeX Font Info:    Redeclaring math accent \check on input line 167.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 167.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 167.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 167.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 167.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 167.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 167.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 167.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 167.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 167.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 167.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 167.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 167.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 167.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 167.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 167.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 167.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 166.
+(Font)              `operators' in the math version `normal' on input line 167.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> TU/TimesNewRoman(0)/m/n on input line 1
-66.
+67.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 166.
+(Font)              `operators' in the math version `bold' on input line 167.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/m/n on input line 
-166.
+167.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/m/n on 
-input line 166.
+input line 167.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/cmr/m/it --> TU/TimesNewRoman(0)/m/it on input line
- 166.
+ 167.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/b/n on input line 
-166.
+167.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 166.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 167.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 166.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 167.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/b/n on 
-input line 166.
+input line 167.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> TU/TimesNewRoman(0)/b/it on input lin
-e 166.
+e 167.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 166.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 167.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 166.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 167.
 
 (D:\MiKTeX\tex/latex/translations/dicts\translations-basic-dictionary-english.t
 rsl
@@ -1575,11 +1589,11 @@ File: translations-basic-dictionary-english.trsl (english translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 166.
-Package hyperref Info: Link coloring ON on input line 166.
-LaTeX Info: Redefining \ref on input line 166.
-LaTeX Info: Redefining \pageref on input line 166.
-LaTeX Info: Redefining \nameref on input line 166.
+or `english'. on input line 167.
+Package hyperref Info: Link coloring ON on input line 167.
+LaTeX Info: Redefining \ref on input line 167.
+LaTeX Info: Redefining \pageref on input line 167.
+LaTeX Info: Redefining \nameref on input line 167.
  (summary.out) (summary.out)
 \@outlinefile=\write7
 \openout7 = `summary.out'.
@@ -1624,18 +1638,18 @@ LaTeX Info: Redefining \nameref on input line 166.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 168
+LaTeX Font Info:    Trying to load font information for U+msa on input line 169
 .
 (D:\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 168
+LaTeX Font Info:    Trying to load font information for U+msb on input line 169
 .
  (D:\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for U+rsfs on input line 16
-8.
+9.
 
 (D:\MiKTeX\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
@@ -1718,6 +1732,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [8]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[9]
 \pgf@layerbox@marx=\box116
 \pgf@layerboxsaved@marx=\box117
 \openout2 = `sections/初等概率论.aux'.
@@ -1749,15 +1772,15 @@ Package fontspec Info: Font family 'FangSong(0)' created for font 'FangSong'
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 62.
+(hyperref)                removing `math shift' on input line 68.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sigma' on input line 62.
+(hyperref)                removing `\sigma' on input line 68.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 62.
+(hyperref)                removing `math shift' on input line 68.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1767,7 +1790,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[9
+[10
 
 ]
 
@@ -1802,15 +1825,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[10]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
 [11]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1821,10 +1835,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [12]
-Overfull \hbox (29.91922pt too wide) detected at line 296
-[]
- []
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1844,60 +1854,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [14]
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 460.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 460.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 460.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 460.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 460.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 460.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 465.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\leavevmode@ifvmode' on input line 465.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \kern 1.82538pt
-(hyperref)                removed on input line 465.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\cdot' on input line 465.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\leavevmode@ifvmode' on input line 465.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \kern 1.82538pt
-(hyperref)                removed on input line 465.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 465.
-
-
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
 (fancyhdr)                \setlength{\headheight}{13.59999pt}.
@@ -1916,6 +1872,60 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [16]
 
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 484.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 484.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 484.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 484.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 484.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 484.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 489.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\leavevmode@ifvmode' on input line 489.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 1.82538pt
+(hyperref)                removed on input line 489.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\cdot' on input line 489.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\leavevmode@ifvmode' on input line 489.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 1.82538pt
+(hyperref)                removed on input line 489.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 489.
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
 (fancyhdr)                \setlength{\headheight}{13.59999pt}.
@@ -1924,6 +1934,96 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [17]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 538.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\leavevmode@ifvmode' on input line 538.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 1.82538pt
+(hyperref)                removed on input line 538.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\cdot' on input line 538.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\leavevmode@ifvmode' on input line 538.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 1.82538pt
+(hyperref)                removed on input line 538.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 538.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 576.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\leavevmode@ifvmode' on input line 576.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 1.82538pt
+(hyperref)                removed on input line 576.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\cdot' on input line 576.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\leavevmode@ifvmode' on input line 576.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 1.82538pt
+(hyperref)                removed on input line 576.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 576.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 576.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\leavevmode@ifvmode' on input line 576.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 1.82538pt
+(hyperref)                removed on input line 576.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\cdot' on input line 576.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\leavevmode@ifvmode' on input line 576.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 1.82538pt
+(hyperref)                removed on input line 576.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 576.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -1970,48 +2070,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [22]
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 935.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\chi' on input line 935.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 935.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 935.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 935.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\leavevmode@ifvmode' on input line 935.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \kern 1.82538pt
-(hyperref)                removed on input line 935.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\leavevmode@ifvmode' on input line 935.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \kern 1.82538pt
-(hyperref)                removed on input line 935.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 935.
-
-
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
 (fancyhdr)                \setlength{\headheight}{13.59999pt}.
@@ -2019,7 +2077,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[23])
+[23]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -2029,6 +2087,75 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [24]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1010.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\chi' on input line 1010.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 1010.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1010.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1010.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\leavevmode@ifvmode' on input line 1010.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 1.82538pt
+(hyperref)                removed on input line 1010.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\leavevmode@ifvmode' on input line 1010.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 1.82538pt
+(hyperref)                removed on input line 1010.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1010.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[25]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[26])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[27]
 \openout2 = `sections/统计推断.aux'.
 
  (sections/统计推断.tex
@@ -2040,7 +2167,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[25
+[28
 
 
 
@@ -2053,40 +2180,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[26]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[27]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[28]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
 [29]
-Overfull \hbox (2.6512pt too wide) in paragraph at lines 282--283
-[]\TU/TimesNewRoman(0)/m/n/10.95 Estimator is a statistic, with sampling distri
-bution. In the following part we only give the expression for $[]\OT1/cmr/m/n/1
-0.95 ([]) []
- []
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -2123,6 +2217,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [33]
+Overfull \hbox (2.6512pt too wide) in paragraph at lines 318--319
+[]\TU/TimesNewRoman(0)/m/n/10.95 Estimator is a statistic, with sampling distri
+bution. In the following part we only give the expression for $[]\OT1/cmr/m/n/1
+0.95 ([]) []
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -2177,10 +2277,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [39]
-Underfull \hbox (badness 10000) in paragraph at lines 913--914
-
- []
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -2208,9 +2304,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [42]
-File: sections/images/2022-09-05-16-16-51.png Graphic file (type bmp)
-<sections/images/2022-09-05-16-16-51.png>
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -2220,6 +2313,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [43]
+Underfull \hbox (badness 10000) in paragraph at lines 967--968
+
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -2256,6 +2353,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [47]
+File: sections/images/2022-09-05-16-16-51.png Graphic file (type bmp)
+<sections/images/2022-09-05-16-16-51.png>
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -2292,15 +2392,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [51]
-Underfull \hbox (badness 10000) in paragraph at lines 1850--1855
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1850--1855
-
- []
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -2309,7 +2400,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[52])
+[52]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -2319,6 +2410,60 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [53]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[54]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[55]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[56]
+Underfull \hbox (badness 10000) in paragraph at lines 1944--1949
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1944--1949
+
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[57])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[58]
 \openout2 = `sections/线性回归分析.aux'.
 
  (sections/线性回归分析.tex
@@ -2330,7 +2475,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[54
+[59
 
 
 
@@ -2343,7 +2488,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[55]
+[60]
 Underfull \hbox (badness 10000) in paragraph at lines 212--213
 
  []
@@ -2356,7 +2501,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[56]
+[61]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -2365,7 +2510,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[57]
+[62]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -2374,7 +2519,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[58]
+[63]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 458.
@@ -2443,7 +2588,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[59]
+[64]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 551.
@@ -2464,7 +2609,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[60]
+[65]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -2473,7 +2618,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[61]
+[66]
 Underfull \hbox (badness 10000) in paragraph at lines 703--704
 
  []
@@ -2486,7 +2631,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[62]
+[67]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -2495,7 +2640,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[63]
+[68]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 805.
@@ -2540,7 +2685,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[64]
+[69]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 892.
@@ -2553,59 +2698,6 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 892.
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[65]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[66]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[67]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[68]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1200.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1200.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[69]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -2642,6 +2734,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [73]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1200.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1200.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -2812,7 +2912,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[92])
+[92]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -2822,6 +2922,51 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [93]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[94]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[95]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[96]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[97])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[98]
 \openout2 = `sections/多元统计分析.aux'.
 
  (sections/多元统计分析.tex
@@ -2833,7 +2978,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[94
+[99
 
 
 
@@ -2870,92 +3015,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[95]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[96]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[97]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[98]
-Underfull \hbox (badness 10000) in paragraph at lines 379--380
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 380--381
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 381--382
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 382--383
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 383--384
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 384--385
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 385--386
-
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[99]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
 [100]
-Overfull \hbox (0.80833pt too wide) in paragraph at lines 471--472
-[]\TU/TimesNewRoman(0)/m/n/10.95 Application instances see [][]$[][][][][] [] [
-] [] [][][][][][][][][] [] [][][][][][] [] [][] [] [][][][][][] [] [][][][][][]
-[][][][][][][][][][][][][][][][][]$[][] and [][]$[][][][][] []
- []
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -2974,39 +3034,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [102]
-Underfull \hbox (badness 10000) in paragraph at lines 691--692
-
- []
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 722.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\bool_gset_true:N' on input line 722.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\g__siunitx_emulation_unit_warning_\bar_boo
-l' on input line 722.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\msg_warning:nnnn' on input line 722.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 722.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 722.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 722.
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3016,34 +3043,27 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [103]
+Underfull \hbox (badness 10000) in paragraph at lines 400--401
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
+ []
 
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[104]
+Underfull \hbox (badness 10000) in paragraph at lines 401--402
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
+ []
 
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[105]
+Underfull \hbox (badness 10000) in paragraph at lines 402--403
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
+ []
 
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[106]
-Underfull \hbox (badness 10000) in paragraph at lines 1102--1103
+Underfull \hbox (badness 10000) in paragraph at lines 403--404
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 404--405
 
  []
 
@@ -3055,7 +3075,82 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
+[104]
+Underfull \hbox (badness 10000) in paragraph at lines 405--406
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 406--407
+
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[105]
+Overfull \hbox (0.80833pt too wide) in paragraph at lines 492--493
+[]\TU/TimesNewRoman(0)/m/n/10.95 Application instances see [][]$[][][][][] [] [
+] [] [][][][][][][][][] [] [][][][][][] [] [][] [] [][][][][][] [] [][][][][][]
+[][][][][][][][][][][][][][][][][]$[][] and [][]$[][][][][] []
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[106]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
 [107]
+Underfull \hbox (badness 10000) in paragraph at lines 712--713
+
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 743.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\bool_gset_true:N' on input line 743.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\g__siunitx_emulation_unit_warning_\bar_boo
+l' on input line 743.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\msg_warning:nnnn' on input line 743.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 743.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 743.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 743.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3092,13 +3187,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [111]
-Overfull \hbox (21.00798pt too wide) in paragraph at lines 1449--1450
-[]\TU/TimesNewRoman(0)/m/n/10.95 Similarly, the $\OML/cmm/m/it/10.95 k[]$ \TU/T
-imesNewRoman(0)/m/n/10.95 canonical pair $\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.
-95 U[]; V[]\OT1/cmr/m/n/10.95 )$ \TU/TimesNewRoman(0)/m/n/10.95 satisfy the sam
-e criterion as [][]equation. 4.146[][][] but with $\OML/cmm/m/it/10.95 a[] \OMS
-/cmsy/m/n/10.95 2 []f\OML/cmm/m/it/10.95 a[]; [] ; a[]\OMS/cmsy/m/n/10.95 g[]\O
-ML/cmm/m/it/10.95 ;$
+Underfull \hbox (badness 10000) in paragraph at lines 1115--1116
+
  []
 
 
@@ -3128,10 +3218,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [114]
-Overfull \hbox (7.70256pt too wide) detected at line 1618
-[]
- []
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3150,8 +3236,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [116]
-File: sections/images/Hierarchical Clustering.png Graphic file (type bmp)
-<sections/images/Hierarchical Clustering.png>
+Overfull \hbox (21.00798pt too wide) in paragraph at lines 1462--1463
+[]\TU/TimesNewRoman(0)/m/n/10.95 Similarly, the $\OML/cmm/m/it/10.95 k[]$ \TU/T
+imesNewRoman(0)/m/n/10.95 canonical pair $\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.
+95 U[]; V[]\OT1/cmr/m/n/10.95 )$ \TU/TimesNewRoman(0)/m/n/10.95 satisfy the sam
+e criterion as [][]equation. 4.150[][][] but with $\OML/cmm/m/it/10.95 a[] \OMS
+/cmsy/m/n/10.95 2 []f\OML/cmm/m/it/10.95 a[]; [] ; a[]\OMS/cmsy/m/n/10.95 g[]\O
+ML/cmm/m/it/10.95 ;$
+ []
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3163,14 +3255,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [117]
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1742.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1742.
-
-
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
 (fancyhdr)                \setlength{\headheight}{13.59999pt}.
@@ -3179,12 +3263,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [118]
-Overfull \hbox (31.1866pt too wide) in paragraph at lines 1802--1803
-[]\TU/TimesNewRoman(0)/m/n/10.95 E-M Algorithm uses the ELBO maximizing method,
- detail see [][]section. 6.5[][][]. For simplification express $\OML/cmm/m/it/1
-0.95 ^^R \OMS/cmsy/m/n/10.95 ^^Q f[\OML/cmm/m/it/10.95 ^^Y[]; \OMS/cmsy/m/n/10.
-95 [\OML/cmm/m/it/10.95 ^^V[]; \OMS/cmsy/m/n/10.95 [\OT1/cmr/m/n/10.95 ^^F[]\OM
-S/cmsy/m/n/10.95 g$\TU/TimesNewRoman(0)/m/n/10.95 .
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[119]
+Overfull \hbox (7.70256pt too wide) detected at line 1631
+[]
  []
 
 
@@ -3195,16 +3284,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[119]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[120])
+[120]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3214,11 +3294,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [121]
-\openout2 = `sections/数据科学导论.aux'.
-
- (sections/数据科学导论.tex
-File: sections/images/RoadToDataScientist1.png Graphic file (type bmp)
-<sections/images/RoadToDataScientist1.png>
+File: sections/images/Hierarchical Clustering.png Graphic file (type bmp)
+<sections/images/Hierarchical Clustering.png>
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3228,11 +3305,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[122
+[122]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1755.
 
 
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1755.
 
-]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3242,6 +3323,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [123]
+Overfull \hbox (31.1866pt too wide) in paragraph at lines 1815--1816
+[]\TU/TimesNewRoman(0)/m/n/10.95 E-M Algorithm uses the ELBO maximizing method,
+ detail see [][]section. 5.5[][][]. For simplification express $\OML/cmm/m/it/1
+0.95 ^^R \OMS/cmsy/m/n/10.95 ^^Q f[\OML/cmm/m/it/10.95 ^^Y[]; \OMS/cmsy/m/n/10.
+95 [\OML/cmm/m/it/10.95 ^^V[]; \OMS/cmsy/m/n/10.95 [\OT1/cmr/m/n/10.95 ^^F[]\OM
+S/cmsy/m/n/10.95 g$\TU/TimesNewRoman(0)/m/n/10.95 .
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3259,7 +3348,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[125]
+[125])
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3269,6 +3358,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [126]
+\openout2 = `sections/统计计算与软件.aux'.
+
+ (sections/统计计算与软件.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3277,7 +3369,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[127]
+[127
+
+
+
+]
+File: sections/images/ForwardError.png Graphic file (type bmp)
+<sections/images/ForwardError.png>
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3314,10 +3413,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [131]
-Overfull \hbox (8.1411pt too wide) in paragraph at lines 612--615
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][
-][][][][][][][][] \TU/TimesNewRoman(0)/m/n/10.95 returns logical vec-
+Overfull \hbox (23.80286pt too wide) in paragraph at lines 331--332
+[]\TU/TimesNewRoman(0)/m/n/10.95 In the view of column space transfrom, $\OML/c
+mm/m/it/10.95 A$ \TU/TimesNewRoman(0)/m/n/10.95 and $\OML/cmm/m/it/10.95 A[]$ \
+TU/TimesNewRoman(0)/m/n/10.95 are mappings between space $[]\OMS/cmsy/m/n/10.95
+ f\OML/cmm/m/it/10.95 e[]; [] ; e[]\OMS/cmsy/m/n/10.95 g$ \TU/TimesNewRoman(0)/
+m/n/10.95 and $[]\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 a[]; [] ; a[]\OMS/cms
+y/m/n/10.95 g$\TU/TimesNewRoman(0)/m/n/10.95 ,
  []
 
 
@@ -3330,6 +3432,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [132]
 
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 491.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 491.
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
 (fancyhdr)                \setlength{\headheight}{13.59999pt}.
@@ -3337,12 +3447,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[133] (D:\MiKTeX\tex/latex/listings\lstlang1.sty
-File: lstlang1.sty 2020/03/24 1.8d listings language file
-)
-(D:\MiKTeX\tex/latex/listings\lstmisc.sty
-File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-)
+[133]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3352,12 +3457,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [134]
-File: sections/images/2022-08-18-11-24-35.png Graphic file (type bmp)
-<sections/images/2022-08-18-11-24-35.png>
 
-Missing character: There is no ❄ in font [lmmono10-regular]:!
-File: sections/images/2022-08-18-11-14-15.png Graphic file (type bmp)
-<sections/images/2022-08-18-11-14-15.png>
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 643.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 643.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3367,9 +3474,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [135]
-File: sections/images/2022-08-18-11-15-34.png Graphic file (type bmp)
-<sections/images/2022-08-18-11-15-34.png>
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3379,19 +3483,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [136]
-Overfull \hbox (2.79515pt too wide) in paragraph at lines 861--862
-[][][][][][][][][][][][][] \TU/TimesNewRoman(0)/m/n/10.95 extra text type, valu
-e taken in [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][]m etc. use [][][][][][][]
- []
-
-
-Overfull \hbox (15.94516pt too wide) in paragraph at lines 869--870
-[][][][][][][][][][][][][][][][][][][] \TU/TimesNewRoman(0)/m/n/10.95 to specif
-y rotation of ticks, value taken in [][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][]
- []
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3410,16 +3501,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [138]
-Underfull \hbox (badness 10000) in paragraph at lines 971--971
-[]|[][][][][][][]
- []
-
-
-Overfull \hbox (32.11694pt too wide) in paragraph at lines 995--996
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][]
- []
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3428,7 +3509,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[139])
+[139]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3438,9 +3519,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [140]
-\openout2 = `sections/统计计算与软件.aux'.
+Underfull \hbox (badness 10000) in paragraph at lines 1105--1106
 
- (sections/统计计算与软件.tex
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3449,14 +3531,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[141
-
-
-
-]
-File: sections/images/ForwardError.png Graphic file (type bmp)
-<sections/images/ForwardError.png>
-
+[141]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3493,15 +3568,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [145]
-Overfull \hbox (23.80286pt too wide) in paragraph at lines 331--332
-[]\TU/TimesNewRoman(0)/m/n/10.95 In the view of column space transfrom, $\OML/c
-mm/m/it/10.95 A$ \TU/TimesNewRoman(0)/m/n/10.95 and $\OML/cmm/m/it/10.95 A[]$ \
-TU/TimesNewRoman(0)/m/n/10.95 are mappings between space $[]\OMS/cmsy/m/n/10.95
- f\OML/cmm/m/it/10.95 e[]; [] ; e[]\OMS/cmsy/m/n/10.95 g$ \TU/TimesNewRoman(0)/
-m/n/10.95 and $[]\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 a[]; [] ; a[]\OMS/cms
-y/m/n/10.95 g$\TU/TimesNewRoman(0)/m/n/10.95 ,
- []
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3511,14 +3577,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [146]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 491.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 491.
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3537,14 +3595,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [148]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 643.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 643.
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3599,10 +3649,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [154]
-Underfull \hbox (badness 10000) in paragraph at lines 1107--1108
-
- []
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3630,6 +3676,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [157]
+Underfull \hbox (badness 10000) in paragraph at lines 2222--2223
+
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3657,6 +3707,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [160]
+Overfull \hbox (33.62283pt too wide) in paragraph at lines 2421--2422
+[]\TU/TimesNewRoman(0)/m/n/10.95 Further if $\OML/cmm/m/it/10.95 A$ \TU/TimesNe
+wRoman(0)/m/n/10.95 is full-rank and conjugate vector set has $\OML/cmm/m/it/10
+.95 n$ \TU/TimesNewRoman(0)/m/n/10.95 independent vector, it can span the whole
+ space $[]\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 ^^X[]; ^^X[]; [] ; ^^X[]\OMS
+/cmsy/m/n/10.95 g \OT1/cmr/m/n/10.95 =
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3738,6 +3796,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [169]
+Overfull \hbox (5.15004pt too wide) in paragraph at lines 2939--2940
+[]\TU/TimesNewRoman(0)/m/n/10.95 for discrete version $\OML/cmm/m/it/10.95 x \O
+MS/cmsy/m/n/10.95 2 f\OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.
+95 2\OML/cmm/m/it/10.95 ; []\OMS/cmsy/m/n/10.95 g$\TU/TimesNewRoman(0)/m/n/10.9
+5 , we could denote it into a discrete-time stochastic process that is time-hom
+ogeneous 
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3755,11 +3821,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[171]
-Underfull \hbox (badness 10000) in paragraph at lines 2224--2225
-
- []
-
+[171])
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3769,6 +3831,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [172]
+\openout2 = `sections/数据科学导论.aux'.
+
+ (sections/数据科学导论.tex
+File: sections/images/RoadToDataScientist1.png Graphic file (type bmp)
+<sections/images/RoadToDataScientist1.png>
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3777,7 +3845,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[173]
+[173
+
+
+
+]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3787,14 +3859,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [174]
-Overfull \hbox (33.62283pt too wide) in paragraph at lines 2423--2424
-[]\TU/TimesNewRoman(0)/m/n/10.95 Further if $\OML/cmm/m/it/10.95 A$ \TU/TimesNe
-wRoman(0)/m/n/10.95 is full-rank and conjugate vector set has $\OML/cmm/m/it/10
-.95 n$ \TU/TimesNewRoman(0)/m/n/10.95 independent vector, it can span the whole
- space $[]\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 ^^X[]; ^^X[]; [] ; ^^X[]\OMS
-/cmsy/m/n/10.95 g \OT1/cmr/m/n/10.95 =
- []
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3867,21 +3931,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [182]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[183]
-Overfull \hbox (5.15004pt too wide) in paragraph at lines 2941--2942
-[]\TU/TimesNewRoman(0)/m/n/10.95 for discrete version $\OML/cmm/m/it/10.95 x \O
-MS/cmsy/m/n/10.95 2 f\OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.
-95 2\OML/cmm/m/it/10.95 ; []\OMS/cmsy/m/n/10.95 g$\TU/TimesNewRoman(0)/m/n/10.9
-5 , we could denote it into a discrete-time stochastic process that is time-hom
-ogeneous 
+Overfull \hbox (8.1411pt too wide) in paragraph at lines 620--623
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][
+][][][][][][][][] \TU/TimesNewRoman(0)/m/n/10.95 returns logical vec-
  []
 
 
@@ -3892,7 +3945,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[184])
+[183]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[184] (D:\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+)
+(D:\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+)
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3902,9 +3969,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [185]
-\openout2 = `sections/可靠性数据与生存分析.aux'.
+File: sections/images/2022-08-18-11-24-35.png Graphic file (type bmp)
+<sections/images/2022-08-18-11-24-35.png>
 
- (sections/可靠性数据与生存分析.tex
+Missing character: There is no ❄ in font [lmmono10-regular]:!
+File: sections/images/2022-08-18-11-14-15.png Graphic file (type bmp)
+<sections/images/2022-08-18-11-14-15.png>
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3913,11 +3983,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[186
+[186]
+File: sections/images/2022-08-18-11-15-34.png Graphic file (type bmp)
+<sections/images/2022-08-18-11-15-34.png>
 
-
-
-]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3927,6 +3996,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [187]
+Overfull \hbox (2.79515pt too wide) in paragraph at lines 869--870
+[][][][][][][][][][][][][] \TU/TimesNewRoman(0)/m/n/10.95 extra text type, valu
+e taken in [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+[][][][][][][][][][][][][][][][][][][][]m etc. use [][][][][][][]
+ []
+
+
+Overfull \hbox (15.94516pt too wide) in paragraph at lines 877--878
+[][][][][][][][][][][][][][][][][][][] \TU/TimesNewRoman(0)/m/n/10.95 to specif
+y rotation of ticks, value taken in [][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][]
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3945,6 +4027,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [189]
+Underfull \hbox (badness 10000) in paragraph at lines 979--979
+[]|[][][][][][][]
+ []
+
+
+Overfull \hbox (32.11694pt too wide) in paragraph at lines 1003--1004
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][]
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3953,7 +4045,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[190]
+[190])
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3963,6 +4055,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [191]
+\openout2 = `sections/可靠性数据与生存分析.aux'.
+
+ (sections/可靠性数据与生存分析.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3971,7 +4066,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[192]
+[192
+
+
+
+]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4053,9 +4152,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [201]
-File: sections/images/2022-08-19-10-03-10.png Graphic file (type bmp)
-<sections/images/2022-08-19-10-03-10.png>
-)
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4065,9 +4161,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [202]
-\openout2 = `sections/生物统计学概论.aux'.
-
- (sections/生物统计学概论.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4076,11 +4169,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[203
-
-
-
-]
+[203]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4117,6 +4206,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [207]
+File: sections/images/2022-08-19-10-03-10.png Graphic file (type bmp)
+<sections/images/2022-08-19-10-03-10.png>
+)
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4126,6 +4218,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [208]
+\openout2 = `sections/生物统计学概论.aux'.
+
+ (sections/生物统计学概论.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4134,7 +4229,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[209]
+[209
+
+
+
+]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4152,7 +4251,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[211])
+[211]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4162,9 +4261,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [212]
-\openout2 = `sections/统计学习导论.aux'.
-
- (sections/统计学习导论.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4173,11 +4269,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[213
-
-
-
-]
+[213]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4213,15 +4305,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[217]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 319.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 319.
-
+[217])
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4231,6 +4315,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [218]
+\openout2 = `sections/统计学习导论.aux'.
+
+ (sections/统计学习导论.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4239,7 +4326,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[219]
+[219
+
+
+
+]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4249,9 +4340,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [220]
-File: sections/images/SVM.png Graphic file (type bmp)
-<sections/images/SVM.png>
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4280,6 +4368,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [223]
 
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 319.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 319.
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
 (fancyhdr)                \setlength{\headheight}{13.59999pt}.
@@ -4306,6 +4402,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [226]
+File: sections/images/SVM.png Graphic file (type bmp)
+<sections/images/SVM.png>
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4333,9 +4432,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [229]
-File: sections/images/tree.png Graphic file (type bmp)
-<sections/images/tree.png>
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4363,9 +4459,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [232]
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
-Missing character: There is no ; in font nullfont!
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4374,7 +4467,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[233])
+[233]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4384,9 +4477,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [234]
-\openout2 = `sections/应用时间序列分析.aux'.
-
- (sections/应用时间序列分析.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4395,11 +4485,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[235
+[235]
+File: sections/images/tree.png Graphic file (type bmp)
+<sections/images/tree.png>
 
-
-
-]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4427,6 +4516,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [238]
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4435,7 +4527,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[239]
+[239])
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4445,6 +4537,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [240]
+\openout2 = `sections/应用时间序列分析.aux'.
+
+ (sections/应用时间序列分析.tex
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4453,14 +4548,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[241]
-Underfull \hbox (badness 10000) in paragraph at lines 459--459
-[][][]\TU/TimesNewRoman(0)/m/n/9 Cases for multiple root see [][]$[][][][][] []
- [] [] [][][] [] [][][][] [] [][][] [] [][][] [] [][] [] [][][][][][][][] [] []
-[][][] [] [][][][][][] [] [][][][] [] [][][][][][][][][] [] [][][][] [] [][][][
-][][][][][][] []
- []
+[241
 
+
+
+]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4515,6 +4607,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [247]
+Underfull \hbox (badness 10000) in paragraph at lines 459--459
+[][][]\TU/TimesNewRoman(0)/m/n/9 Cases for multiple root see [][]$[][][][][] []
+ [] [] [][][] [] [][][][] [] [][][] [] [][][] [] [][] [] [][][][][][][][] [] []
+[][][] [] [][][][][][] [] [][][][] [] [][][][][][][][][] [] [][][][] [] [][][][
+][][][][][][] []
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4524,6 +4623,60 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [248]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[249]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[250]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[251]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[252]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[253]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[254]
 Overfull \hbox (1.43121pt too wide) in paragraph at lines 964--965
 []\TU/TimesNewRoman(0)/m/n/10.95 our mission is to construct a function $\OML/c
 mm/m/it/10.95 g\OT1/cmr/m/n/10.95 ( \OMS/cmsy/m/n/10.95 ^^A \OT1/cmr/m/n/10.95 
@@ -4542,7 +4695,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[249]
+[255]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1000.
@@ -4567,7 +4720,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[250]
+[256]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1050.
@@ -4593,88 +4746,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[251]
+[257]
 \openout2 = `sections/因果推断导论.aux'.
 
  (sections/因果推断导论.tex
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[252
-
-
-
-]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[253]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[254]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 242.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 242.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[255]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[256])
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[257]
-\openout2 = `sections/应用随机过程.aux'.
-
- (sections/应用随机过程.tex
-Overfull \hbox (1.0485pt too wide) in paragraph at lines 42--57
-[]\TU/TimesNewRoman(0)/m/it/10.95 proof\TU/TimesNewRoman(0)/m/n/10.95 : [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 42--57
-
- []
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4707,6 +4782,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [260]
 
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 243.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 243.
+
+
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
 (fancyhdr)                \setlength{\headheight}{13.59999pt}.
@@ -4715,10 +4798,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [261]
-Underfull \hbox (badness 10000) in paragraph at lines 369--381
-
- []
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4728,11 +4807,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [262]
-Missing character: There is no 5 in font nullfont!
-Missing character: There is no ) in font nullfont!
-Missing character: There is no 1 in font nullfont!
-Missing character: There is no 1 in font nullfont!
-Missing character: There is no ) in font nullfont!
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4741,7 +4815,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[263])
+[263]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4751,14 +4825,49 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [264]
-\openout2 = `sections/ReferenceBook.aux'.
 
- (sections/ReferenceBook.tex
-Underfull \hbox (badness 5563) in paragraph at lines 36--37
-[]\TU/SimSun(0)/m/n/10.95 北 京 大 学  |《统 计 计 算》|  课 程 讲 义\TU/TimesNewRoman(0)/m/n
-/10.95 . \TU/SimSun(0)/m/n/10.95 李 东 风\TU/TimesNewRoman(0)/m/n/10.95 . [][]$[][
-][][][] [] [] [] [][][] [] [][][][] [] [][][] [] [][][] [] [][] [] [][][][][][]
-[][] [] [][][][] [] [][][][] []
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[265]
+Overfull \hbox (4.81119pt too wide) in paragraph at lines 560--561
+[]\TU/TimesNewRoman(0)/m/n/10.95 (Detailed estimation methods would be compleme
+nted upon completion of Intro. to Bayesian Statistics next semester.) 
+ []
+
+)
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[266]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[267]
+\openout2 = `sections/应用随机过程.aux'.
+
+ (sections/应用随机过程.tex
+Overfull \hbox (1.0485pt too wide) in paragraph at lines 42--57
+[]\TU/TimesNewRoman(0)/m/it/10.95 proof\TU/TimesNewRoman(0)/m/n/10.95 : [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 42--57
+
  []
 
 
@@ -4769,50 +4878,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[265
-
-
-
-])
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[266] (summary.ind
-Overfull \hbox (10.39293pt too wide) in paragraph at lines 39--41
-[]\TU/TimesNewRoman(0)/m/n/10.95 BFGS Updating Method (Broyden-Fletcher-Goldfar
-b-Shanno
- []
-
-
-Overfull \hbox (2.48534pt too wide) in paragraph at lines 79--81
-[]| \TU/TimesNewRoman(0)/m/n/10.95 OPTICS (Ordering Point To Indentify the Clus
-ter Struc-
- []
-
-[267
+[268
 
 
 
 ]
-Overfull \hbox (5.51572pt too wide) in paragraph at lines 156--158
-[]\TU/TimesNewRoman(0)/m/n/10.95 E-M Algorithm (Expectation Maximization Algori
-thm), [][]119[][],
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[268]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4831,7 +4901,177 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [270]
-Overfull \hbox (9.91891pt too wide) in paragraph at lines 427--429
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[271]
+Underfull \hbox (badness 10000) in paragraph at lines 363--375
+
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[272]
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no ) in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no ) in font nullfont!
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[273]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[274]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[275]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[276]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[277]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[278])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[279]
+\openout2 = `sections/ReferenceBook.aux'.
+
+ (sections/ReferenceBook.tex
+Underfull \hbox (badness 5563) in paragraph at lines 36--37
+[]\TU/SimSun(0)/m/n/10.95 北 京 大 学  |《统 计 计 算》|  课 程 讲 义\TU/TimesNewRoman(0)/m/n
+/10.95 . \TU/SimSun(0)/m/n/10.95 李 东 风\TU/TimesNewRoman(0)/m/n/10.95 . [][]$[][
+][][][] [] [] [] [][][] [] [][][][] [] [][][] [] [][][] [] [][] [] [][][][][][]
+[][] [] [][][][] [] [][][][] []
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[280
+
+
+
+])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[281] (summary.ind
+Overfull \hbox (10.39293pt too wide) in paragraph at lines 41--43
+[]\TU/TimesNewRoman(0)/m/n/10.95 BFGS Updating Method (Broyden-Fletcher-Goldfar
+b-Shanno
+ []
+
+[282
+
+
+
+]
+Overfull \hbox (2.48534pt too wide) in paragraph at lines 85--87
+[]| \TU/TimesNewRoman(0)/m/n/10.95 OPTICS (Ordering Point To Indentify the Clus
+ter Struc-
+ []
+
+
+Overfull \hbox (5.92207pt too wide) in paragraph at lines 168--170
+[]\TU/TimesNewRoman(0)/m/n/10.95 E-M Algorithm (Expectation Maximization Algori
+thm), [][]123[][],
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[283]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[284]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[285]
+Overfull \hbox (9.91891pt too wide) in paragraph at lines 452--454
 []\TU/TimesNewRoman(0)/m/n/10.95 STL Model (Seasonal and Trend Decomposition us
 ing Loess),
  []
@@ -4844,7 +5084,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[271]
+[286]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4853,26 +5093,26 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[272
+[287
 
 ]) (summary.aux (sections/初等概率论.aux) (sections/统计推断.aux)
-(sections/线性回归分析.aux) (sections/多元统计分析.aux) (sections/数据科学导论.aux)
-(sections/统计计算与软件.aux) (sections/可靠性数据与生存分析.aux) (sections/生物统计学概论.aux)
+(sections/线性回归分析.aux) (sections/多元统计分析.aux) (sections/统计计算与软件.aux)
+(sections/数据科学导论.aux) (sections/可靠性数据与生存分析.aux) (sections/生物统计学概论.aux)
 (sections/统计学习导论.aux) (sections/应用时间序列分析.aux) (sections/因果推断导论.aux)
 (sections/应用随机过程.aux) (sections/ReferenceBook.aux))
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `summary.out' has not changed.
-(rerunfilecheck)             Checksum: 780645FDF2B0A91136EFEDC221541624;53875.
+(rerunfilecheck)             Checksum: AD6A58123A402A0B7EEC74882B6CFA06;54880.
  ) 
 Here is how much of TeX's memory you used:
- 47488 strings out of 411012
- 1027902 string characters out of 2831749
- 1713312 words of memory out of 3000000
- 67307 multiletter control sequences out of 15000+600000
- 426887 words of font info for 186 fonts, out of 8000000 for 9000
+ 49403 strings out of 411012
+ 1054519 string characters out of 2831749
+ 1738769 words of memory out of 3000000
+ 69205 multiletter control sequences out of 15000+600000
+ 426903 words of font info for 188 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  89i,33n,97p,1206b,1833s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on summary.pdf (272 pages).
+Output written on summary.pdf (287 pages).

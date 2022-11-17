@@ -176,7 +176,7 @@ df <- read.table('dataset/testdata.txt', header=FALSE, sep=',', col.names = c('y
     \end{align}
 \end{subequations}
 
-with Guass-Markov Assumption:\index{Gauss-Markov Assumption}
+with Guass-Markov Assumption:\index{Gauss-Markov Assumption}\hypertarget{GaussMarkovAssumption}{}
 \begin{equation}\label{EqaGaussMarkovAssumption}
     \begin{aligned}
         \text{Zero-Mean: }&\mathbb{E}(\epsilon_i|X_i)=0 \\
@@ -307,7 +307,7 @@ and Normality Error Assumption:
 
 \subsection{Monovariate Linear Regression Model}
     First focus on the simpliest monovariate case $ \vec{X}_i=X_i $. Monovariate Linear Model\footnote{Here in linear regression, we consider $ X_i $ only as real number, \textbf{without} randomness. So here $ Y_i $ can be considered as an r.v. with $ X_i $ as parameter, i.e. $ Y_i|_{X_i=x_i} $}
-    with Gauss-Markov assumption \& Normal Error assumption:
+    with \hyperlink{GaussMarkovAssumption}{Gauss-Markov assumption} \& Normal Error assumption:
     
 %% 关于线性模型的X_i性质的假定
     \begin{equation}
@@ -751,7 +751,7 @@ Properties:
 
 
 \subsection{Multivariate Linear Regression Model}\label{SubSectionMultivariateLinearRegressionModel}
-    As a more general case of $ \vec{X}_i=(X_{i1},X_{i2},\ldots,X_{ip})  $, Multivariate Linear Model is expressed as in {EqaMultivariteLinearModel}:
+    As a more general case of $ \vec{X}_i=(X_{i1},X_{i2},\ldots,X_{ip})  $, Multivariate Linear Model is expressed as in \autoref{EqaMultivariteLinearModel}:
     \begin{equation}
         Y=X\beta +\varepsilon ,\,\varepsilon \sim N_p(0,\sigma ^2I) 
     \end{equation}
@@ -1294,7 +1294,7 @@ avPlots(lmfit)
 \end{lstlisting}
 
 \end{rcode}
-    \item The Assumption of \textbf{Equal Variances} :
+    \item The Assumption of \textbf{Equal Variances} / Homoskedasticity (齐方差性)\index{Homoskedasticity}: 
     \begin{itemize}[topsep=2pt,itemsep=2pt]
         \item \hyperlink{AVPlot}{AV Plot} , e.g. test the $ R^2 $ of $ (e_Y|X_{(\wedge i)} )$-$( e_{X_i}|X_{(\wedge i)}) $ relation.
         \item Bartlett's test:\index{Bartlett's test}
@@ -1795,7 +1795,7 @@ Anova(lmfit,type='III')
     H_0:\beta _1=\beta _2=\ldots=\beta _p=0\longleftrightarrow H_1:\exists \beta _i\neq 0,\, i=1,2,\ldots,p
 \end{equation}
 
-    As for general case $ H_0:\mathop{C}\limits_{q\times (p+1)} \beta -\mathop{t}\limits_{(p+1)\times 1}  = 0$, use \hyperlink{HyperlinkGLT}{General Linear Test}.
+    As for general case $ H_0:\mathop{C}\limits_{q\times (p+1)} \beta -\mathop{t}\limits_{(p+1)\times 1}  = 0$, use \hyperlink{HyperlinkGLT}{General Linear Test $ F $}.
 
 \begin{itemize}[topsep=2pt,itemsep=2pt]
 \item ANOVA $ F $-Test:\index{ANOVA $ F $-test}
@@ -1842,7 +1842,7 @@ anova(nullmodel,fullmodel)
 
         \item \hypertarget{HyperlinkGLT}{General case:} Test $ H_0: \mathop{C}\limits_{q\times (p+1)} \beta -\mathop{t}\limits_{(p+1)\times 1} =0 $, construct $ F $ statistics as
         \begin{equation}
-            F=\dfrac{ (C\hat{\beta }-t)'\left[C(X'X)^{-1}C'\right]^{-1}(C\hat{\beta }-t)  }{q\hat{\sigma }^2 }\sim F_{q,n-q  } 
+            F=\dfrac{ (C\hat{\beta }-t)'\left[C(X'X)^{-1}C'\right]^{-1}(C\hat{\beta }-t)  }{q\hat{\sigma }^2 }\sim F_{q,n-q-1  } 
         \end{equation}
         
         
@@ -1873,39 +1873,36 @@ anova(nullmodel,fullmodel)
 
 
 
-\item Pearson Correlation Coefficient $ r $ and Coefficient of Multiple Determination $ R^2 $\index{CMD (Coefficient of Multiple Determination)}:
-
-
-    Pearson's $ r $:\index{Pearson's Correlation Coefficient}\index{Correlation Coefficient!Pearson's Correlation Coefficient}
+\item $ r $ and Different $ R^2 $:
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Pearson's $ r $:\index{Pearson's Correlation Coefficient}\index{Correlation Coefficient!Pearson's Correlation Coefficient}
     \begin{equation}
-        r=\hat{cov}(Y,\hat{Y})=\dfrac{\sum\limits_{i=1}^n(Y_i-\bar{Y})(\hat{Y}_i-\bar{Y})}{\sqrt{\sum\limits_{i=1}^n(Y_i-\bar{Y})^2}\sqrt{\sum\limits_{i=1}^n(\hat{Y}_i-\bar{Y})^2}}=\sqrt{\dfrac{\sum\limits_{i=1}^n(\hat{Y}-\bar{Y})^2}{\sum\limits_{i=1}^n(Y_i-\bar{Y})^2}}
+        r_{Y,\hat{Y}}=\hat{cov}(Y,\hat{Y})=\dfrac{\sum\limits_{i=1}^n(Y_i-\bar{Y})(\hat{Y}_i-\bar{Y})}{\sqrt{\sum\limits_{i=1}^n(Y_i-\bar{Y})^2}\sqrt{\sum\limits_{i=1}^n(\hat{Y}_i-\bar{Y})^2}}=\sqrt{\dfrac{\sum\limits_{i=1}^n(\hat{Y}-\bar{Y})^2}{\sum\limits_{i=1}^n(Y_i-\bar{Y})^2}}
     \end{equation}
-    
-    CMD $ R^2 $:\index{Correlation Coefficient!CMD $ R^2 $}
+    \item Coefficient of Multiple Determination $ R^2 $:\index{Correlation Coefficient!Coefficient of Multiple Determination $ R^2 $}\index{CMD $ R^2 $ (Coefficient of Multiple Determination)}
 
     \begin{equation}
         R^2=\dfrac{\mathrm{SSR}}{\mathrm{SST}}=1-\dfrac{\mathrm{SSE}}{\mathrm{SST}}
     \end{equation}
-
-    Adjusted $ R^2 $:\index{Correlation Coefficient!Adjusted $ R^2 $}
+    \item Adjusted $ R^2 $:\index{Correlation Coefficient!Adjusted $ R^2 $}
     \begin{equation}
         R^2_\mathrm{a}=1-\dfrac{\mathrm{MSE}}{\mathrm{MST}} =1-\dfrac{n-1}{n-p-1}\dfrac{\mathrm{SSE}}{\mathrm{SST}}
     \end{equation}
-    
-    \begin{itemize}[topsep=2pt,itemsep=2pt]
-        \item Relation between $ r $ and $ R^2 $: Under Simple Linear Model, we have 
+\end{itemize}
+
+    Relation between $ r $ and $ R^2 $: Under Simple Linear Model, we have 
         \begin{equation}
             R^2=r^2 
         \end{equation}
-        \item Relation between $ R^2 $ and $ F $-Statistic:
+    
+    Relation between $ R^2 $ and $ F $-Statistic:
         \begin{equation}
-            F=\dfrac{R^2}{1-R^2}\dfrac{n-p-1}{n-1} 
+            F=\dfrac{R^2}{1-R^2}\dfrac{n-p-1}{n-1} \sim F_{n-1,n-p-1}
         \end{equation}
-    \end{itemize}
 
     Hypothesis testing for $ r $: 
     \begin{equation}
-        t=\dfrac{r}{\sqrt{1-r^2}}\sqrt{n-2}\sim t_{n-2} 
+        t=\dfrac{r}{\sqrt{1-r^2}}\sqrt{n-2}\sim t_{n-p-1} 
     \end{equation}
 
 \begin{rcode}
@@ -1928,7 +1925,7 @@ cor.text(df$x,df$y)
 
     Sometimes we use $ \eta^2_k=R^2_{YX_k|\wedge k}=R^2_{Yk.\wedge k} $
 
-    \item Coefficient of Partial Correlation: Measures the strength of linear relation, $ \pm $ sign depend on posi./nega. correction.\index{Correlation Coefficient!Coefficient of Partial Correlation}
+    \item Coefficient of Partial Correlation $ \eta_k $: Measures the strength of linear relation, $ \pm $ sign depend on posi./nega. correction.\index{Correlation Coefficient!Coefficient of Partial Correlation $ \eta_k $}
     \begin{equation}
         \eta_k=\pm \sqrt{\eta^2_k} 
     \end{equation}
@@ -2055,7 +2052,7 @@ vif(lmfit)
 
      Useful model validation approach: To check a model with $ p-1 $ variable (this part $ p $ for 1+\# variable)
         \begin{itemize}[topsep=2pt,itemsep=2pt]
-        \item Traditional way: Test $ R^2 $, $ R_a^2 $, $ p $-value, etc.
+        \item Traditional way: Test $ r $, $ R^2 $, $ R_a^2 $, $ p $-value, etc.
 % Mallow's Cp, AIC,SBC/BIC,PRESS,
         \item Mallow's $ C_p $: For a model with $ p $ variable: \index{Mallow's $ C_p $}
         \begin{equation}
@@ -2215,7 +2212,7 @@ leapSet$which[which.min(leapSet$Cp),]
     \end{point}
     
         \begin{itemize}[topsep=2pt,itemsep=2pt]
-            \item Variance Stabilizing Transformations:
+            \item Variance Stabilizing Transformations:\index{Variance Stabilizing Transformation}
                 For $ E(Y_X)=\mu_X$, $ var(Y_X)=h(\mu_X) $, take transformation $ f(Y) $ such that $ var(f(Y))=\mathrm{const} $, satisfies
                 \begin{equation}
                     f(\mu)=\int\dfrac{c\,\mathrm{d}\mu}{\sqrt{h(\mu)}} 
@@ -2323,7 +2320,7 @@ bctrans$x[which.max(bctrans$y)]
 
     Solution:
     \begin{equation}
-        \hat{\beta }=(X'WX)^{-1}X'WY 
+        \hat{\beta }_W=(X'WX)^{-1}X'WY 
     \end{equation}
     
     
@@ -2396,12 +2393,7 @@ Penalty term: $ \lambda\Vert \beta \Vert _2^2) $, where $ \lambda  $ is penalty 
 \end{equation}
 Select a proper value of $ \lambda  $ (or equivlantly $ s $) for expected model. Generally Ridge regression \textbf{cannot} conduct variable selection, but usually used to avoid non-invertible $ X'X $, or used to retain important but collinear variable.
 
-Solution of Ridge regression:
-\begin{equation}
-    \hat{\beta }^\mathrm{Ridge}_\lambda  =(X'X+\lambda I)^{-1}X'Y
-\end{equation}
-
-\footnote{Why Ridge regression can also fix the problem of olinearity, i.e. non-full rank $ XX' $:
+Solution of Ridge regression:\footnote{Why Ridge regression can also fix the problem of colinearity, i.e. non-full rank $ XX' $:
 
 Assume the SVD decomposition of $ X $: $ X=U\Sigma V' $, then 
 \begin{align*}
@@ -2415,10 +2407,12 @@ Assume the SVD decomposition of $ X $: $ X=U\Sigma V' $, then
 \end{align*}
 
 then for $ \lambda >0 $, we can get a positive-definite matrix $ X'X+\lambda I $
-     
-
-
 }
+\begin{equation}
+    \hat{\beta }^\mathrm{Ridge}_\lambda  =(X'X+\lambda I)^{-1}X'Y
+\end{equation}
+
+
 
 \item Mixed Model: Elastic Net\index{Elastic Net}
 \begin{equation}

@@ -30,18 +30,18 @@
 \end{itemize}
 
     In this section we mainly focus on cases with binary intervention, i.e.\footnote{Habitually we denote the more `active' intervention as treatment, but in mathematical form they are symmetric.}
-    \begin{align*}
+    \begin{align}
         \{\mathrm{treatment},\,\mathrm{control} \}=\{1,0\} 
-    \end{align*}
+    \end{align}
 
 \begin{point}
     Potential Outcome
 \end{point}
 
     With this notation, the causal effect could be expressed by the \textbf{estimand} as follows by  comparing the \textbf{potential outcomes}, here's a commonly used form:
-    \begin{align*}
+    \begin{align}
         \tau:=Y_\mathrm{treatment} -Y_\mathrm{control} :=Y(1)-Y(0)
-    \end{align*}
+    \end{align}
 
     To estimate the causal effect (on a unit), we need to obtain both potential outcomes of $ Y(1) $ and $ Y(0) $, but in the real world we can only observe one of them, say, the patient took the medicine, and we got $ Y(1) $, while $ Y(0) $ is missing.
 
@@ -59,7 +59,7 @@
         \item \textbf{Observed Outcome} $ Y_i^\mathrm{obs}  $: The actually happened outcome, $ Y_i^\mathrm{obs}=Y_i(W=w_\mathrm{REAL\_CASE}):=Y_i(W=w_i^\mathrm{obs} ) $.
         
         \item \textbf{Missing Outcome} $ Y_i^{\mathrm{mis} } $: The potential outcome when the $ w_i^\mathrm{mis}:= !w_i^\mathrm{obs}  $ would have been operated (it does exist but we cannot observe the `world-line' where $ w^{\mathrm{mis} }_i $ was operated, thus is unknown to us), $ Y_i^{\mathrm{mis} }=Y_i(W_i=1-w_\mathrm{REAL\_CASE}):=Y_i(W_i=w_i^{\mathrm{mis} }) $ 
-        \begin{align*}
+        \begin{align}
             Y^\mathrm{obs} _i=Y_i(W_i^\mathrm{obs} )=&\begin{cases}
                 Y_i(1)&W_i=1\\
                 Y_i(0)&W_i=0
@@ -68,19 +68,19 @@
                 Y_i(0)&W_i=1\\
                 Y_i(1)&W_i=0
             \end{cases}
-        \end{align*}
+        \end{align}
         \item \textbf{Causal Effect}\index{Causal Effect} $ \tau_i $ (defined by difference of PO): Difference between potential outcome, $ \tau_i=Y_i(W_i=1)-Y_i(W_i=0)=Y_i(1)-Y_i(0) $
         \item \textbf{Pre-Treatment Variables/Covariates} $ X_i $\index{Pre-Treatment Variable}\index{Covariate}: Some background elements that might attribute to treatment selection/potential outcome. Anyway they may cause confusion to causal inference. For example, the gender of patients $ X_i\in\{\mathrm{female}, \mathrm{male}  \}:=\{1,0\} $.
         \item \textbf{Subgroup}: Treatment/Contorl group could be further divided in subgroup according to covariates, e.g.
-        \begin{align*}
+        \begin{align}
             \{(Y_i,W_i)\}_{i:X_i=0}\text{ v.s. }  \{(Y_i,W_i)\}_{i:X_i=1}
-        \end{align*}
+        \end{align}
     \end{itemize}
 
     With the above basic notation, a dataset / sample can be expressed as
-    \begin{align*}
+    \begin{align}
         \mathcal{D}=\{(X_i,Y_i,W_i)\}_{i=1}^N 
-    \end{align*}
+    \end{align}
     
 
 \begin{point}
@@ -95,9 +95,9 @@
 \end{itemize}
 
     To summarize, The whole model has 2 stages of randomness: sampling from super population, and assign treatment to the finite sample.
-\begin{align*}
+\begin{align}
     \text{Super Population}\xrightarrow[\text{sample }N]{f_{X}, f_{Y|X}}\text{Finite Sample }\{X,Y\}\xrightarrow[\text{assignment}]{f_{W|X,Y}}\text{Observation }\mathcal{D}=\{X,Y,W\}
-\end{align*}
+\end{align}
 
 
 \subsubsection{Assumptions}
@@ -110,13 +110,13 @@ The null model is complicated, say, there could be multiple PO levels / interfer
     \item \textbf{SUTVA}:\index{SUTVA (Stable Unit Treatment Value Assumption)} To solve the problem of omitted treatment (e.g. $ Y_i\in\{Y_i(0),Y_i(1),Y_i(2)\} $), and the intervention between units (e.g. $ Y_i(W_{j=1:N}) $) to simplify the model, we usually put the assumption of SUTVA, which has two components:
     \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item No Interference
-        \begin{align*}
+        \begin{align}
             Y_i(W_{j=1:N})=Y_i(W_i) 
-        \end{align*}
+        \end{align}
         \item No Hidden Variation of Treatment:
-        \begin{align*}
+        \begin{align}
             Y_i(W_{j=1:N})=Y_i(W_i)\in\{Y_i(1),Y_i(0)\},\quad W_i\in \{1,0\}:=\mathbb{T}_i=\mathbb{T}
-        \end{align*}
+        \end{align}
     \end{itemize}
     \item \textbf{Individualistic Assignment}: Assignment probability of each unit does \textbf{not} depends on the covariants and PO of other units:
     \[
@@ -150,9 +150,9 @@ The null model is complicated, say, there could be multiple PO levels / interfer
     With all the above assumptions, assignment mechanism can be simplified in the following form:
 \end{point}
 
-\begin{align*}
+\begin{align}
     \text{Assignment Mechanism:}\,&\mathbb{P}(W|X,Y(1),Y(0))=\dfrac{1}{Z}\prod_{i=1}^N p(X_i)^W_i(1-p(X_i))^{1-W_i}\\
-\end{align*}
+\end{align}
 
 % \subsubsection{Causal Effect Measurement}
 
@@ -233,56 +233,64 @@ The null model is complicated, say, there could be multiple PO levels / interfer
 \subsection{Inference to Causal Effect}
 
 First we focus on the randomness in finite sample, i.e. randomness of assignment mechanism. Specifically we usually consider the case of Completely Randomized Experiment (CRE)\index{CRE (Completely Randomized Experiment)}: $ N_t $ in $ N $ items are given treatment and $ N_c=N-N_t $ in $ N $ are given control, and the assignment is given \textbf{randomly}. 
-\begin{align*}
+\begin{align}
     \mathbb{P}\left( W|X,Y \right)=1\bigg/\binom{N}{N_\mathrm{t} },\,\text{case }\sum_{i=1}^NW_i=N_\mathrm{t}   
-\end{align*}
+\end{align}
 
+The assumption of CRP is important in causal inference because it fixes the gap between $ Y^\mathrm{obs}  $ and $ Y^\mathrm{mis} $ by randomly assign treatment/control.
 
 
 \subsubsection{Fisher's Exact $ p $-value}
 
 Test of Fisher's Sharp Null Hypothesis\index{Fisher's Sharp Null Hypothesis}:
-\begin{align*}
+\begin{align}
     H_0:\tau_i=0,\,\forall i=1,2,\ldots,N  \leftrightsquigarrow H_a:\,\exists j\,s.t. \tau_j\neq 0
-\end{align*}
+\end{align}
 
 With the hypothesis, we could fill in all the $ Y^\mathrm{mis}  $ by $ Y^\mathrm{mis}_i=Y^\mathrm{obs}_i   \,\forall i$. And by traversing all possible $ \tilde{W} $ assignments and calculate corresponding $ \tau_{\tilde{W}} $, we could calculate the Fisher's exact $ p $-value
-\begin{align*}
-     \hat{p}=N_{\#(|\tau_{\tilde{W}}|<\tau_{W})}\bigg/\binom{N}{N_t}
-\end{align*}
+\begin{align}
+     \hat{p}={\#(|\tau_{\tilde{W}}|\geq |\tau_{W}|)}\bigg/\binom{N}{N_t}
+\end{align}
 
 Comments:
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item Since the basic idea is traversing all $ W $, so it could be applied to differenet deigns of $ \tau $, say 
-    \begin{align*}
+    \begin{align}
         \hat{\tau}^\mathrm{diff}=&|\bar{Y}_\mathrm{t}^\mathrm{obs}-\bar{Y}_\mathrm{c}^\mathrm{obs}|\\
         \hat{\tau}^\mathrm{median}=&|\mathrm{med}_\mathrm{t}(Y^\mathrm{obs} )-\mathrm{med}_\mathrm{c}(Y^\mathrm{obs} )    |  \\
         \hat{\tau}^{t\text{-}\mathrm{stat} }=&\left\vert \dfrac{\bar{Y}_\mathrm{t}^\mathrm{obs}-\bar{Y}_\mathrm{c}^\mathrm{obs}}{\sqrt{ s_\mathrm{t}^2/N_t+s_\mathrm{c}^2/N_c   }} \right\vert \\
-        \hat{\tau}^\mathrm{reg}=&\mathop{\arg\min}\limits_{\beta _W:(\beta _0,\beta _X,\beta _W)}\sum_{i=1}^N\left(Y_i^{\mathrm{obs}}-\beta _0-X_i'\beta _X'-W_i\beta _W\right)^2  
-    \end{align*}
+        \hat{\tau}^\mathrm{reg}=&\mathop{\arg\min}\limits_{\tau:(\beta _0,\beta _X,\tau)}\sum_{i=1}^N\left(Y_i^{\mathrm{obs}}-\beta _0-\tau W_i-X_i'\beta _X\right)^2  
+    \end{align}
+    Or even some other specially designed statistics on e.g. difference in variance
+    \begin{align}
+        \hat{\tau}^{var}=&\hat{var}^\mathrm{obs}_\mathrm{t} \big/\hat{var}^\mathrm{obs}_\mathrm{c}     
+    \end{align}
     \item High computation complexity for large $ N $. e.g. for $ N_t\approx \dfrac{N}{2} $
-    \begin{align*}
+    \begin{align}
         \mathrm{flops}\sim \binom{N}{N_t}\sim 2^N 
-    \end{align*}
+    \end{align}
     \item Random simulation for large $ N $: the $ p $-value is actually
-    \begin{align*}
+    \begin{align}
         \hat{\mathbb{P}}\left( \text{more extreme }\hat{\tau} \right)=\hat{\mathbb{E}}\left[\mathbf{1}(\text{more extreme }\hat{\tau})\right] 
-    \end{align*}
-    which can be approached by random sampling.
+    \end{align}
+    which can be approached by random sampling
+    \begin{align}
+        \hat{p}={\#(|\tau_{\tilde{W}}|\geq |\tau_{W}|)}\Big/{\#(\text{sample})}
+   \end{align}
     \item A fiducial interval can be constructed. But generally speaking the hypothesis testing just help reject the sharp hypothesis, but cannot help determine the casual effect strength.
 \end{itemize}
 
     
-\subsubsection{Neyman's Repeated Sampling}
+\subsubsection{Neyman's Repeated Sampling Approach}
 
 Neyman's method uses the distribution of $ W $ for completely randomized experiment to obtain the property of the finite sample estimator
-\begin{align*}
+\begin{align}
     \hat{\tau}_\mathrm{fs}=\bar{Y}_\mathrm{t}^\mathrm{obs}-\bar{Y}_\mathrm{c}^\mathrm{obs}= \dfrac{1}{N_\mathrm{t} }\sum_{i=1}^N W_iY_i(1)-\dfrac{1}{N_\mathrm{c} } \sum_{i=1}^N(1-W_i)Y_i(0)   
-\end{align*}
+\end{align}
 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item Property
-    \begin{align*}
+    \begin{align}
         \mathbb{E}_W\left[ \hat{\tau}_\mathrm{fs}  \right] = & \tau_\mathrm{fs}=\dfrac{1}{N}\sum_{i=1}^NY_(1)-Y_i(0) \\
         var_W(\hat{\tau}_\mathrm{fs} )=&\dfrac{S_\mathrm{t} ^2}{N_\mathrm{t} }+\dfrac{S_\mathrm{c} ^2}{N_\mathrm{c} }-\dfrac{S^2_{\mathrm{tc} }}{N}\\
         =&\dfrac{N_\mathrm{c} }{NN_\mathrm{t} }S_\mathrm{t} ^2+\dfrac{N_\mathrm{t} }{NN_\mathrm{c} }S_\mathrm{c}^2+\dfrac{2}{N}\rho _{\mathrm{tc} }S_\mathrm{t}S_\mathrm{c}    \\
@@ -292,9 +300,9 @@ Neyman's method uses the distribution of $ W $ for completely randomized experim
             S_\mathrm{tc}^2=\dfrac{1}{N-1}\sum_{i=1}^N\left([Y_i(1)-Y_i(0)]-[\bar{Y}(1)-\bar{Y}(0)]\right)^2=S_\mathrm{t}^2+S_\mathrm{c}^2-2\rho _\mathrm{tc}S_\mathrm{t}S_{\mathrm{c} }    \\
             \rho _\mathrm{tc}=\dfrac{1}{(N-1)S_\mathrm{t}S_{\mathrm{c} } }\sum_{i=1}^N\left(Y_i(1)-\bar{Y}(1)\right)\left(Y_i(0)-\bar{Y}(0)\right) 
         \end{cases}
-    \end{align*}
+    \end{align}
     \item Estimator
-    \begin{align*}
+    \begin{align}
         \hat{\tau}_\mathrm{fs}= & \bar{Y}_\mathrm{t}^\mathrm{obs}-\bar{Y}_\mathrm{c}^\mathrm{obs}\\
         \hat{var}(\hat{\tau}_\mathrm{fs} )=&\dfrac{s^2_\mathrm{t} }{N_t}+\dfrac{s^2_\mathrm{c} }{N_c}\\
         \hat{var}_\rho (\hat{\tau}_\mathrm{fs} )=&\dfrac{N_\mathrm{c} }{NN_\mathrm{t} }s_\mathrm{t} ^2+\dfrac{N_\mathrm{t} }{NN_\mathrm{c} }s_\mathrm{c}^2+\dfrac{2}{N}\rho s_\mathrm{t}s_\mathrm{c},\,\, -1\leq \rho \leq 1 \\
@@ -303,7 +311,7 @@ Neyman's method uses the distribution of $ W $ for completely randomized experim
             s^2_\mathrm{t}=\dfrac{1}{N_t-1}\sum_{i:W_i=1}\left(Y_i^\mathrm{obs} -\bar{Y}^\mathrm{obs} \right)^2 \\
             s^2_\mathrm{c}=\dfrac{1}{N_c-1}\sum_{i:W_i=0}\left(Y_i^\mathrm{obs} -\bar{Y}^\mathrm{obs} \right)^2
         \end{cases}
-    \end{align*}
+    \end{align}
 
     i.e. $ \hat{var}(\hat{\tau}_\mathrm{fs} ) $ provides an upper bound of $ \hat{var}_\rho (\hat{\tau}_\mathrm{fs} ) $ (equal when $ \rho =1 $). And $  \hat{var}(\hat{\tau}_\mathrm{fs} )  $ also acts as the estimator at $ \tau_i=\mathrm{const},\,\forall i $.\footnote{Actually in this case we should have $ s_\mathrm{t}=s_\mathrm{c}:=s    $ and the estimator reduces to $ \hat{var}(\hat{\tau}_\mathrm{fs} )=s^2(1/N_\mathrm{t}+1/N_\mathrm{c}  ) $}
 
@@ -311,35 +319,267 @@ Neyman's method uses the distribution of $ W $ for completely randomized experim
     
     \item Confidence Interval
     
-    \begin{align*}
+    \begin{align}
         \mathrm{CI}=&  \hat{\tau}_\mathrm{fs}\pm N_{\alpha /2}\sqrt{\hat{var}(\hat{\tau}_\mathrm{fs} )}  \\
         \mathrm{CI}_\rho =&  \hat{\tau}_\mathrm{fs}\pm N_{\alpha /2}\sqrt{\hat{var}_\rho (\hat{\tau}_\mathrm{fs} )}  
-    \end{align*}
+    \end{align}
     
     where the version with pre-specified $ \rho  $ is applied to improve accuracy, if we have prior knowledge about $ \rho_\mathrm{tc}   $. 
     
     \item Hypothesis Testing
-    \begin{align*}
+    \begin{align}
         H_0:\bar{Y}(1)-\bar{Y}(0)=0\leftrightsquigarrow H_a: \bar{Y}(1)-\bar{Y}(0)\neq 0
-    \end{align*}
+    \end{align}
 
     and $ t $-test
-    \begin{align*}
+    \begin{align}
         T=\dfrac{\hat{\tau}_\mathrm{fs}    }{\sqrt{\hat{var}(\hat{\tau}_\mathrm{fs} )}} \sim t_1
-    \end{align*}
+    \end{align}
     \item Comment on three components $ S^2_\mathrm{t}$ / $S^2_{\mathrm{c} }$ / $S^2_{\mathrm{tc} }  $: they each corresponds to the natural distribution of treatment / natrual distribution of control / variation arises from assigning on finite sample.
     
     So when dealing with the estimator under distribution of super population, in which we need to add the randomness of $ f_{X,Y} $ back, the $ S^2_\mathrm{tc}  $ term eliminates (which can be proven).
-    \begin{align*}
+    \begin{align}
         \mathbb{E}_\mathrm{sp} \left[ \hat{\tau}_\mathrm{fs}  \right] = & \mathbb{E}_\mathrm{sp} \left[ \mathbb{E}_W \left[ \hat{\tau}_\mathrm{fs}  \right] \right] = \tau_\mathrm{sp}  \\
         var_\mathrm{sp} (\hat{\tau}_\mathrm{fs} )=&\mathbb{E}_\mathrm{sp} \left[( \bar{Y}_\mathrm{t} ^\mathrm{obs}-\bar{Y}_\mathrm{c}^\mathrm{obs}-\mathbb{E}_\mathrm{sp} \left[ \bar{Y}(1)-\bar{Y}(0) \right]    )^2 \right] = \dfrac{\sigma _\mathrm{t}^2 }{N_t}+\dfrac{\sigma _\mathrm{c}^2 }{N_c}\\
         \hat{var}_\mathrm{sp}(\hat{\tau}_\mathrm{fs} )=&\dfrac{s_\mathrm{t}^2 }{N_t}+\dfrac{s_\mathrm{c}^2 }{N_c} 
-    \end{align*}
+    \end{align}
 
-    where $ \sigma ^2_\cdot $ is the variance under the distribution of super population.
+    where $ \sigma ^2_\cdot $ is the variance under the distribution of super population $ Y|X $, $ X $.
+    \begin{align}
+         \sigma _\mathrm{t}^2(x)=&var_{\mathrm{sp}:\,Y|X}\left(Y(1)|X=x\right) ,& \sigma _\mathrm{t}^2=&var_\mathrm{sp}\left(Y(1)\right)\\
+         \sigma _\mathrm{c}^2(x)=&var_{\mathrm{sp}:\,Y|X}\left(Y(0)|X=x\right) ,& \sigma _\mathrm{c}^2=&var_\mathrm{sp}\left(Y(0)\right)\\
+         \sigma _\mathrm{ct}^2(x)=&var_{\mathrm{sp}:\,Y|X}\left(Y(1)-Y(0)|X=x\right) ,& \sigma _\mathrm{ct}^2=&var_\mathrm{sp}\left(Y(1)-Y(0)\right)
+    \end{align}
     
+    
+
     
 \end{itemize}
+
+
+\subsubsection{Regression Methods}
+
+Regression methods in Potential Outcome Framework is used to introduce covariates and lower the variance estimation, the idea is similar to variance decomposition in ANOVA.
+
+\begin{point}
+    Requisite Knowledge: M-Estimator\index{M-Estimator (Maximization Estimator)}
+\end{point}
+
+With data $ \mathcal{D}_n $ given, parameter estimation problem can usually be expressed in a \textbf{M}aximization problem with linear combination target function $ Q_n(\theta ;\mathcal{D}_n) $ 
+\begin{align}
+    \hat{\theta }_n=\mathop{\arg\max}\limits_{\theta } Q_n(\theta;\mathcal{D}_n )
+\end{align}
+e.g. for regression estimation $ Y=X\beta + \varepsilon  $, $ \mathcal{D}_n=\{x_i,y_i\}_{i=1}^n=(X,Y) $
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item OLS quadratic form $ \theta = \beta $ 
+    \begin{align}
+        Q_n(\theta ) := -\dfrac{1}{n}\sum_{i=1}^n\left(y_i-x_i'\beta \right)^2=-\dfrac{1}{n}(Y-X\beta )'(Y-X\beta )
+    \end{align}
+    \item MLE form with $ \varepsilon \sim f(\varepsilon ; \phi ) $, and $ \theta =(\beta ,\phi ) $
+    \begin{align}
+        Q_n(\theta ) :=\dfrac{1}{n} \sum_{i=1}^nf\left(y_i-x_i'\beta ; \phi  \right)
+    \end{align} 
+\end{itemize}
+
+    Denote the ground truth $ \theta ^* $, and the M-Estimator $ \hat{\theta }_n $ that maximizes $ Q_n $. Then
+    \begin{align}
+        \theta ^* =& \mathop{\arg\max}\limits_{\theta } \mathbb{E}_{\mathcal{D}}\left[ Q(\theta ; \mathcal{D}) \right]\\
+        \hat{\theta }_n=&\mathop{\arg\max}\limits_{\theta } Q_n\\
+        \text{with }&Q_n\to \mathbb{E}\left[ Q \right] \Rightarrow \hat{\theta }_n\to \theta ^*
+    \end{align}
+
+    The solution $ \hat{\theta }_n $ is obtained at $ \dfrac{\partial^{} Q_n(\theta )}{\partial \theta ^{}} =0$, so we first focus on first order derivative
+    \begin{align}
+        \psi_n(\theta;\mathcal{D}_n ) := \dfrac{\partial^{} Q_n(\theta;\mathcal{D}_n )}{\partial \theta ^{}},\quad \hat{\theta }_n=\mathop{\arg}\limits_{\theta }(\psi_n(\theta ;\mathcal{D}_n)=0 )
+    \end{align}
+
+    Note: a more important reason we study the property of $ \psi_n(\theta ;\mathcal{D}_n) $ is that: we do \textbf{not} have an explicit expression of $ \hat{\theta }_n$ because it's just a maximizer. $ \psi_n(\theta ;\mathcal{D}_n) $ together with taylor expansion provide us with an approach to (asymptotically) express $ \hat{\theta }_n $ explicitly.
+    % $ \hat{\theta }_n $ and $ \psi(\hat{\theta }_n;\mathcal{D}) $ are both statistics. From\hyperlink{ContinuousMapping}{continuous mapping thm.} we have\footnote{Here the derivation seems not quite rigorous, but anyway I think it makes sense.}
+    % \begin{align}
+    %     0=\psi(\hat{\theta }_n;\mathcal{D})\xrightarrow[]{d} \psi(\theta ^*;\mathcal{D})
+    % \end{align}
+
+    with LLN, we have
+    \begin{align}
+        \psi_n(\theta ^*;\mathcal{D}_n)\xrightarrow[]{\mathrm{d} } \mathbb{E}\left[ \psi(\theta ^*) \right] =0  
+    \end{align}
+
+    with CLT, $ \psi_n(\theta ^*,\mathcal{D}_n) $ is a statistic asymptotically distributed normally:
+    \begin{align}
+        \sqrt{n}\left(\psi_n(\theta ^*;\mathcal{D}_n)-\mathbb{E}\left[ \psi(\theta ^*;\mathcal{D}) \right]\right)=\sqrt{n}\psi_n(\theta ^*;\mathcal{D}_n) \xrightarrow[]{d} N(0,\Sigma _{\psi})
+    \end{align}
+
+    Taylor series of $ \psi_n(\, \cdot \, ;\mathcal{D}_n) $ at $ \hat{\theta }_n $:
+    \begin{align}
+        \psi_n(\theta ^*;\mathcal{D}_n)=& 0 + \dfrac{\partial^{} \psi_n(\theta =\hat{\theta}_n;\mathcal{D}_n)}{\partial \theta ^{}}\left(\theta ^*-\hat{\theta }_n\right)+O((\theta ^*-\hat{\theta }_n)^2)\\
+        \Rightarrow \left(\hat{\theta }_n-\theta ^*\right)\approx & \left( \dfrac{\partial^{} \psi_n(\theta =\hat{\theta}_n;\mathcal{D}_n)}{\partial \theta ^{}}\right)^{-1}\psi_n(\theta ^*;\mathcal{D}_n)\\
+        \Rightarrow \hat{\theta }_n\xrightarrow[]{d} &N(\theta ^*,\Gamma ^{-1}\Sigma _{\psi}\Gamma ^{-1}\big/n ),\qquad \Gamma :=\dfrac{\partial^{} \psi_n(\theta =\hat{\theta}_n;\mathcal{D}_n)}{\partial \theta ^{}}
+    \end{align}
+
+    and specifically if $ Q_n(\theta ;\mathcal{D}) $ is a log-likelihood, then $ \psi(\theta ;\mathcal{D}) $ here is Score function in \autoref{EqaScoreFunctionForMLE}. And $ \Sigma _\psi=I(\theta )  $ is Fisher Information in \autoref{EqaFisherInformation}. With the nice property of Fisher Information $ I(\theta )=\Sigma _{\psi}=-\mathbb{E}\left[ \Gamma  \right]  $, M-Estimator reduces to the asymptotic distribution of MLE in \autoref{EqaAsymptoticDistributionMLE}
+    \begin{align}
+         \hat{\theta }_n\xrightarrow[]{d} (\theta ^*,\dfrac{ I(\theta )^{-1}}{n})
+    \end{align}
+    
+\begin{point}
+    Regression Model on Super Population
+\end{point}
+
+Motivation: regression model
+\begin{align}
+    Y_i^\mathrm{obs}=\alpha +\tau\cdot W_i + f(X_i;\beta )+\varepsilon _i  
+\end{align}
+concerns a quadratic loss function of the following form:
+\begin{align}
+    (\hat{\alpha },\hat{\tau},\hat{\beta })_{\mathrm{ols},X}=\mathop{\arg\min}\limits_{(\alpha ,\tau,\beta )} \dfrac{1}{N}\sum_{i=1}^N\left( Y^\mathrm{obs}_i-\alpha-\tau\cdot W_i - f(X_i;\beta )\right)^2 := \mathop{\arg\min}\limits_{(\alpha ,\tau,\beta )}Q_N\left((\alpha ,\tau,\beta );\{X_i,Y_i,W_i\}_{i=1}^N\right)
+\end{align}
+
+\textbf{Note} :
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Covariate dependency function $ f(\, \cdot \, ;\beta ) $ is a properly selected prior, e.g. linear regression $ X'\beta  $
+    \item In functional form it's the same as regression (reflects correlation), the causality comes from CRE of $ W_i $.
+\end{itemize}
+
+\textbf{Solution}:
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Model without covariates
+    \begin{align}
+        Y_i^\mathrm{obs} = \alpha +\tau\cdot W_i+\varepsilon _i  
+    \end{align}
+
+    OLS solution:
+    \begin{align}
+        \hat{\tau}_\mathrm{ols} =&\dfrac{\sum_{i=1}^N(W_i-\bar{W})(Y_i^\mathrm{obs}-bar{Y}^\mathrm{obs}  )}{\sum_{i=1}^N(W_i-\bar{W})^2}=\bar{Y}^\mathrm{obs}_\mathrm{t}-\bar{Y}^\mathrm{obs}_\mathrm{c}   \\
+        \hat{\alpha }_\mathrm{ols} =&\bar{Y}^\mathrm{obs}-\hat{\tau}_\mathrm{ols} \cdot\bar{W}  \\
+        var(\hat{\tau})=&\dfrac{\sigma _\mathrm{t}^2 }{N_\mathrm{t} }+\dfrac{\sigma _\mathrm{c}^2 }{N_\mathrm{c} }\\
+        s^2_\mathrm{t}= \hat{\sigma }_\mathrm{t}^2=&\dfrac{1}{N-1}\sum_{i=1}^NW_i\left(Y_i^\mathrm{obs}-\hat{Y}_i^\mathrm{obs}  \right)^2=\dfrac{1}{N-1}\sum_{i=1}^NW_i\left(Y_i^\mathrm{obs}-\hat{\tau}-\hat{\alpha } \right)^2\\
+        s_\mathrm{c}^2= \hat{\sigma }_\mathrm{c}^2=&\dfrac{1}{N-1}\sum_{i=1}^N(1-W_i)\left(Y_i^\mathrm{obs}-\hat{Y}_i^\mathrm{obs}  \right)^2=\dfrac{1}{N-1}\sum_{i=1}^N(1-W_i)\left(Y_i^\mathrm{obs}-\hat{\alpha } \right)^2\\
+        \hat{var}(\hat{\tau}_\mathrm{ols} )=&\dfrac{s_\mathrm{t}^2 }{N_t}+\dfrac{s_\mathrm{c}^2 }{N_c}=\hat{var}(\hat{\tau}_\mathrm{fs} )
+    \end{align}
+    
+    % Correspondance to \hyperlink{GaussMarkovAssumption}{Gauss Markov Assumption} in \autoref{SecLinearRegressionAnalysis}:
+    % \begin{align}
+    %     \begin{cases}
+    %         \mathbb{E}\left[ \varepsilon _i|X_i,W_i \right] =0\\
+    %         var(\varepsilon _i)=\sigma ^2\\
+    %         \varepsilon _i \independent \varepsilon _j
+    %     \end{cases}
+    % \end{align}
+    \item Model with Covariates and Asymptotic Property:
+    \begin{align}
+        Y_i^\mathrm{obs} = \alpha +\tau\cdot W_i +f(X_i;\beta)  +\varepsilon _i 
+    \end{align}
+
+    The quadratic loss $ Q_N(\, \cdot \, ) $ regression model gives a M-Estimator with ground truth as the parameters in super population
+    \begin{align}
+        (\alpha ,\tau,\beta )^*=\mathbb{E}_\mathrm{sp} \left[ (\alpha ,\tau,\beta ) \right]  := (\alpha_\mathrm{sp}  ,\tau_\mathrm{sp},\beta_\mathrm{sp} )
+    \end{align}
+
+    OLS with covariates gives the same optimization solution to $ \tau $ as OLS without covariate: $ \hat{\tau}_{\mathrm{ols},X }=\hat{\tau}_\mathrm{ols}\to \tau^*=\tau_\mathrm{sp}  $. And appending covariate dependency term can help \textbf{improve variance estimation} , with unbiasness property kept. 
+
+    e.g. for linear dependency $ f(X;\beta )=X'\beta  $
+    \begin{align}
+        \hat{\tau}_{\mathrm{ols},X }=\hat{\tau}_{\mathrm{ols} }\to&\tau_\mathrm{sp}\\
+        \sqrt{N}(\hat{\tau}_{\mathrm{ols},X }-\tau_\mathrm{sp} )  \xrightarrow[]{d} & N\left(0,(\Gamma ^{-1}\Sigma _{\psi}\Gamma ^{-1})_{22}\right)=N\left(0,\dfrac{\Sigma _{\psi,22}}{p^2(1-p)^2}\right)\\
+        &\begin{cases}
+            \Sigma _{\psi,22}=\mathbb{E}_\mathrm{sp} \left[\dfrac{\partial^{} Q_N(\alpha ,\tau,\beta )}{\partial (\alpha ,\tau,\beta )^{}}
+            \dfrac{\partial^{} Q_N(\alpha ,\tau,\beta )}{\partial (\alpha ,\tau,\beta )'}\right]_{22}\\
+            \qquad =\mathbb{E}\left[ (W_i-p)^2\left(Y^\mathrm{obs}-\alpha ^*-\tau^*W_i-X'\beta ^* \right)^2 \right] \\
+            p=\bar{W}_{N\to\infty }
+        \end{cases}
+    \end{align}
+
+    using the asymptotic normality, we can construct variance estimation $ \hat{var}_\mathrm{hetero} (\hat{\tau}_{\mathrm{ols} ,X})=\hat{\Sigma }_{\psi,22}\big/ \hat{p}^2(1-\hat{p})^2 $ to $ \hat{\tau}_{\mathrm{ols} ,X} $ (with heteroskedasticity)
+    \begin{align}
+        \hat{var}_\mathrm{hetero} (\hat{\tau}_{\mathrm{ols} ,X}) = & \dfrac{1}{N(N-\dim(X_i)-1)}\cdot\dfrac{\sum_{i=1}^N(W_i-\bar{W})^2\left(Y_i^\mathrm{obs}-\hat{\alpha}_{\mathrm{ols} ,X}-\hat{\tau}_{\mathrm{ols} ,X}W_i-X_i'\hat{\beta }_{\mathrm{ols} ,X} \right)^2}{\bar{W}^2\left(1-\bar{W}\right)^2}
+    \end{align}
+    
+    % \item Model with Interaction Covariate
+\end{itemize}
+
+\subsubsection{Model Based Inference using Bayesian Statistics}
+Motivation: how to use prior information about distribution? Basically with $ \mathbb{P}\left( W|Y,\theta  \right)  $, $ f(Y|\theta ) $, $ \pi(\theta ) $ we can construct any posterior distribution from 
+\begin{align*}
+    f(W,Y,X)= \mathbb{P}\left( W|Y,\theta  \right)f(Y|\theta )pi(\theta )
+\end{align*}
+
+
+\begin{point}
+    Bayesian Statistics Precap
+\end{point}
+
+Estimation target: $ f(Y^\mathrm{mis}|Y^\mathrm{obs},W ) $, with assumptions
+\begin{align*}
+    \text{CRE: }\mathbb{P}\left( W|Y,\theta  \right)=&\binom{N}{N_t} ^{-1}\\
+    \text{Distribution: }\begin{pmatrix}
+        Y(1)\\
+        Y(0)
+    \end{pmatrix}\Big|\,\theta \sim & f(Y|\theta ),\text{ say } N\left(\begin{pmatrix}
+        \mu _\mathrm{t}\\
+        \mu _\mathrm{c}      
+    \end{pmatrix},\begin{pmatrix}
+        \sigma _\mathrm{t}^2& \rho \sigma_\mathrm{t}\sigma _\mathrm{c}\\
+        \rho \sigma _\mathrm{t}  \sigma _\mathrm{c}&\sigma _\mathrm{c}^2     
+    \end{pmatrix}\right),\quad \theta =[\mu _\mathrm{t},\mu _\mathrm{c} ,\sigma^2_\mathrm{t},\sigma ^2_\mathrm{c} ,\rho ]\\
+    \text{Prior: }\theta \sim & \pi (\theta  )\\
+    \text{Transformation: }(Y^\mathrm{obs},Y^\mathrm{mis}  )=&g\left(Y(1),Y(0),W\right)
+\end{align*}
+
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Transformation between $ Y=[Y(1),Y(0)]\mapsto [Y^\mathrm{obs},Y^\mathrm{mis}  ] $:
+    \begin{align*}
+        {\color{brown}f\left(Y^\mathrm{obs},Y^\mathrm{mis}|W,\theta  \right)}=&f\left(Y|W,\theta \right) \left|\dfrac{\partial^{}Y(1),Y(0) }{\partial g\left(Y(1),Y(0),W\right)}\right|= \dfrac{f\left(Y,W|\theta \right)}{\int _y f\left(Y,W|\theta \right) \,\mathrm{d}y}  \left|\dfrac{\partial^{} Y(1),Y(0) }{\partial g\left(Y(1),Y(0),W\right)}\right|\\
+        =& \dfrac{f\left(W|Y,\theta \right)f\left(Y|\theta \right)}{\int _y f\left(W|Y,\theta \right) f\left(Y|\theta \right) \,\mathrm{d}y}  \left|\dfrac{\partial g\left(Y(1),Y(0),W\right)}{\partial^{} Y(1),Y(0) }\right|^{-1}\\
+        \Rightarrow {\color{blue}f\left(Y^\mathrm{mis}|Y^\mathrm{obs},W,\theta   \right)}=&\dfrac{{\color{brown}f\left(Y^\mathrm{obs},Y^\mathrm{mis}|W,\theta  \right)}}{\int _{y^\mathrm{mis} }{\color{brown}f\left(Y^\mathrm{obs},Y^\mathrm{mis}|W,\theta  \right) }\,\mathrm{d}y^\mathrm{mis} } 
+    \end{align*}
+    \item Calculating posterior of parameter
+    \begin{align*}
+         {\color{red}p(\theta |Y^\mathrm{obs},W )}=&\dfrac{\pi(\theta )\cdot {\color{olive}f(Y^\mathrm{obs},W|\theta  )}}{f(Y^\mathrm{obs},W )}=\dfrac{\pi(\theta )\cdot\color{olive} \int_{y^\mathrm{mis} } f(W|Y,\theta )f(Y^\mathrm{obs},Y^\mathrm{mis}|\theta   )\,\mathrm{d}y^\mathrm{mis}}{\int_{\theta }\pi(\theta )\cdot{\color{olive} \int_{y^\mathrm{mis} } f(W|Y,\theta )f(Y^\mathrm{obs},Y^\mathrm{mis}|\theta   )\,\mathrm{d}y^\mathrm{mis}} \,\mathrm{d}\theta  }
+    \end{align*}
+    \item Marginal Integration
+    \begin{align*}
+        f\left(Y^\mathrm{mis}|Y^\mathrm{obs},W  \right) =& \int _{\theta }f\left(Y^\mathrm{mis},\theta |Y^\mathrm{obs} ,W \right) \,\mathrm{d}\theta \\
+        =& \int _{\theta  }{\color{blue}f\left(Y^\mathrm{mis}|Y^\mathrm{obs},W,\theta   \right)}{\color{red}p(\theta |Y^\mathrm{obs},W )} \,\mathrm{d}\theta 
+    \end{align*}    
+\end{itemize}
+
+    With above (a little bit complex) steps we could estimate $ Y^\mathrm{mis}  $, and also give the (bayesian posterior) distribution of $ \hat{\tau} $
+    \begin{align*}
+        f({\tau|Y^\mathrm{obs},W })=f(Y^\mathrm{obs}- Y^\mathrm{mis}|Y^\mathrm{obs},W ) 
+    \end{align*}
+    
+    Model with covariate involved need modification with assumptions as
+    \begin{align*}
+        f\left(Y(1),Y(0),X|\theta _{Y|X},\theta _{X}\right) =& f\left(Y(1),Y(0)|X,\theta _{Y|X}\right) \cdot f\left(X|\theta _X\right)\\
+        \pi(\theta _{Y|X},\theta _{X})=&\pi(\theta _{Y|X})\pi(\theta _X)
+    \end{align*}
+    and corresponding intergrations need to consider intergral on $ X $.
+
+    Usually computation of integral terms is complex, simulation methods like random integration can be used, see \autoref{SubSectionStatisticalSimulation} for a brief introduction.
+
+    (Detailed estimation methods would be complemented upon completion of Intro. to Bayesian Statistics next semester.)
+    
+    
+    
+
+
+ 
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
 
 
 

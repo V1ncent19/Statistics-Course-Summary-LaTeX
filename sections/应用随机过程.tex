@@ -66,7 +66,7 @@
     \end{align*}
     
 \begin{point}
-    Properties of $ \Pi_{\mathcal{V}} $ (where function space $ \mathscr{F} $ is a kind of linear space $ \mathcal{V} $)
+    Properties of Projection Operator $ \Pi_{\mathcal{V}} $ (where function space $ \mathscr{F} $ is a kind of linear space $ \mathcal{V} $)\index{Projection Operator}
 \end{point}
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item Linearity
@@ -164,11 +164,11 @@ I think the idea here is similar to Gram-Schmidt orthogonalization (\autoref{Sub
 
 
 
-\subsection{Stochastic Process}
-(Or sometimes called random process)
+\subsection{Markov Process}
+% (Or sometimes called random process)
 
 \subsubsection{Basic Concepts}
-Some basic concepts are introduced in \autoref{SubSectionStochasticProcessForTimeSeries}. Here's a brief recap.
+Some basic concepts about stochastic process / random process are introduced in \autoref{SubSectionStochasticProcessForTimeSeries}. Here's a brief recap.
 
 A stochastic process is a mapping
 \begin{align*}
@@ -227,12 +227,6 @@ Some functions of stochastic processes include
     
 
 
-
-
-    
-
-
-
 \subsubsection{Conditional Independence}
 Conditional independence \index{Conditional Independence}: say $ X $ and $ Z $ are conditionally independent given $ Y $, i.e. $ X $-$ Y $-$ Z $
 \begin{align*}
@@ -259,7 +253,7 @@ or use \autoref{EquConditionalPrForGaussian}, in which $ X_1=(X,Z),\,X_2=Y $
 
 
 
-\subsubsection{Discrete Time Markov Chain}\label{SubSubSectionDTMC}
+\subsubsection{Properties of Discrete Time Markov Chain}\label{SubSubSectionDTMC}
 A basic case for Markov Chain is Discrete Time Markov Chain (DTMC)(\index{DTMC} (Discrete Time Markov Chain))
 
 \begin{point}
@@ -387,16 +381,16 @@ A basic case for Markov Chain is Discrete Time Markov Chain (DTMC)(\index{DTMC} 
         \end{align*}
         \item Classification of States. 
         
-        Denote Hitting Time $ \tau_i $ and its mean \index{Hitting Time}
+        Denote Hitting Time (without itself include) $ \tau_i^+ $ and its mean 
         \begin{align*}
-            \tau_i:=&\min\{k\geq 1:X_k=i\}\\
-            \mu _i:=&\mathbb{E}\left[ \tau_i|X_0=i \right] 
+            \tau_i^+:=&\min\{k\geq 1:X_k=i\}\\
+            \mu _i:=&\mathbb{E}\left[ \tau_i^+|X_0=i \right] 
         \end{align*}
         
         \begin{itemize}[topsep=2pt,itemsep=0pt]
             \item Recurrent State
             \begin{align*}
-                \mathbb{P}\left( \tau_i<\infty|X_0=i    \right)=1  
+                \mathbb{P}\left( \tau_i^+<\infty|X_0=i    \right)=1  
             \end{align*}
             in which 
             \begin{itemize}[topsep=2pt,itemsep=0pt]
@@ -453,7 +447,7 @@ A basic case for Markov Chain is Discrete Time Markov Chain (DTMC)(\index{DTMC} 
 
                 where 
                 \begin{align*}
-                    \mu _1=\mathbb{E}\left[ \tau_1|X_0=1 \right]=\sum_{i=1}^\infty \left(\dfrac{3}{2}\right)^i\to\infty   
+                    \mu _1=\mathbb{E}\left[ \tau_1^+|X_0=1 \right]=\sum_{i=1}^\infty \left(\dfrac{3}{2}\right)^i\to\infty   
                 \end{align*}
                 
                 
@@ -461,7 +455,7 @@ A basic case for Markov Chain is Discrete Time Markov Chain (DTMC)(\index{DTMC} 
             \end{itemize} 
             \item Transient State
             \begin{align*}
-                \mathbb{P}\left( \tau_i<\infty|X_0=i    \right)<1 
+                \mathbb{P}\left( \tau_i^+<\infty|X_0=i    \right)<1 
             \end{align*}
         \end{itemize}
         
@@ -493,30 +487,432 @@ Some algorithm about Markov Chain see \autoref{SubSubSectionMCMCAlgorithm}.
 
 \subsubsection{Random Walk}
 
-A random walk is described as
+Random walk is a renewal process $ X_n $ with each step $ W_i $ takes value $ \pm 1 $
 \begin{align*}
-    X_n:=&X_0+W_1+W_2+\ldots+W_n\\
-    X_0=&k\\
-    W_i=&\begin{cases}
-        +1,&\mathrm{w.p.} p\\
-        -1,&\mathrm{w.p.} q=1-p 
+    X_n := X_0 +\sum_{i=1}^nW_i\quad W_i=\begin{cases}
+        +1&\mathrm{w.p.}\, p\\
+        -1&\mathrm{w.p.}\, q:=1-p  
     \end{cases}
 \end{align*}
+where $ X_0=k $ is the initial position.
+
+\begin{point}
+    Simple Random Walk
+\end{point}
+
+Simple random walk is the case with no ends, i.e. $ X_n\in \mathbb{Z} $
 
 
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item State Diagram for Simple Random Walk
+\begin{center}
+    \begin{tikzpicture}
+    \GraphInit[vstyle=Dijkstra]
+    \SetGraphUnit{2}
+        \tikzset{VertexStyle/.style = {
+            shape = rectangle,
+            color = black,
+            text = black,
+            inner sep = 2pt,
+            outer sep = 2pt,
+            draw}}
+        \Vertex[L=$ k $]{0}
+        \EA[L=$k+1$](0){1}
+        \EA[L=$k+2$](1){2}
+        \WE[L=$k-1$](0){10}
+        \WE[L=$k-2$](10){20}
+        \tikzset{VertexStyle/.style = {
+            shape = circle,
+            color = white,
+            text = black,
+            minimum size = 23pt,
+            draw}}
+        \EA[L=...,unit=1.9 ](2){3}
+        \WE[L=...,unit=1.9 ](20){30}
 
-mean hitting time $ k\leadsto \{0,N\} $
+        \tikzset{EdgeStyle/.style = {->,bend left,thick}}
+        \tikzset{LabelStyle/.style = {fill=white}}
+
+        \Edge[label=$ p $](30)(20)
+        \Edge[label=$ p $](20)(10)
+        \Edge[label=$ p $](10)(0)
+        \Edge[label=$ p $](0)(1)
+        \Edge[label=$ p $](1)(2)
+        \Edge[label=$ p $](2)(3)
+
+        \Edge[label=$ q $](20)(30)
+        \Edge[label=$ q $](10)(20)
+        \Edge[label=$ q $](0)(10)
+        \Edge[label=$ q $](1)(0)
+        \Edge[label=$ q $](2)(1)
+        \Edge[label=$ q $](3)(2)
+
+
+    \end{tikzpicture}
+    \end{center}
+    \item Parameters
+    \begin{align*}
+        \begin{cases}
+            \text{Mean Function}:\mu _n=k+n(2p-1)\\
+            \text{Covariance}:\gamma _{m,n}=4pq\min\{m,n\}\\
+            \text{CLT}:\dfrac{X_n-k-n(2p-1)}{\sqrt{4npq}}\xrightarrow[]{d} N(0,1)
+        \end{cases} 
+    \end{align*}
+    
+    
+\end{itemize}
+
+\begin{point}
+    Gambler's Model
+\end{point}
+
+Gambler's model is the case with one/two ends, usually one of the ends is denoted $ 0 $, as Gambler's ruin, and the other denoted $ N $ as Gambler's success.
+
+Reaching $ 0 $ or $ N $ stops the chain, so are called `absorbing state'.\index{Absorbing State}
+
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item State Diagram of Gambler's model with two ends
+    \begin{center}
+        \begin{tikzpicture}
+        \GraphInit[vstyle=Dijkstra]
+        \SetGraphUnit{2}
+            \tikzset{VertexStyle/.style = {
+                shape = rectangle,
+                color = black,
+                text = black,
+                inner sep = 2pt,
+                outer sep = 2pt,
+                draw}}
+            \Vertex[L=$ 0 $]{0}
+            \EA[L=$1$](0){1}
+            \EA[L=$2$](1){2}
+            \tikzset{VertexStyle/.style = {
+                shape = circle,
+                color = white,
+                text = black,
+                minimum size = 23pt,
+                draw}}
+            \EA[L=$ \ldots $](2){3}
+            \tikzset{VertexStyle/.style = {
+                shape = rectangle,
+                color = black,
+                text = black,
+                inner sep = 2pt,
+                outer sep = 2pt,
+                draw}}
+            \EA[L=$ N-2 $](3){4}
+            \EA[L=$ N-1 $](4){5}
+            \EA[L=$ N $](5){6}
+
+            \tikzset{LabelStyle/.style = {fill=white}}
+            \Loop[dist = 1.2cm, dir = EA, label = 1](6)
+            \Loop[dist = 1.2cm, dir = WE, label = 1](0)
+
+    
+            \tikzset{EdgeStyle/.style = {->,bend left,thick}}
+            \tikzset{LabelStyle/.style = {fill=white}}
+    
+            \Edges[label = $ p $](1,2,3,4,5,6)
+            \Edges[label = $ q $](5,4,3,2,1,0)
+    
+        \end{tikzpicture}
+        \end{center}
+    \item Gambler's Ruin / Success: Denote Hitting Time (allowing itself included)\index{Hitting Time} $\tau_i=\min\left\{ n\geq 0: X_n=i \right\} $, and  probability of ruin $ r_i $ and probability of success $ s_i $ respectively
+    \begin{align*}
+        r_i:=&\mathbb{P}\left( X_{\tau_0}=0|X_0=i \right)\\
+        s_i:=&\mathbb{P}\left( X_{\tau_N}=N|X_0=i \right)
+    \end{align*}
+    with itertion relation
+    \begin{align*}
+        s_i=p\cdot s_{i+1}+q\cdot s_{i-1},\quad s_0=0,\,s_N=1\\
+        r_i=q\cdot r_{i+1}+p\cdot r_{i-1},\quad r_0=1,\,r_N=0 
+    \end{align*}
+
+    we could get\footnote{For the case $ q=p=1/2 $, take the natural limit to get corresponding solution
+    \begin{align*}
+        s_i=&\dfrac{k}{N}\\
+        r_i=&1-\dfrac{k}{N}
+    \end{align*}
+    }
+    \begin{align*}
+        s_i=&\dfrac{1-(q/p)^i}{1-(q/p)^N}\\
+        r_i=&\dfrac{(q/p)^i-(q/p)^N}{1-(q/p)^N}=1-s_i
+    \end{align*}
+    \item Mean Hitting Time $ T_{i\leadsto \{0,N\}} $ for $ i\leadsto \{0,N\} $: $ T_{i\leadsto \{0,N\}}=\mathbb{E}\left[ \min\{\tau_{0},\tau_{N}\}|X_0=i \right]  $:
+    \begin{align*}
+        T_{i\leadsto \{0,N\}}= p\left(1+T_{i+1\leadsto \{0,N\}}\right) + q\left(1+T_{i-1\leadsto \{0,N\}}\right),\quad T_{N\leadsto \{0,N\}}=T_{0\leadsto \{0,N\}}=0
+    \end{align*}
+    solution
 \begin{align*}
-    \mu _k=\dfrac{\left(1-(q/p)^k\right)N-k}{\left(1-(q/p)^N\right)(p-q)} 
+    T_{i\leadsto\{0,N\}}=\dfrac{\left(1-(q/p)^i\right)(N-i)}{\left(1-(q/p)^N\right)(p-q)} 
 \end{align*}
+    \item One-end case (greedy gambler) is just having $ N\to\infty $
+    \begin{align*}
+        r_i=&\begin{cases}
+            1,&p\leq \dfrac{1}{2}\\
+            \left(\dfrac{q}{p}\right)^i,&p>\dfrac{1}{2}
+        \end{cases} 
+    \end{align*}
+    
+    Note: i.e. there is a phase transition at $ p=\dfrac{1}{2} $.
+
+\end{itemize}
 
 
-polya: for $ d $-dimensional homogeneous random walk, i.e. $ p=1/4 $ for 2 dim, $ p=1/6 $ for 3 dim ... If $ d=1,2 $, null recurrent, If $ d\geq 3 $, transient.
+
+
+
+% polya: for $ d $-dimensional homogeneous random walk, i.e. $ p=1/4 $ for 2 dim, $ p=1/6 $ for 3 dim ... If $ d=1,2 $, null recurrent, If $ d\geq 3 $, transient.
 
 
 \subsubsection{Branching Process}
+\index{Branching Process}\index{Galton-Watson Tree}
+Branching process focuses on the case of population growth / epidemic infection / nuclear fission chain reaction, etc. Each steps the state $ X_n $ denotes the number of individuals, update of state is given as
+\begin{align*}
+    X_{t+1} = \sum_{j=1}^{X_{t}}Z_{t,j},\quad Z_{t,j}\text{ i.i.d. }\sim Z_{t},\quad X_0=1
+\end{align*}
+and we usually assume the simple case of $ Z_t\text{ i.i.d. }\sim Z $.
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item State Diagram
+    \begin{center}
+        \begin{tikzpicture}[level distance=1.3cm,
+        vertex/.style={minimum size=0.5pt,fill,draw,circle},
+        level 1/.style={sibling distance=4.8cm, level distance=1.5cm},
+        level 2/.style={sibling distance=2cm, level distance=1.5cm},
+        level 3/.style={sibling distance=1.5cm, level distance=1.5cm},
+        leaf/.style={label={[name=#1]left:$#1$}},
+        ]
+        \node[vertex, leaf = Z_{0,1}] {}
+        child {node[vertex, leaf = Z_{1,1}] {}
+            child {node[vertex, leaf = Z_{2,1}] {}
+            child {node[vertex, leaf = Z_{3,1}] {}}
+            child {node[vertex, leaf = Z_{3,2}] {}}
+            }
+            child {node[vertex, leaf = Z_{2,2}] {}}
+            child {node[vertex, leaf = Z_{2,3}] {}
+            child {node[vertex, leaf = Z_{3,3}] {}}
+            }
+        }
+        child {node[vertex, leaf = Z_{1,2}] {}
+            child {node[vertex, leaf = Z_{2,4}] {}}
+            child {node[vertex, leaf = Z_{2,5}] {}
+            child {node[vertex, leaf = Z_{3,4}] {}}
+            child {node[vertex, leaf = Z_{3,5}] {}}
+            child {node[vertex, leaf = Z_{3,6}] {}}
+            }
+        };
+        \end{tikzpicture}
+        \end{center}
+    \item $ z $-transform for distribution of $ X_t $:
+    \begin{align*}
+        \Pi_t(s)=\mathbb{E}\left[ s^X_t \right] = \sum_{j=0}^\infty s^j\mathbb{P}\left( X_t=j \right)  \quad L(s)=\mathbb{E}\left[ s^Z \right] =\sum_{j=0}^\infty s^j\mathbb{P}\left( Z=j \right) 
+    \end{align*}
+    and 
+    \begin{align*}
+        \Pi_t(s)=&\sum_{j=0}^\infty \mathbb{E}\left[ s^{X_t}|X_{t-1}=h \right] \mathbb{P}\left( X_{t-1}=j \right) \\
+        =&\sum_{j=0}^\infty \left(L(s)\right)^{j}\mathbb{P}\left( X_{t-1}=j \right) \\
+        =&\Pi_{t-1}\left(L(s)\right)\\
+        (\Pi_1(s)=L(s))=&L^{(t)}(s) 
+    \end{align*}
+    \item Mean and Variance:
+    \begin{align*}
+        \text{Mean}:&\, \mu (t) = \Pi_t'(1)=\mu(0) ^t\\
+        \text{Variance}:&\,var(t)=\Pi_t''(1)+\Pi_t'(1)-[\Pi_t'(1)]^2
+    \end{align*}
+    \item Extinction Probability
+    \begin{align*}
+        \theta _t=&\mathbb{P}\left( X_t=0 \right)= \sum_{j=0}^\infty \theta ^j_{t-1}\mathbb{P}\left( Z=j \right) \\=
+        &L(\theta _{t-1})
+    \end{align*}
+    The eventual extinction is $ \theta ^*=L(\theta ^*) $, the fixed point of $ L(\, \cdot \, ) $.
+    There is a phase transformation at $ \mu = 1 $
+    \begin{align*}
+        \mathbb{P}\left( \theta ^*=1 \right) =\begin{cases}
+            1,&\mu \leq 1\\
+            \text{the first root of }L(\theta )=\theta ,& \mu >1
+        \end{cases} 
+    \end{align*}
+    
+    Convergence order at phase transition point:
+    \begin{align*}
+        \mathbb{P}\left( X_T>n \right) \sim \begin{cases}
+            c_1\mu ^n,&\mu <1\\
+            \dfrac{c_2}{n},&\mu =1
+        \end{cases}  
+    \end{align*}
+     
+\end{itemize}
 
-Galton-Watson branching process example: nuclear fisson.
+    
+\subsubsection{Independent Increment Process}\label{SubSubSectionIndepedentProcess}
+
+Motivation: Sometimes a process is a `summation of all past events'.
+
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Independent Increment: Def. $ \{X_t\} $ a \textbf{independent increment process} if $ \forall t_0<t_1<\ldots<t_n $, $ \forall n $
+\begin{align*}
+    X_{t_{n}}-X_{t_{n-1}}\independent X_{t_{n-1}}-X_{t_{n-2}} \independent \ldots\independent X_{t_1}-X_{t_0}
+\end{align*}
+    \item Martingale: Def. $ \{X_t\}  $ a \textbf{Martingale} if $ \forall t_0<t_1<\ldots<t_n $, $ \forall n $
+    \begin{align*}
+        \mathbb{E}\left[ X_{t_n}|X_{t_{n-1}},\ldots,X_{t_0} \right] = X_{t_{n-1}} 
+    \end{align*}
+    with a technical condition of bounded expectation $ \mathbb{E}\left[ |X_t| \right] <\infty $.
+    \item Martingale: Def. $ \{X_t\}  $ being a Martingale w.r.t. $ \{Y_t\} $ if
+    \begin{align*}
+        \mathbb{E}\left[ X_{t_n}|Y_{t_{n-1}},\ldots,Y_{t_0} \right] = X_{t_{n-1}} 
+    \end{align*}
+\end{itemize}
+
+In this part we focus on two concrete types of independent increment process:
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item \hyperlink{BrownianProcess}{Brownian Process}: homogeneous events, probabilistic increment.
+    \item \hyperlink{PoissonProcess}{Poisson Process}: probabilistic events, homogeneous increment.
+\end{itemize}
+
+\begin{point}
+    Brownian Motion / Wiener Process \index{Brownian Motion}\index{Wiener Process}\hypertarget{BrownianProcess}{}
+\end{point}
+
+Motivation: Brownian motion $ W_t $\footnote{Symbol $ W_t $ for `Wiener', sometimes uses $ B_t $ for `Brown'.} is similar to a random walk model with $ p=q=1/2 $, but with initial state $ X_0=0 $, and `steps' defined as `a short enough time segmentation'.
+\begin{align*}
+    W_{t=\frac{k}{N}}:= \dfrac{1}{\sqrt{N}} \sum_{i=1}^k \varpi _i,\quad \varpi _i\sim_{\mathrm{i.i.d.} } \mathrm{Unif}\{+1,-1\} 
+\end{align*}
+and have $ N\to \infty $ as a Brownian Motion (Donsker Thm.\index{Donsker Thm.})
+
+Rigorous definition of \textbf{Brownian / Wiener Process}: $ \{W_t:T\geq 0\} $ with $ 0<\sigma ^2<\infty $ is Brownian if
+\begin{enumerate}[topsep=2pt,itemsep=2pt]
+    \item Starts from $ 0 $: $ \mathbb{P}\left( W_0 \right) =1 $
+    \item Independent increment: $ W_{t_1}-W_{s_1}\independent W_{t_2}-W_{s_2} $, $  \forall [t_1,s_1\cap [t_2,s_2]=\emptyset $
+    \item Zero mean Normal: $ W_t-W_s\sim N(0,\sigma ^2\vert t-s\vert) $
+    \item continuity: $ \mathbb{P}\left( W_t\text{ continuous} \right) =1 $ 
+\end{enumerate}
+
+Properties:
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+        \item Parameters
+        \begin{align*}
+            \begin{cases}
+                \text{Mean Function}:\mu (t)=0\\
+                \text{Covariance}:\gamma (t,s)=\sigma ^2 \min\{s,t\} 
+            \end{cases} 
+        \end{align*}
+        \item m.s. indifferentiable
+        \begin{align*}
+            \mathbb{E}\left[ \left(\dfrac{\partial^{} W_t}{\partial t^{}}\right)^2 \right]\to \infty  
+        \end{align*}
+        which is the reason why the plots for Brownian Motion always looks rugged.
+        \item Conditional distribution / Brownian Bridge $ B_t $:
+        \begin{align*}
+            B_t := W_t|W_T=0 \sim N(0,\sigma ^2\dfrac{t(T-t)}{T})
+        \end{align*}
+        \begin{itemize}[topsep=2pt,itemsep=0pt]
+            \item Dependent increment: non-zero covariance
+        \begin{align*}
+            \gamma_\mathrm{Bridge}  (t,s) = \sigma ^2\left(\min\{t,s\}-\dfrac{ts}{T}\right)
+        \end{align*}
+            \item Cross definition between Wiener Process and Brownian Bridge:
+            \begin{align*}
+                \begin{cases}
+                    B_t:=W_t-\dfrac{t}{T}W_T\\
+                    W_t:=B_t+t \sigma ^2 N(0,1) 
+                \end{cases}
+            \end{align*}
+            i.e. Bronian Bridge is independent of the terminal of its corresponding Wiener Process $ B_t\independent W_T $.
+        \end{itemize}
+\end{itemize}
+
+\begin{point}
+    Poisson Process\index{Poisson Process}\hypertarget{PoissonProcess}{}
+\end{point}
+
+Motivation: The accumulate events happens at random, with `happening rate' of events as $ \lambda  $
+\begin{align*}
+    N_{t=\frac{k}{N}}:= \sum_{i=1}^k \nu  _i,\quad \nu  _i\sim_{\mathrm{i.i.d.} } \mathrm{Bern}(\dfrac{\lambda }{n}) 
+\end{align*}
+
+Rigorous Definition of \textbf{Poisson Process}: $ \{N_t:t\geq 0\} $ with rate $ \lambda >0 $ is Poisson if 
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Counting Process $ N_t $: $ N_0=0 $, $ N_t\in\mathbb{N} $
+    \item Independent Increment: $ N_{t_1}-N_{s_1}\independent N_{t_2}-N_{s_2} $, $ \forall [t_1,s_1\cap [t_2,s_2]=\emptyset $
+    \item Poisson increment: $ N_t-N_s\sim P\left(\lambda (t-s)\right) $, $ t\geq s $\footnote{A proof \& another kind of definition concerning the intuition of `rate $ \lambda  $' is here: \url{https://v1ncent19.github.io//texts/Poisson/}.}
+\end{itemize}
+
+Properties:
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Parameters
+    \begin{align*}
+        \begin{cases}
+            \text{Mean Function}:\mu (t)=\lambda t\\
+            \text{Covariance}:\gamma (t,s)=\lambda \min\{s,t\} 
+        \end{cases}
+    \end{align*}
+    \item Arrival time: $ N_{t_n}=n $ means there are $ n $ events before (and including) $ t_n $, denoted $ \{t_1,t_2,\ldots,t_n\} $. PDF
+    \begin{align*}
+        f_{T_1,T_2,\ldots,T_n}(t_1,t_2,\ldots,t_n)=\lambda ^ne^{-\lambda t_n}\mathbb{I}_{0<t_1<t_2<\ldots<t_n}
+    \end{align*}
+    \item Inter-event time: PDF of time-between-events $ \{u_1,u_2,\ldots,u_n\}:=\{t_1,t_2-t_1,\ldots,t_n-t_{n-1}\} $
+    \begin{align*}
+        f_{U_1,U_2,\ldots,U_n}(u_1,u_2,\ldots,u_n)=\prod_{i=1}^n \lambda e^{-\lambda u_i}\mathbb{I}_{u_i\geq 0}=\sim \otimes{i=1}^n\varepsilon_i (\lambda )
+    \end{align*}
+    
+    i.e. time-between-events satisties exponential distribution
+    \begin{align*}
+        U_i\sim_\mathrm{i.i.d.}  \varepsilon (\lambda ) 
+    \end{align*}
+
+    \item Conditional distribution
+    \begin{align*}
+        f_{T_1,T_2,\ldots,T_n|N_t=n}(t_1,t_2,\ldots,t_n)=\dfrac{n!}{t^n}\mathbb{I}_{0<t_1<t_2<\ldots<t_n}\sim \mathrm{Unif}\left(\mathbb{I}_{0<t_1<t_2<\ldots<t_n\leq t}\right) 
+    \end{align*}
+    is the PDF of order statistics\footnote{See \autoref{EqaDistributionOfOrderStatistics}.} of i.i.d. $ \mathrm{Unif}(0,t)  $.
+    \item Poisson Process and Martingale: 
+    \begin{align*}
+        \tilde{N}_t:=N_t-\lambda t\sim\mathrm{Martingale}  
+    \end{align*}
+    
+\end{itemize}
+
+    
+
+
+\subsubsection{Markov Decision Processes}
+\index{MDPs (Markov Decision Processes)}
+In decision process, we need to determine a \textbf{policy} $ \pi_t $ to take actions $ a_t $ given state $ s_t $
+\begin{align*}
+    a_t\sim \pi_t(\, \cdot \,| s_t) 
+\end{align*}
+
+ 
+
+
+
+
+
+
+
+
+     
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
 
 
 

@@ -420,7 +420,7 @@
         X\hat{\beta }= X(X^*X)^{-1}X^*Y\equiv HY=P_XY
     \end{align}
 
-    For non-full rank $ A=X^*X $: use pseudoinverse $ A^+=(A^*A)^{-1}A^* $
+    For non-full rank $ A=X^*X $: use pseudoinverse $ A^+=(A^*A)^{-1}A^* $\index{Pseudo Inverse Matrix}
     
     % Derivation: Projection of vector $ v $ on hyperplane $ X $ satisties (denoted as $ Xp $)
     % \begin{align}
@@ -1007,11 +1007,9 @@ for independent eigenvectors $ x_i $ and an arbitrary vector $ \xi =\sum_{i=1}^m
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item rank of $ A $: $ r=\mathrm{rk}(\mathop{A}\limits_{m\times n} )=\# \text{ non-zero } \sigma _i  $
     \item Space of $ A  $:
-    \begin{itemize}
-        \item $ \mathcal{R}(A)=\mathrm{span}\{u_1,\ldots ,u_r\}  $
-        \item $ \mathcal{C}(A)=\mathrm{span}\{v_1,\ldots,v_r\}  $
-        \item $ \mathcal{N}(A)=\mathrm{span}\{v_{r+1},\ldots,v_n\}  $
-    \end{itemize}
+    \begin{align}
+         \mathcal{R}(A)=\mathrm{span}\{u_1,\ldots ,u_r\}\qquad \mathcal{C}(A)=\mathrm{span}\{v_1,\ldots,v_r\}\qquad \mathcal{N}(A)=\mathrm{span}\{v_{r+1},\ldots,v_n\}
+    \end{align}
     \item Norm:
     \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item Euclidean Norm: $ \Vert A \Vert _2=\sigma _1 $
@@ -1768,7 +1766,7 @@ uniroot()
         \item \hyperlink{SGDMethod}{Stochastic Gradient Descent (SGD)}: modification for large sample
         \item \hyperlink{ConjugateGradientMethod}{Conjugate Gradient Method}: Use the `perpendicular' property of conjugate vector for quick updating of $ p_k $
     \end{itemize}
-    \item Modifying Step-Length $ \alpha ^{(t)} $:
+    \item Modifying Step-Length / Learning Rate $ \alpha ^{(t)} $:
     \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item \hyperlink{FixedStepLength}{Fixed step-length}: $ \alpha ^{(t)}=\alpha  $
         \item \hyperlink{Backtracking}{Backtracking line search}: $ \alpha ^{(t)}=\dfrac{\alpha }{2^{n^{(t)}}} $ 
@@ -2118,7 +2116,7 @@ Properties:
         x^{(t+1)}=x^{(t)}+\alpha ^{(t)}p^{(t)}
     \end{align}
     
-    we should choose proper scale of $ a^{(t)} $ adapted to the craggedness of $ g(x) $ for better convergence.
+    we should choose proper scale of $ a^{(t)} $ adapted to the craggedness of $ g(x) $ for better convergence. In machine learning, $ \alpha ^{(t)} $ also refers to learning rate.
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item \hypertarget{FixedStepLength}{Fixed step-length}: Fix $ \alpha ^{(t)}=\alpha  $ (usually $ \alpha =1 $)    
     \item \hypertarget{Backtracking}{Backtracking}: Starting from e.g. $ \alpha^{(t)}_0 =1 $ and calculate corresponding $ g\left(x^{(t)}+\alpha ^{(t)}_ip^{(t)}\right) $, update $ \alpha ^{(t)}_{i+1}=\alpha ^{(t)}_i/2 $ until $ g\left(x^{(t)}+\alpha ^{(t)}_ip^{(t)}\right)<g\left(x^{(t)}\right) $, i.e.
@@ -2521,18 +2519,18 @@ Solve: fisrt eliminate $ \Lambda -\Lambda ^T $ into $\lambda s^T-s\lambda ^T $, 
         \end{align}
 
         Note: non-exchange for $ p $, $ q $.
-
-        Property: $ \mathrm{KL}(q||p)\geq 0  $, $ \forall p(x) $, take equal when $ p(x)=q(x) $
         \item Jensen Inequality: For \textbf{concave}  function $ h(x) $ and random variable $ X\sim f $
         \begin{align}
             \mathbb{E}_f\left(h(X)\right)\leq h\left(\mathbb{E}_f(X)\right) 
-        \end{align}
-        
-        
-        
+        \end{align}       
         
     \end{itemize}
-    
+
+    Then we have the property of non-negativity of $ \mathrm{KL}(q\Vert p)  $:
+    \begin{align}
+        \mathrm{KL}(q||p)\geq 0, \,\forall p(x),\quad = \text{ for }  p(x)=q(x) 
+    \end{align}
+    A brief proof see \autoref{SubSectionUsefulInequality}.
         
 \subsubsection{Derivation}
     Notation: $ \theta=(\theta_{z_\nu},\theta_z) $, sample $ X=(x_{1},x_{2},\ldots,x_{N})  $. Expectation of function of ramdom variable $ h(Y) $ on distribution $ q(y) $ as $ E_{(q_y)}\left(h(Y)\right) $.
@@ -2632,7 +2630,7 @@ Solve: fisrt eliminate $ \Lambda -\Lambda ^T $ into $\lambda s^T-s\lambda ^T $, 
 %     \end{itemize}
 % \end{itemize}
 
-\subsection{Statistical Simulation} 
+\subsection{Statistical Simulation}\label{SubSectionStatisticalSimulation}
     Statistic model inference problem can be solved using simulation, i.e. Monte-Carlo simulation. We can use the model-based random numbers to analyze model.
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item Simulation is well-adapted, especially for high-dimensional problems
@@ -2802,7 +2800,7 @@ set.seed(INI_NUM)
 
     such estimation is guarenteed by CLT:
     \begin{align}
-        \hat{I}_\mathrm{H} \xrightarrow[]{\mathscr{L}} N\left( I,\dfrac{[M(b-a)]^2p(1-p)}{N} \right)
+        \hat{I}_\mathrm{H} \xrightarrow[]{\mathrm{d}} N\left( I,\dfrac{[M(b-a)]^2p(1-p)}{N} \right)
     \end{align}
     
     
@@ -2813,7 +2811,7 @@ set.seed(INI_NUM)
     
     with CLT:
     \begin{align}
-         \hat{I}_\mathrm{M} \xrightarrow[]{\mathscr{L}} N\left(I,\dfrac{(b-a)^2var(h(U))}{N}\right)
+         \hat{I}_\mathrm{M} \xrightarrow[]{\mathrm{d}} N\left(I,\dfrac{(b-a)^2var(h(U))}{N}\right)
     \end{align}
 
 
@@ -2961,16 +2959,16 @@ Markov Chain Monte Carlo (MCMC) aims at solving integration and simulation probl
     Convergence and Ergodic Thm.:\index{Convergence and Ergodic Theorem} An ergodic markov chain converges to a unique stationary distribution $ \pi_\infty $\footnote{Ergodic = Irreducible + Aperiodic. Denote $ i\leadsto j $ if $ \exists n\,s.t.  \mathbb{P}\left( X_n=j|X_0=i \right) \neq 0 $
     \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item Irreducible:
-        \begin{align*}
+        \begin{align}
             i\leadsto j,\, j\leadsto i,\quad \forall i,j 
-        \end{align*}
+        \end{align}
 
         All states of irreducible chain have the same period $ T_i=T $. 
 
         \item Aperiodic: if one of the state is aperiodic $ T=1 $, then all states are, where
-        \begin{align*}
+        \begin{align}
             \text{Period }T_i=\gcd \{n: \mathbb{P}\left( X_n=i|X_0=i \right)>0 \} 
-        \end{align*}
+        \end{align}
         % Sojour time.
     \end{itemize}
     

@@ -255,12 +255,12 @@ Properties:
 
     By CLT, considering $ U $ as a function of r.v.: (for a given $ \theta  $ and the data generated from the distribution with \textbf{this} parameter $ \theta  $, i.e. $ U(\theta )=U\left(\theta ;\vec{X}(\theta )\right) $)
     \begin{align}
-        \sqrt[]{n}\left\{ \bar{U}(\theta )-\mathbb{E}(U(\theta )) \right\} = \dfrac{1}{\sqrt[]{n}} U(\theta ) \xrightarrow[]{\mathscr{L}} N(0,\dfrac{I(\theta )}{n})
+        \sqrt[]{n}\left\{ \bar{U}(\theta )-\mathbb{E}(U(\theta )) \right\} = \dfrac{1}{\sqrt[]{n}} U(\theta ) \xrightarrow[]{\mathrm{d}} N(0,\dfrac{I(\theta )}{n})
     \end{align}
 
     and by taking MLE estimation $ \hat{\theta }^{MLE}\xrightarrow[]{p} \theta ^* $, we can estimate the distribution (Note that MLE Estimator requires $ U(\theta )=0 $)
     \begin{equation}
-        J(\hat{\theta })^{-1/2}\left(U(\hat{\theta })-\mathbb{E}(U(\hat{\theta } ))\right)=J(\hat{\theta })^{-1/2}U(\hat{\theta }) \xrightarrow[]{\mathscr{L}} N(0,1)
+        J(\hat{\theta })^{-1/2}\left(U(\hat{\theta })-\mathbb{E}(U(\hat{\theta } ))\right)=J(\hat{\theta })^{-1/2}U(\hat{\theta }) \xrightarrow[]{\mathrm{d}} N(0,1)
     \end{equation}
     
 
@@ -278,7 +278,7 @@ Statistical Inference concerning $ \theta  $ can be conducting using the above f
     
     explanation: under $ H_0: \theta =\theta _0 $, we should have $ \hat{\theta }\to \theta =\theta _0 $, which would lead to 
     \begin{equation}
-        {\color{blue}J(\theta _0)^{-1/2}U(\theta _0;\vec{X}(\theta_0 ))\xrightarrow[]{\mathscr{L}} N(0,1) }
+        {\color{blue}J(\theta _0)^{-1/2}U(\theta _0;\vec{X}(\theta_0 ))\xrightarrow[]{\mathrm{d}} N(0,1) }
     \end{equation}
     however if $ \hat{\theta }\to \theta \neq \theta _0  $, then 
     \begin{equation}
@@ -288,17 +288,17 @@ Statistical Inference concerning $ \theta  $ can be conducting using the above f
     
     \item {\color{blue}Wald Test}:\index{Wald Test} Use the Taylor Series of $ U(\theta ) $ to the $ 1^\mathrm{st}  $ order
     \begin{equation}
-        U(\theta )\approx  -J(\hat{\theta })(\theta -\hat{\theta } )\Rightarrow J(\hat{\theta })^{1/2}(\hat{\theta }-\theta )\approx J(\hat{\theta })^{-1/2}U(\hat{\theta }) \xrightarrow[]{\mathscr{L}} N(0,1)
+        U(\theta )\approx  -J(\hat{\theta })(\theta -\hat{\theta } )\Rightarrow J(\hat{\theta })^{1/2}(\hat{\theta }-\theta )\approx J(\hat{\theta })^{-1/2}U(\hat{\theta }) \xrightarrow[]{\mathrm{d}} N(0,1)
     \end{equation}
     i.e.
     \begin{equation}
-        {\color{blue}\hat{\theta }\xrightarrow[]{\mathscr{L}} N(\theta ,J(\hat{\theta })^{-1}) }
+        {\color{blue}\hat{\theta }\xrightarrow[]{\mathrm{d}} N(\theta ,J(\hat{\theta })^{-1}) }
     \end{equation}
     which can be utilized to construct testing statistics/interval estimations.
 
     \item {\color{blue}Likelihood Ratio Test}: Use the Taylor Series of $ \ell(\theta ) $ to the $ 2^{\mathrm{nd} } $ order, and take $ \hat{\theta }=\hat{\theta }^{MLE} $ so that $ \ell'(\hat{\theta })=0 $
     \begin{equation}
-        \ell(\theta )\approx \ell(\hat{\theta })-\dfrac{1}{2}(\theta -\hat{\theta })^TJ(\theta )(\theta -\hat{\theta })\Rightarrow{\color{blue} 2(\ell(\hat{\theta })-\ell(\theta ))}\approx (\theta -\hat{\theta })^TJ(\theta )(\theta -\hat{\theta }){\color{blue}\xrightarrow[]{\mathscr{L}} \chi^2_p}
+        \ell(\theta )\approx \ell(\hat{\theta })-\dfrac{1}{2}(\theta -\hat{\theta })^TJ(\theta )(\theta -\hat{\theta })\Rightarrow{\color{blue} 2(\ell(\hat{\theta })-\ell(\theta ))}\approx (\theta -\hat{\theta })^TJ(\theta )(\theta -\hat{\theta }){\color{blue}\xrightarrow[]{\mathrm{d}} \chi^2_p}
     \end{equation}
 
     where $ p $ is the dimension of $ \theta  $    
@@ -382,7 +382,7 @@ Idea of KM Estimator: Separate time into segments by censor/event time $ t_i $, 
 
 where $ \hat{\lambda }(t_i) $ are relatively easy to estimate with censoring considered. $ r_i $ for \# at risk: not censored/event till $ t_i $, $ d_i $ for \# event (death). We can model $ \hat{\lambda }_i $ as
 \begin{equation}
-    d_i\big|r_i \sim B(r_i,\lambda _i)\xrightarrow[]{\mathscr{L}} N(r_i\lambda _i,r_i\lambda _i(1-\lambda _i))
+    d_i\big|r_i \sim B(r_i,\lambda _i)\xrightarrow[]{\mathrm{d}} N(r_i\lambda _i,r_i\lambda _i(1-\lambda _i))
 \end{equation}
 
 and obtain the MLE estimation of $ \hat{\lambda }_i|r_i,d_i $\footnote{Here we use the $ \Delta  $ method for estimating the variance of function of r.v.: if $ X\sim f(\mu ,\sigma ^2) $:
@@ -488,7 +488,7 @@ Idea of logrank test: adapt contingency table to censor table
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item Recap: Pearson's $ \chi^2 $ test: assign $ n $ sample into $ k $ groups, and conduct test on $ p_i $, $ i=1,2,\ldots,k $, denote that $ v_i $ samples are assigned to the $ i^\mathrm{th}  $ groups, then
     \begin{equation}
-        K_n=\sum_{i=1}^k\dfrac{(v_i-np_i)^2}{np_i}\xrightarrow[]{\mathscr{L}} \chi^2_{df}
+        K_n=\sum_{i=1}^k\dfrac{(v_i-np_i)^2}{np_i}\xrightarrow[]{\mathrm{d}} \chi^2_{df}
     \end{equation}
 
     In the above example, $ df=k-1 $. In $ 2\times 2 $ contingency table, $ df=1 $ because we assume $ d,r,r_0,r_1 $ are fixed. Pearson's $ \chi^2 $ statistics for $ 2\times 2 $ contingency table:
@@ -697,7 +697,7 @@ Note: the feasibility of partial likelihood comes from the form of proportion ha
     \int _0^{t_i}\lambda _0(\tau) \,\mathrm{d}\tau \approx \sum_{j=1}^i\lambda _j
 \end{equation}
 then we could use a trick to reformulate $ \ell(\beta ,\lambda _1,\ldots,\lambda _n;X) $ as\footnote{\newcommand{\blue}{\color{blue}}\newcommand{\brown}{\color{brown}}
-Illustration for $ \blue\displaystyle\sum_{i=1}^n\lambda _i\sum_{j=i}^ne^{\beta 'z_j}=\sum_{i=1}^n\sum_{j=1}^i\lambda _je^{\beta 'z_i} $
+Illustration for $ \blue\displaystyle\sum_{i=1}^n\lambda _i\sum_{j=i}^ne^{\beta 'z_j}=\sum_{i=1}^n\sum_{j=1}^i\lambda _je^{\beta 'z_i} $ (Abel's Lemma for Summation by Parts\index{Abel's Lemma for Summation by Parts})
 \begin{equation}\begin{pNiceMatrix}[last-row,last-col,nullify-dots,xdots/line-style={dashed,blue}]
 
 \lambda _1e^{\beta 'z_1}&&&&&\brown\leftarrow\sum_{j=1}^1\lambda _je^{\beta 'z_1}\\
@@ -731,9 +731,9 @@ then we could get the partial likelihood
 
 The above statistics can be use for further inference.
 \begin{align}
-    &J(\beta _0)^{-1/2}U(\beta _0)\xrightarrow[]{\mathscr{L}} N(0,1)\\
-    &(\hat{\beta }-\beta _0)\xrightarrow[]{\mathscr{L}} N(0,J(\hat{\beta })^{-1})\\
-    &2(\ell(\hat{\beta })-\ell(\beta))\xrightarrow[]{\mathscr{L}} \chi^2_p
+    &J(\beta _0)^{-1/2}U(\beta _0)\xrightarrow[]{\mathrm{d}} N(0,1)\\
+    &(\hat{\beta }-\beta _0)\xrightarrow[]{\mathrm{d}} N(0,J(\hat{\beta })^{-1})\\
+    &2(\ell(\hat{\beta })-\ell(\beta))\xrightarrow[]{\mathrm{d}} \chi^2_p
 \end{align}
 
 \begin{point}
@@ -842,7 +842,7 @@ Model:
     and at small $ \beta _a $, take approximation $ \theta \approx r_{1j}/r_{j} $
     }
     \begin{align}
-        T_{CMH}= \dfrac{\sum_{j=1}^K\left( d_{0j}-r_{oj}\frac{d_j}{r_j} \right)}{\sqrt[]{\sum_{j=1}^K}\frac{r_{0j}r_{1j}d_j(r_j-d_j)}{r_j^2(r_j-1)}}\xrightarrow[]{\mathscr{L}} N(\beta _a\sqrt[]{d\theta (1-\theta )}, 1)
+        T_{CMH}= \dfrac{\sum_{j=1}^K\left( d_{0j}-r_{oj}\frac{d_j}{r_j} \right)}{\sqrt[]{\sum_{j=1}^K}\frac{r_{0j}r_{1j}d_j(r_j-d_j)}{r_j^2(r_j-1)}}\xrightarrow[]{\mathrm{d}} N(\beta _a\sqrt[]{d\theta (1-\theta )}, 1)
     \end{align}
 
     where $ d=\sum_{j=1}d_j $, $ \theta  $ is the prevalence of group 1.
@@ -894,7 +894,7 @@ Model:
     
     \item General Case: In different groups $ z $, survivial time 
     \begin{align}
-        T_i=&T_0e^{\alpha 'z_i+ \varepsilon _i/p },\quad \varepsilon _i\sim \varepsilon (1)
+        T_i=&T_0e^{\alpha 'z_i+ \varepsilon _i/p },\quad \varepsilon _i\sim \varepsilon (1)\\
         S_i(t)=&\mathbb{P}\left( T_i\geq t \right)\\
         =&\mathbb{P}\left( \log T_0 +\alpha 'z_i+\dfrac{\varepsilon _i}{p}\geq  \log t \right)  \\
         =&S_{\varepsilon (1)}\left(p({\log t-\log T_0-\alpha 'z_i})\right)

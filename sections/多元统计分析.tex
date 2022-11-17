@@ -28,29 +28,12 @@
     \hypertarget{RandomVariableRepresentation}{Random Variable Representation}:
 \end{point}
     \begin{itemize}[topsep=6pt,itemsep=4pt]
-        \item Random Matrix: Definition and basic properties of r.v. see \autoref{SectionPropertiesOfRandomVariableAndVector}. Now extend the definition to matrix $ X=\{X_{ij}\} $. 
-    
-    \begin{equation}
-        X=\{X_{ij}\}=\begin{bmatrix}
-        X_{11}&X_{12}&\ldots&X_{1p}\\
-        X_{21}&X_{22}&\ldots&X_{2p}\\
-        \vdots&\vdots&\ddots&\vdots\\
-        X_{1n}&X_{n2}&\ldots&X_{np}\\
-        \end{bmatrix} 
-    \end{equation}
-
-    And we can further define $ \mathbb{E}(X)=\{\mathbb{E}(X_{ij})\} $.
-    For any const matrix $ A,B $ we have
-    \begin{equation}
-        \mathbb{E}(AXB)=A\mathbb{E}(X)B 
-    \end{equation}
-
-    \item Random Vector\index{r.v. (Random Variable or Random Vector)}: For a $ p\times 1 $ random vector $ \vec{X}=(X_{1},X_{2},\ldots,X_{p})^T  $, denote (Marginal) expectation and variance, and covariance, correlation coefficient between $ X_i,X_j $ as follows:
+    \item Random Vector\index{r.v. (Random Variable or Random Vector)}: For a $ p\times 1 $ random vector $ \vec{X}=(X_{1},X_{2},\ldots,X_{p})^T  $, denote (Marginal) expectation and variance, and covariance, correlation coefficient between $ X_i,X_j $ as follows:\footnote{An intuition to avoid confusion of $ \sigma _{\cdot \cdot } $: two subscripts means quadratic.}
     \begin{align}
         \mu_i&=\mathbb{E}(X_i)\\
         \sigma _{ii}&=\sigma_i ^2=\mathbb{E}(X_i-\mu_i)^2\\
         \sigma_{ij}&=\mathbb{E}[(X_i-\mu_i)(X_j-\mu_j)]\\
-        \rho _{ij}&=\dfrac{\sigma _{ij}}{\sqrt{\sigma _{ii}}\sqrt{\sigma _{jj}}}
+        \rho _{ij}&=\dfrac{\sigma _{ij}}{\sqrt{\sigma _{ii}}\sqrt{\sigma _{jj}}}=\dfrac{\sigma _{ij}}{\sigma _i\sigma _j}
     \end{align}
     
     and we have covariance matrix (as defined in \autoref{SubSubSectionCovarianceAndCorrelation}, \autoref{covariancematrix})
@@ -88,14 +71,14 @@
             \mathrm{cross}(X,Y)= \mathbb{E}\left[ X'Y \right]
     \end{align}
 
-    and correlation matrix with $ Y=X $:
+    and cross correlation matrix with $ Y=X $:
     \begin{align}
         \mathrm{cross}(X,X)=  \mathbb{E}\left[ X'X\right]
     \end{align}
     }
     \index{Correlation Matrix@(Pearson's) Correlation Matrix}
     \begin{equation}
-        \rho =\begin{bmatrix}
+        \varrho  =\begin{bmatrix}
         \rho _{11}&\rho _{12}&\ldots&\rho _{1p}\\
         \rho _{21}&\rho _{22}&\ldots&\rho _{2p}\\
         \vdots&\vdots&\ddots&\vdots\\
@@ -104,12 +87,30 @@
         =V^{-1/2}\Sigma V^{-1/2}
     \end{equation}
     
+    \item Random Matrix: Definition and basic properties of r.v. see \autoref{SectionPropertiesOfRandomVariableAndVector}. Now extend the definition to matrix $ X=\{X_{ij}\} $. 
+    
+    \begin{equation}
+        X=\{X_{ij}\}=\begin{bmatrix}
+        X_{11}&X_{12}&\ldots&X_{1p}\\
+        X_{21}&X_{22}&\ldots&X_{2p}\\
+        \vdots&\vdots&\ddots&\vdots\\
+        X_{1n}&X_{n2}&\ldots&X_{np}\\
+        \end{bmatrix} 
+    \end{equation}
+
+    And we can further define $ \mathbb{E}(X)=\{\mathbb{E}(X_{ij})\} $.
+    For any const matrix $ A,B $ we have
+    \begin{equation}
+        \mathbb{E}(AXB)=A\mathbb{E}(X)B 
+    \end{equation}
+
+    Some more complex parameter can be expressed in language of tensors.
     
     \end{itemize}
     
         
 \begin{point}
-    \hypertarget{SampleRepresentation}{Sample Representation}:
+    \hypertarget{SampleRepresentation}{Sample Representation} (for random vector):
 \end{point}
     
     Sample of $n$ items from population characterized by $ p $ variables
@@ -159,7 +160,7 @@
         \end{bmatrix} 
         =
         \begin{bmatrix}
-            y_1&y_2&\ldots &y_p
+            x_{\cdot 1}&x_{\cdot 2}&\ldots &x_{\cdot p}
         \end{bmatrix}
     \end{equation}
 \begin{point}
@@ -172,7 +173,7 @@
             \mathbf{1}_k=(\underbrace{1,1,\ldots,1}_{k\text{ 1 in total}})^T
         \end{equation}
 
-        Unit 1 matrix:
+        Unit 1 matrix: (Sometimes I also use notation $ \mathcal{J}_n $)
         \begin{equation}\label{EqaAllOneMatrix}
             \mathcal{I}_n  = \{1\}_{n\times n}=\begin{bmatrix}
             1&1&\ldots&1\\
@@ -183,28 +184,30 @@
         \end{equation}
 
 
-        \item Sample mean:
+        \item Sample mean of the $ j^\mathrm{th} $ variable:
         \begin{equation}
-            \bar{x}_i=\dfrac{x_{1i}+x_{2i}+\ldots+x_{ni}}{n}=\dfrac{y_i'\mathbf{1}_n}{n}
+            \bar{x}_j=\dfrac{x_{1j}+x_{2j}+\ldots+x_{nj}}{n}=\dfrac{\mathbf{1}_n'x_{\cdot j}}{n},\quad j=1,2,\ldots,p
         \end{equation}
         
-        \item Deviation of measurement of the $ i^\mathrm{th} $ variable:
+        \item Deviation of measurement of the $ j^\mathrm{th} $ variable:
         \begin{equation}
-            d_i=y_i-\bar{x}_i\mathbf{1}_n=\begin{bmatrix}
-                x_{1i}-\bar{x}_i\\x_{2i}-\bar{x}_i\\\vdots\\x_{ni}-\bar{x}_i
-            \end{bmatrix} 
+            d_j=\begin{bmatrix}
+                x_{1j}-\bar{x}_j\\x_{2j}-\bar{x}_j\\\vdots\\x_{nj}-\bar{x}_j
+            \end{bmatrix}=x_{.j}-\bar{x}_j\mathbf{1}_n = (I-\dfrac{1}{n}\mathcal{I}_n)x_{\cdot j},\quad j=1,2,\ldots,p
         \end{equation}
         \item Covariance Matrix:\index{Covariance Matrix}
             \begin{itemize}[topsep=6pt,itemsep=4pt]      
-            \item Variance of $ y_i $:
-            \begin{equation}
-                s^2_i=s_{ii}=\dfrac{1}{n}d_i'd_i =\dfrac{1}{n}\sum_{k=1}^n (x_{ki}-\bar{x}_i)^2,\quad i=1,2,\ldots p
-            \end{equation}
-            \item Covariance between $ y_i $ and $ y_j $:
-            \begin{equation}
-                s_{ij}=\dfrac{1}{n}d_i'd_j=\dfrac{1}{n}\sum_{k=1}^n(x_{ki}-\bar{x}_i)(x_{kj}-\bar{x}_j),\quad i,j=1,2,\ldots p
-            \end{equation}
-            \item Correlation Coefficient:
+            \item Variance of $ x_{\cdot j} $:
+            \begin{align}
+                s_{jj}=s^2_j=&\dfrac{1}{n}d_j'd_j=\dfrac{1}{n}\sum_{k=1}^n (x_{kj}-\bar{x}_j)^2,\quad i=1,2,\ldots p\\
+                =&x_{\cdot j}'(I-\dfrac{1}{n}\mathcal{I}_n)x_{\cdot j},\quad j=1,2,\ldots,p
+            \end{align}
+            \item Covariance between $ x_i $ and $ x_j $:
+            \begin{align}
+                s_{ij}=&\dfrac{1}{n}d_i'd_j=\dfrac{1}{n}\sum_{k=1}^n(x_{ki}-\bar{x}_i)(x_{kj}-\bar{x}_j),\quad i,j=1,2,\ldots p\\
+                =&x_{\cdot i}'(I-\dfrac{1}{n}\mathcal{I}_n)x_{\cdot j},\quad i,j=1,2,\ldots,p
+            \end{align}
+            \item Pearson's Correlation Coefficient between $ x_i $ and $ x_j $:\index{Correlation Coefficient!Pearson's Correlation Coefficient $ r $}
             \begin{equation}\label{EqaEstimatorOfCorrelationCoefficient}
                 r_{ij}=\dfrac{s_{ij}}{\sqrt{s_{ii}}\sqrt{s_{jj}}}=\dfrac{{\displaystyle\sum_{k=1}^n(x_{ki}-\bar{x}_i)(x_{kj}-\bar{x}_j)}}{\sqrt{{\displaystyle\sum_{k=1}^n(x_{ki}-\bar{x}_i)^2}}\sqrt{{\displaystyle\sum_{k=1}^n(x_{kj}-\bar{x}_j)^2}}},\quad i,j=1,2,\ldots p
             \end{equation}
@@ -230,27 +233,27 @@
             r_{1p}&r_{p2}&\ldots&r_{pp}\\
             \end{bmatrix}
         \end{equation}
-        \item Generalized sample variance: $ |S|=\lambda _1\lambda _2 \ldots \lambda _p$, where $ \lambda_i  $ are eigenvalues.
+        \item Generalized sample variance: $ |S_n|=\lambda _1\lambda _2 \ldots \lambda _p$, where $ \lambda_i  $ are eigenvalues of $ S_n $.
         
-        \item 'Statistical Distance' between vectors: to measure the difference between two vectors $ x=(x_1,x_2,\ldots,x_p) $ and $ y=(y_1,y_2,\ldots,y_p) $.
+        \item `Statistical Distance' between vectors: to measure the difference between two vectors $ x=(x_1,x_2,\ldots,x_p) $ and $ y=(y_1,y_2,\ldots,y_p) $.
         \begin{itemize}[topsep=6pt,itemsep=4pt]
-            \item Euclidean Distance:
+            \item Euclidean Distance:\index{Euclidean Distance}
             \begin{equation}
                 d_E(x,y) =\sqrt{(x-y)^T(x-y)}
             \end{equation}
-            \item \textbf{Mahalanobis Distance}\index{Mahalanobis Distance}: Scale invariant distance, and include information about relativity:
+            \item \textbf{Mahalanobis Distance}\index{Mahalanobis Distance}: Scale invariant distance, and include information about relativity position:
             \begin{equation}
                 d_M(x,y)=\sqrt{(x-y)'S^{-1}(x-y)} 
             \end{equation}
 
-            Note: $ P,Q $ are from the same distribution with covariance matrix $ S_p $. When $ S=I $, return to Euclidean distance.
+            % Note: $ P,Q $ are from the same distribution with covariance matrix $ S_p $. When $ S=I $, return to Euclidean distance.
             
             Remark: Mahalanobis distance is actually the normalized Euclidean distance in principal component space. So we can actually define the Mahalanobis distance for one sample case $ \vec{x}=(x_1,x_2,\ldots ,x_p) $ from distribution of $ (\vec{\mu},\Sigma)  $
             \begin{equation}\label{MahalanobisDistance}
                 d_M(\vec{x})=\sqrt{(\vec{x}-\vec{\mu})^T\Sigma ^{-1}(\vec{x}-\vec{\mu})} 
             \end{equation}
 
-            Note: the hyper-sruface $ d_M(\vec{x}) $ forms a ellipsoid.
+            Note: the hyper-sruface $ d_M(\vec{x})=\mathrm{const} $ forms a ellipsoid.
 
         \end{itemize}
     \end{itemize}
@@ -259,12 +262,17 @@
     \hypertarget{SampleStatisticsProperties}{Sample Statistics Properties}
 \end{point}
 
-    Consider take an $ n $ cases sample from r.v. population $ \vec{X}=(X_1,X_2,\ldots,X_p) $, population mean $ \mu $ and covariance matrix $ \Sigma  $.
-    \begin{itemize}[topsep=6pt,itemsep=4pt]
-        \item $ \mathbb{E}(\bar{\bar{X}})=\mu $;
-        \item $ cov(\bar{X})=\dfrac{1}{n}\Sigma  $;
-        \item $ \mathbb{E}(S_n)=\dfrac{n-1}{n}\Sigma  $
-    \end{itemize}
+    Consider taking an $ n $ cases sample from r.v. population $ \vec{X}=(X_1,X_2,\ldots,X_p) $, population mean $ \mu $ and covariance matrix $ \Sigma  $. Basic statistics are sample mean and sample variance
+    \begin{align}
+        \bar{X}=\dfrac{1}{n}X'\mathbf{1}_n, \qquad  S_n=\dfrac{1}{n}\left(X-\dfrac{1}{n}\mathcal{I}_nX\right)'\left(X-\dfrac{1}{n}\mathcal{I}_nX\right)=\dfrac{1}{n}X'\left(I-\dfrac{1}{n}\mathcal{I}_n\right)X
+    \end{align}
+
+    Properties:
+\begin{align}
+     \mathbb{E}\left[ \bar{X} \right] = \mu \qquad cov(\bar{X})=\dfrac{1}{n}\Sigma \qquad \mathbb{E}\left[ S_n \right] = \dfrac{n-1}{n}\Sigma 
+\end{align}
+
+
     
         
 
@@ -272,13 +280,13 @@
 \subsubsection{Review: Some Matrix Notation \& Lemma}\label{SubSubSectionMatrixNotationAndLemma}
 
     \begin{itemize}[topsep=6pt,itemsep=4pt]
-        \item Orthonormality: For square matrix $ P $ satisfies:
+        \item Orthonormality\index{Orthonormality}: For square matrix $ P $ satisfies:
         \begin{equation}
             x_i^Tx_j=\delta _{ij} 
         \end{equation}
 
         where $ x_i,x_j $ are columns of $ P $.
-        \item Eigenvalue and Eigenvector: For square matrix $ A $, its eigenvalues $ \lambda_i $ and corresponding eigenvectors $ e_i $ satisfies:
+        \item Eigenvalue and Eigenvector\index{Eigenvalue}: For square matrix $ A $, its eigenvalues $ \lambda_i $ and corresponding eigenvectors $ e_i $ satisfies:
         \begin{equation}
             Ae_i=\lambda_ie_i,\,\forall i=1,2,\ldots p 
         \end{equation}
@@ -292,7 +300,7 @@
 
         
         
-        \item Square root matrix: Def. as
+        \item Square root matrix\index{Square Root Matrix}: Def. as
         \begin{equation}
             A^{1/2}=\sum_{i=1}^p\sqrt{\lambda _i}e_ie_i^T=P\Lambda ^{1/2}P^T 
         \end{equation}
@@ -306,7 +314,7 @@
         \end{itemize}
         
             
-        \item (Symmetric) Positive Definite Matrix: Say $ A $ a Positive Definite Matrix if
+        \item (Symmetric) Positive Definite Matrix: Say $ A $ a Positive Definite Matrix if\index{Positive Definite Matrix}
         \begin{equation}
             x^TAx> 0,\,\forall x\in\mathbb{R}^p 
         \end{equation}
@@ -325,7 +333,9 @@
             \item $ A $ can be written as product of symmetric matrix: $ A= Q^TQ$ ($ Q $ is symmetric);
         \end{itemize}
 
-        \item Trace of Matrix: For $ p\times p $ square matrix $ A $
+        Positive Semi-definite matrix is one with $ \lambda_i\geq 0 $
+
+        \item Trace of Matrix\index{Trace}: For $ p\times p $ square matrix $ A $
             
             \begin{equation}
                 tr(A) =\sum_{i=1}^p a_{ii}
@@ -335,10 +345,11 @@
             \begin{itemize}[topsep=2pt,itemsep=2pt]
                 \item $ tr(AB)=tr(BA)  $;
                 \item $ x'Ax=tr(x'Ax)=tr(Axx') $
+                \item $ tr(A)=\sum_i \lambda _i $
             \end{itemize}
             
                 
-        \item Matrix Partition: partition matrix $ \mathop{A}\limits_{p\times p} $ as 
+        \item Matrix Partition: partition square matrix $ \mathop{A}\limits_{p\times p} $ as 
         \begin{equation}
             A=         
             \begin{bmatrix}
@@ -361,11 +372,11 @@
                        
         \item Matrix Differentiation\index{Matrix Differentiation}
         
-        Calculus Notations: We want to take derivative of $ y=(y_1,y_2,\ldots,y_q)^T $ over $ x=(x_1,x_2,\ldots,x_p)^T $
+        Calculus Notations: Take derivative of $ y=(y_1,y_2,\ldots,y_q)^T $ over $ x=(x_1,x_2,\ldots,x_p)^T $; or similarly of matrix $ A $ over scalar, etc.
         
-        We use 'Denominator-layout',\index{Denominator-layout} which is
+        We use 'Denominator-layout',\index{Denominator-layout} which means the result follows the shape of denominator:
         \begin{equation}\label{EqaMatrixDifferential}
-            \dfrac{\partial^{}y }{\partial ^{}x}=\dfrac{\partial^{} y^T}{\partial x^{}} =
+            \dfrac{\partial^{}y }{\partial ^{}x}:=\dfrac{\partial^{} y^T}{\partial x^{}} =
             \begin{bmatrix}
             \dfrac{\partial^{} y_1}{\partial x_1 ^{}}&\dfrac{\partial^{} y_2}{\partial x_1 ^{}}&\ldots&\dfrac{\partial^{} y_q}{\partial x_1 ^{}}\\
             \dfrac{\partial^{} y_1}{\partial x_2 ^{}}&\dfrac{\partial^{} y_2}{\partial x_2 ^{}}&\ldots&\dfrac{\partial^{} y_2}{\partial x_p ^{}}\\
@@ -374,7 +385,17 @@
             \end{bmatrix}\Leftrightarrow \left(\dfrac{\partial^{} y}{\partial x^{}}\right)_{ij}=\dfrac{\partial^{} y_j}{\partial x_i^{}}
         \end{equation}
         
-        \hypertarget{MatrixDifferenciation}{Properties (under denominator-layout):}\footnote{More matrix diffrenciation equation see book \cite{线性回归分析ref2} P49. Or can be easily derivated using Einstein sumation notation.}
+        \hypertarget{MatrixDifferenciation}{Properties (under denominator-layout):}\footnote{More matrix diffrenciation equation see book \cite{线性回归分析ref2} P49. Or can be easily derivated using Einstein sumation notation.
+        
+        An example:
+        \begin{align*}
+            \dfrac{\partial^{} |A|}{\partial A^{}}=&\dfrac{\partial^{} }{\partial A_{ij}^{}}\mathrm{Ex}_{i_1,i_2,\ldots,i_n}A_{1i_i}A_{2i_2}\ldots A_{ni_n}\\
+            =&\sum_{k=1}^n\mathrm{Ex}_{i_1,\ldots, (\wedge i_k),\ldots, i_n}\delta _{ki}\delta _{i_kj}A_{1i_1}\ldots (\wedge A_{ki_k})\ldots A_{ni_n}\times (-1)^{(n-k)+(n-i_k)}\\
+            =& (-1)^{i+j}\mathrm{Ex}_{i_1,\ldots, (\wedge j),\ldots, i_n}A_{1i_1}\ldots (\wedge A_{ij})\ldots A_{ni_n} \\
+            =&|A|A^{-1}
+        \end{align*}
+        
+        }
         \begin{itemize}[topsep=6pt,itemsep=2pt]
             \item $ \dfrac{\partial^{} }{\partial x^{}}Ax=A^T $;\\
             \item $ \dfrac{\partial^{} }{\partial x^{}}x^TA=A $;\\
@@ -480,7 +501,7 @@
     \begin{itemize}[topsep=6pt,itemsep=4pt]
         \item Cauchy-Schwartz Inequality:\index{Inequality!Cauchy-Schwarz Inequality}
         
-        Let $ b,d$ are any $ p\times 1 $ vectors.
+        Let $ b,d$ any $ p\times 1 $ vectors.
         \begin{equation}
             (b'd)^2\leq (b'b)(d'd) 
         \end{equation}
@@ -534,7 +555,7 @@
         f_X(x)=\dfrac{1}{\sqrt{2\pi\sigma ^2}}\exp{-\dfrac{(x-\mu)^2}{2\sigma ^2}} 
     \end{equation}
     
-    Multivariate Normal Distribution: $X\sim N_p(\vec{\mu},\Sigma) $\footnote{Detailed derivation see \autoref{SubsectionDerivationMultivariateNormal}}
+    Multivariate Normal Distribution: $X\sim N_p(\vec{\mu},\Sigma) $\footnote{Detailed derivation see \autoref{SubsectionDerivationMultivariateNormal}}\index{Distribution!Multivariate Normal Distribution}
     \begin{equation}
         f_\mathbf{X}(\vec{x})=\dfrac{1}{(2\pi)^{p/2}|\Sigma |^{1/2}}\exp\left({-\dfrac{(\vec{x}-\vec{\mu})'\Sigma^{-1}(\vec{x}-\vec{\mu})}{2}} \right)
     \end{equation}
@@ -1013,7 +1034,7 @@
         R(z)= \bigotimes\limits_{i=1}^n(\bar{Z}_i\pm s_{Z_i}t_{n-1,\frac{\beta }{2}})
     \end{equation}
     
-    where $ \beta  $ take 
+    where $ \beta  $ taken with Bonferroni correction\index{Bonferroni Correction}
     \begin{equation}
         1-p\beta =1-\alpha  
     \end{equation}
@@ -1025,14 +1046,6 @@
 
     So the real CR for $ \mu $ should be larger.
     
-    
-    
-    
-    
-    
-    
-    
-
 
     The shape of $ R(x) $ is an oblique cubold.
     
