@@ -12,16 +12,16 @@
 
 \subsection{Minimum Mean Squared Estimator}\label{SubSecMMSE}
     Motivation: Here's a signal transmission process in which source is $ X\sim f_{X} $ and observation is $ \vec{Z}\sim f_Z $, we need to find a (theoretically best) information process function $ g(\, \cdot \, ) $ such that we can reproduce $ X $ with $ g(\vec{Z}) $ with minimum `error' (Note that $ X$ and $\vec{Z} $ can be dependent)., i.e.
-    \begin{align*}
+    \begin{align}
         \hat{g}=\mathop{\arg\min}\limits_{g(\, \cdot \, )\in \mathscr{F}} \mathbb{E}\left[ (X-g(\vec{Z}))^2 \right] 
-    \end{align*}
+    \end{align}
 
     which is the \textbf{Minimum Mean Squared Estimator} (MMSE)\index{MMSE (Minimum Mean Squared Estimator)}. \footnote{\textbf{Note}: the function space $ \mathscr{F}(\vec{Z}) $ (by default) is the arbitrary measurable function space $ :=\mathscr{V}(\vec{Z}) $, but you can specifically select a proper one, e.g. linear combination of some power function $ \mathbb{V}(1,\vec{Z},\vec{Z}^2):=\{a+bZ+cZ^2\}_{a,b,c\in\mathbb{R}}\subset \mathscr{F}(\vec{Z}) $.
     
     I am not quite sure (actually I believe it's wrong lol) but maybe for some commonly used function form, we could view that
-    \begin{align*}
+    \begin{align}
         \mathscr{V}(\vec{Z})\approx \mathbb{V}(\{\vec{Z}^p\}_{p=-\infty}^\infty) 
-    \end{align*}
+    \end{align}
     
     }
 
@@ -30,21 +30,21 @@
 \end{point}
 
     The solution to MMSE is that
-    \begin{align*}
+    \begin{align}
          \hat{g}(\, \cdot \, )\, s.t. \begin{cases}
             \hat{g}(\vec{Z})\in \mathscr{F}(Z)\\
             e:=X-\hat{g}(\vec{Z})\perp h(\vec{Z}),\quad \forall h(\vec{Z})\in\mathscr{F}(Z)
          \end{cases}
-    \end{align*}
+    \end{align}
     
     here $ \perp $ in the sense that $ \imath \perp \jmath \Leftrightarrow \mathbb{E}\left[ \imath\jmath \right]=0  $
     
     \begin{proof}
         Denote $ \mathscr{F}(Z)\ni g(Z)=\hat{g}(Z)+c h(Z)  ,\,h(Z)\in\mathscr{F}(Z)$, then
-        \begin{align*}
+        \begin{align}
             \mathbb{E}\left[ (X-g(Z))^2 \right]  =&\mathbb{E}\left[ (X-\hat{g}(Z)-ch(Z))^2 \right]\\
             =&\mathbb{E}\left[ (X-\hat{g}(Z))^2 \right] -2c\mathbb{E}\left[ (X-\hat{g}(Z))h(Z) \right]+c^2\mathbb{E}\left[ h(Z)^2 \right]  
-        \end{align*}
+        \end{align}
         
         \begin{itemize}[topsep=2pt,itemsep=0pt]
             \item If $ X-\hat{g}(\vec{Z})\perp h(\vec{Z})  $: $
@@ -58,29 +58,29 @@
     
     
     The above expression is similar to the projection operator onto space $ \mathscr{F} $, i.e.
-    \begin{align*}
+    \begin{align}
         \hat{g}(\, \cdot \, )=\Pi_{\mathscr{F(\, \cdot \, )}}(X),\quad \begin{cases}
             \Pi_{\mathscr{F(\, \cdot \, )}}(X)\in \mathscr{F}\\
             X-\Pi_{\mathscr{F(\, \cdot \, )}}(X)\perp \mathscr{F}
         \end{cases}
-    \end{align*}
+    \end{align}
     
 \begin{point}
     Properties of Projection Operator $ \Pi_{\mathcal{V}} $ (where function space $ \mathscr{F} $ is a kind of linear space $ \mathcal{V} $)\index{Projection Operator}
 \end{point}
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item Linearity
-    \begin{align*}
+    \begin{align}
         \Pi_{\mathcal{V}}(aX+bY)=a\Pi_{\mathcal{V}}(X)+b\Pi_{\mathcal{V}}(Y)
-    \end{align*}
+    \end{align}
     \item Project within subspace: for $\mathcal{V}_2\subset \mathcal{V}_1 $
-    \begin{align*}
+    \begin{align}
         \Pi_{\mathcal{V}_2}(X)=\Pi_{\mathcal{V}_2}\left(\Pi_{\mathcal{V}_1}(X)\right) 
-    \end{align*}
+    \end{align}
     \item Projection onto orthogonal space: for $ \mathcal{V}_1\perp\mathcal{V}_2 $
-    \begin{align*}
+    \begin{align}
         \Pi_{\mathcal{V}_1\oplus\mathcal{V}_2}(X)=\Pi_{\mathcal{V}_1}(X)+\Pi_{\mathcal{V}_2}(X) 
-    \end{align*}
+    \end{align}
 \end{itemize}
 
 \begin{point}
@@ -89,47 +89,47 @@
 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item $ \mathscr{F}(Z)=\mathscr{V}(Z) $: Solution is 
-    \begin{align*}
+    \begin{align}
         \mathbb{E}\left[ X|Z \right] 
-    \end{align*}
+    \end{align}
     
     in which
-    \begin{align*}
+    \begin{align}
         \begin{cases}
             \mathbb{E}\left[ X|Z \right] \in\mathscr{F}(Z)\\
             \mathbb{E}\left[(X-\mathbb{E}\left[ X|Z \right] )g(Z) \right]=\mathbb{E}\left[ Xg(Z) \right] -\mathbb{E}\left[ \mathbb{E}\left[ g(Z)X|Z \right]  \right] =0 
         \end{cases} 
-    \end{align*}
+    \end{align}
     \item $ \mathscr{F}(Z)=\mathrm{const} $: Solution is
-    \begin{align*}
+    \begin{align}
          \mathbb{E}\left[ X \right]  
-    \end{align*}
+    \end{align}
     
     in which
-    \begin{align*}
+    \begin{align}
         \begin{cases}
             \mathbb{E}\left[ X \right]\in \mathcal{R}\\
             \mathbb{E}\left[ (X-\mathbb{E}\left[ X \right] )\mathrm{const} \right]=0 
         \end{cases} 
-    \end{align*}
+    \end{align}
 
     which is also a kind of variance definition:
-    \begin{align*}
+    \begin{align}
         var(X):=\min_{c\in\mathbb{R}}\mathbb{E}\left[ (X-c)^2 \right]  
-    \end{align*}
+    \end{align}
     
     \item \hypertarget{MMSELinear}{}$ \mathscr{F}(Z)=\mathbb{V}(1,\vec{Z}) $ i.e. linear conbination of $ \vec{Z} $ as $ a+\vec{Z}'b $. Solution is
-    \begin{align*}
+    \begin{align}
         L(X|\vec{Z}):=\mathbb{E}\left[ X \right] +cov(X,\vec{Z})var(\vec{Z})^{-1}\left(\vec{Z}-\mathbb{E}\left[ \vec{Z} \right] \right)
-    \end{align*}
+    \end{align}
     
     in which
-    \begin{align*}
+    \begin{align}
         \begin{cases}
             \mathbb{E}\left[ X \right] +cov(X,\vec{Z})var(\vec{Z})^{-1}\left(\vec{Z}-\mathbb{E}\left[ \vec{Z} \right] \right)\in \mathbb{V}(1,\vec{Z})\\
         \mathbb{E}\left[ (X-L(X|\vec{Z}))(a+\vec{Z}'b) \right] = 0
         \end{cases}
-    \end{align*}
+    \end{align}
     
 \end{itemize}
 
@@ -139,23 +139,23 @@
 \end{point}
 
 Motivation: construction of linear MMSE $ L(X|Y_1,Y_2,\ldots,Y_n)=L(X|Y) $. Assume that $\mathbb{E}\left[ \vec{Y} \right] =0 $, the prediction is
-\begin{align*}
+\begin{align}
     L(X|\vec{Y})=\mathbb{E}\left[ X \right] + cov(X,\vec{Y})var(\vec{Y})^{-1}\vec{Y}
-\end{align*}
+\end{align}
 which causes the problem of computation complexity when $ n $ is large. 
 
 Innovation sequence fixed this problem by: instead of projecting on the whole linear combination $ \vec{Y} $ space of size $ (n+1) $, we project on space of each $ Y_i $ sequentially. i.e. define an \textbf{innovation sequence} 
-\begin{align*}
+\begin{align}
     \tilde{Y}_1=&Y_1\\
     \tilde{Y}_2=&Y_2-L(Y_2|Y_1)\\
     \tilde{Y}_3=&Y_3-L(Y_3|Y_2Y_1)\\
     \ldots&\\
     \tilde{Y}_n=&Y_n-L(Y_n|Y_{n-1}\ldots Y_2Y_1)
-\end{align*}
+\end{align}
 where `innovation' means each $ \tilde{Y}_i $ contains the `new information without correlation with previous sequence' $ \mathbb{E}\left[ \tilde{Y_i}\tilde{Y}_j \right]=0\,\forall i\neq j  $. In this way the linear MMSE could be written as
-\begin{align*}
+\begin{align}
     L(X|\vec{Y})=L(X|\vec{\tilde{Y}})= \mathbb{E}\left[ X \right] +\sum_{i=1}^n \dfrac{cov(X,\tilde{Y}_i)}{var(\tilde{Y}_i)}\tilde{Y}_i
-\end{align*}
+\end{align}
 
 I think the idea here is similar to Gram-Schmidt orthogonalization (\autoref{SubSubSectionQRDecomposition}), in which we also construct new components by eliminating projection on previous parts. As a result we have a set of orthogonal elements (here orthogonal means $ \mathbb{E}\left[ \tilde{Y}_i\tilde{Y}_j \right]=0  $ and in Gram-Schmidt means $ q_i'q_j = 0 $, $ i\neq j $).
 
@@ -171,9 +171,9 @@ I think the idea here is similar to Gram-Schmidt orthogonalization (\autoref{Sub
 Some basic concepts about stochastic process / random process are introduced in \autoref{SubSectionStochasticProcessForTimeSeries}. Here's a brief recap.
 
 A stochastic process is a mapping
-\begin{align*}
+\begin{align}
      \{X_t:t\in\mathcal{T}\}:\, \mathcal{T}\times\Omega \mapsto \mathbb{R}
-\end{align*}
+\end{align}
 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item For each given $ t \in\mathcal{T}$, $ X_t(\, \cdot \, ) $ is a r.v. defined on $ \Omega  $.
@@ -185,21 +185,21 @@ According to the continuity of index set $ \mathcal{T} $ and sample path values,
 Some functions of stochastic processes include
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item Mean function:
-    \begin{align*}
+    \begin{align}
         \mu _X(t)=\mathbb{E}\left[ X_t \right]  
-    \end{align*}
+    \end{align}
     \item AutoCovariance function (ACVF):
-    \begin{align*}
+    \begin{align}
         \gamma _{s,t}:=cov(X_s,X_t)
-    \end{align*}
+    \end{align}
     \item AutoCorrelation function (ACF):
-    \begin{align*}
+    \begin{align}
         \rho _{s,t}:=corr(X_s,X_t)=\dfrac{\gamma _{s,t}}{\sqrt{\gamma _{s,s}\gamma _{t,t}}} 
-    \end{align*}
+    \end{align}
     \item $ n^\mathrm{th}  $ order CDF:
-    \begin{align*}
+    \begin{align}
         F_{X,n}(x_1,t_1;x_2,t_2;\ldots;x_n,t_n)=\mathbb{P}\left( X_{t_1}\leq x_1,\,X_{t_2}\leq x_2,\ldots,\,X_{t_n}\leq x_n \right)  
-    \end{align*}
+    \end{align}
    
 \end{itemize}
 
@@ -209,14 +209,14 @@ Some functions of stochastic processes include
 
 % \begin{itemize}[topsep=2pt,itemsep=0pt]
 %     \item Trajectory of horizontal projectile motion with random initial height $ A\sim f_A $ and initial velocity $ B\sim f_B $:
-%     \begin{align*}
+%     \begin{align}
 %         Y_t=-\dfrac{1}{2}gt^2+B(\omega _B)t+A(\omega _A)
-%     \end{align*}
+%     \end{align}
 
 %     with 
-%     \begin{align*}
+%     \begin{align}
 %         \gamma _{s,t}=1+st,\quad \rho _{s,t}=\dfrac{1+st}{\sqrt{(1+s^2)(1+t^2)}}  
-%     \end{align*}
+%     \end{align}
     
     
 %     \item 
@@ -229,54 +229,60 @@ Some functions of stochastic processes include
 
 \subsubsection{Conditional Independence}
 Conditional independence \index{Conditional Independence}: say $ X $ and $ Z $ are conditionally independent given $ Y $, i.e. $ X $-$ Y $-$ Z $
-\begin{align*}
+\begin{align}
     f_{X|YZ}=f_{X|Y}\Leftrightarrow f_{XZ|Y}=f_{X|Y}f_{Z|Y} 
-\end{align*}
+\end{align}
 
 Further if $ (X,Y,Z)\sim N(\mu ,\Sigma ) $ (a joint Gaussian Dist.). Then
-\begin{align*}
+\begin{align}
     cov(X,Z)=cov(X,Y)var(Y)^{-1}cov(Y,Z)
-\end{align*}
+\end{align}
 it could be deduced using linar MMSE + innovation sequence of jointly Gaussian
-\begin{align*}
+\begin{align}
     cov(Z,X-L(X|Y))=0\Rightarrow cov(X,Z)= cov(X,Y)var(Y)^{-1}cov(Y,Z)
-\end{align*}
+\end{align}
 or use \autoref{EquConditionalPrForGaussian}, in which $ X_1=(X,Z),\,X_2=Y $
-\begin{align*}
+\begin{align}
     \Sigma _{X,Z|Y}=\begin{bmatrix}
         \Sigma _{X}-\Sigma _{XY}-\Sigma _{Y}^{-1}\Sigma _{YX}&\Sigma _{XZ}-\Sigma _{XY}\Sigma _{Y}^{-1}\Sigma _{YZ}\\
         \Sigma _{ZX}-\Sigma _{ZY}\Sigma _Y^{-1}\Sigma _{YX}&\Sigma _{Z}-\Sigma _{ZY}\Sigma _Y^{-1}\Sigma _{YZ}
     \end{bmatrix} \Rightarrow \Sigma _{XZ}-\Sigma _{XY}\Sigma _{Y}^{-1}\Sigma _{YZ}=0
-\end{align*}
+\end{align}
 
 
 
 
 
 \subsubsection{Properties of Discrete Time Markov Chain}\label{SubSubSectionDTMC}
-A basic case for Markov Chain is Discrete Time Markov Chain (DTMC)(\index{DTMC} (Discrete Time Markov Chain))
+A basic case for Markov Chain is Discrete Time Markov Chain (DTMC)\index{DTMC (Discrete Time Markov Chain)}
 
 \begin{point}
     Notations and Properties of DTMC
 \end{point}
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item State: denote the state space / phase space of DTMC as
-    \begin{align*}
+    \begin{align}
         X_n\in \mathcal{S} 
+    \end{align}
+    \item Conditional Independency: 
+    \begin{align*}
+         \mathbb{P}\left( X_{n+1}\big|X_0,X_1,\ldots,X_n \right)=\mathbb{P}\left( X_{n+1}\big|X_n \right)  
     \end{align*}
+    
+    
     \item State transition and transition probability matrix:
-    \begin{align*}
+    \begin{align}
         P^{(k)}=\left\{P^{(k)}_{ij}\right\}=\left\{ \mathbb{P}\left( X_{k+1}=j\big| X_{k}=i \right)  \right\},\quad i,j\in \mathcal{S}
-    \end{align*}
+    \end{align}
     transition pr matrix $ P $ is called a (row) stochastic matrix, with
-    \begin{align*}
+    \begin{align}
         0\leq P^{(k)}_{ij}\leq 1,\quad \sum_{j}P^{(k)}_{ij}=1 
-    \end{align*}
+    \end{align}
 
     \item Time homogeneity: transition probability is independent of step / time
-    \begin{align*}
+    \begin{align}
         P^{(k)}=P,\quad \forall k 
-    \end{align*}
+    \end{align}
     we usually focus on time-homogeneous DTMC.
     
     \item State diagram: a useful way to visualize DTMC, in which vertices / nodes for states and edges / arrows for transition. Here's an example of `Mickey Mouse' diagram with six states:
@@ -324,51 +330,51 @@ A basic case for Markov Chain is Discrete Time Markov Chain (DTMC)(\index{DTMC} 
 \end{point}
 
     State transition between steps are like jumping in state diagram. Denote $ \pi(k) $ the probability distribution at step $ k $, then a transition is
-        \begin{align*}
+        \begin{align}
             \pi({k+1})=\pi(k)P^{(k)}=\pi(k)P 
-        \end{align*}
+        \end{align}
 
         A stationary distribution / equilibrium of DTMC is the eigen distribution of transition matrix
-        \begin{align*}
+        \begin{align}
             \pi^*=\pi^*P=\pi^*P^i,\,\forall i 
-        \end{align*}
+        \end{align}
         
         A sufficient condition for stationary state is the detailed balance condition\index{Detailed Balance Condition}
-        \begin{align*}
+        \begin{align}
             &\pi^*_i=\sum_{j}\pi^*_jP_{ji}\\
             \Leftrightarrow&\pi^*\sum_{j\neq i}P_{ij}=\pi^*_i(1-P_{ii})=\sum_{j\neq i}\pi^*jP_{ji}\\
             \Leftarrow&\color{red}\pi_iP_{ij}=\pi_jP_{ji}
-        \end{align*}
+        \end{align}
 
         Some concepts related to stationary distribution
     \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item Reachable: we can arrive at $ j $ starting from $ i $, denoted $ i\leadsto j $
-        \begin{align*}
+        \begin{align}
             \exists n<\infty s.t. \mathbb{P}\left( X_n=j|X_0=i \right) > 0 
-        \end{align*}
+        \end{align}
 
         Sometimes I use the notation $ i\xrightarrow[]{k}j  $ for `reaching $ j $ in $ k $ steps from $ i $'
         \item Irreducible\index{Irreducible}: every state is reachable from any other states
-        \begin{align*}
+        \begin{align}
             i\leadsto j,\,\forall i,j\in\mathcal{S} 
-        \end{align*}
+        \end{align}
         
         \item Periodic: the period $ d_i $ for state $ i $ is the greatest common divisor (GCD)\index{GCD (Greatest Common Divisor)} of step-to-come-back.
-        \begin{align*}
+        \begin{align}
             d_i:=\gcd\left\{ n:\mathbb{P}\left( X_n=i|X_0=i \right)>0  \right\} 
-        \end{align*}
+        \end{align}
 
         Irreducible DTMC has the same period for all states.
 
         \begin{proof}
             For any two states $ i $, $ j $, with periods $ d_i $, $ d_j $. Then $ d_i $ contains the following process:
-            \begin{align*}
+            \begin{align}
                 \{i\xrightarrow[]{k_1}j\xrightarrow[]{m\times d_j}j\xrightarrow[]{k_n}i \} ,\quad m\in\mathbb{N}
-            \end{align*}
+            \end{align}
             there are infinite elements. then
-            \begin{align*}
+            \begin{align}
                 d_i=\mathrm{cd} \left\{ k_1+k_2+md_j;m=0,1,2,\ldots \right\} \Rightarrow d_j=\text{multiple of }d_i
-            \end{align*}
+            \end{align}
          
             With the argument applied to all state pairs $ (i,j)\in\mathcal{S}\times \mathcal{S} $, obviously $ d_i=d,\,\forall i\in\mathcal{S} $
         \end{proof}
@@ -376,32 +382,32 @@ A basic case for Markov Chain is Discrete Time Markov Chain (DTMC)(\index{DTMC} 
         
         Naturally if a node is self looped $ P_{ii}>0 $ (e.g. node 1 or 2 in `Mickey Mouse' loops back with pr $ 4/9 $), then all the states are aperiodic.
         \item Sojourn Time\index{Sojourn Time} $ T_i $: is the time to stay at the state
-        \begin{align*}
+        \begin{align}\label{EqaDTMCSojournTime}
             T_i\sim \mathrm{Geo}(1-P_{ii})  
-        \end{align*}
+        \end{align}
         \item Classification of States. 
         
         Denote Hitting Time (without itself include) $ \tau_i^+ $ and its mean 
-        \begin{align*}
+        \begin{align}
             \tau_i^+:=&\min\{k\geq 1:X_k=i\}\\
             \mu _i:=&\mathbb{E}\left[ \tau_i^+|X_0=i \right] 
-        \end{align*}
+        \end{align}
         
         \begin{itemize}[topsep=2pt,itemsep=0pt]
             \item Recurrent State
-            \begin{align*}
+            \begin{align}
                 \mathbb{P}\left( \tau_i^+<\infty|X_0=i    \right)=1  
-            \end{align*}
+            \end{align}
             in which 
             \begin{itemize}[topsep=2pt,itemsep=0pt]
                 \item Positive Recurrent
-                \begin{align*}
+                \begin{align}
                     \mu _i<\infty 
-                \end{align*}
+                \end{align}
                 \item Null Recurrent
-                \begin{align*}
+                \begin{align}
                     \mu _i=\infty 
-                \end{align*}
+                \end{align}
 
                 An example:
                 \begin{center}
@@ -446,17 +452,17 @@ A basic case for Markov Chain is Discrete Time Markov Chain (DTMC)(\index{DTMC} 
                 \end{center}
 
                 where 
-                \begin{align*}
+                \begin{align}
                     \mu _1=\mathbb{E}\left[ \tau_1^+|X_0=1 \right]=\sum_{i=1}^\infty \left(\dfrac{3}{2}\right)^i\to\infty   
-                \end{align*}
+                \end{align}
                 
                 
 
             \end{itemize} 
             \item Transient State
-            \begin{align*}
+            \begin{align}
                 \mathbb{P}\left( \tau_i^+<\infty|X_0=i    \right)<1 
-            \end{align*}
+            \end{align}
         \end{itemize}
         
             
@@ -471,9 +477,9 @@ Given irreducible \& aperiodic DTMC, we have
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item All states have the same state classification: null recurrent / positive recurrent / transient.
     \item if all states are positive recurrent $ \mu _i<\infty $, then stationary distribution exists.
-    \begin{align*}
+    \begin{align}
         \lim_{n\to \infty}\dfrac{1}{n}\sum_{l=1}^n(P^l)_{ij}=\dfrac{1}{\mu _i}\Rightarrow \pi_i(\infty)=(\pi(0)P^\infty)_i= \dfrac{1}{\mu _i},\, \forall \pi(0)
-    \end{align*}
+    \end{align}
     \item Further if states are positive recurrent $ \mu _i<\infty $, then $ \pi^*=\pi(\infty)=[1/\mu _i] $ is the stationary distribution.
 
     (The proof is a little bit complicated = =)
@@ -485,15 +491,18 @@ Some algorithm about Markov Chain see \autoref{SubSubSectionMCMCAlgorithm}.
 
 
 
+
+
+
 \subsubsection{Random Walk}
 
 Random walk is a renewal process $ X_n $ with each step $ W_i $ takes value $ \pm 1 $
-\begin{align*}
+\begin{align}
     X_n := X_0 +\sum_{i=1}^nW_i\quad W_i=\begin{cases}
         +1&\mathrm{w.p.}\, p\\
         -1&\mathrm{w.p.}\, q:=1-p  
     \end{cases}
-\end{align*}
+\end{align}
 where $ X_0=k $ is the initial position.
 
 \begin{point}
@@ -551,13 +560,13 @@ Simple random walk is the case with no ends, i.e. $ X_n\in \mathbb{Z} $
     \end{tikzpicture}
     \end{center}
     \item Parameters
-    \begin{align*}
+    \begin{align}
         \begin{cases}
             \text{Mean Function}:\mu _n=k+n(2p-1)\\
             \text{Covariance}:\gamma _{m,n}=4pq\min\{m,n\}\\
             \text{CLT}:\dfrac{X_n-k-n(2p-1)}{\sqrt{4npq}}\xrightarrow[]{d} N(0,1)
         \end{cases} 
-    \end{align*}
+    \end{align}
     
     
 \end{itemize}
@@ -618,41 +627,41 @@ Reaching $ 0 $ or $ N $ stops the chain, so are called `absorbing state'.\index{
         \end{tikzpicture}
         \end{center}
     \item Gambler's Ruin / Success: Denote Hitting Time (allowing itself included)\index{Hitting Time} $\tau_i=\min\left\{ n\geq 0: X_n=i \right\} $, and  probability of ruin $ r_i $ and probability of success $ s_i $ respectively
-    \begin{align*}
+    \begin{align}
         r_i:=&\mathbb{P}\left( X_{\tau_0}=0|X_0=i \right)\\
         s_i:=&\mathbb{P}\left( X_{\tau_N}=N|X_0=i \right)
-    \end{align*}
+    \end{align}
     with itertion relation
-    \begin{align*}
+    \begin{align}
         s_i=p\cdot s_{i+1}+q\cdot s_{i-1},\quad s_0=0,\,s_N=1\\
         r_i=q\cdot r_{i+1}+p\cdot r_{i-1},\quad r_0=1,\,r_N=0 
-    \end{align*}
+    \end{align}
 
     we could get\footnote{For the case $ q=p=1/2 $, take the natural limit to get corresponding solution
-    \begin{align*}
+    \begin{align}
         s_i=&\dfrac{k}{N}\\
         r_i=&1-\dfrac{k}{N}
-    \end{align*}
+    \end{align}
     }
-    \begin{align*}
+    \begin{align}
         s_i=&\dfrac{1-(q/p)^i}{1-(q/p)^N}\\
         r_i=&\dfrac{(q/p)^i-(q/p)^N}{1-(q/p)^N}=1-s_i
-    \end{align*}
+    \end{align}
     \item Mean Hitting Time $ T_{i\leadsto \{0,N\}} $ for $ i\leadsto \{0,N\} $: $ T_{i\leadsto \{0,N\}}=\mathbb{E}\left[ \min\{\tau_{0},\tau_{N}\}|X_0=i \right]  $:
-    \begin{align*}
+    \begin{align}
         T_{i\leadsto \{0,N\}}= p\left(1+T_{i+1\leadsto \{0,N\}}\right) + q\left(1+T_{i-1\leadsto \{0,N\}}\right),\quad T_{N\leadsto \{0,N\}}=T_{0\leadsto \{0,N\}}=0
-    \end{align*}
+    \end{align}
     solution
-\begin{align*}
+\begin{align}
     T_{i\leadsto\{0,N\}}=\dfrac{\left(1-(q/p)^i\right)(N-i)}{\left(1-(q/p)^N\right)(p-q)} 
-\end{align*}
+\end{align}
     \item One-end case (greedy gambler) is just having $ N\to\infty $
-    \begin{align*}
+    \begin{align}
         r_i=&\begin{cases}
             1,&p\leq \dfrac{1}{2}\\
             \left(\dfrac{q}{p}\right)^i,&p>\dfrac{1}{2}
         \end{cases} 
-    \end{align*}
+    \end{align}
     
     Note: i.e. there is a phase transition at $ p=\dfrac{1}{2} $.
 
@@ -668,9 +677,9 @@ Reaching $ 0 $ or $ N $ stops the chain, so are called `absorbing state'.\index{
 \subsubsection{Branching Process}
 \index{Branching Process}\index{Galton-Watson Tree}
 Branching process focuses on the case of population growth / epidemic infection / nuclear fission chain reaction, etc. Each steps the state $ X_n $ denotes the number of individuals, update of state is given as
-\begin{align*}
+\begin{align}
     X_{t+1} = \sum_{j=1}^{X_{t}}Z_{t,j},\quad Z_{t,j}\text{ i.i.d. }\sim Z_{t},\quad X_0=1
-\end{align*}
+\end{align}
 and we usually assume the simple case of $ Z_t\text{ i.i.d. }\sim Z $.
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item State Diagram
@@ -704,64 +713,159 @@ and we usually assume the simple case of $ Z_t\text{ i.i.d. }\sim Z $.
         \end{tikzpicture}
         \end{center}
     \item $ z $-transform for distribution of $ X_t $:
-    \begin{align*}
+    \begin{align}
         \Pi_t(s)=\mathbb{E}\left[ s^X_t \right] = \sum_{j=0}^\infty s^j\mathbb{P}\left( X_t=j \right)  \quad L(s)=\mathbb{E}\left[ s^Z \right] =\sum_{j=0}^\infty s^j\mathbb{P}\left( Z=j \right) 
-    \end{align*}
+    \end{align}
     and 
-    \begin{align*}
+    \begin{align}
         \Pi_t(s)=&\sum_{j=0}^\infty \mathbb{E}\left[ s^{X_t}|X_{t-1}=h \right] \mathbb{P}\left( X_{t-1}=j \right) \\
         =&\sum_{j=0}^\infty \left(L(s)\right)^{j}\mathbb{P}\left( X_{t-1}=j \right) \\
         =&\Pi_{t-1}\left(L(s)\right)\\
         (\Pi_1(s)=L(s))=&L^{(t)}(s) 
-    \end{align*}
+    \end{align}
     \item Mean and Variance:
-    \begin{align*}
+    \begin{align}
         \text{Mean}:&\, \mu (t) = \Pi_t'(1)=\mu(0) ^t\\
         \text{Variance}:&\,var(t)=\Pi_t''(1)+\Pi_t'(1)-[\Pi_t'(1)]^2
-    \end{align*}
+    \end{align}
     \item Extinction Probability
-    \begin{align*}
+    \begin{align}
         \theta _t=&\mathbb{P}\left( X_t=0 \right)= \sum_{j=0}^\infty \theta ^j_{t-1}\mathbb{P}\left( Z=j \right) \\=
         &L(\theta _{t-1})
-    \end{align*}
+    \end{align}
     The eventual extinction is $ \theta ^*=L(\theta ^*) $, the fixed point of $ L(\, \cdot \, ) $.
     There is a phase transformation at $ \mu = 1 $
-    \begin{align*}
+    \begin{align}
         \mathbb{P}\left( \theta ^*=1 \right) =\begin{cases}
             1,&\mu \leq 1\\
             \text{the first root of }L(\theta )=\theta ,& \mu >1
         \end{cases} 
-    \end{align*}
+    \end{align}
     
     Convergence order at phase transition point:
-    \begin{align*}
+    \begin{align}
         \mathbb{P}\left( X_T>n \right) \sim \begin{cases}
             c_1\mu ^n,&\mu <1\\
             \dfrac{c_2}{n},&\mu =1
         \end{cases}  
-    \end{align*}
+    \end{align}
      
 \end{itemize}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsubsection{Properties of Continuous Time Markov Chain}\label{SubSubSectionCTMC}
+Another case of Markov Chain is Continuous Time Markov Chain (CTMC)\index{CTMC (Continuous Time Markov Chain)}
+
+\begin{point}
+    Notations and Properties of CTMC
+\end{point}
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Concepts of state and conditional independency are similar to DTMC
+    \begin{align*}
+         \mathbb{P}\left( X_{t_{n+1}}\big|X_{t_0},X_{t_1},\ldots,X_{t_{n}} \right)=\mathbb{P}\left( X_{t_{n+1}}\big| X_{t_n} \right)  
+    \end{align*}
+    \item Transition probability matrix
+    \begin{align*}
+         H(s,t):=\{H_{ij}(s,t)\}=\{\mathbb{P}\left( X_{t}=j|X_{s}=i \right) \},\quad s<t
+    \end{align*}
+    with a trivial case that $ H(t,t)=I $. State transition could be expressed by matrix $ H(s,t) $ as
+    \begin{align*}
+        p(t)=p(s)H(s,t)
+    \end{align*}
     
+    \item Chapman-Kolmogorov Equation\index{Chapman-Kolmogorov Equation}
+    \begin{align*}
+        H(r,t)=H(r,s)H(s,t),\quad r<s<t 
+    \end{align*}
+    \item Time homogeneity: transition probability is independent of time interval:
+    \begin{align*}
+        H(s,t)=H(0,t-s) 
+    \end{align*}
+    \item Generator of time homogeneous CTMC: The \textbf{Transition Rate Matrix} is\index{Transition Rate Matrix} 
+    \begin{align*}
+        Q:=\lim_{\delta \to 0}\dfrac{H(\delta )-H(0)}{\delta },\quad H(\delta )=I+\delta Q+o(\delta ) 
+    \end{align*}
+    with Chapman-Kolmogorov Equation we could see that $ Q $ is the generator of the transition matrix \index{Generator}(group)
+    \begin{align*}
+        H(t)\mathop{=}\limits_{t=n\delta }\lim_{n\to\infty}H(\delta )^n=\lim_{n\to\infty}\left(I+\dfrac{t}{n}Q\right)^{n}=e^{Qt}  
+    \end{align*}
+    And note that $ H(t) $ has 1 row-sum, $ \sum_{j}\left(e^{Qt}\right)_{ij}=1 $:
+    \begin{align*}
+        0=\dfrac{\mathrm{d}\sum_{j}\left(e^{Qt}\right)_{ij}}{\mathrm{d}t^{}}=&\sum_{j,k}Q_{ik} \left(e^{Qt}\right)_{kj}=\sum_{k}Q_{ik}=0\\
+        \Rightarrow Q_{ii}=&-\sum_{k\neq i}Q_{ik},\quad \forall i
+    \end{align*}
+    i.e. generator $ Q $ has 0 row-sum.
+
+    Comment: with Gershgorin Circle Theorem\index{Gershgorin Circle Theorem} \footnote{Detail see \url{https://v1ncent19.github.io/texts/DiagonalDominant/}.}, $ Q $ as a diagonal dominant matrix, is negative definite, which guarentee the convergence of $ H(t)=e^{Qt}<\infty $
+    \item Kolmogorov Forward Equation\index{Kolmogorov Forward}:\footnote{Note that $ Q $ and $ e^{Qt} $ are commutable
+    \begin{align*}
+         Qe^{Qt}=Q\sum_{i=0}^\infty\dfrac{Q^it^i}{i!}=e^{Qt}Q
+    \end{align*}
+    }
+    \begin{align*}
+        \dot{p}(t)=\dfrac{\mathrm{d}^{} p(0)e^{Qt}}{\mathrm{d}t}=p(0)e^{Qt}Q=p(t)Q
+    \end{align*}
+    \item Stationary Distribution: with $ \dot{\pi}^*=0 $ in Kolmogorov forward, stationary distribution of CTMC:
+    \begin{align*}
+         \pi^*=\pi^*H(t),\,\forall t\Leftrightarrow \pi^*Q=0
+    \end{align*}
+    thus yield the detailed balance in CTMC version:
+    \begin{align*}
+         \color{red}\pi^*Q=0\Leftarrow \pi^*_iq_{ij}=\pi^*_jq_{ij},\,\forall i,j
+    \end{align*}
+    \item Sojourn Time $ T_i $: time to stay fixed, which is a continuous correspondance of \ref{EqaDTMCSojournTime}:
+    \begin{align*}
+        T_i\sim \varepsilon (-q_{ii}) 
+    \end{align*}
+    Sojourn time in both versions are memoryless.
+\end{itemize}
+
+\begin{point}
+    CTMC: Irreducible \& Non-explosive \& Positive Recurrent $ \Rightarrow  $ Unique Stationary Distribution $ \pi^* $
+\end{point}
+
+Given irreducible \& non-explosive CTMC, we have
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item All states have the same state classification: null recurrent / positive recurrent / transient
+    \item Stationary distribution exists $ \Leftrightarrow $ all states are positive recurrent
+    \begin{align*}
+        \lim_{t\to\infty}p_i(t)=\dfrac{1}{-q_{ii}\mu _i} = \pi^*_i
+    \end{align*}
+\end{itemize}
+
 \subsubsection{Independent Increment Process}\label{SubSubSectionIndepedentProcess}
 
 Motivation: Sometimes a process is a `summation of all past events'.
 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item Independent Increment: Def. $ \{X_t\} $ a \textbf{independent increment process} if $ \forall t_0<t_1<\ldots<t_n $, $ \forall n $
-\begin{align*}
+\begin{align}
     X_{t_{n}}-X_{t_{n-1}}\independent X_{t_{n-1}}-X_{t_{n-2}} \independent \ldots\independent X_{t_1}-X_{t_0}
-\end{align*}
+\end{align}
     \item Martingale: Def. $ \{X_t\}  $ a \textbf{Martingale} if $ \forall t_0<t_1<\ldots<t_n $, $ \forall n $
-    \begin{align*}
+    \begin{align}
         \mathbb{E}\left[ X_{t_n}|X_{t_{n-1}},\ldots,X_{t_0} \right] = X_{t_{n-1}} 
-    \end{align*}
+    \end{align}
     with a technical condition of bounded expectation $ \mathbb{E}\left[ |X_t| \right] <\infty $.
     \item Martingale: Def. $ \{X_t\}  $ being a Martingale w.r.t. $ \{Y_t\} $ if
-    \begin{align*}
+    \begin{align}
         \mathbb{E}\left[ X_{t_n}|Y_{t_{n-1}},\ldots,Y_{t_0} \right] = X_{t_{n-1}} 
-    \end{align*}
+    \end{align}
 \end{itemize}
 
 In this part we focus on two concrete types of independent increment process:
@@ -775,9 +879,9 @@ In this part we focus on two concrete types of independent increment process:
 \end{point}
 
 Motivation: Brownian motion $ W_t $\footnote{Symbol $ W_t $ for `Wiener', sometimes uses $ B_t $ for `Brown'.} is similar to a random walk model with $ p=q=1/2 $, but with initial state $ X_0=0 $, and `steps' defined as `a short enough time segmentation'.
-\begin{align*}
+\begin{align}
     W_{t=\frac{k}{N}}:= \dfrac{1}{\sqrt{N}} \sum_{i=1}^k \varpi _i,\quad \varpi _i\sim_{\mathrm{i.i.d.} } \mathrm{Unif}\{+1,-1\} 
-\end{align*}
+\end{align}
 and have $ N\to \infty $ as a Brownian Motion (Donsker Thm.\index{Donsker Thm.})
 
 Rigorous definition of \textbf{Brownian / Wiener Process}: $ \{W_t:T\geq 0\} $ with $ 0<\sigma ^2<\infty $ is Brownian if
@@ -791,33 +895,33 @@ Rigorous definition of \textbf{Brownian / Wiener Process}: $ \{W_t:T\geq 0\} $ w
 Properties:
 \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item Parameters
-        \begin{align*}
+        \begin{align}
             \begin{cases}
                 \text{Mean Function}:\mu (t)=0\\
                 \text{Covariance}:\gamma (t,s)=\sigma ^2 \min\{s,t\} 
             \end{cases} 
-        \end{align*}
+        \end{align}
         \item m.s. indifferentiable
-        \begin{align*}
+        \begin{align}
             \mathbb{E}\left[ \left(\dfrac{\partial^{} W_t}{\partial t^{}}\right)^2 \right]\to \infty  
-        \end{align*}
+        \end{align}
         which is the reason why the plots for Brownian Motion always looks rugged.
         \item Conditional distribution / Brownian Bridge $ B_t $:
-        \begin{align*}
+        \begin{align}
             B_t := W_t|W_T=0 \sim N(0,\sigma ^2\dfrac{t(T-t)}{T})
-        \end{align*}
+        \end{align}
         \begin{itemize}[topsep=2pt,itemsep=0pt]
             \item Dependent increment: non-zero covariance
-        \begin{align*}
+        \begin{align}
             \gamma_\mathrm{Bridge}  (t,s) = \sigma ^2\left(\min\{t,s\}-\dfrac{ts}{T}\right)
-        \end{align*}
+        \end{align}
             \item Cross definition between Wiener Process and Brownian Bridge:
-            \begin{align*}
+            \begin{align}
                 \begin{cases}
                     B_t:=W_t-\dfrac{t}{T}W_T\\
                     W_t:=B_t+t \sigma ^2 N(0,1) 
                 \end{cases}
-            \end{align*}
+            \end{align}
             i.e. Bronian Bridge is independent of the terminal of its corresponding Wiener Process $ B_t\independent W_T $.
         \end{itemize}
 \end{itemize}
@@ -827,9 +931,9 @@ Properties:
 \end{point}
 
 Motivation: The accumulate events happens at random, with `happening rate' of events as $ \lambda  $
-\begin{align*}
+\begin{align}
     N_{t=\frac{k}{N}}:= \sum_{i=1}^k \nu  _i,\quad \nu  _i\sim_{\mathrm{i.i.d.} } \mathrm{Bern}(\dfrac{\lambda }{n}) 
-\end{align*}
+\end{align}
 
 Rigorous Definition of \textbf{Poisson Process}: $ \{N_t:t\geq 0\} $ with rate $ \lambda >0 $ is Poisson if 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
@@ -841,47 +945,157 @@ Rigorous Definition of \textbf{Poisson Process}: $ \{N_t:t\geq 0\} $ with rate $
 Properties:
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item Parameters
-    \begin{align*}
+    \begin{align}
         \begin{cases}
             \text{Mean Function}:\mu (t)=\lambda t\\
             \text{Covariance}:\gamma (t,s)=\lambda \min\{s,t\} 
         \end{cases}
-    \end{align*}
+    \end{align}
     \item Arrival time: $ N_{t_n}=n $ means there are $ n $ events before (and including) $ t_n $, denoted $ \{t_1,t_2,\ldots,t_n\} $. PDF
-    \begin{align*}
+    \begin{align}
         f_{T_1,T_2,\ldots,T_n}(t_1,t_2,\ldots,t_n)=\lambda ^ne^{-\lambda t_n}\mathbb{I}_{0<t_1<t_2<\ldots<t_n}
-    \end{align*}
+    \end{align}
     \item Inter-event time: PDF of time-between-events $ \{u_1,u_2,\ldots,u_n\}:=\{t_1,t_2-t_1,\ldots,t_n-t_{n-1}\} $
-    \begin{align*}
+    \begin{align}
         f_{U_1,U_2,\ldots,U_n}(u_1,u_2,\ldots,u_n)=\prod_{i=1}^n \lambda e^{-\lambda u_i}\mathbb{I}_{u_i\geq 0}=\sim \otimes{i=1}^n\varepsilon_i (\lambda )
-    \end{align*}
+    \end{align}
     
     i.e. time-between-events satisties exponential distribution
-    \begin{align*}
+    \begin{align}
         U_i\sim_\mathrm{i.i.d.}  \varepsilon (\lambda ) 
-    \end{align*}
+    \end{align}
 
     \item Conditional distribution
-    \begin{align*}
+    \begin{align}
         f_{T_1,T_2,\ldots,T_n|N_t=n}(t_1,t_2,\ldots,t_n)=\dfrac{n!}{t^n}\mathbb{I}_{0<t_1<t_2<\ldots<t_n}\sim \mathrm{Unif}\left(\mathbb{I}_{0<t_1<t_2<\ldots<t_n\leq t}\right) 
-    \end{align*}
+    \end{align}
     is the PDF of order statistics\footnote{See \autoref{EqaDistributionOfOrderStatistics}.} of i.i.d. $ \mathrm{Unif}(0,t)  $.
     \item Poisson Process and Martingale: 
-    \begin{align*}
+    \begin{align}
         \tilde{N}_t:=N_t-\lambda t\sim\mathrm{Martingale}  
-    \end{align*}
+    \end{align}
     
 \end{itemize}
 
     
 
 
+\subsection{Miscellanea}
+
+
 \subsubsection{Markov Decision Processes}
-\index{MDPs (Markov Decision Processes)}
-In decision process, we need to determine a \textbf{policy} $ \pi_t $ to take actions $ a_t $ given state $ s_t $
-\begin{align*}
-    a_t\sim \pi_t(\, \cdot \,| s_t) 
-\end{align*}
+\index{MDPs (Markov Decision Processes)}\index{Episode}\index{Policy}\index{Q-Learning@$ Q $-Learning}\index{Discount Factor}\index{State-Value Function}\index{V-Value@$ V $-Value}
+In decision process/episode, say $ \{(s_t,a_t)\}_{t=0}^T $, we need to determine a \textbf{policy} $ \pi_t $ to take \textbf{action}  $ a_t $ given \textbf{state}  $ s_t $ as
+\begin{align}
+    a_t\sim \pi_t(\, \cdot \,| s_t) \text{ or simply }a_t=\pi_t(s_t)
+\end{align}
+then (conditional) \textbf{transition}  probability is a model pre-assumed, say
+\begin{align}
+    s_{t+1}\sim p_t\left(\, \cdot \, |s_t,a_t\right) 
+\end{align}
+
+
+\begin{point}
+    Optimization Target
+\end{point}
+
+The optimization target (in each step) is \textbf{reward function} 
+\begin{align}
+    r_t(s_t,s_{t+1}|a_t)
+\end{align}
+
+The `cumulative reward' from step $ t $ is denoted $ \mathcal{V}_{t\leadsto T} $\footnote{In this subsection I usually use the superscript $ \cdot ^{\pi_{t:T}} $ to specify the optimize target.} 
+\begin{align}\label{EqaVLearningIteration}
+    \mathcal{V}_{t\leadsto T}^{\pi_{t:T}}(s_t)=\mathbb{E}_{s_{t+1}\sim p\left(\, \cdot \, |s_t,a_t=\pi(s_t)\right)}\left[ r_t\left(s_t,s_{t+1}|a_t=\pi_t(s_t)\right)+\gamma \mathcal{V}_{(t+1)\leadsto T}^{\pi_{(t+1):T}} (s_{t+1})\big|s_t\right]
+\end{align}
+where \textbf{discount factor} $ \gamma<1  $ is induced to focus on recent rewards. By expanding all iteration terms we have
+\begin{align}
+    \mathcal{V}_{t\leadsto T}^{\pi_{t:T}}(s_t)=&\mathbb{E}_{s_{(t+1):(T+1)}}\left[ \sum_{\tau = t}^T\gamma ^{\tau-t}r_\tau\left(s_\tau,s_{\tau+1}|a_\tau=\pi_\tau(s_\tau)\right)\big|s_t \right]
+\end{align}
+and the final optimize goal is maximize total reward $ \mathcal{V} $
+\begin{align}\label{EqaVLearningTarget}
+    \pi_{0:T}^*=&\mathop{\arg\max}\limits_{\pi_{0:T}}\,\mathbb{E}_{s_0\sim p_0(\, \cdot \, )}\left[ \mathcal{V}_{0\leadsto T}^{\pi_{0:T}}(s_0) \right]  \\
+    =&\mathop{\arg\max}\limits_{\pi_{0:T}}\,\mathbb{E}_{s_{0:(T+1)}}\left[ \sum_{\tau = 0}^T\gamma ^{\tau}r_\tau\left(s_\tau,s_{\tau+1}|a_\tau=\pi_\tau(s_\tau)\right) \right]
+\end{align}
+
+
+
+Comments:
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item The joint distribution of $ s_{t+1,T+1} $ has a complicated dependence on $ p_\tau(\, \cdot \, |s_\tau,a_\tau) $, making the optimization hard to solve directly.
+    \item Actually when making decision we should consider a complete process, i.e. $ T\to \infty $, but note that with $ \gamma <1 $, reward at far future is dispensable if rewards are upper-bounded $ r_\tau(s_\tau,s_{\tau+1}|a_\tau)\leq \tilde{r} $, then
+    \begin{align}
+        \sum_{\tau = T }^\infty\gamma ^{\tau}r_\tau\left(s_\tau,s_{\tau+1}|a_\tau=\pi_\tau(s_\tau)\right) \leq \tilde{r}\dfrac{\gamma ^T}{1-\gamma }
+    \end{align}
+    which can be controlled below $\varepsilon  \tilde{r} $ for a large enough \textbf{Effective Length}  $ T_\varepsilon  $
+    \begin{align}
+        \tilde{r}\dfrac{\gamma ^T}{1-\gamma }<\tilde{r}\varepsilon \Rightarrow T_\varepsilon \approx \dfrac{\log[(1-\gamma )\varepsilon ]}{\log \gamma }\sim \mathcal{O}\left( \dfrac{1}{1-\gamma }\log\dfrac{1}{\varepsilon (1-\gamma )} \right)\sim \mathcal{O}(\dfrac{1}{1-\gamma })
+    \end{align}
+\end{itemize}
+
+\begin{point}
+    Algorithm
+\end{point}
+
+Solving all $ \pi_{0:T} $ jointly in \autoref{EqaVLearningTarget} is complex. It would be wiser to use the iteration form \autoref{EqaVLearningIteration} and \textit{separate decision making} $ a_t $ \textit{and processing} $ p(\, \cdot \, |s_t,a_t) $. With expected rewards denoted
+\begin{align}
+    R_t(s_t,a_t)= \mathbb{E}_{s_{t+1}\sim p\left(\, \cdot \, |s_t,a_t\right)}\left[ r_t(s_t,s_{t+1}|a_t)\big| s_t,a_t \right]
+\end{align}
+total reward $ \mathcal{V}_{t\leadsto T} $ could be written as
+\begin{align}
+    \mathcal{V}_{t\leadsto T}^{\pi_{t:T}}(s_t)=&\mathbb{E}_{s_{t+1}\sim p\left(\, \cdot \, |s_t,a_t\sim\pi(s_t)\right)}\left[ r_t\left(s_t,s_{t+1}|a_t\sim \pi_t(s_t)\right)+\gamma \mathcal{V}_{(t+1)\leadsto T}^{\pi_{(t+1):T}} (s_{t+1})\Big|s_t\right] \\
+    =&{\color{red}\mathbb{E}_{a_t\sim \pi(\, \cdot \, |s_t)}\left[{\color{blue}R_{t}\left(s_t,a_t\right)+  \gamma\mathbb{E}_{s_{t+1}\sim p\left(\, \cdot \, |s_t,a_t\right)}\left[{\color{black}  \mathcal{V}_{(t+1)\leadsto T}^{\pi_{(t+1):T}} (s_{t+1})} \Big| s_t,a_t \right]}  \big|s_t\right]}
+\end{align}
+with the {red} part as \textbf{State-Value Function}, or {\color{red}$ V $-value}; the {blue} part as \textbf{Action-Value Function}, or {\color{blue}$ Q $-value}
+\begin{align}
+    {\color{red}V_{t\leadsto T}^{\pi_{t:T}}(s_t)}=&\mathbb{E}_{a_t\sim \pi(\, \cdot \, |s_t)}\left[ Q_{t\leadsto T}^{\pi_{(t+1):T}}(s_t,a_t)  \big|s_t\right]\\
+    {\color{blue}Q_{t\leadsto T}^{\pi_{(t+1):T}}(s_t,a_t)}=&R_t\left(s_t,a_t\right)+\gamma \mathbb{E}_{s_{t+1}\sim p\left(\, \cdot \, |s_t,a_t\right)}\left[V_{(t+1)\leadsto T}^{\pi_{(t+1):T}} (s_{t+1})\Big| s_t,a_t\right]
+\end{align}
+
+Comments
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item The decision process $(s_0,a_0)\leadsto (s_1,a_1)\leadsto\ldots\leadsto (s_T,a_T) $
+    is Markovian in $ t=0\to T $ sense, while the reward propagation $ V_{T\leadsto T}\leadsto Q_{(T-1)\leadsto T}\leadsto V_{(T-1)\leadsto T}\leadsto \ldots\leadsto Q_{0\leadsto T}\leadsto V_{0\leadsto T} $ is `Markovian' in $t= T\to 0 $ sense. i.e. solution to optimal $ \pi^* $ obtained by maximizing total reward should go backward.
+    \item Duality of optimal $ \{V_{t\leadsto T}^{\pi_{t:T}}\}_{t=0}^T $ ($ V $-learning) and optimal $ \{Q_{t\leadsto T}^{\pi_{t:T}}\}_{t=0}^{T} $ ($ Q $-learning): With $ R_{t}(s_t,a_t) $ actually a given function (for given model $ p(s_{\tau+1}|s_\tau,a_\tau) $),
+    \begin{align}
+        \begin{cases}
+            V_{t\leadsto T}^{\pi_{t:T}}(s_t)={\mathbb{E}_{\color{brown}a_t\sim \pi(\, \cdot \, |s_t)}\left[{R_{t}\left(s_t,a_t\right)+  \gamma\mathbb{E}_{s_{t+1}\sim p\left(\, \cdot \, |s_t,a_t\right)}\left[{\color{black}  V_{(t+1)\leadsto T}^{\pi_{(t+1):T}} (s_{t+1})} \Big| s_t,a_t \right]}  \big|s_t\right]}\\
+            Q_{t\leadsto T}^{\pi_{(t+1):T}}(s_t,a_t)=R_t(s_t,a_t)+\gamma \mathbb{E}_{s_{t+1}\sim p\left(\, \cdot \, |s_t,a_t\right)}\left[ \mathbb{E}_{\color{brown}a_{t+1}\sim \pi(\, \cdot \, |s_{t+1})}\left[ Q_{(t+1)\leadsto T}^{\pi_{(t+2):T}}(s_{t+1},a_{t+1})  \big|s_{t+1}\right]  \Big| s_{t+1},a_{t+1}\right]
+        \end{cases} 
+    \end{align}
+    are equivalent, with the same optimization core $ \mathbb{E}_{a_\tau\sim\pi(\, \cdot \, |s_\tau)}\left[ \, \cdot \,  |s_\tau \right]  $. 
+    \item[$ \Delta  $] Value function iteration for optimal policy $ \pi^* $:
+    \begin{align}
+        \pi^*_t(s)=\mathop{\arg\max}\limits_{a} Q_t^*(s,a) ,\quad t=T,T-1,\ldots,0
+    \end{align}
+    \begin{algorithm}{Value Iteration}
+        \begin{enumerate}[topsep=2pt,itemsep=2pt]
+            \item $ V^*_{T+1}\equiv 0 $
+            \item \textit{for} $ t=T,T-1,\ldots,1 $
+            \begin{enumerate}[topsep=2pt,itemsep=2pt]
+                \item $ Q $-expectation step:
+                \begin{align}
+                  Q^*_t(s,a)=R_t(s,a)+\mathbb{E}_{\tilde{s}\sim p(\, \cdot \, |s,a)}\left[ V^*_{t+1}(\tilde{s}) \big|s,a\right]    
+                \end{align}
+                \item $ V $-Optimal step:
+                \begin{align}
+                     \begin{cases}
+                        \pi^*_t(s)=&\mathop{\arg\max}\limits_{a}Q_t^*(s,a)\\
+                        V^*_t(s)= & \mathop{\max}\limits_{a} Q^*_t(s,a)=Q^*_{t}(s,\pi^*_t(s)) 
+                     \end{cases}
+                \end{align}
+            \end{enumerate}
+            i.e. a $ (Q_t,V_t) $ `backward propagation'.
+        \end{enumerate}
+    \end{algorithm}
+        
+    
+    
+    
+    
+\end{itemize}
+
+    
 
  
 
@@ -892,8 +1106,20 @@ In decision process, we need to determine a \textbf{policy} $ \pi_t $ to take ac
 
 
 
-     
 
+
+
+
+
+
+
+
+ 
+
+\subsubsection{CTMC}
+
+
+    
 
 
 

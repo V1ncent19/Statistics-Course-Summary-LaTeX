@@ -38,6 +38,7 @@
 \indexentry{Jensen Inequality|hyperpage}{23}
 \indexentry{Cantelli Inequality|hyperpage}{23}
 \indexentry{Hoeffding Inequality|hyperpage}{23}
+\indexentry{McDiarmid Inequality|hyperpage}{24}
 \indexentry{Distribution!Normal Distribution|hyperpage}{24}
 \indexentry{Jointly Gaussian Variable|hyperpage}{25}
 \indexentry{Distribution!$ \chi^2 $ Distribution|hyperpage}{25}
@@ -422,7 +423,7 @@
 \indexentry{Innovation Sequence|hyperpage}{269}
 \indexentry{Sample Path|hyperpage}{270}
 \indexentry{Conditional Independence|hyperpage}{271}
-\indexentry{DTMC|hyperpage}{271}
+\indexentry{DTMC (Discrete Time Markov Chain)|hyperpage}{271}
 \indexentry{Detailed Balance Condition|hyperpage}{272}
 \indexentry{Irreducible|hyperpage}{272}
 \indexentry{GCD (Greatest Common Divisor)|hyperpage}{272}
@@ -432,7 +433,20 @@
 \indexentry{Hitting Time|hyperpage}{275}
 \indexentry{Branching Process|hyperpage}{276}
 \indexentry{Galton-Watson Tree|hyperpage}{276}
-\indexentry{Brownian Motion|hyperpage}{277}
-\indexentry{Wiener Process|hyperpage}{277}
-\indexentry{Donsker Thm.|hyperpage}{277}
-\indexentry{Poisson Process|hyperpage}{278}
+\indexentry{CTMC (Continuous Time Markov Chain)|hyperpage}{277}
+\indexentry{Chapman-Kolmogorov Equation|hyperpage}{277}
+\indexentry{Transition Rate Matrix|hyperpage}{277}
+\indexentry{Generator|hyperpage}{277}
+\indexentry{Gershgorin Circle Theorem|hyperpage}{278}
+\indexentry{Kolmogorov Forward|hyperpage}{278}
+\indexentry{Brownian Motion|hyperpage}{279}
+\indexentry{Wiener Process|hyperpage}{279}
+\indexentry{Donsker Thm.|hyperpage}{279}
+\indexentry{Poisson Process|hyperpage}{280}
+\indexentry{MDPs (Markov Decision Processes)|hyperpage}{280}
+\indexentry{Episode|hyperpage}{280}
+\indexentry{Policy|hyperpage}{280}
+\indexentry{Q-Learning@$ Q $-Learning|hyperpage}{280}
+\indexentry{Discount Factor|hyperpage}{280}
+\indexentry{State-Value Function|hyperpage}{280}
+\indexentry{V-Value@$ V $-Value|hyperpage}{280}

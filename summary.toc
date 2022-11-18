@@ -265,6 +265,10 @@
 \contentsline {subsubsection}{\numberline {12.2.3}Properties of Discrete Time Markov Chain}{271}{subsubsection.12.2.3}%
 \contentsline {subsubsection}{\numberline {12.2.4}Random Walk}{274}{subsubsection.12.2.4}%
 \contentsline {subsubsection}{\numberline {12.2.5}Branching Process}{276}{subsubsection.12.2.5}%
-\contentsline {subsubsection}{\numberline {12.2.6}Independent Increment Process}{277}{subsubsection.12.2.6}%
-\contentsline {section}{参考文献}{280}{Item.187}%
-\contentsline {section}{索引}{282}{Item.187}%
+\contentsline {subsubsection}{\numberline {12.2.6}Properties of Continuous Time Markov Chain}{277}{subsubsection.12.2.6}%
+\contentsline {subsubsection}{\numberline {12.2.7}Independent Increment Process}{278}{subsubsection.12.2.7}%
+\contentsline {subsection}{\numberline {12.3}Miscellanea}{280}{subsection.12.3}%
+\contentsline {subsubsection}{\numberline {12.3.1}Markov Decision Processes}{280}{subsubsection.12.3.1}%
+\contentsline {subsubsection}{\numberline {12.3.2}CTMC}{282}{subsubsection.12.3.2}%
+\contentsline {section}{参考文献}{283}{subsubsection.12.3.2}%
+\contentsline {section}{索引}{285}{subsubsection.12.3.2}%
