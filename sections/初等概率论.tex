@@ -763,11 +763,36 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
 \end{equation}
 \item CLT\index{CLT (Central Limit Thm.)}: For $ X_i $ i.i.d. $ \sim f_X $, with $ \mathbb{E}\left[ X_i \right] =\mu <\infty $, $ var(X_i)=\sigma ^2<\infty $
 \begin{align}
-     \dfrac{\sqrt{n}\left(\bar{X}-\mu \right)}{\sigma }\xrightarrow[]{d} N(0,1)
+     \dfrac{\sqrt{n}\left(\bar{X}-\mu \right)}{\sigma }\xrightarrow[]{\mathrm{d}} N(0,1)
 \end{align}
 or in equivalent form
-\begin{equation}    \frac{1}{\sigma\sqrt{n}}\sum(X_k-\mu)\xrightarrow[]{\mathrm{d}} N(0,1)
-\end{equation}
+\begin{align}    
+    &\frac{1}{\sigma\sqrt{n}}\sum(X_k-\mu)\xrightarrow[]{\mathrm{d}} N(0,1)\\
+    &\bar{X}\xrightarrow[]{\mathrm{d}} N(\mu ,\dfrac{\sigma ^2}{n})
+\end{align}
+
+\begin{proof}
+    Denote the characteristic function of $ X\sim f_X(x) $ as $ \phi _X(t):=\mathbb{E}\left[ e^{itX} \right] $, with expectation $ \mu :=\mathbb{E}\left[ X \right]  $ and variance $ \sigma^2:=var(X)=\mathbb{E}\left[ X^2\right] -\mu  ^2 $.
+    
+    Define $ Z=\dfrac{X-\mu }{\sigma } $ The taylor series of $ \phi _Z(t) $ at $ t=0 $ yields:
+    \begin{align*}
+        \phi _Z(t)=1-\dfrac{t^2}{2}+o(t^2) 
+    \end{align*}
+    The characteristic function of mean $ \displaystyle\bar{Z}:=\dfrac{1}{n}\sum_{i=1}^nZ_i=\dfrac{1}{n}\sum_{i=1}^n\dfrac{X_i-\mu }{\sigma } $ w.r.t. $ X_i $ i.i.d. $ \sim f_X(x) $
+    \begin{align*}
+        \phi _{\bar{Z}}(t)=\mathbb{E}\left[ e^{it\bar{Z}} \right]=&\left[\phi _{Z}(\dfrac{t}{n})\right]^n=\left[1-\dfrac{t^2}{2n^2}\right] ^n 
+    \end{align*}
+    with $ n\to\infty $ limit:\footnote{Note: if use characteristic function of $ X_i $ directly, notice that
+    \begin{align*}
+        n\log\left(1+ \dfrac{at}{n}-\dfrac{bt^2}{2n^2}\right)= at -\left(b+a^2\right)\dfrac{t^2}{2n}+\mathcal{O}(\dfrac{1}{n^2})
+    \end{align*}
+    using the taylor series of $ \log(1+\xi ) $ at $ \xi =0 $.
+    }
+    \begin{align*}
+        \lim_{n\to\infty}\phi _{\bar{Z}}(t)=&\lim_{n\to\infty} \left[1-\dfrac{1}{n}\dfrac{t^2}{2n}\right] ^n=e^{-\frac{t^2}{2n}} \Rightarrow \bar{Z}=\dfrac{\bar{X}-\mu }{\sigma }\xrightarrow[]{\mathrm{d}} N(0,\dfrac{1}{n})
+    \end{align*}
+
+\end{proof}
 
 \item de Moivre-Laplace Thm.\index{de Moivre-Laplace Thm.} is a special case of CLT at $ S_n\sim B (n,p) $
 \begin{equation}    \mathbb{P}(k\leq S_n\leq m)\approx \Phi(\frac{m+0.5-np}{\sqrt{npq}})-\Phi(\frac{k-0.5-np}{\sqrt{npq}})
@@ -1025,7 +1050,7 @@ or in equivalent form
 
             PDF of $\chi^2_n$:
             \begin{equation}        
-                g_n(x)=\dfrac{1}{2^{n/2}\Gamma(n/2)}x^{n/2}e^{-x/2}\mathbb{I}_{x>0}  
+                g_n(x)=\dfrac{1}{2^{n/2}\Gamma(n/2)}x^{\frac{n}{2}-1}e^{-x/2}\mathbb{I}_{x>0}  
             \end{equation}
 
             Properties
@@ -1034,7 +1059,7 @@ or in equivalent form
                 \begin{equation}            \mathbb{E}(\xi)=n\qquad var(\xi)=2n\end{equation}
                 \item For independent $\xi_i\sim\chi^2_{n_i},\, i=1,2,\ldots,k$:\begin{equation}            
                     \xi_0=\sum_{i=1}^k\xi_i\sim\chi^2_{n_1+\ldots+n_k}\end{equation}
-                \item Denoted as $\Gamma(\alpha,\lambda)$: \begin{equation}            \xi=\sum_{i=1}^nX_i\sim\Gamma(\frac{n}{2},\frac{1}{2})=\chi^2_n\end{equation}
+                \item Denoted as $\Gamma(\alpha,\lambda)$: \begin{equation}            \xi=\sum_{i=1}^nX_i^2\sim\Gamma(\frac{n}{2},\frac{1}{2})=\chi^2_n\end{equation}
             \end{itemize}
             \item $t$ Distribution: Def. $t$ distribution with degree of freedom $n$:\index{Distribution!$ t $ Distribution}
             \begin{equation}        

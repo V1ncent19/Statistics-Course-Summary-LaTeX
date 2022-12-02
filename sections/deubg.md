@@ -1,20 +1,10 @@
 
-$$
-\begin{aligned}
-        K(x,y)=& \sum_{i}\gamma _i\phi _i(x)\phi _i(y)\\
-        =&\sum_{i}\sqrt[]{\gamma _i}\phi _i(x)\sqrt[]{\gamma _i}\phi _i(y)\\
-        =&\sum_{i}\dfrac{(\gamma _i\phi _i(x))(\gamma _i\phi _i(y))}{\gamma _i}\\
-        =&\left\langle \sum_{i}\gamma _i\phi _i(x){\color{brown} \phi _i(\xi )},\sum_{i}\gamma _i\phi _i(y){\color{brown} \phi _i(\xi )} \right\rangle _{\mathcal{H}_K}\\
-        =&\left\langle K(x,\xi ),K(\xi ,y) \right\rangle _{\mathcal{H}_K}
-\end{aligned}
-$$ 
-
-$$
-\begin{aligned}
-        \vec{7}=\begin{bmatrix}
-                \xi ,\xi ,\xi ,\xi ,\xi ,\xi ,\xi 
-        \end{bmatrix}
-\end{aligned}
-$$ 
-
-    
+    \begin{align*}
+        F_k\to F ,\quad H_k\to H,\quad Q_k\to Q ,\quad R_k\to R 
+    \end{align*}
+    then Kalman filter and variance estimation have asymptotic form by solving
+    \begin{align*}
+        P_{\infty}=&F \left(P_\infty-P_\infty H'\left(H P_\infty H
+        +R \right)^{-1}H P_\infty\right)F '+Q \\
+        K_\infty = &P_\infty H '\left(H P_\infty H '\right)^{-1}
+    \end{align*}

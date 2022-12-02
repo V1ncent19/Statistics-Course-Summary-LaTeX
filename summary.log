@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.12.10) (preloaded format=xelatex 2022.1.15)  18 NOV 2022 21:25
+This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.12.10) (preloaded format=xelatex 2022.1.15)  3 DEC 2022 02:32
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1410,7 +1410,7 @@ File: lstlang2.sty 2020/03/24 1.8d listings language file
 File: lstlang3.sty 2020/03/24 1.8d listings language file
 )
 Package translations Info: No language package found. I am going to use `englis
-h' as default language. on input line 167.
+h' as default language. on input line 183.
 runsystem(for ^%i in (pygmentize.exe pygmentize.bat pygmentize.cmd) do set > su
 mmary.aex <nul: /p x=^%~$PATH:i>> summary.aex)...executed.
 
@@ -1498,90 +1498,90 @@ LaTeX Warning: Label `' multiply defined.
 ) (sections/应用随机过程.aux) (sections/ReferenceBook.aux))
 \openout1 = `summary.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 167.
-LaTeX Font Info:    ... okay on input line 167.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 183.
+LaTeX Font Info:    ... okay on input line 183.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 183.
+LaTeX Font Info:    ... okay on input line 183.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 183.
+LaTeX Font Info:    ... okay on input line 183.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 183.
+LaTeX Font Info:    ... okay on input line 183.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 183.
+LaTeX Font Info:    ... okay on input line 183.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 183.
+LaTeX Font Info:    ... okay on input line 183.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 183.
+LaTeX Font Info:    ... okay on input line 183.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 183.
+LaTeX Font Info:    ... okay on input line 183.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 183.
+LaTeX Font Info:    ... okay on input line 183.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 183.
+LaTeX Font Info:    ... okay on input line 183.
 
 Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
 (fontspec)             this).
 
 \symlegacymaths=\mathgroup10
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 167.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 167.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 167.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 167.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 167.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 167.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 167.
-LaTeX Font Info:    Redeclaring math accent \check on input line 167.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 167.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 167.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 167.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 167.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 167.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 167.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 167.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 167.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 167.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 167.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 167.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 167.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 167.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 167.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 167.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 167.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 183.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 183.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 183.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 183.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 183.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 183.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 183.
+LaTeX Font Info:    Redeclaring math accent \check on input line 183.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 183.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 183.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 183.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 183.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 183.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 183.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 183.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 183.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 183.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 183.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 183.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 183.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 183.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 183.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 183.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 183.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 167.
+(Font)              `operators' in the math version `normal' on input line 183.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> TU/TimesNewRoman(0)/m/n on input line 1
-67.
+83.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 167.
+(Font)              `operators' in the math version `bold' on input line 183.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/m/n on input line 
-167.
+183.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/m/n on 
-input line 167.
+input line 183.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/cmr/m/it --> TU/TimesNewRoman(0)/m/it on input line
- 167.
+ 183.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/b/n on input line 
-167.
+183.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 167.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 183.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 167.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 183.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/b/n on 
-input line 167.
+input line 183.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> TU/TimesNewRoman(0)/b/it on input lin
-e 167.
+e 183.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 167.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 183.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 167.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 183.
 
 (D:\MiKTeX\tex/latex/translations/dicts\translations-basic-dictionary-english.t
 rsl
@@ -1589,11 +1589,11 @@ File: translations-basic-dictionary-english.trsl (english translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 167.
-Package hyperref Info: Link coloring ON on input line 167.
-LaTeX Info: Redefining \ref on input line 167.
-LaTeX Info: Redefining \pageref on input line 167.
-LaTeX Info: Redefining \nameref on input line 167.
+or `english'. on input line 183.
+Package hyperref Info: Link coloring ON on input line 183.
+LaTeX Info: Redefining \ref on input line 183.
+LaTeX Info: Redefining \pageref on input line 183.
+LaTeX Info: Redefining \nameref on input line 183.
  (summary.out) (summary.out)
 \@outlinefile=\write7
 \openout7 = `summary.out'.
@@ -1638,18 +1638,18 @@ LaTeX Info: Redefining \nameref on input line 167.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 169
+LaTeX Font Info:    Trying to load font information for U+msa on input line 185
 .
 (D:\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 169
+LaTeX Font Info:    Trying to load font information for U+msb on input line 185
 .
  (D:\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 16
-9.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 18
+5.
 
 (D:\MiKTeX\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
@@ -2088,48 +2088,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [24]
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1018.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\chi' on input line 1018.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 1018.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1018.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1018.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\leavevmode@ifvmode' on input line 1018.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \kern 1.82538pt
-(hyperref)                removed on input line 1018.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\leavevmode@ifvmode' on input line 1018.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \kern 1.82538pt
-(hyperref)                removed on input line 1018.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1018.
-
-
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
 (fancyhdr)                \setlength{\headheight}{13.59999pt}.
@@ -2138,6 +2096,48 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [25]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1043.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\chi' on input line 1043.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 1043.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1043.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1043.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\leavevmode@ifvmode' on input line 1043.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 1.82538pt
+(hyperref)                removed on input line 1043.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\leavevmode@ifvmode' on input line 1043.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 1.82538pt
+(hyperref)                removed on input line 1043.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1043.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -3796,7 +3796,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [169]
-Overfull \hbox (5.15004pt too wide) in paragraph at lines 2939--2940
+Overfull \hbox (5.15004pt too wide) in paragraph at lines 2941--2942
 []\TU/TimesNewRoman(0)/m/n/10.95 for discrete version $\OML/cmm/m/it/10.95 x \O
 MS/cmsy/m/n/10.95 2 f\OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.
 95 2\OML/cmm/m/it/10.95 ; []\OMS/cmsy/m/n/10.95 g$\TU/TimesNewRoman(0)/m/n/10.9
@@ -3933,8 +3933,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [182]
 Overfull \hbox (8.1411pt too wide) in paragraph at lines 620--623
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][
-][][][][][][][][] \TU/TimesNewRoman(0)/m/n/10.95 returns logical vec-
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] [][][][][][][][][][
+][][][][] \TU/TimesNewRoman(0)/m/n/10.95 returns logical vec-
  []
 
 
@@ -4028,7 +4028,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [189]
 Underfull \hbox (badness 10000) in paragraph at lines 979--979
-[]|[][][][][][][]
+[]|[][][][][]
  []
 
 
@@ -4772,6 +4772,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [259]
+Overfull \hbox (0.76328pt too wide) detected at line 148
+[]
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4783,11 +4787,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [260]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 243.
+(hyperref)                removing `math shift' on input line 274.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 243.
+(hyperref)                removing `math shift' on input line 274.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -4834,12 +4838,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [265]
-Overfull \hbox (4.81119pt too wide) in paragraph at lines 560--561
-[]\TU/TimesNewRoman(0)/m/n/10.95 (Detailed estimation methods would be compleme
-nted upon completion of Intro. to Bayesian Statistics next semester.) 
- []
-
-)
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4849,6 +4847,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [266]
+Overfull \hbox (4.81119pt too wide) in paragraph at lines 592--593
+[]\TU/TimesNewRoman(0)/m/n/10.95 (Detailed estimation methods would be compleme
+nted upon completion of Intro. to Bayesian Statistics next semester.) 
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -4858,16 +4861,38 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [267]
-\openout2 = `sections/应用随机过程.aux'.
 
- (sections/应用随机过程.tex
-Overfull \hbox (1.0485pt too wide) in paragraph at lines 42--57
-[]\TU/TimesNewRoman(0)/m/it/10.95 proof\TU/TimesNewRoman(0)/m/n/10.95 : [] 
- []
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[268]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[269]
+File: sections/images/propensity.png Graphic file (type bmp)
+<sections/images/propensity.png>
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 42--57
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
 
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[270]
+Overfull \hbox (9.99573pt too wide) detected at line 813
+[]
  []
 
 
@@ -4878,7 +4903,28 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[268
+[271])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[272]
+\openout2 = `sections/应用随机过程.aux'.
+
+ (sections/应用随机过程.tex
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[273
 
 
 
@@ -4891,61 +4937,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[269]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[270]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[271]
-Underfull \hbox (badness 10000) in paragraph at lines 369--381
-
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[272]
+[274]
 Missing character: There is no 5 in font nullfont!
 Missing character: There is no ) in font nullfont!
 Missing character: There is no 1 in font nullfont!
 Missing character: There is no 1 in font nullfont!
 Missing character: There is no ) in font nullfont!
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[273]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[274]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -5009,11 +5006,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [281]
-Overfull \hbox (2.06386pt too wide) detected at line 1065
-[]
- []
-
-)
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -5023,16 +5015,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [282]
-\openout2 = `sections/ReferenceBook.aux'.
-
- (sections/ReferenceBook.tex
-Underfull \hbox (badness 5563) in paragraph at lines 36--37
-[]\TU/SimSun(0)/m/n/10.95 北 京 大 学  |《统 计 计 算》|  课 程 讲 义\TU/TimesNewRoman(0)/m/n
-/10.95 . \TU/SimSun(0)/m/n/10.95 李 东 风\TU/TimesNewRoman(0)/m/n/10.95 . [][]$[][
-][][][] [] [] [] [][][] [] [][][][] [] [][][] [] [][][] [] [][] [] [][][][][][]
-[][] [] [][][][] [] [][][][] []
- []
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -5041,11 +5023,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[283
-
-
-
-])
+[283]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -5054,26 +5032,20 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[284] (summary.ind
-Overfull \hbox (10.39293pt too wide) in paragraph at lines 41--43
-[]\TU/TimesNewRoman(0)/m/n/10.95 BFGS Updating Method (Broyden-Fletcher-Goldfar
-b-Shanno
- []
+[284]
 
-[285
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
 
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-
-]
-Overfull \hbox (2.48534pt too wide) in paragraph at lines 86--88
-[]| \TU/TimesNewRoman(0)/m/n/10.95 OPTICS (Ordering Point To Indentify the Clus
-ter Struc-
- []
-
-
-Overfull \hbox (5.92207pt too wide) in paragraph at lines 171--173
-[]\TU/TimesNewRoman(0)/m/n/10.95 E-M Algorithm (Expectation Maximization Algori
-thm), [][]124[][],
+[285]
+Overfull \hbox (0.20445pt too wide) in paragraph at lines 1081--1083
+\TU/TimesNewRoman(0)/m/n/10.95 where ‘innovation’ means each $[]$ contains the 
+‘new information without correlation with previous sequence’: $\U/msb/m/n/10.95
+ E [] \OT1/cmr/m/n/10.95 =
  []
 
 
@@ -5094,6 +5066,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [287]
+Overfull \hbox (2.06386pt too wide) detected at line 1203
+[]
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -5112,7 +5088,140 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [289]
-Overfull \hbox (9.91891pt too wide) in paragraph at lines 464--466
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[290]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[291]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[292]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[293])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[294]
+\openout2 = `sections/ReferenceBook.aux'.
+
+ (sections/ReferenceBook.tex
+Underfull \hbox (badness 5563) in paragraph at lines 36--37
+[]\TU/SimSun(0)/m/n/10.95 北 京 大 学  |《统 计 计 算》|  课 程 讲 义\TU/TimesNewRoman(0)/m/n
+/10.95 . \TU/SimSun(0)/m/n/10.95 李 东 风\TU/TimesNewRoman(0)/m/n/10.95 . [][]$[][
+][][][] [] [] [] [][][] [] [][][][] [] [][][] [] [][][] [] [][] [] [][][][][][]
+[][] [] [][][][] [] [][][][] []
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[295
+
+
+
+])
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[296] (summary.ind
+Overfull \hbox (10.39293pt too wide) in paragraph at lines 44--46
+[]\TU/TimesNewRoman(0)/m/n/10.95 BFGS Updating Method (Broyden-Fletcher-Goldfar
+b-Shanno
+ []
+
+[297
+
+
+
+]
+Overfull \hbox (2.48534pt too wide) in paragraph at lines 90--92
+[]| \TU/TimesNewRoman(0)/m/n/10.95 OPTICS (Ordering Point To Indentify the Clus
+ter Struc-
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[298]
+Overfull \hbox (5.92207pt too wide) in paragraph at lines 176--178
+[]\TU/TimesNewRoman(0)/m/n/10.95 E-M Algorithm (Expectation Maximization Algori
+thm), [][]124[][],
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[299]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[300]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[301]
+Overfull \hbox (9.91891pt too wide) in paragraph at lines 489--491
 []\TU/TimesNewRoman(0)/m/n/10.95 STL Model (Seasonal and Trend Decomposition us
 ing Loess),
  []
@@ -5125,7 +5234,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[290]) (summary.aux (sections/初等概率论.aux) (sections/统计推断.aux)
+[302]) (summary.aux (sections/初等概率论.aux) (sections/统计推断.aux)
 (sections/线性回归分析.aux) (sections/多元统计分析.aux) (sections/统计计算与软件.aux)
 (sections/数据科学导论.aux) (sections/可靠性数据与生存分析.aux) (sections/生物统计学概论.aux)
 (sections/统计学习导论.aux) (sections/应用时间序列分析.aux) (sections/因果推断导论.aux)
@@ -5134,15 +5243,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `summary.out' has not changed.
-(rerunfilecheck)             Checksum: B429D83CBA3C9AA9EE5A8CB61F7CF284;55609.
+(rerunfilecheck)             Checksum: 6897B85D0FEF44CF26DA5C7C4606B52B;57824.
  ) 
 Here is how much of TeX's memory you used:
- 49408 strings out of 411012
- 1054618 string characters out of 2831749
- 1739057 words of memory out of 3000000
- 69210 multiletter control sequences out of 15000+600000
+ 49919 strings out of 411012
+ 1064989 string characters out of 2831749
+ 1746649 words of memory out of 3000000
+ 69720 multiletter control sequences out of 15000+600000
  426903 words of font info for 188 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 89i,33n,97p,1206b,1833s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 89i,33n,97p,1206b,1830s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on summary.pdf (290 pages).
+Output written on summary.pdf (302 pages).

@@ -57,7 +57,7 @@
 %其他设置
 \newenvironment{point}{\raggedright$\Box $ \bfseries}{}%新环境point，用于标示重点内容
 \newenvironment{rcode}{\raggedright$  \vartriangleright  $ \lstinline|R.| \textbf{Code}  \\}{}%新环境rcode，用于建立R语言命令段落
-\renewenvironment{proof}{\textit{proof}: \begin{minipage}[t]{0.9\linewidth} }{ $ \square  $\end{minipage}\\} % 证明环境回退到英文版 以proof开头
+\renewenvironment{proof}{{\noindent$\square$\,\it Proof: }}{\hfill $\square$\par}% 证明环境回退到英文版 以proof开头
 \newenvironment{algorithm}[1]{\vspace{12pt} \hrule\hrule \vspace{3pt} \noindent\textbf{\color[HTML]{E63F00}Algorithm } \,\textit{#1} \vspace{3pt} \hrule\vspace{6pt}
 }{\vspace{6pt}\hrule\hrule \vspace{12pt}} % 算法伪代码格式环境
 
@@ -119,24 +119,40 @@
 \definecolor{CodeGreen2}{HTML}{859900}
 \lstset{
     language=R,
-    breaklines,
     basicstyle=\tt,%\fontspec{Consolas},
     numbers=left, %设置行号位置
     numberstyle=\tiny\color{black}, %设置行号大小
-    keywordstyle=\color{black}, %设置关键字颜色
-    stringstyle=\color{gray}, %设置字符串颜色
-    commentstyle=\color{CodeGreen}, %设置注释颜色
-    frame=single, %设置边框格式
-    columns=fixed,
-    escapeinside=``, %逃逸字符(1左面的键)，用于显示中文
-    %breaklines, %自动折行
     extendedchars=false, %解决代码跨页时，章节标题，页眉等汉字不显示的问题
-    xleftmargin=2em,xrightmargin=2em, aboveskip=1em, %设置边距
-    tabsize=4, %设置tab空格数
-    showspaces=false, %不显示空格
+    frame=single,
+    breaklines,
+    tabsize=2,
+    xleftmargin=2em,xrightmargin=2em, aboveskip=1em,
+    stringstyle=\color{gray},
+    otherkeywords={0,1,2,3,4,5,6,7,8,9},
+    morekeywords={TRUE,FALSE},
+    deletekeywords={data,frame,length,as,character},
+    keywordstyle=\color{CodeBlue},
+    commentstyle=\color{CodeGreen},
     emph={TRUE,FALSE,NULL,NAN,NaN,Inf,NA,\$,<-},emphstyle=\color{CodeBlue2} ,%逻辑符
     emph={[2]in,for,if,else,ifelse,function,return,stopifnot,switch,stop,c},emphstyle=[2]\color{purple} ,%流程控制
+    emph={[3]0,1,2,3,4,5,6,7,8,9},emphstyle=[3]\color{CodeGreen} ,%数字
 }
+%     numbers=left, %设置行号位置
+%     numberstyle=\tiny\color{black}, %设置行号大小
+%     keywordstyle=\color{black}, %设置关键字颜色
+%     stringstyle=\color{gray}, %设置字符串颜色
+%     commentstyle=\color{CodeGreen}, %设置注释颜色
+%     frame=single, %设置边框格式
+%     columns=fixed,
+%     escapeinside=``, %逃逸字符(1左面的键)，用于显示中文
+%     %breaklines, %自动折行
+%     extendedchars=false, %解决代码跨页时，章节标题，页眉等汉字不显示的问题
+%     xleftmargin=2em,xrightmargin=2em, aboveskip=1em, %设置边距
+%     tabsize=4, %设置tab空格数
+%     showspaces=false, %不显示空格
+%     emph={TRUE,FALSE,NULL,NAN,NaN,Inf,NA,\$,<-},emphstyle=\color{CodeBlue2} ,%逻辑符
+%     emph={[2]in,for,if,else,ifelse,function,return,stopifnot,switch,stop,c},emphstyle=[2]\color{purple} ,%流程控制
+% }
 
 % 节标题格式设置
 \titleformat{\section}[block]{\centering\Large\bfseries}{Chapter. \Roman{section} }{1em}{}[]

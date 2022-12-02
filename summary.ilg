@@ -2,8 +2,8 @@ This is makeindex, version 2.16 [MiKTeX 21.12.10].
 Scanning input file summary.idx....
 !! Input index error (file = summary.idx, line = 163):
    -- Extra `|' at position 85 of first argument.
-done (451 entries accepted, 1 rejected).
-Sorting entries.......done (4591 comparisons).
-Generating output file summary.ind....done (522 lines written, 0 warnings).
+done (480 entries accepted, 1 rejected).
+Sorting entries......done (4360 comparisons).
+Generating output file summary.ind....done (547 lines written, 0 warnings).
 Output written in summary.ind.
 Transcript written in summary.ilg.

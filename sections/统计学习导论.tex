@@ -462,7 +462,7 @@ glmnet(x, y, family="binomial", alpha, lambda) # with penalty
     \end{aligned}
 \end{equation*}
 
-    where $ M $ for `Margin', which indicates the distance of point from boundary. $  \mathrm{L.H.S.} $ of inequality is the distance from $ x_i $ to boundary.\footnote{\textit{proof:} denote some point on $ x'\beta +\beta _0=0 $ as $ x_\perp $ (i.e. $ x_\perp'\beta +\beta _0=0 $), then the distance of $ x $ to boundary is the projection of $ x-x_\perp $ on unit normal vector $ \dfrac{\beta }{\Vert \beta  \Vert } $:
+    where $ M $ for `Margin', which indicates the distance of point from boundary. $  \mathrm{L.H.S.} $ of inequality is the distance from $ x_i $ to boundary.\footnote{\proof{ denote some point on $ x'\beta +\beta _0=0 $ as $ x_\perp $ (i.e. $ x_\perp'\beta +\beta _0=0 $), then the distance of $ x $ to boundary is the projection of $ x-x_\perp $ on unit normal vector $ \dfrac{\beta }{\Vert \beta  \Vert } $:
     \[
         d=\left|(x-x^*)' \dfrac{\beta }{\Vert \beta  \Vert }\right|=\dfrac{1}{\Vert \beta  \Vert }|x'\beta +\beta _0|
     \]
@@ -475,7 +475,7 @@ glmnet(x, y, family="binomial", alpha, lambda) # with penalty
     we can replace the $ |\cdot| $ using label:
     \[
         d=\dfrac{1}{\Vert \beta  \Vert }y(x'\beta +\beta _0) 
-    \]
+    \]}
     }
 
     However note that the \textit{dof} of this problem is $ 1 $, i.e. all $ (\beta_0,\beta) \propto (\beta _0^*,\beta ^*) $ give the same result. We could omit this \textit{dof} by putting an extra constraint, here a convenient one is used: $ \Vert \beta  \Vert =\dfrac{1}{M} $. i.e.
@@ -746,7 +746,7 @@ Eigenvalue $ \gamma _i $ and eigen function $ \phi _i(x) $ of Kernel:
 \subsubsection{SMO Algorithm for Kernel SVM}
     
     
-\subsubsection{Kernel Regression}
+\subsubsection{Kernel Regression}\label{SubSubSectionKernelRegression}
 \begin{point}
     Kernel Regression with Squared Error Loss
 \end{point}

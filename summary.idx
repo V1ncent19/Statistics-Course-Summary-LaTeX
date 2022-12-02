@@ -31,20 +31,20 @@
 \indexentry{SLLN (Strong Law of Large Number)|hyperpage}{22}
 \indexentry{CLT (Central Limit Thm.)|hyperpage}{22}
 \indexentry{de Moivre-Laplace Thm.|hyperpage}{22}
-\indexentry{Inequality!Cauchy-Schwarz Inequality|hyperpage}{22}
-\indexentry{Inequality!Bonferroni Inequality|hyperpage}{22}
-\indexentry{Inequality!Markov Inequality|hyperpage}{22}
-\indexentry{Inequality!Chebyshev Inequality|hyperpage}{22}
+\indexentry{Inequality!Cauchy-Schwarz Inequality|hyperpage}{23}
+\indexentry{Inequality!Bonferroni Inequality|hyperpage}{23}
+\indexentry{Inequality!Markov Inequality|hyperpage}{23}
+\indexentry{Inequality!Chebyshev Inequality|hyperpage}{23}
 \indexentry{Jensen Inequality|hyperpage}{23}
 \indexentry{Cantelli Inequality|hyperpage}{23}
-\indexentry{Hoeffding Inequality|hyperpage}{23}
+\indexentry{Hoeffding Inequality|hyperpage}{24}
 \indexentry{McDiarmid Inequality|hyperpage}{24}
 \indexentry{Distribution!Normal Distribution|hyperpage}{24}
-\indexentry{Jointly Gaussian Variable|hyperpage}{25}
-\indexentry{Distribution!$ \chi^2 $ Distribution|hyperpage}{25}
+\indexentry{Jointly Gaussian Variable|hyperpage}{26}
+\indexentry{Distribution!$ \chi^2 $ Distribution|hyperpage}{26}
 \indexentry{Distribution!$ t $ Distribution|hyperpage}{26}
 \indexentry{Fractile!Upper $ \alpha $-fractile|hyperpage}{26}
-\indexentry{Distribution!$ F $ Distribution|hyperpage}{26}
+\indexentry{Distribution!$ F $ Distribution|hyperpage}{27}
 \indexentry{Sample Space|hyperpage}{28}
 \indexentry{Statistics|hyperpage}{28}
 \indexentry{Correlation Coefficient!Pearson's Correlation Coefficient $ r $|hyperpage}{29}
@@ -415,38 +415,67 @@
 \indexentry{Super Population|hyperpage}{259}
 \indexentry{Assignment Mechanism|hyperpage}{259}
 \indexentry{SUTVA (Stable Unit Treatment Value Assumption)|hyperpage}{260}
+\indexentry{RAM (Regular Assignment Mechanisms)|hyperpage}{260}
+\indexentry{Propensity Score|hyperpage}{260}
 \indexentry{CRE (Completely Randomized Experiment)|hyperpage}{261}
 \indexentry{Fisher's Sharp Null Hypothesis|hyperpage}{261}
-\indexentry{M-Estimator (Maximization Estimator)|hyperpage}{263}
-\indexentry{MMSE (Minimum Mean Squared Estimator)|hyperpage}{268}
-\indexentry{Projection Operator|hyperpage}{268}
-\indexentry{Innovation Sequence|hyperpage}{269}
-\indexentry{Sample Path|hyperpage}{270}
-\indexentry{Conditional Independence|hyperpage}{271}
-\indexentry{DTMC (Discrete Time Markov Chain)|hyperpage}{271}
-\indexentry{Detailed Balance Condition|hyperpage}{272}
-\indexentry{Irreducible|hyperpage}{272}
-\indexentry{GCD (Greatest Common Divisor)|hyperpage}{272}
-\indexentry{Aperiodic|hyperpage}{273}
-\indexentry{Sojourn Time|hyperpage}{273}
-\indexentry{Absorbing State|hyperpage}{274}
-\indexentry{Hitting Time|hyperpage}{275}
-\indexentry{Branching Process|hyperpage}{276}
-\indexentry{Galton-Watson Tree|hyperpage}{276}
+\indexentry{M-Estimator (Maximization Estimator)|hyperpage}{264}
+\indexentry{SRE (Stratified Randomized Experiment)|hyperpage}{268}
+\indexentry{RBE (Randomized Blocks Experiment)|hyperpage}{268}
+\indexentry{Proportion of Strata|hyperpage}{268}
+\indexentry{Propensity Score|hyperpage}{268}
+\indexentry{PRE (Pairwise Randomized Experiment)|hyperpage}{269}
+\indexentry{Horvitz-Thompson Estimator|hyperpage}{271}
+\indexentry{Pearl Bayesian Framework|hyperpage}{271}
+\indexentry{Bayesian Network|hyperpage}{271}
+\indexentry{Belief Network|hyperpage}{271}
+\indexentry{DAG Model (Directed Acyclic Graphical Model)|hyperpage}{271}
+\indexentry{Sample Path|hyperpage}{273}
+\indexentry{DTMC (Discrete Time Markov Chain)|hyperpage}{273}
+\indexentry{Stationary Distribution|hyperpage}{274}
+\indexentry{Equilibrium|hyperpage}{274}
+\indexentry{Detailed Balance Condition|hyperpage}{274}
+\indexentry{Irreducible|hyperpage}{275}
+\indexentry{GCD (Greatest Common Divisor)|hyperpage}{275}
+\indexentry{Aperiodic|hyperpage}{275}
+\indexentry{Sojourn Time|hyperpage}{275}
+\indexentry{Positive Recurrent State|hyperpage}{275}
+\indexentry{Ergodicity|hyperpage}{276}
 \indexentry{CTMC (Continuous Time Markov Chain)|hyperpage}{277}
 \indexentry{Chapman-Kolmogorov Equation|hyperpage}{277}
 \indexentry{Transition Rate Matrix|hyperpage}{277}
 \indexentry{Generator|hyperpage}{277}
-\indexentry{Gershgorin Circle Theorem|hyperpage}{278}
-\indexentry{Kolmogorov Forward|hyperpage}{278}
-\indexentry{Brownian Motion|hyperpage}{279}
-\indexentry{Wiener Process|hyperpage}{279}
-\indexentry{Donsker Thm.|hyperpage}{279}
-\indexentry{Poisson Process|hyperpage}{280}
-\indexentry{MDPs (Markov Decision Processes)|hyperpage}{280}
-\indexentry{Episode|hyperpage}{280}
-\indexentry{Policy|hyperpage}{280}
-\indexentry{Q-Learning@$ Q $-Learning|hyperpage}{280}
-\indexentry{Discount Factor|hyperpage}{280}
-\indexentry{State-Value Function|hyperpage}{280}
-\indexentry{V-Value@$ V $-Value|hyperpage}{280}
+\indexentry{Gershgorin Circle Theorem|hyperpage}{277}
+\indexentry{Kolmogorov Forward|hyperpage}{277}
+\indexentry{Stationary Distribution|hyperpage}{278}
+\indexentry{Equilibrium|hyperpage}{278}
+\indexentry{Sojourn Time|hyperpage}{278}
+\indexentry{Random Walk|hyperpage}{279}
+\indexentry{Gambler's Model|hyperpage}{279}
+\indexentry{Absorbing State|hyperpage}{279}
+\indexentry{Hitting Time|hyperpage}{280}
+\indexentry{Branching Process|hyperpage}{280}
+\indexentry{Galton-Watson Tree|hyperpage}{280}
+\indexentry{Extinction Probability|hyperpage}{281}
+\indexentry{Brownian Motion|hyperpage}{282}
+\indexentry{Wiener Process|hyperpage}{282}
+\indexentry{Donsker Thm.|hyperpage}{282}
+\indexentry{Poisson Process|hyperpage}{283}
+\indexentry{Birth-Death Process|hyperpage}{283}
+\indexentry{MMSE (Minimum Mean Squared Estimator)|hyperpage}{284}
+\indexentry{Projection Operator|hyperpage}{285}
+\indexentry{Best Linear Estimator|hyperpage}{286}
+\indexentry{Innovation Sequence|hyperpage}{286}
+\indexentry{Conditional Independence|hyperpage}{286}
+\indexentry{MDPs (Markov Decision Processes)|hyperpage}{287}
+\indexentry{Episode|hyperpage}{287}
+\indexentry{Policy|hyperpage}{287}
+\indexentry{State-Value Function|hyperpage}{287}
+\indexentry{V-Value@$ V $-Value|hyperpage}{287}
+\indexentry{Discount Factor|hyperpage}{287}
+\indexentry{Q-Learning@$ Q $-Learning|hyperpage}{289}
+\indexentry{Kalman Filter|hyperpage}{290}
+\indexentry{HMM (Hidden Markov Model)|hyperpage}{290}
+\indexentry{Optimal Kalman Gain|hyperpage}{291}
+\indexentry{EKF (Extended Kalman Filter)|hyperpage}{293}
+\indexentry{Kalman-Bucy Filter|hyperpage}{294}

@@ -158,19 +158,19 @@
 
     \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item Mean Function
-        \begin{equation}
-            \mu _t=\mathbb{E}\left( X_t \right)  
-        \end{equation}        
+        \begin{align}
+            \text{Mean: }\mu _t\equiv &\mathbb{E}\left( X_t \right),&\mathcal{T}\mapsto  &\mathbb{R}
+        \end{align}        
         
         \item AutoCovariance Function (ACVF) and AutoCorrelation Function (ACF):\index{ACVF (Autocovariance)}\index{ACF (Autocorrelation)}
         \begin{align}
-            \text{ACVF: }\gamma _{t,s}\equiv &cov(X_t,X_s),& \mathcal{T}\times \mathcal{T}\to&\mathbb{R}\\
-            \text{ACF: }\rho  _{t,s}\equiv &corr(X_t,X_s)=\dfrac{\gamma _{t,s}}{\sqrt[]{\gamma _{t,t}\gamma _{s,s}}},& \mathcal{T}\times \mathcal{T}\to& [-1,1]
+            \text{ACVF: }\gamma _{t,s}\equiv &cov(X_t,X_s),& \mathcal{T}\times \mathcal{T}\mapsto&\mathbb{R}\\
+            \text{ACF: }\rho  _{t,s}\equiv &corr(X_t,X_s)=\dfrac{\gamma _{t,s}}{\sqrt[]{\gamma _{t,t}\gamma _{s,s}}},& \mathcal{T}\times \mathcal{T}\mapsto& [-1,1]
         \end{align}
 
         \item Stationarity: Stationarity is a measure that the `correlation structure of stochastic process looks the same' at any time $ t $, i.e. is stationary through time.
         \begin{itemize}[topsep=2pt,itemsep=0pt]
-            \item Weakly Stationary (WS)\index{WS (Weakly Stationary)}: given $ \mathbb{E}\left( X_t^2 \right) < \infty $, has const mean and $ cov  $ independent of time
+            \item Weakly Stationary (WS)\index{WS (Weakly Stationary)}: given $ \mathbb{E}\left( X_t^2 \right) < \infty $, has const $ \mathbb{E}\left[  \right]  $ and $ cov  $ (independent of time)
             \begin{align}
                 \mathbb{E}\left( X_t \right) =&\mu _t=\mu \\
                 cov(X_t,X_t+k)=&\gamma _{t,t+k}=\gamma _k\independent t

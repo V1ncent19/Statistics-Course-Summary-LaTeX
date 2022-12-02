@@ -739,7 +739,7 @@ GS <- function(A,MGS=FALSE){
         v[,j] <- A[,j]
         if(j>1){
         for(i in 1:(j-1)){
-          r[i,j]=sum(q[,i]*ifelse(MGS,v[,j],A[,j]))#对MGS取v，CGS取a
+          r[i,j] <- sum(q[,i]*ifelse(MGS,v[,j],A[,j]))#对MGS取v，CGS取a
           v[,j] <- v[,j]-r[i,j]*q[,i]
         }}
         r[j,j] <- sqrt(sum(v[,j]^2))
@@ -2733,12 +2733,13 @@ set.seed(INI_NUM)
          X_i=F^{-1}_X(U_i)
     \end{align}
 
-    Proof:
+    \begin{proof}
     \begin{align}
         \mathbb{P}\left(x<X<x+\mathrm{d}x \right)=&\mathbb{P}\left(F(x)<U<F(x+\mathrm{d} x)\right)\\
         =&\dfrac{\partial^{} F(x)}{\partial x^{}}\mathrm{d}x =f(x)\,\mathrm{d}x
-    \end{align}
-    \item Acceptance-Rejection Method\index{Acceptance-Rejection Method}: For $ F(x) $ untraceable, only $ f(x) $ known, e.g. Normal Distribution.
+    \end{align} 
+    \end{proof}
+    \item Acceptance-Rejection Method\index{Acceptance-Rejection Method}: For $ F(x) $ untraceable, only $ f(x) $ known, %e.g. Normal Distribution.
     
     First decompose $ f(x) $ as 
     \begin{align}
@@ -2756,15 +2757,16 @@ set.seed(INI_NUM)
         \end{cases} 
     \end{align}
 \end{enumerate}
-    Proof:
+    \begin{proof}
     \begin{align}
-        \mathbb{P}(\mathrm{Accept}|x )=\dfrac{f(x)}{g(x)\int p(\xi )g(\xi ) \,\mathrm{d}\xi }\Rightarrow \mathbb{P}(\mathrm{Accept} )=\int _x \mathbb{P}(\mathrm{Accept}|x )g(x)\,\mathrm{d}x=\dfrac{1}{\int p(\xi )g(\xi ) \,\mathrm{d}\xi}
+        \mathbb{P}(\mathrm{Accept}|x )=\dfrac{f(x)\big/ g(x)}{\int p(\xi )g(\xi ) \,\mathrm{d}\xi }\Rightarrow \mathbb{P}(\mathrm{Accept} )=\int _x \mathbb{P}(\mathrm{Accept}|x )g(x)\,\mathrm{d}x=\dfrac{1}{\int p(\xi )g(\xi ) \,\mathrm{d}\xi}
     \end{align}
 
     Using Bayesian Rule:
     \begin{align}
         \mathbb{P}(x_k|\mathrm{Accept} )=\dfrac{\mathbb{P}(\mathrm{Accept}|x_k )g(x_k)}{\mathbb{P}(\mathrm{Accept} )}=f(X_{n_k}) 
     \end{align}
+    \end{proof}
 
     Intuitively view: figure $ f(x) $ lies under $ g(x) $. If for each $ x $ we accept it with probability $ \dfrac{f(x)}{g(x)} $, then figure $ g(x) $ is `cut' into $ f(x) $, $ \int p(x)g(x) \,\mathrm{d}x $ acts as the normalize constant, which corresponds to `accept rate' controlling generate frequancy.
 

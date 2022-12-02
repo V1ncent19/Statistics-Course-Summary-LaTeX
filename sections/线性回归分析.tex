@@ -1516,8 +1516,10 @@ dwtest(lmfit)
     \end{equation}
     
     \item Deleted Residual\index{Deleted Residual}:\footnote{
-        \textit{Proof:}
-
+        \begin{proof}
+            
+        
+    
         Lemma: $ (A+B)^{-1}=A^{-1}-\dfrac{1}{1+tr(BA^{-1})}A^{-1}BA^{-1} $, where $ \mathrm{rk}(B)=1  $.
 
         
@@ -1554,7 +1556,7 @@ dwtest(lmfit)
             =&e_i+X_i(X'X)^{-1}X_i'\dfrac{e_i}{1-h_{ii}}\\
             =&\dfrac{e_i}{1-h_{ii}} 
         \end{align*}
-
+    \end{proof}
     }
 
 
@@ -1586,10 +1588,6 @@ dwtest(lmfit)
     \begin{align*}
         t_i=r_i\left(\dfrac{n-p-2}{n-p-1-r_i^2}\right)^{1/2}\Leftrightarrow r_i=t_i\left(\dfrac{n-p-1}{n-p-2+t_i^2}\right)^{1/2} 
     \end{align*}
-    
-    
-    
-    
     
 \end{itemize}
 
@@ -1635,7 +1633,7 @@ dwtest(lmfit)
     
     \item Diagnostics to \textbf{Influential}: Cook's Distance\index{Cook's Distance}, by quantifying the `influence' to $ \hat{\beta } $.
     
-    Using \autoref{EqaDistributionOfMultiVariateBeta}(\autoref{EqaDistributionOfMultiVariateSigma}) we could construct the following Cook's Distance\footnote{Proof uses {EqaProofOfDeleteedResidual}.}
+    Using \autoref{EqaDistributionOfMultiVariateBeta}(\autoref{EqaDistributionOfMultiVariateSigma}) we could construct the following Cook's Distance\footnote{Proof uses \autoref{EqaProofOfDeleteedResidual}.}
     \begin{equation}
          D_i=\dfrac{\left\Vert X(\hat{\beta} -\hat{\beta }_{(\wedge 1)})\right\Vert ^2}{(p+1)\hat{\sigma }^2}=\dfrac{e_i^2}{(p+1)\hat{\sigma }^2}\dfrac{h_{ii}}{(1-h_{ii})^2}\qquad \dfrac{1-h_{ii}}{h_{ii}}D_i\sim F_{p+1,n-p-1}
     \end{equation}

@@ -19,10 +19,10 @@
 \contentsline {subsection}{\numberline {1.6}Convergence and Limit Distribution}{21}{subsection.1.6}%
 \contentsline {subsubsection}{\numberline {1.6.1}Convergence Mode}{21}{subsubsection.1.6.1}%
 \contentsline {subsubsection}{\numberline {1.6.2}Law of Large Number \& Central Limit Theorem}{21}{subsubsection.1.6.2}%
-\contentsline {subsection}{\numberline {1.7}Inequalities}{22}{subsection.1.7}%
+\contentsline {subsection}{\numberline {1.7}Inequalities}{23}{subsection.1.7}%
 \contentsline {subsection}{\numberline {1.8}Multivariate Normal Distribution}{24}{subsection.1.8}%
-\contentsline {subsubsection}{\numberline {1.8.1}Linear Transform}{24}{subsubsection.1.8.1}%
-\contentsline {subsubsection}{\numberline {1.8.2}Distributions of Function of Normal Variable: $\chi ^2,$ $t\,\& \,F$}{25}{subsubsection.1.8.2}%
+\contentsline {subsubsection}{\numberline {1.8.1}Linear Transform}{25}{subsubsection.1.8.1}%
+\contentsline {subsubsection}{\numberline {1.8.2}Distributions of Function of Normal Variable: $\chi ^2,$ $t\,\& \,F$}{26}{subsubsection.1.8.2}%
 \contentsline {section}{\numberline {2}统计推断部分}{28}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Statistical Model and Statistics}{28}{subsection.2.1}%
 \contentsline {subsubsection}{\numberline {2.1.1}Statistics}{28}{subsubsection.2.1.1}%
@@ -248,27 +248,35 @@
 \contentsline {subsubsection}{\numberline {10.6.5}Forecast of ARMA$ (p,q) $}{257}{subsubsection.10.6.5}%
 \contentsline {subsubsection}{\numberline {10.6.6}Forecast of ARIMA$ (p,d,q) $}{257}{subsubsection.10.6.6}%
 \contentsline {section}{\numberline {11}因果推断导论部分}{258}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Neyman-Rubin Framework}{258}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.1}Neyman-Rubin Potential Outcome Framework}{258}{subsection.11.1}%
 \contentsline {subsubsection}{\numberline {11.1.1}Description of Causal Effect and Challenge}{258}{subsubsection.11.1.1}%
-\contentsline {subsubsection}{\numberline {11.1.2}Assumptions}{259}{subsubsection.11.1.2}%
-\contentsline {subsection}{\numberline {11.2}Inference to Causal Effect}{261}{subsection.11.2}%
+\contentsline {subsubsection}{\numberline {11.1.2}Assumptions}{260}{subsubsection.11.1.2}%
+\contentsline {subsection}{\numberline {11.2}Inference to Causal Effect in Completely Randomized Experiment}{261}{subsection.11.2}%
 \contentsline {subsubsection}{\numberline {11.2.1}Fisher's Exact $ p $-value}{261}{subsubsection.11.2.1}%
 \contentsline {subsubsection}{\numberline {11.2.2}Neyman's Repeated Sampling Approach}{262}{subsubsection.11.2.2}%
-\contentsline {subsubsection}{\numberline {11.2.3}Regression Methods}{263}{subsubsection.11.2.3}%
-\contentsline {subsubsection}{\numberline {11.2.4}Model Based Inference using Bayesian Statistics}{266}{subsubsection.11.2.4}%
-\contentsline {subsection}{\numberline {11.3}Pearl Framework}{267}{subsection.11.3}%
-\contentsline {section}{\numberline {12}应用随机过程部分}{268}{section.12}%
-\contentsline {subsection}{\numberline {12.1}Minimum Mean Squared Estimator}{268}{subsection.12.1}%
-\contentsline {subsection}{\numberline {12.2}Markov Process}{270}{subsection.12.2}%
-\contentsline {subsubsection}{\numberline {12.2.1}Basic Concepts}{270}{subsubsection.12.2.1}%
-\contentsline {subsubsection}{\numberline {12.2.2}Conditional Independence}{271}{subsubsection.12.2.2}%
-\contentsline {subsubsection}{\numberline {12.2.3}Properties of Discrete Time Markov Chain}{271}{subsubsection.12.2.3}%
-\contentsline {subsubsection}{\numberline {12.2.4}Random Walk}{274}{subsubsection.12.2.4}%
-\contentsline {subsubsection}{\numberline {12.2.5}Branching Process}{276}{subsubsection.12.2.5}%
-\contentsline {subsubsection}{\numberline {12.2.6}Properties of Continuous Time Markov Chain}{277}{subsubsection.12.2.6}%
-\contentsline {subsubsection}{\numberline {12.2.7}Independent Increment Process}{278}{subsubsection.12.2.7}%
-\contentsline {subsection}{\numberline {12.3}Miscellanea}{280}{subsection.12.3}%
-\contentsline {subsubsection}{\numberline {12.3.1}Markov Decision Processes}{280}{subsubsection.12.3.1}%
-\contentsline {subsubsection}{\numberline {12.3.2}CTMC}{282}{subsubsection.12.3.2}%
-\contentsline {section}{参考文献}{283}{subsubsection.12.3.2}%
-\contentsline {section}{索引}{285}{subsubsection.12.3.2}%
+\contentsline {subsubsection}{\numberline {11.2.3}Regression Methods}{264}{subsubsection.11.2.3}%
+\contentsline {subsubsection}{\numberline {11.2.4}Model Based Inference using Bayesian Statistics}{267}{subsubsection.11.2.4}%
+\contentsline {subsection}{\numberline {11.3}More Assignment Mechanism and Observational Study}{268}{subsection.11.3}%
+\contentsline {subsubsection}{\numberline {11.3.1}Other Classical Randomized Experiment}{268}{subsubsection.11.3.1}%
+\contentsline {subsubsection}{\numberline {11.3.2}Observational Study with Regular Assignment Mechanisms}{269}{subsubsection.11.3.2}%
+\contentsline {subsection}{\numberline {11.4}Pearl Bayesian Framework}{271}{subsection.11.4}%
+\contentsline {section}{\numberline {12}应用随机过程部分}{273}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Markov Process}{273}{subsection.12.1}%
+\contentsline {subsubsection}{\numberline {12.1.1}Basic Concepts}{273}{subsubsection.12.1.1}%
+\contentsline {subsubsection}{\numberline {12.1.2}Properties of Discrete Time Markov Chain}{273}{subsubsection.12.1.2}%
+\contentsline {subsubsection}{\numberline {12.1.3}Properties of Continuous Time Markov Chain}{277}{subsubsection.12.1.3}%
+\contentsline {subsubsection}{\numberline {12.1.4}Independent Increment Process}{278}{subsubsection.12.1.4}%
+\contentsline {subsection}{\numberline {12.2}Useful Instances of Stochastic Processes}{279}{subsection.12.2}%
+\contentsline {subsubsection}{\numberline {12.2.1}Random Walk}{279}{subsubsection.12.2.1}%
+\contentsline {subsubsection}{\numberline {12.2.2}Gambler's Model}{279}{subsubsection.12.2.2}%
+\contentsline {subsubsection}{\numberline {12.2.3}Branching Process}{280}{subsubsection.12.2.3}%
+\contentsline {subsubsection}{\numberline {12.2.4}Brownian Motion}{282}{subsubsection.12.2.4}%
+\contentsline {subsubsection}{\numberline {12.2.5}Poisson Process}{283}{subsubsection.12.2.5}%
+\contentsline {subsubsection}{\numberline {12.2.6}Birth-Death Process}{283}{subsubsection.12.2.6}%
+\contentsline {subsection}{\numberline {12.3}Miscellanea}{284}{subsection.12.3}%
+\contentsline {subsubsection}{\numberline {12.3.1}Minimum Mean Squared Estimator}{284}{subsubsection.12.3.1}%
+\contentsline {subsubsection}{\numberline {12.3.2}Conditional Independence}{286}{subsubsection.12.3.2}%
+\contentsline {subsubsection}{\numberline {12.3.3}Markov Decision Processes}{287}{subsubsection.12.3.3}%
+\contentsline {subsubsection}{\numberline {12.3.4}Kalman Filter}{290}{subsubsection.12.3.4}%
+\contentsline {section}{参考文献}{295}{equation.12.181}%
+\contentsline {section}{索引}{297}{equation.12.181}%
