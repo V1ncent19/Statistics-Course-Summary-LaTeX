@@ -1,10 +1,10 @@
 
-    \begin{align*}
-        F_k\to F ,\quad H_k\to H,\quad Q_k\to Q ,\quad R_k\to R 
-    \end{align*}
-    then Kalman filter and variance estimation have asymptotic form by solving
-    \begin{align*}
-        P_{\infty}=&F \left(P_\infty-P_\infty H'\left(H P_\infty H
-        +R \right)^{-1}H P_\infty\right)F '+Q \\
-        K_\infty = &P_\infty H '\left(H P_\infty H '\right)^{-1}
-    \end{align*}
+$$
+\begin{aligned}
+        \int _\mathbb{R}f(t)g^\dagger (t) \,\mathrm{d}t =& \int _\mathbb{R} \int _\mathbb{R}\dfrac{1}{\sqrt{2\pi}}F(\omega _1)e^{i\omega _1t} \,\mathrm{d}\omega _1 \int _\mathbb{R}\dfrac{1}{\sqrt{2\pi}}G^\dagger(\omega _2)e^{-i\omega _2t} \,\mathrm{d}\omega _2 \,\mathrm{d}t\\
+        =&\int_{\omega _1} \int_{ \omega _2} F(\omega _1)G^\dagger(\omega _2)\int _t \dfrac{1}{2\pi} e^{i(\omega _1-\omega _2)t} \,\mathrm{d}t \,\mathrm{d}\omega _1 \,\mathrm{d}\omega\\
+        =&\int_\omega F(\omega )G^\dagger(\omega )\,\mathrm{d}\omega
+\end{aligned}
+$$ 
+
+

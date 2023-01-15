@@ -600,7 +600,7 @@ predict(lmfit,newdata = 40),
 
 
     \begin{point}
-       Simultaneous Confidence Band (SCB)\index{SCB (Simultaneous Confidence Band)}\index{CB (Confidence Band)}\index{Confidence Region!Confidence Band}
+       Simultaneous Confidence Band (SCB)\index{SCB (Simultaneous Confidence Band)}\index{Confidence Region!Confidence Band}
     \end{point}
 
     Confidence Band is \textbf{not} the CI at each point, but really a \textbf{band} for the \textbf{entire} regression line.\footnote{Why they are different? We require the confidence band have a \textbf{simultaneous} converage probability. For the same band $ (L(x),U(x)) $, $ P(\text{the whole line})< P(\text{each point})$, so Confidence Band is wider than $ \bigcup $CIs to hold the same $ 1-\alpha $.
@@ -1193,9 +1193,6 @@ avPlots(lmfit)
 \subsubsection{Diagnostics to $ X $ Distribution}\label{SubSecXDiagnostics}
 
 
-
-
-
     Considering the dependence of $ Y_i $ on $ X_i $, to get a more reliable $ \hat{\beta }_1 $, we cannot just focus on the (marginal) distribution of $ Y_i $, we would also need a better 'distribution' of $ X_i $
     \begin{itemize}[topsep=2pt,itemsep=2pt]
         \item Plots: BoxPlot/QQPlot
@@ -1216,7 +1213,7 @@ avPlots(lmfit)
                 \hat{g}_1=\dfrac{m_{n,3}}{m_{n,2}^{3/2}}=\dfrac{\frac{1}{n}\sum\limits_{i=1}^n(X_i-\bar{X})^3}{\left( \frac{1}{n}\sum\limits_{i=1}^n(X_i-\bar{X}) \right)^{3/2}} 
             \end{equation}
 
-            Adjusted Skewness (Least MSE):\index{Skewness!Adjusted Skewness}
+            Adjusted Skewness (Least MSE):\index{Adjusted Skewness}
             \begin{equation}
                 \dfrac{\sqrt{n(n-1)}}{n-2}\hat{g}_1 
             \end{equation}
@@ -1237,8 +1234,8 @@ avPlots(lmfit)
 
             $ \hat{g}_2=0 \Rightarrow $ similar to normal.
             \begin{itemize}[topsep=2pt,itemsep=2pt]
-                \item $ \hat{g}_2>0 $: Leptokurtic, heavy tail, slender;\index{Kurtosis!Leptokurtic}
-                \item $ \hat{g}_2<0 $: Platykurtic, light tail, broad.\index{Kurtosis!Platykurtic}
+                \item $ \hat{g}_2>0 $: Leptokurtic, heavy tail, slender;\index{Leptokurtic}
+                \item $ \hat{g}_2<0 $: Platykurtic, light tail, broad.\index{Platykurtic}
             \end{itemize}
             
             Note: In expression of $ \hat{g}_1 $ and $ \hat{g}_2 $, we already divide the variance. So Skewness and Kurtosis only reflect the difference from normal, but \textbf{not}  related to variance.

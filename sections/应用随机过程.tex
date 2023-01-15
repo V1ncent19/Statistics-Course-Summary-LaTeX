@@ -7,7 +7,7 @@
 
 
 
-\subsection{Markov Process}
+\subsection{Properties of Stochastic Process}
 % (Or sometimes called random process)
 
 \subsubsection{Basic Concepts}
@@ -15,15 +15,15 @@ Some basic concepts about stochastic process / random process are introduced in 
 
 A stochastic process is a mapping
 \begin{align}
-     \{X_t:t\in\mathcal{T}\}:\, \mathcal{T}\times\Omega \mapsto \mathbb{R}
+     \{X_t:t\in\mathcal{T}\}:\, \Omega \mapsto \mathcal{T}\times \mathbb{R}
 \end{align}
 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item For each given $ t \in\mathcal{T}$, $ X_t(\, \cdot \, ) $ is a r.v. defined on $ \Omega  $.
-    \item For each given $ \omega \in \Omega  $, $ X_\cdot (\omega ) $ is a function on $ \mathcal{T} $, which is called sample path.\index{Sample Path}
+    \item For given $ t \in\mathcal{T}$, $ X_t(\, \cdot \, ) $ is a r.v. defined on $ \Omega  $.
+    \item For given $ \omega \in \Omega  $, $ X_\cdot (\omega ) $ is a function on $ \mathcal{T} $, which is called sample path.\index{Sample Path}
 \end{itemize}
 
-According to the continuity of index set $ \mathcal{T} $ and sample path values, Stochastic process can be categorized in discrete / continuous Time + discrete / continuous State processes.
+According to the continuity of index Fourier Transformset $ \mathcal{T} $ and sample path values, Stochastic process can be categorized in discrete / continuous Time + discrete / continuous State processes.
 
 Some functions of stochastic processes include
 \begin{itemize}[topsep=2pt,itemsep=0pt]
@@ -391,7 +391,7 @@ Another case of Markov Chain is Continuous Time Markov Chain (CTMC)\index{CTMC (
     \end{align}
     thus yield the detailed balance in CTMC version:
     \begin{align}
-         \color{red}\pi^*Q=0\Leftarrow \pi^*_iq_{ij}=\pi^*_jq_{ij},\,\forall i,j
+         \color{red}\pi^*Q=0\Leftarrow \pi^*_iq_{ij}=0,\,\forall i,j
     \end{align}
     \item Dynamics of CTMC\index{Sojourn Time}: Each step (say, $ 0\leadsto t\leadsto t+\delta  $) in state transitions in CTMC could be decomposed in two sub-steps:
     \begin{align}
@@ -434,7 +434,7 @@ Given irreducible \& non-explosive CTMC, we have
 \end{itemize}
 
 
-\subsubsection{Independent Increment Process}\label{SubSubSectionIndepedentProcess}
+\subsubsection{Independent Increment Process and Martingale}\label{SubSubSectionIndepedentProcess}
 
 Motivation: Sometimes a process is a `summation of all past events'.
 
@@ -452,6 +452,9 @@ Motivation: Sometimes a process is a `summation of all past events'.
     \begin{align}
         \mathbb{E}\left[ X_{t_n}|Y_{t_{n-1}},\ldots,Y_{t_0} \right] = X_{t_{n-1}} 
     \end{align}
+    with bounded expectation $ \mathbb{E}\left[ |X_t| \right] <\infty $.
+
+    
 \end{itemize}
 
 \begin{point}
@@ -465,6 +468,8 @@ Motivation: Sometimes a process is a `summation of all past events'.
 
 
 
+
+\subsubsection{Ergodicity}
 
 
 
@@ -781,7 +786,7 @@ Properties:
                     W_t:=B_t+t \sigma ^2 N(0,1) 
                 \end{cases}
             \end{align}
-            i.e. Bronian Bridge is independent of the terminal of its corresponding Wiener Process $ B_t\independent W_T $.
+            i.e. Brownian Bridge is independent of the terminal of its corresponding Wiener Process $ B_t\independent W_T $.
         \end{itemize}
 \end{itemize}
 
@@ -818,7 +823,7 @@ Properties:
         f_{U_1,U_2,\ldots,U_n}(u_1,u_2,\ldots,u_n)=\prod_{i=1}^n \lambda e^{-\lambda u_i}\mathbb{I}_{u_i\geq 0}=\sim \otimes{i=1}^n\varepsilon_i (\lambda )
     \end{align}
     
-    i.e. time-between-events satisties exponential distribution
+    i.e. time-between-events satisfies exponential distribution
     \begin{align}
         U_i\sim_\mathrm{i.i.d.}  \varepsilon (\lambda ) 
     \end{align}
@@ -935,153 +940,39 @@ Birth-death process looks like a one-end random-walk with `step' as poisson r.v.
 
 
 
-\subsection{Miscellanea}
-
-\subsubsection{Minimum Mean Squared Estimator}\label{SubSecMMSE}
-    Motivation: Here's a signal transmission process in which source is $ X\sim f_{X} $ and observation is $ \vec{Z}\sim f_Z $, we need to find a (theoretically best) information process function $ g(\, \cdot \, ) $ such that we can reproduce $ X $ with $ g(\vec{Z}) $ with minimum `error' (Note that $ X$ and $\vec{Z} $ can be dependent)., i.e.
-    \begin{align}
-        \hat{g}=\mathop{\arg\min}\limits_{g(\, \cdot \, )\in \mathscr{F}} \mathbb{E}\left[ (X-g(\vec{Z}))^2 \right] 
-    \end{align}
-
-    which is the \textbf{Minimum Mean Squared Estimator} (MMSE)\index{MMSE (Minimum Mean Squared Estimator)}. \footnote{\textbf{Note}: the function space $ \mathscr{F}(\vec{Z}) $ (by default) is the arbitrary measurable function space $ :=\mathscr{V}(\vec{Z}) $, but you can specifically select a proper one, e.g. linear combination of some power function $ \mathbb{V}(1,\vec{Z},\vec{Z}^2):=\{a+bZ+cZ^2\}_{a,b,c\in\mathbb{R}}\subset \mathscr{F}(\vec{Z}) $.
-    
-    I am not quite sure (actually I believe it's wrong lol) but maybe for some commonly used function form, we could view that
-    \begin{align}
-        \mathscr{V}(\vec{Z})\approx \mathbb{V}(\{\vec{Z}^p\}_{p=-\infty}^\infty) 
-    \end{align}
-    
-    }
-
-\begin{point}
-    General Solution to MMSE
-\end{point}
-
-    The solution to MMSE is that
-    \begin{align}
-         \hat{g}(\, \cdot \, )\, s.t. \begin{cases}
-            \hat{g}(\vec{Z})\in \mathscr{F}(Z)\\
-            e:=X-\hat{g}(\vec{Z})\perp h(\vec{Z}),\quad \forall h(\vec{Z})\in\mathscr{F}(Z)
-         \end{cases}
-    \end{align}
-    
-    here $ \perp $ in the sense that $ \imath \perp \jmath \Leftrightarrow \mathbb{E}\left[ \imath\jmath \right]=0  $
-    
-    % \begin{proof}
-        Denote $ \mathscr{F}(Z)\ni g(Z)=\hat{g}(Z)+c h(Z)  ,\,h(Z)\in\mathscr{F}(Z)$, then
-        \begin{align}
-            \mathbb{E}\left[ (X-g(Z))^2 \right]  =&\mathbb{E}\left[ (X-\hat{g}(Z)-ch(Z))^2 \right]\\
-            =&\mathbb{E}\left[ (X-\hat{g}(Z))^2 \right] -2c\mathbb{E}\left[ (X-\hat{g}(Z))h(Z) \right]+c^2\mathbb{E}\left[ h(Z)^2 \right]  
-        \end{align}
-        
-        \begin{itemize}[topsep=2pt,itemsep=0pt]
-            \item If $ X-\hat{g}(\vec{Z})\perp h(\vec{Z})  $: $
-                \mathbb{E}\left[ (X-g(Z))^2 \right]  =\mathbb{E}\left[ (X-\hat{g}(Z))^2 \right] +c^2\mathbb{E}\left[ h(Z)^2 \right]  \geq \mathbb{E}\left[ (X-\hat{g}(Z))^2 \right]$
-            \item If $ X-\hat{g}(\vec{Z})\not\perp h(\vec{Z})  $, then for $ |c| $ small enough we could have $ \mathbb{E}\left[ (X-g(Z))^2 \right]< \mathbb{E}\left[ (X-\hat{g}(Z))^2 \right]$.          
-        \end{itemize}
-        
-        which gives that the above condition is  necessary and sufficient.
-    % \end{proof}
-    
-    
-    
-    The above expression is similar to the projection operator onto space $ \mathscr{F} $, i.e.
-    \begin{align}
-        \hat{g}(\, \cdot \, )=\Pi_{\mathscr{F(\, \cdot \, )}}(X),\quad \begin{cases}
-            \Pi_{\mathscr{F(\, \cdot \, )}}(X)\in \mathscr{F}\\
-            X-\Pi_{\mathscr{F(\, \cdot \, )}}(X)\perp \mathscr{F}
-        \end{cases}
-    \end{align}
-    
-\begin{point}
-    Properties of Projection Operator $ \Pi_{\mathcal{V}} $ (where function space $ \mathscr{F} $ is a kind of linear space $ \mathcal{V} $)\index{Projection Operator}
-\end{point}
-\begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item Linearity
-    \begin{align}
-        \Pi_{\mathcal{V}}(aX+bY)=a\Pi_{\mathcal{V}}(X)+b\Pi_{\mathcal{V}}(Y)
-    \end{align}
-    \item Project within subspace: for $\mathcal{V}_2\subset \mathcal{V}_1 $
-    \begin{align}
-        \Pi_{\mathcal{V}_2}(X)=\Pi_{\mathcal{V}_2}\left(\Pi_{\mathcal{V}_1}(X)\right) 
-    \end{align}
-    \item Projection onto orthogonal space: for $ \mathcal{V}_1\perp\mathcal{V}_2 $
-    \begin{align}
-        \Pi_{\mathcal{V}_1\oplus\mathcal{V}_2}(X)=\Pi_{\mathcal{V}_1}(X)+\Pi_{\mathcal{V}_2}(X) 
-    \end{align}
-\end{itemize}
-
-\begin{point}
-    Important Cases
-\end{point}
-
-\begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item $ \mathscr{F}(Z)=\mathscr{V}(Z) $: Solution is 
-    \begin{align}
-        \mathbb{E}\left[ X|Z \right] 
-    \end{align}
-    
-    in which
-    \begin{align}
-        \begin{cases}
-            \mathbb{E}\left[ X|Z \right] \in\mathscr{F}(Z)\\
-            \mathbb{E}\left[(X-\mathbb{E}\left[ X|Z \right] )g(Z) \right]=\mathbb{E}\left[ Xg(Z) \right] -\mathbb{E}\left[ \mathbb{E}\left[ g(Z)X|Z \right]  \right] =0 
-        \end{cases} 
-    \end{align}
-    \item $ \mathscr{F}(Z)=\mathrm{const} $: Solution is
-    \begin{align}
-         \mathbb{E}\left[ X \right]  
-    \end{align}
-    
-    in which
-    \begin{align}
-        \begin{cases}
-            \mathbb{E}\left[ X \right]\in \mathcal{R}\\
-            \mathbb{E}\left[ (X-\mathbb{E}\left[ X \right] )\mathrm{const} \right]=0 
-        \end{cases} 
-    \end{align}
-
-    which is also a kind of variance definition:
-    \begin{align}
-        var(X):=\min_{c\in\mathbb{R}}\mathbb{E}\left[ (X-c)^2 \right]  
-    \end{align}
-    
-    \item \hypertarget{MMSELinear}{}\index{Best Linear Estimator}$ \mathscr{F}(Z)=\mathbb{V}(1,\vec{Z}) $ i.e. linear conbination of $ \vec{Z} $ as $ a+\vec{Z}'b $. Solution is
-    \begin{align}
-        L(X|\vec{Z}):=\mathbb{E}\left[ X \right] +cov(X,\vec{Z})var(\vec{Z})^{-1}\left(\vec{Z}-\mathbb{E}\left[ \vec{Z} \right] \right)
-    \end{align}
-    
-    in which
-    \begin{align}
-        \begin{cases}
-            \mathbb{E}\left[ X \right] +cov(X,\vec{Z})var(\vec{Z})^{-1}\left(\vec{Z}-\mathbb{E}\left[ \vec{Z} \right] \right)\in \mathbb{V}(1,\vec{Z})\\
-        \mathbb{E}\left[ (X-L(X|\vec{Z}))(a+\vec{Z}'b) \right] = 0
-        \end{cases}
-    \end{align}
-    
-\end{itemize}
 
 
-\begin{point}
-    Innovation Sequence (新息序列)\index{Innovation Sequence}
-\end{point}
 
-Motivation: construction of linear MMSE $ L(X|Y_1,Y_2,\ldots,Y_n)=L(X|Y) $. Assume that $\mathbb{E}\left[ \vec{Y} \right] =0 $, the prediction is
+
+
+
+
+
+
+
+
+\subsection{Applications}
+
+
+\subsubsection{Innovation Sequence}
+     
+Motivation of Innovation Sequence (新息序列)\index{Innovation Sequence}: construction of linear MMSE $ L(X|Y_1,Y_2,\ldots,Y_n)=L(X|Y) $. Assume that $\mathbb{E}\left[ \vec{Y} \right] =0 $, the prediction is
 \begin{align}
     L(X|\vec{Y})=\mathbb{E}\left[ X \right] + cov(X,\vec{Y})var(\vec{Y})^{-1}\vec{Y}
 \end{align}
-which causes the problem of computation complexity when $ n $ is large. 
+which causes the problem of computation complexity when dimension $ n $ is large. 
 
 Innovation sequence fixed this problem by: instead of projecting on the whole linear combination $ \vec{Y} $ space of size $ (n+1) $, we project on space of each $ Y_i $ sequentially. i.e. define an \textbf{innovation sequence} 
 \begin{align}
-    \tilde{Y}_1=&Y_1-\mathbb{E}\left[ Y_1 \right] \\
-    \tilde{Y}_2=&Y_2-L(Y_2|Y_1)\\
-    \tilde{Y}_3=&Y_3-L(Y_3|Y_2Y_1)\\
+    \tilde{Y}_1=&Y_1-\mathbb{E}\left[ Y_1 \right] = Y_1 - \mathbb{E}\left[ Y_1 \right] \\
+    \tilde{Y}_2=&Y_2-L(Y_2|Y_1) = Y_2-L(Y_2|\tilde{Y}_1)\\
+    \tilde{Y}_3=&Y_3-L(Y_3|Y_2Y_1)= Y_3-L(Y_3|\tilde{Y}_2\tilde{Y}_1)\\
     \ldots&\\
-    \tilde{Y}_n=&Y_n-L(Y_n|Y_{n-1}\ldots Y_2Y_1)
+    \tilde{Y}_n=&Y_n-L(Y_n|Y_{n-1}\ldots Y_2Y_1)=Y_n-L(Y_n|\tilde{Y}_{n-1}\ldots \tilde{Y}_2\tilde{Y}_1)
 \end{align}
 where `innovation' means each $ \tilde{Y}_i $ contains the `new information without correlation with previous sequence': $ \mathbb{E}\left[ \tilde{Y_i}\tilde{Y}_j \right]=0\,\forall i\neq j  $. Computation of innovation sequence:
 \begin{align}
-     \tilde{Y}_k=&Y_k-L(Y_k|Y_{k-1}\ldots Y_1)=Y_k-\mathbb{E}\left[ Y_k \right] -\sum_{j=1}^{k-1}\dfrac{cov(Y_k,\tilde{Y}_{j})}{var(\tilde{Y}_{j})}\tilde{Y}_j,\quad k=1,2,\ldots,n
+     \tilde{Y}_k=&Y_k-L(Y_k|\tilde{Y}_{k-1}\ldots \tilde{Y}_1)=Y_k-\mathbb{E}\left[ Y_k \right] -\sum_{j=1}^{k-1}\dfrac{cov(Y_k,\tilde{Y}_{j})}{var(\tilde{Y}_{j})}\tilde{Y}_j,\quad k=1,2,\ldots,n
 \end{align}
 with a trivial notation that $ Y_{0}=1 $
 
@@ -1091,38 +982,13 @@ In this way a linear MMSE $ L(X|\vec{Y}) $ could be written as
 \end{align}
 
 
-I think the idea here is similar to Gram-Schmidt orthogonalization (\autoref{SubSubSectionQRDecomposition}), in which we also construct new components by eliminating projection on previous parts. As a result we have a set of orthogonal elements (here orthogonal means $ \mathbb{E}\left[ \tilde{Y}_i\tilde{Y}_j \right]=0  $ and in Gram-Schmidt means $ q_i'q_j = 0 $, $ i\neq j $).
-
-
-
-\subsubsection{Conditional Independence}
-Conditional independence \index{Conditional Independence}: say $ X $ and $ Z $ are conditionally independent given $ Y $, i.e. $ X $-$ Y $-$ Z $
-\begin{align}
-    f_{X|YZ}=f_{X|Y}\Leftrightarrow f_{XZ|Y}=f_{X|Y}f_{Z|Y} 
-\end{align}
-
-Further if $ (X,Y,Z)\sim N(\mu ,\Sigma ) $ (a joint Gaussian Dist.). Then
-\begin{align}
-    cov(X,Z)=cov(X,Y)var(Y)^{-1}cov(Y,Z)
-\end{align}
-it could be deduced using linar MMSE + innovation sequence of jointly Gaussian
-\begin{align}
-    cov(Z,X-L(X|Y))=0\Rightarrow cov(X,Z)= cov(X,Y)var(Y)^{-1}cov(Y,Z)
-\end{align}
-or use \autoref{EquConditionalPrForGaussian}, in which $ X_1=(X,Z),\,X_2=Y $
-\begin{align}
-    \Sigma _{X,Z|Y}=\begin{bmatrix}
-        \Sigma _{X}-\Sigma _{XY}-\Sigma _{Y}^{-1}\Sigma _{YX}&\color{brown}\Sigma _{XZ}-\Sigma _{XY}\Sigma _{Y}^{-1}\Sigma _{YZ}\\
-        \Sigma _{ZX}-\Sigma _{ZY}\Sigma _Y^{-1}\Sigma _{YX}&\Sigma _{Z}-\Sigma _{ZY}\Sigma _Y^{-1}\Sigma _{YZ}
-    \end{bmatrix} \Rightarrow {\color{brown}\Sigma _{XZ}=\Sigma _{XY}\Sigma _{Y}^{-1}\Sigma _{YZ}}
-\end{align}
-
+I think the idea here is similar to Gram-Schmidt orthogonalization (\autoref{SubSubSectionQRDecomposition}), in which we also construct new components by eliminating projection on previous parts. As a result we have a set of orthogonal elements (here orthogonal means $ \mathbb{E}\left[ \tilde{Y}_i\tilde{Y}_j \right]=0  $ and in Gram-Schmidt means $ q_i'q_j = 0 $, $ i\neq j $). And the result is a `change of basis' of space.
 
 
 
 
 \subsubsection{Markov Decision Processes}
-\index{MDPs (Markov Decision Processes)}\index{Episode}\index{Policy}\index{State-Value Function}\index{V-Value@$ V $-Value}
+\index{MDPs (Markov Decision Processes)}\index{Episode}\index{Policy}
 In decision process/episode, say $ \{(s_t,a_t)\}_{t=0}^T $, we need to determine a \textbf{policy} $ \pi_t $ to take \textbf{action}  $ a_t $ given \textbf{state}  $ s_t $ as
 \begin{align}
     a_t\sim \pi_t(\, \cdot \,| s_t) \text{ or simply }a_t=\pi_t(s_t)
@@ -1165,7 +1031,7 @@ Comments:
     \begin{align}
         \sum_{\tau = T }^\infty\gamma ^{\tau}r_\tau\left(s_\tau,s_{\tau+1}|a_\tau=\pi_\tau(s_\tau)\right) \leq \tilde{r}\dfrac{\gamma ^T}{1-\gamma }
     \end{align}
-    which can be controlled below $\varepsilon  \tilde{r} $ for a large enough \textbf{Effective Length}  $ T_\varepsilon  $
+    which can be bounded below $\varepsilon  \tilde{r} $ for a large enough \textbf{Effective Length}  $ T_\varepsilon  $
     \begin{align}
         \tilde{r}\dfrac{\gamma ^T}{1-\gamma }<\tilde{r}\varepsilon \Rightarrow T_\varepsilon \approx \dfrac{\log[(1-\gamma )\varepsilon ]}{\log \gamma }\sim \mathcal{O}\left( \dfrac{1}{1-\gamma }\log\dfrac{1}{\varepsilon (1-\gamma )} \right)\sim \mathcal{O}(\dfrac{1}{1-\gamma })
     \end{align}
@@ -1184,7 +1050,7 @@ total reward $ \mathcal{V}_{t\leadsto T} $ could be written as
     \mathcal{V}_{t\leadsto T}^{\pi_{t:T}}(s_t)=&\mathbb{E}_{s_{t+1}\sim p\left(\, \cdot \, |s_t,a_t\sim\pi(s_t)\right)}\left[ r_t\left(s_t,s_{t+1}|a_t\sim \pi_t(s_t)\right)+\gamma \mathcal{V}_{(t+1)\leadsto T}^{\pi_{(t+1):T}} (s_{t+1})\Big|s_t\right] \\
     =&{\color{red}\mathbb{E}_{a_t\sim \pi(\, \cdot \, |s_t)}\left[{\color{blue}R_{t}\left(s_t,a_t\right)+  \gamma\mathbb{E}_{s_{t+1}\sim p\left(\, \cdot \, |s_t,a_t\right)}\left[{\color{black}  \mathcal{V}_{(t+1)\leadsto T}^{\pi_{(t+1):T}} (s_{t+1})} \Big| s_t,a_t \right]}  \big|s_t\right]}
 \end{align}
-with the {red} part as \textbf{State-Value Function}, or {\color{red}$ V $-value}; the {blue} part as \textbf{Action-Value Function}, or {\color{blue}$ Q $-value}
+with the {red} part as \textbf{State-Value Function}\index{V-Value@$ V $-Value (State-Value Function)}\index{State-Value Function}, or {\color{red}$ V $-value}; the {blue} part as \textbf{Action-Value Function}\index{Action-Value Function}, or {\color{blue}$ Q $-value}
 \begin{align}
     {\color{red}V_{t\leadsto T}^{\pi_{t:T}}(s_t)}=&\mathbb{E}_{a_t\sim \pi(\, \cdot \, |s_t)}\left[ Q_{t\leadsto T}^{\pi_{(t+1):T}}(s_t,a_t)  \big|s_t\right]\\
     {\color{blue}Q_{t\leadsto T}^{\pi_{(t+1):T}}(s_t,a_t)}=&R_t\left(s_t,a_t\right)+\gamma \mathbb{E}_{s_{t+1}\sim p\left(\, \cdot \, |s_t,a_t\right)}\left[V_{(t+1)\leadsto T}^{\pi_{(t+1):T}} (s_{t+1})\Big| s_t,a_t\right]
@@ -1279,6 +1145,64 @@ with some known \textit{final/terminal} state $ \{s_\mathrm{final} \} $, where $
 % \end{align}
 
 % e.g. stationary Gaussian with $ \mathrm{Cross}_X(\tau)\to 0   $ is ergodic in m.s. and a.s. sense.
+
+
+\subsubsection{Karhunen-Loève Expansion}
+
+Karhunen-Loève Expansion (KL Expansion)\index{KL Expansion (Karhunen-Loève Expansion)} is a coutinuous version of PCA \autoref{EqaCurseOfDimensionality}. The idea is a decomposition 
+\begin{align}
+    X(t)=\sum_{i}X_i\phi _i(t) 
+\end{align}
+i.e. we add an extra step in mapping
+\begin{align}
+    X(\, \cdot \, ):\, \Omega\mapsto \{X_i\}\mapsto \mathcal{T}\times \mathbb{R}  
+\end{align}
+a special set of $ \{X_i,\phi_i\} $ is given by KL expansion.
+
+\begin{point}
+    Derivations
+\end{point}
+
+First note that $ R(s,t):=\mathbb{E}\left[ X(s)X(t) \right] $ is a Kernel (see \autoref{EqaKernelFunction}), with positive semi-definition and symmetry. Then by Mercer's Thm., it has eigen-function decomposition
+\begin{align}
+    R(s,t) =\sum_{i} \lambda _i\phi _i(s)\phi _i(t) \Leftrightarrow \langle R(s,\, \cdot \, ),\phi_i\rangle = \lambda _i\phi_i(s)
+\end{align}
+where eigen functions are orthonormal
+\begin{align}
+    \langle \phi _i, \phi _j \rangle := \int_\tau \phi _i(\tau)\phi _j(\tau)\,\mathrm{d}\tau = \delta _{ij}
+\end{align}
+
+using $ \{\phi _i\} $ as function basis, KL coefficients are r.v. 
+\begin{align}
+    X_i=\langle X_t, \phi _i\rangle  
+\end{align}
+with
+\begin{align}
+    \mathbb{E}\left[ X_iX_j \right] = \langle \phi_i | X_t\rangle \langle X_t| \phi_j\rangle =  \langle \phi_i | R(s,t) | \phi_j\rangle = \delta _{ij}\lambda _i
+\end{align}
+
+\begin{point}
+Other Concepts
+\end{point}
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Total energy:
+    \begin{align}
+        E=\mathbb{E}\left[ \left\langle X_t,X_t \right\rangle \right]=\sum_i\lambda _i
+    \end{align}
+    \item Rank: $ \mathrm{rank}\left(\{\mathbb{E}\left[ X_iX_j \right] \}\right) = \#(\lambda _i\neq 0) $ is also the rank of the process.
+    
+\end{itemize}
+
+    
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1458,7 +1382,7 @@ Motivation: what we could observe is $ \{z_k\} $ sequence, with pre-specified $ 
                 &{\color{white}K_k}=P_{k|k-1}H_k'\left(H_kP_{k|k-1}H_k'+R_k\right)^{-1}
             \end{align}
             \item State Update: $ \, \cdot \, _{k|k-1}\mapsto \, \cdot \, _{k|k} $
-            \begin{align}\label{EqaKalmanPosteriorUpdate}
+            \begin{align}
                 \text{posterior state: }&\hat{x}_{k|k}=\hat{x}_{k|k-1}+K_k\tilde{z}_k\\
                 &{\color{white}\hat{x}_{k|k}}=\hat{x}_{k|k-1}+K_k\left(z_k-H_k\hat{x}_{k|k-1}\right)\\
                 &{\color{white}\hat{x}_{k|k}}=\left(I-K_kH_k\right)\hat{x}_{k|k-1}+K_kz_k\\
@@ -1516,7 +1440,7 @@ Motivation: what we could observe is $ \{z_k\} $ sequence, with pre-specified $ 
     
     
     \item[(c1)] posterior state update
-    \begin{align}
+    \begin{align}\label{EqaKalmanPosteriorUpdate}
         \hat{x}_{k|k}=\hat{x}_{k|k-1}+K_k\tilde{z}_k=\left(I-K_kH_k\right)\hat{x}_{k|k-1}+K_kz_k
     \end{align}
     \item[(c2)] posterior variance update
@@ -1547,76 +1471,185 @@ Motivation: what we could observe is $ \{z_k\} $ sequence, with pre-specified $ 
 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item Optimality of Kalman Filter as a MMSE: in \autoref{EqaKalmanFilterPostVarUpdate}, posterior variance does \textbf{not} depend on a concrete form of Kalman gain, thus in which Kalman filter  can be selected as some other ones $ \tilde{K}_k $ (e.g. to avoid numerical instability). The optimal Kalman gain is the one that minimizes $ tr\left(P_{k|k}\right) $
-    \begin{align*}
+    \begin{align}
         K_k=\mathop{\arg\min}\limits_{K}tr\left( (I-KH_k)P_{k|k-1}(I-KH_k)'+KR_kK' \right)
-    \end{align*}
+    \end{align}
     obtained by\footnote{Matrix differentiation see \autoref{SubSubSectionMatrixNotationAndLemma}}
-    \begin{align*}
+    \begin{align}
         \dfrac{\partial^{} tr\left(P_{k|k}\right)}{\partial K ^{}}= -2\left(H_kP_{k|k-1}\right)'+2K_kS_k=0\Rightarrow K_k=P_{k|k-1}H_k'S_k^{-1}
-    \end{align*}
+    \end{align}
 
-    \item Role of Kalman gain $ K_k $: in \autoref{EqaKalmanPosteriorUpdate} we can see that $ K_k $ looks like a weighting factor btw. history information $ \hat{x}_{k|k-1} $ and new observation $ z_k $.
-    \begin{align*}
+    \item Role of Kalman gain $ K_k $: in posterior update \autoref{EqaKalmanPosteriorUpdate} we can see that $ K_k $ looks like a weighting factor btw. history information $ \hat{x}_{k|k-1} $ and new observation $ z_k $.
+    \begin{align}
         \hat{x}_{k|k}=\left(I-K_kH_k\right)\hat{x}_{k|k-1}+K_kz_k 
-    \end{align*}
+    \end{align}
 
     and note that the Kalman gain update
-    \begin{align*}
+    \begin{align}
         P_{k|k-1}=&F_kP_{k-1|k-1}F_k'+Q_k\\
         S_k=&H_kP_{k|k-1}H'_k+R_k\\
         K_k=&P_{k|k-1}H_k'S_k^{-1}\\
         P_{k|k}=&(I-K_kH_k)P_{k|k-1}
-    \end{align*}
+    \end{align}
     only involve $ \{F_k,H_k,Q_k,R_k\} $ and initial $ P_{0|0}$. It means Kalman gain $ K_k $ could be computed offline. In actual application scenario we can just compute state iteratively
-    \begin{align*}
+    \begin{align}
         \hat{x}_{k|k-1}=&F_k\hat{x}_{k-1|k-1}\\
         \hat{x}_{k|k}=&\left(I-K_kH_k\right)\hat{x}_{k|k-1}+K_kz_k\\
         P_{k|k-1}=&F_kP_{k-1|k-1}F_k'+Q_k\\
         P_{k|k}=&\left(I-K_kH_k\right)P_{k|k-1}
-    \end{align*}
+    \end{align}
     \item Asymptotic form: when step $ k\to\infty $, we may have limit
-    \begin{align*}
+    \begin{align}
         F_k\to F ,\quad H_k\to H,\quad Q_k\to Q ,\quad R_k\to R 
-    \end{align*}
+    \end{align}
     then Kalman filter and variance estimation have asymptotic form by solving
-    \begin{align*}
+    \begin{align}
         P_{\infty}=&F \left(P_\infty-P_\infty H'\left(H P_\infty H
         +R \right)^{-1}H P_\infty\right)F '+Q \\
         K_\infty = &P_\infty H '\left(H P_\infty H '+R\right)^{-1}
-    \end{align*}
+    \end{align}
 
     and the asymptotic update
-    \begin{align*}
+    \begin{align}
         \hat{x}_{k+1}=F\left(I-K_\infty H\right)\hat{x}_k+ FK_\infty z_k 
-    \end{align*}
+    \end{align}
     
     \item Extended Kalman Filter (EKF)\index{EKF (Extended Kalman Filter)}: Kalman filter assumes a linear model with noise. Usually it's a good-enough approximator to the real case. For non-linear case, i.e. Extended Kalman filter, has model
-    \begin{align*}
+    \begin{align}
          \text{State: }&x_k=f_k(x_{k-1})+w_k\\
          \text{Observable: }&z_k=h_k(x_k)+v_k
-    \end{align*}
+    \end{align}
     the update could be obtained by replacement
-    \begin{align*}
+    \begin{align}
          F_k=\dfrac{\partial^{}  }{\partial x ^{}}f_k\left(\hat{x}_{k-1|k-1}\right),\qquad H_k=\dfrac{\partial^{} }{\partial x^{}}h_k\left(\hat{x}_{k|k-1}\right)
-    \end{align*}
+    \end{align}
     \item Kalman-Bucy Filter\index{Kalman-Bucy Filter} is the continuous time version of Kalman filter, with model
-    \begin{align*}
-        \text{State: }\dfrac{\mathrm{d}^{} x(t)}{\mathrm{d}t^{}}=F(t)x(t)+w(t)\\
+    \begin{align}
+        \text{State: }&\dfrac{\mathrm{d}^{} x(t)}{\mathrm{d}t^{}}=F(t)x(t)+w(t)\\
         \text{Observable: }&z(t)=H(t)x(t)+v(t)
-    \end{align*}
+    \end{align}
     where $ w(t),\,v(t) $ are white noise.
 
     Kalman update:
-    \begin{align*}
+    \begin{align}
         \dfrac{\mathrm{d}^{} \hat{x}(t)}{\mathrm{d}t^{}}=&\left( F(t)-K(t)H(t)\hat{x}(t) \right)+K(t)z(t)\\
         \dfrac{\mathrm{d}^{}P(t) }{\mathrm{d}t}=&F(t)P(t)+P(t)F(t)'+Q(t)-K(t)R(t)K(t)'
-    \end{align*}
+    \end{align}
     with Kalman gain
-    \begin{align*}
+    \begin{align}
         K(t)=P(t)H(t)'R(t)^{-1} 
+    \end{align}
+    
+    
+\end{itemize}
+
+    
+
+\subsubsection{Linear Time Invariant Systems}
+
+Linear Time Invariant Systems (LTI Systems)\index{LTI Systems (Linear Time Invariant Systems)} models data generation process as a convolution
+\begin{align}
+    x(t)=\int _\mathbb{R}z(\tau)h(t-\tau) \,\mathrm{d}\tau = (z*g)(t)
+\end{align}
+where $ \int $ for linear, and $ h(t-\tau) $ for time-invariant.
+
+LTI systems could be conveniently parsed with Fourier Transform, introduced in \autoref{SubSubSectionFourierAndConvolution}.
+
+\begin{point}
+    Cross Correlation Structure
+\end{point}
+
+Usually we consider weak stationary case, with notation:
+\begin{align}
+    \mu _X,\quad \mu _Z,\quad  R_Z(t)=\mathbb{E}\left[ z(s)z(s+t) \right],\,\forall s,\quad R_{XZ}(t)=\mathbb{E}\left[ x(s)z(s+t) \right],\,\forall s  
+\end{align}
+corresponding Fourier transform:
+\begin{align}
+    R_Z(t)\fallingdotseq S_Z(\omega ),\quad R_{XZ}(t)\fallingdotseq S_{XZ}(\omega ) ,\quad h(t)\fallingdotseq H(\omega )
+\end{align}
+
+Relations:
+\begin{align}
+    \mu _X=&  \sqrt{2\pi}\mu _ZH(0) \\
+    R_{XZ}(t)=&(R_Z*h)(t)\\
+    R_{X}(t)=&(h*R_Z*\tilde{h})(t),\quad \tilde{h}(\tau)=h(-\tau)\\
+    S_{XZ}(\omega )=&\sqrt{2\pi}S_Z(\omega )H(\omega )\\
+    S_X(\omega )=&2\pi S_Z(\omega )|H(\omega )|^2
+\end{align}
+
+
+\subsubsection{Wiener Filter}
+Goal of Wiener Filter\index{Wiener Filter} is to estimate some $ x_u $ from $ z_t:\,t\in[a,b] $ with a linear function in MMSE sense $ \hat{x}_u=L(x_u|z_t:\,t\in[a,b]) $:
+\begin{align}
+    \hat{x}_u=\int _a^b z_\tau h(\tau,u) \,\mathrm{d}\tau ,\quad w.r.t. h(\, \cdot \, )=\mathop{\arg\min}\limits_{h}\mathbb{E}\left[ (x_u-\hat{x}_u) ^2\right]  
+\end{align}
+
+
+the solution, as explained in \autoref{SubSecMMSE}, satisfies $ \mathbb{E}\left[ (x_u-\hat{x}_u)z_t \right] =0,\,\forall t\in[a,b] $, which yields
+\begin{align}
+    R_{XZ}(u,t)=\int _a^b R_Z(t,\tau)h(u-\tau) \,\mathrm{d}\tau,\quad \forall t\in[a,b]
+\end{align}
+usually we also consider weak stationary case, with $ [a,b]=\mathbb{R} $
+\begin{align}
+    R_{XZ}(u-t)=\int_\mathbb{R} R_Z(\tau -t)h(u-\tau)  \,\mathrm{d}\tau ,\quad \forall t\in[a,b]
+\end{align}
+
+
+\begin{point}
+    Non-Causal Solution
+\end{point}
+A general solution $ L(x_u|z_t:\,t\in\mathbb{R}) $ is easily obtained by Fourier transform, with the convolution expression of estimator
+\begin{align}
+    S_{XZ }(\omega )= \sqrt{2\pi}S_Z(\omega )H(\omega )\Rightarrow H(\omega )=\dfrac{S_{XZ} (\omega )}{\sqrt{2\pi}S_Z(\omega )}
+\end{align}
+with MSE\footnote{Derivation uses Parseval's Thm. \autoref{EqaParsevalThm}.}
+\begin{align}
+    \mathrm{MSE}=\int _\mathbb{R} S_X(\omega )-\dfrac{|S_{XZ}(\omega )|^2}{S_Z(\omega )} \,\mathrm{d}\omega   
+\end{align}
+
+\begin{point}
+    Causal Solution
+\end{point}
+
+Causal solution demands that estimation cannot use future information, modelled as
+\begin{align*}
+    \hat{x}_{T}=L(x_T|z_t:\,t\in(-\infty, 0]),\quad T>0 
+\end{align*}
+i.e. 
+\begin{align*}
+    \hat{x}_T=&\int _\mathbb{R} z_\tau h(-\tau) \,\mathrm{d}\tau ,\quad w.r.t.\, h(\varsigma)=h(\varsigma)\eta(\varsigma) \\
+    R_{XZ}(T+t)=&\int _\mathbb{R}R_Z(\tau+t)h(-\tau) \,\mathrm{d}\tau ,\quad \forall t\geq 0
+\end{align*}
+MMSE condition
+\begin{align*}
+    \left[ e^{i\omega T}S_{XZ}\right]_+ = \left[S_Z(\omega )H(\omega ) \right]_+
+\end{align*}
+where $[\, \cdot \, ]_+ $ corresponds to the causal component of FT
+\begin{align*}
+     f(t)=&\eta(t)f(t)+(1-\eta(t))f(t)\fallingdotseq [F(\omega )]_+ + [F(\omega )]_-\\
+    [F(\omega )]_+=&\dfrac{1}{\sqrt{2\pi}}\int _0^\infty f(t)e^{-i\omega t} \,\mathrm{d}t
+\end{align*}
+
+with factor decomposition $ S_Z(\omega )=S_Z^+(\omega )S_Z^-(\omega ) $, where $ S_Z^+ $ is a causal function\footnote{An illustration: since convolution function is causal invariant, then
+\begin{align*}
+    e^H=\sum_{i=0}^\infty \dfrac{H^i}{i!}\fallingdotseq \sum_{i=0}^\infty \dfrac{(* h)^i}{i!} 
+\end{align*}
+is also causal invariant, i.e. $ H=[H]_+\Rightarrow e^H=[e^H]_+ $, then we could have
+\begin{align*}
+    S=S^+S^-=e^{\varsigma^++\varsigma^-}=e^{[s]_++[s]_-}
+\end{align*}
+}, we have solution
+\begin{align*}
+    H(\omega )=\dfrac{1}{S_Z^+}\left[\dfrac{e^{i\omega T}S_{XZ}}{S_Z^-}\right]_+ 
+\end{align*}
+
+
+Notes on causal function:
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Convolution is causal invariant:
+    \begin{align*}
+        (\eta f * \eta g)(t) = \int_0^\infty f(\tau)g(t-\tau) \,\mathrm{d}\tau = 0 \,\text{if }t<0
     \end{align*}
-    
-    
 \end{itemize}
 
     
@@ -1624,7 +1657,271 @@ Motivation: what we could observe is $ \{z_k\} $ sequence, with pre-specified $ 
 
 
 
- 
+
+
+
+
+
+
+\subsection{Miscellanea}
+
+\subsubsection{Minimum Mean Squared Estimator}\label{SubSecMMSE}
+    Motivation: Here's a signal transmission process in which source is $ X\sim f_{X} $ and observation is $ \vec{Z}\sim f_Z $, we need to find a (theoretically best) information process function $ g(\, \cdot \, ) $ such that we can reproduce $ X $ with $ g(\vec{Z})\in\mathscr{F} $ with minimum `error' (Note that $ X$ and $\vec{Z} $ can be dependent)., i.e.
+    \begin{align}
+        \hat{g}=\mathop{\arg\min}\limits_{g(\, \cdot \, )\in \mathscr{F}} \mathbb{E}\left[ (X-g(\vec{Z}))^2 \right] 
+    \end{align}
+
+    which is the \textbf{Minimum Mean Squared Estimator} (MMSE)\index{MMSE (Minimum Mean Squared Estimator)}. \footnote{\textbf{Note}: the function space $ \mathscr{F}(\vec{Z}) $ (by default) is the arbitrary measurable function space $ :=\mathscr{V}(\vec{Z}) $, but you can specifically select a proper one, e.g. linear combination of some power function $ \mathbb{V}(1,\vec{Z},\vec{Z}^2):=\{a+bZ+cZ^2\}_{a,b,c\in\mathbb{R}}\subset \mathscr{F}(\vec{Z}) $.
+    
+    I am not quite sure (actually I believe it's wrong lol) but maybe for some commonly used function form, we could view that
+    \begin{align}
+        \mathscr{V}(\vec{Z})\approx \mathbb{V}(\{\vec{Z}^p\}_{p=-\infty}^\infty) 
+    \end{align}
+    
+    }
+
+\begin{point}
+    General Solution to MMSE
+\end{point}
+
+    The solution to MMSE is that
+    \begin{align}
+         \hat{g}(\, \cdot \, )\, s.t. \begin{cases}
+            \hat{g}(\vec{Z})\in \mathscr{F}(Z)\\
+            e:=X-\hat{g}(\vec{Z})\perp h(\vec{Z}),\quad \forall h(\vec{Z})\in\mathscr{F}(Z)
+         \end{cases}
+    \end{align}
+    
+    here $ \perp $ in the sense that $ \imath \perp \jmath \Leftrightarrow \mathbb{E}\left[ \imath\jmath \right]=0  $
+    
+    % \begin{proof}
+        Denote $ \mathscr{F}(Z)\ni g(Z)=\hat{g}(Z)+c h(Z)  ,\,h(Z)\in\mathscr{F}(Z)$, then
+        \begin{align}
+            \mathbb{E}\left[ (X-g(Z))^2 \right]  =&\mathbb{E}\left[ (X-\hat{g}(Z)-ch(Z))^2 \right]\\
+            =&\mathbb{E}\left[ (X-\hat{g}(Z))^2 \right] -2c\mathbb{E}\left[ (X-\hat{g}(Z))h(Z) \right]+c^2\mathbb{E}\left[ h(Z)^2 \right]  
+        \end{align}
+        
+        \begin{itemize}[topsep=2pt,itemsep=0pt]
+            \item If $ X-\hat{g}(\vec{Z})\perp h(\vec{Z})  $: $
+                \mathbb{E}\left[ (X-g(Z))^2 \right]  =\mathbb{E}\left[ (X-\hat{g}(Z))^2 \right] +c^2\mathbb{E}\left[ h(Z)^2 \right]  \geq \mathbb{E}\left[ (X-\hat{g}(Z))^2 \right]$
+            \item If $ X-\hat{g}(\vec{Z})\not\perp h(\vec{Z})  $, then for $ |c| $ small enough we could have $ \mathbb{E}\left[ (X-g(Z))^2 \right]< \mathbb{E}\left[ (X-\hat{g}(Z))^2 \right]$.          
+        \end{itemize}
+        
+        which gives that the above condition is  necessary and sufficient.
+    % \end{proof}
+    
+    
+    
+    The above expression is similar to the projection operator onto space $ \mathscr{F} $, i.e.
+    \begin{align}
+        \hat{g}(\, \cdot \, )=\Pi_{\mathscr{F(\, \cdot \, )}}(X),\quad \begin{cases}
+            \Pi_{\mathscr{F(\, \cdot \, )}}(X)\in \mathscr{F}\\
+            X-\Pi_{\mathscr{F(\, \cdot \, )}}(X)\perp \mathscr{F}
+        \end{cases}
+    \end{align}
+    
+\begin{point}
+    Properties of Projection Operator $ \Pi_{\mathcal{V}} $ (where function space $ \mathscr{F} $ is a kind of linear space $ \mathcal{V} $)\index{Projection Operator}
+\end{point}
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Linearity
+    \begin{align}
+        \Pi_{\mathcal{V}}(aX+bY)=a\Pi_{\mathcal{V}}(X)+b\Pi_{\mathcal{V}}(Y)
+    \end{align}
+    \item Project within subspace: for $\mathcal{V}_2\subset \mathcal{V}_1 $
+    \begin{align}
+        \Pi_{\mathcal{V}_2}(X)=\Pi_{\mathcal{V}_2}\left(\Pi_{\mathcal{V}_1}(X)\right) 
+    \end{align}
+    \item Projection onto orthogonal space: for $ \mathcal{V}_1\perp\mathcal{V}_2 $
+    \begin{align}
+        \Pi_{\mathcal{V}_1\oplus\mathcal{V}_2}(X)=\Pi_{\mathcal{V}_1}(X)+\Pi_{\mathcal{V}_2}(X) 
+    \end{align}
+\end{itemize}
+
+\begin{point}
+    Important Cases
+\end{point}
+
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item $ \mathscr{F}(Z)=\mathscr{V}(Z) $: Solution is 
+    \begin{align}
+        \mathbb{E}\left[ X|Z \right] 
+    \end{align}
+    
+    in which
+    \begin{align}
+        \begin{cases}
+            \mathbb{E}\left[ X|Z \right] \in\mathscr{F}(Z)\\
+            \mathbb{E}\left[(X-\mathbb{E}\left[ X|Z \right] )g(Z) \right]=\mathbb{E}\left[ Xg(Z) \right] -\mathbb{E}\left[ \mathbb{E}\left[ g(Z)X|Z \right]  \right] =0 
+        \end{cases} 
+    \end{align}
+    \item $ \mathscr{F}(Z)=\mathrm{const} $: Solution is
+    \begin{align}
+         \mathbb{E}\left[ X \right]  
+    \end{align}
+    
+    in which
+    \begin{align}
+        \begin{cases}
+            \mathbb{E}\left[ X \right]\in \mathcal{R}\\
+            \mathbb{E}\left[ (X-\mathbb{E}\left[ X \right] )\big| \mathrm{const} \right]=0 
+        \end{cases} 
+    \end{align}
+
+    which is also a kind of variance definition:
+    \begin{align}
+        var(X):=\min_{c\in\mathbb{R}}\mathbb{E}\left[ (X-c)^2 \right]  
+    \end{align}
+    
+    \item \hypertarget{MMSELinear}{}\index{Best Linear Estimator}$ \mathscr{F}(Z)=\mathbb{V}(1,\vec{Z}) $ i.e. linear conbination of $ \vec{Z} $ as $ a+\vec{Z}'b $. Solution is
+    \begin{align}
+        L(X|\vec{Z}):=\mathbb{E}\left[ X \right] +cov(X,\vec{Z})var(\vec{Z})^{-1}\left(\vec{Z}-\mathbb{E}\left[ \vec{Z} \right] \right)
+    \end{align}
+    
+    in which
+    \begin{align}
+        \begin{cases}
+            \mathbb{E}\left[ X \right] +cov(X,\vec{Z})var(\vec{Z})^{-1}\left(\vec{Z}-\mathbb{E}\left[ \vec{Z} \right] \right)\in \mathbb{V}(1,\vec{Z})\\
+        \mathbb{E}\left[ (X-L(X|\vec{Z}))(a+\vec{Z}'b) \right] = 0
+        \end{cases}
+    \end{align}
+    
+\end{itemize}
+
+
+\subsubsection{Conditional Independence}
+Conditional independence \index{Conditional Independence}: say $ X $ and $ Z $ are conditionally independent given $ Y $, i.e. $ X $-$ Y $-$ Z $
+\begin{align}
+    f_{X|YZ}=f_{X|Y}\Leftrightarrow f_{XZ|Y}=f_{X|Y}f_{Z|Y} 
+\end{align}
+
+Further if $ (X,Y,Z)\sim N(\mu ,\Sigma ) $ (a joint Gaussian Dist.). Then
+\begin{align}
+    cov(X,Z)=cov(X,Y)var(Y)^{-1}cov(Y,Z)
+\end{align}
+it could be deduced using linar MMSE + innovation sequence of jointly Gaussian
+\begin{align}
+    cov(Z,X-L(X|Y))=0\Rightarrow cov(X,Z)= cov(X,Y)var(Y)^{-1}cov(Y,Z)
+\end{align}
+or use \autoref{EquConditionalPrForGaussian}, in which $ X_1=(X,Z),\,X_2=Y $
+\begin{align}
+    \Sigma _{X,Z|Y}=\begin{bmatrix}
+        \Sigma _{X}-\Sigma _{XY}-\Sigma _{Y}^{-1}\Sigma _{YX}&\color{brown}\Sigma _{XZ}-\Sigma _{XY}\Sigma _{Y}^{-1}\Sigma _{YZ}\\
+        \Sigma _{ZX}-\Sigma _{ZY}\Sigma _Y^{-1}\Sigma _{YX}&\Sigma _{Z}-\Sigma _{ZY}\Sigma _Y^{-1}\Sigma _{YZ}
+    \end{bmatrix} \Rightarrow {\color{brown}\Sigma _{XZ}=\Sigma _{XY}\Sigma _{Y}^{-1}\Sigma _{YZ}}
+\end{align}
+
+
+
+\subsubsection{Fourier Transform and Convolution}\label{SubSubSectionFourierAndConvolution}
+\begin{point}
+    Fourier Transform\index{FT (Fourier Transform)}
+\end{point}
+
+Fourier Transform (FT) $ g(t)\fallingdotseq G(\omega ) $ is a link between time domain and frequency domain\footnote{For symmetry consideration, I usually use $ \dfrac{1}{\sqrt{2\pi}} $ in both transform and inversed.}
+\begin{align}
+     g(t)\fallingdotseq G(\omega ):\,\begin{cases}
+        g(t)=\dfrac{1}{\sqrt{2\pi}}\int_\mathbb{R}G(\omega )e^{i\omega t}\,\mathrm{d}\omega \\
+        G(\omega )=\dfrac{1}{\sqrt{2\pi}}\int _{\mathbb{R}}g(t)e^{-i\omega t} \,\mathrm{d}t
+     \end{cases}
+\end{align}
+Fourier operator is denoted $ \mathscr{F}\left[ \, \cdot \,  \right] $
+\begin{align}
+    G=\mathscr{F}\left[ g \right] \leftrightsquigarrow g=\mathscr{F}^{-1}\left[ G \right] 
+\end{align}
+
+Properties
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Linearity
+    \begin{align}
+        \mathscr{F}\left[ \alpha f+\beta g \right] = \alpha \mathscr{F}\left[ f \right] +\beta \mathscr{F}\left[ g \right]  
+    \end{align}
+    \item Time shifting / Frequency shifting
+    \begin{align}
+        g(t-\tilde{t})\fallingdotseq G(\omega )e^{-i\omega \tilde{t}}  \qquad G(\omega -\tilde{\omega })\risingdotseq g(t)e^{i\tilde{\omega }t}
+    \end{align}
+    \item Convolution Thm.\index{Convolution Thm.}
+    \begin{align}
+        \mathscr{F}\left[ f*g \right]  = \sqrt{2\pi} FG 
+    \end{align}
+    where convolution operator is
+    \begin{align}
+        (f*g)(t)=\int _\tau f(\tau)g(t-\tau) \,\mathrm{d}\tau
+    \end{align}
+    \item Differentiation
+    \begin{align}
+        \dfrac{\mathrm{d}^{k} }{\mathrm{d}t^{k}} g(t) \fallingdotseq (i\omega )^k G(\omega )
+    \end{align}
+    \item Duality
+    \begin{align}
+        \mathscr{F}\left[ \mathscr{F}\left[ g(t) \right]  \right] = \dfrac{1}{2\pi} g(-t)  
+    \end{align}
+    \item Parseval's Thm.\index{Parseval's Thm.}\index{Rayleigh's Energy Thm.}:
+    \begin{align}\label{EqaParsevalThm}
+        \int _\mathbb{R}f(t)g^\dagger (t) \,\mathrm{d}t =& \int _\mathbb{R} \int _\mathbb{R}\dfrac{1}{\sqrt{2\pi}}F(\omega _1)e^{i\omega _1t} \,\mathrm{d}\omega _1 \int _\mathbb{R}\dfrac{1}{\sqrt{2\pi}}G^\dagger(\omega _2)e^{-i\omega _2t} \,\mathrm{d}\omega _2 \,\mathrm{d}t\\
+        =&\int_{\omega _1} \int_{ \omega _2} F(\omega _1)G^\dagger(\omega _2)\int _t \dfrac{1}{2\pi} e^{i(\omega _1-\omega _2)t} \,\mathrm{d}t \,\mathrm{d}\omega _1 \,\mathrm{d}\omega\\
+        =&\int_\omega F(\omega )G^\dagger(\omega )\,\mathrm{d}\omega
+    \end{align}
+    (if the integration above can be properly defined.)
+
+    A physical intuition is the energy convervation in both time domain and spetrum domain (which is also a reason I prefer the $ \dfrac{1}{\sqrt{2\pi}} $ transform ---- no extra coefficient in this energy conservation)
+    \begin{align}
+        \int_{\mathbb{R}} \left| f(t) \right|^2\,\mathrm{d}t = \int_\omega \left|F(\omega )\right|^2 \,\mathrm{d}\omega 
+    \end{align}
+    
+       
+    
+\end{itemize}
+
+
+Instances
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Dirac $ \delta  $ function\index{Dirac $ \delta  $ Function} for unit impulse at $ t_0 $
+    \begin{align}
+        \int _{-\infty}^s \delta (t-t_0) \,\mathrm{d}t=\eta(s-t_0)=\begin{cases}
+            0,&s<t_0\\
+            1,&s>t_0
+        \end{cases} 
+    \end{align}
+    some commonly used definition of $ \delta  $ function:
+    \begin{align}
+        \delta (t)=& \lim_{\Delta \to 0}\dfrac{1}{\Delta }\mathbb{I}_{-\Delta /2<t<\Delta /2}\\
+        \delta (t)=&\lim_{\Delta \to 0}\dfrac{1}{\pi \Delta }\mathrm{sinc}(\Delta t)
+    \end{align}
+
+    Integration of Dirac $ \delta  $ yields
+    \begin{align}
+        \int _\mathbb{R} \delta (t-t_0)f(t) \,\mathrm{d}t  = f(t_0)
+    \end{align}
+    
+    FT of Dirac $ \delta  $ is harmonic wave
+    \begin{align}
+        \delta (t-t_0)\fallingdotseq \dfrac{1}{\sqrt{2\pi}} e^{-i\omega t_0},\quad e^{i\omega _0t}\fallingdotseq \sqrt{2\pi} \delta (\omega -\omega _0)
+    \end{align}
+
+    
+    
+    \item FT for periodic function $ g(t)=g(t+T) $ is Fourier series
+    \begin{align}
+        \begin{cases}
+            g(t)=\sum_{n=-\infty}^{\infty}c_n\cdot e^{i\frac{2\pi n}{T}t}\\
+            c_n=\dfrac{1}{T}\int_{\text{one period}}f(t)e^{-i\frac{2\pi n}{T}t}\,\mathrm{d}t
+        \end{cases} 
+    \end{align}
+    where $ c_0 $ is the DC component of the function.
+    
+    \item Discrete Time FT: discrete time case can be viewed as a sample of frequency $ T $ from continuous case 
+    \begin{align}
+        \begin{cases}
+            g_T(t)=\sum_{n=-\infty}^\infty g(t)\delta (t-nT)\\
+            \mathscr{F}\left[ g_T \right] (\omega )= \dfrac{1}{\sqrt{2\pi}}\sum_{n=-\infty}^{\infty}g(nT)e^{-i\omega nT}
+        \end{cases}
+    \end{align}
+    which dual with FT for periodic function.
+\end{itemize}
+
+    
+    
 
 
 
@@ -1634,29 +1931,10 @@ Motivation: what we could observe is $ \{z_k\} $ sequence, with pre-specified $ 
 
 
 
-% \begin{center}
-%     \begin{tikzpicture}
-%     \GraphInit[vstyle=Dijkstra]
-%     \SetGraphUnit{2}
-%         \tikzset{VertexStyle/.style = {
-%             shape = circle,
-%             color = black,
-%             text = black,
-%             minimum size = 20,
-%             draw}}
-%         \Vertices{line}{1,2}
-%         \SO(1){3}
-%         \SO(2){4}
-%         \tikzset{LabelStyle/.style={fill = white}, EdgeStyle/.style={-stealth}}
-%         \Edge[label = 1/4](1)(3)
-%         \Edge[label = 1/4](2)(4)
-%         \Loop[dist = 2cm, dir = NOWE, label = 1/2](1)
-
-%         \tikzset{EdgeStyle/.style={-stealth, bend right}}
 
 
-   
 
 
-%     \end{tikzpicture}
-%     \end{center}
+
+
+

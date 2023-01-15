@@ -78,8 +78,10 @@
 \subsubsection{Basic Knowledge of Stochastic Process}
     A stochastic process can be denoted:\index{Stochastic Process}
     \begin{equation}
-        \{X_t:\,t\in \mathcal{T}\}:\, \Omega\times \mathcal{T}\to \mathcal{E}
+        \{X_t:\,t\in \mathcal{T}\}:\, \Omega\to \mathcal{T}\times \mathcal{E}
     \end{equation}
+
+    i.e. the random `variable' of stochastic process is a function $ X(t)\in L^2(\mathcal{T}) $
     
 \begin{point}
     Some important cases of stochastic process:
@@ -306,25 +308,20 @@
 
         We can use this form to construct ACF, ACVF, etc.
         \begin{itemize}[topsep=2pt,itemsep=0pt]
-            \item Spectrum and ACVF:\footnote{I am not quite sure about the validity of the expression.}
+            \item Spectrum and ACVF: the fourier expansion of $ \gamma _k $ is denoted
             \begin{align}
-                \gamma _k=&cov(X_t,X_{t+k})\\
-                =&\mathbb{E}\left( X_t^*X_{t+k} \right)\\
-                =&\int _{t}\int _{\lambda _1}\int _{\lambda _2} \xi ^*(\lambda _1)\xi  \,\mathrm{d}\lambda _2 e^{i(\lambda _2-\lambda _1)t+i\lambda _2k} f(t) \,\mathrm{d}\lambda _1 \,\mathrm{d}t \\
-                =&\int _{\lambda _1}\int _{\lambda _2} \xi ^*(\lambda _1)\xi  \,\mathrm{d}\lambda _2  \,\mathrm{d}\lambda _1 \\
-                =&\int _{\lambda _2}e^{-\lambda _2k} {\color{blue} \int _t\int _{\lambda_1} \xi ^*(\lambda _1)\xi  \,\mathrm{d}\lambda _2 e^{i(\lambda _2-\lambda _1)t} f(t) \,\mathrm{d}\lambda _1 \,\mathrm{d}t }  \,\mathrm{d}\lambda _2\\
-                \equiv&\int _{\lambda } e^{-\lambda k}{\color{blue}\nu (\lambda )}  \,\mathrm{d}\lambda 
+                \gamma _k=&cov(X_t,X_{t+k})\equiv\int _{\lambda } e^{i\lambda k}{\color{blue}\nu (\lambda )}  \,\mathrm{d}\lambda 
             \end{align}
-            here function $ F(\lambda )=\int \nu (\lambda ) \,\mathrm{d}\lambda  $ is the \textbf{spectrum} of $ \gamma _k $ 
+            and here a function $ F(\lambda )=\int \nu (\lambda ) \,\mathrm{d}\lambda  $ is the \textbf{spectrum} of $ \gamma _k $, and $ \nu(\lambda )$ is the\textbf{ spectrum density}.\index{Spectrum Density}
 
-            For $ k=0,1,2,\ldots $:
+            For $ k=0,1,2,\ldots $ (discrete time)
             \begin{equation}
                 \gamma _k=\int _{-\pi}^\pi \nu (\lambda )e^{i\lambda k} \,\mathrm{d}\lambda  
             \end{equation}
             
             and also use inverse fourier transform: for weak stationary TS $ X_t=\sum_{j=-\infty}^\infty \phi _j\varepsilon _{t-j} $, $ \varepsilon _t\sim \mathrm{WN}(0,\sigma ^2)  $
             \begin{equation}
-                \nu (\lambda )= \dfrac{\sigma ^2}{2\pi}\left\vert \sum_{j=-\infty}^\infty \phi _je^{i\lambda j} \right\vert ^2
+                \nu (\lambda )=\dfrac{1}{2\pi}\int _\mathbb{R}\gamma _k e^{-i\lambda k} \,\mathrm{d}k  =\dfrac{\sigma ^2}{2\pi}\sum_{k=-\infty}^{\infty}\sum_{j=-\infty}^{\infty}\phi _j\phi _{j-k}e^{-i\lambda k}= \dfrac{\sigma ^2}{2\pi}\left\vert \sum_{j=-\infty}^\infty \phi _je^{i\lambda j} \right\vert ^2
             \end{equation}
             
             

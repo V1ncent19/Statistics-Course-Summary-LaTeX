@@ -124,7 +124,7 @@ moments::moment(df, order = ORDER_OF_M, central = FALSE, na.rm = FALSE)
         Properties
     \end{point}
     
-    \hypertarget{Statistic}{SamplingDistribution} $T$ is a function of random sample $\vec{X}=\{X_i\}$. Since the sample is drawn `at random', then$ T(\vec{X}) $ certainly also has its own distribution (say $g_T(t)$) called \textbf{Sampling Distribution}.\footnote{Now recap the statement that `statistic is not a function of parameter $ \theta  $': Recall that random variable (the sample is a set of r.v.) $ X $ is a mapping, so $ T:\,\Omega \mapsto \mathscr{X}\mapsto \mathbb{R} $ also. Parameter $ \theta  $ does not involve in the mapping process, instead it influence the sample probability $ \mathbb{P}_\theta(\vec{X}) $, and thus the distribution of statistics $ g_T(t(\vec{X});\theta ) $. Sometimes I use notation like $ T(\vec{X};\theta ) $ to remind me of this, but actually statistic should not contain $ \theta  $ (at least in its expression).}\index{Statistics!Sampling Distribution}
+    \hypertarget{Statistic}{SamplingDistribution} $T$ is a function of random sample $\vec{X}=\{X_i\}$. Since the sample is drawn `at random', then$ T(\vec{X}) $ certainly also has its own distribution (say $g_T(t)$) called \textbf{Sampling Distribution}.\footnote{Now recap the statement that `statistic is not a function of parameter $ \theta  $': Recall that random variable (the sample is a set of r.v.) $ X $ is a mapping, so $ T:\,\Omega \mapsto \mathscr{X}\mapsto \mathbb{R} $ also. Parameter $ \theta  $ does not involve in the mapping process, instead it influence the sample probability $ \mathbb{P}_\theta(\vec{X}) $, and thus the distribution of statistics $ g_T(t(\vec{X});\theta ) $. Sometimes I use notation like $ T(\vec{X};\theta ) $ to remind me of this, but actually statistic should not contain $ \theta  $ (at least in its expression).}\index{Sampling Distribution}
 
         For $X_i$ i.i.d. from $X\sim f(x)$ with population mean $\mu$ and variance $\sigma^2$
     \begin{itemize}
@@ -216,7 +216,7 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
     (Note: For simplification, the following parts denote $\vec{\theta},\vec{T},\ldots$  as $\theta,T,\ldots$ etc.) Now say we are trying to estimate $ \theta  $ by a statistic $ T(\vec{X}) $. We hope that $ T(\vec{X}) $ contains `necessary/enough useful information' when estimating $ \theta  $. \footnote{Intuition: `Information' might be described by `distribution of $ T(\vec{X}) $ for different $ \theta  $'. i.e. the distribution family $ \{g_T:\theta \in\Theta \} $ measures the performance of estimator.}
 
     \begin{itemize}
-        \item[$\blacktriangleright$] \index{Statistics!Sufficient Statistic}A \textbf{Sufficient Statistic} $T(\vec{X})$ for $\theta$ contains `\textit{enough}' information of sample when infering $\theta$, knowing more would not help us get a better estimation. i.e. the (conditional) distribution of sample given $ T(\vec{X}) $ is the same as that given the parameter. 
+        \item[$\blacktriangleright$] \index{Sufficient Statistic}A \textbf{Sufficient Statistic} $T(\vec{X})$ for $\theta$ contains `\textit{enough}' information of sample when infering $\theta$, knowing more would not help us get a better estimation. i.e. the (conditional) distribution of sample given $ T(\vec{X}) $ is the same as that given the parameter. 
         \begin{equation}
             f(\vec{X};T(\vec{X}))=f(\vec{X};T(\vec{X}),\theta)
         \end{equation}
@@ -236,7 +236,7 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
         \end{itemize}
         
         
-        \item[$\blacktriangleright$] A \textbf{Complete Statistic}\index{Statistics!Complete Statistic} $T(\vec{X})$ for $\theta$ satisfies
+        \item[$\blacktriangleright$] A \textbf{Complete Statistic}\index{Complete Statistic} $T(\vec{X})$ for $\theta$ satisfies
         \begin{equation}
             \text{any }\phi (\, \cdot \, )\text{ with: }\mathbb{E}\left[ \phi (T(\vec{X})) \right] =0,\,\forall \theta ,\text{ must have } \mathbb{P}\left( \phi (\vec{X}) =0\right) =1\forall \theta  
         \end{equation}
@@ -264,7 +264,7 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
             \item A complete statistic does not always exists.
         \end{itemize}
 
-        \item[$\blacktriangleright$] A \textbf{Minimal Sufficient Statistics} $ T(\vec{X}) $ for $ \theta $ contains `just enough necessary' information about $ \theta  $. Definition:
+        \item[$\blacktriangleright$] A \textbf{Minimal Sufficient Statistics}\index{Minimal Sufficient Statistics} $ T(\vec{X}) $ for $ \theta $ contains `just enough necessary' information about $ \theta  $. Definition:
         \begin{equation}
             \forall\,\text{sufficient statistic }\tilde{T}(\vec{X}),\,\exists\, q_{\tilde{T}}(\, \cdot \, ),\, \text{s.t. } T(\vec{X})=q_{\tilde{T}}(\tilde{T}(\vec{X}))
         \end{equation} 
@@ -281,7 +281,7 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
             \item A minimal sufficient statistic does \textbf{not} always exists.
         \end{itemize}
         
-        \item[$\blacktriangleright$]\index{Statistics!Ancillary Statistic}  An \textbf{Ancillary Statistic} $S(\vec{X})$ is a statistic whose distribution does not depend on $\theta$
+        \item[$\blacktriangleright$]\index{Ancillary Statistic}  An \textbf{Ancillary Statistic} $S(\vec{X})$ is a statistic whose distribution does not depend on $\theta$
         
         \textbf{Basu Thm.}\index{Basu Thm.}: $\vec{X}=(X_1,X_2,\ldots,X_n)$ is sample from $\mathscr{F}=\{f(x;\theta),\theta\in\Theta\}$. $T(\vec{X})$ is a complete and minimal sufficient statistic, $S(\vec{X})$ is ancillary statistic, then $S(\vec{X})\independent T(\vec{X})$. Intuitively $ S(\vec{X}) $ contains no information about $ \theta  $ and minimal sufficient $ T(\vec{X}) $ contains all and necessary information about $ \theta  $.
 
@@ -1335,7 +1335,7 @@ plot(density(x, kernel = KERNEL_TO_USE))
 
         Where $R$ and $r$  to be determined. $\partial R$ means the boundary of $ R $
     \end{itemize}
-        \item[$ \bm{\Delta } $] Type I Error \& Type II Error: Sample is random, possible to make a wrong judge.\index{Type I Error}\index{Type II Error}
+        \item[$ \bm{\Delta } $] Type I Error \& Type II Error: Sample is random, possible to make a wrong judge.\index{Type I Error \& Type II Error}
             
         \begin{itemize}[topsep = -4 pt]
             \item Type I Error (弃真): $H_0$ is true but sample falls in $R$, thus $H_0$ is rejected.

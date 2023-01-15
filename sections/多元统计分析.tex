@@ -1168,6 +1168,8 @@
 
     Note: Another important point for PCA is the \textbf{interpretability} of principal components.
 
+    A coutinuous version of PCA in stochastic process is Karhunen-Loève Expansion in \autoref{SubSubSectionKLExpansion}.
+
     \begin{point}
         Standardized Principal Component
     \end{point}
@@ -1691,7 +1693,7 @@ Determination Criterion:
     Key idea of CA: Group a collection of data according to  similarity and relation of objects.
 
 \subsubsection{Agglomerative Clustering Algorithm}
-    \index{Clustering Analysis!Agglomerative Clustering Algorithm}\index{Clustering Analysis!Hierarchical Clustering}\index{Hierarchical Clustering}
+    \index{Agglomerative Clustering Algorithm}\index{Hierarchical Clustering}
 
 \begin{point}
     Clustring Algorithm
@@ -1753,7 +1755,7 @@ Determination Criterion:
 
 
 \subsubsection{$ K $-Means Clustering Algorithm}
-    \index{Clustering Analysis!$ K $-Means Clustering Algorithm}\index{k-Means Clustering Algorithm@$ k $-Means Clustering Algorithm}
+    \index{k-Means Clustering Algorithm@$ k $-Means Clustering Algorithm}
     Assume we have a preset number $ K $ of clusters , we can use $ K $-means clustering.
 \begin{algorithm}{$ K $-Means Clustering}
     \begin{enumerate}[topsep=2pt,itemsep=2pt]
@@ -1789,8 +1791,7 @@ Note: pros­and­cons of $ K $-Means clustering algorithm
     
 
 
-\subsubsection{Expectation Maximization Algorithm for Gaussian Mixture Model}\label{SubSubSectionEMAlgorithmForGMM}
-\index{Clustering Analysis!Expectation Maximization Algorithm}
+\subsubsection{Gaussian Mixture Model with Expectation Maximization Algorithm}\label{SubSubSectionEMAlgorithmForGMM}
 \index{E-M Algorithm (Expectation Maximization Algorithm)}
     % We can also label each object, then conduct discriminant analysis (e.g. QDA).
 
@@ -1857,14 +1858,14 @@ Note: pros­and­cons of $ K $-Means clustering algorithm
     Note: EM method for Gaussion Mixture Model is a greedy algorithm $ \longrightarrow $ local maximum.
     
 \subsubsection{DBSCAN \& OPTICS Density Clustering Algorithm}
-    \index{Clustering Analysis!Density Clustering}
-    \hyperlink{DBSCAN}{DBSCAN} algorithm (Density-Based Spatial Clustering of Application with Noise)\index{Clustering Analysis!DBSCAN (Density-Based Spatial Clustering of Application with Noise)} is a kind of density clustering algorithm. \hyperlink{OPTICS}{OPTICS} algorithm (Ordering Point To Indentify the Cluster Structure) is its improved version.
+    \index{Density Clustering}
+    \hyperlink{DBSCAN}{DBSCAN} algorithm (Density-Based Spatial Clustering of Application with Noise) is a kind of density clustering algorithm. \hyperlink{OPTICS}{OPTICS} algorithm (Ordering Point To Indentify the Cluster Structure) is its improved version.
 
 
 \begin{point}
     \hypertarget{DBSCAN}{DBSCAN} Algorithm
 \end{point}
-
+\index{DBSCAN (Density-Based Spatial Clustering of Application with Noise)}
     Key (preset) index in DBSCAN:
     \begin{itemize}[topsep=2pt,itemsep=2pt]
         \item Eps $ \varepsilon  $: Radius of neighbourhood of a point;
@@ -1925,7 +1926,7 @@ Note: pros­and­cons of $ K $-Means clustering algorithm
 
 
 \begin{point}
-    \hypertarget{OPTICS}{OPTICS} Algorithm\index{Clustering Analysis!OPTICS (Ordering Point To Indentify the Cluster Structure)}
+    \hypertarget{OPTICS}{OPTICS} Algorithm\index{OPTICS (Ordering Point To Indentify the Cluster Structure)}
 \end{point}
 
     OPTICS is based on DBSCAN and shares most of the basic concepts and ideas. Further define the following distance (preset $ \varepsilon  $ and $ M $):

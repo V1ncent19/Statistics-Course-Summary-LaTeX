@@ -109,7 +109,7 @@
 \contentsline {subsection}{\numberline {4.7}Clustering Analysis}{121}{subsection.4.7}%
 \contentsline {subsubsection}{\numberline {4.7.1}Agglomerative Clustering Algorithm}{121}{subsubsection.4.7.1}%
 \contentsline {subsubsection}{\numberline {4.7.2}$ K $-Means Clustering Algorithm}{123}{subsubsection.4.7.2}%
-\contentsline {subsubsection}{\numberline {4.7.3}Expectation Maximization Algorithm for Gaussian Mixture Model}{124}{subsubsection.4.7.3}%
+\contentsline {subsubsection}{\numberline {4.7.3}Gaussian Mixture Model with Expectation Maximization Algorithm}{124}{subsubsection.4.7.3}%
 \contentsline {subsubsection}{\numberline {4.7.4}DBSCAN \& OPTICS Density Clustering Algorithm}{125}{subsubsection.4.7.4}%
 \contentsline {section}{\numberline {5}统计计算与软件部分}{127}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Algorithm Theory Introduction}{127}{subsection.5.1}%
@@ -259,24 +259,30 @@
 \contentsline {subsection}{\numberline {11.3}More Assignment Mechanism and Observational Study}{268}{subsection.11.3}%
 \contentsline {subsubsection}{\numberline {11.3.1}Other Classical Randomized Experiment}{268}{subsubsection.11.3.1}%
 \contentsline {subsubsection}{\numberline {11.3.2}Observational Study with Regular Assignment Mechanisms}{269}{subsubsection.11.3.2}%
-\contentsline {subsection}{\numberline {11.4}Pearl Bayesian Framework}{271}{subsection.11.4}%
-\contentsline {section}{\numberline {12}应用随机过程部分}{273}{section.12}%
-\contentsline {subsection}{\numberline {12.1}Markov Process}{273}{subsection.12.1}%
-\contentsline {subsubsection}{\numberline {12.1.1}Basic Concepts}{273}{subsubsection.12.1.1}%
-\contentsline {subsubsection}{\numberline {12.1.2}Properties of Discrete Time Markov Chain}{273}{subsubsection.12.1.2}%
-\contentsline {subsubsection}{\numberline {12.1.3}Properties of Continuous Time Markov Chain}{277}{subsubsection.12.1.3}%
-\contentsline {subsubsection}{\numberline {12.1.4}Independent Increment Process}{278}{subsubsection.12.1.4}%
-\contentsline {subsection}{\numberline {12.2}Useful Instances of Stochastic Processes}{279}{subsection.12.2}%
-\contentsline {subsubsection}{\numberline {12.2.1}Random Walk}{279}{subsubsection.12.2.1}%
-\contentsline {subsubsection}{\numberline {12.2.2}Gambler's Model}{279}{subsubsection.12.2.2}%
-\contentsline {subsubsection}{\numberline {12.2.3}Branching Process}{280}{subsubsection.12.2.3}%
-\contentsline {subsubsection}{\numberline {12.2.4}Brownian Motion}{282}{subsubsection.12.2.4}%
-\contentsline {subsubsection}{\numberline {12.2.5}Poisson Process}{283}{subsubsection.12.2.5}%
-\contentsline {subsubsection}{\numberline {12.2.6}Birth-Death Process}{283}{subsubsection.12.2.6}%
-\contentsline {subsection}{\numberline {12.3}Miscellanea}{284}{subsection.12.3}%
-\contentsline {subsubsection}{\numberline {12.3.1}Minimum Mean Squared Estimator}{284}{subsubsection.12.3.1}%
-\contentsline {subsubsection}{\numberline {12.3.2}Conditional Independence}{286}{subsubsection.12.3.2}%
-\contentsline {subsubsection}{\numberline {12.3.3}Markov Decision Processes}{287}{subsubsection.12.3.3}%
-\contentsline {subsubsection}{\numberline {12.3.4}Kalman Filter}{290}{subsubsection.12.3.4}%
-\contentsline {section}{参考文献}{295}{equation.12.181}%
-\contentsline {section}{索引}{297}{equation.12.181}%
+\contentsline {subsection}{\numberline {11.4}Pearl Causal Bayesian Framework}{271}{subsection.11.4}%
+\contentsline {subsubsection}{\numberline {11.4.1}Causal Bayesian Network}{271}{subsubsection.11.4.1}%
+\contentsline {subsubsection}{\numberline {11.4.2}Network Structure Learning}{275}{subsubsection.11.4.2}%
+\contentsline {section}{\numberline {12}应用随机过程部分}{278}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Properties of Stochastic Process}{278}{subsection.12.1}%
+\contentsline {subsubsection}{\numberline {12.1.1}Basic Concepts}{278}{subsubsection.12.1.1}%
+\contentsline {subsubsection}{\numberline {12.1.2}Properties of Discrete Time Markov Chain}{278}{subsubsection.12.1.2}%
+\contentsline {subsubsection}{\numberline {12.1.3}Properties of Continuous Time Markov Chain}{282}{subsubsection.12.1.3}%
+\contentsline {subsubsection}{\numberline {12.1.4}Independent Increment Process and Martingale}{283}{subsubsection.12.1.4}%
+\contentsline {subsection}{\numberline {12.2}Useful Instances of Stochastic Processes}{284}{subsection.12.2}%
+\contentsline {subsubsection}{\numberline {12.2.1}Random Walk}{284}{subsubsection.12.2.1}%
+\contentsline {subsubsection}{\numberline {12.2.2}Gambler's Model}{284}{subsubsection.12.2.2}%
+\contentsline {subsubsection}{\numberline {12.2.3}Branching Process}{285}{subsubsection.12.2.3}%
+\contentsline {subsubsection}{\numberline {12.2.4}Brownian Motion}{287}{subsubsection.12.2.4}%
+\contentsline {subsubsection}{\numberline {12.2.5}Poisson Process}{288}{subsubsection.12.2.5}%
+\contentsline {subsubsection}{\numberline {12.2.6}Birth-Death Process}{288}{subsubsection.12.2.6}%
+\contentsline {subsection}{\numberline {12.3}Applications}{289}{subsection.12.3}%
+\contentsline {subsubsection}{\numberline {12.3.1}Innovation Sequence}{289}{subsubsection.12.3.1}%
+\contentsline {subsubsection}{\numberline {12.3.2}Markov Decision Processes}{290}{subsubsection.12.3.2}%
+\contentsline {subsubsection}{\numberline {12.3.3}Kalman Filter}{293}{subsubsection.12.3.3}%
+\contentsline {subsubsection}{\numberline {12.3.4}Linear Time Invariant Systems}{298}{subsubsection.12.3.4}%
+\contentsline {subsubsection}{\numberline {12.3.5}Wiener Filter}{298}{subsubsection.12.3.5}%
+\contentsline {subsection}{\numberline {12.4}Miscellanea}{299}{subsection.12.4}%
+\contentsline {subsubsection}{\numberline {12.4.1}Minimum Mean Squared Estimator}{299}{subsubsection.12.4.1}%
+\contentsline {subsubsection}{\numberline {12.4.2}Conditional Independence}{301}{subsubsection.12.4.2}%
+\contentsline {subsubsection}{\numberline {12.4.3}Fourier Transform and Convolution}{302}{subsubsection.12.4.3}%
+\contentsline {section}{参考文献}{304}{equation.12.243}%

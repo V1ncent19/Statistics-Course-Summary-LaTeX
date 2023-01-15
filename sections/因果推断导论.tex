@@ -788,23 +788,64 @@ Property of propensity score:
 \end{itemize}
 
 
-\subsection{Pearl Bayesian Framework}
-\index{Pearl Bayesian Framework}\index{Bayesian Network}\index{Belief Network}\index{DAG Model (Directed Acyclic Graphical Model)}
+\subsection{Pearl Causal Bayesian Framework}
+\index{Pearl Causal Bayesian Framework}\index{Bayesian Network}
     Pearl Bayesian Framework\footnote{Also called Bayesian Network / Belief Network / Directed Acyclic Graphical (DAG) Model.} (Judea Pearl, 1995) uses causal information on a graph to construct inference. 
 
+    
+\subsubsection{Causal Bayesian Network}
+The language of \textit{Graph} is used to describe the causal relations. 
+
+\begin{point}
+    Directed Acyclic Graph
+\end{point}
+
+In Pearl's causal network we focus on \textbf{Directed Acyclic Graphs} (DAGs) \index{DAG (Directed Acyclic Graph)}. Here are some key notions:
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item[$ \color{red}\vartriangleright  $] DAG is a graph in which all edges are directed, and no path is a loop (acyclic).
+    \item[$ \color{blue}\vartriangleright  $] \textbf{Graph} $ \mathcal{G}$ is composed of a set of \textbf{Vertices}  / Nodes $\mathcal{V} $ and the \textbf{Edge}s $ \mathcal{E} $ connecting them; $\mathcal{G} = \left\{\mathcal{E},\mathcal{V}\right\} $.
+    \item Adjacency: Two vertices $ v_i ,\,v_j$ are adjacent if they are linked by an edge $ e_{ij} $.
+    \item \textbf{Path} : A (non-intersecting) routine tracing through edges to connect two vertices. 
+    \item[$ \color{blue}\vartriangleright $] \textbf{Direction}  of edges: two vertices are connected by directed edge, pointing from the first to the second, say the following meta $ X\to Y $. 
+    \begin{figure}[H]
+        \centering          
+        \begin{tikzpicture}
+            \GraphInit[vstyle=Dijkstra]
+            \SetGraphUnit{0.8}
+            \Vertex[x=0, y=0, L=$ X $]{1}
+            \Vertex[x=2, y=0, L=$ Y $]{2}
+
+    
+            \tikzset{LabelStyle/.style={fill = white},
+            EdgeStyle/.style={-stealth}}
+            \Edge(1)(2)
+        \end{tikzpicture}
+        \end{figure}
+    in which $ X $ is a \textbf{parent} of $ Y $ and $ Y $ is a children of $ X $. Parent of note $ v_i $ is denoted $ pa_i $
+    \item \textbf{Skeleton} : The graph with all direction removed (looks like a graph with only nodes and line, without arrow).
+    \item[$ \color{blue}\vartriangleright $]  \textbf{Acyclic}: a graph without loop is acyclic. The structure is naturally required to make the causal structure healthy by clearly distinguish cause from effect.
+\end{itemize}
+
+\begin{point}
+    Bayesian Network
+\end{point}
+
+A probability distribution $ \mathbb{P}\left( X_1,X_2,\ldots,X_n \right) $ on vertices of graph has factorization given by conditional probability:
+\begin{align*}
+    \mathbb{P}\left( X_1,\ldots,X_n \right) = &\mathbb{P}\left( X_{i_1}|X_{i_2},\ldots \right)\mathbb{P}\left( X_{i_2}|X_{i_3},\ldots \right)\ldots\mathbb{P}\left( X_{i_{n-1}}|X_{i_n} \right) \mathbb{P}\left( X_n \right)    
+\end{align*}
+in which indices $ \{i_1,i_2,\ldots,i_n\} $ can be any reshuffle of $ \{1,2,\ldots,n\} $. But if we attach a graph on the probability to guide the factorization, the shuffle has to following some order, and form of conditional probability follows the Markov parents on DAG:
+\begin{align*}
+    \mathbb{P}\left( X_1,\ldots,X_n \right)=\prod_{i}\mathbb{P}\left( X_i|pa_i \right)
+\end{align*}
+the r.v. sequence is \textbf{causal ordering} if $ X_i $ only dependent on $ X_{j:j<i} $, i.e. $ pa_i\subset \{X_1,\ldots,X_{i-1}\} $.
+
+Here's an example of Markov factorization on a DAG graph:
 
 
 
 
-
-
-
-
-
-
-
-
- \begin{center}
+    \begin{center}
     \begin{minipage}{0.7\linewidth}
         \begin{align*}
             \mathbb{P}\left( X_1,X_2,X_3,X_4,X_5 \right) = & \mathbb{P}\left( X_5|X_4 \right) \mathbb{P}\left( X_1,X_2,X_3,X_4 \right) \\
@@ -814,7 +855,7 @@ Property of propensity score:
     \end{minipage}
     \begin{tikzpicture}[baseline={([yshift = 0ex]current bounding box.center)}]
         \GraphInit[vstyle=Dijkstra]
-        \SetGraphUnit{1.2}
+        \SetGraphUnit{1}
         
         \Vertices[Lpos=-45]{circle}{3,1,2,4}
         \SO[unit = 1.4](4){5}
@@ -830,70 +871,155 @@ Property of propensity score:
       \end{tikzpicture}
     \end{center}
 
+\begin{point}
+    Basic structures in a DAG 
+\end{point}
 
+Starting from triplets in DAG as the key elements in a graph.
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Chain $ X\to Y\to Z $, in which $ Y $ is the \textit{mediator}. We have
+    \begin{align*}
+        \mathbb{P}\left( X,Z|Y \right)=&\dfrac{\mathbb{P}\left( X \right) \mathbb{P}\left( Y|X \right) \mathbb{P}\left( Z|Y \right) }{\mathbb{P}\left( Y \right) }=\mathbb{P}\left( X|Y \right) \mathbb{P}\left( Z|Y \right) 
+    \end{align*}
+    i.e. we have a conditional independency in chain $ X\independent Z|Y $
+    \item Fork $ X\leftarrow Y\rightarrow Z $. We have
+    \begin{align*}
+        \mathbb{P}\left( X,Z|Y \right) = \dfrac{\mathbb{P}\left( Y \right) \mathbb{P}\left( X|Y \right) \mathbb{P}\left( Z|Y \right) }{\mathbb{P}\left( Y \right) }=\mathbb{P}\left( X|Y \right) \mathbb{P}\left( Z|Y \right)   
+    \end{align*}
+    i.e. we have a conditional independency in chain $ X\independent Z|Y $
+    \item Collider $ X \to Y \leftarrow Z $. In the collider, $ X\independent Z $ marginally, but given $ Y $ are conditionally dependent. If there is no edge between $ X $ and $ Z $, it's also called $ v $-structure.\index{$ v $-structure@v-structure}
+\end{itemize}
 
+\begin{center}
+    \begin{minipage}{0.3\linewidth}
+        \begin{figure}[H]
+        \centering            
+            \begin{tikzpicture}[baseline={([yshift = -3ex]current bounding box.center)}]
+            \GraphInit[vstyle=Dijkstra]
+            \SetGraphUnit{0.8}
+            \Vertex[x=0, y=0, L=$ X $]{1}
+            \Vertex[x=1.5, y=0, L=$ Y $]{2}
+            \Vertex[x=3, y=0, L=$ Z $]{3}
+
+            \tikzset{LabelStyle/.style={fill = white},
+            EdgeStyle/.style={-stealth}}
+    
+            \Edge(1)(2)
+            \Edge(2)(3)
+        \end{tikzpicture}            
+        \caption{Chain}
+        \end{figure}
+    \end{minipage}\quad\begin{minipage}{0.3\linewidth}
+        \begin{figure}[H]
+        \centering            
+        \begin{tikzpicture}
+            \GraphInit[vstyle=Dijkstra]
+            \SetGraphUnit{0.8}
+            \Vertex[x=0, y=0, L=$ X $]{1}
+            \Vertex[x=1, y=1.73, L=$ Y $]{2}
+            \Vertex[x=2, y=0, L=$ Z $]{3}
 
     
-    \begin{center}
-        \begin{minipage}{0.3\linewidth}
-            \begin{figure}[H]
-            \centering            
-                \begin{tikzpicture}[baseline={([yshift = -3ex]current bounding box.center)}]
-                \GraphInit[vstyle=Dijkstra]
-                \SetGraphUnit{0.8}
-                \Vertex[x=0, y=0, L=$ X $]{1}
-                \Vertex[x=1.5, y=0, L=$ Y $]{2}
-                \Vertex[x=3, y=0, L=$ Z $]{3}
+            \tikzset{LabelStyle/.style={fill = white},
+            EdgeStyle/.style={-stealth}}
+    
+            \Edge(2)(1)
+            \Edge(2)(3)
+        \end{tikzpicture}        
+        \caption{Fork}
+        \end{figure}
+    \end{minipage}\quad\begin{minipage}{0.3\linewidth}
+        \begin{figure}[H]
+        \centering          
+        \begin{tikzpicture}
+            \GraphInit[vstyle=Dijkstra]
+            \SetGraphUnit{0.8}
+            \Vertex[x=0, y=0, L=$ X $]{1}
+            \Vertex[x=1, y=-1.73, L=$ Y $]{2}
+            \Vertex[x=2, y=0, L=$ Z $]{3}
 
-                \tikzset{LabelStyle/.style={fill = white},
-                EdgeStyle/.style={-stealth}}
-        
-                \Edge(1)(2)
-                \Edge(2)(3)
-            \end{tikzpicture}            
-            \caption{aa}
-            \end{figure}
-        \end{minipage}\quad\begin{minipage}{0.3\linewidth}
-            \begin{figure}[H]
-            \centering            
-            \begin{tikzpicture}
-                \GraphInit[vstyle=Dijkstra]
-                \SetGraphUnit{0.8}
-                \Vertex[x=0, y=0, L=$ X $]{1}
-                \Vertex[x=1, y=1.73, L=$ Y $]{2}
-                \Vertex[x=2, y=0, L=$ Z $]{3}
+    
+            \tikzset{LabelStyle/.style={fill = white},
+            EdgeStyle/.style={-stealth}}
+    
+            \Edge(1)(2)
+            \Edge(3)(2)
+        \end{tikzpicture}
+        \caption{Collider}
+        \end{figure}
+    \end{minipage}
+\end{center}
 
-        
-                \tikzset{LabelStyle/.style={fill = white},
-                EdgeStyle/.style={-stealth}}
-        
-                \Edge(2)(1)
-                \Edge(2)(3)
-            \end{tikzpicture}        
-            \caption{aa}
-            \end{figure}
-        \end{minipage}\quad\begin{minipage}{0.3\linewidth}
-            \begin{figure}[H]
-            \centering          
-            \begin{tikzpicture}
-                \GraphInit[vstyle=Dijkstra]
-                \SetGraphUnit{0.8}
-                \Vertex[x=0, y=0, L=$ X $]{1}
-                \Vertex[x=1, y=-1.73, L=$ Y $]{2}
-                \Vertex[x=2, y=0, L=$ Z $]{3}
 
-        
-                \tikzset{LabelStyle/.style={fill = white},
-                EdgeStyle/.style={-stealth}}
-        
-                \Edge(1)(2)
-                \Edge(3)(2)
-            \end{tikzpicture}
-            \caption{aa}
-            \end{figure}
-        \end{minipage}
-    \end{center}
+\begin{point}
+    d-Separation\index{d-Separation}
+\end{point}
 
+d-separation in a graph is directional-separation of two vertices.
+
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Blocked path: a path $ p $ from $ X $ to $ Y $ is blocked by $ \{Z\} $ if for all triplets along the path:
+    \begin{itemize}[topsep=2pt,itemsep=0pt]
+        \item \textbf{In} $ Z $: the middle point of all chains and forks; and
+        \item \textbf{Not In} $ Z $: the middle point itself of collider, and its descendants
+    \end{itemize}
+    \item d-separation: $ X $ is d-deparated from $ Y $ given $ Z $ if all paths $ p_{X\leadsto Y} $ are blocked by $ Z $.
+        
+\end{itemize}
+
+    
+
+\begin{point}
+    Markov Compatibility\index{Markov Compatibility}
+\end{point}
+
+Markov compatibility is a match between DAG and probability distribution, a description of how $ \mathcal{G} $ represents $ \mathbb{P}\left( \, \cdot \,  \right)  $.
+
+A textbook definition is given as:
+\begin{quote}
+    If a probability distribution $ \mathbb{P}\left( \, \cdot \,  \right)  $ admits a factorization $ \mathbb{P}\left( X \right) = \prod_{i}\mathbb{P}\left( X_i|pa_i \right)  $ relative to DAG $ \mathcal{G} $, then $ \mathbb{P} $ is \textit{Markov Compatible} relative to $ \mathcal{G} $.
+\end{quote}
+
+Here `admits' means that d-separation on graph finds its corresponding conditional probability.
+\begin{align*}
+    X\independent _\mathcal{G} Y|Z\Rightarrow  X\independent _\mathbb{P} Y|Z
+\end{align*}
+
+Markov compatibility means that we can generate data following $ \mathbb{P} $ using $ \mathcal{G} $ as `Blueprint'.
+
+Related notions and comments:
+
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item I-Map\index{I-map (Independence Map)}: is a set of conditional inpendence statements read out from $ \mathcal{G} $. If $ X $ and $ Y $ are d-separated by $ Z $ in $ \mathcal{G} $ (denoted $ X\independent_\mathcal{G} Y|Z $), then we should have $ X\independent_{mathbb{P}} Y |Z$ in \textbf{every} $ \mathbb{P} $ distribution compatible with $ \mathcal{G} $.
+    \begin{align*}
+         I(\mathcal{G})=\left\{ (X\independent_\mathcal{G}Y|Z):\, (X\independent_\mathbb{P}Y|Z) \,\forall \mathbb{P}\text{ compatible with }\mathcal{G}  \right\}
+    \end{align*}
+    \item From I-Map we can have definition of I-equivalence: i.e. if $ \mathcal{G}_1 $ and $ \mathcal{G}_2 $ yield the same I-map $ I(\mathcal{G}_1)=I(\mathcal{G}_2) $.
+    \item Note that Markov compatible states that $ X\independent _\mathcal{G} Y|Z\Rightarrow  X\independent _\mathbb{P} Y|Z $ but not reversely, which means that $ I(\mathcal{G})\subset I(\mathbb{P}) $
+    \item An concrete example: two r.v. are independently generated $ \mathbb{P}\left( X,Y \right) =\mathbb{P}\left( X\right)\mathbb{P}\left( Y \right) $, i.e. $ I(\mathbb{P})= X\independent_\mathbb{P} Y $. All the following graphs are markov compatible:
+    \begin{itemize}[topsep=2pt,itemsep=0pt]
+        \item $ \mathcal{G}_0: X\,\, Y $, in which $ I(\mathcal{G}_0) = X\independent _\mathcal{G} Y $
+        \item $ \mathcal{G}_1: X\to Y $, in which $ I(\mathcal{G}_1) = \emptyset  $
+        \item $ \mathcal{G}_2: X\leftarrow Y $, in which $  I(\mathcal{G}_2) = \emptyset $
+    \end{itemize}
+    (because they all have $ I(\mathcal{G}_i)\subset I(\mathbb{P}) $)
+    \item Perfect I-map: if $ I(\mathcal{G})=I(\mathbb{P}) $.
+    \item \textbf{Observational Equivalence}\index{Observational Equivalence}: A set of graphs are observational equivalent / belong to the same equivalent class if they encode the same conditional independencies. 
+    
+    Note that the key causal structures in DAGs are chain, fork, and collider; in which chain and fork imply the same conditional independence while collider is different. i.e.
+    \begin{align*}
+        X\to Y\to Z,\qquad X\leftarrow Y\leftarrow Z,\qquad X\leftarrow Y \to Z 
+    \end{align*}
+    are observational equivalent by encoding $ X\independent Z|Y $.
+    
+    The above argument gives the hint for identifying observational equivalent graphs:
+    \begin{itemize}[topsep=2pt,itemsep=0pt]
+        \item Having the same skeleton
+        \item Having the same set of colliders.
+    \end{itemize}
+
+   
+    Here's an example of observational equivalent graphs:
     \begin{center}
         \begin{minipage}{0.23\linewidth}
             \begin{figure}[H]
@@ -918,7 +1044,7 @@ Property of propensity score:
                     \Edge(2)(4)
                     \Edge(4)(5)
             \end{tikzpicture}     
-            $$ \text{(part of) Skeleton} $$       
+            $$ \text{(Partial) Skeleton} $$       
             % \caption{aa}
             \end{figure}
         \end{minipage}\quad
@@ -941,7 +1067,7 @@ Property of propensity score:
                     \Edge(2)(4)
                     \Edge(4)(5)
             \end{tikzpicture}     
-            $$ G_1 $$       
+            $$ \mathcal{G}_1 $$       
             % \caption{aa}
             \end{figure}
         \end{minipage}\quad        \begin{minipage}{0.23\linewidth}
@@ -963,7 +1089,7 @@ Property of propensity score:
                     \Edge(2)(4)
                     \Edge(4)(5)
             \end{tikzpicture}  
-            $$  G_2 $$        
+            $$  \mathcal{G}_2 $$        
             % \caption{aa}
             \end{figure}
         \end{minipage}\quad        \begin{minipage}{0.23\linewidth}
@@ -985,34 +1111,389 @@ Property of propensity score:
                     \Edge(2)(4)
                     \Edge(4)(5)
             \end{tikzpicture} 
-            $$  G_3  $$
+            $$  \mathcal{G}_3  $$
             % \caption{aa}
             \end{figure}
         \end{minipage}
     \end{center}
+\end{itemize}
+
+\begin{point}
+    Causality on Bayesian Network
+\end{point}
+
+Recall that in Rubin's Potential Outcome Framework, causality was induced by counterfactual side of potential outcomes $ Y^\mathrm{mis} = Y(1-W)  $. In Bayesian Network framework, causality is induced by \textbf{intervention}, in formulas expressed by $ do(\, \cdot \, ) $ operator, e.g.
+\begin{align*}
+    \mathbb{P}\left( X |do(Z=z) \right)  
+\end{align*}
+where $ Z\subset X  $ is the set to conduct intervention on. Intervention would remove all `incoming' edges to $ Z $, as illustrated below an example of $ do(3=...) $:
+
+\begin{center}
+    \begin{minipage}{0.23\linewidth}
+        \begin{figure}[H]
+        \centering            
+            \begin{tikzpicture}[baseline={([yshift = -3ex]current bounding box.center)}]
+                \GraphInit[vstyle=Dijkstra]
+                \SetGraphUnit{1.2}
+                
+                \Vertices[Lpos=-45]{circle}{3,1,2,4}
+                \SO[unit = 1.4](4){5}
+                \tikzset{LabelStyle/.style={fill = white},
+                EdgeStyle/.style={-stealth}}
+                \Edge(1)(2)
+                \Edge(1)(3)        
+                \Edge(3)(4)
+                \Edge(2)(4)
+                \Edge(4)(5)
+        \end{tikzpicture}     
+        $$ \text{Original }\mathcal{G} $$       
+        % \caption{aa}
+        \end{figure}
+    \end{minipage}\quad $ \xrightarrow[]{do(=...)\text{ intervention}}  $
+    \begin{minipage}{0.23\linewidth}
+        \begin{figure}[H]
+        \centering            
+            \begin{tikzpicture}[baseline={([yshift = -3ex]current bounding box.center)}]
+                \GraphInit[vstyle=Dijkstra]
+                \SetGraphUnit{1.2}
+                
+                \Vertices[Lpos=-45]{circle}{3,1,2,4}
+                \SO[unit = 1.4](4){5}
+        
+                \tikzset{LabelStyle/.style={fill = white},
+                EdgeStyle/.style={-stealth}}
+        
+                \Edge(1)(2)
+                \Edge(3)(4)
+
+                \Edge(2)(4)
+                \Edge(4)(5)
+        \end{tikzpicture}     
+        $$ \text{Interventional }\mathcal{G} $$       
+        % \caption{aa}
+        \end{figure}
+    \end{minipage}
+\end{center}
+
+Since intervention produces different subgraphs, we can obtain causality by comparing the probability distribution. e.g. in the simplest instance $ X\to Y $ v.s. $ X\leftarrow Y $, intervention $ do(X=x) $ yields $ x\to Y $ and $ X\quad Y $, respectively, which have different observational outcome.
+
+\textbf{Causal Bayesian Network} (CBN)\index{CBN (Causal Bayesian Network)} is a DAG $ \mathcal{G} $ compatible with $ \mathcal{P} $, if 
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Notation: here $ \mathcal{P}=\left\{ \mathbb{P}\left( X|do(Z=z) \right):\,\forall Z\subset X  \right\} $ is the set of all interventional probability distribution.
+    \item $ \forall \mathcal{P}\ni \mathbb{P}\left( X|do(Z=z) \right)   $ is compatible with $ \mathcal{G} $
+    \item $ \mathbb{P}\left( x_i|do(Z=z) \right)=1   $ if $ X_i\in Z $ and $ x_i=z_{\text{corresponding value}} $ ($ X_i=x_i $ is consistent with $ Z=z $)
+    \item $ \mathbb{P}\left( X_i|pa_i \right)  $ is invariant to interventions not involving $ X_i $ itself.
+\end{itemize}
+
+Comments:
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Note that intervention $ do(Z=z) $ cancels some edges, so it would only add newindependencies, which holds $ I(\mathcal{G})\subset I(\mathbb{P} ) $ (still compatible).
+    \item With some intervention $ do(Z=z) $, the \textit{truncated} factorization of $ \mathbb{P}\left( \, \cdot \,  \right)  $ is
+    \begin{align*}
+        \mathbb{P}\left( X | do(Z=z) \right)  =  \prod_{i:X_i\notin Z}\mathbb{P}\left( X_i|pa_i \right) 
+    \end{align*}
+    
+    
+\end{itemize}
+
+    
+
+    
 
 
 
+
+
+
+
+
+\subsubsection{Network Structure Learning}
+
+\begin{point}
+    IC/PC Algorithm\index{IC Algorithm (Inductive Causation Algorithm)}
+\end{point}
+
+IC/PC Algorithm (Inductive Causation Algorithm with Peter \& Clark Algorithm Refinement) is a constraint-based method. DAG is constructed through identifying conditional independencies.
+
+Here illustrated with the following example with conditional independencies. Ground truth is shown on the right 
+
+\begin{center}
+    \begin{minipage}{0.4\linewidth}
+        \begin{align*}
+            &X \not\!\!\mathop{\independent} R |\mathcal{S},\,\forall \mathcal{S}\subset\{Y,Z,W\}\\
+            &X \not\!\!\mathop{\independent} Z |\mathcal{S},\,\forall \mathcal{S}\subset\{Y,R,W\}\\
+            &X \not\!\!\mathop{\independent} Y |\mathcal{S},\,\forall \mathcal{S}\subset\{Z,R,W\}\\
+            &Y \not\!\!\mathop{\independent} Z |\mathcal{S},\,\forall \mathcal{S}\subset\{X,R,W\}\\
+            &Y \not\!\!\mathop{\independent} W |\mathcal{S},\,\forall \mathcal{S}\subset\{X,Z,R\}\\
+            &X\independent W|Y\\
+            &Y\independent R\\
+            &Z\independent W|Y\\
+            &Z\independent R|\{X,Y\}\\
+            &W\independent R
+        \end{align*}
+    \end{minipage}
+    \begin{tikzpicture}[baseline={([yshift = 0ex]current bounding box.center)}]
+        \GraphInit[vstyle=Dijkstra]
+        \SetGraphUnit{1}
+        
+        \Vertex[x=0, y=0, L=$ R $]{R}
+        \Vertex[x=1, y=-1, L=$ X $]{X}
+        \Vertex[x=2, y=0, L=$ Y $]{Y}
+        \Vertex[x=2, y=-2, L=$ Z $]{Z}
+        \Vertex[x=3, y=-1, L=$ W $]{W}
+
+        \tikzset{LabelStyle/.style={fill = white},
+        EdgeStyle/.style={-stealth}}
+
+        \Edge(R)(X)
+        \Edge(Y)(X)
+        \Edge(X)(Z)
+        \Edge(Y)(Z)
+        \Edge(Y)(W)
+
+      \end{tikzpicture}
+    \end{center}
+
+
+
+
+\begin{enumerate}[topsep=2pt,itemsep=2pt]
+    \item Learning Skeleton: For all paris $ (a,b)\in \mathcal{V}\times \mathcal{V} $:
+    \begin{itemize}[topsep=2pt,itemsep=0pt]
+        \item Connect $ a $, $ b $ iff no $ \mathcal{S}_{ab} $ such that $ a\independent b|S_{ab} $ can be found. i.e. $ a,\,b $ have an edge if $ a\not\!\!\mathop{\independent} b|\text{any set of other nodes} $.
+    \end{itemize}
     \begin{center}
-        \begin{tikzpicture}
+        \begin{minipage}{0.4\linewidth}
+            \begin{align*}
+                &\color{red}X \not\!\!\mathop{\independent} R |\mathcal{S},\,\forall \mathcal{S}\subset\{Y,Z,W\}\\
+                &\color{red}X \not\!\!\mathop{\independent} Z |\mathcal{S},\,\forall \mathcal{S}\subset\{Y,R,W\}\\
+                &\color{red}X \not\!\!\mathop{\independent} Y |\mathcal{S},\,\forall \mathcal{S}\subset\{Z,R,W\}\\
+                &\color{red}Y \not\!\!\mathop{\independent} Z |\mathcal{S},\,\forall \mathcal{S}\subset\{X,R,W\}\\
+                &\color{red}Y \not\!\!\mathop{\independent} W |\mathcal{S},\,\forall \mathcal{S}\subset\{X,Z,R\}\\
+                &X\independent W|Y\\
+                &Y\independent R\\
+                &Z\independent W|Y\\
+                &Z\independent R|\{X,Y\}\\
+                &W\independent R
+            \end{align*}
+        \end{minipage}
+        \begin{tikzpicture}[baseline={([yshift = 0ex]current bounding box.center)}]
             \GraphInit[vstyle=Dijkstra]
-            \SetGraphUnit{0.8}
+            \SetGraphUnit{1}
             
-            \Vertex[x=4.5, y=2, L= $ X_1 $]{1}
-            \Vertex[x=0, y=0, L=$ X_2 $]{2}
-            \Vertex[x=3, y=-2, L=$ X_3 $]{3}
-            \Vertex[x=6, y=0, L=$ X_4 $]{4}
-            \Vertex[x=9, y=0, L=$ X_5 $]{5}
-            \Vertex[x=3, y=-4, L=$ X_6 $]{6}
+            \Vertex[x=0, y=0, L=$ R $]{R}
+            \Vertex[x=1, y=-1, L=$ X $]{X}
+            \Vertex[x=2, y=0, L=$ Y $]{Y}
+            \Vertex[x=2, y=-2, L=$ Z $]{Z}
+            \Vertex[x=3, y=-1, L=$ W $]{W}
     
             \tikzset{LabelStyle/.style={fill = white},
-            EdgeStyle/.style={-stealth}}
+            EdgeStyle/.style={-, color = red}}
     
-            \Edge(1)(2)
-            \Edge(1)(5)
-            \Edge(2)(3)
-            \Edge(4)(3)
-            \Edge(4)(5)
-            \Edge(3)(6)
+            \Edge(R)(X)
+            \Edge(Y)(X)
+            \Edge(X)(Z)
+            \Edge(Y)(Z)
+            \Edge(Y)(W)
+    
           \end{tikzpicture}
-    \end{center}
+        \end{center}
+    
+    
+    \item $ v $-structure Orientation: For all $ (a,b) $ with common neighbour $ c $ but not adjacent, i.e. have $ a $-$ c $-$ b $
+    \begin{itemize}[topsep=2pt,itemsep=2pt]
+        \item If $ c\notin \mathcal{S}_{ab} $, then there is a v-structure $ a\to c\leftarrow b $
+    \end{itemize}
+    \begin{center}
+        \begin{minipage}{0.4\linewidth}
+            \begin{align*}
+                &\color{red}X \not\!\!\mathop{\independent} R |\mathcal{S},\,\forall \mathcal{S}\subset\{Y,Z,W\}\\
+                &X \not\!\!\mathop{\independent} Z |\mathcal{S},\,\forall \mathcal{S}\subset\{Y,R,W\}\\
+                &\color{red}X \not\!\!\mathop{\independent} Y |\mathcal{S},\,\forall \mathcal{S}\subset\{Z,R,W\}\\
+                &Y \not\!\!\mathop{\independent} Z |\mathcal{S},\,\forall \mathcal{S}\subset\{X,R,W\}\\
+                &Y \not\!\!\mathop{\independent} W |\mathcal{S},\,\forall \mathcal{S}\subset\{X,Z,R\}\\
+                &X\independent W|Y\\
+                &\color{red}Y\independent R\\
+                &Z\independent W|Y\\
+                &Z\independent R|\{X,Y\}\\
+                &W\independent R
+            \end{align*}
+        \end{minipage}
+        \begin{tikzpicture}[baseline={([yshift = 0ex]current bounding box.center)}]
+            \GraphInit[vstyle=Dijkstra]
+            \SetGraphUnit{1}
+            
+            \Vertex[x=0, y=0, L=$ R $]{R}
+            \Vertex[x=1, y=-1, L=$ X $]{X}
+            \Vertex[x=2, y=0, L=$ Y $]{Y}
+            \Vertex[x=2, y=-2, L=$ Z $]{Z}
+            \Vertex[x=3, y=-1, L=$ W $]{W}
+    
+            \tikzset{LabelStyle/.style={fill = white},
+            EdgeStyle/.style={-}}
+            \Edge(X)(Z)
+            \Edge(Y)(Z)
+            \Edge(Y)(W)
+            \tikzset{LabelStyle/.style={fill = white},
+            EdgeStyle/.style={-stealth, color = red}}
+            \Edge(R)(X)
+            \Edge(Y)(X)
+          \end{tikzpicture}
+        \end{center}
+    
+    
+    \item Meek's rule Orientation: orient as many edges as possible subject to:
+    \begin{itemize}[topsep=2pt,itemsep=0pt]
+        \item Alternative direction yields new $ v $-structure
+        \begin{center}
+            \begin{tikzpicture}[baseline={([yshift = 0ex]current bounding box.center)}]
+                \GraphInit[vstyle=Dijkstra]
+                \SetGraphUnit{1}
+                
+                \Vertex[x=0, y=0, L=$ R $]{R}
+                \Vertex[x=1, y=-1, L=$ X $]{X}
+                \Vertex[x=2, y=0, L=$ Y $]{Y}
+                \Vertex[x=2, y=-2, L=$ Z $]{Z}
+                \Vertex[x=3, y=-1, L=$ W $]{W}
+        
+                \tikzset{LabelStyle/.style={fill = white},
+                EdgeStyle/.style={-}}
+                \Edge(Y)(Z)
+                \Edge(Y)(W)
+                \tikzset{LabelStyle/.style={fill = white},
+                EdgeStyle/.style={-stealth}}
+                \Edge(R)(X)
+                \Edge(Y)(X)
+                \tikzset{LabelStyle/.style={fill = white},
+                EdgeStyle/.style={dashed, -stealth}}
+                \Edge(Z)(X)
+              \end{tikzpicture}
+              $ \qquad  $\begin{tikzpicture}[baseline={([yshift = 0ex]current bounding box.center)}]
+                \GraphInit[vstyle=Dijkstra]
+                \SetGraphUnit{1}
+                
+                \Vertex[x=0, y=0, L=$ R $]{R}
+                \Vertex[x=1, y=-1, L=$ X $]{X}
+                \Vertex[x=2, y=0, L=$ Y $]{Y}
+                \Vertex[x=2, y=-2, L=$ Z $]{Z}
+                \Vertex[x=3, y=-1, L=$ W $]{W}
+        
+                \tikzset{LabelStyle/.style={fill = white},
+                EdgeStyle/.style={-}}
+                \Edge(Y)(Z)
+                \Edge(Y)(W)
+                \tikzset{LabelStyle/.style={fill = white},
+                EdgeStyle/.style={-stealth}}
+                \Edge(R)(X)
+                \Edge(Y)(X)
+                \tikzset{LabelStyle/.style={fill = white},
+                EdgeStyle/.style={-stealth,color=red}}
+                \Edge(X)(Z)
+              \end{tikzpicture}
+            \end{center}
+        \item Alternative direction yields cycle (acyclic rule is of more priority)
+        \begin{center}
+            \begin{tikzpicture}[baseline={([yshift = 0ex]current bounding box.center)}]
+                \GraphInit[vstyle=Dijkstra]
+                \SetGraphUnit{1}
+                
+                \Vertex[x=0, y=0, L=$ R $]{R}
+                \Vertex[x=1, y=-1, L=$ X $]{X}
+                \Vertex[x=2, y=0, L=$ Y $]{Y}
+                \Vertex[x=2, y=-2, L=$ Z $]{Z}
+                \Vertex[x=3, y=-1, L=$ W $]{W}
+        
+                \tikzset{LabelStyle/.style={fill = white},
+                EdgeStyle/.style={-}}
+                \Edge(Y)(W)
+                \tikzset{LabelStyle/.style={fill = white},
+                EdgeStyle/.style={-stealth}}
+                \Edge(R)(X)
+                \Edge(Y)(X)
+                \Edge(X)(Z)
+                \tikzset{LabelStyle/.style={fill = white},
+                EdgeStyle/.style={dashed, -stealth}}
+                \Edge(Z)(Y)
+              \end{tikzpicture}
+              $ \qquad  $\begin{tikzpicture}[baseline={([yshift = 0ex]current bounding box.center)}]
+                \GraphInit[vstyle=Dijkstra]
+                \SetGraphUnit{1}
+                
+                \Vertex[x=0, y=0, L=$ R $]{R}
+                \Vertex[x=1, y=-1, L=$ X $]{X}
+                \Vertex[x=2, y=0, L=$ Y $]{Y}
+                \Vertex[x=2, y=-2, L=$ Z $]{Z}
+                \Vertex[x=3, y=-1, L=$ W $]{W}
+        
+                \tikzset{LabelStyle/.style={fill = white},
+                EdgeStyle/.style={-}}
+                \Edge(Y)(W)
+                \tikzset{LabelStyle/.style={fill = white},
+                EdgeStyle/.style={-stealth}}
+                \Edge(R)(X)
+                \Edge(Y)(X)
+                \Edge(X)(Z)
+                \tikzset{LabelStyle/.style={fill = white},
+                EdgeStyle/.style={-stealth,color=red}}
+                \Edge(Y)(Z)
+              \end{tikzpicture}
+            \end{center}
+    \end{itemize}
+\end{enumerate}
+
+The above procedure can produce identify the DAG up to its observational equivalent class.
+
+
+
+
+\begin{point}
+    Search and Score Methods
+\end{point}
+
+We could also simply search in the space of all possible networks and select the one scoring the highest. Some frequently used metrics include AIC and BIC
+\begin{align*}
+    \mathrm{AIC}=&-2\log \mathbb{P}\left( \mathcal{G}|\hat{\theta }  \right) + 2\mathrm{dof}_\mathcal{G} \\
+    \mathrm{BIC}=&-2\log \mathbb{P}\left( \mathcal{G}|\hat{\theta } \right) +\log n \mathrm{dof}_\mathcal{G}   
+\end{align*}
+
+\subsubsection{}
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    % \begin{center}
+    %     \begin{tikzpicture}
+    %         \GraphInit[vstyle=Dijkstra]
+    %         \SetGraphUnit{0.8}
+            
+    %         \Vertex[x=4.5, y=2, L= $ X_1 $]{1}
+    %         \Vertex[x=0, y=0, L=$ X_2 $]{2}
+    %         \Vertex[x=3, y=-2, L=$ X_3 $]{3}
+    %         \Vertex[x=6, y=0, L=$ X_4 $]{4}
+    %         \Vertex[x=9, y=0, L=$ X_5 $]{5}
+    %         \Vertex[x=3, y=-4, L=$ X_6 $]{6}
+    
+    %         \tikzset{LabelStyle/.style={fill = white},
+    %         EdgeStyle/.style={-stealth}}
+    
+    %         \Edge(1)(2)
+    %         \Edge(1)(5)
+    %         \Edge(2)(3)
+    %         \Edge(4)(3)
+    %         \Edge(4)(5)
+    %         \Edge(3)(6)
+    %       \end{tikzpicture}
+    % \end{center}

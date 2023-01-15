@@ -1,5 +1,8 @@
 \section{统计学习导论部分}
+\begin{center}
     Instructor: Sheng Yu
+\end{center}
+    
 
     In this course, some key formulations/theorem in machine learning are deduced, together with core principles illustrated.
 
@@ -590,13 +593,15 @@ glmnet(x, y, family="binomial", alpha, lambda) # with penalty
 \subsubsection{Reproducing Kernel Hilbert Space and The Representer Theorem}
 
     Based on the idea of feature space, make a step forward: the key focus of model is actually `measuring space structure by similarity between points' rather than having to define a feature space. i.e. describe similarity by a bi-linear \textbf{Kernel Function}\index{Kernel Function} 
-    \[
+    \begin{align*}\label{EqaKernelFunction}
         K(x,x') \in \mathcal{X}\times \mathcal{X}\to \mathbb{R}
-    \]
+    \end{align*}
+        
+    
 
     In intuition for Kernel is an `inner product kernel'. The Kernel corresponds a kind of inner product structure on $ \mathcal{H} $, the kernel should satisfies the following properties:
 \begin{enumerate}[topsep=2pt,itemsep=2pt]
-    \item Semi-Positive Definition:
+    \item Positive Semi-Definition:
     \begin{align}
         \iint K(x,y)g(x)g(y)\,\mathrm{d}x\mathrm{d}y\geq 0,\quad \forall g(\,\cdot\,)
     \end{align}
@@ -1111,22 +1116,22 @@ Some definition:
 
     Some useful activate function:
 \begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item Linear Threshold Unit (LTU)\index{LTU (Linear Threshold Unit)}\index{Activate Function!LTU (Linear Threshold Unit)}
+    \item Linear Threshold Unit (LTU)\index{LTU (Linear Threshold Unit)}
     \begin{align}
         g(\xi )=\begin{cases}
             0,& \xi < 0\\
             1,& \xi \geq 0
         \end{cases} =\eta(\xi )
     \end{align}
-    \item Logistic Function\index{Activate Function!Logistic Function}
+    \item Logistic Function\index{Logistic Function}
     \begin{align}
         g(\xi )=\dfrac{1}{1+e^{-\xi } } 
     \end{align}
-    \item Hyperbolic Tangent Function\index{Activate Function!Hyperbolic Tangent Function}
+    \item Hyperbolic Tangent Function\index{Hyperbolic Tangent Function}
     \begin{align}
         g(\xi )=\tanh \xi =\dfrac{e^{2\xi }-1}{e^{2\xi }+1} 
     \end{align}
-    \item Rectified Linear Unit (ReLU)\index{ReLU (Rectified Linear Unit)}\index{Activate Function!ReLU (Rectified Linear Unit)}
+    \item Rectified Linear Unit (ReLU)\index{ReLU (Rectified Linear Unit)}
     \begin{align}
         g(\xi )= \begin{cases}
             0,& \xi < 0\\
