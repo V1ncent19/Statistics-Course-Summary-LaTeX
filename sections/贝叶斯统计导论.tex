@@ -1,0 +1,422 @@
+\section{贝叶斯统计导论部分}
+\begin{center}
+    Instructor: Wanlu Deng
+\end{center}
+\newcommand{\fixed}[1]{\underline{#1}}
+
+\subsection{Calculation Preparation}
+Some useful calculation results / tricks are listed in this part, including r.v. distribution / integration, etc.
+
+\subsection{Calculation}
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Gamma Integral
+    \begin{align*}
+        \Gamma (z)\equiv \int_{0}^\infty t^{z-1}e^{-t}\,\mathrm{d}t,\qquad \mathrm{Re}\,t>0 
+    \end{align*}
+    \begin{itemize}[topsep=2pt,itemsep=0pt]
+        \item scaling $ \lambda  $ form
+    \begin{align*}
+        \int_{0}^\infty t^{z-1}e^{-\lambda t}\,\mathrm{d}t=\dfrac{\Gamma (z)}{\lambda ^z}
+    \end{align*}
+    \item Gaussian integral
+    \begin{align*}
+        \int_0^\infty t^{p}e^{-\alpha t^2}\,\mathrm{d}t= \dfrac{\alpha^{-\frac{p+1}{2}}}{2} \Gamma(\dfrac{p+1}{2})
+    \end{align*}
+    with $ \alpha =\dfrac{1}{2\sigma ^2} $ gives the normalization const of Gaussian distribution
+    \begin{align*}
+        \begin{cases}
+            \int_\mathbb{R}e^{-\frac{t^2}{2\sigma ^2}}\,\mathrm{d}t=2\times \dfrac{\sqrt{2}\sigma }{2}\Gamma (\dfrac{1}{2})={\sqrt{2\pi}\sigma }\\
+            \int_\mathbb{R}t^2 \dfrac{1}{\sqrt{2\pi}\sigma }e^{-\frac{t^2}{2\sigma ^2}}\,\mathrm{d}t=\dfrac{2}{\sqrt{2\pi}\sigma  }\times \dfrac{(2\sigma^2 )^{3/2}}{2}\Gamma (\dfrac{3}{2})\times =\sigma ^2
+        \end{cases}
+    \end{align*}
+    
+    
+    
+    
+    \item complementary formula
+    \begin{align*}
+        \Gamma (z)\Gamma (1-z)=\dfrac{\pi}{\sin \pi z} 
+    \end{align*}
+    \item special values
+    \begin{align*}
+        \Gamma (1)=1,\qquad \Gamma (\dfrac{1}{2})=\sqrt{\pi} 
+    \end{align*}
+    \item recursion 
+    \begin{align*}
+        \Gamma (z+1)=z\Gamma (z)\Rightarrow\begin{cases}
+            \Gamma (n)=(n-1)!,&n\in\mathbb{N}^+\\
+            \Gamma (n+\dfrac{1}{2})=\sqrt{\pi}\dfrac{(2n-1)!!}{2^n},&n\in\mathbb{N}^+
+        \end{cases} 
+    \end{align*}
+    (factorial expression)
+    \end{itemize}
+    
+    
+    \item Beta Integral 
+    \begin{align*}
+        B(p,q)\equiv \int_0^1 t^{p-1}(1-t)^{p-1}\,\mathrm{d}t,\qquad  \mathrm{Re}\,p,\,\mathrm{Re}q \,>0
+    \end{align*}
+    \begin{itemize}[topsep=2pt,itemsep=0pt]
+        \item symmetry
+        \begin{align*}
+            B(p,q)=B(q,p) 
+        \end{align*}
+        \item Gamma function expression
+        \begin{align*}
+            B(p,q)=\dfrac{\Gamma (p)\Gamma (q)}{\Gamma (p+q)}=\dfrac{(p-1)!(q-1)!}{(p+q-1)!}\,\text{for integer }p,q 
+        \end{align*}
+        
+    \end{itemize} 
+    
+    
+\end{itemize}
+
+    
+
+\subsection{Useful Distribution Recap}
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item ($ n $-dimensional) Normal distribution $ Z\sim N(\mu ,\Sigma ) $
+    \begin{align*}
+        f_Z(z)=(2\pi/\Sigma)^{-n/2} \exp\left[ -\dfrac{1}{2}(z-\mu )'\Sigma ^{-1}(z-\mu ) \right],\qquad \text{with }\begin{cases}
+            \mathbb{E}\left[ Z \right]=\mu\\
+            var(z)=\Sigma  
+        \end{cases} 
+    \end{align*}   
+    
+    
+    
+    \item Gamma distribution $ X\sim \Gamma (\alpha ,\lambda ) $
+    \begin{align*}
+         f_X(x)=\dfrac{\lambda ^\alpha }{\Gamma (\alpha )}x^{\alpha -1}e^{-\lambda x},\qquad \text{with }  \begin{cases}
+            \mathbb{E}\left[ X \right] =\dfrac{\alpha }{\lambda }\\
+            var(X)=\dfrac{\alpha }{\lambda ^2} 
+         \end{cases}  
+    \end{align*}
+
+    \begin{itemize}[topsep=2pt,itemsep=0pt]
+        \item summation
+        \begin{align*}
+            \Gamma (\sum_{i}\alpha _i ,\lambda )=\sum_{i} \Gamma (\alpha _i,\lambda ),\quad \Gamma (1,\lambda )=\varepsilon (\lambda ) 
+        \end{align*}
+        
+    \end{itemize}
+    \item $ \chi^2 $-distribution $ X\sim \chi^2_n $
+        \begin{align*}
+            f_X(x)=\dfrac{1}{2^{\frac{n}{2}\Gamma (\frac{n}{2})}}x^{\frac{n}{2}-1}e^{-\frac{x}{2}} ,\qquad \text{with }  \begin{cases}
+                \mathbb{E}\left[ \chi^2_n \right] =n\\
+                 var(\chi^2_n)=2n 
+            \end{cases}
+        \end{align*}
+        \begin{itemize}[topsep=2pt,itemsep=0pt]
+            \item relation to $ \Gamma  $
+        \begin{align*}
+            \Gamma (\dfrac{n}{2},\dfrac{1}{2})=\chi^2_n 
+        \end{align*}
+        \end{itemize}
+        
+            
+        
+    \item Beta distribution $ X\sim \mathrm{Beta}(\alpha ,\beta )  $
+    \begin{align*}
+        f_X(x)=\dfrac{x^{\alpha -1}(1-x)^{\beta -1}}{\mathrm{Beta}(\alpha ,\beta )}=\dfrac{\Gamma (\alpha +\beta )}{\Gamma(\alpha )\Gamma (\beta )} x^{\alpha -1}(1-x)^{\beta -1},\qquad \text{with } \begin{cases}
+            \mathbb{E}\left[ X \right]=\dfrac{\alpha }{\alpha +\beta }\\
+             var(X)=\dfrac{\alpha \beta }{(\alpha +\beta )^2(\alpha +\beta +1)} 
+        \end{cases}
+    \end{align*}    
+    \item $ t $-distribution $ T\sim t_\nu $
+    \begin{align*}
+         f_T(t)=\dfrac{\Gamma(\frac{\nu +1}{2}) }{\sqrt{\nu\pi}\Gamma (\frac{\nu}{2})}\left(1+\dfrac{x^2}{\nu}\right)^{-\frac{\nu+1}{2}}=\dfrac{1}{\sqrt{\nu}\mathrm{Beta}(\frac{\nu}{2},\frac{1}{2})}\left(1+\dfrac{x^2}{\nu}\right)^{-\frac{\nu+1}{2}},\qquad \text{with }\begin{cases}
+            \mathbb{E}\left[ X \right]=0\\
+            var(X)=\dfrac{\nu }{\nu -2}
+         \end{cases}
+    \end{align*}
+    \item Wishart distribution: a multi-dim version of $ \chi^2 $. If $ Z_1,\ldots,Z_m $ i.i.d. $ \sim N_p(0,\Lambda ) $, then
+    \begin{align*}
+        W_p=\sum_{i=1}^mZ_iZ_i'\sim\mathrm{Wishart}_m(\Lambda ) 
+    \end{align*}
+    expression see \autoref{SubSubSectionMultivariateNormalSamplingDistribution}. Kernel term
+    \begin{align*}
+        f_W(w;p,m,\Lambda )\propto \left|w\right|^{\frac{m-p-1}{2}}\exp\left[ -\dfrac{1}{2}tr(\Lambda  ^{-1}w) \right]  ,\qquad w\in\mathbb{R}^{p\times p}
+    \end{align*}
+    
+    
+    
+    
+    
+    \item Dirichlet distribution \index{Dirichlet Distribution}: A multi-parameter version of Beta distribution $ (x_1,x_2,\ldots,x_J)\sim\mathrm{Dirichlet}(\alpha _1,\alpha _2,\ldots,\alpha _J)  $, w.r.t. $ \sum_{j=1}^Jx_j=1 $
+    \begin{align*}
+         f_X(x_1,x_2,\ldots,x_J)=\dfrac{\Gamma\left(\sum_{j=1}^J\alpha _j\right)}{\prod_{j=1}^J\Gamma (\alpha _j)}\prod_{j=1}^Jx_i^{\alpha _j-1},\qquad \sum_{j=1}^Jx_j=1
+    \end{align*}
+    Beta distribution is the case of $ J=2 $.
+    
+    
+    
+    \item[$ \bm{\Delta } $] Inverse distribution\index{Inverse Distribution}. General formula for $ \mathrm{Inv}$-$f_X  $
+    \begin{align*}
+        X\sim f_X(x),\quad Z=\dfrac{1}{X},\quad f_Z(z)=\dfrac{1}{z^2}f_X(\dfrac{1}{z}) 
+    \end{align*}
+    Instances:
+    \begin{itemize}[topsep=2pt,itemsep=0pt]
+        \item $ \mathrm{Inv}  $-$ \Gamma (\alpha ,\lambda  )= \dfrac{1}{\Gamma (\alpha ,\lambda  )}$
+        \begin{align*}
+            f_Z(z)=\dfrac{\lambda ^\alpha }{\Gamma (\alpha )}z^{-\alpha -1}e^{-\frac{\lambda }{z}}  ,\qquad \text{with } \begin{cases}
+                \mathbb{E}\left[ Z \right] =\dfrac{\lambda }{\alpha -1}\\
+                var(Z)=\dfrac{\lambda ^2}{(\alpha -1)^2(\alpha -2)} 
+            \end{cases}
+        \end{align*}
+        \item (scaled) $ \mathrm{Inv}$-$\chi^2(n,s^2)=\dfrac{ns^2}{\chi^2_n}=\mathrm{Inv}$-$ \Gamma (\dfrac{n}{2},\dfrac{ns^2}{2}) $
+        \begin{align*}
+            f_Z(z)= \dfrac{n^{\frac{n}{2}}}{2^{\frac{n}{2}\Gamma (\frac{n}{2})}}z^{-\frac{n}{2}-1}e^{-\frac{ns^2}{2z}} ,\qquad \text{with }\begin{cases}
+                \mathbb{E}\left[ Z \right]=\dfrac{n}{n-2}s^2\\
+                 var(Z)=  \dfrac{2n^2s^4}{(n-2)^2(n-4)}
+            \end{cases}
+        \end{align*}
+    
+        \item $ Z\sim \mathrm{Inv}  $-$ \mathrm{Wishart}(\Lambda )\Leftrightarrow Z^{-1}\sim \mathrm{Wishart}(\Lambda )   $\footnote{In R. and Python., functional input form is $ \mathrm{Wishart}(\Lambda^{-1} )=\left(\mathrm{Wishart}(\Lambda ) \right)^{-1}  $}
+        \begin{align*}
+            f_Z(z)= f_W(z^{-1})\left|z\right|^{-2p} \propto |z|^{-\frac{m+p+1}{2}}\exp\left[ -\dfrac{1}{2}tr(\Lambda ^{-1}w^{-1}) \right]
+        \end{align*}
+        Proof note for Jacobian $ \left|\dfrac{\partial^{}A^{-1}}{\partial A^{}}\right|=-|A|^{-2\dim_A} $:
+        \begin{enumerate}[topsep=2pt,itemsep=0pt]
+            \item First construct mapping $ \mathbb{R}^{p\times p}\mapsto \mathbb{R}^{p^2} $ e.g. by $ \vec{a}_{I\equiv ip+j}=A_{ij} $
+            \item Differentiation: where $ e_i $ is the unit vector on the $ i^\mathrm{th}  $ coord.
+            \begin{align*}
+                \dfrac{\partial^{} A^{-1}_{ij}}{\partial A ^{}} =& \dfrac{\partial^{} q_i'A^{-1}q_j}{\partial A^{}}= \dfrac{\partial^{} tr(A^{-1}q_jq_i')}{\partial A^{}}\\
+                =&-A^{-1}q_iq_j'A^{-1}=A^{-1}_{:i}A^{-1}_{j:}\\
+                \Rightarrow \dfrac{\partial^{} A^{-1}_{ij}}{\partial A_{kl} ^{}}=&-A^{-1}_{ki}A^{-1}_{jl}\\
+                \Rightarrow \color{blue}\dfrac{\partial^{} \vec{a}^{-1}_I}{\partial\vec{a}_J}=&\color{blue}-\left( (A')^{-1}\otimes A^{-1} \right)_{IJ}
+            \end{align*}
+            where $ \otimes $ is Kronecker product $ \mathbb{R}^{u\times u}\times \mathbb{R}^{v\times v}\mapsto \mathbb{R}^{uv\times uv} $ for 
+            \begin{align*}
+                (\mathop{U}\limits_{u\times u} \otimes \mathop{V}\limits_{v\times v} )_{iu+j,kv+l}=U_{ik}V_{jl} 
+            \end{align*}
+            which has property
+            \begin{align*}
+                 \left|U\otimes V\right|=\left|U\right|^{v}\left|V \right|^{u}
+            \end{align*}
+            \item Deternimant for Kronecker product
+            \begin{align*}
+                \left\Vert\dfrac{\partial^{} A^{-1}}{\partial A^{}}\right\Vert\equiv \left\Vert{\color{blue} \dfrac{\partial^{} \vec{a}^{-1}}{\partial \vec{a}}}\right\Vert = \left\Vert {\color{blue}-(A')^{-1}\otimes A^{-1} }\right\Vert=\left|A\right|^{-2p}
+            \end{align*}
+        \end{enumerate}
+            
+    \end{itemize}
+        
+    
+\end{itemize}
+
+    
+
+
+
+\subsection{}
+Key idea: Bayesian rule
+\begin{align*}
+    \mathbb{P}\left( X|Y \right)=&\dfrac{\mathbb{P}\left( Y|X \right) \mathbb{P}\left( X  \right) }{\mathbb{P}\left( Y \right) }=\dfrac{\mathbb{P}\left( Y|X  \right) \mathbb{P}\left( X  \right) }{\int _{\Omega_X} \mathbb{P}\left( Y|X  \right) \mathbb{P}\left( X  \right)  \,\mathrm{d}X} 
+\end{align*}
+
+In both Bayesian \& Frequentist statistics, we care about updating our `belief' on \textbf{parameter}. 
+
+\begin{align*}
+    \underbrace{\mathbb{P}\left( \theta |y  \right)}_{\text{posterior}} =\dfrac{\mathbb{P}\left( \theta  \right) \mathbb{P}\left( y|\theta  \right) }{\mathbb{P}\left( y  \right) }\propto \underbrace{\mathbb{P}\left( \theta  \right) }_{\text{prior}}\underbrace{\mathbb{P}\left( y|\theta  \right)  }_{\text{data likelihood}}
+\end{align*}
+
+
+\subsubsection{Prior Selection}
+
+Selection of prior distribution $ p(\theta ) $ could greatly influence posterior because it provides prior information about the parameter. The selection could be flexible, here are some frequently-used approaches
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Conjugate Prior\index{Conjugate Prior}: defined for the case that (conjugate) prior and posterior belong to the same distribution family. 
+    \footnote{Concept of distribution family see \autoref{SectionStatisticalModelandStatistics}. In this section we use notation 
+    \begin{align*}
+        f(x;\theta )\in\mathscr{F}(\Theta) 
+    \end{align*}
+    to express the distribution family generated on parameter space $ (\alpha ,\lambda )\in A\times \Lambda  $, e.g. family of $ \Gamma  $ distribution
+    \begin{align*}
+        \mathscr{F}_\Gamma (A,\Lambda ) 
+    \end{align*}
+    }
+    \begin{align*}
+        p(\theta |y)\propto p(y|\theta)p(\theta)\in \mathscr{F}(\Theta ) ,\,\forall p(y|\theta)\in\mathscr{F}{(Y|\theta) } \,\&\, p(\theta )\in\mathscr{F}(\Theta ) 
+    \end{align*}
+
+    Instances see 
+    \begin{itemize}[topsep=2pt,itemsep=-1pt]
+        \item \hyperlink{BinomConjugate}{Binomial Model}
+        \item \hyperlink{PoissonConjugate}{Poisson Model}
+        \item \hyperlink{ExpConjugate}{Exponential Model}
+        \item \hyperlink{NormalWithVarConjugate}{UniNormal with known variance Model}
+        \item \hyperlink{NormalWithMeanConjugate}{UniNormal with known mean Model}
+        \item 
+        \item \hyperlink{MultinomConjugate}{Multinomial Model}
+        \item \hyperlink{NormalConjugate}{UniNormal Model}
+        \item 
+        \item \hyperlink{MultiNormalConjugate}{MultiNormal Model}
+    \end{itemize}
+\end{itemize}
+
+    
+
+
+
+\subsection{Exactly Sovable Models}
+\textbf{Note} : In this section for a known/given parameter (i.e. we do \textbf{not} consider it an r.v., just a given param), we attach an fixed to label it, e.g. $ N(\mu ,\fixed{\sigma^2} ) $ for the case $ \sigma^2 $ is given, and we only study the distribution of $ \mu  $.
+
+\begin{point}
+    Content
+\end{point}
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item 
+\end{itemize}
+
+    
+\subsubsection{Binomial Model}\label{SubSubSectionBayesianBinomial}
+Generating process $ y_1,\ldots,y_N $ i.i.d. $ \sim \mathrm{Binom}(\fixed{n},p) $
+\begin{align*}
+    \text{Distribution:}&f(y|p)=\binom{\fixed{n}}{y_i}p^{y}(1-p)^{\fixed{n}-y}\propto p^y(1-p)^{\fixed{n}-y}\\
+    \text{Likelihood:}&L(y|p)\propto p^{\sum y_i}(1-p )^{N\fixed{n}-\sum y_i}=p^{N\bar{y}}(1-p)^{N(\fixed{n}-\bar{y})}\\
+    \text{Score:}&S(y|p)=\dfrac{N\bar{y}}{p}- \dfrac{N(\fixed{n}-\bar{y})}{1-p}\\
+    \text{Observed Info:}&J(y|p)=\dfrac{N\bar{y}}{p^2}+\dfrac{N(\fixed{n}-\bar{y})}{(1-p)^2}\\
+    \text{Fisher Info:}&I(p)=\dfrac{N}{p(1-p)}
+\end{align*}
+
+
+\hypertarget{BinomConjugate}{anchor text}
+
+
+
+\subsubsection{Poisson Model}\label{SubSubSectionBayesianPoisson}
+Generating process $ y_1,\ldots,y_N $ i.i.d. $ \sim P(\lambda ) $
+\begin{align*}
+    \text{Distribution:}&f(y|\lambda )=\dfrac{y!}{\lambda ^y}e^{-\lambda }\propto\lambda ^ye^{-\lambda }\\
+    \text{Likelihood:}&L(y|\lambda )\propto \lambda^{N\bar{y}}e^{-N\lambda } \\
+    \text{Score:}&S(y|\lambda )=N(\dfrac{\bar{y}}{\lambda }-1)\\
+    \text{Observed Info:}&J(y|\lambda )=\dfrac{N\bar{y}}{\lambda^2 }\\
+    \text{Fisher Info:}&I(\lambda )=\dfrac{N}{\lambda }
+\end{align*}
+
+
+\hypertarget{PoissonConjugate}{anchor text}
+
+
+\subsubsection{Exponential Model}\label{SubSubSectionBayesianExp}
+
+Generating process $ y_1,\ldots,y_N $ i.i.d. $ \sim \varepsilon (\lambda ) $
+\begin{align*}
+    \text{Distribution:}&f(y|\lambda )=\lambda e^{-\lambda y}\propto\lambda ^ye^{-\lambda y }\\
+    \text{Likelihood:}&L(y|\lambda )\propto \lambda^{N}e^{-\lambda N\bar{y} } \\
+    \text{Score:}&S(y|\lambda )=\dfrac{N}{\lambda }-N\bar{y}\\
+    \text{Observed Info:}&J(y|\lambda )=\dfrac{N}{\lambda^2 }\\
+    \text{Fisher Info:}&I(\lambda )=\dfrac{N}{\lambda^2 }
+\end{align*}
+\hypertarget{ExpConjugate}{anchor text}
+
+
+\subsubsection{Normal Model}\label{SubSubSectionBayesianNormal}
+\begin{point}
+    Model with known variance $ \fixed{\sigma ^2} $
+\end{point}
+
+Generating process $ y_1,\ldots,y_N $ i.i.d. $ \sim N(\mu ,\fixed{\sigma ^2}) $
+\begin{align*}
+    \text{Distribution:}&f(y|\mu  )=\dfrac{1}{\sqrt{2\pi\fixed{\sigma^2}}}\exp\left[ -\dfrac{(y-\mu )^2}{2\fixed{\sigma ^2}} \right]\propto \exp\left[ -\dfrac{\mu ^2-2y\mu }{2\fixed{\sigma ^2}} \right]\\
+    \text{Likelihood:}&L( y|\mu)\propto  \exp\left[ -\dfrac{N(\mu ^2-2\bar{y}\mu) }{2\fixed{\sigma ^2}} \right] \\
+    \text{Score:}&S(y|\mu)= -\dfrac{N(\mu -\bar{y})}{\fixed{\sigma ^2}}\\
+    \text{Observed Info:}&J(y|\mu)=\dfrac{N}{\fixed{\sigma ^2}}\\
+    \text{Fisher Info:}&I(\mu  )=\dfrac{N}{\fixed{\sigma ^2} }
+\end{align*}
+\hypertarget{NormalWithVarConjugate}{anchor text}
+
+\begin{point}
+    Model with known mean $ \fixed{\mu} $
+\end{point}
+
+Generating process $ y_1,\ldots,y_N $ i.i.d. $ \sim N(\fixed{\mu} ,\sigma ^2) $
+\begin{align*}
+    \text{Distribution:}&f(y|\sigma ^2  )=\dfrac{1}{\sqrt{2\pi\sigma ^2}}\exp\left[ -\dfrac{(y-\fixed{\mu} )^2}{2\sigma ^2} \right]\\
+    \text{Likelihood:}&L(y|\sigma ^2)\propto \sigma^{-N} \exp\left[ -\dfrac{1}{2\sigma ^2}\sum_{i=1}^N (y_i-\fixed{\mu})^2 \right]\equiv \sigma^{-N} \exp\left[ -\dfrac{N\mathrm{MSE}}{2\sigma ^2}   \right] \\
+    \text{Score:}&S(y|\sigma ^2)= -\dfrac{N}{\sigma }+\dfrac{N\mathrm{MSE} }{\sigma ^3}\\
+    \text{Observed Info:}&J(y|\sigma ^2)= -\dfrac{N}{\sigma ^2}+\dfrac{3N\mathrm{MSE} }{\sigma ^4}\\
+    \text{Fisher Info:}&I(\sigma^2 )=\dfrac{2N}{\sigma ^2}
+\end{align*}
+\hypertarget{NormalWithMeanConjugate}{anchor text}
+
+\begin{point}
+    Full model
+\end{point}
+
+Generating process $ y_1,\ldots,y_N $ i.i.d. $ \sim N(\mu  ,\sigma ^2) $
+\begin{align*}
+    \text{Distribution:}&f(y|\mu ,\sigma ^2  )=\dfrac{1}{\sqrt{2\pi\sigma ^2}}\exp\left[ -\dfrac{(y-\mu  )^2}{2\sigma ^2} \right]\\
+    \text{Likelihood:}&L(y|\mu ,\sigma ^2)\propto \sigma^{-N} \exp\left[ -\dfrac{1}{2\sigma ^2}\sum_{i=1}^N (y_i-\mu )^2 \right]\equiv \sigma^{-N} \exp\left[ -\dfrac{N(\bar{y}-\mu )^2+(N-1)s^2}{2\sigma ^2}   \right] \\
+    \text{Score:}&S(y|\mu ,\sigma ^2)= \begin{pmatrix}
+        \dfrac{N}{\sigma ^2}(\bar{y}-\mu )\\
+        -\dfrac{N}{2\sigma ^2}+\dfrac{\sum (y_i-\mu )^2}{2(\sigma ^2)^2}
+    \end{pmatrix}\\
+    \text{Observed Info:}&J(y|\mu ,\sigma ^2)= \begin{pmatrix}
+        \dfrac{N}{\sigma ^2}&\dfrac{N(\bar{y}-\mu )}{(\sigma ^2)^2}\\
+        \dfrac{N(\bar{y}-\mu )}{(\sigma ^2)^2}&-\dfrac{N }{2(\sigma ^2)^2}+\dfrac{\sum (y_i-\mu )^2}{(\sigma ^2)^3}
+    \end{pmatrix}\\
+    \text{Fisher Info:}&I(\mu ,\sigma^2 )=\begin{pmatrix}
+        \dfrac{N}{\sigma ^2}&\\
+        0&\dfrac{N}{2(\sigma ^2)^2}
+    \end{pmatrix}
+\end{align*}
+
+Another parameterization $ (\mu ,\sigma ^2)\mapsto (\mu ,\log \sigma ) $:
+\begin{align*}
+    \text{Score:}&S(y|\mu ,\log \sigma )= \begin{pmatrix}
+        \dfrac{N}{\sigma ^2}(\bar{y}-\mu )\\
+        -N+\dfrac{\sum (y_i-\mu )^2 }{\sigma ^2}
+    \end{pmatrix}\\
+    \text{Observed Info:}&J(y|\mu ,\log\sigma )= \begin{pmatrix}
+        \dfrac{N}{\sigma ^2}&\dfrac{N(\bar{y}-\mu )}{(\sigma ^2)^2}\\
+        \dfrac{N(\bar{y}-\mu )}{(\sigma ^2)^2}&\dfrac{2\sum (y_i-\mu )^2}{\sigma ^2}
+    \end{pmatrix}\\
+    \text{Fisher Info:}&I(\mu ,\log \sigma )=\begin{pmatrix}
+        \dfrac{N}{\sigma ^2}&0\\
+        0&2N
+    \end{pmatrix}
+\end{align*}
+
+
+\hypertarget{NormalConjugate}{anchor text}
+
+
+
+
+
+
+
+\subsubsection{Multinomial Model}\label{SubSubSectionBayesianMultinom}
+
+(One sample item here) Generating process $ (y_1,y_2,\ldots,y_J) $ $ \sim \mathrm{Multino}(\fixed{n};\theta _1,\theta _2,\ldots,\theta _J)  ,$, $w.r.t. \sum_{j=1}^J \theta _j = 1$, $ \sum_{j=1}^Jy_j=\fixed{n} $ 
+\begin{align*}
+    \text{Distribution:}&f(y|\theta  )=\binom{\fixed{n}}{y _1\,\ldots\,y _J}\prod_{j=1}^J \theta _j^{y_j},\quad \sum_{j=1}^J\theta _j=1,\,\sum_{j=1}^Jy_j=\fixed{n}\\
+    \text{Likelihood:}&L(y|\theta )\propto\prod_{j=1}^J \theta _j^{y_j},\quad \sum_{j=1}^J\theta _j=1
+\end{align*}
+    the score function and Fisher information are slightly different because of the constraint $ \sum_{j}\theta _j=1 $, i.e. $ \vec{\theta }\in \mathbb{R}^{J-1}\subset \mathbb{R}^J $. Fortunately \textbf{for multinomial} the transformation function \textbf{happens to} reserve the $\det(I(\theta ))$, i.e. we could simply `pretend' their independence to get 
+    \begin{align*}
+        \text{Fisher Info:}&\,\det\left[ I(\theta )\right]=\dfrac{1}{\theta _1\theta _2\ldots \theta _J},\quad \sum_{j=1}^J\theta _j=1
+    \end{align*}
+    
+    
+    
+
+\hypertarget{MultinomConjugate}{anchor text}
+
+
+\subsubsection{Multi-Normal Model}\label{SubSubSectionBayesianMultinormal}
+\hypertarget{MultiNormalConjugate}{anchor text}
+
+Generating process $ y_1,\ldots,y_N $ i.i.d. $ \sim N_d(\mathop{\mu }\limits_{d\times 1}  ,\mathop{\Sigma }\limits_{d\times d} ) $
+\begin{align*}
+    \text{Distribution:}f(y|\mu ,\Sigma )=&\dfrac{1}{(2\pi)^{-d/2}|\Sigma |^{1/2}}\exp\left[ -\dfrac{1}{2}(y-\mu )'\Sigma ^{-1}(y-\mu ) \right]\\
+    \text{Likelihood:}L(y|\mu ,\Sigma )\propto& |\Sigma |^{-N/2}\exp\left[ -\dfrac{1}{2}\sum_{i=1}^N (y_i-\mu )'\Sigma ^{-1}(y_i-\mu ) \right]\\
+    =& |\Sigma |^{-N/2}\exp\left[ -\dfrac{1}{2}tr\left(\Sigma ^{-1}S_0
+     \right)\right]\\
+    \text{where }S_0\equiv &\sum_{i=1}^N(y_i-\mu )(y_i-\mu )'=N(\bar{y}-\mu )(\bar{y}-\mu )'+\sum_{i=1}^N(y_i-\bar{y})(y_i-\bar{y})'\\
+    \equiv& N(\bar{y}-\mu )(\bar{y}-\mu )'+S
+\end{align*}
+
+

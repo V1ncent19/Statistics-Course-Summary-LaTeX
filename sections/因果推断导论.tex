@@ -167,9 +167,9 @@ The null model is complicated, say, there could be multiple PO levels / interfer
         \end{align}
 
         when $ q(X,Y) $ mentioned above does \textit{not} involve $ Y $, i.e. with unconfoundedness, it is denoted as \textit{propensity score}\index{Propensity Score}.
-        \begin{align*}
+        \begin{align}
             q(X,Y) := e(X),\quad \text{case } W\independent Y\big| X
-        \end{align*}
+        \end{align}
 
         Note: Unconfoundedness is \textit{not} testable (always invloves the missing value $ Y^\mathrm{mis}  $). We can only pre-design it (randomized experiment) or make it an appropriate assumption (RAM).
     \end{itemize}
@@ -681,28 +681,28 @@ and we can access $ \hat{var}(\tau_\mathrm{fs} ) $ as
 
 \subsubsection{Observational Study with Regular Assignment Mechanisms}
 \textbf{Recap} RAM:
-\begin{align*}
+\begin{align}
     \begin{cases}
         \text{Individualistic:}&\mathbb{P}\left( W_i|X,Y \right)= \mathbb{P}\left( W_i|X_i,Y_i \right) := q(X,Y)\\
         \text{Probabilistic:}&0<\mathbb{P}\left( W_i|X,Y \right)<1\\
         \text{Unconfounded:}&\mathbb{P}\left( W|X,Y \right)=\mathbb{P}\left( W|X \right)  
     \end{cases} \Rightarrow \mathbb{P}\left( W|X,Y \right)=\dfrac{1}{Z}\prod_{i=1}^N e(X_i)^{W_i}(1-e(X_i))^{1-W_i} 
-\end{align*}
+\end{align}
 
 % In observational study, $ e(x)=\mathbb{P}\left( W_i=1|X_i=x \right) = \mathbb{E}\left[ W_i|X_i=x \right]  $ is unknown.
 % \begin{itemize}[topsep=2pt,itemsep=0pt]
 %     \item For categorical $ X $ with small $ |\mathcal{X}| $, estimation
-%     \begin{align*}
+%     \begin{align}
 %         \hat{e}(x)=\dfrac{N(X_j)}{N} 
-%     \end{align*}
+%     \end{align}
 %     \item For categorical $ X $ with large $ |\mathcal{X}| $, or continuous $ X $, 
     
     
 % \end{itemize}
 With the above assumptions and notations, propensity score $ e(x) $ can help fix the problem of Simpson's Paradox by \textbf{Covariate Balance}
-\begin{align*}
+\begin{align}
     W_i\independent X_i\big| e(X_i) 
-\end{align*}
+\end{align}
 Note: there could be some other selection of balancing variable $ \epsilon(x) $, in which $ e_i $ is the coarsest, i.e. $ e(x)= e(\epsilon(x))  $
 \begin{figure}[H]
     \centering
@@ -715,26 +715,26 @@ Note: there could be some other selection of balancing variable $ \epsilon(x) $,
 \end{point}
 
 Property of propensity score:
-\begin{align*}
+\begin{align}
     \Delta _\mathrm{tc}:= \mathbb{E}\left[ e(X)|W=1 \right] - \mathbb{E}\left[ e(X) |W=0\right]=\dfrac{var(e(X))}{p(1-p)}\\
     var(e(X))=\mathbb{E}\left[ \left(\dfrac{f_\mathrm{t}(X)-f_\mathrm{c}(X)  }{pf_\mathrm{t}(X)+(1-p)f_\mathrm{c}(X)}\right)^2 \right]\cdot p^2(1-p)^2   
-\end{align*}
+\end{align}
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item Propensity Score test can be accessed by
-\begin{align*}
+\begin{align}
     &\hat{\Delta }_\mathrm{tc}^\ell = \dfrac{\bar{\ell}_\mathrm{t}-\bar{\ell}_\mathrm{c}  }{\sqrt{(s^2_{\ell,\mathrm{t} }+s^2_{\ell,\mathrm{c} } )/2}}\sim t_{N-2},\quad \ell(x)=\ln\left(\dfrac{e(x)}{1-e(x)}\right)=\mathrm{logistic}(x) \\
     &\hat{\Delta }_\mathrm{tc}^\ell =0\leftrightsquigarrow \Delta _\mathrm{tc}=0\leftrightsquigarrow var(e(X))=0\leftrightsquigarrow f_\mathrm{t}(x)=f_\mathrm{c}(x)  
-\end{align*}
+\end{align}
     \item Estimate $ \hat{e}(X_i) $
     \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item For categorical $ X $ with small $ |\mathcal{X}| $, estimation
-        \begin{align*}
+        \begin{align}
             \hat{e}(x)=\dfrac{N(X_j)}{N} 
-        \end{align*}
+        \end{align}
         \item (Kernel) logistic regression is sometimes useful\footnote{Instruction of Kernel logistic regression see \autoref{SubSubSectionKernelRegression}.}
-        \begin{align*}
+        \begin{align}
              \hat{e}(x)=\hat{\mathbb{P}}\left( W_i=1|X_i=x;\beta  \right)=\dfrac{e^{x'\beta }}{1+e^{x'\beta }} 
-        \end{align*}
+        \end{align}
     \end{itemize}
     
 \end{itemize}
@@ -752,39 +752,39 @@ Property of propensity score:
 \end{point}
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item Weighting: using the modulation of $ e(x) $ on $ \mathbb{P}\left( W|X \right)  $
-    \begin{align*}
+    \begin{align}\label{EqaPropensityScoreWeighting}
         \begin{cases}
             \mathbb{E}\left[ \dfrac{Y_i^\mathrm{obs}\cdot W_i }{e(X_i)} \right]=\mathbb{E}\left[ \dfrac{\mathbb{E}\left[ Y_i(1)|X_i \right]\mathbb{E}\left[ W_i|X_i \right]  }{e(X_i)} \right]=\mathbb{E}\left[ Y_i(1) \right]\\
             \mathbb{E}\left[ \dfrac{Y_i^\mathrm{obs}\cdot (1-W_i) }{1-e(X_i)} \right]=\mathbb{E}\left[ \dfrac{\mathbb{E}\left[ Y_i(0)|X_i \right]\mathbb{E}\left[ 1-W_i|X_i \right]  }{1-e(X_i)} \right]=\mathbb{E}\left[ Y_i(0) \right]
         \end{cases} 
-    \end{align*}
+    \end{align}
     to \textit{weight} estimators through $ X $: Horvitz-Thompson Estimator \index{Horvitz-Thompson Estimator}
-    \begin{align*}
+    \begin{align}
         \hat{\tau}^\mathrm{HT} = & \dfrac{1}{N}\sum_{i=1}^N\dfrac{W_iY^\mathrm{obs}_i }{\hat{e}(X_i)}-\dfrac{1}{N}\sum_{i=1}^N\dfrac{(1-W_i)Y^\mathrm{obs}_i }{1-\hat{e}(X_i)}=\dfrac{1}{N}\sum_{i=1}^N\dfrac{(W_i-e(X_i))\cdot Y^\mathrm{obs}_i }{e(X_i)\cdot (1-e(X_i))} \\
         \hat{\tau}^\mathrm{HT,mod} = & \sum_{i=1}^N \lambda _iW_iY^\mathrm{obs}_i-\sum_{i=1}^N\lambda _i(1-W_i)Y^\mathrm{obs}_i ,\quad \lambda _i=\begin{cases}
             \dfrac{1/\hat{e}(X_i)}{\sum_{k=1}^NW_i /\hat{e}(X_j)},&W_i=1\\
             \dfrac{1/(1-\hat{e}(X_i))}{\sum_{k=1}^N  (1-W_i)/(1-\hat{e}(X_k))},&W_i=0
         \end{cases}  
-    \end{align*}
+    \end{align}
     where the modification version is used to avoid extreme $ \hat{e} $ value.
 
     The Horvitz-Thompson estimator is linked to stratified Neyman estimator \autoref{EqaNeymanEstimatorStratified} as
-    \begin{align*}
+    \begin{align}
          \hat{\tau}^\mathrm{strata}=\sum_{j=1}^Jq(j)\hat{\tau}(j)= \dfrac{1}{N} \sum_{i=1}^N \tilde{e} _iW_iY^\mathrm{obs}_i-\sum_{i=1}^N\tilde{e} _i(1-W_i)Y^\mathrm{obs}_i ,\quad \tilde{e} _i=\begin{cases}
             \mathbb{I}_{S_i=j}\dfrac{1}{N_\mathrm{t}(j)/N(j) },&W_i=1\\
             \mathbb{I}_{S_i=j}\dfrac{1}{N_\mathrm{c}(j/N(j)) },&W_i=0
          \end{cases}
-    \end{align*}
+    \end{align}
     where $ \tilde{e }_i $ is the propensity score for each strata.
     \item Blocking / Stratifying according to $ X $, and then follows similar idea as SRE. (Because $ S(X_i) $ is still a covariate.)
     \item Matching `similar' data points. e.g. for each data point $ (W_i=1,Y_i,X_i) $, select in $ \mathcal{D}_{W=1-W_i=0} $ for units with small distance $ d(X_i,X) $ as $ \mathcal{M}_i $, and have a matching data
-    \begin{align*}
+    \begin{align}
         \{(W_i=1,Y_i^\mathrm{obs} ,X_i,\mathcal{M}_i)\},\quad \mathcal{M}_i=\{(W_j=0,Y_j,X_j)\}_{d(X_i,X_j)\text{ small}} 
-    \end{align*}
+    \end{align}
     and then
-    \begin{align*}
+    \begin{align}
         \hat{\tau} =\dfrac{1}{N_\mathrm{t} }\sum_{i:W_i=1}\left(Y_i^\mathrm{obs}-\bar{Y}_{\mathcal{M}_i} \right)
-    \end{align*}
+    \end{align}
 \end{itemize}
 
 
@@ -831,13 +831,13 @@ In Pearl's causal network we focus on \textbf{Directed Acyclic Graphs} (DAGs) \i
 \end{point}
 
 A probability distribution $ \mathbb{P}\left( X_1,X_2,\ldots,X_n \right) $ on vertices of graph has factorization given by conditional probability:
-\begin{align*}
+\begin{align}
     \mathbb{P}\left( X_1,\ldots,X_n \right) = &\mathbb{P}\left( X_{i_1}|X_{i_2},\ldots \right)\mathbb{P}\left( X_{i_2}|X_{i_3},\ldots \right)\ldots\mathbb{P}\left( X_{i_{n-1}}|X_{i_n} \right) \mathbb{P}\left( X_n \right)    
-\end{align*}
+\end{align}
 in which indices $ \{i_1,i_2,\ldots,i_n\} $ can be any reshuffle of $ \{1,2,\ldots,n\} $. But if we attach a graph on the probability to guide the factorization, the shuffle has to following some order, and form of conditional probability follows the Markov parents on DAG:
-\begin{align*}
+\begin{align}
     \mathbb{P}\left( X_1,\ldots,X_n \right)=\prod_{i}\mathbb{P}\left( X_i|pa_i \right)
-\end{align*}
+\end{align}
 the r.v. sequence is \textbf{causal ordering} if $ X_i $ only dependent on $ X_{j:j<i} $, i.e. $ pa_i\subset \{X_1,\ldots,X_{i-1}\} $.
 
 Here's an example of Markov factorization on a DAG graph:
@@ -847,15 +847,15 @@ Here's an example of Markov factorization on a DAG graph:
 
     \begin{center}
     \begin{minipage}{0.7\linewidth}
-        \begin{align*}
+        \begin{align}
             \mathbb{P}\left( X_1,X_2,X_3,X_4,X_5 \right) = & \mathbb{P}\left( X_5|X_4 \right) \mathbb{P}\left( X_1,X_2,X_3,X_4 \right) \\
             =&\mathbb{P}\left( X_5|X_4 \right) \mathbb{P}\left( X_4|X_2,X_3 \right) \mathbb{P}\left( X_1,X_2,X_3 \right) \\
             =&\mathbb{P}\left( X_5|X_4 \right) \mathbb{P}\left( X_4|X_2,X_3 \right) \mathbb{P}\left( X_3|X_1 \right) \mathbb{P}\left( X_2|X_1 \right) \mathbb{P}\left( X_1 \right)  \quad\,       
-        \end{align*}
+        \end{align}
     \end{minipage}
     \begin{tikzpicture}[baseline={([yshift = 0ex]current bounding box.center)}]
         \GraphInit[vstyle=Dijkstra]
-        \SetGraphUnit{1}
+        \SetGraphUnit{1.3}
         
         \Vertices[Lpos=-45]{circle}{3,1,2,4}
         \SO[unit = 1.4](4){5}
@@ -878,14 +878,14 @@ Here's an example of Markov factorization on a DAG graph:
 Starting from triplets in DAG as the key elements in a graph.
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item Chain $ X\to Y\to Z $, in which $ Y $ is the \textit{mediator}. We have
-    \begin{align*}
+    \begin{align}
         \mathbb{P}\left( X,Z|Y \right)=&\dfrac{\mathbb{P}\left( X \right) \mathbb{P}\left( Y|X \right) \mathbb{P}\left( Z|Y \right) }{\mathbb{P}\left( Y \right) }=\mathbb{P}\left( X|Y \right) \mathbb{P}\left( Z|Y \right) 
-    \end{align*}
+    \end{align}
     i.e. we have a conditional independency in chain $ X\independent Z|Y $
     \item Fork $ X\leftarrow Y\rightarrow Z $. We have
-    \begin{align*}
+    \begin{align}
         \mathbb{P}\left( X,Z|Y \right) = \dfrac{\mathbb{P}\left( Y \right) \mathbb{P}\left( X|Y \right) \mathbb{P}\left( Z|Y \right) }{\mathbb{P}\left( Y \right) }=\mathbb{P}\left( X|Y \right) \mathbb{P}\left( Z|Y \right)   
-    \end{align*}
+    \end{align}
     i.e. we have a conditional independency in chain $ X\independent Z|Y $
     \item Collider $ X \to Y \leftarrow Z $. In the collider, $ X\independent Z $ marginally, but given $ Y $ are conditionally dependent. If there is no edge between $ X $ and $ Z $, it's also called $ v $-structure.\index{$ v $-structure@v-structure}
 \end{itemize}
@@ -981,9 +981,9 @@ A textbook definition is given as:
 \end{quote}
 
 Here `admits' means that d-separation on graph finds its corresponding conditional probability.
-\begin{align*}
+\begin{align}
     X\independent _\mathcal{G} Y|Z\Rightarrow  X\independent _\mathbb{P} Y|Z
-\end{align*}
+\end{align}
 
 Markov compatibility means that we can generate data following $ \mathbb{P} $ using $ \mathcal{G} $ as `Blueprint'.
 
@@ -991,9 +991,9 @@ Related notions and comments:
 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item I-Map\index{I-map (Independence Map)}: is a set of conditional inpendence statements read out from $ \mathcal{G} $. If $ X $ and $ Y $ are d-separated by $ Z $ in $ \mathcal{G} $ (denoted $ X\independent_\mathcal{G} Y|Z $), then we should have $ X\independent_{mathbb{P}} Y |Z$ in \textbf{every} $ \mathbb{P} $ distribution compatible with $ \mathcal{G} $.
-    \begin{align*}
+    \begin{align}
          I(\mathcal{G})=\left\{ (X\independent_\mathcal{G}Y|Z):\, (X\independent_\mathbb{P}Y|Z) \,\forall \mathbb{P}\text{ compatible with }\mathcal{G}  \right\}
-    \end{align*}
+    \end{align}
     \item From I-Map we can have definition of I-equivalence: i.e. if $ \mathcal{G}_1 $ and $ \mathcal{G}_2 $ yield the same I-map $ I(\mathcal{G}_1)=I(\mathcal{G}_2) $.
     \item Note that Markov compatible states that $ X\independent _\mathcal{G} Y|Z\Rightarrow  X\independent _\mathbb{P} Y|Z $ but not reversely, which means that $ I(\mathcal{G})\subset I(\mathbb{P}) $
     \item An concrete example: two r.v. are independently generated $ \mathbb{P}\left( X,Y \right) =\mathbb{P}\left( X\right)\mathbb{P}\left( Y \right) $, i.e. $ I(\mathbb{P})= X\independent_\mathbb{P} Y $. All the following graphs are markov compatible:
@@ -1007,9 +1007,9 @@ Related notions and comments:
     \item \textbf{Observational Equivalence}\index{Observational Equivalence}: A set of graphs are observational equivalent / belong to the same equivalent class if they encode the same conditional independencies. 
     
     Note that the key causal structures in DAGs are chain, fork, and collider; in which chain and fork imply the same conditional independence while collider is different. i.e.
-    \begin{align*}
+    \begin{align}
         X\to Y\to Z,\qquad X\leftarrow Y\leftarrow Z,\qquad X\leftarrow Y \to Z 
-    \end{align*}
+    \end{align}
     are observational equivalent by encoding $ X\independent Z|Y $.
     
     The above argument gives the hint for identifying observational equivalent graphs:
@@ -1123,9 +1123,9 @@ Related notions and comments:
 \end{point}
 
 Recall that in Rubin's Potential Outcome Framework, causality was induced by counterfactual side of potential outcomes $ Y^\mathrm{mis} = Y(1-W)  $. In Bayesian Network framework, causality is induced by \textbf{intervention}, in formulas expressed by $ do(\, \cdot \, ) $ operator, e.g.
-\begin{align*}
+\begin{align}
     \mathbb{P}\left( X |do(Z=z) \right)  
-\end{align*}
+\end{align}
 where $ Z\subset X  $ is the set to conduct intervention on. Intervention would remove all `incoming' edges to $ Z $, as illustrated below an example of $ do(3=...) $:
 
 \begin{center}
@@ -1189,9 +1189,9 @@ Comments:
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item Note that intervention $ do(Z=z) $ cancels some edges, so it would only add newindependencies, which holds $ I(\mathcal{G})\subset I(\mathbb{P} ) $ (still compatible).
     \item With some intervention $ do(Z=z) $, the \textit{truncated} factorization of $ \mathbb{P}\left( \, \cdot \,  \right)  $ is
-    \begin{align*}
+    \begin{align}
         \mathbb{P}\left( X | do(Z=z) \right)  =  \prod_{i:X_i\notin Z}\mathbb{P}\left( X_i|pa_i \right) 
-    \end{align*}
+    \end{align}
     
     
 \end{itemize}
@@ -1219,7 +1219,7 @@ Here illustrated with the following example with conditional independencies. Gro
 
 \begin{center}
     \begin{minipage}{0.4\linewidth}
-        \begin{align*}
+        \begin{align}
             &X \not\!\!\mathop{\independent} R |\mathcal{S},\,\forall \mathcal{S}\subset\{Y,Z,W\}\\
             &X \not\!\!\mathop{\independent} Z |\mathcal{S},\,\forall \mathcal{S}\subset\{Y,R,W\}\\
             &X \not\!\!\mathop{\independent} Y |\mathcal{S},\,\forall \mathcal{S}\subset\{Z,R,W\}\\
@@ -1230,11 +1230,11 @@ Here illustrated with the following example with conditional independencies. Gro
             &Z\independent W|Y\\
             &Z\independent R|\{X,Y\}\\
             &W\independent R
-        \end{align*}
+        \end{align}
     \end{minipage}
     \begin{tikzpicture}[baseline={([yshift = 0ex]current bounding box.center)}]
         \GraphInit[vstyle=Dijkstra]
-        \SetGraphUnit{1}
+        \SetGraphUnit{1.3}
         
         \Vertex[x=0, y=0, L=$ R $]{R}
         \Vertex[x=1, y=-1, L=$ X $]{X}
@@ -1264,7 +1264,7 @@ Here illustrated with the following example with conditional independencies. Gro
     \end{itemize}
     \begin{center}
         \begin{minipage}{0.4\linewidth}
-            \begin{align*}
+            \begin{align}
                 &\color{red}X \not\!\!\mathop{\independent} R |\mathcal{S},\,\forall \mathcal{S}\subset\{Y,Z,W\}\\
                 &\color{red}X \not\!\!\mathop{\independent} Z |\mathcal{S},\,\forall \mathcal{S}\subset\{Y,R,W\}\\
                 &\color{red}X \not\!\!\mathop{\independent} Y |\mathcal{S},\,\forall \mathcal{S}\subset\{Z,R,W\}\\
@@ -1275,11 +1275,11 @@ Here illustrated with the following example with conditional independencies. Gro
                 &Z\independent W|Y\\
                 &Z\independent R|\{X,Y\}\\
                 &W\independent R
-            \end{align*}
+            \end{align}
         \end{minipage}
         \begin{tikzpicture}[baseline={([yshift = 0ex]current bounding box.center)}]
             \GraphInit[vstyle=Dijkstra]
-            \SetGraphUnit{1}
+            \SetGraphUnit{1.3}
             
             \Vertex[x=0, y=0, L=$ R $]{R}
             \Vertex[x=1, y=-1, L=$ X $]{X}
@@ -1306,7 +1306,7 @@ Here illustrated with the following example with conditional independencies. Gro
     \end{itemize}
     \begin{center}
         \begin{minipage}{0.4\linewidth}
-            \begin{align*}
+            \begin{align}
                 &\color{red}X \not\!\!\mathop{\independent} R |\mathcal{S},\,\forall \mathcal{S}\subset\{Y,Z,W\}\\
                 &X \not\!\!\mathop{\independent} Z |\mathcal{S},\,\forall \mathcal{S}\subset\{Y,R,W\}\\
                 &\color{red}X \not\!\!\mathop{\independent} Y |\mathcal{S},\,\forall \mathcal{S}\subset\{Z,R,W\}\\
@@ -1317,11 +1317,11 @@ Here illustrated with the following example with conditional independencies. Gro
                 &Z\independent W|Y\\
                 &Z\independent R|\{X,Y\}\\
                 &W\independent R
-            \end{align*}
+            \end{align}
         \end{minipage}
         \begin{tikzpicture}[baseline={([yshift = 0ex]current bounding box.center)}]
             \GraphInit[vstyle=Dijkstra]
-            \SetGraphUnit{1}
+            \SetGraphUnit{1.3}
             
             \Vertex[x=0, y=0, L=$ R $]{R}
             \Vertex[x=1, y=-1, L=$ X $]{X}
@@ -1348,7 +1348,7 @@ Here illustrated with the following example with conditional independencies. Gro
         \begin{center}
             \begin{tikzpicture}[baseline={([yshift = 0ex]current bounding box.center)}]
                 \GraphInit[vstyle=Dijkstra]
-                \SetGraphUnit{1}
+                \SetGraphUnit{1.3}
                 
                 \Vertex[x=0, y=0, L=$ R $]{R}
                 \Vertex[x=1, y=-1, L=$ X $]{X}
@@ -1370,7 +1370,7 @@ Here illustrated with the following example with conditional independencies. Gro
               \end{tikzpicture}
               $ \qquad  $\begin{tikzpicture}[baseline={([yshift = 0ex]current bounding box.center)}]
                 \GraphInit[vstyle=Dijkstra]
-                \SetGraphUnit{1}
+                \SetGraphUnit{1.3}
                 
                 \Vertex[x=0, y=0, L=$ R $]{R}
                 \Vertex[x=1, y=-1, L=$ X $]{X}
@@ -1395,7 +1395,7 @@ Here illustrated with the following example with conditional independencies. Gro
         \begin{center}
             \begin{tikzpicture}[baseline={([yshift = 0ex]current bounding box.center)}]
                 \GraphInit[vstyle=Dijkstra]
-                \SetGraphUnit{1}
+                \SetGraphUnit{1.3}
                 
                 \Vertex[x=0, y=0, L=$ R $]{R}
                 \Vertex[x=1, y=-1, L=$ X $]{X}
@@ -1417,7 +1417,7 @@ Here illustrated with the following example with conditional independencies. Gro
               \end{tikzpicture}
               $ \qquad  $\begin{tikzpicture}[baseline={([yshift = 0ex]current bounding box.center)}]
                 \GraphInit[vstyle=Dijkstra]
-                \SetGraphUnit{1}
+                \SetGraphUnit{1.3}
                 
                 \Vertex[x=0, y=0, L=$ R $]{R}
                 \Vertex[x=1, y=-1, L=$ X $]{X}
@@ -1451,12 +1451,276 @@ The above procedure can produce identify the DAG up to its observational equival
 \end{point}
 
 We could also simply search in the space of all possible networks and select the one scoring the highest. Some frequently used metrics include AIC and BIC
-\begin{align*}
+\begin{align}
     \mathrm{AIC}=&-2\log \mathbb{P}\left( \mathcal{G}|\hat{\theta }  \right) + 2\mathrm{dof}_\mathcal{G} \\
     \mathrm{BIC}=&-2\log \mathbb{P}\left( \mathcal{G}|\hat{\theta } \right) +\log n \mathrm{dof}_\mathcal{G}   
-\end{align*}
+\end{align}
 
-\subsubsection{}
+
+
+\subsubsection{Network Parameter Learning}
+Basically, parameter learning (given BN strucure) is simply estimating edge weights, denoted $ \varTheta $. Two basic methods are 
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Bayesian approach
+    \begin{align}
+        \mathop{\arg\max}\limits_{\varTheta}\mathbb{P}(\varTheta|\mathcal{D})  
+    \end{align}
+    \item Frequentist approach, e.g. with MLE loss+penalty form
+    \begin{align}
+         \mathop{\arg\min}\limits_{\varTheta}-\log\mathbb{P}\left( \mathcal{D}|\varTheta \right) + \lambda P(\varTheta)  
+    \end{align}
+
+    A trivial solution for categorical variables is 
+    \begin{align}
+        \hat{\theta}_{ij\vec{k}}=\hat{\mathbb{P}}(X_i=j|pa_{i}=\vec{k})=\dfrac{N_{ijk}}{N_{i\cdot k}},\,\forall j=1,\ldots,J_{i} ,\,\,\forall i\in\mathcal{V}
+    \end{align}
+    
+    
+\end{itemize}
+
+    
+\subsubsection{Average Causal Effect Estimation}
+    Average Causal Effects on BN are defined in terms of $ do(\, \cdot \, ) $ operator,
+    \begin{align}
+        \mathrm{ACE}(Y|H):= \mathbb{E}\left[ Y|do(H=h_1) \right]-\mathbb{E}\left[ Y|do(H=h_2) \right]    
+    \end{align}
+    Calculation of ACE given known BN relies on $ do $-calculus. A $ do(\, \cdot \, ) $ operator would cancal all edges pointing to the vertex, i.e. produce a modified graph $ \mathcal{G}_{do(\, \cdot \, )} $, what we need to estimate is the probability in the modified graph. 
+    \begin{align}
+         \mathbb{E}_{\mathcal{G}}\left[ Y|do(H) \right] \twoheadleftarrow  \mathbb{P}_{\mathcal{G}}\left( Y|do(H) \right) \twoheadleftarrow  \mathbb{P}_{\mathcal{G}_{do(H)}}\left( Y \right) \xleftarrow[]{do\text{-calculus}} \mathbb{P}_{\mathcal{G}}\left( \mathbf{X} \right)  \twoheadleftarrow \mathcal{D}ata
+    \end{align}
+
+    \begin{center}
+        \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+        %uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+        
+        %Straight Lines [id:da46339212876531755] 
+        \draw    (206.33,126.77) -- (270.33,126.77) ;
+        \draw [shift={(272.33,126.77)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+        %Straight Lines [id:da21292385445434125] 
+        \draw    (301.33,126.77) -- (365.33,126.77) ;
+        \draw [shift={(367.33,126.77)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+        
+        % Text Node
+        \draw    (287.13, 127.2) circle [x radius= 14.44, y radius= 14.44]   ;
+        \draw (287.13,127.2) node  [xslant=-0.03]  {$H$};
+        % Text Node
+        \draw (147,105) node [anchor=north west][inner sep=0.75pt]   [align=left] {backdoor side};
+        % Text Node
+        \draw (329,105) node [anchor=north west][inner sep=0.75pt]   [align=left] {frontdoor side};
+        
+        
+        \end{tikzpicture}
+    \end{center}
+
+    \begin{point}
+        $ do $-Calculus
+    \end{point}
+    \begin{itemize}[topsep=2pt,itemsep=0pt]
+        \item Module invariant
+        \begin{align}
+            \mathbb{P}\left( X_i=x_i\big| do(PA_i=pa_i) \right) = \mathbb{P}\left( X_i=x_i\big| PA_i=pa_i \right)  
+        \end{align}
+        \item[$ \color{blue}\vartriangleright  $]\textbf{ The Adjustment Formula} \index{Adjustment Formula}
+        \begin{align}
+            \mathbb{P}\left( Y=y\big| do(X=x) \right) =& \sum_{z\in\{ pa_y \}} \mathbb{P}\left( Y=y\big| X=x, PA_y=z \right)\mathbb{P}\left( PA_y=z \right)  \\
+            =& \sum_{z\in\{pa_y\}}\dfrac{\mathbb{P}\left( X=x, Y=y,PA_y=z \right) }{\mathbb{P}\left( X=x\big| PA_y=z \right) } 
+        \end{align}
+        in which we use the Markovian factorization on $ \mathcal{G} $
+        \begin{align}
+            \mathbb{P}\left( X,Y,PA_y \right) = \mathbb{P}\left( Y|X,PA_y \right)\mathbb{P}\left( X|PA_y \right)   \mathbb{P}\left( PA_y \right)  
+        \end{align}
+        with $ X $ considered as assignment mechanism, $ Z $ considered as covariates, the formula shares the same idea as \autoref{EqaPropensityScoreWeighting}.
+        
+        Through adjustment formula, we could obtain ACE from observed data (without intervention $ \leadsto $ with intervention).
+        
+        \fbox{\begin{minipage}{0.98\linewidth}
+            \makebox[2em][]{}\textbf{Example:} assessing $ Y|do(X=x) $, in which $ PA_y=\{X,Z\} $ with $ X $ being fixed by $ do(X=x) $.
+            \begin{align}
+                \mathbb{P}\left( Y=y\big| do(X=x) \right) = & \sum_{z\in\{z\}} \mathbb{P}\left( Y\big| X=x,Z=z \right) \mathbb{P}\left( Z=z \right) 
+            \end{align}
+
+            \begin{center}
+            \begin{minipage}{0.25\linewidth}
+                \centering
+                Before Intervention $ do(X) $\\
+                \begin{tikzpicture}[baseline={([yshift = 0ex]current bounding box.center)}]
+                \GraphInit[vstyle=Dijkstra]
+                \SetGraphUnit{1.3}
+                
+                \Vertex[x=0, y=0, L=$ X $]{X}
+                \Vertex[x=1, y=1, L=$ Z $]{Z}
+                \Vertex[x=2, y=0, L=$ Y $]{Y}
+
+                \tikzset{LabelStyle/.style={fill = white},
+                EdgeStyle/.style={-stealth}}
+        
+                \Edge(X)(Y)
+                \Edge(Z)(Y)
+                \Edge(Z)(X)
+        
+            \end{tikzpicture}
+            \end{minipage}
+            $ \Rightarrow  $
+            \begin{minipage}{0.25\linewidth}
+                \centering
+                After Intervention $ do(X) $\\
+                \begin{tikzpicture}[baseline={([yshift = 0ex]current bounding box.center)}]
+                \GraphInit[vstyle=Dijkstra]
+                \SetGraphUnit{1.3}
+                
+                \Vertex[x=0, y=0, L=$ X $]{X}
+                \Vertex[x=1, y=1, L=$ Z $]{Z}
+                \Vertex[x=2, y=0, L=$ Y $]{Y}
+
+                \tikzset{LabelStyle/.style={fill = white},
+                EdgeStyle/.style={-stealth}}
+        
+                \Edge(X)(Y)
+                \Edge(Z)(Y)
+        
+            \end{tikzpicture}
+            \end{minipage}
+
+            \end{center}
+        \end{minipage}}
+        \item[$ \color{blue}\vartriangleright  $] \textbf{Backdoor criterion}  \index{Backdoor Criterion}
+        
+        Given $ (X,Y) $ in BN, a `backdoor set' $ \bm{Z} $ is one such that $ \bm{Z} $:
+        \begin{itemize}[topsep=2pt,itemsep=0pt]
+            \item Blocks \textbf{all} paths with arrow onto $ X $ (i.e. backdoor side of $ X $ is blocked by $ \bm{Z} $)
+            \item $ \bm{Z} $ contains \textbf{no}  descendants of $ X $
+        \end{itemize}
+        
+        then we could use the backdoor variable set $ \bm{Z} $ to have the \textbf{backdoor adjustment} of $ Y|do(X) $ as  
+        \begin{align}
+            \mathbb{P}\left( Y=y|do(X=x) \right)=\sum_{\bm{z}}\mathbb{P}\left( Y=y|X=x,\bm{Z}=\bm{z} \right)\mathbb{P}\left( \bm{Z}=\bm{z} \right)    
+        \end{align}
+        The selection of backdoor set $ \bm{Z} $ is not unique. e.g. sometimes due to observablility problem we could only obtain Partial DAG $ \big/ $ have multiple methods to block the path, then we could pick proper nodes to form the backdoor set.
+
+        \fbox{\begin{minipage}{0.98\linewidth}
+            \makebox[2em][]{}\textbf{Example:} assessing $ Y|do(X=x) $, where $ Z $ is an observable while $ W $ is a hidden unobservable.
+            \begin{align}
+                \mathbb{P}\left( Y=y\big| do(X=x) \right) = & \sum_{z\in\{z\}} \mathbb{P}\left( Y\big| X=x,Z=z \right) \mathbb{P}\left( Z=z \right) 
+            \end{align}
+    
+            \begin{center}
+            \begin{tikzpicture}[baseline={([yshift = 0ex]current bounding box.center)}]
+                \GraphInit[vstyle=Dijkstra]
+                \SetGraphUnit{1.3}
+                
+                \Vertex[x=0, y=0, L=$ X $]{X}
+                \Vertex[x=0, y=1.5, L=$ Z $]{Z}
+                \Vertex[x=2, y=0, L=$ Y $]{Y}
+                \Vertex[x=2, y=1.3, L=$ W $]{W}
+    
+                \tikzset{LabelStyle/.style={fill = white},
+                EdgeStyle/.style={-stealth}}
+        
+                \Edge(X)(Y)
+                \Edge(Z)(W)
+                \Edge(Z)(X)
+                \Edge(W)(Y)
+                
+        
+                \end{tikzpicture}
+                \end{center}
+            \end{minipage}}
+
+            \fbox{\begin{minipage}{0.98\linewidth}
+                \makebox[2em][]{}\textbf{Example:} assessing $ Y|do(X=x) $.
+                \begin{align}
+                    \mathbb{P}\left( Y=y\big| do(X=x) \right) = & \sum_{(z,z_1)\in\{(z,z_1)\}} \mathbb{P}\left( Y\big| X=x,Z=z,Z_1=z_1 \right) \mathbb{P}\left( Z=z,Z_1=z_1 \right)\\
+                    =&\sum_{(z,z_2)\in\{(z,z_2)\}} \mathbb{P}\left( Y\big| X=x,Z=z,Z_2=z_2 \right) \mathbb{P}\left( Z=z,Z_2=z_2 \right)\\
+                    =& \sum_{(z,z_1,z_2)\in\{(z,z_1,z_2)\}} \mathbb{P}\left( Y\big| X=x,Z=z,Z_1=z_1,Z_2=z_2 \right)\\
+                    &\qquad \cdot \mathbb{P}\left( Z=z,Z_1=z_1,Z_2=z_2 \right)
+                \end{align}
+        
+                \begin{center}
+                \begin{tikzpicture}[baseline={([yshift = 0ex]current bounding box.center)}]
+                    \GraphInit[vstyle=Dijkstra]
+                    \SetGraphUnit{1.3}
+                    
+                    \Vertex[x=0, y=0, L=$ X $]{X}
+                    \Vertex[x=1, y=1, L=$ Z $]{Z}
+                    \Vertex[x=2, y=0, L=$ Y $]{Y}
+                    \Vertex[x=-1, y=1.5, L=$ Z_1 $]{z1}
+                    \Vertex[x=3, y=1.5, L=$ Z_2 $]{z2}
+        
+                    \tikzset{LabelStyle/.style={fill = white},
+                    EdgeStyle/.style={-stealth}}
+            
+                    \Edge(X)(Y)
+                    \Edge(Z)(Y)
+                    \Edge(Z)(X)
+                    \Edge(z1)(X)
+                    \Edge(z1)(Z)
+                    \Edge(z2)(Z)
+                    \Edge(z2)(Y)
+                    
+            
+                    \end{tikzpicture}
+                    \end{center}
+                    \qquad i.e. we could adjust for either $ (Z,Z_1) $ or $ (Z,Z_2) $ or $ (Z,Z_1,Z_2) $ as the backdoor set.
+                \end{minipage}
+                }
+        \item[$ \color{blue}\vartriangleright  $] \textbf{Frontdoor criterion} 
+        
+        Given $ (X,Y) $ in BN, a `frontdoor set' $ \bm{Z} $ is one such that $ \bm{Z} $:
+        \begin{itemize}[topsep=2pt,itemsep=0pt]
+            \item Intercepts \textbf{all} paths from $ X $ to $ Y $ (i.e. frontdoor side of $ X $ is intercepted $ \bm{Z} $)
+            \item \textbf{No} unblocked backdoor path from $ X $ to $ Z $\footnote{backdoor path from $ X $ to $ Z $ means containing a backdoor arrow of $ X $, e.g. in the example, $ X\leftarrow W\to Y\leftarrow Z $, is blocked.}
+            \item \textbf{All} backdoor paths from $ Z $ to $ Y $ blocked by $ X $
+        \end{itemize}
+        then we could use the frontdoor variable set $ \bm{Z} $ to have the frontkdoor adjustment of $Y |do(X)$ as\index{Frontdoor Adjustment}
+        \begin{align}
+            \mathbb{P}\left( Y=y\big| do(X=x) \right) = & \sum_{z}\mathbb{P}\left( Z=z|X=x \right)\sum_{x'}\mathbb{P}\left( Y=y|X'=x',Z=z \right)\mathbb{P}\left( X'=X' \right)  
+        \end{align}
+        
+        \fbox{\begin{minipage}{0.98\linewidth}
+            \makebox[2em][]{}\textbf{Example:} assessing $ Y|do(X=x) $.
+            \begin{align}
+                \mathbb{P}\left( Y=y\big| do(X=x) \right) = & \sum_{z}\mathbb{P}\left( Z=z|X=x \right)\sum_{x'}\mathbb{P}\left( Y=y|X'=x',Z=z \right)\mathbb{P}\left( X'=X' \right)   
+            \end{align}
+    
+            \begin{center}
+            \begin{tikzpicture}[baseline={([yshift = 0ex]current bounding box.center)}]
+                \GraphInit[vstyle=Dijkstra]
+                \SetGraphUnit{1.3}
+                
+                \Vertex[x=0, y=0, L=$ X $]{X}
+                \Vertex[x=1.2, y=0, L=$ Z $]{Z}
+                \Vertex[x=2.4, y=0, L=$ Y $]{Y}
+                \Vertex[x=1.2, y=1.2, L=$ W $]{W}
+    
+                \tikzset{LabelStyle/.style={fill = white},
+                EdgeStyle/.style={-stealth}}
+        
+                \Edge(X)(Z)
+                \Edge(Z)(Y)
+                \Edge(W)(X)
+                \Edge(W)(Y)
+                
+        
+                \end{tikzpicture}
+                \end{center}
+                The derivation is using backdoor adjustment twice
+                \begin{align}
+                    \begin{cases}
+                        \mathbb{P}\left( Y=y|do(X=x) \right) = \sum_{z}\mathbb{P}\left( Y=y|do(Z=z) \right)\mathbb{P}\left( Z=z|do(X=x) \right)\\  
+                        \mathbb{P}\left( Y=y|do(Z=z) \right)=\sum_{x}\mathbb{P}\left( Y=y|Z=z,X=x \right) \mathbb{P}\left( X=x \right)\\
+                        \mathbb{P}\left( Z=z|do(X=x) \right)   =\mathbb{P}\left( Z=z|X=x \right) 
+                    \end{cases} 
+                \end{align}
+                
+                
+            \end{minipage}}
+        \item[$ \color{red}\vartriangleright  $] General Rules of $ do $-calculus
+    \end{itemize}
+    
+        
+
+
+
     
 
 

@@ -27,23 +27,23 @@
 
 \begin{table}[htbp]
     \centering
-    \begin{tabular}{c|ccccc}
+    \begin{tabular}{c|cccc}
         \hline
-        $X$&$p_X(k)\big/f_X(x)$&$\quad \mathbb{E}\quad$&$var$&PGF&MGF\\
+        $X$&$p_X(k)\big/f_X(x)$&$\quad \mathbb{E}\quad$&$var$&MGF\\
         \hline
-        $\mathrm{Bern} (p)$& &$p$&$pq$&&$q+pe^s$\\
-        $B (n,p)$&$C_n^k p^k(1-p)^{n-k}$&$np$&$npq$&$(q+ps)^n$&$(q+pe^s)^n$\\
-        $\mathrm{Geo} (p)$&$(1-p)^{k-1}p$&$\dfrac{1}{p}$&$\dfrac{q}{p^2}$&$\dfrac{ps}{1-qs}$&$\dfrac{pe^s}{1-qe^s}$\\
-        $H(n,M,N)$&$\dfrac{C_M^kC_{N-M}^{n-k}}{C_N^n}$&$n\dfrac{M}{N}$&$\dfrac{nM(N-n)(N-M)}{N^2(n-1)}$&&\\
-        $P(\lambda)$&$\dfrac{\lambda^k}{k!}e^{-\lambda}$&$\lambda$&$\lambda$&$e^{\lambda(s-1)}$&$e^{\lambda(e^s-1)}$\\
-        $U(a,b)$&$\dfrac{1}{b-a}$&$\dfrac{a+b}{2}$&$\dfrac{(b-a)^2}{12}$&&$\dfrac{e^{sb}-e^{sa}}{(b-a)^s}$\\
-        $N(\mu,\sigma^2)$&$\dfrac{1}{\sigma \sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$&$\mu$&$\sigma^2$&&$e^{\frac{\sigma^2s^2}{2}+\mu s}$\\
-        $\epsilon(\lambda)$&$\lambda e^{-\lambda x}$&$\dfrac{1}{\lambda}$&$\dfrac{1}{\lambda^2}$&&$\frac{\lambda}{\lambda-s}$\\
-        $\Gamma(\alpha,\lambda)$&$\dfrac{\lambda^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\lambda x}$&$\dfrac{\alpha}{\lambda}$&$\dfrac{\alpha}{\lambda^2}$&&$\left(\frac{\lambda}{\lambda-s}\right)^\alpha $\\
-        $B(\alpha,\beta)$&$\dfrac{1}{B(\alpha,\beta)}x^{\alpha-1}(1-x)^{\beta-1}$&$\dfrac{\alpha}{\alpha+\beta}$&$\dfrac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}$&&\\
-        $\chi^2_n$&$\dfrac{1}{2^{\frac{n}{2}}\Gamma(\frac{n}{2})}x^{\frac{n}{2}-1}e^{-\frac{x}{2}}$&$n$&$2n$&&$ (1-2s)^{-n/2} $\\
-        $t_\nu$&$\dfrac{\Gamma(\frac{\nu+1}{2})}{\sqrt{\nu\pi}\Gamma(\frac{\nu}{2})}(1+\frac{x^2}{\nu})^{-\frac{\nu+1}{2}}$&$0$&$\dfrac{\nu}{\nu-2}$&&\\
-        $F_{m,n}$&$\dfrac{\Gamma(\frac{m+n}{2})}{\Gamma(\frac{m}{2})\Gamma(\frac{n}{2})}\dfrac{m^\frac{m}{2}n^\frac{n}{2}x^{\frac{m}{2}-1}}{(mx+n)^{\frac{m+n}{2}}}$&$\dfrac{n}{n-2}$&$\dfrac{2n^2(m+n-2)}{m(n-2)^2(n-4)}$&&\\
+        $\mathrm{Bern} (p)$& &$p$&$pq$&$q+pe^s$\\
+        $B (n,p)$&$C_n^k p^k(1-p)^{n-k}$&$np$&$npq$&$(q+pe^s)^n$\\
+        $\mathrm{Geo} (p)$&$(1-p)^{k-1}p$&$\dfrac{1}{p}$&$\dfrac{q}{p^2}$&$\dfrac{pe^s}{1-qe^s}$\\
+        $H(n,M,N)$&$\dfrac{C_M^kC_{N-M}^{n-k}}{C_N^n}$&$n\dfrac{M}{N}$&$\dfrac{nM(N-n)(N-M)}{N^2(n-1)}$&\\
+        $P(\lambda)$&$\dfrac{\lambda^k}{k!}e^{-\lambda}$&$\lambda$&$\lambda$&$e^{\lambda(e^s-1)}$\\
+        $U(a,b)$&$\dfrac{1}{b-a}$&$\dfrac{a+b}{2}$&$\dfrac{(b-a)^2}{12}$&$\dfrac{e^{sb}-e^{sa}}{(b-a)^s}$\\
+        $N(\mu,\sigma^2)$&$\dfrac{1}{\sigma \sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$&$\mu$&$\sigma^2$&$e^{\frac{\sigma^2s^2}{2}+\mu s}$\\
+        $\epsilon(\lambda)$&$\lambda e^{-\lambda x}$&$\dfrac{1}{\lambda}$&$\dfrac{1}{\lambda^2}$&$\frac{\lambda}{\lambda-s}$\\
+        $\Gamma(\alpha,\lambda)$&$\dfrac{\lambda^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\lambda x}$&$\dfrac{\alpha}{\lambda}$&$\dfrac{\alpha}{\lambda^2}$&$\left(\frac{\lambda}{\lambda-s}\right)^\alpha $\\
+        $B(\alpha,\beta)$&$\dfrac{1}{B(\alpha,\beta)}x^{\alpha-1}(1-x)^{\beta-1}$&$\dfrac{\alpha}{\alpha+\beta}$&$\dfrac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}$&\\
+        $\chi^2_n$&$\dfrac{1}{2^{\frac{n}{2}}\Gamma(\frac{n}{2})}x^{\frac{n}{2}-1}e^{-\frac{x}{2}}$&$n$&$2n$&$ (1-2s)^{-n/2} $\\
+        $t_\nu$&$\dfrac{\Gamma(\frac{\nu+1}{2})}{\sqrt{\nu\pi}\Gamma(\frac{\nu}{2})}(1+\frac{x^2}{\nu})^{-\frac{\nu+1}{2}}$&$0$&$\dfrac{\nu}{\nu-2}$&\\
+        $F_{m,n}$&$\dfrac{\Gamma(\frac{m+n}{2})}{\Gamma(\frac{m}{2})\Gamma(\frac{n}{2})}\dfrac{m^\frac{m}{2}n^\frac{n}{2}x^{\frac{m}{2}-1}}{(mx+n)^{\frac{m+n}{2}}}$&$\dfrac{n}{n-2}$&$\dfrac{2n^2(m+n-2)}{m(n-2)^2(n-4)}$&\\
         \hline
     \end{tabular}
 \end{table}
@@ -107,7 +107,8 @@ And some more complex ones
     \item $ A\cap (B\cup C)=(A\cap B)\cup (B\cap C) $, $ A\cup (B \cap C)=(A\cup B)\cap (A\cup C) $
     \item $ A\cup B=A+ A^\complement\cap B $, $ A=A\cap B+A\cap B^\complement $
     \item[$ \Delta  $] $ (A\cup B)^\complement =A^\complement\cap B^\complement $, $ (A\cap B)^\complement = A^\complement \cup B^\complement  $
-    \item $ (\bigcup_{j=1}^\infty A_j)^\complement =\bigcap_{j=1}^\infty A_j^\complement $, $ (\bigcap{j=1}^\infty A_j)^\complement =\bigcup{j=1}^\infty A_j^\complement $
+    \item $ (\bigcup_{j=1}^\infty A_j)^\complement =\bigcap_{j=1}^\infty A_j^\complement $
+    \item $ (\bigcap_{j=1}^\infty A_j)^\complement =\bigcup_{j=1}^\infty A_j^\complement $
 \end{itemize}
     
 \subsubsection{Axioms of Probability}
@@ -154,7 +155,7 @@ And some more complex ones
 \begin{equation}    \mathbb{P}(A_1\cup A_2\cup\cdots)=\mathbb{P}(A_1)+\mathbb{P}(A_2)+\cdots\quad ,\, (A_i\bot\!\!\!\bot  A_j\quad \forall i\neq j)
 \end{equation}
 
-where `countable subadditivity' means the events can be sequentially listed. e.g. $ [0,1]=\bigcup _{x\in [0,1]}\{x\} $ is not countable, thus
+where `countable subadditivity' means the events can be sequentially listed. e.g. $ [0,1]=\bigcup _{x\in [0,1]}\{x\} $ is not countable, intuition:
 \begin{align}
     1=\mathbb{P}\left( [0,1] \right)=\mathbb{P}\left( \bigcup _{x\in [0,1]}\{x\} \right)   {\color{red}\neq} \sum_{x\in[0,1]}\mathbb{P}\left( x \right) =0
 \end{align}
@@ -189,7 +190,7 @@ where `countable subadditivity' means the events can be sequentially listed. e.g
         
         \item Inclusion-Exclusion Formula (Jordan Formula)\index{Inclusion-Exclusion Formula}\index{Jordan Formula}
         \begin{align}
-            \mathbb{P}(\bigcup_{i=1}^nA_i)&=\sum_{1\leq i\leq n}\mathbb{P}(A_i)-\sum_{1\leq i<j\leq n}\mathbb{P}(A_i\cap A_j)\\
+            \mathbb{P}(\bigcup_{i=1}^nA_i)=&\sum_{1\leq i\leq n}\mathbb{P}(A_i)-\sum_{1\leq i<j\leq n}\mathbb{P}(A_i\cap A_j)\\
             &+\sum_{1\leq i<j<k\leq n}\mathbb{P}(A_i\cap A_j\cap A_k)-\cdots\\
             &+(-1)^{n-1}\mathbb{P}(A_1 \cap A_2\cap\cdots \cap A_n)
         \end{align}
@@ -284,7 +285,7 @@ where `countable subadditivity' means the events can be sequentially listed. e.g
         (Actually just $ B\subset \bigcup_{i}A_i $ is enough, similar for Bayes's rule)
         \item Bayes's Rule\index{Bayes's Rule}
         \begin{equation}    
-            \mathbb{P}(A_i|B)=\dfrac{\mathbb{P}(A_i)\mathbb{P}(B|A_i)}{\sum_{j=1}^\mathbb{P}(A_j)\mathbb{P}(B|A_j)}    ,\quad 1\leq i\leq n
+            \mathbb{P}(A_i|B)=\dfrac{\mathbb{P}(A_i)\mathbb{P}(B|A_i)}{\sum_{j=1}^n\mathbb{P}(A_j)\mathbb{P}(B|A_j)}    ,\quad 1\leq i\leq n
         \end{equation}
         where $\{A_i\}$ is a partition of $\Omega$: $ \Omega =\bigcup_{i}A_i,\, A_i\cap A_j=\delta _{ij}\emptyset $
     \end{itemize}
@@ -304,7 +305,7 @@ where `countable subadditivity' means the events can be sequentially listed. e.g
         \item Independency of multiple events
         \begin{align}
             A_1\independent A_2\independent\ldots \independent A_n \Leftrightarrow &\mathbb{P}\left( A_{j_1}\cap A_{j_2}\cap\ldots\cap A_{j_k} \right)=\mathbb{P}\left( A_{j_1} \right) \mathbb{P}\left( A_{j_2} \right) \ldots \mathbb{P}\left( A_{j_k} \right) \\
-            &  \,\forall 1\leq j_1\leq j_2\leq \ldots \leq j_k\leq n\quad \forall k\leq n
+            &  \,\forall 1\leq j_1\leq j_2\leq \ldots \leq j_k\leq n\quad \forall k\leq n,\quad n<\infty
         \end{align}
     \end{itemize}
     
@@ -389,7 +390,7 @@ Motivation: defining events is troublesome, and unhelpful to extract the key fea
         \begin{itemize}[topsep=2pt,itemsep=0pt]
             \item Poisson\footnote{More about Poisson Distribution / Poisson Process see \autoref{SubSubSectionIndepedentProcess}}
             \begin{align}
-                P(\lambda _1)+P(\lambda _2)\sim P(\lambda _1)+P(\lambda _2) 
+                P(\lambda _1)+P(\lambda _2)\sim P(\lambda _1+\lambda _2) 
             \end{align}
             \item Binomial
             \begin{align}
@@ -408,6 +409,7 @@ Motivation: defining events is troublesome, and unhelpful to extract the key fea
             
             
             \item More relations of distributions see \url{http://www.math.wm.edu/~leemis/chart/UDR/UDR.html}
+            \item Relation between Poisson Process and Exponential and Uniform distribution see \autoref{SubSubSectionPoissonProcess}.
             
             
         \end{itemize}
@@ -616,7 +618,7 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
         F(x_1,x_2,\cdots,x_n)=\prod F(x_i)\\
         E(\prod X_i)=\prod E(X_i)\\
         var(\sum X_i)=\sum var(X_i)
-    \end{cases}
+    \end{cases},\qquad n<\infty
 \end{equation}
 
 
