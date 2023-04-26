@@ -1,4 +1,4 @@
-\section{统计推断部分}
+\chapter{统计推断部分}
 \begin{center}
     Instructor: Jiangdian Wang
 \end{center}
@@ -39,7 +39,7 @@ df <- data.frame(x=x,y=y)
 \end{rcode}
 
 
-\subsection{Statistical Model and Statistics}\label{SectionStatisticalModelandStatistics}
+\section{Statistical Model and Statistics}\label{SectionStatisticalModelandStatistics}
     Random sample comes from population $X$. In parametric model case, we have population distribution family:
     \begin{equation}\mathscr{F}=\{f(x;\vec{\theta})|\vec{\theta}\in\Theta\}\end{equation}
 
@@ -48,7 +48,7 @@ df <- data.frame(x=x,y=y)
     Sample space\index{Sample Space}: Def. as $\mathscr{X}=\{\{x_1,x_2,\ldots,x_n\},\forall x_i\}$, then $\{X_i\}\in\mathscr{X}$ is random sample from population $X\sim f(x;\vec{\theta})$.
 
     
-\subsubsection{Statistics}\label{SubSectionStatistics}
+\subsection{Statistics}\label{SubSectionStatistics}
     Statistic(s): function of random sample $\vec{T}(X_1,X_2,\ldots,X_n)$, \textbf{but not a function of parameter}.\index{Statistics}\footnote{Maybe to be more precise, the sample are drawn from the distribution $ f(x;\vec{\theta }) $, so naturally the data $ \{X_i\} $ is related to parameters. Here a better description would be `expression of statistics does not contain parameters explicitly'. And thus we could calculate the value to statistics as long as we have the sample data. Detail see \hyperlink{SamplingDistribution}{Sampling Distribution}.}
     
 \begin{point}
@@ -149,7 +149,7 @@ moments::moment(df, order = ORDER_OF_M, central = FALSE, na.rm = FALSE)
         Comment: the independence here can explain the $ n-1 $ degree of freedom of $ \chi^2_{n-1} $   
     \end{itemize}
 
-\subsubsection{Exponential Family}\label{SubSectionExponentialFamily}
+\subsection{Exponential Family}\label{SubSectionExponentialFamily}
 
 Motivation: parametric statistical inference needs a (priorly assumed) distribution, e.g. Normal $ N(\mu ,\sigma ^2) $, Poisson $ P(\lambda ) $, Gamma $ \Gamma (\alpha ,\lambda ) $, etc. Exponential Family is a framework to represent them in the same form Exponential Family can extract some key features of the distribution, and has some nice properties.
 
@@ -212,7 +212,7 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
 
 
 
-\subsubsection{Sufficient and Complete Statistics}\label{SubSectionSufficient_CompleteStatistics}
+\subsection{Sufficient and Complete Statistics}\label{SubSectionSufficient_CompleteStatistics}
     (Note: For simplification, the following parts denote $\vec{\theta},\vec{T},\ldots$  as $\theta,T,\ldots$ etc.) Now say we are trying to estimate $ \theta  $ by a statistic $ T(\vec{X}) $. We hope that $ T(\vec{X}) $ contains `necessary/enough useful information' when estimating $ \theta  $. \footnote{Intuition: `Information' might be described by `distribution of $ T(\vec{X}) $ for different $ \theta  $'. i.e. the distribution family $ \{g_T:\theta \in\Theta \} $ measures the performance of estimator.}
 
     \begin{itemize}
@@ -298,7 +298,7 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
 
 
 
-\subsection{Point Estimation}\label{SectionPointEstimation}
+\section{Point Estimation}\label{SectionPointEstimation}
     For parametric distribution family $\mathscr{F}=\{f(x,\theta),\theta\in\Theta\}$, random sample $\vec{X}=(X_1,X_2,\ldots,X_n)$ from $\mathscr{F}$. $g(\theta)$ is a function defined on $\Theta$. 
 
     Mission: use sample $\{X_i\}$ to estimate $g(\theta)$, called \textbf{Parameter Estimation}.
@@ -316,7 +316,7 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
     \end{equation}
 
     Estimator is a statistic, with sampling distribution. In the following part we only give the expression for $ \hat{\theta }(\vec{X})\xrightarrow[]{\text{estimates}} \theta  $ ($ \hat{g} $ version is similar).
-\subsubsection{Optimal Criterion}\label{SubSectionOptimalCriterion}
+\subsection{Optimal Criterion}\label{SubSectionOptimalCriterion}
         Some nice properties of estimators (that we expect). They might not be satisfied simultaneously, e.g. we usually have to face trade-off between bias \& precision.
     \begin{itemize}
         \item Unbiasedness
@@ -363,7 +363,7 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
     \end{itemize}
 
 
-\subsubsection{Method of Moments}\label{SubSectionMoM}
+\subsection{Method of Moments}\label{SubSectionMoM}
     Review: Population moments \& Sample moments\index{MoM (Method of Moments)}
     \begin{align}
         \alpha_k&=\mathbb{E}(X^k)&\mu_k&=\mathbb{E}[(X-\mathbb{E}(X))^k]\\
@@ -402,7 +402,7 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
     \end{itemize}
 
 
-\subsubsection{Maximum Likelihood Estimation}\label{SubSectionMLE}
+\subsection{Maximum Likelihood Estimation}\label{SubSectionMLE}
     \index{MLE (Maximum Likelihood Estimation)}For sample $\vec{X}=(X_1,X_2,\ldots,X_n)$ with distribution $f(\vec{x};\theta)$ from $\mathscr{F}=\{f(x;\theta),\theta\in\Theta\}$ , def. \textbf{Likelihood Function} $L(\theta;\vec{x})$, defined on $\Theta$ (as a function of $\theta)$\index{Likelihood Function}
     \begin{equation}
         L(\theta;\vec{x})=f(\vec{x};\theta)\qquad \theta\in\Theta,\,\vec{x}\in\mathscr{X}    
@@ -454,12 +454,12 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
         \end{equation}
         \item Asymptotic Normality: 
         \begin{equation}
-            \sqrt{n}(\hat{\theta}_n-\theta) \xrightarrow[]{d}N(0,\sigma^2_\theta),\quad \sigma^2_\theta=\frac{1}{\mathbb{E}_\theta\left[[\frac{\partial}{\partial\theta}\ln f(\vec{X};\theta)]^2\right]}   
+            \sqrt{n}(\hat{\theta}_n-\theta) \xrightarrow[]{\mathrm{d}}N(0,\sigma^2_\theta),\quad \sigma^2_\theta=\frac{1}{\mathbb{E}_{\vec{X}}\left[[\frac{\partial}{\partial\theta}\ln f(\vec{X};\theta)]^2\right]}   
         \end{equation}
 
         i.e.
         \begin{equation}
-            \hat{\theta}_n\xrightarrow[]{d}N(\theta,\frac{\sigma^2_\theta}{n})    
+            \hat{\theta}_n\xrightarrow[]{\mathrm{d}}N(\theta,\frac{\sigma^2_\theta}{n})    
         \end{equation}
         
         We will later see that $ \sigma _\theta ^2 $ is the inversed Fisher Information.
@@ -503,7 +503,7 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
         \end{equation}
 
 
-\subsubsection{Uniformly Minimum Variance Unbiased Estimator}\label{SubSectionUMVUE}
+\subsection{Uniformly Minimum Variance Unbiased Estimator}\label{SubSectionUMVUE}
         \index{UMVUE (Uniformly Minimum Variance Unbiased Estimator)}Recall MSE: If $\hat{g}(\vec{X})$ is an estimator of $g(\theta)$ ,then MSE
         \begin{equation}
             \mathrm{MSE}(\hat{g}(\vec{X}))=\mathbb{E}[(\hat{g}(\vec{X})-g(\theta))^2]=var(\hat{g})+[Bias(\hat{g})]^2
@@ -645,7 +645,7 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
 
 
 
-\subsubsection{MoM and MLE in Linear Regression}\label{SubSectionMoM_MLE_LinearRegression}
+\subsection{MoM and MLE in Linear Regression}\label{SubSectionMoM_MLE_LinearRegression}
     \textbf{Note:} More detailed knowledge see \autoref{SecLinearRegressionAnalysis} Linear Regression Analysis.
 
 \begin{point}
@@ -675,7 +675,7 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
 
         (Express in Matrix Notation \autoref{EqaMatrixRepreOfSSE}, so that it can be generalized to multidimensional case) SSE can be expressed as the \textbf{Eucliean Distance }between $ \{y_i\} $ and $ \{\hat{\beta}_0+\hat{\beta}_1x_i\}  $, i.e.
         \begin{equation}
-            \arg\min D(y
+            \hat{\beta }=\mathop{ \arg\min }\limits_{\beta }  D(y
             ,X \hat{\beta})
         \end{equation}
 
@@ -834,7 +834,7 @@ summary(lmfit)
 
     
 
-\subsubsection{Kernel Density Estimation}\label{SubSectionKernelDensityEstimation}
+\subsection{Kernel Density Estimation}\label{SubSectionKernelDensityEstimation}
     \index{KDE (Kernel Density Estimation)}Given random sample $\{X_i\}$. Def. Empirical CDF.\index{ECDF (Empirical CDF)}
     \begin{equation}\label{empiricaldisreibutionfunction}
         \hat{F}_n(x)=\frac{1}{n}\sum_{i=1}^n\mathbb{I}_{(-\infty,X_i]}(x) 
@@ -883,7 +883,7 @@ plot(density(x, kernel = KERNEL_TO_USE))
 
 
 
-\subsection{Interval Estimation}\label{SectionIntervalEstimation}
+\section{Interval Estimation}\label{SectionIntervalEstimation}
 \begin{equation}
     \text{Parameter Estimation}\begin{cases}
         \text{Point Estimation}& \\
@@ -901,7 +901,7 @@ plot(density(x, kernel = KERNEL_TO_USE))
     }
     
 
-    \subsubsection{Confidence Interval}\label{SubSectionConfidenceInterval}
+    \subsection{Confidence Interval}\label{SubSectionConfidenceInterval}
     \index{CI (Confidence Interval)}\index{Confidence Region!Confidence Interval}How to judge an interval estimation?
     \begin{itemize}
         \item Reliability
@@ -943,7 +943,7 @@ plot(density(x, kernel = KERNEL_TO_USE))
     Mission: Determine $\hat{g}_1,\hat{g}_2$.
 
 
-\subsubsection{Pivot Variable Method}\label{SubSectionPivotVariableMethod}
+\subsection{Pivot Variable Method}\label{SubSectionPivotVariableMethod}
     Idea: Based on point estimation, construct a new variable and thus find the interval estimation.
 
     Def. \textbf{Pivot Variable}\index{Pivot Variable} $T$, satisfies: 
@@ -968,7 +968,7 @@ plot(density(x, kernel = KERNEL_TO_USE))
 
 
 % \newpage
-\subsubsection{Confidence Interval for Common Distributions}\label{SubSectionConfidenceIntervalForDistributions}
+\subsection{Confidence Interval for Common Distributions}\label{SubSectionConfidenceIntervalForDistributions}
 
     Some important properties of $\chi^2$, $t$ and $F$ see \autoref{chi2_t_F_properties}.
     \begin{enumerate}
@@ -1056,7 +1056,7 @@ plot(density(x, kernel = KERNEL_TO_USE))
     \begin{enumerate}[topsep=2pt,itemsep=2pt]
         \item \hypertarget{TwoSampletTest}{Estimating} $\mu_1-\mu_2$:
     
-        When $\sigma_1^2\neq\sigma^2_2$ are unknown, estimate $\mu_1-\mu_2$: Behrens-Fisher Problem, remains unsolved, but we can deal with simplified cases. 
+        When $\sigma_1^2\neq\sigma^2_2$ and unknown, estimate $\mu_1-\mu_2$: Behrens-Fisher Problem, remains unsolved\footnote{An approximation is Welch-Satterthwaite equation. Detail see \autoref{SubSubSectionDoETwoSampleComparison}.}, but we can deal with simplified cases. 
 
         \begin{table}[H]
             \centering
@@ -1259,7 +1259,7 @@ plot(density(x, kernel = KERNEL_TO_USE))
     \end{enumerate}
 
 
-\subsubsection{Fisher Fiducial Argument*}\label{SubSectionFisherFiducialArgument}
+\subsection{Fisher Fiducial Argument*}\label{SubSectionFisherFiducialArgument}
     (Not complete yet)
 
     Idea: When sample is known, we can get '\textbf{Fiducial Probability}' of $\theta$, thus can find an interval estimation based on fiducial distribution.(Similar to the idea of MLE)
@@ -1277,12 +1277,12 @@ plot(density(x, kernel = KERNEL_TO_USE))
 
 
 
-\subsection{Hypothesis Testing}\label{SectionHypothesisTesting}
+\section{Hypothesis Testing}\label{SectionHypothesisTesting}
     \index{Hypothesis Testing}Hypothesis is a statement about the characteristic of population, e.g. distribution form, parameters, independency, etc. 
     
     Mission: Use sample to test the hypothesis, i.e. judge whether population has some characteristic.
 
-\subsubsection{Basic Concepts}\label{SubSectionHypothesisTestingBasicConcepts}
+\subsection{Basic Concepts}\label{SubSectionHypothesisTestingBasicConcepts}
     Parametric hypothesis testing.
 
     For random sample $\vec{X}=(X_1,X_2,\ldots,X_n)\in\mathscr{X}$ i.i.d. from $\mathscr{F}=\{f(x;\theta);\theta\in\Theta\}$\index{Null Hypothesis}\index{Alternative Hypothesis}
@@ -1437,7 +1437,7 @@ plot(density(x, kernel = KERNEL_TO_USE))
 
         \end{enumerate}
 
-% \subsubsection{Hypotheses Testing for Common Distributions}
+% \subsection{Hypotheses Testing for Common Distributions}
 %     \begin{itemize}
 %         \item Single normal distribution: $\vec{X}=(X_1,X_2,\ldots,X_n)$ i.i.d. from $N(\mu,\sigma^2)$
         
@@ -1446,7 +1446,7 @@ plot(density(x, kernel = KERNEL_TO_USE))
 
 %     \end{itemize}
 
-\subsubsection{Hypothesis Testing of Common Distributions}\label{SubSectionHypothesisTestingOfCommonDistributions}
+\subsection{Hypothesis Testing of Common Distributions}\label{SubSectionHypothesisTestingOfCommonDistributions}
     For some common distribution populations, determine rejection region $R$ under certain $H_0$ with confidence coefficient $\alpha$.
 
     Definition of necessary statistics see section {\autoref{SubSectionConfidenceIntervalForDistributions}}.
@@ -1494,7 +1494,7 @@ plot(density(x, kernel = KERNEL_TO_USE))
                 &$\mu_1-\mu_2\leq\mu_0$&$\mu_1-\mu_2>\mu_0$&&$T>N_\alpha$\\
                 &$\mu_1-\mu_2\geq\mu_0$&$\mu_1-\mu_2<\mu_0$&&$T<-N_\alpha$\\
                 \hline
-                \multirow{3}{*}{\makecell{$\sigma_1^2,\sigma_2^2$ unknown,\\test $\mu_1-\mu_2$}}&$\mu_1-\mu_2=\mu_0$&$\mu_1-\mu_2\neq\mu_0$&\multirow{3}{*}{\makecell{$T=\dfrac{\bar{X}-\bar{Y}-\mu_0}{S_\omega}\sqrt{\dfrac{mn}{m+n}}$\\$\sim t_{m+n-2}$}}&$|T|>t_{m+n-2,\frac{\alpha}{2}}$\\
+                \multirow{3}{*}{\makecell{$\sigma_1^2,\sigma_2^2$ unknown\\but same,\\test $\mu_1-\mu_2$}}&$\mu_1-\mu_2=\mu_0$&$\mu_1-\mu_2\neq\mu_0$&\multirow{3}{*}{\makecell{$T=\dfrac{\bar{X}-\bar{Y}-\mu_0}{S_\omega}\sqrt{\dfrac{mn}{m+n}}$\\$\sim t_{m+n-2}$}}&$|T|>t_{m+n-2,\frac{\alpha}{2}}$\\
                 &$\mu_1-\mu_2\leq\mu_0$&$\mu_1-\mu_2>\mu_0$&&$T>t_{m+n-2,\alpha}$\\
                 &$\mu_1-\mu_2\geq\mu_0$&$\mu_1-\mu_2<\mu_0$&&$T<-t_{m+n-2,\alpha}$\\
                 \hline
@@ -1508,6 +1508,8 @@ plot(density(x, kernel = KERNEL_TO_USE))
                 \hline
         \end{tabularx}
     \end{table}
+
+    $\sigma_1^2,\sigma_2^2$ unknown case see Welch Test in \autoref{SubSubSectionDoETwoSampleComparison}.
 
     \item None normal population:
     
@@ -1527,7 +1529,7 @@ plot(density(x, kernel = KERNEL_TO_USE))
     \item More than two normal population: Analysis of Variance.
 \end{enumerate}
 
-\subsubsection{Likelihood Ratio Test}\label{SubSectionLRT}
+\subsection{Likelihood Ratio Test}\label{SubSectionLRT}
     \index{LRT (Likelihood Ratio Test)}
     Idea: To test $H_0:\theta\in\Theta_0\longleftrightarrow H_1:\theta\in\Theta_1$ known $\vec{x}$, examine the likelihood function $L(\theta;\vec{x})$ and \textbf{compare} $L_{\theta\in\Theta_0}$ and $L_{\theta\in\Theta}$ to see the likelihood that $H_0$ is true.
 
@@ -1581,7 +1583,7 @@ plot(density(x, kernel = KERNEL_TO_USE))
         -2\lambda =-2\ln \Lambda (\vec{x})\xrightarrow[]{\mathrm{d}}\chi_{k-s}^2
     \end{equation}
 
-\subsubsection{Uniformly Most Powerful Test}\label{SUbSectionUMP}
+\subsection{Uniformly Most Powerful Test}\label{SUbSectionUMP}
     \index{UMPT (Uniformly Most Powerful Test)}Idea: Neyman-Pearson Principle: control $\alpha$, find $\min\beta$. i.e. control $\alpha$, find $\max\pi(\theta)$
 
     Def. \textbf{Uniformly Most Powerful Test} (UMP) $\varphi_{\mathrm{UMP}}$ with level of significance $\alpha$ satisfies
@@ -1652,7 +1654,7 @@ plot(density(x, kernel = KERNEL_TO_USE))
         \item If $\varphi$ satisfies $\mathbb{E}_{\theta\in\Theta_0}(\varphi)\leq\alpha$, then $H_0$ an be generalized to $H_0:\theta\in\Theta_0$.
     \end{enumerate}
 
-\subsubsection{Duality of Hypothesis Testing and Interval Estimation}
+\subsection{Duality of Hypothesis Testing and Interval Estimation}
 
 \begin{itemize}
     \item Thm.: $\forall\theta_0\in\Theta$ there exists hypothesis testing $H_0:\theta=\theta_0\longleftrightarrow H_1:\theta\neq\theta_0$ of level $\alpha$ with rejection region $R_{\theta_0}$. Then
@@ -1696,7 +1698,7 @@ t.test(df, ...)
 where \lstinline|paired = TRUE| for pairwise comparison requires $ |x|=|y| $.
 \end{rcode}
 
-\subsubsection{Introduction to Non-Parametric Hypothesis Testing}\label{SubSectionIntroToNonParametricHypothesisTesting}
+\subsection{Introduction to Non-Parametric Hypothesis Testing}\label{SubSectionIntroToNonParametricHypothesisTesting}
 
     Motivation: Usually distribution form unknown, cannot use parametric hypothesis testing.
 

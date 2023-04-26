@@ -1,0 +1,38 @@
+
+\begin{thenomenclature} 
+\nomgroup{A}
+  \item [{Greek / Latin}]\begingroup Greek alphabet is used to describe the intrinsic property while Latin alphabet is used for estimator. e.g. $ \sigma ^2_X=var(X) $, $ \hat{\sigma }^2_X=\hat{var}(X)=S^2 $. e.g. $ \theta  $ is used to denote the paramer of distribution (family).\nomeqref {0}\nompageref{15}
+\nomgroup{C}
+  \item [{$ (\wedge i) $}]\begingroup Used in a sequence, means that we dropout the $ i^\mathrm{ th }  $ item in the sequence indexed $ 1,2,\ldots $\nomeqref {0}\nompageref{15}
+  \item [{$ \# $}]\begingroup number of, or number of elements in, $ \cdots $\nomeqref {0}\nompageref{15}
+  \item [{$ \bar{\, \cdot \, },\, S^2_{\cdot },\,S_{\cdot } $}]\begingroup Sample mean, sample variance, sample standard deviation. e.g. $ \bar{X} $, $ S^2_X $, $ S_X $. \textbf{But in multivariate case I directly use $ S_X $ for sample covariance matrix.}\nomeqref {0}\nompageref{15}
+  \item [{$ \delta _{ij},\,\delta (x) $}]\begingroup Kronecker delta, Dirac delta.\nomeqref {0}\nompageref{15}
+  \item [{$ \equiv, := $}]\begingroup is defined as\nomeqref {0}\nompageref{15}
+  \item [{$ \independent $}]\begingroup independent of\nomeqref {0}\nompageref{15}
+  \item [{$ \mathbb{E},\,var,\,corr $}]\begingroup r.v. Expectation, variance (in multivariate case, covariance matrix ), and correlation coefficient. e.g. say $ \mathbb{E}\left[ X \right],\,var(X)  $. Sometimes subscript is used to clarify to which r.v. we are considering expectation. e.g. $ \mathbb{E}_{X\sim f_X(x)}\left[ \log X \right]  $. Sometimes I simply use $ \mu _X $ for expectation and $ \sigma ^2_X $ or $ \Sigma _X $ for variance, $ \rho_X  $ for correlation coefficient.\nomeqref {0}\nompageref{15}
+  \item [{$ \mathbb{I}_{\cdot } $}]\begingroup Indicator Function, in which subscript is the set that the indicator function takes value $ 1 $.\nomeqref {0}\nompageref{15}
+  \item [{$ \mathbb{P} $}]\begingroup Probability measure\nomeqref {0}\nompageref{15}
+  \item [{$ \mathrm{ Re}(\, \cdot \, ),\,\mathrm{ Im }(\, \cdot \, )   $}]\begingroup real part of, imaginary part of.\nomeqref {0}\nompageref{15}
+  \item [{$ \mathrm{SSE},\,\mathrm{SSR},\,\mathrm{SST}   $}]\begingroup For $ \mathrm{SSError} $, $ \mathrm{SSRegression} $, $ \mathrm{SSTotal} $.\nomeqref {0}\nompageref{15}
+  \item [{$ \mathscr{B}(\, \cdot \, ) $}]\begingroup Backshift operator.\nomeqref {0}\nompageref{15}
+  \item [{$ \mathscr{F}[\, \cdot \, ], \fallingdotseq; \risingdotseq $}]\begingroup Fourier transform; Inversed fourier transform.\nomeqref {0}\nompageref{15}
+  \item [{$ \vec{\, \cdot \, } $}]\begingroup is used to stress that $ \, \cdot \,  $ is a multi-dim vector.\nomeqref {0}\nompageref{15}
+  \item [{$ A = \mathop{ \arg\max }\limits_{\alpha } f(\alpha )  $}]\begingroup $ A $ is the value of $ \alpha $ that maximizes $ f(\alpha ) $.\nomeqref {0}\nompageref{15}
+  \item [{$ H_0; \,H_1,H_a $}]\begingroup Null hypothesis and alternative hypothesis.\nomeqref {0}\nompageref{15}
+  \item [{$ N_{\alpha },\,F_{m,n,\alpha } $, etc.}]\begingroup (Upper $ \alpha  $) Quantile of distributions. I use $ N_\alpha  $ for quantiles of normal distribution instead of $ z_\alpha  $.\nomeqref {0}\nompageref{15}
+  \item [{$ O(n),\mathcal{O}(n);o(n) $}]\begingroup Remainder in function series. Or used for complexity of algorithm\nomeqref {0}\nompageref{15}
+  \item [{$ X^{(1)},\ldots,X^{(t)} $}]\begingroup Superscript with bracket is used in iteration algorithms to denote the value of this $ X $ in the $ t^\mathrm{ th }  $ iteration.\nomeqref {0}\nompageref{15}
+  \item [{$ X_{(1)},\ldots,X_{(n)} $}]\begingroup Order statistics.\nomeqref {0}\nompageref{15}
+  \item [{i.i.d. or $ \mathop{ \sim }\limits_{i.i.d.}  $}]\begingroup independent identically distributed.\nomeqref {0}\nompageref{15}
+\nomgroup{E}
+  \item [{$ \mathcal{D } $}]\begingroup Dataset.\nomeqref {0}\nompageref{15}
+  \item [{$ \mathcal{L} $}]\begingroup Loss function.\nomeqref {0}\nompageref{15}
+  \item [{$ \mathop{ \beta  }\limits_{(p+1)\times 1}  $}]\begingroup Regression coefficient vector, with $ \beta _0 $ as the first element.\nomeqref {0}\nompageref{15}
+  \item [{$ \mathop{ X }\limits_{n\times (p+1)}  $}]\begingroup Design matrix in regression, with a default intercept column.\nomeqref {0}\nompageref{15}
+  \item [{$ L,\,l,\ell $}]\begingroup Likelihood, log-likelihood.\nomeqref {0}\nompageref{15}
+  \item [{$ M_\cdot (s) $}]\begingroup Moment generating function. Usually functions with $ s $ as argument are all generating functions, say $ g(s) $ for probability generating function; $ \phi (s) $ for characteristic function.\nomeqref {0}\nompageref{15}
+  \item [{$ S(\theta ),\, I(\theta ),\, J(\theta ) $}]\begingroup Score Function, Fisher Information, Observed Information.\nomeqref {0}\nompageref{15}
+  \item [{$ T;\chi^2,F $}]\begingroup (Usually) $ T $ for test statistic; occasionally $ \chi^2 $ for when testing is $ \chi^2 $ test, $ F $ for when testing is $ F $-test.\nomeqref {0}\nompageref{15}
+  \item [{$ Z $}]\begingroup If not used as r.v. In most cases used as the normalize constant in unnormalized distribution, say $ f=\dfrac{ 1 }{ Z }\tilde{f}=\dfrac{1}{\int \tilde{f}(x) \,\mathrm{d}x } \tilde{f}   $\nomeqref {0}\nompageref{15}
+
+\end{thenomenclature}

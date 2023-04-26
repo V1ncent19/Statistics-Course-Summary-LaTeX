@@ -1,4 +1,4 @@
-\section{数据科学导论部分}\label{SecDataScience}
+\chapter{数据科学导论部分}\label{SecDataScience}
 \begin{center}
     Instructor: Sheng Yu
 \end{center}
@@ -12,7 +12,7 @@
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{sections/images/RoadToDataScientist1.png}
-    \caption{Road to Data Scientist}
+    \caption{Road to Data Scientist, \url{http://nirvacana.com/thoughts/2013/07/08/becoming-a-data-scientist/}. More tutorial see \url{https://github.com/MrMimic/data-scientist-roadmap}}
     \label{RoadToDataScience}
 \end{figure}
 
@@ -25,10 +25,10 @@ Comparison of \lstinline|R|, \lstinline|python|:focus on different aspects of `S
 
 
 
-\subsection{Basic R. Manipulation}
+\section{Basic R. Manipulation}
 
 
-\subsubsection{Installation and Maintenance of R.}
+\subsection{Installation and Maintenance of R.}
 \begin{point}
     \textbf{Installing and Updating} 
 \end{point}
@@ -103,7 +103,7 @@ Comparison of \lstinline|R|, \lstinline|python|:focus on different aspects of `S
     \item \lstinline|help('FUN_NAME')|;
 \end{itemize}
 
-\subsubsection{Data Structure and Basic Manipulation in R.}
+\subsection{Data Structure and Basic Manipulation in R.}
 
 \begin{point}
     Atomic Classes
@@ -287,7 +287,7 @@ dat <- read.table(FILE_NAME, colClasses = classes)
 
 
 
-\subsubsection{Functions and Control Flow}
+\subsection{Functions and Control Flow}
 \begin{point}
     Program Speed:
 \end{point}
@@ -373,7 +373,7 @@ for(VAR in SEQ) {
 
 
 
-\subsubsection{Vectorized Operation}\label{SubSubSectionVectorizedOperation}
+\subsection{Vectorized Operation}\label{SubSubSectionVectorizedOperation}
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item \lstinline|apply()| function series:
 \begin{itemize}[topsep=2pt,itemsep=0pt]
@@ -410,7 +410,7 @@ mapply(function(x,y,z,k){(x+k)^(y+z)} , x = ,y = ,z = ,k = )
 
 
 
-\subsubsection{Subsetting}
+\subsection{Subsetting}
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item By position: \lstinline|x[RANGE]|
     \begin{itemize}[topsep=2pt,itemsep=0pt]
@@ -471,7 +471,7 @@ match(vec1,vec2)
     \item Use subsetting to sample: \lstinline|DATA[sample(1:nrow(DATA),NUM_OF_SAMPLE,replace),]|, \lstinline|replace=T| for with replacement
 \end{itemize}
 
-\subsubsection{Data Manipulation With dplyr. And tidyr.}
+\subsection{Data Manipulation With dplyr. And tidyr.}
     \lstinline|dplyr| and \lstinline|tidyr| are two useful package for data cleaning \& manipulation. Use package \lstinline|tidyverse| include both of them.
 
     \lstinline|tidyverse| for \lstinline|tidy|uni\lstinline|verse|, includes \lstinline|dplyr|, \lstinline|tidyr|, \lstinline|readr|, \lstinline|ggplot2|, \lstinline|stringr|, etc.
@@ -567,7 +567,7 @@ Some examples see \autoref{SubSubSectionDiagnosticsToFactorModel}.
     
 
 
-\subsection{Text Processing \& Text Mining}
+\section{Text Processing \& Text Mining}
     \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item Data cleaning
         \item Data manipulation
@@ -590,7 +590,7 @@ Some examples see \autoref{SubSubSectionDiagnosticsToFactorModel}.
 
 
 
-\subsubsection{Basic Text Manipulation With stringr.}
+\subsection{Basic Text Manipulation With stringr.}
 \begin{point}
     \lstinline|R. base| \& \lstinline|stringr| package:
 \end{point}
@@ -629,7 +629,7 @@ Some examples see \autoref{SubSubSectionDiagnosticsToFactorModel}.
 
 
 
-\subsubsection{Regular Expression}
+\subsection{Regular Expression}
     Regular expression is a text pattern/mode. abbr. regex/regexp. Regex is supported in most common language, same syntax used.
 
     Tutorial: \url{https://www.runoob.com/regexp/regexp-tutorial.html}
@@ -723,7 +723,7 @@ Some examples see \autoref{SubSubSectionDiagnosticsToFactorModel}.
 \end{itemize}
 
     
-\subsubsection{Web Scraping}
+\subsection{Web Scraping}
     Basic elements of web page:
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item HTML (HyperText Markup Language): structure and content of page
@@ -765,13 +765,13 @@ Basic \lstinline|html| document format:
     \item \lstinline|pge %>% html_elements(css='.CSS_CLASS_NAME') %>% html_text()|: basic scraping. use SelectGadget tool for help finding proper css label.
 \end{itemize}
 
-% \subsubsection{Word Segmentation}
+% \subsection{Word Segmentation}
 
 
 
-\subsection{Graphic in R.}
+\section{Graphic in R.}
 
-\subsubsection{R::base Plotting}
+\subsection{R::base Plotting}
 
     Plot function in \lstinline|R::base|:\index{Plot Parameters in R.}
 \begin{lstlisting}[language=R]
@@ -869,6 +869,7 @@ dev.off()
             \item \lstinline|family = | extra text type, value taken in \lstinline|c('serif', 'sans', 'mono')|m etc. use \lstinline|names(pdfFonts())| to see possible font families
         \end{itemize}
         \item \lstinline|bty = | \textbf{b}ox \textbf{ty}pe of the box surrounding the figure. Value taken in \lstinline|c('o', '7', 'L', 'U', 'C', 'n')| 
+        \item \lstinline|las = | relation btw. \textbf{l}able \textbf{a}nd axi\textbf{s}. Value taken \lstinline|c(0,1,2,3)|.
     \end{itemize}
     \item \lstinline|axis()| parameters for axis settings: after using \lstinline|xaxt = 'n'| or \lstinline|yaxt = 'n'| to remove correponding axis when executing \lstinline|plot()|, other variation of axis could be made by using \lstinline|axis()|
     \begin{itemize}[topsep=2pt,itemsep=0pt]
@@ -924,7 +925,7 @@ par(opar)
 \end{itemize}
 
 
-\subsubsection{R::ggplot2 Plotting}
+\subsection{R::ggplot2 Plotting}
     \lstinline|ggplot2|: \textbf{G}rammar of \textbf{G}raphics \textbf{plot} (2nd edi). It provides a convenient way to produce fancy plots. Reference see \url{https://ggplot2.tidyverse.org/reference/}\index{ggplot2}
     
     Basic steps for \lstinline|ggplot2|:

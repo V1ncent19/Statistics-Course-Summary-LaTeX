@@ -1,4 +1,4 @@
-\section{生物统计学概论部分}
+\chapter{生物统计学概论部分}\label{SectionIntroToBiostatistics}
 \begin{center}
     Instructor: Tianying Wang
 \end{center}
@@ -6,7 +6,7 @@
 Biostatistics is discipline to apply statistical methods to biological problems, including medicine, biology experiment, public health, etc. This section would focus on basic quantative skills to be used in advanced biostatistics research.
 
 
-\subsection{Factor Model and ANOVA}
+\section{Factor Model and ANOVA}
 \index{Factor Model}\index{ANOVA (Analysis of Variance)}
 A major question in biostatistics is to study the difference between groups, i.e. explanatory variable $ X $ is categorical. A `way' to conduct grouping is called a \textbf{factor} , e.g. $ \{\alpha _i\} $ where each $ i $ correponds to a \textbf{level} of the factor.  
 
@@ -18,7 +18,7 @@ To compare groups, e.g. to determine whether there is significant difference bet
 
     Response $ Y $ is denoted by its subsript to declare its group and index in this group, e.g. $ Y_{ijkl} $ indicates it is the $ l^\mathrm{th}  $ sample in group $ (i,j,k) $
 
-\subsubsection{Single Factor Model and One-Way ANOVA}
+\subsection{Single Factor Model and One-Way ANOVA}\label{SubSubSectionIntroToBiostatisticsOneWayANOVA}
 % \index{Factor Model!Single Factor Model}
 
 \begin{point}
@@ -62,15 +62,16 @@ Key of ANOVA: Decomposition of variation SS:
 
     Estimation:
     \begin{align}
-        \hat{\mu }=&\bar{Y}_{i\cdot }=\dfrac{1}{n_i}\sum_{j=1}^{n_i}Y_{ij}\\
-        s_i^2=&\dfrac{1}{n_i-1}\sum_{j=1}^{n_i}\left(Y_{ij}-\bar{Y}_{i\cdot     }\right)^2\\
+        \hat{\mu }=&\dfrac{1}{r}\sum_{i=1}^r\sum_{j=1}^{n_i}\dfrac{ Y_{ij} }{ n_i } \\
+        \hat{\alpha }_i=&\bar{Y}_{i\cdot }-\hat{\mu }=\dfrac{ 1 }{ n_i }\sum_{j=1}^{n_i}Y_{ij}-\hat{\mu } \\
+        s_i^2=&\dfrac{1}{n_i-1}\sum_{j=1}^{n_i}\left(Y_{ij}-\bar{Y}_{i\cdot}\right)^2\\
         s^2=&\dfrac{\sum_{i=1}^r(n_i-1)s_i^2}{n_T-r}
 \end{align}    
     
     
 
 
-\subsubsection{Fixed Effect and Random Effect}
+\subsection{Fixed Effect and Random Effect}
     When divided into groups/naturally assigned in groups, we need to specify whether the factor levels are specially chosen (fixed effect) of randomly chosen from a `population of levels' (random effect). 
     \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item Fixed Effect: whether there is a difference between / estimating the value of mean value $ \mu _i $ of each specific levels
@@ -100,10 +101,11 @@ Key of ANOVA: Decomposition of variation SS:
 
     Hypothesis tesing: $ H_0:\,\alpha _1=\ldots=\alpha _r=0 $, v.s. $ H_1: $ at least 1 $ \alpha _i\neq 0 $
 
-    Estimation:
+    Estimation (the same):
     \begin{align}
-        \hat{\mu }=&\bar{Y}_{i\cdot }=\dfrac{1}{n_i}\sum_{j=1}^{n_i}Y_{ij}\\
-        s_i^2=&\dfrac{1}{n_i-1}\sum_{j=1}^{n_i}\left(Y_{ij}-\bar{Y}_{i\cdot     }\right)^2\\
+        \hat{\mu }=&\dfrac{1}{r}\sum_{i=1}^r\sum_{j=1}^{n_i}\dfrac{ Y_{ij} }{ n_i } \\
+        \hat{\alpha }_i=&\bar{Y}_{i\cdot }-\hat{\mu }=\dfrac{ 1 }{ n_i }\sum_{j=1}^{n_i}Y_{ij}-\hat{\mu } \\
+        s_i^2=&\dfrac{1}{n_i-1}\sum_{j=1}^{n_i}\left(Y_{ij}-\bar{Y}_{i\cdot}\right)^2\\
         s^2=&\dfrac{\sum_{i=1}^r(n_i-1)s_i^2}{n_T-r}
 \end{align}    
 
@@ -119,8 +121,6 @@ Key of ANOVA: Decomposition of variation SS:
             $ \sigma ^2$&$ \mathrm{SSE} =\sum_{i=1}^r\sum_{j=1}^{n_i}\left(Y_{ij}-Y_{i\cdot }\right)^2 $&$ n_T-r $&$ \dfrac{\mathrm{SSE}}{n_T-r} $&$ \sigma ^2 $\\
             \hline
         \end{tabular}
-        \caption{}
-        \label{}
     \end{table}
 
     $ F $ statistics for $ H_0:\alpha _1=\ldots=\alpha _r=0 $:
@@ -145,12 +145,13 @@ Key of ANOVA: Decomposition of variation SS:
 
     Hypothesis testing $ H_0:\,\sigma _\alpha ^2=0$, v.s. $ H_1: \sigma _\alpha ^2\neq 0$
 
-    Estimation:
+    Estimation (the same):
     \begin{align}
-        \hat{\mu }=&\bar{Y}_{i\cdot }=\dfrac{1}{n_i}\sum_{j=1}^{n_i}Y_{ij}\\
-        s_i^2=&\dfrac{1}{n_i-1}\sum_{j=1}^{n_i}\left(Y_{ij}-\bar{Y}_{i\cdot     }\right)^2\\
+        \hat{\mu }=&\dfrac{1}{r}\sum_{i=1}^r\sum_{j=1}^{n_i}\dfrac{ Y_{ij} }{ n_i } \\
+        \hat{\alpha }_i=&\bar{Y}_{i\cdot }-\hat{\mu }=\dfrac{ 1 }{ n_i }\sum_{j=1}^{n_i}Y_{ij}-\hat{\mu } \\
+        s_i^2=&\dfrac{1}{n_i-1}\sum_{j=1}^{n_i}\left(Y_{ij}-\bar{Y}_{i\cdot}\right)^2\\
         s^2=&\dfrac{\sum_{i=1}^r(n_i-1)s_i^2}{n_T-r}
-\end{align}
+\end{align}    
 
     ANOVA table:
     \begin{table}[H]
@@ -164,8 +165,6 @@ Key of ANOVA: Decomposition of variation SS:
             $ \sigma ^2$&$ \mathrm{SSE} =\sum_{i=1}^r\sum_{j=1}^{n_i}\left(Y_{ij}-Y_{i\cdot }\right)^2 $&$ n_T-r $&$ \dfrac{\mathrm{SSE}}{n_T-r} $&$ \sigma ^2 $\\
             \hline
         \end{tabular}
-        \caption{}
-        \label{}
     \end{table}
 
     $ F $ statistics for $ H_0:\alpha _1=\ldots=\alpha _r=0 $:
@@ -176,7 +175,7 @@ Key of ANOVA: Decomposition of variation SS:
 
 
 
-\subsubsection{Two Factor Model and Two-Way ANOVA}
+\subsection{Two Factor Model and Two-Way ANOVA}
 
 Two factor model with interation term:
 
@@ -205,7 +204,7 @@ Two factor model with interation term:
     Here for convenience and clarity, when applying model with more factors, we use terms like $ (\alpha \beta )_{ij} $ to avoid confusion of too many symbols.
 
 
-\subsubsection{General Case for Factor Model}
+\subsection{General Case for Factor Model}
 
 e.g. three factors model 
 \[
@@ -403,7 +402,7 @@ e.g. three factors model
 
 
 
-\subsubsection{Diagnosis}\label{SubSubSectionDiagnosticsToFactorModel}
+\subsection{Diagnosis}\label{SubSubSectionDiagnosticsToFactorModel}
 
 Some useful diagnosis to check assumptions:
 \begin{itemize}[topsep=2pt,itemsep=0pt]
@@ -429,7 +428,7 @@ dat %>% group_by(cat_1) %>% rstatix::identify_outliers(y)
 
     
 
-\subsubsection{Miscellaneous Topics}
+\subsection{Miscellaneous Topics}
 Some miscellanea in design of experiment and about some advanced models:
 
 \begin{point}
@@ -466,7 +465,7 @@ In multi-factor studies, we may not be able to go through all possible factor se
 
 
 
-\subsection{Statistical Inference on Contingency Table}
+\section{Statistical Inference on Contingency Table}
 
 Contingency table is an easy way to display categorical variables, an example:
 \begin{table}[H]
@@ -491,7 +490,7 @@ Contingency table is an easy way to display categorical variables, an example:
 \end{table}
       
 
-\subsubsection{Quantities and Statistics from Contingency Table}\label{SubSubSectionContingencyTableInBioStat}
+\subsection{Quantities and Statistics from Contingency Table}\label{SubSubSectionContingencyTableInBioStat}
 
 \begin{point}
     Prospective Study and Retrospective Study
@@ -623,14 +622,14 @@ Contingency table is an easy way to display categorical variables, an example:
     
         
 
-\subsection{Clinical Trial Design}
-\subsection{GWAS}
-% \subsubsection{Four-Stage Clinical Trial}
+\section{Clinical Trial Design}
+\section{GWAS}
+% \subsection{Four-Stage Clinical Trial}
 
-% \subsubsection{Relative Statistical Inference}
+% \subsection{Relative Statistical Inference}
 
 
-% \subsection{Survival Analysis}
+% \section{Survival Analysis}
 
 
 

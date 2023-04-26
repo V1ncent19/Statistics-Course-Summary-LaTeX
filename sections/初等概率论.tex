@@ -1,5 +1,4 @@
-
-\section{概率论部分}\label{Section1Probability}
+\chapter{概率论部分}\label{Section1Probability}
 \begin{center}
     Instructor: Wanlu Deng
 \end{center}
@@ -23,7 +22,7 @@
 
 
 
-\subsection{Some Important Distributions}\label{SectionImportantDistributions}
+\section{Some Important Distributions}\label{SectionImportantDistributions}
 
 \begin{table}[htbp]
     \centering
@@ -60,12 +59,12 @@ Use the following command for all distributions supported in \lstinline|R. stats
 \end{lstlisting}
 
 
-\subsection{Probability and Probability Model}
+\section{Probability and Probability Model}
 
     What is \textbf{Probability}? A `belief' in `what would happen'.
 
 
-\subsubsection{Sample Space and $\sigma$-Field}
+\subsection{Sample Space and $\sigma$-Field}
 
 \begin{point}
     Experiment and Sample Space
@@ -111,7 +110,7 @@ And some more complex ones
     \item $ (\bigcap_{j=1}^\infty A_j)^\complement =\bigcup_{j=1}^\infty A_j^\complement $
 \end{itemize}
     
-\subsubsection{Axioms of Probability}
+\subsection{Axioms of Probability}
 
     $\mathbb{P}(\,\cdot\,):\,\mathscr{F}\mapsto [0,1]$ is the probability measure (or probability function) defined on $(\Omega,\mathscr{F})$ describing the possibility that some event $ A\in\mathscr{F}  $ happens. Definition of probability $ \mathbb{P}(A) $ in useful models:
     \begin{align}
@@ -253,7 +252,7 @@ where `countable subadditivity' means the events can be sequentially listed. e.g
     
 
 
-\subsubsection{Conditional Probability}
+\subsection{Conditional Probability}
     Motivation: To update the knowledge of probability measure.
 
     Def. \textbf{Conditional Probability} of $B$ given $A$:
@@ -290,7 +289,7 @@ where `countable subadditivity' means the events can be sequentially listed. e.g
         where $\{A_i\}$ is a partition of $\Omega$: $ \Omega =\bigcup_{i}A_i,\, A_i\cap A_j=\delta _{ij}\emptyset $
     \end{itemize}
 
-\subsubsection{Independency}
+\subsection{Independency}
     Statistical Independency is defined as:
     \begin{equation}    
         A\independent B:\,\mathbb{P}(A\cap B) =\mathbb{P}(A)\mathbb{P}(B)
@@ -311,11 +310,11 @@ where `countable subadditivity' means the events can be sequentially listed. e.g
     
         
 
-\subsection{Random Variable and Distribution}\label{SectionPropertiesOfRandomVariableAndVector}
-
+\section{Random Variable and Distribution}\label{SectionPropertiesOfRandomVariableAndVector}
+\index{r.v. (Random Variable or Random Vector)}
 Motivation: defining events is troublesome, and unhelpful to extract the key feature of events. A wise approach is to map samples \& events to numbers $ \Omega \mapsto \mathbb{R}^r $.
 
-\subsubsection{Random Variable}
+\subsection{Random Variable}
     Def. \text{Random Variable}: a \textbf{function}/mapping $X$ defined on sample space $\Omega$,  from $\Omega$ to some $\mathscr{X}\in\mathbb{R} $.
     \begin{align}
         X(\omega ):\, \Omega \mapsto \mathscr{X}\in\mathbb{R} 
@@ -433,8 +432,8 @@ Motivation: defining events is troublesome, and unhelpful to extract the key fea
 
 
 
-\subsubsection{Random Vector}
-    A general case of random variable.\index{r.v. (Random Variable or Random Vector)} Its definition is similar    
+\subsection{Random Vector}
+    A general case of random variable. Its definition is similar    
     \begin{align}
         \vec{X}(\omega ):\, \Omega \mapsto \mathscr{X}\in\mathbb{R}^n 
     \end{align}
@@ -483,12 +482,12 @@ Motivation: defining events is troublesome, and unhelpful to extract the key fea
 
 
 
-\subsection{Expectation $\mathbb{E}$, Variance $var$ and Covariance $cov$}
+\section{Expectation $\mathbb{E}$, Variance $var$ and Covariance $cov$}
 Motivation: what would happen `on average'?
 
 Expectation and Variance of common distributions see \autoref{SectionImportantDistributions}.
 
-\subsubsection{Expection $ \mathbb{E}(\,\cdot\,) $}
+\subsection{Expection $ \mathbb{E}(\,\cdot\,) $}
     Expectation of r.v. $g(X)$ def.:
     \begin{equation}
     \mathbb{E} [g(X)]=\begin{cases}
@@ -537,7 +536,7 @@ Expectation and Variance of common distributions see \autoref{SectionImportantDi
 \end{itemize}
 
 
-\subsubsection{Variance $ var(\, \cdot \, ) $}
+\subsection{Variance $ var(\, \cdot \, ) $}
     Variance of r.v. $X$: 
     \begin{equation}
         var(X)=\mathbb{E}\big[(X-\mathbb{E}(X))^2\big]=\mathbb{E}(X^2)-(\mathbb{E}(X))^2
@@ -575,7 +574,7 @@ Expectation and Variance of common distributions see \autoref{SectionImportantDi
     \begin{equation}X_\mathrm{sd} =\frac{X-\mathbb{E}(X)}{\sqrt{var(X)}}\end{equation}
 
 
-\subsubsection{Covariance $ cov(\, \cdot \, ) $ and Correlation $ corr(\, \cdot \, ) $}\label{SubSubSectionCovarianceAndCorrelation}
+\subsection{Covariance $ cov(\, \cdot \, ) $ and Correlation $ corr(\, \cdot \, ) $}\label{SubSubSectionCovarianceAndCorrelation}
     Covariance of r.v. $X$ and $Y$:\begin{equation}
         cov(X,Y)=\mathbb{E}\big[(X-\mu_X)(Y-\mu_Y)\big]=\mathbb{E}(XY)-\mathbb{E}(X)\mathbb{E}(Y)
     \end{equation}
@@ -622,11 +621,11 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
 \end{equation}
 
 
-\subsection{PGF, MGF and C.F}\label{SectionPGFMGFCF}
+\section{PGF, MGF and C.F}\label{SectionPGFMGFCF}
 
     Generating Function: Representation of $\mathbb{P}$ in function space. $\mathbb{P}\Leftrightarrow$ Generating Function.
 
-\subsubsection{Probability Generating Function}
+\subsection{Probability Generating Function}
     PGF\index{PGF (Probability Generating Function)}: used for non-negative, integer $X$, which is the $ z $-transform of $ p_X $
     \begin{equation}
         g(s)=\mathbb{E}(s^X)=\sum_{j=0}^\infty s^j\mathbb{P}(X=j)    ,s\in[-1,1]
@@ -652,7 +651,7 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
             g(s,t)=\mathbb{E}(s^Xt^Y)=\sum_{i=o}^\infty\sum_{j=0}^\infty \mathbb{P}_{(X,Y)}(X=i,Y=j)s^it^j,\quad s,t\in[-1,1]
         \end{equation}
     \end{itemize}
-\subsubsection{Moment Generating Function}
+\subsection{Moment Generating Function}
     MGF\index{MGF (Moment Generating Function)}: used for non-negative $ X $, which is the Laplacian transformation of $ f_X $.
     \begin{equation}
         M_X(s)=\mathbb{E}(e^{sX})=\begin{cases}
@@ -672,7 +671,7 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
             M_Y(s)=\prod_{i=1}^n M_{X_i}(s)
         \end{equation}
     \end{itemize}
-\subsubsection{Characteristic Function}
+\subsection{Characteristic Function}
     C.F \index{C.F. (Characteristic Function)}is actually the Fourier Transform of $f_X$.
     \begin{equation}
         \phi(t)=\mathbb{E}(e^{itX}) = \int_{-\infty}^\infty e^{itx}f_X(x)\mathrm{d}x
@@ -696,8 +695,8 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
 
 
 
-\subsection{Convergence and Limit Distribution}
-\subsubsection{Convergence Mode}
+\section{Convergence and Limit Distribution}
+\subsection{Convergence Mode}
     \index{Convergence}
     \begin{equation}
         \begin{cases}
@@ -748,7 +747,7 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
         \end{itemize} 
 
 
-\subsubsection{Law of Large Number \& Central Limit Theorem}
+\subsection{Law of Large Number \& Central Limit Theorem}
 
 \begin{itemize}
 \item m.s. LLN\index{m.s. LLN (Mean-Squared Law of Large Number)}: For $ X_i $ with $ cov(X_i,X_j)=0$, if $ i\neq j $, and $ \mathbb{E}\left[ X_i \right] =\mu <\infty $
@@ -806,7 +805,7 @@ or in equivalent form
 \end{itemize}
 
 
-\subsection{Inequalities}\label{SubSectionUsefulInequality}
+\section{Inequalities}\label{SubSectionUsefulInequality}
     
 \begin{itemize}
     \item Cauchy-Schwarz Inequality\index{Inequality!Cauchy-Schwarz Inequality}
@@ -920,7 +919,7 @@ or in equivalent form
 \end{itemize}
 
 
-\subsection{Multivariate Normal Distribution}\label{SubsectionDerivationMultivariateNormal}
+\section{Multivariate Normal Distribution}\label{SubsectionDerivationMultivariateNormal}
     General Case and more discussion see \autoref{SubSubSectionMultivariateNormalDistribution}.
 
     Distribution of Normal $ X\sim N(\mu ,\sigma ^2) $:\index{Distribution!Normal Distribution}
@@ -951,7 +950,7 @@ or in equivalent form
 
 
 
-\subsubsection{Linear Transform}
+\subsection{Linear Transform}
     First consider $\epsilon_1,\epsilon_2,\cdots,\epsilon_m$ i.i.d. $\sim N(0,1)$, $n\times 1$ const column vector $\vec{\mu}$, $n\times m$ const matrix $\bm{B}=\{b_{ij}\}$, def.$X_i={\displaystyle\sum_{j=1}^m b_{ij}\epsilon_j}$, i.e.
     \begin{equation}
         \vec{X}=
@@ -1042,7 +1041,7 @@ or in equivalent form
     
     
 
-    \subsubsection{Distributions of Function of Normal Variable: $\chi^2,$ $t\,\& \,F$}\label{chi2_t_F_properties}
+    \subsection{Distributions of Function of Normal Variable: $\chi^2,$ $t\,\& \,F$}\label{chi2_t_F_properties}
         Consider $X_1,X_2,\ldots,X_n$ i.i.d. $\sim N(0,1)$; $Y,Y_1,Y_2,\ldots,Y_m$ i.i.d. $\sim N(0,1)$
         \begin{itemize}
             \item $\chi^2$ Distribution: Def. $\chi^2$ distribution with degree of freedom $n$:\index{Distribution!$ \chi^2 $ Distribution}

@@ -1,11 +1,11 @@
-\section{因果推断导论部分}\label{SecCausalInference}
+\chapter{因果推断导论部分}\label{SecCausalInference}
 \begin{center}
     Instructor: Wanlu Deng
 \end{center}
 
 
 
-\subsection{Neyman-Rubin Potential Outcome Framework}
+\section{Neyman-Rubin Potential Outcome Framework}
     Neyman-Rubin Framework\index{Neyman-Rubin Framework} (Donald B.Rubin, 1978), also called Potential Outcome Framework\index{Potential Outcome Framework} is based on \textbf{counter-factual outcome} inference to judge causal effect. 
 
 
@@ -22,7 +22,7 @@
         
 %         Their difference is significant, correlation is mostly based on objective data, while causality contains a lot about how we \textbf{`imagine'} what did not happen, and compare to reality. The $ Y_i-\tilde{Y}_i $ is causal effect (Note that they both has $ _i $, acting on the same object, the different causal effect on different unit also make it not so useful to increase sample size).
 
-\subsubsection{Description of Causal Effect and Challenge}
+\subsection{Description of Causal Effect and Challenge}
     Causality concerns `what would happen when \textbf{an action} is applied to \textbf{a unit}'. Here the `unit' is how causality is different from correlation.
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item A unit is the physical object at that specific time, which is similar to the event in Einstein's relativity.\footnote{Which means that one object at different time ($ (x,t) $ \& $ (x,t') $) is not the same unit (event). However if the assumption of time independency is valid, then object in different time could be the same unit (usually less resonable for human subjects).}
@@ -121,7 +121,7 @@
 \end{align}
 
 
-\subsubsection{Assumptions}
+\subsection{Assumptions}
 
 The null model is complicated, say, there could be multiple PO levels / interference between assignments / complex assignment mechanism, etc. There are some basic assumptions to help simplified the model.
 
@@ -185,7 +185,7 @@ The null model is complicated, say, there could be multiple PO levels / interfer
     \text{Assignment Mechanism:}\,&\mathbb{P}(W|X,Y(1),Y(0))=\dfrac{1}{Z}\prod_{i=1}^N e(X_i)^{W_i}(1-e(X_i))^{1-W_i}\\
 \end{align}
 
-% \subsubsection{Causal Effect Measurement}
+% \subsection{Causal Effect Measurement}
 
 
 % \begin{itemize}[topsep=2pt,itemsep=0pt]
@@ -261,7 +261,7 @@ The null model is complicated, say, there could be multiple PO levels / interfer
     
 
 
-\subsection{Inference to Causal Effect in Completely Randomized Experiment}
+\section{Inference to Causal Effect in Completely Randomized Experiment}
 
 First we focus on the randomness in finite sample, i.e. randomness of assignment mechanism. Specifically we usually consider the case of Completely Randomized Experiment (CRE)\index{CRE (Completely Randomized Experiment)}: $ N_t $ in $ N $ items are given treatment and $ N_c=N-N_t $ in $ N $ are given control, and the assignment is given \textbf{randomly}. 
 \begin{align}
@@ -271,7 +271,7 @@ First we focus on the randomness in finite sample, i.e. randomness of assignment
 The assumption of CRP is important in causal inference because it fixes the gap between $ Y^\mathrm{obs}  $ and $ Y^\mathrm{mis} $ by randomly assign treatment/control.
 
 
-\subsubsection{Fisher's Exact $ p $-value}
+\subsection{Fisher's Exact $ p $-value}
 
 Test of Fisher's Sharp Null Hypothesis\index{Fisher's Sharp Null Hypothesis}:
 \begin{align}
@@ -313,7 +313,7 @@ Comments:
 \end{itemize}
 
     
-\subsubsection{Neyman's Repeated Sampling Approach}
+\subsection{Neyman's Repeated Sampling Approach}
 
 Neyman's method uses the distribution of $ W $ for completely randomized experiment to obtain the property of the finite sample estimator
 \begin{align}
@@ -389,7 +389,7 @@ Neyman's method uses the distribution of $ W $ for completely randomized experim
 \end{itemize}
 
 
-\subsubsection{Regression Methods}
+\subsection{Regression Methods}
 
 Regression methods in Potential Outcome Framework is used to introduce covariates and lower the variance estimation, the idea is similar to variance decomposition in ANOVA.
 
@@ -529,7 +529,7 @@ concerns a quadratic loss function of the following form:
     % \item Model with Interaction Covariate
 \end{itemize}
 
-\subsubsection{Model Based Inference using Bayesian Statistics}
+\subsection{Model Based Inference using Bayesian Statistics}
 Motivation: how to use prior information about distribution? Basically with $ \mathbb{P}\left( W|Y,\theta  \right)  $, $ f(Y|\theta ) $, $ \pi(\theta ) $ we can construct any posterior distribution from 
 \begin{align}
     f(W,Y,X)= \mathbb{P}\left( W|Y,\theta  \right)f(Y|\theta )pi(\theta )
@@ -593,12 +593,12 @@ Estimation target: $ f(Y^\mathrm{mis}|Y^\mathrm{obs},W ) $, with assumptions
     
 
 
-\subsection{More Assignment Mechanism and Observational Study}
+\section{More Assignment Mechanism and Observational Study}
 Some other classical randomized experiment are also used in causal experiments. This section includes Stratified Randomized Experiment (SRE) and Pairwise Randomized Experiment (PRE).
 
 In more cases we can only deal with observational data, which means the assignment mechanism is beyond our control, thus some estimation is needed.
 
-\subsubsection{Other Classical Randomized Experiment}
+\subsection{Other Classical Randomized Experiment}
 \begin{point}
     Stratified Randomized Experiment
 \end{point}
@@ -679,7 +679,7 @@ and we can access $ \hat{var}(\tau_\mathrm{fs} ) $ as
     \hat{var}(\tau_\mathrm{fs} )=&\dfrac{4}{N(N-2)}\sum_{i=1}^{N/2}\left(\hat{\tau}(j)-\bar{\hat{\tau}}\right)^2
 \end{align}
 
-\subsubsection{Observational Study with Regular Assignment Mechanisms}
+\subsection{Observational Study with Regular Assignment Mechanisms}
 \textbf{Recap} RAM:
 \begin{align}
     \begin{cases}
@@ -788,12 +788,12 @@ Property of propensity score:
 \end{itemize}
 
 
-\subsection{Pearl Causal Bayesian Framework}
+\section{Pearl Causal Bayesian Framework}
 \index{Pearl Causal Bayesian Framework}\index{Bayesian Network}
     Pearl Bayesian Framework\footnote{Also called Bayesian Network / Belief Network / Directed Acyclic Graphical (DAG) Model.} (Judea Pearl, 1995) uses causal information on a graph to construct inference. 
 
     
-\subsubsection{Causal Bayesian Network}
+\subsection{Causal Bayesian Network}
 The language of \textit{Graph} is used to describe the causal relations. 
 
 \begin{point}
@@ -887,7 +887,7 @@ Starting from triplets in DAG as the key elements in a graph.
         \mathbb{P}\left( X,Z|Y \right) = \dfrac{\mathbb{P}\left( Y \right) \mathbb{P}\left( X|Y \right) \mathbb{P}\left( Z|Y \right) }{\mathbb{P}\left( Y \right) }=\mathbb{P}\left( X|Y \right) \mathbb{P}\left( Z|Y \right)   
     \end{align}
     i.e. we have a conditional independency in chain $ X\independent Z|Y $
-    \item Collider $ X \to Y \leftarrow Z $. In the collider, $ X\independent Z $ marginally, but given $ Y $ are conditionally dependent. If there is no edge between $ X $ and $ Z $, it's also called $ v $-structure.\index{$ v $-structure@v-structure}
+    \item Collider $ X \to Y \leftarrow Z $. In the collider, $ X\independent Z $ marginally, but given $ Y $ are conditionally dependent. If there is no edge between $ X $ and $ Z $, it's also called $ v $-structure.\index{V-structure@$ v $-structure}
 \end{itemize}
 
 \begin{center}
@@ -1207,7 +1207,7 @@ Comments:
 
 
 
-\subsubsection{Network Structure Learning}
+\subsection{Network Structure Learning}
 
 \begin{point}
     IC/PC Algorithm\index{IC Algorithm (Inductive Causation Algorithm)}
@@ -1219,7 +1219,7 @@ Here illustrated with the following example with conditional independencies. Gro
 
 \begin{center}
     \begin{minipage}{0.4\linewidth}
-        \begin{align}
+        \begin{align*}
             &X \not\!\!\mathop{\independent} R |\mathcal{S},\,\forall \mathcal{S}\subset\{Y,Z,W\}\\
             &X \not\!\!\mathop{\independent} Z |\mathcal{S},\,\forall \mathcal{S}\subset\{Y,R,W\}\\
             &X \not\!\!\mathop{\independent} Y |\mathcal{S},\,\forall \mathcal{S}\subset\{Z,R,W\}\\
@@ -1230,8 +1230,9 @@ Here illustrated with the following example with conditional independencies. Gro
             &Z\independent W|Y\\
             &Z\independent R|\{X,Y\}\\
             &W\independent R
-        \end{align}
+        \end{align*}
     \end{minipage}
+    \quad
     \begin{tikzpicture}[baseline={([yshift = 0ex]current bounding box.center)}]
         \GraphInit[vstyle=Dijkstra]
         \SetGraphUnit{1.3}
@@ -1264,7 +1265,7 @@ Here illustrated with the following example with conditional independencies. Gro
     \end{itemize}
     \begin{center}
         \begin{minipage}{0.4\linewidth}
-            \begin{align}
+            \begin{align*}
                 &\color{red}X \not\!\!\mathop{\independent} R |\mathcal{S},\,\forall \mathcal{S}\subset\{Y,Z,W\}\\
                 &\color{red}X \not\!\!\mathop{\independent} Z |\mathcal{S},\,\forall \mathcal{S}\subset\{Y,R,W\}\\
                 &\color{red}X \not\!\!\mathop{\independent} Y |\mathcal{S},\,\forall \mathcal{S}\subset\{Z,R,W\}\\
@@ -1275,8 +1276,9 @@ Here illustrated with the following example with conditional independencies. Gro
                 &Z\independent W|Y\\
                 &Z\independent R|\{X,Y\}\\
                 &W\independent R
-            \end{align}
+            \end{align*}
         \end{minipage}
+        \quad
         \begin{tikzpicture}[baseline={([yshift = 0ex]current bounding box.center)}]
             \GraphInit[vstyle=Dijkstra]
             \SetGraphUnit{1.3}
@@ -1306,7 +1308,7 @@ Here illustrated with the following example with conditional independencies. Gro
     \end{itemize}
     \begin{center}
         \begin{minipage}{0.4\linewidth}
-            \begin{align}
+            \begin{align*}
                 &\color{red}X \not\!\!\mathop{\independent} R |\mathcal{S},\,\forall \mathcal{S}\subset\{Y,Z,W\}\\
                 &X \not\!\!\mathop{\independent} Z |\mathcal{S},\,\forall \mathcal{S}\subset\{Y,R,W\}\\
                 &\color{red}X \not\!\!\mathop{\independent} Y |\mathcal{S},\,\forall \mathcal{S}\subset\{Z,R,W\}\\
@@ -1317,8 +1319,9 @@ Here illustrated with the following example with conditional independencies. Gro
                 &Z\independent W|Y\\
                 &Z\independent R|\{X,Y\}\\
                 &W\independent R
-            \end{align}
+            \end{align*}
         \end{minipage}
+        \quad
         \begin{tikzpicture}[baseline={([yshift = 0ex]current bounding box.center)}]
             \GraphInit[vstyle=Dijkstra]
             \SetGraphUnit{1.3}
@@ -1453,12 +1456,12 @@ The above procedure can produce identify the DAG up to its observational equival
 We could also simply search in the space of all possible networks and select the one scoring the highest. Some frequently used metrics include AIC and BIC
 \begin{align}
     \mathrm{AIC}=&-2\log \mathbb{P}\left( \mathcal{G}|\hat{\theta }  \right) + 2\mathrm{dof}_\mathcal{G} \\
-    \mathrm{BIC}=&-2\log \mathbb{P}\left( \mathcal{G}|\hat{\theta } \right) +\log n \mathrm{dof}_\mathcal{G}   
+    \mathrm{BIC}=&-2\log \mathbb{P}\left( \mathcal{G}|\hat{\theta } \right) +\log n \cdot \mathrm{dof}_\mathcal{G}   
 \end{align}
 
 
 
-\subsubsection{Network Parameter Learning}
+\subsection{Network Parameter Learning}
 Basically, parameter learning (given BN strucure) is simply estimating edge weights, denoted $ \varTheta $. Two basic methods are 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item Bayesian approach
@@ -1479,7 +1482,7 @@ Basically, parameter learning (given BN strucure) is simply estimating edge weig
 \end{itemize}
 
     
-\subsubsection{Average Causal Effect Estimation}
+\subsection{Average Causal Effect Estimation}
     Average Causal Effects on BN are defined in terms of $ do(\, \cdot \, ) $ operator,
     \begin{align}
         \mathrm{ACE}(Y|H):= \mathbb{E}\left[ Y|do(H=h_1) \right]-\mathbb{E}\left[ Y|do(H=h_2) \right]    
@@ -1720,6 +1723,7 @@ Basically, parameter learning (given BN strucure) is simply estimating edge weig
         
 
 
+\subsection{Instrumental Variable Method}
 
     
 

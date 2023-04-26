@@ -1,13 +1,13 @@
-\section{统计计算与软件部分}\label{SecStatisticalComputingAndSoftware}
+\chapter{统计计算与软件部分}\label{SecStatisticalComputingAndSoftware}
 \begin{center}
     Instructor: Zaiying Zhou
 \end{center}
 
-\subsection{Algorithm Theory Introduction}
+\section{Algorithm Theory Introduction}
 
-% \subsubsection{Float Storage}
+% \subsection{Float Storage}
 
-\subsubsection{Finite Precision Computation}
+\subsection{Finite Precision Computation}
     An arbitrary real number $ r\in\mathbb{R} $ is represented as (the nearest adjacent) float number $ v_r $. A float is basically stored as (example take 32-bit float): 1 bit \textbf{S}ign + 8 bit \textbf{E}xponent + 23 bit \textbf{M}antissa.
 \begin{equation}\label{EqaNormalizedFloat}
     v=(-1)^S\times 2^{E-127}\times \left(1+\sum_{i=1}^{23}(M_i\times 2^{-i})\right)
@@ -84,7 +84,7 @@
 
     Key point for algorithm design: \uline{aviod plus/minus of numbers of significantly large magnitude difference.}
     
-\subsubsection{Stability \& Accuracy} 
+\subsection{Stability \& Accuracy} 
 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item Forward/Backward Error:
@@ -143,7 +143,7 @@
 
 
     
-\subsubsection{Iteration Algorithm}
+\subsection{Iteration Algorithm}
     Iteration methods are used especially for problems without analytical solution, to obtain a numerical solution.
 
     Iteration method: for problem $ f $ with solution $ x^* $ design an iteration function $ g $: $ X\to X $ so that 
@@ -198,7 +198,7 @@
 
     Comment: Actually convergence rate and order are generally dependent on specific problem, so we usually estimate $ \alpha  $, $ c $ using some approximation/scaling to represent a generally case.
 
-\subsubsection{Constrained Optimize Theory}
+\subsection{Constrained Optimize Theory}\label{ConstrainedOptimizeTheory}
 \begin{point}
     Primal Problem\index{Primal Problem}
 \end{point}
@@ -289,7 +289,7 @@
 
 
 
-\subsection{Algebratic Problem in Statistics}\label{SubSectionAlgebraticProblemInStatistics}
+\section{Algebratic Problem in Statistics}\label{SubSectionAlgebraticProblemInStatistics}
    Considering the data structure and algorithm implement, many fundamental problems in statistics are basically algebratic problem, e.g.
 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
@@ -314,7 +314,7 @@
 
 
 
-\subsubsection{Matrix Operation}
+\subsection{Matrix Operation}
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item Inverse Matrix: Inverse matrix of $ A=[a_1,\ldots,a_m] $ satisfies
     \begin{align}
@@ -370,7 +370,7 @@
 
 \end{itemize}
 
-% \subsubsection{Solution to System of Equations}
+% \subsection{Solution to System of Equations}
 %     Solve system of linear equations:
 %     \begin{align}
 %         x=\arg\{Ax=b\} 
@@ -409,7 +409,7 @@
 
 
 
-\subsubsection{Projection and Least Square Problem}
+\subsection{Projection and Least Square Problem}
     Recall: Linear model $ Y=X\beta +\varepsilon  $, basically solving linear equation $ Y=X\beta  $, however generally $ Y\notin \mathrm{span}(X)  $, then we use OLS method to reach an estimation of $ \beta$    :
     \begin{align}
         \hat{\beta }=\mathop{\arg\min}\limits_{\beta }\Vert Y-X\beta  \Vert^2
@@ -488,7 +488,7 @@
 
 
 
-\subsubsection{Gaussian $ LU $ Decomposition \& Cholesky Decomposition}
+\subsection{Gaussian $ LU $ Decomposition \& Cholesky Decomposition}
 \begin{point}
     Gaussian Elimination Algorithm
 \end{point}
@@ -640,7 +640,7 @@
 
 
 
-\subsubsection{$ QR $ Decomposition: Gram-Schmidt/Householder/Givens Method}\label{SubSubSectionQRDecomposition}
+\subsection{$ QR $ Decomposition: Gram-Schmidt/Householder/Givens Method}\label{SubSubSectionQRDecomposition}
     
     $ QR $ Decomposition: Orthogonal Triangularization of matrix $ A $
 \begin{align}
@@ -822,7 +822,7 @@ R <- qr.R(A.qr)
     
     act on $ A_{i-1:i,j:n} $ so that $ A_{i,j}=0 $, each time use two rows to create 1 zero. Slow, used for special sparse matrix.
     
-\subsubsection{Eigenvalue Decomposition}
+\subsection{Eigenvalue Decomposition}
     For square matrix $ A \in\mathbb{C}^{m\times m}$, its eigenvector is the vector $ x_i $ whose direction (subspace) is invariant under transform operator $ A $.
     \begin{align}
         Ax_i =\lambda _ix_i
@@ -914,7 +914,7 @@ for independent eigenvectors $ x_i $ and an arbitrary vector $ \xi =\sum_{i=1}^m
 
 
 
-\subsubsection{SVD Decomposition}
+\subsection{SVD Decomposition}
 \begin{point}
     SVD (Singular Value Decomposition)\index{SVD (Singular Value Decomposition)} Form:
 \end{point}
@@ -1043,7 +1043,7 @@ for independent eigenvectors $ x_i $ and an arbitrary vector $ \xi =\sum_{i=1}^m
 
 
 
-\subsubsection{Schur Decomposition}
+\subsection{Schur Decomposition}
     Unitary Triangularization of matrix $ A $ (always exists in $ \mathbb{C}^{m\times m} $):
     \begin{align}
         A=QTQ^*,\, Q\text{ unitary, }T\text{ upper-triangular} 
@@ -1066,7 +1066,7 @@ for independent eigenvectors $ x_i $ and an arbitrary vector $ \xi =\sum_{i=1}^m
 
 
 
-\subsection{Numeric Optimization Algorithm I}
+\section{Numeric Optimization Algorithm I}
 
 Algorithm Optimization in Statistics: e.g.
 \begin{itemize}[topsep=2pt,itemsep=0pt]
@@ -1187,7 +1187,7 @@ Duality of Optimization and Rooting:
 
 
 
-\subsubsection{Golden Section/Fibonacci Section Search}
+\subsection{Golden Section/Fibonacci Section Search}
 \index{Golden Section Search}\index{Fibonacci Section Search}
     \hypertarget{GoldenSection}{Problem}: minimizing univariate function $ g(x) $, within a pre-estimated interval $ [x_1^{(0)},x_4^{(0)}] $. For $ f $ that is undiffernetiable/complicated to compute, this method is often used. 
 
@@ -1284,7 +1284,7 @@ Duality of Optimization and Rooting:
 
 
  
-\subsubsection{Bisection Search Method}
+\subsection{Bisection Search Method}
     % Gradient methods are suitable for derivable function $ f $, minimizing $ f $ is equivalent to root finding of $ \nabla f $
 \index{Bisection Search}
     \hypertarget{Bisection}{Problem}: rooting univariate function $ f(x) $, with a pre-­estimated interval $ I^{(0)}=[x_1^{(0)},x_2^{(0)}] $, with $ f(x_1^{(0)})f(x_2^{(0)})<0 $
@@ -1320,7 +1320,7 @@ Duality of Optimization and Rooting:
     Convergence order $ \alpha =1 $, rate $ c=\dfrac{1}{2} $.
 
 
-\subsubsection{Interpolation Methods: Linear/Quadratic/Lagrange Interpolation}
+\subsection{Interpolation Methods: Linear/Quadratic/Lagrange Interpolation}
 \index{Interpolation}
     \hypertarget{Interpolation}{Interpolation} is an approximation to function, thus can get approximation to solution. Interpolation can be used for both minimizing or root finding.
 
@@ -1472,7 +1472,7 @@ Duality of Optimization and Rooting:
     
 
 
-\subsubsection{Hybrid Method: Dekker's/Brent's}
+\subsection{Hybrid Method: Dekker's/Brent's}
 \hypertarget{HybridMethod}{}
 
 \begin{point}
@@ -1531,7 +1531,7 @@ uniroot()
 
 
 
-\subsubsection{Fixed Point Iteration: Univariate}
+\subsection{Fixed Point Iteration: Univariate}
 \hypertarget{FixedPoint}{}
 \index{Fixed Point Iteration}
     Idea: Contraction mapping thm.: for function $ f:X\to X $ satisfying
@@ -1558,7 +1558,7 @@ uniroot()
     Convergence order is $ \alpha  $ in $ G(x)=\alpha f'(x)_x $
 
 
-\subsubsection{Fixed Point Iteration: Multivariate Linear}
+\subsection{Fixed Point Iteration: Multivariate Linear}
     For solution of $ Ax=b $ using fixed point iteration, where $ AA^*=A^*A $(normal matrix), requires:
     \begin{align}
         \rho (A)=\max|\lambda |<1 
@@ -1655,7 +1655,7 @@ uniroot()
 
 
 
-\subsubsection{Nelder-Mead Method}
+\subsection{Nelder-Mead Method}
 \index{N-M Search Method (Nelder-Mead Search Method)}\index{Simplex Search Method}\hypertarget{Simplex}{}
     For multivariate function $ g(x) $, with $ x\in \mathbb{R}^n $, usually use Nelder-Mead Method, or Simplex Search Method. Simplex is a generalization of triangle/tetrahedron to any arbitrary dimension, and Nelder-Mead method is conducted by iterating simplex.
 
@@ -1748,7 +1748,7 @@ uniroot()
 
 
 
-\subsection{Numeric Optimization Algorithm II}
+\section{Numeric Optimization Algorithm II}
     To minimize some arbitrary function $ f(x) $, the idea of gradient iteration method is to update $ x^{(t)} $ based on (minus) gradient $ -\nabla f(x) $, with some modification on direction $ p^{(t)}=T\left(-\nabla f(x)\right) $ and step length $ \alpha ^{(t)} $
     \begin{align}
         x^{(t+1)}=x^{(t)}+\alpha ^{(t)}T\left(-\nabla f(x^{(t)})\right)=x^{(t)}+\alpha ^{(t)}p^{(t)}
@@ -1778,7 +1778,7 @@ uniroot()
 
     
 
-\subsubsection{Gradient Descent Method}
+\subsection{Gradient Descent Method}
     \hypertarget{GradientDescent}{}The simplest choice for $ T(\cdot) $ is identity $ p^{(t)}=-\nabla f\left(x^{(t)}\right) $, because negative gradient direction is the (local) descent direction. Iteration:
     \begin{align}
         x^{(t+1)}=x^{(t)} -\alpha ^{(t)}\nabla f\left(x^{(t)}\right) 
@@ -1795,7 +1795,7 @@ uniroot()
     % to approximate $ g(x) $ with a simple function whose extreme point is easy to locate. Usua
 
 
-\subsubsection{Newton-Raphson Method}
+\subsection{Newton-Raphson Method}
 \index{Newton-Raphson Iteration Method}\hypertarget{NRMethod}{}
     Idea: For minimizing problem $ x^*=\arg\min f(x) $\footnote{Here uses different notation from previous part to avoid confusion of $ g(x) $ as link function.}, using iteration method with an initial value $ x^{(0)} $, we hope to find iteration step $ x^{(t+1)}-x^{(t)} $ such that $ x^{(t+1)} $ can approach $ x^* $ quickly. We can try to use the taylor series at $ x^{(t)} $ to $ O(x^2) $ and try the minimizer of the quadric function:
     \begin{equation}\label{EqaGaussRaphsonQuadricExpansion}
@@ -1829,7 +1829,7 @@ uniroot()
     
         
     
-\subsubsection{Fisher's Scoring Method in MLE}\label{SubSubSectionFisherScoringMethod}
+\subsection{Fisher's Scoring Method in MLE}\label{SubSubSectionFisherScoringMethod}
     \hypertarget{FSNRMethod}{}For MLE optmizing problem in statistics using Newton-Raphson Method, we can use properties of log-likelihood $ l(\theta ;\vec{x}) $ to help overcome the difficulty of calculating $ H^{-1} $. This method is called Fisher's Scoring Method/Iteratively Re-weighted Least Squares (IRLS).\index{Fisher's Scoring Method}\index{IRLS (Iteratively Re-weighted Least Squares)}
 
     Notation: for simplication, the following part uses $ \nabla f(x):=f'(x) $ (a vector), $ \nabla\nabla f(x):=f''(x) $ (a matrix)
@@ -1911,7 +1911,7 @@ Properties:
         S(\mu ;y)=\dfrac{\partial^{} l}{\partial \theta ^{}}\dfrac{\mathrm{d}^{} g(\mu )}{\mathrm{d}\mu ^{}}=\dfrac{y-b'(g(\mu ))}{a(\phi )}g'(\mu ) 
     \end{align}
     
-    \item $ J(\theta ) $ or $ J(\mu ) $:
+    \item Observed Information $ J(\theta ) $ or $ J(\mu ) $:
     \begin{align}
         J(\theta )=-l''(\theta )= \dfrac{b''(\theta )}{a(\phi )}
     \end{align}
@@ -2109,7 +2109,7 @@ Properties:
 
 
 
-    \subsubsection{Linear Modification to Step Length}
+    \subsection{Linear Modification to Step Length}
 
     In minimizing methods, the key idea is usually approximate original $ g(x) $ with some $ \tilde{g}(x) $, and the idea of restricting step length is to avoid severe deviation of $ \tilde{g} $ from $ g $, the most direct method is to adjust step length on a given direction: 
     \begin{align}
@@ -2156,7 +2156,7 @@ Properties:
     
 
 
-\subsubsection{Quasi Newton Method}
+\subsection{Quasi Newton Method}
 \hypertarget{QuasiNewtonMethod}{}
     One of the main difficulty of Newton-Raphson method is calculation of Hessian $ H\left(x^{(t)}\right) $ (as well as its inverse). We can use some estimation method for $ M^{(t)}\equiv \hat{H}^{(t)} $, for equivalently for $ B^{(t)}\equiv\left[\hat{H}^{(t)}\right]^{-1} $\footnote{Notation different from lecture note. Here always use $ H $ for Hessian $ H\equiv\nabla\nabla f $}
 
@@ -2333,7 +2333,7 @@ Solve: fisrt eliminate $ \Lambda -\Lambda ^T $ into $\lambda s^T-s\lambda ^T $, 
 
 \end{itemize}
 
-\subsubsection{Steepest Descent*}
+\subsection{Steepest Descent*}
 \index{Steepest Descent Method}\hypertarget{SteepestDescent}{Steepest Descent Method}
 
 
@@ -2341,7 +2341,7 @@ Solve: fisrt eliminate $ \Lambda -\Lambda ^T $ into $\lambda s^T-s\lambda ^T $, 
 
 
 
-\subsubsection{Trust Region Method}\label{SubSubSectionTrustRegion}
+\subsection{Trust Region Method}\label{SubSubSectionTrustRegion}
 \hypertarget{TrustRegion}{}
     Approximation quadric form $ \tilde{f} $ at iteration $ x^{(t)} $
     \begin{align}
@@ -2391,7 +2391,7 @@ Solve: fisrt eliminate $ \Lambda -\Lambda ^T $ into $\lambda s^T-s\lambda ^T $, 
 
 
         
-\subsubsection{Conjugate Gradient Method}
+\subsection{Conjugate Gradient Method}
 \hypertarget{ConjugateGradientMethod}{}
     Note that in Gauss-Raphson method, our iteration step was obtained by minimizing the taylor series to $ O(x^2)  $ in \autoref{EqaGaussRaphsonQuadricExpansion}, 
     \begin{align}
@@ -2505,13 +2505,13 @@ Solve: fisrt eliminate $ \Lambda -\Lambda ^T $ into $\lambda s^T-s\lambda ^T $, 
 
 
 
-\subsection{Expectation Maximization Algorithm}\label{SubSectionExpectationMaximumAlgorithm}
+\section{Expectation Maximization Algorithm}\label{SubSectionExpectationMaximumAlgorithm}
 \index{E-M Algorithm (Expectation Maximization Algorithm)}
     Motivation: use MLE to estimate some model parameter $ \theta  $ for model $ \{x_i\}$ i.i.d. $ \sim f(x|\theta ) $. Difficulty: for complex model
 
     Main appication: Probability Generative Model, observed value $ x_i $ is generated from distributon $ f(x|z_i,\theta _{i},\theta _z) $ dependent on \textbf{unobserved} random $ z\sim g(z|\theta _z) $(usually $ z $ is discrete, denoted $ z_\nu= z_\alpha ,\ldots z_\gamma  $). Where we know the form of $ f(x,z|\theta_{z_\nu},\theta_z) $, but form of $ f(x|\theta_{z_\nu},\theta) $ might be hard to solve, thus we use an iterative method to deal with the latent variable $ z $ so that we can use the known form $ f(x,z|\theta_{z_\nu},\theta) $.
 
-\subsubsection{Requisite Knowledge}
+\subsection{Requisite Knowledge}
     \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item Kullback-Leibler Divergence\index{KL Divergence (Kullback-Leibler Divergence)}: mearures the difference of distribution $ p(x) $ from distribution $ q(x) $
         \begin{align}
@@ -2532,7 +2532,7 @@ Solve: fisrt eliminate $ \Lambda -\Lambda ^T $ into $\lambda s^T-s\lambda ^T $, 
     \end{align}
     A brief proof see \autoref{SubSectionUsefulInequality}.
         
-\subsubsection{Derivation}
+\subsection{Derivation}
     Notation: $ \theta=(\theta_{z_\nu},\theta_z) $, sample $ X=(x_{1},x_{2},\ldots,x_{N})  $. Expectation of function of ramdom variable $ h(Y) $ on distribution $ q(y) $ as $ E_{(q_y)}\left(h(Y)\right) $.
 
     Target: MLE of $ l(\theta|X)\equiv \sum_{i=1}^N\log f(x_i|\theta) $. i.e. get $ \theta ^*=\mathop{\arg\max}\limits_{\theta} l(\theta|X) $. 
@@ -2541,7 +2541,7 @@ Solve: fisrt eliminate $ \Lambda -\Lambda ^T $ into $\lambda s^T-s\lambda ^T $, 
     Key Formula
 \end{point}
 
-    But due to the untraceablility of $ f(x|\theta ) $, we have to expand to the full form $ f(x,z|\theta) $, and use a mathematic trick of $ E_q(\cdot) $, where $ q(z) $ is any arbitrary distribution of $ z $. 
+    But due to the intractablility of $ f(x|\theta ) $, we have to expand to the full form $ f(x,z|\theta) $, and use a mathematic trick of $ E_q(\cdot) $, where $ q(z) $ is any arbitrary distribution of $ z $. 
 \begin{align}
     f(x|\theta )=&f(x,z|\theta )f(z|x,\theta )\Rightarrow \\
     \Rightarrow \log f(x|\theta )=E_{q(z)}\left(\log f(x|\theta )\right)=&E_{q(z)}\left(\log f(x,z|\theta )f(z|x,\theta )\right)\\
@@ -2562,7 +2562,7 @@ Solve: fisrt eliminate $ \Lambda -\Lambda ^T $ into $\lambda s^T-s\lambda ^T $, 
         \theta \text{ Maximum : }\theta ^{(t+1)}=&\mathop{\arg\max}\limits_{\theta }\mathrm{ELBO} (q^{(t+1)},\theta ) 
 \end{align}
 
-    Further if we take can derive and use the form of $ p(z|x,\theta ) $ (sometimes this posterior is also untraceable), then $ \theta  $ maximization step becomes 
+    Further if we take can derive and use the form of $ p(z|x,\theta ) $ (sometimes this posterior is also intractable), then $ \theta  $ maximization step becomes 
 \begin{align}
     \theta ^{(t+1)}=\mathop{\arg\max}\limits_{\theta } \mathrm{ELBO} \left(p(z|x,\theta^{(t)} ),\theta \right)=&\sum_{i=1}^N\int_z p(z|x_i,\theta^{(t)})\log\dfrac{f(x_i,z|\theta )}{p(z|x_i,\theta^{(t)})} \,\mathrm{d}z\\
     =&\mathop{\arg\max }\limits_{\theta } \sum_{i=1}^N\int_z p(z|x_i,\theta^{(t)})\log f(x_i,z|\theta ) \,\mathrm{d}z\equiv Q(\theta |\theta ^{(t)})\\
@@ -2591,7 +2591,7 @@ Solve: fisrt eliminate $ \Lambda -\Lambda ^T $ into $\lambda s^T-s\lambda ^T $, 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item Note that for generative model, we used a set of latent variable $ z $, further we need an $ \int _z \,\mathrm{d}x $ in $ Q(\theta |\theta ^{(t)}) $, thus E-M requires low-dimensionality of $ z $ (e.g. in GMM, $ z $ is one-dimensional).
     \item Slow convergence near extreme point, use acceleration improvement, e.g. Louis acceleration.
-    \item In $ q $-Maximization step, the form of $ q $ might be untraceable (i.e. $ p(z|x,\theta ) $ untraceable). For such function extreme value problem, use VEM (Variational Expectation Maximization) / VBEM(Variational Bayesian Expectation Maximization)
+    \item In $ q $-Maximization step, the form of $ q $ might be intractable (i.e. $ p(z|x,\theta ) $ intractable). For such function extreme value problem, use VEM (Variational Expectation Maximization) / VBEM(Variational Bayesian Expectation Maximization)
 \end{itemize}
 
 
@@ -2630,7 +2630,7 @@ Solve: fisrt eliminate $ \Lambda -\Lambda ^T $ into $\lambda s^T-s\lambda ^T $, 
 %     \end{itemize}
 % \end{itemize}
 
-\subsection{Statistical Simulation}\label{SubSectionStatisticalSimulation}
+\section{Statistical Simulation}\label{SubSectionStatisticalSimulation}
     Statistic model inference problem can be solved using simulation, i.e. Monte-Carlo simulation. We can use the model-based random numbers to analyze model.
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item Simulation is well-adapted, especially for high-dimensional problems
@@ -2645,13 +2645,14 @@ set.seed(INI_NUM)
 \end{lstlisting}
 \end{rcode}
     
-\subsubsection{Random Number Generation}\label{SubSectionRandomNumberGeneration}
+\subsection{Random Number Generation}\label{SubSectionRandomNumberGeneration}
     \index{Random Number Generator}Motivation: In many simulation models, we need to generate sets of random number with some distribution, \textbf{however} they are not totally `random' because of repeatability need. 
 
     Idea: use a `seed' to generate pseudo ranom number, where within each seed, numbers are random. The random number sequence can be repeated by setting the same seed.
 
+
 \begin{point}
-    Linear Congruential Method for $ U(0,1) $
+    Linear Congruential Method for $ U(0,1) $\hypertarget{StatisticalSimulationLCM}{}
 \end{point}
 
 \index{LCM (Linear Congruential Method)}
@@ -2728,7 +2729,7 @@ set.seed(INI_NUM)
     Target: generate random number sequence with some distribution ($ f(x) $ or $ F(x) $ known). Denote random number sequence with $ U(0,1) $ distribution as $ U_i $
 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item Quantile Method/Inverse Transform Method\index{Inverse Transform Method}: For distributions with traceable CDF $ F(x) \in (0,1)$.
+    \item Quantile Method/Inverse Transform Method\index{Inverse Transform Method}: For distributions with traceable CDF $ F(x) \in (0,1)$.\hypertarget{StatisticalSimulationInverseTrans}{}
     \begin{align}
          X_i=F^{-1}_X(U_i)
     \end{align}
@@ -2739,7 +2740,7 @@ set.seed(INI_NUM)
         =&\dfrac{\partial^{} F(x)}{\partial x^{}}\mathrm{d}x =f(x)\,\mathrm{d}x
     \end{align} 
     \end{proof}
-    \item Acceptance-Rejection Method\index{Acceptance-Rejection Method}: For $ F(x) $ untraceable, only $ f(x) $ known, %e.g. Normal Distribution.
+    \item Acceptance-Rejection Method\index{Acceptance-Rejection Method}: For $ F(x) $ intractable, only $ f(x) $ known, %e.g. Normal Distribution.
     
     First decompose $ f(x) $ as 
     \begin{align}
@@ -2748,7 +2749,7 @@ set.seed(INI_NUM)
     
     where $ g(x) $ is some distribution that we can generate, $ p(x)\in [0,1] $. Then $ X_{n_k} $ sequence $ \sim f(x) $ can be generated as follows:
 \begin{enumerate}[topsep=2pt,itemsep=2pt]
-    \item Propose a $ x_k \sim g(x)$ and a $ u_k\sim U(0,1) $
+    \item Propose a $ x_k \sim g(x)$ and a $ u_k\sim U(0,1) $\hypertarget{StatisticalSimulationARS}{}
     \item Decide whether accept/reject $ x_k $ to be $ X_{n_k} $:
     \begin{align}
         \begin{cases}
@@ -2768,10 +2769,17 @@ set.seed(INI_NUM)
     \end{align}
     \end{proof}
 
-    Intuitively view: figure $ f(x) $ lies under $ g(x) $. If for each $ x $ we accept it with probability $ \dfrac{f(x)}{g(x)} $, then figure $ g(x) $ is `cut' into $ f(x) $, $ \int p(x)g(x) \,\mathrm{d}x $ acts as the normalize constant, which corresponds to `accept rate' controlling generate frequancy.
+    Intuitively view: figure $ f(x) $ lies under $ \tilde{c}g(x) $ (where $ \tilde{x}=\sup p(x) $). If for each $ x $ we accept it with probability $ \dfrac{f(x)}{\tilde{c}g(x)} $, then figure $ \tilde{c}g(x) $ is `cut down' into $ f(x) $, $ \int p(x)g(x) \,\mathrm{d}x $ acts as the normalize constant, which corresponds to `accept rate' controlling generate frequancy.
 
-    We should choose a proper $ g(x) $ which is similar to $ f(x) $, so that $ \int p(x)g(x) \,\mathrm{d}x $ could be large and the algorithm is efficient.    
+    We should choose a proper $ g(x) $ which is similar to $ f(x) $, so that $ p(x) $ is close to $ 1 $ and $ \int p(x)g(x) \,\mathrm{d}x $ could be large and the algorithm is efficient.    
     
+    Note on Acceptance-Rejection Sampling:
+    \begin{itemize}[topsep=2pt,itemsep=0pt]
+        \item Inefficient for high-dimentional problem: we have limited choices of sample-able distribution $ g(\vec{x}) $, and usually the accept rate $  \int p(x)g(x) \,\mathrm{d}x $ is low.
+        \item Thick tail of $ g(x) $ matters, to control the bahaviour of $ \mathop{  p(x) }\limits_{x\to\infty} $.
+    \end{itemize}
+    
+        
 \end{itemize}
 
 \begin{rcode}
@@ -2781,143 +2789,9 @@ set.seed(INI_NUM)
 \end{lstlisting}
 \end{rcode}
 
-\subsubsection{Numerical Integration With Simulation}   
-    Motivation: In Bayesian statistics we usually use the following expression to calculate some posterior:
-    \begin{align}
-        f(z|x)=\dfrac{f(x|z)f(z)}{\displaystyle \int_z f(x|z)f(z) \,\mathrm{d}z} 
-    \end{align}
-    
-    Key difficulty is calculation of the normalize integration $ \displaystyle \int_z f(x|z)f(z) \,\mathrm{d}z =E_{f(z)}[f(x|z)]$, where $ f(z) $ is the prior of $ z $. Usually such integration needs numeric calculation. Statistical simulation using sampling is one of the methods.
-
-    Target: calculate integration
-    \begin{align}
-        I(h)=\int_{x\in \mathcal{X} } h(x) \,\mathrm{d}x 
-    \end{align}
-    
-\begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item Hit-and-Miss Method: if $ \mathcal{X}\otimes h(x) $ is bounded in e.g. $ [a,b]\otimes [0,M] $. We can generate uniform distribution $ (x,y) $ in the region, and count \# points under $ h(x) $, proportion of accept denoted $ \hat{p} $, then
-    \begin{align}
-        \hat{I}=M(b-a)\hat{p} 
-    \end{align}
-
-    such estimation is guarenteed by CLT:
-    \begin{align}
-        \hat{I}_\mathrm{H} \xrightarrow[]{\mathrm{d}} N\left( I,\dfrac{[M(b-a)]^2p(1-p)}{N} \right)
-    \end{align}
-    
-    
-    \item Mean Value Method: generate uniform distribution in e.g. $ \mathcal{X}=[a,b] $, and calculate function value at each sample item $ h(u_i) $, estimator
-    \begin{align}
-        \hat{I}=\dfrac{N}{a-b}\sum_{i=1}^Nh(u_i) ,\qquad w.r.t.\, u_i\sim U(a,b)
-    \end{align}
-    
-    with CLT:
-    \begin{align}
-         \hat{I}_\mathrm{M} \xrightarrow[]{\mathrm{d}} N\left(I,\dfrac{(b-a)^2var(h(U))}{N}\right)
-    \end{align}
 
 
-\end{itemize}
-
-    Note: $ var(\hat{I}_\mathrm{H} )>var(\hat{I}_\mathrm{M} ) $. Intuitively, more points are used in mean value method, thus is more precise.
-
-    Random simulation has good performance for high-dimensional case by avoiding curse of dimensionality.
-
-\begin{point}
-    Importance Sampling Estimator\index{Importance Sampling}
-\end{point}
-
-    Improvement of mean value estimator: Note that in mean value with uniform distribution, variance
-    \begin{align}
-        var(\hat{I}_\mathrm{M}) =\dfrac{(b-a)^2}{N}var(h(U))
-    \end{align}
-
-    could be large if $ h(x) $ varies dramatically. To avoid the disadvantage, we could use some other distribution of $ x_i\sim p(x) $, the integration
-    \begin{align}
-        I=\int_{x\in \mathcal{X} } h(x) \,\mathrm{d}x =&\int _{x\in \mathcal{X}} \dfrac{h(x)}{p(x)}p(x) \,\mathrm{d}x=\mathbb{E}_{p(x)}\left[\dfrac{h(x)}{p(x)}\right]
-    \end{align}
-
-    Estimator use 
-    \begin{align}
-        \hat{I}_{g(x)}=\dfrac{1}{N}\sum_{i=1}^N\dfrac{h(x_i)}{g(x_i)},\qquad w.r.t. \,x_i\sim g(x)
-    \end{align}
-
-    Variance
-    \begin{align}
-        var(\hat{I}_{g(x)})=\dfrac{1}{N}var\left(\dfrac{h(X)}{g(X)}\right) 
-    \end{align}
-    
-    i.e. if $ \dfrac{h(x)}{g(x)}\approx \mathrm{const} $, the estimator can be more precise.
-
-    \begin{itemize}[topsep=2pt,itemsep=0pt]
-        \item An application of importance sampling: estimating expectation of function of r.v. $ E_{f(z)}\left(\phi(z)\right) $, where r.v. with $ f(z) $ distribution is hard to generate. We can generate another random number series $ x_i\sim q(x) $:
-        \begin{align}
-            I(\phi,h)=\int \phi(z)f(z) \,\mathrm{d}z =&\int \phi(x)\dfrac{f(x)}{q(x)}q(x) \,\mathrm{d}x=\mathbb{E}_{q(x)}\left(\phi(x)\dfrac{f(x)}{q(x)}\right)\\
-            =&\int \phi(x)W(x)q(x) \,\mathrm{d}x,\quad W(x)\equiv\dfrac{f(x)}{q(x)}
-        \end{align}
-    
-        Use Estimator:
-        \begin{align}
-            \hat{I}=\dfrac{1}{N}\sum_{i=1}^N\phi(x_i)W(x_i) 
-        \end{align}
-
-        As a worse case where we only have an unnormalized $ \tilde{f}(x) $, with the normalize integration $ f(x)=\dfrac{\tilde{f}(x)}{\int f(\xi ) \,\mathrm{d}\xi }=\frac{1}{c}\tilde{f}(x) $ incomputable. Use property of weight $ \tilde{W}(x)\equiv\dfrac{\tilde{f}(x)}{g(x)} $:
-        \begin{align}
-            \int \tilde{W}(x)g(x) \,\mathrm{d}x= \int \tilde{f}(\xi ) \,\mathrm{d}\xi=c \Rightarrow \hat{c}=\dfrac{1}{N}\sum_{i=1}^N\tilde{W}(x_i)
-        \end{align}
-        
-        Estimator:
-        \begin{align}
-            \hat{I}=\dfrac{\sum_{i=1}^N\phi(x_i)\tilde{W}(x_i)}{\sum_{i=1}^N\tilde{W}(x_i)} ,\quad \tilde{W}(x_i)=\dfrac{\tilde{f}(x_i)}{g(x_i)}
-        \end{align}
-        
-    \end{itemize}
-    
-        
-    Comment: Idea of importance sampling estimation is to put more point at where $ h(x) $ has large function value to get better fit of integration, i.e. smaller variance.
-    
-\subsubsection{Bootstrap}
-    In statistic inference for distribution $ x\sim f(x;\theta ) ,\,\theta \in \Theta $, we want to estimate some statistic $ \phi $ by estimator $ \hat{\phi } $, including e.g. mean $ E(\hat{\phi}) $, standard error $ \mathrm{SE}=\sqrt{var(\hat{\phi })}  $. In \autoref{SectionIntervalEstimation} we used pivot variable method to estimate statistics: parametric method, model required. Difficluty: strange distribution/strange statistics $ \to $ use non-parametric method, e.g. bootstrap method.\index{Bootstrap}
-    
-\begin{point}
-    Bootstrap Method
-\end{point}
-
-    Conduct bootstrap given sample $ X=(X_{1},X_{2},\ldots,X_{N})  $, $ X_i $ i.i.d. $ \sim f(x;\theta ) $.
-
-\begin{enumerate}[topsep=2pt,itemsep=0pt]
-    \item Use sample $ X $ to estimate population distribution as $ \hat{f}(x) $. e.g. empirical CDF.
-    \item Repeatedly sample from $ \hat{f}(x) $ to get $ B $ samples of size $ n $:
-    \begin{align}
-        X^{(b)}=(X^{(b)}_{1},X^{(b)}_{2},\ldots,X^{(b)}_{n})  ,\quad b=1,2,\ldots,B
-    \end{align}
-    \item For each sample $ X^{(b)} $ estimate a statistic $ \hat{\phi }^{(b)} $
-    \item $\{ \hat{\phi }^{(b)} \}$, $ b=1,2,\ldots,B $ is the distribution estimation of $ \hat{\phi} $ based on $ \hat{f}(x) $, i.e. sample of statistics. We could use this sample of statistics to estimate e.g. $ \mathrm{SE}(\hat{\phi})  $, or get interval estimation of $ \hat{\phi } $.
-    \begin{align}
-        \hat{\phi }_\mathrm{boot} =\dfrac{1}{B}\sum_{b=1}^B\hat{\phi}^{(b)} 
-    \end{align}
-    
-    
-\end{enumerate}
-
-    
-\begin{point}
-    Bias Correction
-\end{point}
-
-    The above estimator is the unbiased estimator for $ \hat{\phi } $. However in the sense of minimizing $ \mathrm{MSE}  $, usually $ \tilde{\phi }\equiv \hat{\phi}-\hat{bias}(\phi) $ is a better estimator. Bias $ b=\hat{\phi }-\phi  $ can be estimated as
-    \begin{align}
-         \hat{b}=\hat{\phi }_\mathrm{boot}-\hat{\phi } 
-    \end{align}
-    
-    where $ \hat{\phi } $ is calculated by using the original sample $ X $. And MSE estimator is:
-    \begin{align}
-        \tilde{\phi }= \hat{\phi }-\hat{b}=2\hat{\phi }-\hat{\phi }_\mathrm{boot}=2\hat{\phi }-\dfrac{1}{B}\sum_{b=1}^B\hat{\phi }^{(b)} 
-    \end{align}
-    
-    
-
-\subsubsection{Markov Chain Monte Carlo Method}\label{SubSubSectionMCMCAlgorithm}
+\subsection{Markov Chain Monte Carlo Method}\label{SubSubSectionMCMCAlgorithm}
 Markov Chain Monte Carlo (MCMC) aims at solving integration and simulation problems by sampling from some distribution.\index{MCMC (Markov Chain Monte Carlo)} MCMC can deal with complex distribution in high dimensional, an example is Gibbs distribution
 \begin{align}
     \mathbb{P}\left( s \right) =\dfrac{e^{-\beta E(s)}}{\sum_{\sigma }e^{-\beta E(\sigma )}}, s\in\text{phase space} 
@@ -2928,6 +2802,8 @@ Markov Chain Monte Carlo (MCMC) aims at solving integration and simulation probl
 \begin{point}
     Markov chain
 \end{point}
+
+    Detalied theory of Discrete Time Markov Chain (DTMC) see \autoref{SubSubSectionDTMC}. Here are some brief precap.
 
     Denote phase space $ \mathcal{X}\ni x $. We could design such a process $ X_t $ to \textbf{transit from one state to another}, i.e. a conditional probability
     \begin{align}
@@ -2991,7 +2867,7 @@ Markov Chain Monte Carlo (MCMC) aims at solving integration and simulation probl
 
     
 \begin{point}
-    MCMC Algorithms for Unnormalized distribution
+    MCMC Algorithms for Unnormalized distribution\hypertarget{StatisticalSimulationInverseTransMCMC}{}
 \end{point}
 
     To sample from an unnormalized distribution $ \tilde{p} $, i.e. $ p=\dfrac{\tilde{p}(x)}{\int \tilde{p}(\xi \,\mathrm{d}\xi)} $, but normalizer $ Z=\int \tilde{p}(\xi \,\mathrm{d}\xi) $ is impossible to calculate, we could only get relative probability ratio of states.
@@ -3010,7 +2886,7 @@ Markov Chain Monte Carlo (MCMC) aims at solving integration and simulation probl
         \begin{align}
             \alpha (Y|X_t)= \min\left\{ 1,\dfrac{\tilde{p}(Y)q(X_t|Y)}{\tilde{p}(X_t)q(Y|X_t)} \right\}
         \end{align}
-        \item Increment of $ t\to t+1 $ if accept.
+        \item Increment of $ t\to t+1 $ if accept, else repeat the proposal-acceptance process.
     \end{enumerate}
 
     \end{algorithm}
@@ -3036,6 +2912,143 @@ Markov Chain Monte Carlo (MCMC) aims at solving integration and simulation probl
         
 \end{itemize}
 
+    
+
+
+\subsection{Numerical Integration With Simulation}   
+    Motivation: In Bayesian statistics we usually use the following expression to calculate some posterior:
+    \begin{align}
+        f(z|x)=\dfrac{f(x|z)f(z)}{\displaystyle \int_z f(x|z)f(z) \,\mathrm{d}z} 
+    \end{align}
+    
+    Key difficulty is calculation of the normalize integration $ \displaystyle \int_z f(x|z)f(z) \,\mathrm{d}z =E_{f(z)}[f(x|z)]$, where $ f(z) $ is the prior of $ z $. Usually such integration needs numeric calculation. Statistical simulation using sampling is one of the methods.
+
+    Target: calculate integration
+    \begin{align}
+        I(h)=\int_{x\in \mathcal{X} } h(x) \,\mathrm{d}x 
+    \end{align}
+    
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Hit-and-Miss Method: if $ \mathcal{X}\otimes h(x) $ is bounded in e.g. $ [a,b]\otimes [0,M] $. We can generate uniform distribution $ (x,y) $ in the region, and count \# points under $ h(x) $, proportion of accept denoted $ \hat{p} $, then
+    \begin{align}
+        \hat{I}=M(b-a)\hat{p} 
+    \end{align}
+
+    such estimation is guarenteed by CLT:
+    \begin{align}
+        \hat{I}_\mathrm{H} \xrightarrow[]{\mathrm{d}} N\left( I,\dfrac{[M(b-a)]^2p(1-p)}{N} \right)
+    \end{align}
+    
+    
+    \item Mean Value Method: generate uniform distribution in e.g. $ \mathcal{X}=[a,b] $, and calculate function value at each sample item $ h(u_i) $, estimator
+    \begin{align}
+        \hat{I}=\dfrac{N}{a-b}\sum_{i=1}^Nh(u_i) ,\qquad w.r.t.\, u_i\sim U(a,b)
+    \end{align}
+    
+    with CLT:
+    \begin{align}
+         \hat{I}_\mathrm{M} \xrightarrow[]{\mathrm{d}} N\left(I,\dfrac{(b-a)^2var(h(U))}{N}\right)
+    \end{align}
+
+
+\end{itemize}
+
+    Note: $ var(\hat{I}_\mathrm{H} )>var(\hat{I}_\mathrm{M} ) $. Intuitively, more points are used in mean value method, thus is more precise.
+
+    Random simulation has good performance for high-dimensional case by avoiding curse of dimensionality.
+
+\begin{point}
+    Importance Sampling Estimator\index{Importance Sampling}\hypertarget{StatisticalSimulationInverseTransImportanceSampli}{}
+\end{point}
+
+    Improvement of mean value estimator: Note that in mean value with uniform distribution, variance
+    \begin{align}
+        var(\hat{I}_\mathrm{M}) =\dfrac{(b-a)^2}{N}var(h(U))
+    \end{align}
+
+    could be large if $ h(x) $ varies dramatically. To avoid the disadvantage, we could use some other distribution of $ x_i\sim p(x) $, the integration
+    \begin{align}
+        I=\int_{x\in \mathcal{X} } h(x) \,\mathrm{d}x =&\int _{x\in \mathcal{X}} \dfrac{h(x)}{p(x)}p(x) \,\mathrm{d}x=\mathbb{E}_{p(x)}\left[\dfrac{h(x)}{p(x)}\right]
+    \end{align}
+
+    Estimator use 
+    \begin{align}
+        \hat{I}_{g(x)}=\dfrac{1}{N}\sum_{i=1}^N\dfrac{h(x_i)}{g(x_i)},\qquad w.r.t. \,x_i\sim g(x)
+    \end{align}
+
+    Variance
+    \begin{align}
+        var(\hat{I}_{g(x)})=\dfrac{1}{N}var\left(\dfrac{h(X)}{g(X)}\right) 
+    \end{align}
+    
+    i.e. if $ \dfrac{h(x)}{g(x)}\approx \mathrm{const} $, the estimator can be more precise.
+
+    \begin{itemize}[topsep=2pt,itemsep=0pt]
+        \item An application of importance sampling: estimating expectation of function of r.v. $ E_{f(z)}\left(\phi(z)\right) $, where r.v. with $ f(z) $ distribution is hard to generate. We can generate another random number series $ x_i\sim q(x) $:
+        \begin{align}
+            I(\phi,h)=\int \phi(z)f(z) \,\mathrm{d}z =&\int \phi(x)\dfrac{f(x)}{q(x)}q(x) \,\mathrm{d}x=\mathbb{E}_{q(x)}\left(\phi(x)\dfrac{f(x)}{q(x)}\right)\\
+            =&\int \phi(x)W(x)q(x) \,\mathrm{d}x,\quad W(x)\equiv\dfrac{f(x)}{q(x)}
+        \end{align}
+    
+        Use Estimator:
+        \begin{align}
+            \hat{I}=\dfrac{1}{N}\sum_{i=1}^N\phi(x_i)W(x_i) 
+        \end{align}
+
+        As a worse case where we only have an unnormalized $ \tilde{f}(x) $, with the normalize integration $ f(x)=\dfrac{\tilde{f}(x)}{\int f(\xi ) \,\mathrm{d}\xi }=\frac{1}{c}\tilde{f}(x) $ incomputable. Use property of weight $ \tilde{W}(x)\equiv\dfrac{\tilde{f}(x)}{g(x)} $:
+        \begin{align}
+            \int \tilde{W}(x)g(x) \,\mathrm{d}x= \int \tilde{f}(\xi ) \,\mathrm{d}\xi=c \Rightarrow \hat{c}=\dfrac{1}{N}\sum_{i=1}^N\tilde{W}(x_i)
+        \end{align}
+        
+        Estimator:
+        \begin{align}
+            \hat{I}=\dfrac{\sum_{i=1}^N\phi(x_i)\tilde{W}(x_i)}{\sum_{i=1}^N\tilde{W}(x_i)} ,\quad \tilde{W}(x_i)=\dfrac{\tilde{f}(x_i)}{g(x_i)}
+        \end{align}
+        
+    \end{itemize}
+    
+        
+    Comment: Idea of importance sampling estimation is to put more point at where $ h(x) $ has large function value to get better fit of integration, i.e. smaller variance.
+    
+\subsection{Bootstrap}
+    In statistic inference for distribution $ x\sim f(x;\theta ) ,\,\theta \in \Theta $, we want to estimate some statistic $ \phi $ by estimator $ \hat{\phi } $, including e.g. mean $ E(\hat{\phi}) $, standard error $ \mathrm{SE}=\sqrt{var(\hat{\phi })}  $. In \autoref{SectionIntervalEstimation} we used pivot variable method to estimate statistics: parametric method, model required. Difficluty: strange distribution/strange statistics $ \to $ use non-parametric method, e.g. bootstrap method.\index{Bootstrap}
+    
+\begin{point}
+    Bootstrap Method
+\end{point}
+
+    Conduct bootstrap given sample $ X=(X_{1},X_{2},\ldots,X_{N})  $, $ X_i $ i.i.d. $ \sim f(x;\theta ) $.
+
+\begin{enumerate}[topsep=2pt,itemsep=0pt]
+    \item Use sample $ X $ to estimate population distribution as $ \hat{f}(x) $. e.g. empirical CDF.
+    \item Repeatedly sample from $ \hat{f}(x) $ to get $ B $ samples of size $ n $:
+    \begin{align}
+        X^{(b)}=(X^{(b)}_{1},X^{(b)}_{2},\ldots,X^{(b)}_{n})  ,\quad b=1,2,\ldots,B
+    \end{align}
+    \item For each sample $ X^{(b)} $ estimate a statistic $ \hat{\phi }^{(b)} $
+    \item $\{ \hat{\phi }^{(b)} \}$, $ b=1,2,\ldots,B $ is the distribution estimation of $ \hat{\phi} $ based on $ \hat{f}(x) $, i.e. sample of statistics. We could use this sample of statistics to estimate e.g. $ \mathrm{SE}(\hat{\phi})  $, or get interval estimation of $ \hat{\phi } $.
+    \begin{align}
+        \hat{\phi }_\mathrm{boot} =\dfrac{1}{B}\sum_{b=1}^B\hat{\phi}^{(b)} 
+    \end{align}
+    
+    
+\end{enumerate}
+
+    
+\begin{point}
+    Bias Correction
+\end{point}
+
+    The above estimator is the unbiased estimator for $ \hat{\phi } $. However in the sense of minimizing $ \mathrm{MSE}  $, usually $ \tilde{\phi }\equiv \hat{\phi}-\hat{bias}(\phi) $ is a better estimator. Bias $ b=\hat{\phi }-\phi  $ can be estimated as
+    \begin{align}
+         \hat{b}=\hat{\phi }_\mathrm{boot}-\hat{\phi } 
+    \end{align}
+    
+    where $ \hat{\phi } $ is calculated by using the original sample $ X $. And MSE estimator is:
+    \begin{align}
+        \tilde{\phi }= \hat{\phi }-\hat{b}=2\hat{\phi }-\hat{\phi }_\mathrm{boot}=2\hat{\phi }-\dfrac{1}{B}\sum_{b=1}^B\hat{\phi }^{(b)} 
+    \end{align}
+    
     
     
     

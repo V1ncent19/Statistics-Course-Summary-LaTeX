@@ -1,5 +1,5 @@
-\documentclass[x11names,11pt,a4paper]{ctexart}
-
+\documentclass[x11names,11pt,a4paper,openany]{book}
+\usepackage{ctex}
 %以下为所使用的宏包
 \usepackage{ulem}%下划线
 \usepackage{amsmath,amsfonts,amssymb,amsthm,amsbsy}%数学符号
@@ -18,7 +18,6 @@
 \usepackage{mathrsfs}%数学字体
 \usepackage{enumitem}%列表间距
 \usepackage{multirow}%列表横向合并单元格
-\usepackage[colorlinks,linkcolor=red,anchorcolor=blue,citecolor=green]{hyperref}%超链接引用
 \usepackage{nameref}%交叉引用格式设置
 \usepackage{float}%图片、表格位置排版
 \usepackage{pict2e,keyval,fp,diagbox}%带有斜线的表格
@@ -28,12 +27,15 @@
 \usepackage{color}%颜色包
 \usepackage{extarrows}
 \usepackage{titlesec}%标题格式设置
-\usepackage{makeidx}\makeindex %索引 编译命令 makeindex summary.idx
 \usepackage{authblk}%titlepage作者信息
 \usepackage{nicematrix}%更好的矩阵标定
 \usepackage{fbox}%更多浮动体盒子
 \usepackage{tkz-graph}%制图 graph
-\usepackage{fontawesome5}
+\usepackage{nomencl}%生成记号表
+\makenomenclature % 编译命令 makeindex summary.nlo -s nomencl.ist -o summary.nls -t summary.nlg
+\usepackage{makeidx}\makeindex %索引 编译命令 makeindex summary.idx
+\usepackage{etoolbox}%记号表中的分组
+\usepackage{hologo}%for xetex logo
 
 % \tikzset{
 %   LabelStyle/.style = { draw, rectangle, rounded corners, fill = white},
@@ -69,9 +71,9 @@
 \usepackage{fancyhdr} % 页眉页脚格式包
 \fancypagestyle{preContent}{
   \fancyhead{}
-  \fancyhead[L]{Tuorui Peng} % 位置 左中右LCR + 奇偶 OE
-  \fancyhead[R]{\thepage}
-  \fancyhead[C]{Table of Contents} 
+  \fancyhead[LO,RE]{Tuorui Peng} % 位置 左中右LCR + 奇偶 OE
+  \fancyhead[RO,LE]{\thepage}
+  \fancyhead[CO,CE]{目录} 
   \fancyfoot[C]{}
   \renewcommand{\headrulewidth}{0.5pt}  % 页眉线粗细
   \renewcommand{\footrulewidth}{0.5pt}  % 页脚线粗细
@@ -79,26 +81,28 @@
 
 \fancypagestyle{Main}{
   \fancyhead{}
-  \fancyhead[L]{Tuorui Peng}
-  \fancyhead[R]{\thepage}
-  \fancyhead[C]{Chapter \kaishu\leftmark}
+  \fancyhead[LO]{Tuorui Peng}
+  \fancyhead[RE]{v1ncent19}
+  \fancyhead[RO,LE]{\thepage}
+  \fancyhead[CO]{\kaishu\leftmark}
+  \fancyhead[CE]{\kaishu\leftmark}
   \fancyfoot[C]{}
   \renewcommand{\headrulewidth}{0.5pt}
   \renewcommand{\footrulewidth}{0.5pt}
 }
 \fancypagestyle{SectionPage}{
   \fancyhead{}
-  \fancyhead[L]{Tuorui Peng}
-  \fancyhead[R]{\thepage}
-  \fancyhead[C]{}
+  \fancyhead[LO,RE]{Tuorui Peng}
+  \fancyhead[RO,LE]{\thepage}
+  \fancyhead[CO,CE]{}
   \fancyfoot[C]{}
   \renewcommand{\headrulewidth}{0.5pt}
   \renewcommand{\footrulewidth}{0.5pt}
 }
 \fancypagestyle{postContent}{
   \fancyhead{}
-  \fancyhead[L]{Tuorui Peng}
-  \fancyhead[R]{\thepage}
+  \fancyhead[LO,RE]{Tuorui Peng}
+  \fancyhead[RO,LE]{\thepage}
   \fancyhead[C]{\kaishu\leftmark}
   \fancyfoot[C]{}
   \renewcommand{\headrulewidth}{0.5pt}
@@ -154,35 +158,99 @@
 %     emph={[2]in,for,if,else,ifelse,function,return,stopifnot,switch,stop,c},emphstyle=[2]\color{purple} ,%流程控制
 % }
 
+
+
+\usepackage[colorlinks,linkcolor=red,anchorcolor=blue,citecolor=green]{hyperref}%超链接引用，最后插入以避免问题
 % 节标题格式设置
-\titleformat{\section}[block]{\centering\Large\bfseries}{Chapter. \Roman{section} }{1em}{}[]
-\titleformat{\subsection}[block]{\Large\bfseries}{Section \arabic{section}.\arabic{subsection}}{1em}{}[]
-\titleformat{\subsubsection}[block]{\large\bfseries}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}{1em}{}[]
+\titleformat{\chapter}[block]{\centering\LARGE\bfseries}{Chapter. \Roman{chapter} }{1em}{}[]
+\titleformat{\section}[block]{\Large\bfseries}{Section \arabic{chapter}.\arabic{section}}{1em}{}[]
+\titleformat{\subsection}[block]{\large\bfseries}{\arabic{chapter}.\arabic{section}.\arabic{subsection}}{1em}{}[]
 % 节标题、公式交叉引用格式设置
-\numberwithin{equation}{section}%公式按照章节编号
+
 \renewcommand{\equationautorefname}{equation.}%公式引用格式
 \renewcommand{\figureautorefname}{figure.}%图片引用格式
-\renewcommand{\sectionautorefname}{Chapter.}%章节引用格式
+\renewcommand{\chapterautorefname}{Chapter.}%章节引用格式
+\renewcommand{\sectionautorefname}{section.}%章节引用格式
 \renewcommand{\subsectionautorefname}{section.}%章节引用格式
-\renewcommand{\subsubsectionautorefname}{section.}%章节引用格式
+
 
 % \titleformat{\paragraph}[block]{\small\bfseries}{[\arabic{paragraph}]}{1em}{}[]
 
-% \\titleformat{\\sectioncommand}[shape]{format}{title-label}{sep}{before-title}[after-title]
+% \\titleformat{\\chaptercommand}[shape]{format}{title-label}{sep}{before-title}[after-title]
 
 
 %SumatraPDF反向搜索命令行
 % "C:\Users\彭拓锐Vincent\AppData\Local\Programs\Microsoft VS Code\Code.exe" "C:/Users/彭拓锐Vincent/AppData/Local/Programs/Microsoft VS Code\resources\app\out\cli.js" -r -g "%f:%l"
 
-\begin{titlepage}
-    \title{\textbf{A Brief Summary of Statistics Course}\\统计学课程知识总结}
-    \author[]{Tuorui Peng\thanks{E-mail: {v1ncent19@outlook.com} | HomePage: {https://v1ncent19.github.io}}}
-    \affil[]{Department of Physics, Tsinghua University}
-\end{titlepage}
+
+% \begin{titlepage}
+%     \title{
+%       \settowidth{\unitlength}{\huge A Brief Summary of Statistics Minor Courses}
+%       \rule{\unitlength}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt}
+%       \rule{\unitlength}{0.4pt}\\[\baselineskip]
+%       \LARGE\textbf{A Brief Summary of Statistics Minor Courses}\\\Large\heiti 清华大学统计学辅修课程知识总结\\[0.3\baselineskip]
+%       \rule{\unitlength}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt}
+%       \rule{\unitlength}{1.6pt}\\[\baselineskip]
+%     }
+%     \author[*]{\scshape Tuorui Peng\thanks{E-mail: {v1ncent19@outlook.com} | HomePage: {https://v1ncent19.github.io}}}
+%     \affil[*]{\small Department of Physics, Tsinghua University, Beijing, China}
+%     \affil[*]{\small Department of Statistics and Data Science, Northwestern University, Evanston, IL, USA}
+% \end{titlepage}
+
+
+
+
+
+
+% ==================================================================================================
+% ==================================================================================================
+% ==================================================================================================
+% Document Begins
+% ==================================================================================================
+% ==================================================================================================
+
+% Command to run to generate index: 
+% makeindex summary.idx
+
+% Command to run to generate denotation:
+% makeindex summary.nlo -s nomencl.ist -o summary.nls -t summary.nlg
+
 
 \begin{document}
 
-\maketitle\thispagestyle{myheadings}\markright{Compiled using \LaTeX}
+
+
+\begin{titlepage}
+  \thispagestyle{myheadings}\markright{Compiled using \textnormal{\hologo{XeTeX}} engine.}
+  \begin{center}
+      \vspace*{4cm}
+{      \settowidth{\unitlength}{\Huge A Brief Summary of Statistics Minor Courses}
+      \rule{\unitlength}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt}
+      \rule{\unitlength}{0.4pt}\\[\baselineskip]
+      \huge\textbf{A Brief Summary of Statistics Minor Courses}\\\LARGE\heiti 清华大学统计学辅修课程知识总结\\[0.3\baselineskip]
+      \rule{\unitlength}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt}
+      \rule{\unitlength}{1.6pt}\\[\baselineskip]}
+          
+      \vspace{1.5cm}
+{      \large\scshape Tuorui Peng\footnote{E-mail: {v1ncent19@outlook.com} \textbf{|} HomePage: {https://v1ncent19.github.io}}\\
+      \ttfamily\normalsize v1ncent19}
+
+      \vspace{1.5cm}
+{      \normalshape\normalfont\small
+       $ ^1 $Department of Physics, Tsinghua University, Beijing, China\\
+       $ ^1 $Department of Statistics and Data Science, Northwestern University, Evanston, IL, USA}
+          
+
+      \vspace{1.5cm}
+      \today
+          
+  \end{center}
+\end{titlepage}
+
+% \maketitle\thispagestyle{myheadings}\markright{Compiled using \hologo{XeTeX} engine.}
+
+\include{sections/前言}
+
 
 \pagestyle{preContent}
 \tableofcontents
@@ -214,76 +282,52 @@
 
 
 
-\pagestyle{Main}
-\thispagestyle{SectionPage}
 
-\include{sections/初等概率论}
-\newpage
+\pagestyle{SectionPage}
+\include{sections/记号}
+
+\pagestyle{Main}
+
 \thispagestyle{SectionPage}
+\include{sections/初等概率论}
 
 \include{sections/统计推断}
 \newpage
-\thispagestyle{SectionPage}
 
+% \thispagestyle{SectionPage}
 %  \include{sections/R}
-%  \newpage
-
+%  
 \include{sections/线性回归分析}
-\newpage
-\thispagestyle{SectionPage}
 
 \include{sections/多元统计分析}
-\newpage
-\thispagestyle{SectionPage}
 
 \include{sections/统计计算与软件}
-\newpage
-\thispagestyle{SectionPage}
 
 \include{sections/数据科学导论}
-\newpage
-\thispagestyle{SectionPage}
 
 \include{sections/可靠性数据与生存分析}
-\newpage
-\thispagestyle{SectionPage}
 
 \include{sections/生物统计学概论}
-\newpage
-\thispagestyle{SectionPage}
 
 \include{sections/统计学习导论}
-\newpage
-\thispagestyle{SectionPage}
 
 \include{sections/应用时间序列分析}
-\newpage
-\thispagestyle{SectionPage}
 
 \include{sections/因果推断导论}
-\newpage
-\thispagestyle{SectionPage}
 
 \include{sections/应用随机过程}
-\newpage
-\thispagestyle{SectionPage}
 
 \include{sections/贝叶斯统计导论}
-\newpage
-\thispagestyle{SectionPage}
 
 \include{sections/实验设计与分析}
-\newpage
-
 
 \pagestyle{postContent}
 
+
 \include{sections/ReferenceBook}
-\newpage
 
-
-
-\addcontentsline{toc}{section}{索引}
+\phantomsection
+\addcontentsline{toc}{chapter}{索引}
 \printindex
 
 

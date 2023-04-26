@@ -1,11 +1,11 @@
-\section{可靠性数据与生存分析部分}\label{SecReliabilityAndSurvivalAnalysis}
+\chapter{可靠性数据与生存分析部分}\label{SecReliabilityAndSurvivalAnalysis}
 \begin{center}
     Instructor: Jiangdian Wang 
 \end{center}
 
 Key focus of reliability data and survival analysis: Study the `survival time' $ T $ before some `failure event'. Basically the research problem is the distribution of $ T $, including topics on descriptive statistics, estimation and hypothesis testing. Further for actual cases, $ T $ might be censored, i.e. the observe time is not exact; and we may also wonder the influence of covariants $ z $.
 
-\subsection{Reliability Data}
+\section{Reliability Data}
 The main feature of reliability data is \textbf{censoring}, to be distinguished from the exact numbers in usual statistical inference. Censor means we cannot observe the exact \textbf{event time} $ T $. Instead, a \textbf{censoring time} $ C $ is observed, together with a censoring type, e.g. 
 \begin{align}
     \text{Right Censoring: }&T_\mathrm{actual}>C \\
@@ -14,7 +14,7 @@ The main feature of reliability data is \textbf{censoring}, to be distinguished 
     \cdots&
 \end{align} 
 
-\subsubsection{Right Censor Data and Representation}
+\subsection{Right Censor Data and Representation}
 \index{Censoring Data}
 In most parts of this course we focus on right censor data, i.e. dataset contains both event time $ T $ and right censor time $ T^+ $:
 \begin{align}
@@ -30,12 +30,12 @@ where $ z_i $ for covariants.
 
 Usually we assume that event and censor are independent $ T\independent C $
 
-\subsubsection{Life Table Data}
+\subsection{Life Table Data}
 Life table collect survival data at ordinal, uniformly-spaced time points, where each row contains \# items at risk, \# events, $ \ldots  $.
 
 
-\subsection{Survival Model and Statistical Inference}
-\subsubsection{Survival Function and Hazard}
+\section{Survival Model and Statistical Inference}
+\subsection{Survival Function and Hazard}
 Key focus of survival analysis problem is the distribution of $ T $ (note that in actual cases we need to make use of both event time $ T_i $ and censored data $ T^+_i $ to estimate the distribution of $ T $). The distribution feature can be described in various approaches: PDF $ f(t) $, CDF $ F(t) $, Survival Function $ S(t) $, Hazard Function $ \lambda (t) $, Cumulative Hazard Function $ \Lambda (t) $:
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item Continuous Case: $ t\in \mathbb{R}^+ $
@@ -128,7 +128,7 @@ Key focus of survival analysis problem is the distribution of $ T $ (note that i
 \end{itemize}
 
 
-\subsubsection{Parametric Statistical Inference to Survival Function}
+\subsection{Parametric Statistical Inference to Survival Function}
 Usually the parametric inference is based on a hypothetical distribution, then we conduct estimation using the parametric distribution, or conduct hypothesis testing on parameter(s).
 
 \begin{point}
@@ -365,7 +365,7 @@ Statistical Inference concerning $ \theta  $ can be conducting using the above f
 
 
 
-\subsubsection{Non-Parametric Estimation to Survival Function}
+\subsection{Non-Parametric Estimation to Survival Function}
 In this part we only focus on right censor data $ (\tilde{T}_i,\delta _i) $, $ \delta _i=0 $ for right censoring.
 
 \begin{point}
@@ -456,7 +456,7 @@ where $ c_i $ is \# censor in $ [t_i,t_{i+1}) $, $ r_i $ is \# censoring at the 
     where $ \mathrm{mid}\,i  $ means the mid point of $ [t_{i-1},t_{i}) $, i.e. $ \dfrac{t_{i-1}+t_{i}}{2} $
 
 
-\subsubsection{Hypothesis Testing to Group Comparison}\label{SubSubSectionSurvivalAnalysisGroupComparison}
+\subsection{Hypothesis Testing to Group Comparison}\label{SubSubSectionSurvivalAnalysisGroupComparison}
 Key focus: how to judge the difference between two survival function $ S_1(t),\,S_2(t) $, or even when there are more than two groups.
 
 \begin{point}
@@ -649,11 +649,11 @@ Properties \& Special Cases \& Extension of CMH logrank test:
         
 \end{itemize}
 
-\subsection{Survival Model with Covariants} 
+\section{Survival Model with Covariants} 
 
 To research on the dependence of $ T $ with regard to covariants $ z $. Survival data with covariants: $ X=(\tilde{t}_i,\delta _i,z_i) $
 
-\subsubsection{Cox's Proportion Hazard Model}
+\subsection{Cox's Proportion Hazard Model}
 Basic assumption on dependence form: $ T $ hazard part and covariants part are Separatable:\index{PH Model (Cox's Proportion Hazard Model)}
 \begin{equation}
     \lambda (t|z)=\lambda _0(t)g(z)\Leftrightarrow S(t|z)=\left[S_0(t)\right]^{g(z)},\quad S_0(t)=e^{-\int _0^t\lambda _0(\tau) \,\mathrm{d}\tau}
@@ -865,7 +865,7 @@ Model:
 
     
 
-\subsubsection{Accelerated Failure Time Model}
+\subsection{Accelerated Failure Time Model}
 
     Basic form of AFT Model (Accelerated Failure Tome Model)\index{AFT Model (Accelerated Failure Tome Model)} for categorical covariants:
     \begin{align}

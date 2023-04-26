@@ -1,4 +1,4 @@
-\section{统计学习导论部分}
+\chapter{统计学习导论部分}
 \begin{center}
     Instructor: Sheng Yu
 \end{center}
@@ -28,10 +28,10 @@ Examples of Machine Learning:
 
     This section will cover some of the methods above in a machine learning perspective.
 
-\subsection{Linear Model}
+\section{Linear Model}
     Linear model is the basic model in statistics, see \autoref{SecLinearRegressionAnalysis}. 
 
-\subsubsection{Linear Model in Machine Learning Perspective}
+\subsection{Linear Model in Machine Learning Perspective}
     In machine learning field, key feature of linear model is its affine form of variable dependence:
     \[
         Y=f(X)+\varepsilon = \tilde{f}_\beta (X'\beta )+\varepsilon  
@@ -62,7 +62,7 @@ Examples of Machine Learning:
     \end{itemize}
     
   
-\subsubsection{Linear Regression}
+\subsection{Linear Regression}
     Linear Regression:
     \[
         Y=\beta _0 +\beta _1x_1+\ldots \beta _px_p+\varepsilon =X'\beta +\varepsilon ,\quad \varepsilon \sim N(0,\sigma ^2)
@@ -102,7 +102,7 @@ Examples of Machine Learning:
     \end{itemize}
     
     
-\subsubsection{Normalization Methods}
+\subsection{Normalization Methods}
     In machine learning topic we would focus more on model generalization ability, \index{Generalization Ability}so that the model can perform better on reality problems. In linear regression, we usually use normalization methods.
 
     Basically linear model uses SE loss:
@@ -186,7 +186,7 @@ Examples of Machine Learning:
         
     
     
-\subsection{Basic Classification Model}
+\section{Basic Classification Model}
     Denote: Dataset $\mathcal{D}=\{ (x_i,y_i) $, $ i=1,2,\ldots,N \}$, $ x_i=[x_{i1},x_{i2},\ldots,x_{ip}] $, with reponse $ y_i\in\mathcal{C}=\{c_1,c_2,\ldots ,c_K\} $ as a $ K $-classification problem. When $ K=|\mathcal{C}|=2 $ for binary classification, in this case we usually denote $ \mathcal{C}_{01}=\{0,1\}$.
 
     Target is to predict/classify $ Y $ from $ X $
@@ -194,7 +194,7 @@ Examples of Machine Learning:
         \hat{Y}=\hat{f}(X)\rightsquigarrow Y
     \end{align}
     
-\subsubsection{Classification Metrics}
+\subsection{Classification Metrics}
 
 \index{Classification Metrics}
 \begin{itemize}[topsep=2pt,itemsep=0pt]
@@ -288,7 +288,7 @@ Metrics:
 
     for each $ s $, the model gives a corresponding $ \mathrm{TPR}(s)  $ (recall) and $ \mathrm{FPR}(s)  $, all $ (\mathrm{TPR}(s),\mathrm{FPR}(s)  ) $ forms the ROC curve. Area Under ROC Curve (AUC)\index{AUC (Area Under ROC Curve)} is used also as a measure of model performance.
 
-\subsubsection{Cross-Validation}
+\subsection{Cross-Validation}
     In general process of train \& validate, we split the data into train set and validation set, which causes insufficient usage of data. $ k $-fold Cross-validation (CV)\index{CV (Cross-Validation)} is proposed to oversome the problem.
 
     \begin{enumerate}[topsep=2pt,itemsep=2pt]
@@ -304,7 +304,7 @@ Metrics:
     
         
 
-\subsubsection{Bayes Optimal Classifier}
+\subsection{Bayes Optimal Classifier}
 \index{Bayes Optimal Classifier}
 
     Due to the randomness of class distribution, no classifier could reach 100\% accuracy, but there is a optimal classifier (if we really know the underlying distribution) to minimizie the expected loss:
@@ -319,7 +319,7 @@ Metrics:
 
     
 
-\subsubsection{$ k $-Nearest Neighbours Approach}
+\subsection{$ k $-Nearest Neighbours Approach}
     The $ k $-nearest neighours (KNN) fit with threshold $ s $:\index{KNN ($ k $-Nearest Neighours)}
     \begin{align}
         \hat{f}(x)&=\dfrac{1}{k}\sum_{i:x_i\in\mathcal{N}_k(x)}y_i \\
@@ -331,7 +331,7 @@ Metrics:
 
     where $ \mathcal{N}_k(x) $ is the nearest $ k $ datapoints of $ x $, various distance measure $ \left\Vert \,\cdot\, \right\Vert  $ could be used. $ k $-NN method is faced with the problem of curse of dimensionality (see \autoref{EqaCurseOfDimensionality}) in high dimension case. Calculation cost is at $ O(N) $.
 
-\subsubsection{Density Based Classification}
+\subsection{Density Based Classification}
 
     An intuition: samples from the same class $ k $ should be clustered, we use some distribution to represent it as $ f_k(x) $. Bayes optimal criterion with prior $ \pi_k $:
     \begin{align}
@@ -388,7 +388,7 @@ Metrics:
         \hat{y}(x)=&\mathop{\arg\max}\limits_{k} \hat{\pi}_k \prod_{i=1}^p\hat{f}_k(x_i)=\mathop{\arg\max}\limits_{k}\sum_{i=1}^k \pi_k \log \hat{f}_k(x_i)
     \end{align}  
 
-\subsubsection{Logistic Regression}
+\subsection{Logistic Regression}
     Logistic Regression \index{Logistic Regression} calculates $ \mathbb{P}\left( Y|X \right)  $ directly. Detail theory see \autoref{SubSectionGeneralizedLinearModel}. Here are some recaps:
 
 \begin{align}
@@ -446,12 +446,12 @@ glmnet(x, y, family="binomial", alpha, lambda) # with penalty
 
 
 
-\subsection{Support Vector Machine}
+\section{Support Vector Machine}
     Support vector machine (SVM)\index{SVM (Support Vector Machine)} classifier was one of the most successful classification model in $ 2010\pm $, mainly because of the kernel trick method in extending feature space.
 
     First we will consider the linear classification case, i.e. dataset $\mathcal{D}=\{ (\vec{x}_i,y_i) $, $ i=1,2,\ldots,N \}$ are devided by a linear boundary $ x'\beta +\beta _0 $, where label $ y_i\in\{1,-1\} $.
 
-\subsubsection{Derivation of Basic Optimize Problem}
+\subsection{Derivation of Basic Optimize Problem}
 \begin{point}
     Hard Margin SVM
 \end{point}
@@ -554,7 +554,7 @@ glmnet(x, y, family="binomial", alpha, lambda) # with penalty
     \hat{\beta }_0=&y_{i^\mathrm{sv} }-x_{i^\mathrm{sv} }'\hat{\beta }
 \end{align}
     
-\subsubsection{Support Vector Machine as Loss-Penalization Method}
+\subsection{Support Vector Machine as Loss-Penalization Method}
     SVM Primal can be express in equivalent form with $ f(x_i) $ as prediction function, e.g. $ f(x_i)=\beta _0+x_i'\beta  $ for linear SVM:
     \begin{align}
         \begin{cases}
@@ -575,14 +575,7 @@ glmnet(x, y, family="binomial", alpha, lambda) # with penalty
 
 
 
-
-
-\subsubsection{Kernel Support Vector Machine}
-
-
-
-
-\subsection{Feature Expansion and Kernel Methods}
+\section{Feature Expansion and Kernel Methods}
     Motivation: Map the data point $ x\in \mathcal{X}(e.g.\,=\mathbb{R}^p) $ to another feature space $ \mathcal{F}(e.g.\,=\mathbb{R}^M) $ (not necessarily a linear transform, usually $ M>p $, or just proper to describe the features). The mapping function lies in a Hilbert space $ \mathcal{H} $ of function:
     \[
         h(\,\cdot\,)=\left(h_1(\,\cdot\,),h_2(\,\cdot\,),\ldots,h_M(\,\cdot\,)\right)'\in \mathcal{H}:\, \mathcal{X} \to \mathcal{F}
@@ -590,7 +583,7 @@ glmnet(x, y, family="binomial", alpha, lambda) # with penalty
     
     and we can construct model in feature space.    
     
-\subsubsection{Reproducing Kernel Hilbert Space and The Representer Theorem}
+\subsection{Reproducing Kernel Hilbert Space and The Representer Theorem}
 
     Based on the idea of feature space, make a step forward: the key focus of model is actually `measuring space structure by similarity between points' rather than having to define a feature space. i.e. describe similarity by a bi-linear \textbf{Kernel Function}\index{Kernel Function} 
     \begin{align*}\label{EqaKernelFunction}
@@ -705,7 +698,7 @@ Eigenvalue $ \gamma _i $ and eigen function $ \phi _i(x) $ of Kernel:
     \end{align}
     
 
-\subsubsection{Useful Kernel}
+\subsection{Useful Kernel}
     Some useful Kernel for numeric vector $ x $:
     \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item Linear Kernel (identity):
@@ -729,7 +722,7 @@ Eigenvalue $ \gamma _i $ and eigen function $ \phi _i(x) $ of Kernel:
     Note that \autoref{EqaLossPenaltyFormOfKernel} includes Kernel $ K(\,\cdot \,,\,\cdot \,) $ only, thus Kernel trick could be applied to various scenarios once we could define a proper Kernel. e.g. Substring Kernel for string sequence.
 
 
-\subsubsection{Kernel Support Vector Machine}
+\subsection{Kernel Support Vector Machine}
     Replace the inner produce term in Dual problem of SVM \autoref{EqaDualProblemOfSVM} into Kernel function to obtain Kernel SVM:\index{KSVM (Kernel Support Vector Machine)}
     \begin{align}
          &\mathop{\arg\max}\limits_{\alpha  } \sum_{i=1}^N\alpha  _i-\dfrac{1}{2}\sum_{i=1}^N\sum_{j=1}^N\alpha  _i\alpha  _jy_iy_j K(x_i,x_j) \\
@@ -748,10 +741,11 @@ Eigenvalue $ \gamma _i $ and eigen function $ \phi _i(x) $ of Kernel:
     
     Note: Here $ \alpha _i $ and $ \hat{\alpha }_i $ are not the same set of number, but the optimization problems are the same (if $ \{K(x_i,x_j)\} $ is non-singular). 
 
-\subsubsection{SMO Algorithm for Kernel SVM}
+\subsection{SMO Algorithm for Kernel SVM}
     
+Idea: reduction from $ N $-dim optimization to many $ 2 $-dim optimization.
     
-\subsubsection{Kernel Regression}\label{SubSubSectionKernelRegression}
+\subsection{Kernel Regression}\label{SubSubSectionKernelRegression}
 \begin{point}
     Kernel Regression with Squared Error Loss
 \end{point}
@@ -785,10 +779,10 @@ Eigenvalue $ \gamma _i $ and eigen function $ \phi _i(x) $ of Kernel:
     \end{align}
     
 
-\subsection{Clustering}
+\section{Clustering}
     Clustering is an important scenario of unsupervised learning $ \mathcal{D}=\{x_i\}_{i=1}^N $, to cluster `similar' data points into the same group. 
 
-\subsubsection{Proximity Matrix}
+\subsection{Proximity Matrix}
     For separation concern, we should first define some metric to measure similarity between data
     \begin{align}
         d_{ij}=D(x_i,x_j) 
@@ -844,7 +838,7 @@ Eigenvalue $ \gamma _i $ and eigen function $ \phi _i(x) $ of Kernel:
     
     In this section, an extra model based on spectrum is introduced
 
-\subsubsection{Spectrum Clustering}
+\subsection{Spectrum Clustering}
     Express the dataset as a Graph $ \mathcal{G}=(\mathcal{V},\mathcal{E},\mathcal{W}) $, where $ \mathcal{V}=\{v_i\}_{i=1}^N $ for vertex, $ \mathcal{E}=\{e_{ij}\}_{i,j=1}^N $, $ \mathcal{W}=\{w_{ij}\}_{i,j=1}^N $ for edges and weights. In this case cluster is a graph partition problem.
 
 \begin{point}
@@ -941,7 +935,7 @@ Some definition:
     
 \end{itemize}
 
-\subsection{Tree-Based Classification Model}
+\section{Tree-Based Classification Model}
     Idea of tree: divide the space $ \mathcal{X} $ into grids $ R_m $ and assign prediction into the most frequent class
     \begin{align}
         \hat{f}(x\in R_m)=\mathop{\arg\max}\limits_{k} \sum_{x_i\in R_m}\mathbb{I}(y_i=k)
@@ -949,7 +943,7 @@ Some definition:
 
     But such method is not practical in high dimensional due to curse of dimensionality. Nore practical method would be a greedy search, each step along one variable.
 
-\subsubsection{Tree-Based Classification}
+\subsection{Tree-Based Classification}
 
 \begin{point}
     Branch Growing Process
@@ -1032,7 +1026,7 @@ Some definition:
 \end{figure}
 
 
-\subsubsection{Bagging and Boosting}
+\subsection{Bagging and Boosting}
     
 \begin{point}
     Bagging\index{Bagging Method (Bootstrap Aggregation Method)}\index{Bootstrap Aggregation}
@@ -1101,7 +1095,7 @@ Some definition:
 \end{algorithm}
     
 
-\subsection{Neural Network}
+\section{Neural Network}
 \index{Neural Network}
 \begin{point}
     Linear Perceptron with Activate Function\index{Linear Perceptron}\index{Activate Function}
@@ -1217,7 +1211,7 @@ Some definition:
     
     A MonoLayer perceptron with enough neurons (hidden units) could represent any coutinuous function. MultiLayer Perceptron (MLP)\index{MLP (MultiLayer Perceptron)} could even represent discontinuous functions. 
     
-\subsubsection{Back Propagation}
+\subsection{Back Propagation}
     Perceptron system is usually optimized by back propagation (of gradient)\index{BP (Back Propagation)}.
 
     An example to optimize $ v_{ih},\,\gamma _h $ in \autoref{FigureMLP}:

@@ -1,3 +1,223 @@
 {
+    "latex-workshop.latex.recipes": [
+      {
+        "name": "xelatex",
+        "tools": [
+          "xelatex"
+        ]
+      },
+      {
+        "name": "xelatex -> bibtex -> xelatex*2",
+        "tools": [
+          "xelatex",
+          "bibtex",
+          "xelatex",
+          "xelatex"
+        ]
+      },
+      {
+        "name": "xelatex -> makeindex-> xelatex*2",
+        "tools": [
+          "xelatex",
+          "makenomencl",
+          "makeindex",
+          "xelatex",
+          "xelatex"
+        ]
+      },
+    ],
+
+    "latex-workshop.latex.tools": [
+      {
+        "name": "latexmk",
+        "command": "latexmk",
+        "args": [
+          "-synctex=1",
+          "-shell-escape",
+          "-interaction=nonstopmode",
+          "-file-line-error",
+          "-pdf",
+          "%DOCFILE%"
+        ]
+      },
+      {
+        "name": "xelatex",
+        "command": "xelatex",
+        "args": [
+          "-synctex=1",
+          "-shell-escape",
+          "-interaction=nonstopmode",
+          "-file-line-error",
+          "%DOCFILE%"
+        ]
+      },
+      {
+        "name": "pdflatex",
+        "command": "pdflatex",
+        "args": [
+          "-synctex=1",
+          "-shell-escape",
+          "-interaction=nonstopmode",
+          "-file-line-error",
+          "%DOCFILE%"
+        ]
+      },
+      {
+        "name": "bibtex",
+        "command": "bibtex",
+        "args": [
+          "%DOCFILE%.bib"
+        ]
+      },
+        {
+        "name": "makeindex",
+        "command": "makeindex",
+        "args": [
+          "%DOCFILE%.idx"
+        ]
+      },
+        {
+        "name": "makenomencl",
+        "command": "makeindex",
+        "args": [
+            "%DOCFILE%.nlo",
+            "-s",
+            "nomencl.ist",
+            "-o",
+            "%DOCFILE%.nls",
+            "-t",
+            "%DOCFILE%.nlg"
+        ]
+      },
+    ],
+    
+    "latex-workshop.latex.clean.fileTypes": [
+      "*.aux",
+      "*.bbl",
+      "*.blg",
+      "*.ind",
+      "*.lof",
+      "*.lot",
+      "*.out",
+      "*.toc",
+      "*.acn",
+      "*.acr",
+      "*.alg",
+      "*.glg",
+      "*.glo",
+      "*.gls",
+      "*.ist",
+      "*.fls",
+      "*.log",
+      "*.fdb_latexmk"
+    ],
+    // "latex-workshop.view.pdf.viewer": "external",
+    // "latex-workshop.view.pdf.ref.viewer":"external",
+    // "latex-workshop.view.pdf.external.viewer.args": [
+    //   "-forward-search",
+    //   "%TEX%",
+    //   "%LINE%",
+    //   "-reuse-instance",
+    //   "-inverse-search",
+    //   "\"D:\\Microsoft VS Code\\Code.exe\" \"D:\\Microsoft VS Code\\resources\\app\\out\\cli.js\"  -gr \"%f\":\"%l\"",
+    //   "%PDF%"
+    // ],
+    // "latex-workshop.view.pdf.external.viewer.command": "C:/Users/V1nce/AppData/Local/SumatraPDF/SumatraPDF.exe",
+    // "latex-workshop.view.pdf.external.synctex.command": "C:/Users/V1nce/AppData/Local/SumatraPDF/SumatraPDF.exe",
   
-}
+    // "latex-workshop.view.pdf.external.synctex.args": [
+    //   "-forward-search",
+    //   "%TEX%",
+    //   "%LINE%",
+    //   "-reuse-instance",
+    //   "-inverse-search",
+    //   "\"D:\\Microsoft VS Code\\Code.exe\" \"D:\\Microsoft VS Code\\resources\\app\\out\\cli.js\"  -gr \"%f:%l\"",
+    //   "%PDF%"
+    // ],
+    // "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
+  
+  
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "python.languageServer": "Default",
+    "markdown-preview-enhanced.enableScriptExecution": true,
+    "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": true,
+    "markdown-preview-enhanced.latexEngine": "xelatex",
+    "latex-preview.command": "xelatex",
+    "latex-workshop.hover.preview.maxLines": 30,
+    "files.associations": {
+      "*.rmd": "rmd"
+    },
+    "r.rterm.option": [
+      "--no-site-file"
+    ],
+    "r.rterm.windows": "C:\\Anaconda\\Scripts\\radian.exe",
+    "r.rpath.windows": "C:\\Program Files\\R\\R-4.1.2\\bin\\R.exe",
+  
+  
+      "python.linting.flake8Enabled": true,
+      "python.formatting.provider": "yapf",
+      "python.linting.flake8Args": ["--max-line-length=248"],
+      "python.linting.pylintEnabled": false,
+      "editor.suggestSelection": "first",
+      "bracketPairColorizer.depreciation-notice": false,
+      "macros": {
+        "pythonExecSelectionAndCursorDown":[
+          "python.execSelectionInTerminal",
+          "cursorDown"
+        ]
+      },
+      "security.workspace.trust.untrustedFiles": "open",
+      "kite.showWelcomeNotificationOnStartup": false,
+      "notebook.lineNumbers": "on",
+      "notebook.cellFocusIndicator": "border",
+      "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "right"
+      },
+      "editor.suggest.snippetsPreventQuickSuggestions": false,
+      "C_Cpp.default.compilerPath": "D:\\MinGW\\bin\\gcc.exe",
+      "pasteImage.path": "${currentFileDir}/images",
+      "editor.wordWrap": "on",
+      "r.lsp.debug": true,
+      "r.plot.defaults.fullWindowMode": true,
+      "latex-workshop.latex.autoBuild.run": "never",
+      "remote.SSH.remotePlatform": {
+        "zzy": "linux",
+        "researchgroup": "linux"
+      },
+      "workbench.colorTheme": "Default Dark+",
+      "python.defaultInterpreterPath": "C:\\Anaconda\\python.exe",
+      "git.autofetch": true,
+      "settingsSync.ignoredExtensions": [
+        "ms-vscode-remote.remote-ssh"
+      ],
+      "python.terminal.activateEnvInCurrentTerminal": true,
+      "python.terminal.activateEnvironment": false,
+      "r.rmarkdown.preview.autoRefresh": false,
+      "latex-workshop.view.pdf.viewer": "tab",
+      "git.confirmSync": false,
+      "git.enableSmartCommit": true,
+      "files.autoSave": "afterDelay",
+      "translate.youdao.appKey": "0c8a707fef59893d",
+      "translate.youdao.appSecret": " dWlGN8eTEcOGYUBLpJhyU1Xq0pPRL5Xd",
+      "vscodeGoogleTranslate.preferredLanguage": "English",
+      "vscodeGoogleTranslate.proxyHost": "120.0.0.1",
+      "vscodeGoogleTranslate.proxyPort": "7890",
+      "editor.accessibilitySupport": "off",
+      "workbench.editor.enablePreview": false,
+      "r.alwaysUseActiveTerminal": true,
+      "r.bracketedPaste": true,
+      "[python]": {
+        "editor.formatOnType": true
+      },
+      "python.linting.flake8CategorySeverity.E": "Hint",
+      "python.linting.flake8CategorySeverity.F": "Hint",
+      "latex-workshop.intellisense.atSuggestion.trigger.latex": "''",
+      "latex-workshop.intellisense.argumentHint.enabled": false,
+      "latex-workshop.intellisense.atSuggestion.user": {
+        "@a": "\\alpha"
+      },
+      "editor.wordBasedSuggestions": false,
+      "r.plot.useHttpgd": true,
+      "editor.inlineSuggest.enabled": true,
+  }

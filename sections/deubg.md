@@ -1,10 +1,13 @@
 
 $$
 \begin{aligned}
-        \begin{cases}
-            \int_\mathbb{R}e^{-\frac{t^2}{2\sigma ^2}}\,\mathrm{d}t=2\times \dfrac{\sqrt{2}\sigma }{2}\Gamma (\dfrac{1}{2})={\sqrt{2\pi}\sigma }\\
-            \int_\mathbb{R}t^2 \dfrac{1}{\sqrt{2\pi}\sigma }e^{-\frac{t^2}{2\sigma ^2}}\,\mathrm{d}t=\dfrac{2}{\sqrt{2\pi}\sigma  }\times \dfrac{(2\sigma^2 )^{3/2}}{2}\Gamma (\dfrac{3}{2})\times =\sigma ^2
-        \end{cases}
+        p(y|\theta )=&\prod_{i=1}^N\dfrac{ \theta ^{y_i} }{ y_i! }e^{-\theta }\\
+        p(\theta )\sim &\Gamma (\alpha,\beta )\\ 
+        p(\tilde{y}|y)\propto&\int \dfrac{ \theta ^{\tilde{y}} }{ \tilde{y}! }e^{-\theta } \theta ^{\alpha -1}e^{-\beta \theta }\theta ^{N\bar{y}}e^{-N\theta }  \,\mathrm{d}\theta \\
+        = & \dfrac{ 1 }{ \tilde{y}! }\int\theta ^{\alpha +N\bar{y}+\tilde{y} -1}e^{-(\beta+N +1)\theta }  \,\mathrm{d}\theta\\
+        =&\dfrac{ 1 }{ \tilde{y}! }\dfrac{ \Gamma (\alpha +N\bar{y}+\tilde{y}) }{ (\beta+N +1)^{\alpha +N\bar{y}+\tilde{y}} } \\
+        \sim &\binom{\alpha +N\bar{y}+\tilde{y}-1 }{\tilde{y}}\left( \dfrac{ \beta+N  }{ \beta+N +1 }  \right)^{\alpha +N\bar{y}}\left( \dfrac{ 1 }{ \beta+N +1 } \right)^{\tilde{y}}\\
+        \sim & \mathrm{Neg}\text{-}\mathrm{Binom}(\alpha +N\bar{y}, \beta+N )
 \end{aligned}
 $$ 
 

@@ -1,8 +1,8 @@
-\section{多元统计分析部分}\label{SecMultivariateStatisticalAnalysis}
+\chapter{多元统计分析部分}\label{SecMultivariateStatisticalAnalysis}
 \begin{center}
     Instructor: Dong Li \& Tianying Wang
 \end{center}
-\subsection{Multivariate Data}
+\section{Multivariate Data}
     In this section, we consider a \textbf{Multivariate Statistic Model}. Sample comes from $p$ dimension multivariate population $f(x_1,x_2,\ldots,x_p)$.
 
     \textbf{Notation }: In this section, we still denote random variable in upper case and observed value in lower case, specially express random vector in bold font. \textbf{But} in this section we usually omit the vector symbol $ \vec{\cdot} \,\,$. e.g.
@@ -11,7 +11,7 @@
     %\footnote{In previous section, a multivariate r.v. is denoted $\vec{X}=(X_1,X_2,\ldots,X_p) $, and sample item is $ \vec{X_i}=(X_{i1},X_{i2},\ldots,X_{ip})  $}
 
 
-\subsubsection{Matrix Representation}
+\subsection{Matrix Representation}
 
 
     \begin{itemize}[topsep=0pt,itemsep=1pt]
@@ -277,7 +277,7 @@
         
 
 
-\subsubsection{Review: Some Matrix Notation \& Lemma}\label{SubSubSectionMatrixNotationAndLemma}
+\subsection{Review: Some Matrix Notation \& Lemma}\label{SubSubSectionMatrixNotationAndLemma}
 
     \begin{itemize}[topsep=6pt,itemsep=4pt]
         \item Orthonormality\index{Orthonormality}: For square matrix $ P $ satisfies:
@@ -497,7 +497,7 @@
         
 
 
-    \subsubsection{Useful Inequalities}
+    \subsection{Useful Inequalities}
     \begin{itemize}[topsep=6pt,itemsep=4pt]
         \item Cauchy-Schwartz Inequality:\index{Inequality!Cauchy-Schwarz Inequality}
         
@@ -529,7 +529,7 @@
     % note: 无法用地位投影寻找高微离群值
         
 
-\subsection{Statistical Inference to Multivariate Population}
+\section{Statistical Inference to Multivariate Population}
     Statistics model: a $ n $ cases sample $ \mathbf{X}_1,\mathbf{X}_2,\ldots,\mathbf{X}_n $, where each $ \mathbf{X}_i $ i.i.d. from a multivariate population (usually consider a multi-normal). i.e.
     \begin{equation}\label{EqaNPSampleMatrixNotation}
         \mathbf{X}=\begin{bmatrix}
@@ -549,7 +549,7 @@
 
 
 
-\subsubsection{Multivariate Normal Distribution}\label{SubSubSectionMultivariateNormalDistribution}
+\subsection{Multivariate Normal Distribution}\label{SubSubSectionMultivariateNormalDistribution}
     Univariate Noraml Distribution: $ N(\mu,\sigma^2) $
     \begin{equation}
         f_X(x)=\dfrac{1}{\sqrt{2\pi\sigma ^2}}\exp{-\dfrac{(x-\mu)^2}{2\sigma ^2}} 
@@ -684,7 +684,7 @@
 
     
     
-\subsubsection{MLE of Multivariate Normal}
+\subsection{MLE of Multivariate Normal}
         \index{MLE (Maximum Likelihood Estimation)}
     Under the notation in \autoref{EqaNPSampleMatrixNotation}, i.e. each sample case $ \mathbf{X}_i$ i.i.d. $\sim N_p(\mu,\Sigma ) $, we can get the joint PDF of $ \mathbf{X} $:
     \begin{equation}
@@ -740,7 +740,7 @@
     % \end{itemize}
     
         
-\subsubsection{Sampling distribution of $ \bar{X} $ and $ S $}\label{SubSubSectionMultivariateNormalSamplingDistribution}
+\subsection{Sampling distribution of $ \bar{X} $ and $ S $}\label{SubSubSectionMultivariateNormalSamplingDistribution}
         $ \hat{\mu}=\bar{X} $ and $ \hat{\Sigma}=\dfrac{n-1}{n}S $ are statistics, with sampling distribution.
 
 
@@ -862,7 +862,7 @@
 % Stein's method
 
 
-\subsubsection{Hypothesis Testing for Normal Population}\label{SubSectionMultivariateHypothesisTesting}
+\subsection{Hypothesis Testing for Normal Population}\label{SubSectionMultivariateHypothesisTesting}
 \begin{itemize}[topsep=2pt,itemsep=2pt]
     \item \textbf{One-Population Hypothesis Testing}: 
     
@@ -991,7 +991,7 @@
     
 
 
-\subsubsection{Confidence Region}
+\subsection{Confidence Region}
     \index{Confidence Region}
 
     Estimate the confidence region for $ \mu $ of $ X\sim N_p(\mu,\Sigma ) $, Monovariate case see \autoref{SubSectionConfidenceIntervalForDistributions}
@@ -1005,7 +1005,7 @@
     
     And take $ 100(1-\alpha )\% $ confidence region of $ \mu $ as
     \begin{equation}
-        R(x)=\{x|T^2\leq c^2\}\qquad c^2=\dfrac{p}{n-p}(n-1)F_{p,n-p,\frac{\alpha }{2}} 
+        R(x)=\{x|T(x)^2\leq c^2\}\qquad c^2=\dfrac{p}{n-p}(n-1)F_{p,n-p,\frac{\alpha }{2}} 
     \end{equation}
 
     The shape of $ R(x) $ is an ellipsoid.
@@ -1014,7 +1014,7 @@
 
     \item Individual Converage Interval\index{Confidence Region!Individual Converage Interval}
     
-    Use the decomposition of $ S^2 $ as a positive finite matrix $ S^2=A^TA $, where $ A $ is some $ p\times p $ matrix, then
+    Use the decomposition of $ S $ as a positive definite matrix $ S=A^TA $, where $ A $ is some $ p\times p $ matrix, then
     \begin{equation}
         T^2= [\sqrt{n}(\bar{X}-\mu_0)']S^{-1}[\sqrt{n}(\bar{X}-\mu _0)]=[A^{-1\prime}\sqrt{n}(\bar{X}-\mu_0)]'[A^{-1\prime}\sqrt{n}(\bar{X}-\mu_0)]
     \end{equation}
@@ -1056,7 +1056,7 @@
 
 
 
-\subsubsection{Large Sample Multivariate Inference}
+\subsection{Large Sample Multivariate Inference}
     Basic point:
     \begin{equation}
         \bar{X}\xrightarrow[]{\mathrm{d}} \mu\qquad S\xrightarrow[]{\mathrm{d}} \Sigma  
@@ -1091,7 +1091,7 @@
     
     
 
-\subsection{Principal Component Analysis}\label{EqaCurseOfDimensionality}
+\section{Principal Component Analysis}\label{EqaCurseOfDimensionality}
 \fbox{
     \begin{minipage}{0.9\linewidth}
     PCA and next subsection \hyperlink{SubSectionFA}{FA} focus on data dimension reduction. Why?
@@ -1116,7 +1116,7 @@
 
     Key Idea of PCA: Find the components most powerful in explaining variance. (Similar to the idea of ANOVA)\index{PCA (Principal Component Analysis)}
 
-\subsubsection{Population Principal Component}
+\subsection{Population Principal Component}
     For population $ \vec{X}=(X_{1},X_{2},\ldots,X_{p})\sim (\mu,\Sigma )_p  $, conduct spectrum decomposition to $ \Sigma  $ such that
     \begin{equation}
         \Sigma P=P\Lambda \qquad P=\begin{bmatrix}
@@ -1208,7 +1208,7 @@
 
 
     
-\subsubsection{Sample Principal Component}
+\subsection{Sample Principal Component}
     For sample matrix $ X $ denoted in \autoref{EqaNPSampleMatrixNotation}, with cov. matrix $ S $ in \autoref{EqaSampleCovarianceMatrix}. Then conduct the above spectrum decomposition to $ S $ to get sample PCs.
 
     
@@ -1270,11 +1270,11 @@
 
 
 
-\subsection{Factor Analysis}
+\section{Factor Analysis}
     \hypertarget{SubSectionFA}{Key idea of FA:}\index{FA (Factor Analysis)} For a model with $ p $ variable $ X=(X_{1},X_{2},\ldots,X_{p})\sim (\mu ,\Sigma )_p  $ (especially when $ p $ large and $ X_i $ interrelated), there would be some internal, latent \textbf{factors} $ F $ behind $ X $ determining the model structure.\footnote{As the most simplified case, here only consider $ X $ linear dependent on $ F $.}
 
 
-\subsubsection{Orthogonal Factor Model}
+\subsection{Orthogonal Factor Model}
     
     \begin{equation}
         \mathop{X-\mu}\limits_{p\times 1}=\mathop{L}\limits_{p\times m}\mathop{F}\limits_{m\times 1} +\mathop{\varepsilon }\limits_{p\times 1} ,\,\, m<p 
@@ -1347,7 +1347,7 @@
     Comment: Factor rotation reflects the arbitrariness of selection of $ L $, allowing us to choose an \textbf{interpretable} $ L $ for FA model.
 
         
-\subsubsection{Principal Component Approach}
+\subsection{Principal Component Approach}
     Origin: when $ m=p $, factor decomposition reduces to spectrum(PC) decomposition.(At the same time $ \Psi  $ can be taken $ 0 $.)
     \begin{equation}
         \begin{aligned}
@@ -1397,7 +1397,7 @@
     
     
     
-\subsubsection{MLE Method}
+\subsection{MLE Method}
     Assumption: Factor $ F $ and error $ \varepsilon  $ are normal.(Then also $ X \sim N_p(\mu ,\Sigma )$ is normal)
     
     \begin{equation}
@@ -1439,7 +1439,7 @@
 
 
 
-\subsection{Canonical Correlation Analysis}
+\section{Canonical Correlation Analysis}
     Key idea of CCA\index{CCA (Canonical Correction Analysis)}: For a model with two multivariate population $ X^{(1)}=(X^{(1)}_{1},X^{(1)}_{2},\ldots,X^{(1)}_{p})  $, \\$ X^{(2)}=(X^{(2)}_{1},X^{(2)}_{2},\ldots,X^{(2)}_{q})  $ with covariance
     \begin{equation}
         \mathop{\Sigma }\limits_{(p+q)\times (p+q)}  =\begin{bmatrix}
@@ -1451,7 +1451,7 @@
     find a few condensed variable to measure their similarity.
     
     
-\subsubsection{Canonical Variate Pair}
+\subsection{Canonical Variate Pair}
     By using the linear combination, we can construct a pair of vector $ \mathop{a}\limits_{p\times 1 }  $ and $ \mathop{b}\limits_{q\times 1}  $ such that $ corr(a'X^{(1)},b'X^{(2)}) $ large, i.e.
     \begin{equation}\label{EqaFirstCanonicalVariatePair}
         \{a,b\}=\mathop{\arg\max}\limits_{a,b\neq 0}\dfrac{a'\Sigma _{12}b}{\sqrt{a'\Sigma _{11}a}\sqrt{b'\Sigma _{22}b}}  
@@ -1474,7 +1474,7 @@
     \end{equation}
        
     
-\subsubsection{Canonical Correlation based on Standardized Variables}
+\subsection{Canonical Correlation based on Standardized Variables}
     Using standardized variable of $ X $:
     \begin{equation}
         Z_k^{(\nu )}=\dfrac{X_k^{(\nu )}-\mu _k^{(\nu )}}{\sqrt{\sigma _{kk}^{(\nu )}}},\,k=1,2,\ldots p\text{ or }q,\, \nu =1,2
@@ -1499,7 +1499,7 @@
     \end{equation}
     
     
-\subsubsection{Sample Canonical Correlation}
+\subsection{Sample Canonical Correlation}
     Replacement:
     \begin{equation}
         \Sigma \longrightarrow S\qquad \rho \longrightarrow R 
@@ -1543,11 +1543,11 @@
 
 
 
-\subsection{Discriminant Analysis}\label{SubSectionDiscriminantAnalysis}
+\section{Discriminant Analysis}\label{SubSectionDiscriminantAnalysis}
     \index{DA (Discriminant Analysis)}
     Key idea of DA: for $ \mathop{X}\limits_{n\times p}  $ with an extra column labeling the classification, we want to determine a rule to assign new objects. More specifically, determine the classification region $ R_i $ for each class $ \pi_i $.
 
-\subsubsection{Classification Criterion}
+\subsection{Classification Criterion}
 \begin{itemize}[topsep=2pt,itemsep=2pt]
     \item Two-category classification case:Each row of $ X $ is labeled in $ \pi_1 $ or $ \pi_2 $, for two-category, only one of $ R_1 $, $ R_2 $ is needed.
 
@@ -1599,7 +1599,7 @@ Determination Criterion:
 
 
     
-\subsubsection{Linear \& Quadratic Discriminant Analysis}
+\subsection{Linear \& Quadratic Discriminant Analysis}
     Now take two-category ECM criterion as example. An estimation to $ \mathbb{P}(1|2),\,\mathbb{P}(2|1) $, i.e. to $ f_{\pi_1},\,f_{\pi_2} $ is needed.
 
     Assumption: for $ \pi_1:X\sim N(\mu _1,\Sigma _1) $,$ \pi_2:X\sim N(\mu _2,\Sigma _2) $, further for
@@ -1643,14 +1643,14 @@ Determination Criterion:
     \end{itemize}
     
 
-\subsubsection{Fisher's Discriminant Analysis}
+\subsection{Fisher's Discriminant Analysis}
     \index{FDA (Fisher's Discriminant Analysis)}Project $ X $ onto some hyperplane and conduct low-dimensional classification.
 
     Project $ x $ onto some hyperplane by $ y=a'x  $, then we maximize $ \psi =\dfrac{\text{mean of treatment}^2}{\text{variance}} $\footnote{MANOVA Model:    
     For $ g $ groups with same $ \Sigma  $, consider an MANOVA model: $ X_{ij}=\mu +\tau_i+e_{ij} $. Then MANOVA table gives Sum of Squares and cross Products (SSP):
     \begin{align}
-        \text{Treatment:}&B=\sum_{i=1}^gn_i(\bar{x}_i-\bar{x})(\bar{x}_i-\bar{x})'\\
-        \text{Residual:}&W=\sum_{i=1}^g\sum_{j=1}^{n_i}(x_{ij}-\bar{x}_i)(x_{ij}-\bar{x}_i)'\\
+        \text{Regression:}&B=\sum_{i=1}^gn_i(\bar{x}_i-\bar{x})(\bar{x}_i-\bar{x})'\\
+        \text{Error:}&W=\sum_{i=1}^g\sum_{j=1}^{n_i}(x_{ij}-\bar{x}_i)(x_{ij}-\bar{x}_i)'\\
         \text{Total:}&T=B+W=\sum_{i=1}^g\sum_{j=1}^{n_i}(x_{ij}-\bar{x})(x_{ij}-\bar{x})'
     \end{align}
 
@@ -1666,7 +1666,7 @@ Determination Criterion:
    
     
         
-\subsubsection{Evaluation of Discriminant Model}
+\subsection{Evaluation of Discriminant Model}
 \begin{point}
     Judging Index:
 \end{point}
@@ -1688,11 +1688,11 @@ Determination Criterion:
 
 
 
-\subsection{Clustering Analysis}\label{SubSectionClusteringAnalysis}
+\section{Clustering Analysis}\label{SubSectionClusteringAnalysis}
     \index{Clustering Analysis}
     Key idea of CA: Group a collection of data according to  similarity and relation of objects.
 
-\subsubsection{Agglomerative Clustering Algorithm}
+\subsection{Agglomerative Clustering Algorithm}
     \index{Agglomerative Clustering Algorithm}\index{Hierarchical Clustering}
 
 \begin{point}
@@ -1754,7 +1754,7 @@ Determination Criterion:
 \end{figure}
 
 
-\subsubsection{$ K $-Means Clustering Algorithm}
+\subsection{$ K $-Means Clustering Algorithm}
     \index{k-Means Clustering Algorithm@$ k $-Means Clustering Algorithm}
     Assume we have a preset number $ K $ of clusters , we can use $ K $-means clustering.
 \begin{algorithm}{$ K $-Means Clustering}
@@ -1791,7 +1791,7 @@ Note: pros­and­cons of $ K $-Means clustering algorithm
     
 
 
-\subsubsection{Gaussian Mixture Model with Expectation Maximization Algorithm}\label{SubSubSectionEMAlgorithmForGMM}
+\subsection{Gaussian Mixture Model with Expectation Maximization Algorithm}\label{SubSubSectionEMAlgorithmForGMM}
 \index{E-M Algorithm (Expectation Maximization Algorithm)}
     % We can also label each object, then conduct discriminant analysis (e.g. QDA).
 
@@ -1857,7 +1857,7 @@ Note: pros­and­cons of $ K $-Means clustering algorithm
     
     Note: EM method for Gaussion Mixture Model is a greedy algorithm $ \longrightarrow $ local maximum.
     
-\subsubsection{DBSCAN \& OPTICS Density Clustering Algorithm}
+\subsection{DBSCAN \& OPTICS Density Clustering Algorithm}
     \index{Density Clustering}
     \hyperlink{DBSCAN}{DBSCAN} algorithm (Density-Based Spatial Clustering of Application with Noise) is a kind of density clustering algorithm. \hyperlink{OPTICS}{OPTICS} algorithm (Ordering Point To Indentify the Cluster Structure) is its improved version.
 

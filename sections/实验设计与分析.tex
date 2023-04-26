@@ -1,7 +1,215 @@
-\section{实验设计与分析部分}
+\chapter{实验设计与分析部分}\label{SectionDoE}
 \begin{center}
     Instructor: Zaiying Zhou
 \end{center}
 
+Design of Experiment (DoE) aims at understanding the cause-and-effect relation in systems (thus shares lots of similar language as Causal Inference). DoE is one step beyond Linear Regression where $ X $s are passively drawn while in DoE we are \textit{deliberately} designing them to be more precise / more efficient in studying $ Y$-$X $ relation.
+\begin{align*}
+    \underbrace{\text{Experiment Designing}\longrightarrow \text{Execution}\longrightarrow \overbrace{\text{Analysis of Data}}^{\text{Regression / Causal Inference}}}_{\text{DoE}}
+\end{align*}
 
-\subsection{}
+\begin{point}
+    Philosophy of DoE 
+\end{point}
+
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item \textbf{ Randomize }:
+    \item \textbf{ Replicate  }:
+    \item \textbf{ Blocking  }: 
+\end{itemize}
+
+    
+
+\section{Statistical Inference Methods for Models}
+
+Basic inference methods are introduced in \autoref{SubSectionConfidenceIntervalForDistributions} (interval estimation) and \autoref{SubSectionHypothesisTestingOfCommonDistributions} (hypothesis testing). ANOVA in Regression is introduced in \autoref{SubSubSectionLinearRegressionMultiANOVA}. Preliminary introductions to factor model include \autoref{SubSubSectionFactorAnalysisModelIntroduction} and \autoref{SectionIntroToBiostatistics}. Listed here for review.
+
+
+\subsection{One Sample Inference}
+
+With $ X_1,X_2,\ldots,X_n $ i.i.d. $ \sim N(\mu ,\sigma ^2) $:
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item at null hypothesis $ H_0: \mu =\mu _0 $,with known variance:
+    \begin{align*}
+        Z_0 = \dfrac{ \sqrt{n}(\bar{X}-\mu _0) }{ \sigma  }\sim N(0,1)  
+    \end{align*}
+    \item at null hypothesis $ H_0: \mu =\mu _0 $, with unknown variance:
+    \begin{align*}
+        t_0 =  \dfrac{ \sqrt{n}(\bar{X}-\mu _0) }{ s  }\sim t_{n-1}
+    \end{align*}
+    \item at null hypothesis $ H_0: \sigma =\sigma _0 $, with unknown mean
+    \begin{align*}
+        \chi_0^2 = \dfrac{ (n-1)s^2 }{ \sigma _0^2 }  \sim \chi^2_{n-1}
+    \end{align*}   
+\end{itemize}
+
+
+\subsection{Two Sample Comparison}\label{SubSubSectionDoETwoSampleComparison}
+
+Two sample comparison with Normal assumption is just similar to one-sample mean comparison. Usually the key problem is to find a $ t $-statistics and get the $ dof $ for denominator.
+
+Two sample: $ X_{11},X_{12},\ldots,X_{1n_1} $ i.i.d. $ \sim N(\mu _1,\sigma _1^2) $; $ X_{21},X_{22},\ldots,X_{2n_2} $ i.i.d. $ \sim N(\mu _2,\sigma_2^2) $. 
+
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item at null hypothesis $ H_0: \mu _1-\mu _2 = \Delta_0 $, with known variance
+    
+    \begin{align*}
+         z_0=\dfrac{ (\bar{X}_1-\bar{X}_2)-\Delta _0 }{ \sqrt{\dfrac{ \sigma _1 }{ n_1 }+\dfrac{ \sigma _2^2 }{ n_2 }  } } \sim N(0,1) 
+    \end{align*}
+    \item at null hypothesis $ H_0: \mu _1-\mu _2 = \Delta_0 $, with unknown but same variance
+    \begin{align*}
+        t_0 = \dfrac{ (\bar{X}_1-\bar{X}_2)-\Delta _0 }{ s_\mathrm{ pooled }\sqrt{\dfrac{ 1 }{ n_1 } + \dfrac{ 1 }{ n_2 }  }  }\sim t_{n_1+n_2-2},\quad s_\mathrm{ pooled }=\dfrac{ (n_1-1)s_1^2+(n_2-1)s_2^2 }{ n_1+n_2-2 }  
+    \end{align*}
+    \item at null hypothesis $ H_0: \mu _1-\mu _2 = \Delta_0 $, with unknown variance (Welch-Satterthwaite approximation for the  Behrens-Fisher problem\footnote{This is the output in \lstinline|t.test(x1,x2, paired = FALSE, var.equal = FALSE)|}).
+    \begin{align*}
+         t_0^\text{Welch}=\dfrac{ (\bar{X}_1-\bar{X}_2)-\Delta _0 }{ \sqrt{\dfrac{ s_1^2 }{ n_1 }+\dfrac{ s_2^2 }{ n_2 }  } }\approx \sim t_\nu\quad \nu = \dfrac{ \left(\dfrac{ s_1^2 }{ n_1 }+\dfrac{ s_2^2 }{ n_2 }\right)^2 }{ \dfrac{ (s_1^2/n_1)^2 }{ n_1+1 }+\dfrac{ (s_2^2/n_2)^2 }{ n_2+1 }   }-2  
+    \end{align*}
+    \item at null hypothesis $ H_0: \sigma _1=\sigma _2 $, with unknown mean
+    \begin{align*}
+        F_0=\dfrac{ s_1^2 }{ s_2^2 }\sim F_{n_1-1,n_2-2}  
+    \end{align*}
+    
+\end{itemize}
+
+
+\subsection{One Way ANOVA}\label{SubSubSectionDoEOneWayANOVA}
+
+Generalization from two-sample $ t $-test to Factor ANOVA: Use the trick that $ F\sim t^2 $, e.g. 
+\begin{align*}
+    t_0^2 =\dfrac{( (\bar{X}_1-\bar{X}_2)-\Delta _0)^2 }{ s^2_\mathrm{ pooled }(\dfrac{ 1 }{ n_1 } + \dfrac{ 1 }{ n_2 }  )}\sim F_{{\color{red}1},n_1+n_2-2}
+\end{align*}
+
+in which the nominator is `difference in mean', denominator is `fluctuation', i.e. in ANOVA language, variation caused by group difference $ \mathrm{ MSR }  $ and variation caused by random effect $ \mathrm{ MSE }  $.
+
+Model: (Factor model with balanca design here. Cell mean model / unbalanced design see \autoref{SubSubSectionIntroToBiostatisticsOneWayANOVA})
+\begin{align*}
+    Y_{ij} = \mu +\alpha_i+\varepsilon _{ij}\quad \varepsilon _{ij}\sim N(0,\sigma ^2),\quad i=1,2,\ldots,a,\quad j=1,2,\ldots,n,\quad w.r.t. \,\sum_{i=1}^a\alpha_i=0
+\end{align*}
+
+Solution could be obtained by traditional way $ [\mu ,\alpha _1,\ldots,\alpha _{a-1}]=(X'X)^{-1}XY $ with notation \autoref{EqaFactorAnalysisModel}. 
+
+    \begin{align}
+        \hat{\mu }=&\bar{Y}_{\cdot \cdot }=\dfrac{1}{na}\sum_{i=1}^a\sum_{j=1}^{n}Y_{ij}\\
+        \hat{\alpha }_i=&\dfrac{ 1 }{ n }\sum_{j=1}^nY_{ij}-\hat{\mu }   \\
+        s_i^2=&\dfrac{1}{n-1}\sum_{j=1}^{n}\left(Y_{ij}-\bar{Y}_{i\cdot}\right)^2\\
+        s^2=&\dfrac{(n-1)\sum_{i=1}^as_i^2}{n_T-a}
+    \end{align}   
+And ANOVA Table 
+\begin{table}[H]
+    \centering
+    \renewcommand\arraystretch{1.15}
+    \begin{tabular}{cllll}
+        \hline
+        Source of Var&$ \mathrm{SS} $&$ dof $&$ \mathrm{MS}  $&$ \mathbb{E}\left( \mathrm{MS}  \right)  $\\
+        \hline
+        $ \alpha _i $&$ \mathrm{SS}\alpha=\sum_{i=1}^a\left(\bar{Y}_{i\cdot }-\bar{Y}_{\cdot \cdot }\right)^2  $&$ a-1 $&$ \dfrac{\mathrm{SS}\alpha  }{a-1} $&$ \sigma ^2+\dfrac{n\sum_{i=1}^a\alpha _i^2}{a-1} $\\
+        $ \sigma ^2$&$ \mathrm{SSE} =\sum_{i=1}^a\sum_{j=1}^{n}\left(Y_{ij}-Y_{i\cdot }\right)^2 $&$ n_T-a $&$ \dfrac{\mathrm{SSE}}{n(a-1)} $&$ \sigma ^2 $\\
+        \hline
+    \end{tabular}
+\end{table} 
+
+Test for group difference
+\begin{align*}
+    F_0=\dfrac{ \mathrm{ MS }\alpha   }{ \mathrm{ MSE }  }\sim F_{a-1,n_T-a}  
+\end{align*}
+
+
+\begin{point}
+    General Linear Test Point of View
+\end{point}
+
+General Linear Test in linear regression see \autoref{SubSubSectionGeneralLinearTest}. The idea is to compare a full model and a reduced model
+\begin{align*}
+    \begin{cases}
+        \text{Full Model}:&Y_{ij}=\mu +\alpha _i+\varepsilon _{ij}\\
+        \text{Reduced Model}:&Y_{ij}=\mu +\varepsilon _{ij}
+    \end{cases} 
+\end{align*}
+
+in this case the General Linear Test $ F $ is 
+\begin{align*}
+    F^\mathrm{ GLT }=\dfrac{(\mathrm{SSE_R-SSE_F})/(dof_\mathrm{R}-dof_\mathrm{F} )}{\mathrm{SSE_F}/dof_F} =\dfrac{ \mathrm{ MS }\alpha   }{ \mathrm{ MSE }  }=F_0\sim F_{a-1,n_T-a}   
+\end{align*}
+
+\begin{point}
+    Likelihood Ratio Test Point of View
+\end{point}
+
+Detail theory of LRT see \autoref{SubSectionLRT}. the test statistics is
+\begin{align*}
+    \Lambda = \dfrac{{\displaystyle\sup_{\mu;\alpha =0}L(Y;\mu ,\alpha ) }}{{\displaystyle\sup_{\mu;\alpha}L(Y;\mu ,\alpha ) }}=\left(\dfrac{\mathrm{ SSTotal }  }{\mathrm{ SSE }  } \right)^{n_T/2}
+\end{align*}
+
+and we have a bijection between $ \Lambda  $ and $ F_0 $.
+
+
+\begin{point}
+    Homoscedasticity Assumption Diagnostics 
+\end{point}
+
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Bartlett's Test for $ H_0:\sigma _1=\ldots=\sigma _a $\index{Bartlett's test}
+    \begin{align*}
+        T=\dfrac{ (n_T-a)\log\dfrac{\sum_{i=1}^a (n-1)\mathrm{ MS }_i  }{ n_T-a } -\sum_{i=1}^a(n-1)\log \mathrm{MS}_i   }{ 1+\dfrac{ 1 }{ 3(a-1) }\left(\sum_{i=1}^a\dfrac{ 1 }{ n-1 }-\dfrac{ 1 }{ n_T-a }  \right)  }\approx \sim \chi^2_{a-1}  
+    \end{align*}
+
+    the idea is $ \mathrm{ GeomMean }=\mathrm{ ArithMean }   $ when all are equal.
+    
+    
+    \item Levene's Test\index{Levene's Test}
+    \begin{align*}
+        T=(\text{ANOVA of }|y_{ij}-\bar{y}_{i\cdot }|)\approx \sim F_{a-1,n_T-a}
+    \end{align*}
+    
+    \item Welch's ANOVA\index{Welch's ANOVA}
+    
+    A generalized version of Welch's Test in two-sample $ t $-test.
+    
+\end{itemize}
+
+    
+
+\begin{point}
+    \hypertarget{DoEMultipleComparison}{Multiple Comparison}
+\end{point}
+
+Target: When compare level pairs, say some $ (\alpha _i, \alpha _j) $ paris, i.e. there are multiple tests, we need to adjust the testing procedure to avoid multiple comparison hazard.\footnote{An intuition: If we simply test each of $ m $ tests at $ \alpha_i = 0.05 $, then the overall type-I error is 
+\begin{align*}
+    \alpha = 1-\prod_{i=1}^m(1-\alpha _i)>0.05
+\end{align*}
+}
+
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Fisher's Least Significant Difference (LSD)\index{Fisher's LSD (Fisher's Least Significant Difference)} without correction
+    \begin{align*}
+        t_{ij}=\dfrac{ \bar{Y}_{i\cdot }-\bar{Y}_{j\cdot } }{ \sqrt{\mathrm{ MSE }\left(\dfrac{ 1 }{ n_i }+\dfrac{ 1 }{ n_j }  \right) } }\sim t_{N-a}  
+    \end{align*}
+    rejection region construction use $ t_{N-a,1-\alpha /2} $
+    \item Fisher's Least Significant Difference (LSD) with Bonferroni correction: rejection region use $ t_{N-a, 1-\alpha /2m} $
+    \item Tukey's Honestly Significant Difference (HSD)\index{Tukey's HSD (Tukey's Honestly Significant Difference)}: Under $ H_0:\alpha _1=\ldots=\alpha _a $, treat $ Y_{\imath j} $ as sample of $ \mu _\imath $. We could study the range of $ \{\bar{Y}_{\imath\cdot }\}_{\imath=1}^a $
+    \begin{align*}
+        q=\dfrac{ \max\{\bar{Y}_{\imath\cdot }\}_{\imath=1}^a-\min\{\bar{Y}_{\imath\cdot }\}_{\imath=1}^a }{ s\sqrt{n} }  \sim q_{a,n_T-a}
+    \end{align*}
+    where $ q_{\cdot \, ,\, \cdot } $ is \hyperlink{TukeyStudentizedRangeDistribution}{Tukey's  studentized range distribution}
+    \item Scheff\`{e}'s Method\index{Scheff\`{e}'s Method} by testing contrasts. A $ \phi \equiv\sum_{i=1}^a\xi _i\alpha _i  \,w.r.t.\,\sum_{i=1}^a\xi _i=0$ is called a contrast. 
+    \begin{align*}
+         F_0=\left(\dfrac{ \hat{\phi } }{ \sqrt{\hat{var}(\phi )} }\right)^2\big/(a-1)=\dfrac{ (\sum \xi_i\bar{Y}_{i\cdot })^2 }{ (a-1)\mathrm{ MSE }\sum \xi _i^2/n_i  } \sim F_{a-1,N-a}
+    \end{align*}
+    \item Benjamini-Hochberg Method for False Discovery Rate control:
+\end{itemize}
+
+    
+    Interval Construction follows similar method, see \autoref{SubSectionLRAFactorANOVA}.
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Multi Factor ANOVA}

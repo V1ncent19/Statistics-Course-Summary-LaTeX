@@ -1,14 +1,14 @@
-\section{应用时间序列部分}
+\chapter{应用时间序列部分}
 \begin{center}
     Instructor: Dong Li
 \end{center}
 
 % Time series modelling usually concerns \textbf{forecasting}, i.e. predict future behaviour of a quantity based on history information. A direct method is modelling a time series object, with history and future are included in it. In this section several modelling/forecasting methods would be included.
 
-\subsection{Time Series Data and Model}
+\section{Time Series Data and Model}
 
 
-\subsubsection{Time Series Data and Tasks}
+\subsection{Time Series Data and Tasks}
     \textbf{Time Series} : a sequential r.v. indexed in time order.\index{Time Series}
     \begin{equation}
         \{Y_t\},\,t\in \mathcal{T}\quad \mathcal{T}\text{ is index set} 
@@ -45,7 +45,7 @@
     %     \item Standard: Discrete/Continuous, including data discrete/continuous or time discrete/continuous. Most common: discrete time$ + $continuous data      
     % \end{itemize}
 
-\subsubsection{Time Series Model}
+\subsection{Time Series Model}
     There are plenty of useful modelling methods:
     \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item Regression Model: View $ y $ as function of $ t $, regression on some model $ y=f(t) $ with loss $ \mathcal{L} $. e.g. linear regression
@@ -74,8 +74,8 @@
 
 
 
-\subsection{Stochastic Process and Statistics}\label{SubSectionStochasticProcessForTimeSeries}
-\subsubsection{Basic Knowledge of Stochastic Process}
+\section{Stochastic Process and Statistics}\label{SubSectionStochasticProcessForTimeSeries}
+\subsection{Basic Knowledge of Stochastic Process}
     A stochastic process can be denoted:\index{Stochastic Process}
     \begin{equation}
         \{X_t:\,t\in \mathcal{T}\}:\, \Omega\to \mathcal{T}\times \mathcal{E}
@@ -335,7 +335,7 @@
         
     \end{itemize}
 
-\subsubsection{Statistics}
+\subsection{Statistics}
 
     To estimate the above $ \mu _t=\mu $, $ \gamma _k $, $ \rho _k $, $ \phi _{kk} $ given a realization of $ \{X_t\} $, say we have $ \{x_t\}_{t=1}^n $, we can construct:
     \begin{itemize}[topsep=2pt,itemsep=0pt]
@@ -398,10 +398,10 @@
         
 
 
-\subsection{ARMA Model}
+\section{ARMA Model}
     Two of the basic modeling methods for time series: Auto-Regression (AR) and Moving-Average (MA)
     
-\subsubsection{Backshift Operator and Difference Equation}
+\subsection{Backshift Operator and Difference Equation}
 
 \begin{point}
     Backshift Operator $ \mathscr{B}  $
@@ -431,7 +431,7 @@
         \psi (\mathscr{B} )X_t=&\sum_{j=-\infty}^\infty \psi _{j}\mathscr{B}^jX_t=\sum_{j=-\infty}^\infty \psi _{j}X_{t-j}
     \end{align} 
 
-    for time series $ \{X_t\} $, $ \{Y_t\} $. r.v. $ U,V,W $:
+    Linearity: for time series $ \{X_t\} $, $ \{Y_t\} $. r.v. $ U,V,W $:
     \begin{equation}
         \phi (\mathscr{B} )(UX_t+VY_t+W)=U\psi (\mathscr{B} )X_t+V\psi (\mathscr{B} )Y_t+W\psi (1) 
     \end{equation}
@@ -455,7 +455,7 @@
     
     similar to ODE, we can construct general solution from $ \zeta _j $, and particular solution.\footnote{Cases for multiple root see \url{https://www.math.pku.edu.cn/teachers/lidf/course/atsa/atsanotes/html/_atsanotes/atsa-lagdiff.html}}
 
-\subsubsection{AR Model}
+\subsection{AR Model}
 \index{AR Model (Auto-Regression Model)}
     Auto-Regression model (of order $ p $) contains ($ p^\mathrm{th} $ order) backshift on $ X_t $:
     \begin{equation}
@@ -629,7 +629,7 @@
         
 
 
-\subsubsection{MA Model}
+\subsection{MA Model}
 \index{MA Model (Moving-Average Model)}
 
     Moving-Average model (of order$ q $) contains ($ q^\mathrm{th}  $ order) backshift on $ \varepsilon _t $:
@@ -680,7 +680,7 @@
 
     
 
-\subsubsection{ARMA Model}
+\subsection{ARMA Model}
     Auto-Regerssion-Moving-Average model\index{ARMA Model} ARMA$ (p,q) $ in the form of 
     \begin{align}
         &\phi (\mathscr{B} )X_t=\theta (\mathscr{B} )\varepsilon _t\\
@@ -709,14 +709,14 @@
         
     \end{itemize}
     
-\subsubsection{ARIMA Model}
+\subsection{ARIMA Model}
     ARIMA$ (p,d,q) $ model\index{ARIMA Model} adds an difference term $ \Delta ^d=(1-\mathscr{B} )^d $ in ARMA$ (p,q) $:
     \begin{align}
         \phi (\mathscr{B} )(1-\mathscr{B} )^dX_t=\theta (\mathscr{B} )
     \end{align}
     
     
-\subsection{Seasonal Model for Time Series}
+\section{Seasonal Model for Time Series}
     This part includes some ideas for modelling seasonal term (usually as well as trend term) in $ Y_t=\mathbf{T}_t+\mathbf{S}_t+X_t $.
 
     Usually we describe the trend term as the `mean' of time series over time, and sensonal term with zero-mean and period $ P>1 $.
@@ -750,7 +750,7 @@
 
 
 
-\subsubsection{Regression Model}
+\subsection{Regression Model}
     A common functional description is polynomial trend $ + $ Fourier expansion senson, i.e.
     \begin{align}
         Y_t=&T_t+S_t+X_t\\
@@ -765,7 +765,7 @@
     \end{align}
 
 
-\subsubsection{Moving Average Model}
+\subsection{Moving Average Model}
     First estimate Trend term, then Seasonal term
 
     Trend term is estimated by a symmetric moving average window $ \{\omega _j\}_{j=-w}^w $ with band width $ w $
@@ -780,7 +780,7 @@
         \hat{S}_t=y_t- \hat{T}_t
     \]
     
-\subsubsection{Seasonal ARIMA Model}\label{SubSubSectionSARIMA}
+\subsection{Seasonal ARIMA Model}\label{SubSubSectionSARIMA}
     Multiplicative seasonal ARIMA model with period $ s $ of $ Y_t $:\index{SARIMA (Seasonal ARIMA Model)} ARIMA$ (p,d,q)\times (P,D,Q)_s $
     \begin{align}
         \Phi _P(\mathscr{B} ^s)\phi _p(\mathscr{B} )(1-\mathscr{B} )^d(1-\mathscr{B} ^s)^DY_t=\Theta _Q(\mathscr{B} ^s)\theta _q(\mathscr{B} ^s)\varepsilon _t,\quad \varepsilon _t\sim \mathrm{WN}(0,\sigma ^2) 
@@ -788,8 +788,8 @@
 
     On the ACF plot of SARIMA, you should see peak at $ t_\mathrm{lag}\propto s  $
     
-\subsection{Model Selection and Diagnostics}
-\subsubsection{Model Building of ARIMA}
+\section{Model Selection and Diagnostics}
+\subsection{Model Building of ARIMA}
 
 \begin{point}
     Box-Jenkins Approach for ARIMA Model:\index{Box-Jenkins Approach}
@@ -802,7 +802,7 @@
         \item 
     \end{enumerate}
     
-\subsubsection{Order Determination of ARIMA Model}
+\subsection{Order Determination of ARIMA Model}
 
 \begin{point}
     Order Determination of AR$ (p) $
@@ -886,7 +886,7 @@
 
     
 
-\subsubsection{Outlier Detection}
+\subsection{Outlier Detection}
     Here we introduce two kinds of outlier in time series: Additive Outlier (AO)\index{AO (Additive Outlier)} and Innovative Outlier (IO)\index{IO (Innovative Outlier)}.
     
 \begin{point}
@@ -944,7 +944,7 @@
 
 
     
-\subsection{Forecast of Time Series}
+\section{Forecast of Time Series}
     % A time series can be decomposed into `TS = Trend + Season + Random', i.e.
     % \begin{equation}
     %     Y_\tau=T_\tau+S_\tau+R_\tau 
@@ -952,7 +952,7 @@
 
     % where randomness lies in the (usually a zero mean stationary sequence) random term $ R_\tau $. After modelling non-random $ T_\tau  $, $ S_\tau  $, our target is to estimate the zero-mean stationary $ R_\tau \equiv X_\tau  $ based on history till $ t $ ($ \tau>t $).
 
-\subsubsection{MSE Forecast Criterion}
+\subsection{MSE Forecast Criterion}
     The criterion for forecasting is to minimizing some loss function, usually taken as MSE loss:
     \begin{equation}
         \hat{X}_{\tau|t}= \mathop{\arg\min}\limits_{X_\tau} \mathbb{E}[\left( X_\tau-X_{\tau|t} \right)^2]= \mathbb{E}\left( X_{\tau|t} \right) 
@@ -960,7 +960,7 @@
 
     our mission is to construct a function $ g(\,\cdot\,) $ so that $ \hat{X}_{\tau|t}=g(\mathscr{F}_{t}) $ can act as the estimator. $ \mathscr{F}_t=\{X_t,X_{t-1},X_{t-2},\ldots\} $ denotes the history until $ t $.
 
-\subsubsection{Best Linear Estimator}
+\subsection{Best Linear Estimator}
     A simple and straightforward method is a linear combination form of $ \mathscr{F}_t $:
     \begin{align}
         \hat{X}_{\tau|t}=&\sum_{j=0}^\infty \beta _jX_{t-j}\\
@@ -994,7 +994,7 @@
 
     
     
-\subsubsection{Forecast of AR$ (p) $}
+\subsection{Forecast of AR$ (p) $}
     AR$ (p) $:
     \begin{equation}
         X_{t+1}=\sum_{j=1}^p\phi _jX_{t+1-j}+\varepsilon _{t+1}
@@ -1021,7 +1021,7 @@
     \end{enumerate}
     
         
-\subsubsection{Forecast of MA$ (q) $}
+\subsection{Forecast of MA$ (q) $}
     MA$ (q) $:
     \begin{equation}
         X_{t+1}=\varepsilon _{t+1}+\sum_{j=1}^q\theta _j\varepsilon _{t+1-j}
@@ -1044,7 +1044,7 @@
 
     \end{enumerate}
     
-\subsubsection{Forecast of ARMA$ (p,q) $}
+\subsection{Forecast of ARMA$ (p,q) $}
     ARMA$ (p,q) $:
     \begin{equation}
         \phi (\mathscr{B} )X_t=\theta (\mathscr{B} )\varepsilon _t\Rightarrow X_t=\phi ^{-1}(\mathscr{B} )\theta (\mathscr{B} )\varepsilon _t\equiv \psi (\mathscr{B} )\varepsilon _t
@@ -1053,7 +1053,7 @@
     similarly estimate $ \psi _j $ and $ \varepsilon _j $ and forecast as MA$ (\infty) $
     
         
-\subsubsection{Forecast of ARIMA$ (p,d,q) $}
+\subsection{Forecast of ARIMA$ (p,d,q) $}
     
 
 

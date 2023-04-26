@@ -1,4 +1,4 @@
-\section{线性回归分析部分}\label{SecLinearRegressionAnalysis}
+\chapter{线性回归分析部分}\label{SecLinearRegressionAnalysis}
 \begin{center}
     Instructor: Zaiying Zhou
 \end{center}
@@ -48,7 +48,7 @@ source('package.r')
 \end{point}
 
 
-\subsection{Regression Model}
+\section{Regression Model}
 % \begin{itemize}[topsep=6pt,itemsep=4pt]
 %     \item Assume a Model
 %     \begin{enumerate}[topsep=6pt,itemsep=4pt]
@@ -81,7 +81,7 @@ df <- read.table('dataset/testdata.txt', header=FALSE, sep=',', col.names = c('y
 \end{rcode}
 
 
-\subsubsection{Linear Regression Model}
+\subsection{Linear Regression Model}
     Regression Model focuses on how $ Y $ changes with continuous variables $ X\in\mathbb{R} $. As a basic situation, we use \textbf{Linear Regression}, i.e. $ Y\sim X $ in linear relation.  
 
 
@@ -212,15 +212,16 @@ and Normality Error Assumption:
 }\\
 
 
-\subsubsection{Factor Analysis Model}
+\subsection{Factor Analysis Model}\label{SubSubSectionFactorAnalysisModelIntroduction}
     Regression Model focuses on continuous variables $ X\in\mathbb{R} $ while factor model focus on discrete variable. More specifically, the `value' of $ X $ is just a label, not necessarily a `numeric value'.
 
     Here only introduce one-way factor analysis,(single factor analysis) i.e. $ Y $ with only one factor with $ r $ levels: $ \mathrm{fac} =1,2,\ldots,r $. Re-denote $ Y_{ij}= $ the observation outcome of the $ j^\mathrm{th}  $ item labelled the $ i^\mathrm{th}  $ level.
 
     Model:
-    \begin{equation}
-        Y_{ij}=\mu +\tau_i+\varepsilon _{ij} ,\, i=1,\ldots,r,\, j=1,\ldots,n_i
-    \end{equation}
+    \begin{align}
+        Y_{ij}=&\mu +\tau_i+\varepsilon _{ij} ,\, i=1,\ldots,r,\, j=1,\ldots,n_i\\
+        w.r.t.&\sum_{i=1}^r \tau_i=0
+    \end{align}
     
     where $ \mu  $ is the average effect of all $ r $ factor levels, $ \tau_i $ is the level effect of the $ i^\mathrm{th}  $ factor level, and $ \varepsilon  $ i.i.d. $ \sim N(0,\sigma ^2) $ is noise error.
     
@@ -238,16 +239,19 @@ and Normality Error Assumption:
             1&0&1&\ldots\\
             1&0&1&\ldots\\
             \vdots&\vdots&\vdots&\ddots\\
-            \vdots&\vdots&\vdots&\vdots
+            \vdots&\vdots&\vdots&\vdots\\
+            1&-1&-1&\ldots\\
+            1&-1&-1&\ldots
         \end{bmatrix}=
         \begin{bmatrix}
             \mathbf{1}_{n_1}&\mathbf{1}_{n_1}&0&\ldots &0\\
             \mathbf{1}_{n_2}&0&\mathbf{1}_{n_2}&\ldots &0\\
             \vdots&\vdots&\vdots&\ddots&\vdots\\
-            \mathbf{1}_{n_r}&0&0&\ldots&\mathbf{1}_{n_r}
+            \mathbf{1}_{n_{r-1}}&0&0&\ldots&\mathbf{1}_{n_{r-1}}\\
+            \mathbf{1}_{n_r}&-\mathbf{1}_{n_r}&-\mathbf{1}_{n_r}&\ldots&-\mathbf{1}_{n_r}
         \end{bmatrix}\\
         \tau=&\begin{bmatrix}
-            \mu&\tau_1&\tau_2&\ldots
+            \mu&\tau_1&\tau_2&\ldots&\tau_{r-1}
         \end{bmatrix}^T\\
         \varepsilon =&\begin{bmatrix}
             \varepsilon _{11}&\ldots&\varepsilon _{1n_1}&\varepsilon _{21}&\ldots&\varepsilon _{2n_2}&\ldots
@@ -298,7 +302,7 @@ and Normality Error Assumption:
 
 
 
-\subsection{Monovariate Linear Regression Model}
+\section{Monovariate Linear Regression Model}
     First focus on the simpliest monovariate case $ \vec{X}_i=X_i $. Monovariate Linear Model\footnote{Here in linear regression, we consider $ X_i $ only as real number, \textbf{without} randomness. So here $ Y_i $ can be considered as an r.v. with $ X_i $ as parameter, i.e. $ Y_i|_{X_i=x_i} $}
     with \hyperlink{GaussMarkovAssumption}{Gauss-Markov assumption} \& Normal Error assumption:
     
@@ -322,7 +326,7 @@ and Normality Error Assumption:
     
     (Thus Linear Regression is also a Statistics Inference process: deduce properties of model from data)
         
-\subsubsection{The Ordinary Least Square Estimation}
+\subsection{The Ordinary Least Square Estimation}
     \index{OLS (Ordinary Least Squares)}
     Aim: use $ (x_i,y_i) $  to estimate $ \beta _0,\beta _1,\sigma^2 $. The idea is to define a 'loss function' to reflect the 'distance' from sample point to estimation point.
 
@@ -330,7 +334,7 @@ and Normality Error Assumption:
     \begin{itemize}[topsep=2pt,itemsep=2pt]
         \item Ordinary Least Squares\index{OLS (Ordinary Least Squares)}:
         \begin{equation}
-            (\hat{\beta  }_0,\hat{\beta _1})=\arg\min\sum_{i=1}^n (y-\beta _0-\beta _1x_i)^2
+            (\hat{\beta  }_0,\hat{\beta _1})=\mathop{ \arg\min }\limits_{\beta _0,\beta _1} \sum_{i=1}^n (y-\beta _0-\beta _1x_i)^2
         \end{equation}
         \item MLE or MoM Estimation.
     \end{itemize}
@@ -448,7 +452,7 @@ ggcoef(lmfit)
     % \end{itemize}
 
 
-\subsubsection{Statistical Inference to $ \beta _0 $, $ \beta _1 $, $ \sigma ^2 $, $ e_i $}
+\subsection{Statistical Inference to $ \beta _0 $, $ \beta _1 $, $ \sigma ^2 $, $ e_i $}
 
 \begin{point}
     Sampling Distribution of $ \hat{\beta} _1,\hat{\beta} _0  $
@@ -537,12 +541,12 @@ ggcoef(lmfit)
     Why we choose OLS to get regression coefficients?\index{Gauss-Markov Thm.}
 \end{point}
 
-    Gauss–Markov Thm.: the OLS estimator has the lowest sampling variance within the class of linear unbiased estimators, i.e. OLS is the \textbf{Best Linear Unbiased Estimator(BLUE)}.\footnote{This Thm. does \textbf{not }require normal error assumption.}\index{BLUE (Best Linear Unbiased Estimator)}
+    Gauss-Markov Thm.: the OLS estimator has the lowest sampling variance within the class of linear unbiased estimators, i.e. OLS is the \textbf{Best Linear Unbiased Estimator(BLUE)}.\footnote{This Thm. does \textbf{not }require normal error assumption.}\index{BLUE (Best Linear Unbiased Estimator)}
 
 
 
-\subsubsection{Prediction to $ Y_h $}
-    For a new $ X_h $ at which we wish to \textbf{predict }the corresponding $ Y_h $ (based on other known point $ (X_i,Y_i) $), denote the estimator as $ \hat{\mu}_h $:
+\subsection{Prediction to $ Y_h $}
+    For a new $ X_h $ at which we wish to {predict }the corresponding $ Y_h $ (based on other known points $ \{(X_i,Y_i)\}_{i=1}^n $), denote the estimator of mean as $ \hat{\mu}_h $:
     \begin{equation}
         \hat{\mu}_h=\hat{\beta}_1X_h+\hat{\beta}_0 =\beta_1X_h+\beta _0+\sum_{i=1}^n\left( \dfrac{1}{n}+\dfrac{(X_i-\bar{X})(X_h-\bar{X})}{S_{XX}} \right)\varepsilon _i
     \end{equation}
@@ -560,12 +564,17 @@ ggcoef(lmfit)
     Base on distribution we can give CI and HT.
 
 \begin{point}
-    We can either consider :
+    Interval: We can either consider ...
 \end{point}
 
     \begin{itemize}[topsep=2pt,itemsep=2pt]
-        \item $ \hat{\mu }_h $ as a function of all data points: 
-        We can just use $  \sigma ^2_{\hat{\mu}_h} $ to construct Confidence Interval of $ Y_h $;
+        \item $ \hat{Y}_h^\mathrm{ conf } =\hat{\mu }_h $: a function of (estimated) parameter to get \textbf{confidence interval}: 
+        We can just use the above distribution of $ \hat{\mu }_h $
+        \begin{align*}
+            \hat{Y}_h^\mathrm{ conf }=\hat{\mu }_h\sim   N(\beta _1X_h+\beta _0,\left( \dfrac{1}{n}+\dfrac{(X_h-\bar{X})^2}{S_{XX}} \right)\sigma^2) 
+        \end{align*}
+        
+        
 
         \begin{rcode}
 \begin{lstlisting}[language=R]
@@ -573,9 +582,9 @@ predict(lmfit,newdata = 40),
     interval="confidence",level=0.95)
 \end{lstlisting}
         \end{rcode}
-        \item $ \hat{\mu }_h $ as a function of all data points, and $ Y_h $ in generated from the model, which also has randomness: Prediction Interval of $ Y_h $ need to  have both the randomness of $ Y_h,\,\hat{\mu }_h $ considered.
+        \item $ \hat{Y}_h^\mathrm{ pred }=\hat{\mu }_h+\varepsilon   $: a function of (estimated) parameter and an extra random term to get \textbf{prediction interval}.
 
-        Def. Prediction Error: $ Y_h $ itself is an $ Y $ of the linear model, i.e. $ Y_i=\beta_0+\beta_1X_h+\varepsilon _h $, we can define \textbf{Prediction Error}: 
+        In this case we have an extra randomness. Def. Prediction Error: $ Y_h $ itself is an $ Y $ of the linear model, i.e. $ Y_i=\hat{\beta}_0+\hat{\beta }_1X_h+\varepsilon _h $, we can define \textbf{Prediction Error}: 
         \begin{equation}
             d_h=Y_h-\hat{\mu}_h 
         \end{equation}
@@ -584,6 +593,12 @@ predict(lmfit,newdata = 40),
         \begin{equation}
             \mathbb{E}(d_h)=0\qquad \sigma^2_{d_h}=var(Y_h-\hat{\mu }_h)=\left[ 1+\dfrac{1}{n}+\dfrac{(X_h-\bar{X})}{S_{XX}} \right]\sigma^2 > \sigma ^2_{\hat{\mu}_h}
         \end{equation}
+        thus
+        \begin{align*}
+            \hat{Y}_h^\mathrm{ conf }=\hat{\mu }_h+\varepsilon _h \sim   N(\beta _1X_h+\beta _0,\left( {\color{red}1}+\dfrac{1}{n}+\dfrac{(X_h-\bar{X})^2}{S_{XX}} \right)\sigma^2) 
+        \end{align*}
+        
+
 \begin{rcode}
 \begin{lstlisting}[language=R]
 predict(lmfit,newdata = 40),
@@ -622,7 +637,7 @@ predict(lmfit,newdata = 40),
 
     Where $ (L(x),U(x)) $ can be derived as
     \begin{equation}
-        (L(x),U(x))=\hat{\mu}_x\pm s_{\hat{\mu}_x}W_{2,n-2,1-\alpha}
+        (L(x),U(x))=\hat{\mu}_x\pm s_{\hat{\mu}_x}W_{2,n-2,1-\alpha}\quad \forall x\in I_x
     \end{equation}
 
     Where $ W $ correponds to $ W $ distribution: $ W_{m,n}=\sqrt{2F_{m,n}} $
@@ -639,7 +654,7 @@ ggplot(df,aes(x,y))+geom_point()+geom_smooth(method='lm',formula=y~x)
 \end{rcode}
 
 
-\subsubsection{Analysis of Variance: Monovariate}
+\subsection{Analysis of Variance: Monovariate}
     \index{ANOVA (Analysis of Variance)}\textbf{AN}alysis \textbf{O}f \textbf{VA}riance (ANOVA): \hyperlink{OneSampletTest}{One-sample $ t $ test} $\rightsquigarrow $ \hyperlink{TwoSampletTest}{Two sample $ t $ test} $\rightsquigarrow $ More-sample: ANOVA
 
 \begin{point}
@@ -743,14 +758,14 @@ Properties:
 
 
 
-\subsection{Multivariate Linear Regression Model}\label{SubSectionMultivariateLinearRegressionModel}
+\section{Multivariate Linear Regression Model}\label{SubSectionMultivariateLinearRegressionModel}
     As a more general case of $ \vec{X}_i=(X_{i1},X_{i2},\ldots,X_{ip})  $, Multivariate Linear Model is expressed as in \autoref{EqaMultivariteLinearModel}:
     \begin{equation}
         Y=X\beta +\varepsilon ,\,\varepsilon \sim N_p(0,\sigma ^2I) 
     \end{equation}
 
 
-\subsubsection{The Ordinary Least Estimation}
+\subsection{The Ordinary Least Estimation}
     To conduct OLS\index{OLS (Ordinary Least Squares)}
     \begin{equation}
         \hat{\beta }=\mathop{ \arg\min }\limits_{\beta \in \mathbb{R}^{p+1} } (Y-X\beta )^T(Y-X\beta )
@@ -795,7 +810,7 @@ Properties:
 
     % (For simplification, the following part consider multivariate $ \mathop{X}\limits_{n\times (p+1)}  $ with one $ \mathop{Y}\limits_{n\times 1}  $)
 
-\subsubsection{Statistical Inference to $ \beta  $, $ \sigma ^2 $, $ e $}\label{SubSubSectionStatisticalInferenceInMultiLRA}
+\subsection{Statistical Inference to $ \beta  $, $ \sigma ^2 $, $ e $}\label{SubSubSectionStatisticalInferenceInMultiLRA}
     Properties \& Extrapolation
 \begin{itemize}[topsep=2pt,itemsep=2pt]
     \item Sampling Distribution of $ \hat{\beta } $: (Here consider normal case $ Y\sim N(X\beta ,\sigma^2I_n) $, and use \autoref{EqaTransformOfMultiNormal}) 
@@ -882,8 +897,8 @@ Properties:
 
 
 
-\subsubsection{Prediction to $ Y_h $}
-    For a new $ \vec{X}_h $ at which we wish to \textbf{predict }the corresponding $ Y_h $ (based on other known point $ (X_i,Y_i) $), denote the estimator as $ \hat{\mu}_h $:
+\subsection{Prediction to $ Y_h $}
+    For a new $ \vec{X}_h $ at which we wish to \textbf{predict }the corresponding $ Y_h $ (based on other known point $ (X_i,Y_i) $), denote the estimator of mean as $ \hat{\mu}_h $:
     \begin{equation}
         \hat{\mu }_h=X_h'\hat{\beta }=X_h'(X'X)^{-1}X'Y
     \end{equation}
@@ -897,6 +912,7 @@ Properties:
     \begin{equation}
         \hat{\mu}_h\sim N(X'\beta,\sigma ^2(1+X_h'(X'X)^{-1}X_h))
     \end{equation}
+
     
     
     
@@ -905,7 +921,7 @@ Properties:
 
     
 
-\subsubsection{Analysis of Variance: Multivariate}
+\subsection{Analysis of Variance: Multivariate}\label{SubSubSectionLinearRegressionMultiANOVA}
     Sampling Notation see \autoref{EqaSampleNotationOfMultiLinear}, still consider $ (p+1) $ -dim $ (\mathbf{1}_n,X_i) $ v.s. $ 1 $-dim $ Y $, and $ \beta=(\beta _0,\beta _1,\beta _2,\ldots,\beta _p) $\index{ANOVA (Analysis of Variance)}
 
 \begin{itemize}[topsep=2pt,itemsep=2pt]
@@ -980,7 +996,7 @@ anova(lmfit)
 
 
 
-\subsection{Diagnostics}\label{SubSectionDiagnosticsForMonoModel}
+\section{Diagnostics}\label{SubSectionDiagnosticsForMonoModel}
 
 
 \colorlet{lcfree}{Green3}
@@ -1105,22 +1121,23 @@ anova(lmfit)
 lmfit <- lm(y~x,lmfit)
 par(mfrow = c(2, 2))
 plot(lmfit)
+par(mfrow = c(1, 1))
 \end{lstlisting}
 \end{rcode}
     
 
-\subsubsection{Useful Diagnostics Plots}
+\subsection{Useful Diagnostics Plots}
 
         \begin{itemize}[topsep=2pt,itemsep=2pt]
-            \item BoxPlot: to examine the similarity of  distribution.
+            \item BoxPlot: to examine the similarity of shape of distribution.
             
             Notation:
             \begin{enumerate}[topsep=2pt,itemsep=2pt]
-                \item min point above 25\% quartile-1.5IQR;
-                \item 25\% quartile;
+                \item min point above 25\% quartile$ - $1.5IQR;
+                \item 25\% quantile;
                 \item median;
-                \item 75\% quartile;
-                \item max point below 75\% quartile+1.5IQR.
+                \item 75\% quantile;
+                \item max point below 75\% quartile$ + $1.5IQR.
             \end{enumerate}
             
                 
@@ -1190,7 +1207,7 @@ avPlots(lmfit)
 
 
     
-\subsubsection{Diagnostics to $ X $ Distribution}\label{SubSecXDiagnostics}
+\subsection{Diagnostics to $ X $ Distribution}\label{SubSecXDiagnostics}
 
 
     Considering the dependence of $ Y_i $ on $ X_i $, to get a more reliable $ \hat{\beta }_1 $, we cannot just focus on the (marginal) distribution of $ Y_i $, we would also need a better 'distribution' of $ X_i $
@@ -1263,7 +1280,7 @@ summary(df$x)
             
 \end{itemize}
     
-\subsubsection{Diagnostics to Residual}\label{SubSecDiagnostics}
+\subsection{Diagnostics to Residual}\label{SubSecDiagnostics}
 
 \begin{point}
     Residual Reflects the properties of $ \varepsilon  $
@@ -1284,10 +1301,10 @@ avPlots(lmfit)
 \end{lstlisting}
 
 \end{rcode}
-    \item The Assumption of \textbf{Equal Variances} / Homoskedasticity (齐方差性)\index{Homoskedasticity}: 
+    \item The Assumption of \textbf{Equal Variances} / Homoscedasticity (齐方差性)\index{Homoscedasticity}\index{Heteroscedasticity}: 
     \begin{itemize}[topsep=2pt,itemsep=2pt]
         \item \hyperlink{AVPlot}{AV Plot} , e.g. test the $ R^2 $ of $ (e_Y|X_{(\wedge i)} )$-$( e_{X_i}|X_{(\wedge i)}) $ relation.
-        \item Bartlett's test:\index{Bartlett's test}
+        \item Bartlett's test:\index{Bartlett's Test}
         
         Idea: divide the sample into groups $ g $, and get each MSE
         \begin{equation}
@@ -1296,7 +1313,7 @@ avPlots(lmfit)
         
         and take statistic
         \begin{equation}
-            S=-\dfrac{(N-g)\ln\left[ \sum\limits_g \dfrac{n_g}{N-n_g}\mathrm{MSE}_g \right]-\sum\limits_{g}(n_g-1)\ln \dfrac{n_g}{N-n_g}\mathrm{MSE}_g }{1+\dfrac{1}{3(G-1)}\sum\limits_g\left( \dfrac{1}{n_g-1}-\dfrac{1}{N-G} \right)} \sim \chi^2
+            S=-\dfrac{(N-g)\ln\left[ \sum\limits_{g=1}^G \dfrac{n_g}{N-n_g}\mathrm{MSE}_g \right]-\sum\limits_{g=1}^G(n_g)\ln \dfrac{n_g-1}{N-n_g}\mathrm{MSE}_g }{1+\dfrac{1}{3(G-1)}\left(\sum\limits_{g=1}^G \dfrac{1}{n_g}-\dfrac{1}{N-G} \right)} \sim \chi^2_{G-1}
         \end{equation}
 
         to conduct test. 
@@ -1462,7 +1479,7 @@ dwtest(lmfit)
         
 
 
-\subsubsection{Diagnostics to Influentials}\label{SubSubSectionDiagnosticsToInfluentials}
+\subsection{Diagnostics to Influentials}\label{SubSubSectionDiagnosticsToInfluentials}
     An intuitive explanation to extreme values:
     \begin{itemize}[topsep=2pt,itemsep=2pt]
         \item Outliers: Extreme case for $ Y $;
@@ -1726,7 +1743,7 @@ and note that $ X_{:,1}=\mathbf{1}_n $
 \end{equation}
 here $ S=\mathop{S}\limits_{(p+1)\times (p+1)}  $. Note that $  \mathrm{L.H.S.}\geq 0$, thus it's also an evidence that $ h_{ii}\geq \dfrac{1}{n} $
 
-\subsubsection{Extra Sum Of Square}\label{SubSubSectionExtraSumOfSquare}
+\subsection{Extra Sum Of Square}\label{SubSubSectionExtraSumOfSquare}
     Def. Extra SS: the part of SSE explained by a new $ X_2 $ when adding to model $ Y\sim X_1 $:
     \begin{equation}
         \mathrm{SSR}(X_2|X_1)=\mathrm{SSE}(X_1)-\mathrm{SSE}(X_1,X_2)=\mathrm{SSR}(X_1,X_2)-\mathrm{SSR}(X_1)  
@@ -1777,7 +1794,7 @@ Anova(lmfit,type='III')
 
 
 
-\subsubsection{Hypotheses Testing to Slope}
+\subsection{Hypotheses Testing to Slope}\label{SubSubSectionGeneralLinearTest}
     Main focus: whether the linear relation exist:
 \begin{equation}
     H_0:\beta _1=\beta _2=\ldots=\beta _p=0\longleftrightarrow H_1:\exists \beta _i\neq 0,\, i=1,2,\ldots,p
@@ -1939,7 +1956,7 @@ etasq(lmfit)
 
 
 
-\subsubsection{Diagnostics to Multi-collinearity}\label{SubSubSectionDiagnosticsToMultiCollinearity}
+\subsection{Diagnostics to Multi-collinearity}\label{SubSubSectionDiagnosticsToMultiCollinearity}
     
 \begin{itemize}[topsep=2pt,itemsep=2pt]
     \item Venn Diagram for Multi-Linear Regression: Used to show the interpretability of variables.\index{Venn Diagram}
@@ -2014,7 +2031,7 @@ vif(lmfit)
     
 
     
-\subsubsection{Diagnostics to Model Variable Selection}
+\subsection{Diagnostics to Model Variable Selection}
 
         In Multi-variate regression, proper explanatory variables form a subset of all available variables.
 
@@ -2024,14 +2041,14 @@ vif(lmfit)
 
 \begin{point}
     Model Validation: $ k $-Fold Cross Validation(CV):\index{CV ($ k $-Fold Cross Validation)} 
+
+\end{point}
+
     \begin{enumerate}[topsep=2pt,itemsep=2pt]
         \item Separate the dataset size $ n $ into $ k $ parts;
         \item pick the $ i^\mathrm{th} $ part as test set $ y_i $, and the other $ k-1 $ part as train set $ y_{\wedge i} $(to conduct regression, etc); then conduct prediction of model $ y_{\wedge i} $ to part $ y_i $ ane get $ \mathrm{MSE}_i $;
         \item Take average of $ \mathrm{MSE}_i $ as the measure of validity.
     \end{enumerate}
-\end{point}
-
-
 
 
 \begin{point}
@@ -2083,7 +2100,7 @@ vif(lmfit)
             \Gamma _0\equiv \dfrac{\sum_{i=1}^n \mathbb{E}[(\hat{Y}_i^p-\mu_i)^2]}{\sigma ^2}=\dfrac{\mathbb{E}(\mathrm{SSE}(p) )}{\sigma ^2}-(n-2p)
         \end{equation}
         
-        And construct Mallow's $ C-p $: Estimation of $ \Gamma _p $
+        And construct Mallow's $ C_p $: Estimation of $ \Gamma _p $
         \begin{equation}\label{EqaMallowsCp}
             C_p=\hat{\Gamma }_p=\dfrac{\mathbb{E}(\mathrm{SSE}(p))}{\hat{\sigma }^2}-(n-2p)
         \end{equation}
@@ -2184,9 +2201,9 @@ leapSet$which[which.min(leapSet$Cp),]
 
 
 
-\subsection{Remedies}
+\section{Remedies}
 
-\subsubsection{Variable Transformation}\label{SubSubSectionVarianceStablizeTransformation}
+\subsection{Variable Transformation}\label{SubSubSectionVarianceStablizeTransformation}
     The goal of Transformation:
         
         \begin{itemize}[topsep=2pt,itemsep=2pt]
@@ -2295,7 +2312,7 @@ bctrans$x[which.max(bctrans$y)]
         
     \end{itemize}
 
-\subsubsection{Weighted Least Squares Regression}
+\subsection{Weighted Least Squares Regression}
     To deal with heterogeneous variance, use Weighted Least Squares (WLS)\index{WLS (Weighted Least Squares)} instead of OLS: Minimizing
     \begin{equation}
         \sum_{i=1}^ne_i^2\longrightarrow \sum_{i=1}^nw_ie^2_i         
@@ -2327,7 +2344,7 @@ Wlmfit <- lm(y~x,weights=WEIGHT_VECTOR,data=df)
 
 
 
-\subsubsection{Remedies for Model Variable Selection \& More Regression Model}
+\subsection{Remedies for Model Variable Selection \& More Regression Model}
     Several Algorithm to search for best variable set:
 \begin{itemize}[topsep=2pt,itemsep=0pt]
 \item Exhaustive Search and \hyperlink{ModelValidationCriteria}{Test}: Used for $ p\leq \sim 30 $
@@ -2357,7 +2374,7 @@ Penalty term: $ \lambda\Vert \beta \Vert _1) $, where $ \lambda  $ is a proper p
     \hat{\beta }=\arg\min (\left\Vert Y-X\beta \right\Vert _2 ^2+\lambda\left\Vert \beta \right\Vert _1)
 \end{equation}
 
-    or equivlantly expressed as 
+    or equivlantly expressed as \footnote{Constrained optimization theory intro see \autoref{ConstrainedOptimizeTheory}.}
 
 \begin{equation}
     \hat{\beta }=\arg\min \left\Vert Y-X\beta \right\Vert _2 ^2, \text{ with }\Vert \beta \Vert _1\leq s
@@ -2500,8 +2517,10 @@ polfit <- lm(y~polym(x1,x2,degree=),df)
 
 
 
-\subsection{Factor Analysis of Variance}
-\subsubsection{Single Factor Model}
+\section{Factor Analysis of Variance}\label{SubSectionLRAFactorANOVA}
+Here are some basic introduction to factor model. For more knowledge see \autoref{SectionIntroToBiostatistics} and \autoref{SectionDoE}
+
+\subsection{Single Factor Model}
     Single factor, or one-way analysis of variance focuses on continuous $ Y \sim $ categorical $ X $ (numeric-factor). Regression goal is the mean response of each category $ \pi_i $: whether \& how much they are different.
 
     Basic assumptions: Normal within each categories, Equal variance, independent
@@ -2524,15 +2543,15 @@ facfit <- lm(y~x,df) # where x should be as.factor() type
     Statistical Inference to Individual $ \mu ,\tau_i $
 \end{point}
 
-    Note: $ \mathrm{rk}(X)=r<\# \mathrm{variable}=r+2 \Rightarrow $ estimator not unique. Usually use constraint
+    Note: Initially we have $r+2$ variable $ (\mu ,\tau_{i=1}^r,\sigma ^2) $ $\Rightarrow $ estimator not unique. So we use a constraint to cancel the extra degree of freedom.
 \begin{align*}
     \sum_{i=1}^rc_i\tau_i=&0
     % \sum_{i=1}^rn_i\tau_i=&0
 \end{align*}
-    usually take $ c_i=1 $ or $ c_i=n_i $
+    usually we take $ c_i=1 $ or $ c_i=n_i $
 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item Factor effect solution for $ c_i=1 $, i.e. $ \sum_{i=1}^r \tau _i=0 $
+    \item Factor effect solution for $ c_i=1 $, i.e. $ \sum_{i=1}^r \tau _i=0 $ (used more).
 \begin{align*}
     \hat{\mu }=&\dfrac{1}{r}\sum_{i=1}^r\bar{Y}_i=\dfrac{1}{r}\sum_{i=1}^r\sum_{j=1}^{n_i}\dfrac{Y_{ij}}{n_i}\\
     \hat{\tau}_i=&\bar{Y}_i-\hat{\mu }
@@ -2581,7 +2600,7 @@ facfit <- lm(y~x,df) # where x should be as.factor() type
 
     We usually focus on `difference' between factor effects, general form 
     \begin{equation}\phi=\sum_{i=1}^r\xi _i\tau_i ,\qquad  \sum_{i=1}^r\xi _i=0 \end{equation}
-    where $ \phi $ with $ \sum_{i=1}^r\xi _i=0 $ is called a contrast. Assume there are $ m $ estimator $ \phi _k $, $ k=1,2,\ldots,m $, $ m\leq \dfrac{r(r-1)}{2} $
+    where $ \phi $ with $ \sum_{i=1}^r\xi _i=0 $ is called a \textbf{contrast}\index{Contrast}. Assume there are $ m $ estimator $ \phi _k $, $ k=1,2,\ldots,m $% , $ m\leq \dfrac{r(r-1)}{2} $
 
 \begin{equation}
     \mathop{\phi }\limits_{m\times 1} =\begin{bmatrix}
@@ -2628,7 +2647,7 @@ facfit <- lm(y~x,df) # where x should be as.factor() type
     \item Tukey's Confidence Region for $ \mathop{\phi }\limits_{1\times 1} $, under condition $ n_1=\ldots=n_r=n $: focus on estimating $ \tau_i-\tau_j $
     
     \begin{itemize}[topsep=2pt,itemsep=0pt]
-        \item Def.: studentized range distribution\index{Studentized Range Distribution}: for $ Z_1,\ldots,Z_n $ i.i.d. $ \sim N(0 ,1) $, $ mW^2\sim \xi _m^2 $, then 
+        \item Def.: studentized range \hypertarget{TukeyStudentizedRangeDistribution}{}distribution\index{Studentized Range Distribution}: for $ Z_1,\ldots,Z_n $ i.i.d. $ \sim N(0 ,1) $, $ mW^2\sim \chi _m^2 $, then 
         \begin{equation}
             q=\dfrac{\max Z_i-\min Z_i}{W}\sim q_{n,m} 
         \end{equation}
@@ -2647,7 +2666,7 @@ facfit <- lm(y~x,df) # where x should be as.factor() type
      
 \end{itemize}
 
-    Comment: Scheff\`{e} is more conservative, i.e. shorter. If confidence interval does not include $ 0 $, we can say they are significantly different.
+    Comment: Scheff\`{e} is more conservative, i.e. shorter. If confidence interval does not include $ 0 $, we can say they are significantly different. More about theory behind these confidence region see \autoref{SubSubSectionDoEOneWayANOVA}-\hyperlink{DoEMultipleComparison}{Multiple Comparison}
 
 \begin{rcode}
 \begin{lstlisting}[language=R]
@@ -2666,7 +2685,7 @@ use \lstinline|plot()| to view interval estimation
     
 
 
-\subsubsection{Double Factor Model}
+\subsection{Double Factor Model}
     Double factor, or two-way analysis of variance, categories $ \pi_{ij} $:
     
     \begin{equation}
@@ -2677,13 +2696,16 @@ use \lstinline|plot()| to view interval estimation
     \begin{align*}
         \hat{\mu }=&\dfrac{1}{ab}\sum_{i=1}^a\sum_{j=1}^b\sum_{k=1}^{n_{ij}}\dfrac{Y_{ijk}}{n_{ij}}\\
         \hat{\alpha }_i=&\dfrac{1}{b}\sum_{j=1}^b\sum_{k=1}^{n_{ij}}\dfrac{Y_{ijk}}{n_{ij}}-\hat{\mu }\\
-        \hat{\beta }_j&\dfrac{1}{a}\sum_{i=1}^a\sum_{k=1}^{n_{ij}}\dfrac{Y_{ijk}}{n_{ij}}-\hat{\mu }
+        \hat{\beta }_j =&\dfrac{1}{a}\sum_{i=1}^a\sum_{k=1}^{n_{ij}}\dfrac{Y_{ijk}}{n_{ij}}-\hat{\mu }
     \end{align*}
     
     $ \mathrm{MSE}  $ estimator of $ \sigma ^2 $:
     \begin{equation}
         \hat{\sigma ^2}= \dfrac{1}{n_T-ab}\sum_{i=1}^a\sum_{j=1}^b\sum_{k=1}^{n_{ij}}(Y_{ijk}-\bar{Y}_{ij})^2=\dfrac{1}{n_T-ab}\left[ \sum_{i=1}^a\sum_{j=1}^b\sum_{k=1}^{n_{ij}}Y_{ijk}^2-\sum_{i=1}^a\sum_{j=1}^b\dfrac{\bar{Y}_{ij}^2}{n_{ij}} \right]
     \end{equation}
+
+
+    More about theory of Factor model or Dealing with complicted cases see \autoref{SectionIntroToBiostatistics} and \autoref{SectionDoE}.
     
 
     
@@ -2712,7 +2734,7 @@ use \lstinline|plot()| to view interval estimation
     
 
 
-\subsection{Generalized Linear Model}\label{SubSectionGeneralizedLinearModel}
+\section{Generalized Linear Model}\label{SubSectionGeneralizedLinearModel}
     Recall: Linear model with normal assumption can be expressed as :
     \begin{equation}
         Y_i\sim N(\mu _i,\sigma_i ^2)=N(x_i'\beta ,\sigma_i ^2) 
@@ -2865,7 +2887,7 @@ use \lstinline|plot()| to view interval estimation
     Solution of Generalized Linear Model
 \end{point}
 
-    Using the distribution of $ Y_i $ dependent on $ x_i'\beta  $, we can use MLE maximizing to solve $ \beta  $. Algorithm for such maximizing task is called Iteratice Re-weighted Least Squares, more specifically when using Newton-Raphson Method, this method is called Fisher's Scoring Method. Detail see \autoref{SubSubSectionFisherScoringMethod}.
+    Using the distribution of $ Y_i $ dependent on $ x_i'\beta  $, we can use MLE maximizing to solve $ \beta  $. Algorithm for such maximizing task is called Iterative Re-weighted Least Squares, more specifically when using Newton-Raphson Method, this method is called Fisher's Scoring Method. Detail see \autoref{SubSubSectionFisherScoringMethod}.
 
 
 

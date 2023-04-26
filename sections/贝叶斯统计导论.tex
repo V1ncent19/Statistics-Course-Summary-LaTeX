@@ -1,10 +1,10 @@
-\section{贝叶斯统计导论部分}
+\chapter{贝叶斯统计导论部分}
 \begin{center}
     Instructor: Wanlu Deng
 \end{center}
-\newcommand{\fixed}[1]{\underline{#1}}
+\newcommand{\fixed}[1]{{\color{gray}#1}}
 
-\subsection{Calculation Preparation}
+\section{Calculation Preparation}
 Some useful calculation results / tricks are listed in this part, including r.v. distribution / integration, etc.
 
 \subsection{Calculation}
@@ -26,7 +26,7 @@ Some useful calculation results / tricks are listed in this part, including r.v.
     \begin{align*}
         \begin{cases}
             \int_\mathbb{R}e^{-\frac{t^2}{2\sigma ^2}}\,\mathrm{d}t=2\times \dfrac{\sqrt{2}\sigma }{2}\Gamma (\dfrac{1}{2})={\sqrt{2\pi}\sigma }\\
-            \int_\mathbb{R}t^2 \dfrac{1}{\sqrt{2\pi}\sigma }e^{-\frac{t^2}{2\sigma ^2}}\,\mathrm{d}t=\dfrac{2}{\sqrt{2\pi}\sigma  }\times \dfrac{(2\sigma^2 )^{3/2}}{2}\Gamma (\dfrac{3}{2})\times =\sigma ^2
+            \int_\mathbb{R}t^2 \dfrac{1}{\sqrt{2\pi}\sigma }e^{-\frac{t^2}{2\sigma ^2}}\,\mathrm{d}t=\dfrac{2}{\sqrt{2\pi}\sigma  }\times \dfrac{(2\sigma^2 )^{3/2}}{2}\Gamma (\dfrac{3}{2}) =\sigma ^2
         \end{cases}
     \end{align*}
     
@@ -54,7 +54,7 @@ Some useful calculation results / tricks are listed in this part, including r.v.
     
     \item Beta Integral 
     \begin{align*}
-        B(p,q)\equiv \int_0^1 t^{p-1}(1-t)^{p-1}\,\mathrm{d}t,\qquad  \mathrm{Re}\,p,\,\mathrm{Re}q \,>0
+        B(p,q)\equiv \int_0^1 t^{p-1}(1-t)^{q-1}\,\mathrm{d}t,\qquad  \mathrm{Re}\,p,\,\mathrm{Re}q \,>0
     \end{align*}
     \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item symmetry
@@ -63,21 +63,25 @@ Some useful calculation results / tricks are listed in this part, including r.v.
         \end{align*}
         \item Gamma function expression
         \begin{align*}
-            B(p,q)=\dfrac{\Gamma (p)\Gamma (q)}{\Gamma (p+q)}=\dfrac{(p-1)!(q-1)!}{(p+q-1)!}\,\text{for integer }p,q 
+            B(p,q)=\dfrac{\Gamma (p)\Gamma (q)}{\Gamma (p+q)},\,\text{for integer }p,q \,=\dfrac{(p-1)!(q-1)!}{(p+q-1)!}
         \end{align*}
         
     \end{itemize} 
     
     
+
+
+ 
+
 \end{itemize}
 
     
 
 \subsection{Useful Distribution Recap}
 \begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item ($ n $-dimensional) Normal distribution $ Z\sim N(\mu ,\Sigma ) $
+    \item ($ p $-dimensional) Normal distribution $ Z\sim N(\mu ,\Sigma ) $
     \begin{align*}
-        f_Z(z)=(2\pi/\Sigma)^{-n/2} \exp\left[ -\dfrac{1}{2}(z-\mu )'\Sigma ^{-1}(z-\mu ) \right],\qquad \text{with }\begin{cases}
+        f_Z(z)=(2\pi)^{-p/2}|\Sigma |^{-1/2} \exp\left[ -\dfrac{1}{2}(z-\mu )'\Sigma ^{-1}(z-\mu ) \right],\qquad \text{with }\begin{cases}
             \mathbb{E}\left[ Z \right]=\mu\\
             var(z)=\Sigma  
         \end{cases} 
@@ -166,17 +170,17 @@ Some useful calculation results / tricks are listed in this part, including r.v.
         \end{align*}
         \item (scaled) $ \mathrm{Inv}$-$\chi^2(n,s^2)=\dfrac{ns^2}{\chi^2_n}=\mathrm{Inv}$-$ \Gamma (\dfrac{n}{2},\dfrac{ns^2}{2}) $
         \begin{align*}
-            f_Z(z)= \dfrac{n^{\frac{n}{2}}}{2^{\frac{n}{2}\Gamma (\frac{n}{2})}}z^{-\frac{n}{2}-1}e^{-\frac{ns^2}{2z}} ,\qquad \text{with }\begin{cases}
+            f_Z(z)= \dfrac{n^{\frac{n}{2}}}{2^{\frac{n}{2}}\Gamma (\frac{n}{2})}z^{-\frac{n}{2}-1}e^{-\frac{ns^2}{2z}} ,\qquad \text{with }\begin{cases}
                 \mathbb{E}\left[ Z \right]=\dfrac{n}{n-2}s^2\\
                  var(Z)=  \dfrac{2n^2s^4}{(n-2)^2(n-4)}
             \end{cases}
         \end{align*}
     
-        \item $ Z\sim \mathrm{Inv}  $-$ \mathrm{Wishart}(\Lambda )\Leftrightarrow Z^{-1}\sim \mathrm{Wishart}(\Lambda )   $\footnote{In R. and Python., functional input form is $ \mathrm{Wishart}(\Lambda^{-1} )=\left(\mathrm{Wishart}(\Lambda ) \right)^{-1}  $}
+        \item $ Z\sim \mathrm{Inv}  $-$ \mathrm{Wishart}(\Lambda )\Leftrightarrow Z^{-1}\sim \mathrm{Wishart}(\Lambda )   $\footnote{In R. and Python., functional input form is $\mathrm{Inv}$-$ \mathrm{Wishart}({\color{blue}\Lambda^{-1}} )=\left(\mathrm{Wishart}(\Lambda ) \right)^{-1}  $}
         \begin{align*}
-            f_Z(z)= f_W(z^{-1})\left|z\right|^{-2p} \propto |z|^{-\frac{m+p+1}{2}}\exp\left[ -\dfrac{1}{2}tr(\Lambda ^{-1}w^{-1}) \right]
+            f_Z(z)= f_W(z^{-1};p,m,\Lambda )\left|z\right|^{-(p+1)} \propto |z|^{-\frac{m+p+1}{2}}\exp\left[ -\dfrac{1}{2}tr(\Lambda ^{-1}z^{-1}) \right]
         \end{align*}
-        Proof note for Jacobian $ \left|\dfrac{\partial^{}A^{-1}}{\partial A^{}}\right|=-|A|^{-2\dim_A} $:
+        \footnote{Proof note for Jacobian $ \left|\dfrac{\partial^{}A^{-1}}{\partial A^{}}\right| $: For an \textit{arbitrary} matrix $ \left|\dfrac{\partial^{}A^{-1}}{\partial A^{}}\right| = |A|^{-2\dim_A}$
         \begin{enumerate}[topsep=2pt,itemsep=0pt]
             \item First construct mapping $ \mathbb{R}^{p\times p}\mapsto \mathbb{R}^{p^2} $ e.g. by $ \vec{a}_{I\equiv ip+j}=A_{ij} $
             \item Differentiation: where $ e_i $ is the unit vector on the $ i^\mathrm{th}  $ coord.
@@ -199,17 +203,25 @@ Some useful calculation results / tricks are listed in this part, including r.v.
                 \left\Vert\dfrac{\partial^{} A^{-1}}{\partial A^{}}\right\Vert\equiv \left\Vert{\color{blue} \dfrac{\partial^{} \vec{a}^{-1}}{\partial \vec{a}}}\right\Vert = \left\Vert {\color{blue}-(A')^{-1}\otimes A^{-1} }\right\Vert=\left|A\right|^{-2p}
             \end{align*}
         \end{enumerate}
-            
+
+        Further here for Wishart distribution, we have a constraint for \textit{positive definition}. The constraint causes a `degree of freedom reduction' so $ \left|\dfrac{\partial^{}A^{-1}}{\partial A^{}}\right| = |A|^{-(\dim_A+1)} $.
+        }
     \end{itemize}
         
     
 \end{itemize}
 
+
+
+
+
+
+
     
 
 
 
-\subsection{}
+\section{Elements in Bayesian Model}
 Key idea: Bayesian rule
 \begin{align*}
     \mathbb{P}\left( X|Y \right)=&\dfrac{\mathbb{P}\left( Y|X \right) \mathbb{P}\left( X  \right) }{\mathbb{P}\left( Y \right) }=\dfrac{\mathbb{P}\left( Y|X  \right) \mathbb{P}\left( X  \right) }{\int _{\Omega_X} \mathbb{P}\left( Y|X  \right) \mathbb{P}\left( X  \right)  \,\mathrm{d}X} 
@@ -222,7 +234,7 @@ In both Bayesian \& Frequentist statistics, we care about updating our `belief' 
 \end{align*}
 
 
-\subsubsection{Prior Selection}
+\subsection{Prior Selection}
 
 Selection of prior distribution $ p(\theta ) $ could greatly influence posterior because it provides prior information about the parameter. The selection could be flexible, here are some frequently-used approaches
 \begin{itemize}[topsep=2pt,itemsep=0pt]
@@ -247,30 +259,205 @@ Selection of prior distribution $ p(\theta ) $ could greatly influence posterior
         \item \hyperlink{ExpConjugate}{Exponential Model}
         \item \hyperlink{NormalWithVarConjugate}{UniNormal with known variance Model}
         \item \hyperlink{NormalWithMeanConjugate}{UniNormal with known mean Model}
-        \item 
         \item \hyperlink{MultinomConjugate}{Multinomial Model}
         \item \hyperlink{NormalConjugate}{UniNormal Model}
-        \item 
         \item \hyperlink{MultiNormalConjugate}{MultiNormal Model}
     \end{itemize}
+
+    \item Non-informative Prior: Jeffrey's Prior. Idea is to choose a distribution `covariant' with parameterization \footnote{此处 covariant 一词类似于广相中的“协变”义。}. i.e. under different parameterization, say $ \theta \leftrightharpoons \phi $, we should follow the same deduction method to get corresponding prior $ p_\theta \leftrightharpoons p_\phi  $ that could covariant with parameter transform 
+    \begin{align*}
+        p_\theta (\theta )=p_\phi (\phi (\theta ))\left| \dfrac{\partial^{} \phi(\theta )  }{\partial ^{} \theta } \right| 
+    \end{align*}
+    
+    We notice that $ |I(\theta) |^{1/2} $ meet such requirement, which gives Jeffrey's Prior\index{Jeffrey's Prior}.
+    \begin{align*}
+        L(y|\theta )=L(y|\phi ) \Rightarrow  |I(\theta )|=&\left\vert\mathbb{E}_y\left[ \dfrac{\partial \log L(y|\theta ) }{\partial \theta  } \dfrac{\partial \log L(y|\theta ) }{\partial \theta'  } \right] \right\vert\\
+        =&\left\vert\mathbb{E}_y\left[ \dfrac{\partial^{}L(y|\phi )  }{\partial \phi  ^{} }\dfrac{\partial^{}L(y|\phi )  }{\partial \phi' } \right]\right\vert \left| \dfrac{\partial^{} \phi }{\partial ^{} \theta } \right|^2\\
+        =&|I(\phi )|\left| \dfrac{\partial^{} \phi }{\partial ^{} \theta } \right|^2
+    \end{align*}
+
+    Note: Usually Jeffrey's is an improper prior (diverge).
+    
+    \item Other suitable prior that reflects our knowledge.
+    
+     
 \end{itemize}
 
-    
 
+\subsection{Posterior Distribution}
+After wisely select the prior, we can have it combined with data and get formula for posterior
+\begin{align*}
+    p(\theta |y)\propto p(\theta )p(y|\theta ) 
+\end{align*}
 
-
-\subsection{Exactly Sovable Models}
-\textbf{Note} : In this section for a known/given parameter (i.e. we do \textbf{not} consider it an r.v., just a given param), we attach an fixed to label it, e.g. $ N(\mu ,\fixed{\sigma^2} ) $ for the case $ \sigma^2 $ is given, and we only study the distribution of $ \mu  $.
+which is a function of $ \theta  $, so we just need to take care of $ \theta  $-terms and normalization condition would help fixed the constant.
 
 \begin{point}
-    Content
+    Calculation Trick
 \end{point}
 \begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item 
+    \item Identify the distribution with the variable related term.
+    
+    Example: Obtain the predictive distribution of Poisson model with conjugate Gamma distribution
+    \begin{align*}
+        p(y|\theta )=&\prod_{i=1}^N\dfrac{ \theta ^{y_i} }{ y_i! }e^{-\theta }\\
+        p(\theta )\sim &\Gamma (\alpha,\beta )\\ 
+        p(\tilde{y}|y)\propto&\int \dfrac{ \theta ^{\tilde{y}} }{ \tilde{y}! }e^{-\theta } \theta ^{\alpha -1}e^{-\beta \theta }\theta ^{N\bar{y}}e^{-N\theta }  \,\mathrm{d}\theta \\
+        = & \dfrac{ 1 }{ \tilde{y}! }\int\theta ^{\alpha +N\bar{y}+\tilde{y} -1}e^{-(\beta+N +1)\theta }  \,\mathrm{d}\theta\\
+        =&\dfrac{ 1 }{ \tilde{y}! }\dfrac{ \Gamma (\alpha +N\bar{y}+\tilde{y}) }{ (\beta+N +1)^{\alpha +N\bar{y}+\tilde{y}} } \\
+        \propto &\binom{\alpha +N\bar{y}+\tilde{y}-1 }{\tilde{y}}\left( \dfrac{ \beta+N  }{ \beta+N +1 }  \right)^{\alpha +N\bar{y}}\left( \dfrac{ 1 }{ \beta+N +1 } \right)^{\tilde{y}}\\
+        \sim & \mathrm{Neg}\text{-}\mathrm{Binom}(\alpha +N\bar{y}, \beta+N )
+    \end{align*}
+    \item Get marginal posterior with Conditional probability formula
+    \begin{align*}
+        p(\beta |y)=\dfrac{ p(\alpha ,\beta |y) }{ p(\alpha |\beta ,y) }  
+    \end{align*}
+    in which $ \mathrm{ L.H.S. }  $ is free from $ \alpha  $, so $ \mathrm{ R.H.S. }  $ should be invariant of $ \alpha  $, i.e. take the same value for any $ \alpha  $ value. We can simplify the calculation by taking some convenient values.
+
+    Example: Marginal posterior distribution in Normal model.
+    \begin{align*}
+        p(\mu ,\sigma ^2|y,\mu _0, \sigma _0^2/\kappa_0; \nu _0, \sigma _0^2)\sim&N\text{-}\mathrm{ Inv }\text{-}\chi^2(\mu _n, \sigma _n^2/\kappa _n; \nu _n,\sigma _n^2)\\
+        p(\sigma ^2|\mu ;y,\mu _0, \sigma _0^2/\kappa_0; \nu _0, \sigma _0^2)\sim & \mathrm{ Inv }\text{-}\chi^2(\nu _n+1, \dfrac{ \nu _0^2\sigma _0^2+\kappa _0(\mu -\mu _0)^2+ N\mathrm{ MSE }  }{ \nu _n+1 } )  \\
+        p(\mu |y,\mu _0, \sigma _0^2/\kappa_0; \nu _0, \sigma _0^2)=&\dfrac{ p(\mu ,\sigma ^2|y,\mu _0, \sigma _0^2/\kappa_0; \nu _0, \sigma _0^2) }{ p(\sigma ^2| \mu ;y,\mu _0, \sigma _0^2/\kappa_0; \nu _0, \sigma _0^2) } \\
+        (\text{take }\sigma ^2=1)\quad \propto&(\nu _0^2\sigma _0^2+\kappa _0(\mu -\mu _0)^2+ N\mathrm{ MSE } )^{-( \nu _n+1 )/2}\\
+        =&\left( {\color{blue}\nu _0^2\sigma _0^2+(N-1)s^2+\dfrac{ \kappa _0N }{ \kappa _0+N }(\bar{y}-\mu _0)^2} + \kappa _n(\mu -\mu_n)^2  \right)^{-( \nu _n+1 )/2}\\
+        \propto& \left(1+\dfrac{ \kappa _n(\mu -\mu _n)^2 }{ \color{blue}\nu _n\sigma _n^2 } \right)^{-( \nu _n+1 )/2}\sim t_{\nu _n}(\mu _n, \sigma _n^2/\kappa _n)
+    \end{align*}
+
 \end{itemize}
 
     
-\subsubsection{Binomial Model}\label{SubSubSectionBayesianBinomial}
+
+\subsection{Asymptotics}
+The Maximum A Posteriori (MAP)\index{MAP (Maximum A Posteriori)} describes a point estimation by maximize posterior distribution of parameter, say
+\begin{align*}
+    \hat{\theta }= \mathop{ \arg\max }\limits_{\theta } p(\theta |y)=\mathop{ \arg\max }\limits_{\theta }p(\theta )p(y|\theta )
+\end{align*}
+
+The maximizer has consistency at large sample
+\begin{align*}
+    p(\theta |y)\to \delta (\theta -\theta ^*),\quad \text{as}n\to \infty 
+\end{align*}
+
+The maximizer would further give the asymptotic normal distribution centered around it. Use the taylor series at $ \hat{\theta } $:
+\begin{align*}
+    \log p(\theta |y)=&\log p(\hat{\theta }|y)+\dfrac{ 1 }{ 2 } (\theta -\hat{\theta })'{\color{blue}\left[\dfrac{\partial^{} \log p(\theta |y) }{\partial \theta \partial\theta ^{'} }\right]_{\theta =\hat{\theta }}}(\theta -\hat{\theta })+o(\theta ^2) \\
+    \Rightarrow p(\theta |y)\to& N(\hat{\theta }, {\color{blue}\mathcal{I}}(\hat{\theta })^{-1}/n)
+\end{align*}
+
+Note: Here $ \hat{\theta } $, as is calculated from the data, is considered fixed, while $ \theta  $ is the random one. It's just in contrast to frequentist's version where $ \hat{\theta } $ is random while $ \theta  $ is fixed. (The estimator is also different, here maximizes posterior $ p(\theta |y) $, frequentists maximize likelihood $ p(y|\theta ) $)
+
+
+
+
+
+\subsection{Predictive Distribution}
+Generally speaking we are studying the posteior predictive distribution
+\begin{align*}
+    p_\mathrm{ \text{post} }(\tilde{y})=\mathbb{E}_{\theta |y} \left[ p(\tilde{y}|\theta ) \right]  =\int   p(\tilde{y}|\theta )p(\theta |y)\,\mathrm{d}\theta  
+\end{align*}
+
+Related concept:
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Expected log Prediction Distribution for New Data ($ \mathrm{ elpd }  $). Where the ground truth distribution of $ \tilde{y} $ is denoted $ \tilde{f}(\tilde{y}) $.
+    \begin{align*}
+        \mathrm{ elpd } \equiv \mathbb{E}_{\tilde{f}}\left[ \log \int   p(\tilde{y}|\theta )p(\theta |y)\,\mathrm{d}\theta   \right]= \int_{\tilde{y}} \log \int_\theta    p(\tilde{y}|\theta )p(\theta |y)\,\mathrm{d}\theta\,\,\mathrm{d}\tilde{y}
+    \end{align*}
+    At large sample, the $ \,\mathrm{d}\theta  $ integration is dominated by $ \hat{\theta }=\mathop{ \arg\max }\limits_{\theta }p(\theta |y) $, yielding\footnote{The integration method is called `steepest descent'.}
+    \begin{align*}
+        \mathrm{ elpd }= \int_{\tilde{y}} \log \int_\theta    p(\tilde{y}|\theta )p(\theta |y)\,\mathrm{d}\theta\, \tilde{f}(\tilde{y})\,\mathrm{d}\tilde{y}\mathop{ \approx }\limits_{N\to\infty}  \int_{\tilde{y}} \tilde{f}(\tilde{y})\log p(\tilde{y}|\hat{\theta } )\,\mathrm{d}\tilde{y}\equiv \mathrm{ elpd }_{\hat{\theta }} 
+    \end{align*}
+    
+    
+    
+\end{itemize}
+
+
+\subsection{Model Checking and Comparison}
+
+\begin{point}
+    Posterior Predictive Checking
+\end{point}
+
+The idea is similar to construct $ p $-value in hypothesis testing. But now we are using the posterior predictive distribution to check the model fit. 
+
+Posterior distribution given by probability model $ \mathcal{M} $ denoted $ p_\mathcal{M}(\theta |y) $. We could further properly define a test statistic $ T(y) $, and the posterior predictive distribution of $ T(y) $ is
+\begin{align*}
+    p_\mathcal{M}(T(\tilde{y})|y)=\int p(T(\tilde{y})|\theta )p_\mathcal{M}(\theta |y)\,\mathrm{d}\theta
+\end{align*}
+
+which could be easily simulated by 
+\begin{enumerate}[topsep=2pt,itemsep=2pt]
+    \item Generate $ \theta ^{(i)}\sim p_\mathcal{M}(\theta |y) $, $ i=1,2,\ldots,S $;
+    \item Generate $ \tilde{y}^{(i)}\sim p(\tilde{y}|\theta ^{(i)}) $;
+    \item Compute $ T(\tilde{y}^{(i)}) $ to form $ \hat{p}_\mathcal{M}(T|y) $;
+    \item By calculating the $ p $-value corresponding to our data $ T_0=T(y) $, i.e.
+    \begin{align*}
+        p=& \mathbb{P}_{\mathcal{M}}\left[ T(\tilde{y})\geqslant T_0 \right] =\int \mathbb{I}_{\left\{ T(\tilde{y})\geqslant T_0 \right\} }p(\tilde{y}|\theta )p_\mathcal{M}(\theta |y)\,\mathrm{d}\theta\\
+        \hat{p}=& \dfrac{ \sum_{i=1}^S\mathbb{I}_{T(\tilde{y}^{(i)})\geq T_0} }{ S }
+    \end{align*}
+    and check, say $ \hat{p}\leq 0.05 $ to rejct the model.
+    
+\end{enumerate}
+
+Note: the test statistics $ T(y) $ should be chosen carefully.
+
+    
+
+
+
+\begin{point}
+    Model Performance Measure
+\end{point}
+
+
+    
+\section{Simulation}
+
+In Bayesian inference, the key target is posterior distribution
+\begin{align*}
+    p(\theta |y)\propto p(\theta )p(y|\theta ) 
+\end{align*}
+which can be 
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Intractable: ugly kernel term.
+    \item High-dimentional: multi-dim parameter sapce $ \Theta $.
+    \item Unnormalized: with an unknown normalize constant $ 
+    \dfrac{ 1 }{ p(y) }   $
+\end{itemize}
+
+so usually a closed form is not accessable. Simulation is needed to carry out further inference.
+
+    
+
+
+\subsection{Random Number Generation and Simulation}
+
+Basic knowledge about simulation methods were covered in \autoref{SubSectionStatisticalSimulation}. Here are some topic contents:
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item \hyperlink{StatisticalSimulationLCM}{Linear Congruential Method for $ U(0,1) $}. Other complicated distribution starts from uniform distributed r.v.
+    \item \hyperlink{StatisticalSimulationInverseTrans}{Quantile Method/Inverse Transform Method}: Use inverse CDF to obtain r.v.
+    \begin{align*}
+        X_i=F_X^{-1}(U_i)\sim f_X 
+    \end{align*}
+    \item \hyperlink{StatisticalSimulationARS}{Acceptance-Rejection Sampling}: Suitable for intractable CDF or high-dimensional cases.
+    \item \hyperlink{StatisticalSimulationInverseTransMCMC}{MCMC}: Deal with high-dimentional case or unnormalized distribution.
+    \item \hyperlink{StatisticalSimulationInverseTransImportanceSampli}{Importance Sampling Estimator}: Quick way to obtain some observable.
+\end{itemize}
+
+    
+
+\subsection{Mean Field Approximation and Variation Bayesian Inference}
+    
+
+
+
+\section{Exactly Sovable Models}
+\textbf{Note} : In this section for a known/given parameter (i.e. we do \textbf{not} consider it an r.v., just a given param), we attach an fixed to label it, e.g. $ N(\mu ,\fixed{\sigma^2} ) $ for the case $ \sigma^2 $ is given, and we only study the distribution of $ \mu  $.
+
+
+    
+\subsection{Binomial Model}\label{SubSubSectionBayesianBinomial}
 Generating process $ y_1,\ldots,y_N $ i.i.d. $ \sim \mathrm{Binom}(\fixed{n},p) $
 \begin{align*}
     \text{Distribution:}&f(y|p)=\binom{\fixed{n}}{y_i}p^{y}(1-p)^{\fixed{n}-y}\propto p^y(1-p)^{\fixed{n}-y}\\
@@ -281,11 +468,19 @@ Generating process $ y_1,\ldots,y_N $ i.i.d. $ \sim \mathrm{Binom}(\fixed{n},p) 
 \end{align*}
 
 
-\hypertarget{BinomConjugate}{anchor text}
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item \hypertarget{BinomConjugate}{Conjugate prior}: Beta distribution $ B(\alpha ,\beta ) $
+    \begin{align*}
+        p(p |\alpha ,\beta )=&\dfrac{ 1 }{ B(\alpha \, \beta ) } p ^{\alpha -1}(1-p )^{\beta -1}\sim B(\alpha ,\beta ) \\
+        p(p |y,\alpha ,\beta )\propto &  p ^{\alpha -1}(1-p )^{\beta -1}p^{N\bar{y}}(1-p)^{N(\fixed{n}-\bar{y})}\sim B(\alpha +N\bar{y}, \beta +N(\fixed{n}-\bar{y}))
+    \end{align*}
+
+    which suggests that prior distribution $ B(\alpha ,\beta ) $ looks like some `pre-drawn' data.
+    \item Jeffrey Prior: $ p(p)\sim B(\dfrac{ 1 }{ 2 } , \dfrac{ 1 }{ 2 }) $.
+\end{itemize}
 
 
-
-\subsubsection{Poisson Model}\label{SubSubSectionBayesianPoisson}
+\subsection{Poisson Model}\label{SubSubSectionBayesianPoisson}
 Generating process $ y_1,\ldots,y_N $ i.i.d. $ \sim P(\lambda ) $
 \begin{align*}
     \text{Distribution:}&f(y|\lambda )=\dfrac{y!}{\lambda ^y}e^{-\lambda }\propto\lambda ^ye^{-\lambda }\\
@@ -296,10 +491,24 @@ Generating process $ y_1,\ldots,y_N $ i.i.d. $ \sim P(\lambda ) $
 \end{align*}
 
 
-\hypertarget{PoissonConjugate}{anchor text}
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item \hypertarget{PoissonConjugate}{Conjugate Prior}: Gamma Distribution $ \Gamma (\alpha ,\beta  ) $
+    \begin{align*}
+        p(\lambda|\alpha ,\beta  )=&\dfrac{ \beta ^\alpha   }{ \Gamma (\alpha ) }\lambda ^{\alpha -1}e^{-\beta  \lambda }\sim \Gamma (\alpha ,\beta  )\\
+        p(\lambda |y,\alpha ,\beta )\propto&\lambda ^{\alpha -1}e^{-\beta  \lambda }\lambda ^{N\bar{y}}e^{-N\lambda }\sim \Gamma (\alpha +N\bar{y}, \beta +N)
+    \end{align*}
+
+    \item Jeffrey Prior: $ p(\lambda )\sim \Gamma (\dfrac{ 1 }{ 2 } ,0) $. (actually $ \beta \to 0^+ $, similar for followings)
+\end{itemize}
+
+    
 
 
-\subsubsection{Exponential Model}\label{SubSubSectionBayesianExp}
+
+
+
+
+\subsection{Exponential Model}\label{SubSubSectionBayesianExp}
 
 Generating process $ y_1,\ldots,y_N $ i.i.d. $ \sim \varepsilon (\lambda ) $
 \begin{align*}
@@ -309,10 +518,22 @@ Generating process $ y_1,\ldots,y_N $ i.i.d. $ \sim \varepsilon (\lambda ) $
     \text{Observed Info:}&J(y|\lambda )=\dfrac{N}{\lambda^2 }\\
     \text{Fisher Info:}&I(\lambda )=\dfrac{N}{\lambda^2 }
 \end{align*}
-\hypertarget{ExpConjugate}{anchor text}
+
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item \hypertarget{ExpConjugate}{Conjugate Prior}: Gamma Distribution $ \Gamma (\alpha ,\beta  ) $
+    \begin{align*}
+        p(\lambda|\alpha ,\beta  )=&\dfrac{ \beta ^\alpha   }{ \Gamma (\alpha ) }\lambda ^{\alpha -1}e^{-\beta  \lambda }\sim \Gamma (\alpha ,\beta  )  \\
+        p(\lambda |y,\alpha ,\beta )\propto&\lambda ^{\alpha -1}e^{-\beta  \lambda }\lambda ^{N}e^{-N\bar{y}\lambda }\sim \Gamma (\alpha +N, \beta +N\bar{y})
+    \end{align*}
+
+    \item Jeffrey Prior: $ p(\lambda )\sim \Gamma (0 ,0) $. 
+\end{itemize}
+
+    
 
 
-\subsubsection{Normal Model}\label{SubSubSectionBayesianNormal}
+
+\subsection{Normal Model}\label{SubSubSectionBayesianNormal}
 \begin{point}
     Model with known variance $ \fixed{\sigma ^2} $
 \end{point}
@@ -325,7 +546,19 @@ Generating process $ y_1,\ldots,y_N $ i.i.d. $ \sim N(\mu ,\fixed{\sigma ^2}) $
     \text{Observed Info:}&J(y|\mu)=\dfrac{N}{\fixed{\sigma ^2}}\\
     \text{Fisher Info:}&I(\mu  )=\dfrac{N}{\fixed{\sigma ^2} }
 \end{align*}
-\hypertarget{NormalWithVarConjugate}{anchor text}
+
+
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item \hypertarget{NormalWithVarConjugate}{Conjugate Prior}: Normal Distribution $ N(\mu _0,\tau_0^2) $
+    \begin{align*}
+        p(\mu |\mu _0,\tau_0^2)=&\dfrac{ 1 }{ \sqrt{2\pi\tau_0} }\exp\left[ -\dfrac{ (\mu -\mu _0)^2 }{ 2\tau_0^2 }  \right]\sim N(\mu _0,\tau_0^2) \\
+        p(\mu |y,\mu _0,\tau_0^2)\propto&\exp\left[ -\dfrac{ \mu ^2-2\mu _0\mu  }{ 2\tau_0^2 }-\dfrac{ N(\mu ^2-2\bar{y}\mu ) }{ 2\fixed{\sigma ^2} } \right]\sim N\left( \dfrac{ \dfrac{ \mu _0 }{ \tau_0^2 } + \dfrac{ \bar{y} }{ \fixed{\sigma ^2}/N }  }{ \dfrac{ 1 }{ \tau_0^2 } + \dfrac{ 1 }{ \fixed{\sigma ^2}/N } }  ,  \dfrac{ 1  }{ \dfrac{ 1 }{ \tau_0^2 } + \dfrac{ 1 }{ \fixed{\sigma ^2}/N } } \right)
+    \end{align*}
+
+    \item Jeffrey Prior: $ p(\mu  )\propto 1\sim N(\wedge, \infty) $.
+\end{itemize}
+
+
 
 \begin{point}
     Model with known mean $ \fixed{\mu} $
@@ -339,7 +572,18 @@ Generating process $ y_1,\ldots,y_N $ i.i.d. $ \sim N(\fixed{\mu} ,\sigma ^2) $
     \text{Observed Info:}&J(y|\sigma ^2)= -\dfrac{N}{\sigma ^2}+\dfrac{3N\mathrm{MSE} }{\sigma ^4}\\
     \text{Fisher Info:}&I(\sigma^2 )=\dfrac{2N}{\sigma ^2}
 \end{align*}
-\hypertarget{NormalWithMeanConjugate}{anchor text}
+
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item \hypertarget{NormalWithMeanConjugate}{Conjugate Prior}: $ \mathrm{Inv } $-$ \chi^2(\nu _0, \sigma _0^2) $
+    \begin{align*}
+        p(\sigma ^2|\nu _0,\sigma _0^2)=& \dfrac{\nu _0^{\frac{\nu _0}{2}}}{2^{\frac{\nu _0}{2}}\Gamma (\frac{\nu _0}{2})}(\sigma ^2)^{-\frac{\nu _0}{2}-1}e^{-\frac{\nu _0\sigma _0^2}{2\sigma ^2}}\sim \mathrm{ Inv }\text{-}\chi^2(\nu _0,\sigma _0^2)   \\
+        p(\sigma ^2|y,\nu _0,\sigma _0^2)\propto&(\sigma ^2)^{-\frac{\nu _0}{2}-1}e^{-\frac{\nu _0\sigma _0^2}{2\sigma ^2}}(\sigma ^2)^{-N/2}\exp\left[ -\dfrac{ N\mathrm{ MSE }  }{ 2\sigma ^2 }  \right]\sim \mathrm{ Inv }\text{-}\chi^2\left( \nu _0+N, \dfrac{ \nu _0\sigma _0^2 + N\mathrm{ MSE }  }{ \nu _0+N }  \right)
+    \end{align*}
+    
+    
+    \item Jeffrey Prior: $ p(\sigma ^2 )\propto \dfrac{ 1 }{ \sigma  }\sim  \mathrm{ Inv }\text{-}\chi^2(1,0) $.
+\end{itemize}
+
 
 \begin{point}
     Full model
@@ -380,7 +624,57 @@ Another parameterization $ (\mu ,\sigma ^2)\mapsto (\mu ,\log \sigma ) $:
 \end{align*}
 
 
-\hypertarget{NormalConjugate}{anchor text}
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item \hypertarget{NormalConjugate}{Conjugate Prior} for $ (\mu ,\sigma ^2) $ parameterization: Normal-$ \mathrm{ Inv }  $-$ \chi^2 $ Distribution $ N\text{-}\mathrm{ Inv }\text{-}\chi^2(\mu _0, \sigma _0^2/\kappa_0; \nu _0, \sigma _0^2)  $, defined as $p(\sigma ^2)\times p(\mu |\sigma ^2)= \mathrm{ Inv }\text{-}\chi^2(\nu _0,\sigma _0^2)\times N(\mu _0, \sigma ^2/\kappa_0) $
+    \begin{align*}
+        p(\mu ,\sigma ^2|\mu _0, \sigma _0^2/\kappa_0; \nu _0, \sigma _0^2)\propto& (\sigma ^2)^{-(\nu_0/2+1)}(\sigma ^2)^{-1/2}\exp\left[ -\dfrac{ 1 }{ 2\sigma ^2 }(\nu _0\sigma _0^2 + \kappa _0(\mu -\mu _0)^2)  \right]\\
+        \sim & N\text{-}\mathrm{ Inv }\text{-}\chi^2(\mu _0, \sigma _0^2/\kappa_0; \nu _0, \sigma _0^2)\\
+        p(\mu ,\sigma ^2|y,\mu _0, \sigma _0^2/\kappa_0; \nu _0, \sigma _0^2)\propto& (\sigma ^2)^{-(\nu_0/2+1)}(\sigma ^2)^{-1/2}\exp\left[ -\dfrac{ 1 }{ 2\sigma ^2 }(\nu _0\sigma _0^2 + \kappa _0(\mu -\mu _0)^2)  \right] \\
+        &\times (\sigma ^2)^{-N/2}\exp\left[ -\dfrac{ N(\bar{y}-\mu )^2+(N-1)s^2 }{ 2\sigma ^2 }  \right]\\
+        \sim&N\text{-}\mathrm{ Inv }\text{-}\chi^2(\mu _n, \sigma _n^2/\kappa _n; \nu _n,\sigma _n^2)\quad \begin{cases}
+            \mu _n&=\dfrac{ \kappa _0 }{ \kappa _0+N } \mu _0+\dfrac{ N }{ \kappa _0+N } \bar{y}\\
+            \kappa _n&=\kappa _0+N\\
+            \nu _n&=\nu _0+N\\
+            \nu _n\sigma _n^2&=\nu _0\sigma _0^2+(N-1)s^2+\dfrac{ \kappa _0N }{ \kappa _0+N }(\bar{y}-\mu _0)^2 
+        \end{cases}\\
+        p(\mu |y,\sigma ^2)\sim & N\left( \dfrac{ \dfrac{ \kappa _0\mu _0 }{ \sigma ^2 } + \dfrac{ \bar{y} }{ {\sigma ^2}/N }  }{ \dfrac{ \kappa _0 }{ \sigma ^2 } + \dfrac{ 1 }{ {\sigma ^2}/N } }  ,  \dfrac{ 1  }{ \dfrac{ \kappa _0 }{ \sigma ^2 } + \dfrac{ 1 }{ {\sigma ^2}/N } } \right)=N\left(\mu _n,  \dfrac{ \sigma ^2 }{ \kappa _n }  \right)\\
+        p(\mu |y,\mu _0, \sigma _0^2/\kappa_0; \nu _0, \sigma _0^2)\propto& \left(  1+\dfrac{ \kappa _n(\mu -\mu _n)^2 }{ \nu _n\sigma_n^2 }  \right)^{-(\nu _n+1)/2} \sim t_{\nu _n}(\mu _n, \sigma _n^2/\kappa _n)
+    \end{align*}
+    
+
+    
+    
+
+    \item Jeffrey Prior
+    \begin{itemize}[topsep=2pt,itemsep=0pt]
+        \item for $ (\mu ,\sigma ^2) $ parameterization \textit{with independency assumption of $ (\mu ,\sigma  )$}:
+    \begin{align*}
+        p(\mu ,\sigma ^2) \propto 1\times (\sigma ^2)^{-1}=\sigma ^{-2}
+    \end{align*}
+        \item for $ (\mu ,\sigma ^2) $ parameterization \textit{without independency assumption of $ (\mu ,\sigma  )$}:
+    \begin{align*}
+        p(\mu ,\sigma ^2) \propto \sigma ^{-3}
+    \end{align*}
+        \item for $ (\mu ,\log \sigma ) $ parameterization \textit{with independency assumption of $ (\mu ,\sigma  )$}:
+    \begin{align*}
+        p(\mu ,\log \sigma ) \propto 1\times 1 = 1
+    \end{align*}
+        \item for $ (\mu ,\log \sigma ) $ parameterization \textit{without independency assumption of $ (\mu ,\sigma  )$}:
+    \begin{align*}
+        p(\mu ,\log \sigma ) \propto \sigma ^{-1}
+    \end{align*}
+        
+        
+    \end{itemize}
+    
+         
+
+    
+    
+    
+\end{itemize}
+
+    
 
 
 
@@ -388,7 +682,9 @@ Another parameterization $ (\mu ,\sigma ^2)\mapsto (\mu ,\log \sigma ) $:
 
 
 
-\subsubsection{Multinomial Model}\label{SubSubSectionBayesianMultinom}
+
+
+\subsection{Multinomial Model}\label{SubSubSectionBayesianMultinom}
 
 (One sample item here) Generating process $ (y_1,y_2,\ldots,y_J) $ $ \sim \mathrm{Multino}(\fixed{n};\theta _1,\theta _2,\ldots,\theta _J)  ,$, $w.r.t. \sum_{j=1}^J \theta _j = 1$, $ \sum_{j=1}^Jy_j=\fixed{n} $ 
 \begin{align*}
@@ -402,12 +698,22 @@ Another parameterization $ (\mu ,\sigma ^2)\mapsto (\mu ,\log \sigma ) $:
     
     
     
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item \hypertarget{MultinomConjugate}{Conjugate Prior}:Dirichlet Distribution $ \mathrm{ Dirichlet }(\alpha _1,\ldots,\alpha _J)  $
+    \begin{align*}
+        p(\theta |\alpha )=&\dfrac{ \Gamma (\alpha _1+\ldots+\alpha _J) }{ \Gamma (\alpha _1)\ldots\Gamma (\alpha _J) }\prod_{j=1}^J\theta _j^{\alpha _j-1}\sim \mathrm{ Dirichlet }(\alpha _1,\ldots,\alpha _J)    \\
+        p(\theta |y,\alpha )\propto&\prod_{j=1}^J\theta _j^{\alpha _j-1}\prod_{j=1}^J\theta _j^{y_j}\sim \mathrm{Dirichlet }(\alpha _1+y_1,\ldots,\alpha _J+y_J)
+    \end{align*}
+    
+    
+    \item Jeffrey Prior: $ p(\theta  )\propto \prod_{j=1}^J\theta _j^{-1/2}\sim \mathrm{Dirichlet }(\dfrac{ 1 }{ 2 },\ldots,\dfrac{ 1 }{ 2 }  ) $.
+\end{itemize}
 
-\hypertarget{MultinomConjugate}{anchor text}
 
 
-\subsubsection{Multi-Normal Model}\label{SubSubSectionBayesianMultinormal}
-\hypertarget{MultiNormalConjugate}{anchor text}
+
+\subsection{Multi-Normal Model}\label{SubSubSectionBayesianMultinormal}
+
 
 Generating process $ y_1,\ldots,y_N $ i.i.d. $ \sim N_d(\mathop{\mu }\limits_{d\times 1}  ,\mathop{\Sigma }\limits_{d\times d} ) $
 \begin{align*}
@@ -420,3 +726,69 @@ Generating process $ y_1,\ldots,y_N $ i.i.d. $ \sim N_d(\mathop{\mu }\limits_{d\
 \end{align*}
 
 
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item \hypertarget{MultiNormalConjugate}{Conjugate Prior}: Normal-$ \mathrm{ Inv }  $-$ \mathrm{ Wishart }  $ Distribution $ N\text{-}\mathrm{ Inv }\text{-}\mathrm{ Wishart } (\mu _0, \Lambda _0^2/\kappa_0; \nu _0, \Lambda _0)  $, defined as $p(\Sigma )\times p(\mu |\Sigma )= \mathrm{ Inv }\text{-}\mathrm{ Wishart } (\nu _0,\Lambda _0)\times N(\mu _0, \Sigma /\kappa_0) $
+    \begin{align*}
+        p(\mu ,\Sigma |\mu _0,\Lambda ^2/\kappa_0; \nu _0, \Lambda_0)\propto& (\Sigma )^{-(\nu_0/2+1)}(\Sigma )^{-p/2}\exp\left[ -\dfrac{ 1 }{ 2 } tr(\Lambda _0\Sigma ^{-1})-\dfrac{ \kappa _0 }{ 2 }(\mu -\mu _0)\Sigma ^{-1}(\mu -\mu _0)   \right]\\
+        \sim & N\text{-}\mathrm{ Inv }\text{-}\mathrm{ Wishart } (\mu _0, \Lambda _0/\kappa_0; \nu _0, \Lambda_0)\\
+        p(\mu ,\Sigma |y,\mu _0, \Lambda_0/\kappa_0; \nu _0, \Lambda_0)\propto&  (\Sigma )^{-(\nu_0/2+1)}(\Sigma )^{-p/2}\exp\left[ -\dfrac{ 1 }{ 2 } tr(\Lambda _0\Sigma ^{-1})-\dfrac{ \kappa _0 }{ 2 }(\mu -\mu _0)\Sigma ^{-1}(\mu -\mu _0)   \right] \\
+        &\times (\Sigma )^{-N/2}\exp\left[ -\dfrac{ 1 }{ 2 } tr\left( [N(\bar{y}-\mu )(\bar{y}-\mu )' +S]\Sigma ^{-1} \right)  \right]\\
+        \sim&N\text{-}\mathrm{ Inv }\text{-}\mathrm{ Wishart } (\mu _n, \Lambda _n/\kappa _n; \nu _n,\Lambda _n)\quad \begin{cases}
+            \mu _n&=\dfrac{ \kappa _0 }{ \kappa _0+N } \mu _0+\dfrac{ N }{ \kappa _0+N } \bar{y}\\
+            \kappa _n&=\kappa _0+N\\
+            \nu _n&=\nu _0+N\\
+            \sigma _n^2&=\Lambda _0+S+\dfrac{ \kappa _0N }{ \kappa _0+N }(\bar{y}-\mu _0)(\bar{y}-\mu _0)'
+        \end{cases}\\
+        p(\mu |y,\Sigma )\sim & N(\mu _n, \dfrac{ \Sigma  }{ \kappa _n } )\\
+        p(\mu |y)\sim & t_{\nu _n-d+1}(\mu _n, \dfrac{ \Lambda _n }{ \kappa _n(\nu _n-d+1) } )
+    \end{align*}
+
+    Note: When generalizing from $ \mathrm{ Inv }  $-$ \chi^2 $ to $ \mathrm{ Inv }  $-$ \mathrm{ Wishart }  $, there's a slight change $ \nu _0\sigma _0^2\mapsto \Lambda _0 $.
+
+    \item Jeffrey Prior: $ p(\mu ,\Sigma )\propto |\Sigma |^{-(d+1)/2}\sim N\text{-}\mathrm{ Inv }\text{-}\mathrm{ Wishart }(\wedge, \infty; -1, 0) $
+    
+         
+
+    
+    
+    
+\end{itemize}
+
+
+
+
+\subsection{Hierarchical Binomial Model}\label{SubSubSectionBayesianHierarchicalBinom}
+
+Generating process: $ y_j\sim \mathrm{ Binom }(\fixed{n_j},\theta _j)  $, $ \theta _j\sim B(\alpha ,\beta ) $, $ j=1,2,\ldots, J $
+
+
+\begin{align*}
+    p(\theta ,\alpha ,\beta |y)\propto & p(\alpha ,\beta )\prod_{j=1}^J\dfrac{ 1 }{ B(\alpha ,\beta ) }\theta _j^{\alpha -1}(1-\theta _j)^{\beta -1}\prod_{j=1}^J\theta _j^{y_j}(1-\theta _j)^{\fixed{n_j}-y_j}\\
+    p(\theta |\alpha ,\beta ,y)\propto & \prod_{j=1}^J\theta_j ^{\alpha +y_j-1}(1-\theta _j)^{\beta _j+\fixed{n_j}-y_j-1}\sim B(\alpha +y_j, \beta _j+\fixed{n_j}-y_j)\\
+    p(\alpha ,\beta |y)\propto & p(\alpha ,\beta )\prod_{j=1}^J\dfrac{ B(\alpha +y_j, \beta +\fixed{n_j}-y_j) }{ B(\alpha ,\beta ) }  
+\end{align*}
+
+    Note: $ p(\alpha ,\beta ) $ should be thin-tailed to avoid divergence at $ \alpha ,\beta \to\infty $.
+
+
+    
+
+
+
+
+\subsection{Hierarchical Normal Model}\label{SubSubSectionBayesianHierarchicalNormal}
+
+Generating process: $ y_{ij}\sim N(\theta  _j,\fixed{\sigma ^2})  $, $ \theta _j\sim N(\mu ,\tau^2 ) $, $ i=1,2,\ldots,\fixed{n_j},\quad j=1,2,\ldots, J $
+
+
+\begin{align*}
+    p(\theta ,\mu ,\tau|y)\propto & p(\mu ,\tau)\prod_{j=1}^J N(\theta _j|\mu ,\tau^2)\prod_{j=1}^JN(\bar{y}_j|\theta _j,\fixed{\sigma ^2}/\fixed{n_j})\\
+    p(\theta |\mu ,\tau,y)\sim &\prod_{j=1}^J N\left( \dfrac{ \dfrac{ \bar{y}_j }{ \fixed{\sigma ^2}/\fixed{n_j} } + \dfrac{ \mu  }{ \tau^2 }  }{ \dfrac{ 1 }{ \fixed{\sigma ^2}/\fixed{n_j} } + \dfrac{ 1  }{ \tau^2 } } , \dfrac{ 1 }{ \dfrac{ 1 }{ \fixed{\sigma ^2}/\fixed{n_j} } + \dfrac{ 1  }{ \tau^2 } }  \right)\\
+    p(\mu ,\tau |y)\propto & p(\mu ,\tau)\prod_{j=1}^J N(\bar{y}_j| \mu , \dfrac{ \fixed{\sigma ^2} }{ \fixed{n_j} }+\tau^2 )\\
+    p(\mu |\tau, y)\sim & N\left( \tilde{\mu },\tilde{V} \right),\qquad \text{\color{red}with }\color{red}p(\mu |\tau)\propto 1\\
+    & \begin{cases}
+        \tilde{\mu }\equiv {\dfrac{ \displaystyle \sum_{j=1}^J \dfrac{ \bar{y}_j }{ \fixed{\sigma ^2}/\fixed{n_j}+\tau^2 }  }{ \displaystyle \sum_{j=1}^J \dfrac{ 1 }{ \fixed{\sigma ^2}/\fixed{n_j}+\tau^2 } }}\\
+        \tilde{V}\equiv {\dfrac{ 1 }{ \displaystyle \sum_{j=1}^J \dfrac{ 1 }{ \fixed{\sigma ^2}/\fixed{n_j}+\tau^2 } }}
+    \end{cases}\\
+    p(\tau|y)\propto & p(\tau)\left(\tilde{V}\right)^{1/2}\prod_{j=1}^J(\fixed{\sigma ^2}/\fixed{n_j}+\tau^2 )^{-1/2}\exp\left[ -\dfrac{ \left(\bar{y}_j -\tilde{\mu } \right)^2 }{ 2(\fixed{\sigma ^2}/\fixed{n_j}+\tau^2 ) }  \right]
+\end{align*}

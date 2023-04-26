@@ -1,0 +1,23 @@
+This is makeindex, version 2.16 [MiKTeX 21.12.10].
+Scanning style file D:/MiKTeX/makeindex/nomencl/nomencl.ist........
+** Input style error (file = D:/MiKTeX/makeindex/nomencl/nomencl.ist, line = 36):
+   -- Unknown specifier lethead_prefix.
+** Input style error (file = D:/MiKTeX/makeindex/nomencl/nomencl.ist, line = 37):
+   -- Unknown specifier lethead_suffix.
+** Input style error (file = D:/MiKTeX/makeindex/nomencl/nomencl.ist, line = 38):
+   -- Unknown specifier lethead_flag.
+....done (12 attributes redefined, 3 ignored).
+Scanning input file summary.nlo....
+!! Input index error (file = summary.nlo, line = 3):
+   -- Extra `|' at position 602 of first argument.
+
+!! Input index error (file = summary.nlo, line = 12):
+   -- Extra `@' at position 37 of first argument.
+
+!! Input index error (file = summary.nlo, line = 30):
+   -- Extra `@' at position 87 of first argument.
+done (31 entries accepted, 3 rejected).
+Sorting entries....done (161 comparisons).
+Generating output file summary.nls....done (38 lines written, 0 warnings).
+Output written in summary.nls.
+Transcript written in summary.nlg.

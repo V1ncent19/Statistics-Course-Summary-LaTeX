@@ -1,16 +1,16 @@
-\section{应用随机过程部分}
+\chapter{应用随机过程部分}
 \begin{center}
     Instructor: Pengkun Yang 
 \end{center}
 
-% \subsection{Review of Probability}
+% \section{Review of Probability}
 
 
 
-\subsection{Properties of Stochastic Process}
+\section{Properties of Stochastic Process}
 % (Or sometimes called random process)
 
-\subsubsection{Basic Concepts}
+\subsection{Basic Concepts}
 Some basic concepts about stochastic process / random process are introduced in \autoref{SubSectionStochasticProcessForTimeSeries}. Here's a brief recap.
 
 A stochastic process is a mapping
@@ -70,7 +70,7 @@ Some functions of stochastic processes include
     
 
 
-\subsubsection{Properties of Discrete Time Markov Chain}\label{SubSubSectionDTMC}
+\subsection{Properties of Discrete Time Markov Chain}\label{SubSubSectionDTMC}
 A basic case for Markov Chain is Discrete Time Markov Chain (DTMC)\index{DTMC (Discrete Time Markov Chain)}
 
 \begin{point}
@@ -331,7 +331,7 @@ Some algorithm about Markov Chain see \autoref{SubSubSectionMCMCAlgorithm}.
 
 
 
-\subsubsection{Properties of Continuous Time Markov Chain}\label{SubSubSectionCTMC}
+\subsection{Properties of Continuous Time Markov Chain}\label{SubSubSectionCTMC}
 Another case of Markov Chain is Continuous Time Markov Chain (CTMC)\index{CTMC (Continuous Time Markov Chain)}
 
 \begin{point}
@@ -434,7 +434,7 @@ Given irreducible \& non-explosive CTMC, we have
 \end{itemize}
 
 
-\subsubsection{Independent Increment Process and Martingale}\label{SubSubSectionIndepedentProcess}
+\subsection{Independent Increment Process and Martingale}\label{SubSubSectionIndepedentProcess}
 
 Motivation: Sometimes a process is a `summation of all past events'.
 
@@ -469,16 +469,16 @@ Motivation: Sometimes a process is a `summation of all past events'.
 
 
 
-\subsubsection{Ergodicity}
+\subsection{Ergodicity}
 
 
 
 
 
 
-\subsection{Useful Instances of Stochastic Processes}
+\section{Useful Instances of Stochastic Processes}
 
-\subsubsection{Random Walk}
+\subsection{Random Walk}
 \hypertarget{RandomWalk}{}
 
 Random walk is a renewal process $ X_n $ with each step $ W_i $ takes value $ \pm 1 $\index{Random Walk}
@@ -556,7 +556,7 @@ Simple random walk is the case with no ends, i.e. $ X_n\in \mathbb{Z} $
     
 \end{itemize}
 
-\subsubsection{Gambler's Model}
+\subsection{Gambler's Model}
 \hypertarget{GamblersModel}{}
 \index{Gambler's Model}
 
@@ -659,7 +659,7 @@ Reaching $ 0 $ or $ N $ stops the chain, so are called `absorbing state'.\index{
 % polya: for $ d $-dimensional homogeneous random walk, i.e. $ p=1/4 $ for 2 dim, $ p=1/6 $ for 3 dim ... If $ d=1,2 $, null recurrent, If $ d\geq 3 $, transient.
 
 
-\subsubsection{Branching Process}
+\subsection{Branching Process}
 \hypertarget{BranchingProcess}{}
 \index{Branching Process}\index{Galton-Watson Tree}
 Branching process / Galton-Watson Tree focuses on the case of population growth / epidemic infection / nuclear fission chain reaction, etc. Each steps the state $ X_n $ denotes the number of individuals, update of state is given as
@@ -739,7 +739,7 @@ and we usually assume the simple case of $ Z_t\text{ i.i.d. }\sim Z $.
 \end{itemize}
 
 
-\subsubsection{Brownian Motion}
+\subsection{Brownian Motion}
 \index{Brownian Motion}\index{Wiener Process}\hypertarget{BrownianProcess}{}
 
 Motivation: Brownian motion / Weiner Process $ W_t $\footnote{Symbol $ W_t $ for `Wiener', sometimes uses $ B_t $ for `Brown'.} is similar to a random walk model with $ p=q=1/2 $, but with initial state $ X_0=0 $, and `steps' defined as `a short enough time segmentation'.
@@ -790,7 +790,7 @@ Properties:
         \end{itemize}
 \end{itemize}
 
-\subsubsection{Poisson Process}\label{SubSubSectionPoissonProcess}
+\subsection{Poisson Process}\label{SubSubSectionPoissonProcess}
 \index{Poisson Process}\hypertarget{PoissonProcess}{}
 
 Motivation: The accumulate events happens at random, with `happening rate' of events as $ \lambda  $
@@ -841,7 +841,7 @@ Properties:
 \end{itemize}
 
 
-\subsubsection{Birth-Death Process}
+\subsection{Birth-Death Process}
 \index{Birth-Death Process}
 Birth-death process looks like a one-end random-walk with `step' as poisson r.v.(i.e. exponential time-interval) The transition rate \& diagram are:
 \begin{center}
@@ -951,10 +951,10 @@ Birth-death process looks like a one-end random-walk with `step' as poisson r.v.
 
 
 
-\subsection{Applications}
+\section{Applications}
 
 
-\subsubsection{Innovation Sequence}
+\subsection{Innovation Sequence}
      
 Motivation of Innovation Sequence (新息序列)\index{Innovation Sequence}: construction of linear MMSE $ L(X|Y_1,Y_2,\ldots,Y_n)=L(X|Y) $. Assume that $\mathbb{E}\left[ \vec{Y} \right] =0 $, the prediction is
 \begin{align}
@@ -987,7 +987,7 @@ I think the idea here is similar to Gram-Schmidt orthogonalization (\autoref{Sub
 
 
 
-\subsubsection{Markov Decision Processes}
+\subsection{Markov Decision Processes}
 \index{MDPs (Markov Decision Processes)}\index{Episode}\index{Policy}
 In decision process/episode, say $ \{(s_t,a_t)\}_{t=0}^T $, we need to determine a \textbf{policy} $ \pi_t $ to take \textbf{action}  $ a_t $ given \textbf{state}  $ s_t $ as
 \begin{align}
@@ -1147,7 +1147,7 @@ with some known \textit{final/terminal} state $ \{s_\mathrm{final} \} $, where $
 % e.g. stationary Gaussian with $ \mathrm{Cross}_X(\tau)\to 0   $ is ergodic in m.s. and a.s. sense.
 
 
-\subsubsection{Karhunen-Loève Expansion}
+\subsection{Karhunen-Loève Expansion}
 
 Karhunen-Loève Expansion (KL Expansion)\index{KL Expansion (Karhunen-Loève Expansion)} is a coutinuous version of PCA \autoref{EqaCurseOfDimensionality}. The idea is a decomposition 
 \begin{align}
@@ -1208,7 +1208,7 @@ Other Concepts
 
 
 
-\subsubsection{Kalman Filter}
+\subsection{Kalman Filter}
 \begin{point}
     Model
 \end{point}
@@ -1545,7 +1545,7 @@ Motivation: what we could observe is $ \{z_k\} $ sequence, with pre-specified $ 
 
     
 
-\subsubsection{Linear Time Invariant Systems}
+\subsection{Linear Time Invariant Systems}
 
 Linear Time Invariant Systems (LTI Systems)\index{LTI Systems (Linear Time Invariant Systems)} models data generation process as a convolution
 \begin{align}
@@ -1578,7 +1578,7 @@ Relations:
 \end{align}
 
 
-\subsubsection{Wiener Filter}
+\subsection{Wiener Filter}
 Goal of Wiener Filter\index{Wiener Filter} is to estimate some $ x_u $ from $ z_t:\,t\in[a,b] $ with a linear function in MMSE sense $ \hat{x}_u=L(x_u|z_t:\,t\in[a,b]) $:
 \begin{align}
     \hat{x}_u=\int _a^b z_\tau h(\tau,u) \,\mathrm{d}\tau ,\quad w.r.t. h(\, \cdot \, )=\mathop{\arg\min}\limits_{h}\mathbb{E}\left[ (x_u-\hat{x}_u) ^2\right]  
@@ -1663,9 +1663,9 @@ Notes on causal function:
 
 
 
-\subsection{Miscellanea}
+\section{Miscellanea}
 
-\subsubsection{Minimum Mean Squared Estimator}\label{SubSecMMSE}
+\subsection{Minimum Mean Squared Estimator}\label{SubSecMMSE}
     Motivation: Here's a signal transmission process in which source is $ X\sim f_{X} $ and observation is $ \vec{Z}\sim f_Z $, we need to find a (theoretically best) information process function $ g(\, \cdot \, ) $ such that we can reproduce $ X $ with $ g(\vec{Z})\in\mathscr{F} $ with minimum `error' (Note that $ X$ and $\vec{Z} $ can be dependent)., i.e.
     \begin{align}
         \hat{g}=\mathop{\arg\min}\limits_{g(\, \cdot \, )\in \mathscr{F}} \mathbb{E}\left[ (X-g(\vec{Z}))^2 \right] 
@@ -1789,7 +1789,7 @@ Notes on causal function:
 \end{itemize}
 
 
-\subsubsection{Conditional Independence}
+\subsection{Conditional Independence}
 Conditional independence \index{Conditional Independence}: say $ X $ and $ Z $ are conditionally independent given $ Y $, i.e. $ X $-$ Y $-$ Z $
 \begin{align}
     f_{X|YZ}=f_{X|Y}\Leftrightarrow f_{XZ|Y}=f_{X|Y}f_{Z|Y} 
@@ -1813,7 +1813,7 @@ or use \autoref{EquConditionalPrForGaussian}, in which $ X_1=(X,Z),\,X_2=Y $
 
 
 
-\subsubsection{Fourier Transform and Convolution}\label{SubSubSectionFourierAndConvolution}
+\subsection{Fourier Transform and Convolution}\label{SubSubSectionFourierAndConvolution}
 \begin{point}
     Fourier Transform\index{FT (Fourier Transform)}
 \end{point}
