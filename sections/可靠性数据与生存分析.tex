@@ -15,7 +15,7 @@ The main feature of reliability data is \textbf{censoring}, to be distinguished 
 \end{align} 
 
 \subsection{Right Censor Data and Representation}
-\index{Censoring Data}
+\index{Censored Data}
 In most parts of this course we focus on right censor data, i.e. dataset contains both event time $ T $ and right censor time $ T^+ $:
 \begin{align}
     \text{Event Time: }&T_1,\ldots,T_{n_1}\\
@@ -31,6 +31,7 @@ where $ z_i $ for covariants.
 Usually we assume that event and censor are independent $ T\independent C $
 
 \subsection{Life Table Data}
+\index{Life Table}
 Life table collect survival data at ordinal, uniformly-spaced time points, where each row contains \# items at risk, \# events, $ \ldots  $.
 
 
@@ -49,7 +50,7 @@ Key focus of survival analysis problem is the distribution of $ T $ (note that i
         \begin{equation}
             \lambda (t)=\lim_{h\to 0}\dfrac{\mathbb{P}[t\leq T<t+h|T\geq t]}{h}= \dfrac{f(t)}{S(t)}=-\dfrac{\mathrm{d}^{} \log S(t)}{\mathrm{d}t^{}}
         \end{equation}
-        \item Cumulative Hazard Function $ \Lambda (t) $ (or in some materials denoted $ H(t) $):
+        \item Cumulative Hazard Function\index{Cumulative Hazard Function} $ \Lambda (t) $ (or in some materials denoted $ H(t) $):
         \begin{equation}
             \Lambda (t)=\int _0^t \lambda (\tau) \,\mathrm{d}\tau =-\log S(t)
         \end{equation}
@@ -62,7 +63,7 @@ Key focus of survival analysis problem is the distribution of $ T $ (note that i
     \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item PMF: $ p(t) $ is defined on 
         \begin{equation}
-            t\in\mathcal{T},\quad p(t)\in (\mathcal{T}\to [0,1]^n]) 
+            t\in\mathcal{T},\quad p(t)\in (\mathcal{T}\to [0,1]^n) 
         \end{equation}
         \item Survival Function: Note that CDF $ F(t) $ is right continuous, then $ S(t) =1-F(t)$ is left continuous:
         \begin{equation}
@@ -97,7 +98,7 @@ Key focus of survival analysis problem is the distribution of $ T $ (note that i
 \end{point}
 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item Mean Survival Time:
+    \item Mean Survival Time:\index{Mean Survival Time}
     \begin{equation}
         \mu \equiv\mathbb{E}(T)=\begin{cases}
             \int _{0}^\infty \tau f(\tau) \,\mathrm{d}\tau =\int _0^\infty S(\tau) \,\mathrm{d}\tau\\
@@ -106,7 +107,7 @@ Key focus of survival analysis problem is the distribution of $ T $ (note that i
     \end{equation}
     
     
-    \item Mean Residual Life Time ($ \mathrm{mrl}  $)\index{Mean Residual Life Time}:
+    \item Mean Residual Life Time ($ \mathrm{mrl}  $)\index{Mean Residual Life Time}:\index{Mean Residual Life Time}
     \begin{equation}
         \mathrm{mrl}(t)=\mathbb{E}[T-t|T\geq t_0]=\dfrac{\int _t^\infty S(\tau) \,\mathrm{d}\tau}{S(t)}  
     \end{equation}
@@ -119,7 +120,7 @@ Key focus of survival analysis problem is the distribution of $ T $ (note that i
     \begin{equation}
         \lambda _T(t)=\lambda _1(t)+\lambda _2 (t)
     \end{equation}
-    \item Hazard Rate: for two survival r.v. $ T_1,\,T_2 $, the hazard rate at $ t $
+    \item Hazard Rate: for two survival r.v. $ T_1,\,T_2 $, the hazard rate at $ t $\index{Hazard Rate}
     \begin{equation}
         \mathrm{hazard\,ratio}(t)=\dfrac{\lambda_1(t) }{\lambda _2(t)}  
     \end{equation}
@@ -147,7 +148,7 @@ In parametric model, there are some commonly used distribution models
     \mathbb{E}(T)=&\dfrac{1}{\lambda }\\
     var(T)=&\dfrac{1}{\lambda ^2}
     \end{align}
-    \item Weibull $T\sim W(p,\lambda )=\left[\varepsilon (\lambda ^p)\right]^{1/p}$, degrade to exponential $ \varepsilon (\lambda ) $ when $ p=1 $\footnote{Weibull distribution could also be parameterized as $ W(p,\gamma ) $, where $ \gamma =1/\lambda  $ is the scale factor.}
+    \item Weibull\index{Weibull Distribution}\index{Distribution!Weibull Distribution} $T\sim W(p,\lambda )=\left[\varepsilon (\lambda ^p)\right]^{1/p}$, degrade to exponential $ \varepsilon (\lambda ) $ when $ p=1 $\footnote{Weibull distribution could also be parameterized as $ W(p,\gamma ) $, where $ \gamma =1/\lambda  $ is the scale factor.}
     \begin{align}
         f(t)=&p\lambda ^pt^{p-1}e^{-(\lambda t)^p}\\
         F(t)=&1-e^{-(\lambda t)^p}\\
@@ -172,7 +173,7 @@ In parametric model, there are some commonly used distribution models
         \mathbb{E}(T)=&e^{\mu +\frac{\sigma ^2}{2}}\\
         var(T)=&e^{2\mu +\sigma ^2}(e^{\sigma ^2}-1)
     \end{align}
-    \item Generalized Gamma $T\sim \mathrm{GG}(\alpha ,p,\lambda )$, degrade to Weibull when $ \alpha =p $, to Gamma when $ p=1 $
+    \item Generalized Gamma $T\sim \mathrm{GG}(\alpha ,p,\lambda )$, degrade to Weibull when $ \alpha =p $, to Gamma when $ p=1 $\index{Generalized Gamma Distribution}\index{Distribution!Generalized Gamma Distribution}
     \begin{align}
         f(t)=&p\lambda (\lambda t)^{\alpha -1}e^{-(\lambda t)^p}\Big/ \Gamma (\dfrac{\alpha }{p})\\
         \mathbb{E}(T)=&\dfrac{\Gamma ((\alpha +1)/p)}{\lambda \Gamma (\alpha /p)} 
@@ -183,6 +184,7 @@ In parametric model, there are some commonly used distribution models
 \begin{point}
     Likelihood for Censored Data\index{Likelihood Function}
 \end{point}
+\index{Likelihood Function}
 
 When dealing with censored data, we put a basic assumption that $ T\parallel C $ so that we can consider their distribution separately:
 \begin{align}
@@ -385,11 +387,10 @@ where $ \hat{\lambda }(t_i) $ are relatively easy to estimate with censoring con
     d_i\big|r_i \sim B(r_i,\lambda _i)\xrightarrow[]{\mathrm{d}} N(r_i\lambda _i,r_i\lambda _i(1-\lambda _i))
 \end{equation}
 
-and obtain the MLE estimation of $ \hat{\lambda }_i|r_i,d_i $\footnote{Here we use the $ \Delta  $ method for estimating the variance of function of r.v.: if $ X\sim f(\mu ,\sigma ^2) $:
+and obtain the MLE estimation of $ \hat{\lambda }_i|r_i,d_i $\index{Greenwood's Formula}\footnote{Here we use the $ \Delta  $ method for estimating the variance of function of r.v.: if $ X\sim f(\mu ,\sigma ^2) $:
 \begin{align}
     g(X)\approx g(\mu )+g'(\mu )(X-\mu )\Rightarrow var(g(X))\approx [g'(\mu )]^2var(X)\leftarrow [g'(X)]^2var(X)
 \end{align}}
-
 \begin{align}
     \hat{\lambda }_i=&\dfrac{d_i}{r_i}\\
     var(\hat{\lambda }_i)=&var(\dfrac{d_i}{r_i})=\dfrac{\hat{\lambda }_i(1-\hat{\lambda }_i)}{r_i}\\
@@ -398,7 +399,7 @@ and obtain the MLE estimation of $ \hat{\lambda }_i|r_i,d_i $\footnote{Here we u
     \approx&[\hat{S}(t)]^2var\left[\log \hat{S}(t)\right]\\
     =&[\hat{S}(t)]^2\sum_{t_i\leq t}var\left[\log (1-\hat{\lambda }_i) \right]\\
     =&[\hat{S}(t)]^2\sum_{t_i\leq t}\dfrac{1}{(1-\hat{\lambda }_i)^2}var(\hat{\lambda }_i)\\
-    =&[\hat{S}(t)]^2\sum_{t_i\leq t}\dfrac{d_i}{r_i(r_i-d_i)}\tag{Greenwood' Formula}\\
+    =&[\hat{S}(t)]^2\sum_{t_i\leq t}\dfrac{d_i}{r_i(r_i-d_i)}\tag{Greenwood's Formula}\\
     =&[\hat{S}(t)]^2var(\hat{\Lambda }(t))
 \end{align}
 
@@ -408,7 +409,7 @@ Interval Estimation of $ \hat{S}(t) $ can be conducted using pointwise interval/
     \begin{equation}
         \hat{S}(t)\pm N_{1-\frac{\alpha }{2}}\sigma [\hat{S}(t)] 
     \end{equation}
-    \item Log-Log pointwise approach (\lstinline|R.| default): using $ \hat{L}(t)=\log\left[-\log \hat{S}(t)\right]=\log\left[\hat{\Lambda }(t)\right] $
+    \item Log-Log pointwise approach\index{Log-Log Pointwise Approach} (\lstinline|R.| default): using $ \hat{L}(t)=\log\left[-\log \hat{S}(t)\right]=\log\left[\hat{\Lambda }(t)\right] $
     \begin{equation}
          \hat{S}(t)\times e^{\pm N_{1-\frac{\alpha }{2}}\sigma (\hat{L }(t))}
     \end{equation}
@@ -486,7 +487,7 @@ Idea of logrank test: adapt contingency table to censor table
 \end{table}
 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item Recap: Pearson's $ \chi^2 $ test: assign $ n $ sample into $ k $ groups, and conduct test on $ p_i $, $ i=1,2,\ldots,k $, denote that $ v_i $ samples are assigned to the $ i^\mathrm{th}  $ groups, then
+    \item Recap: \index{Pearson's $ \chi^2 $ Test}Pearson's $ \chi^2 $ test: assign $ n $ sample into $ k $ groups, and conduct test on $ p_i $, $ i=1,2,\ldots,k $, denote that $ v_i $ samples are assigned to the $ i^\mathrm{th}  $ groups, then
     \begin{equation}
         K_n=\sum_{i=1}^k\dfrac{(v_i-np_i)^2}{np_i}\xrightarrow[]{\mathrm{d}} \chi^2_{df}
     \end{equation}
@@ -564,7 +565,7 @@ Properties \& Special Cases \& Extension of CMH logrank test:
         \chi^2_{CMH,w}=\dfrac{\left[ \sum_{j=1}^K w_j(d_{0j}-r_{0j}\frac{d_j}{r_j}) \right]^2 }{\sum_{j=1}^K w_j^2\frac{r_{0j}r_{1j}d_j(r_j-d_j)}{r_j^2(r_j-1)}}\sim \chi^2_1
     \end{equation}
     
-    bu choosing differnet kinds of weight $ \vec{w} $ we could get variants of CMH test.
+    by choosing differnet kinds of weight $ \vec{w} $ we could get variants of CMH test.
     \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item $ w_i=1 $ for log-rank test. Focus more on difference at large $ t $
         \item $ w_i=r_i $ for generalized Wilcoxon rank sum test.  Focus more on difference at small $ t $.
@@ -582,7 +583,7 @@ Properties \& Special Cases \& Extension of CMH logrank test:
 \end{point}
 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item Wilcoxon Two-Sample Rank Sum Test: Knowledge of Wilcoxon two-sample rank sum test see \autoref{SubSectionIntroToNonParametricHypothesisTesting}. Recap: to test the distribution difference of $ \vec{X}=(X_{1},X_{2},\ldots,X_{n})  $ and $ \vec{Y}=(Y_{1},Y_{2},\ldots,Y_{m})  $, we mix them together  and rank as $ \vec{Z}=(Z_{(1)},Z_{(2)},\ldots,Z_{(m+n)})$. Rank of $ X_i $:
+    \item Wilcoxon Two-Sample Rank Sum Test: Knowledge of Wilcoxon two-sample rank sum test see \index{Wilcoxon Two-Sample Rank Sum Test}\autoref{SubSectionIntroToNonParametricHypothesisTesting}. Recap: to test the distribution difference of $ \vec{X}=(X_{1},X_{2},\ldots,X_{n})  $ and $ \vec{Y}=(Y_{1},Y_{2},\ldots,Y_{m})  $, we mix them together  and rank as $ \vec{Z}=(Z_{(1)},Z_{(2)},\ldots,Z_{(m+n)})$. Rank of $ X_i $:
     \begin{align}
         R_{i}\equiv &\mathrm{rank}(X_i)\text{ in } \vec{Z},\quad i=1,2,\ldots,n  \\
         R\equiv &\sum_{i=1}^nR_i
@@ -607,7 +608,7 @@ Properties \& Special Cases \& Extension of CMH logrank test:
         R=&\dfrac{n(m+n+1)}{2}+\dfrac{U}{2}
     \end{align}
 
-\item Mann-Whitney-Wilcoxon rank sum test for censored data: 
+\item Mann-Whitney-Wilcoxon rank sum test for censored data: \index{Mann-Whitney-Wilcoxon Rand Sum Test}
 
     Notation: we still mix $ X=\{(\tilde{t}_{1i},\delta _{1i})\}_{i=1}^n $ and $ Y=\{(\tilde{t}_{2j},\delta _{2j})\}_{j=1}^m $ to get:
     \begin{equation}
@@ -654,7 +655,7 @@ Properties \& Special Cases \& Extension of CMH logrank test:
 To research on the dependence of $ T $ with regard to covariants $ z $. Survival data with covariants: $ X=(\tilde{t}_i,\delta _i,z_i) $
 
 \subsection{Cox's Proportion Hazard Model}
-Basic assumption on dependence form: $ T $ hazard part and covariants part are Separatable:\index{PH Model (Cox's Proportion Hazard Model)}
+Basic assumption on dependence form: $ T $ hazard part and covariants part are Separatable:\index{PH Model (Cox's Proportion Hazard Model)}\index{Cox's Proportion Hazard Model}
 \begin{equation}
     \lambda (t|z)=\lambda _0(t)g(z)\Leftrightarrow S(t|z)=\left[S_0(t)\right]^{g(z)},\quad S_0(t)=e^{-\int _0^t\lambda _0(\tau) \,\mathrm{d}\tau}
 \end{equation}
@@ -678,10 +679,10 @@ in this proportion hazard model, the ratio of hazard only depend on $ \beta  $:
     \log\left\{ \dfrac{\lambda _{z_i}(t)}{\lambda _0(t)} \right\}=\beta ^Tz_i\parallel t 
 \end{equation}
 
-The unknown components are $ \lambda _0(t),\beta  $, where the $ \lambda _0(t) $ lies in the $ dim\to\infty $ space, and causes difficulty in conducting inference. Solution: decompose full likelihood into two parts, in which one of them, \textbf{Partial Likelihood} is only function of $ \beta  $:\index{Partial Likelihood}
+The unknown components are $ \lambda _0(t),\beta  $, where the $ \lambda _0(t) $ lies in the $ dim\to\infty $ space, and causes difficulty in conducting inference. Solution: decompose full likelihood into two parts, in which one of them, \textbf{Partial Likelihood} $ L_\mathrm{ PH }(\beta ;X)  $ is only function of $ \beta  $:\index{Partial Likelihood}
 \begin{align}
     L(\beta ,\lambda _0(\cdot);X)=&\prod_{i}\left[ \left( \lambda _0(t_i)e^{\beta ^Tz_i} \right)^\delta _i\left( e^{-\int _{0}^{t_i}\lambda _0(\tau) \,\mathrm{d}\tau} \right)^{e^{\beta ^Tz_i}} \right]\\
-    =&L_{PH}(\beta ;X)L_{res}(\beta ,\lambda _0;X)
+    =&L_{\mathrm{ PH } }(\beta ;X)L_{\mathrm{ res } }(\beta ,\lambda _0;X)
 \end{align}
 
 and we could focus on $ L_{PH} $ for further inference.
@@ -747,7 +748,7 @@ There are various modification for tied data case. In PL without tie, the $ \dfr
 
 Notation: $\mathcal{R}_i $ for all datapoints at risk at time $ t_i $, $ \mathcal{D}_i $ for event cases at time $ t_i $, $ \mathcal{D}_i\subset \mathcal{R}_i $
 \begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item Cox's modification:\indexname{Cox's Modification}
+    \item Cox's modification:\index{Cox's Modification}
     \begin{equation}
         \mathbb{P}\left( \mathcal{D}_i \text{ events}\Big| |\mathcal{D}_i |\text{out of }\# \{j:t_j\geq t_i\}  \right)=\dfrac{e^{\sum_{l\in\mathcal{D}_i }\beta'z_l }}{\sum_{\text{all possible }|\mathcal{D}_j|=|\mathcal{D}_i | }e^{\sum_{l\in\mathcal{D}_j }\beta'z_j} }
     \end{equation}
@@ -791,7 +792,7 @@ Model:
 \end{point}
 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item $ \log $-$ \log $ plots: for categorical $ z_1 $, $ z_2 $, use relation
+    \item $ \log $-$ \log $ plots\index{Log-Log Plot}: for categorical $ z_1 $, $ z_2 $, use relation
     \begin{align}
         \log\left[-\log S(t,z_1)\right] -\log\left[-\log S(t,z_2)\right] =\beta '(z_1-z_2)\independent t
     \end{align}
@@ -799,12 +800,12 @@ Model:
     Plot of $ \log\left[\log \hat{S}(t,z)\right] $ should be 'parallel' curves.
     
     \item Check the coherence bet. observed data v.s. expected data.
-    \item Goodness-of-fit using Schoenfeld residuals\indexname{Schoenfeld Residual}
+    \item Goodness-of-fit using Schoenfeld residuals\index{Goodness-of-fit Test}\index{Schoenfeld Residuals}
     \begin{align}
         \hat{r}_i=&z_i-\sum_{j\in\mathcal{R}_i}z_k\cdot p(\hat{\beta },z_k)=z_i\bar{z}_i\\
         p(\beta ,z_k):=&\dfrac{e^{\beta 'z_k}}{\sum_{j\in\mathcal{R}_k}e^{\beta 'z_j}} 
     \end{align}
-    \item (Generalized) Cox-Snell Residual for overall goodness-of-fit: \index{Cox-Snell Residual}
+    \item (Generalized) Cox-Snell Residual for overall goodness-of-fit: \index{Cox-Snell Residuals}\index{Generalized Cox-Snell Residuals}
     
     Recall: for r.v. $ T\sim f(t) $, $ S(t)=\int _t^\infty f(\tau) \,\mathrm{d}\tau $. function of r.v. has distribution:
     \begin{align}

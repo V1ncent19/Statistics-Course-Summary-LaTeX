@@ -25,9 +25,9 @@ To compare groups, e.g. to determine whether there is significant difference bet
     Cell Means Model\index{Cell Means Model}
 \end{point}
 
-\[
+\begin{align}
     Y_{ij}=\mu_i +\varepsilon _{ij},\quad \varepsilon _{ij} \,\mathrm{i.i.d.}\,\sim N(0,\sigma ^2) 
-\]
+\end{align}
 
 Estimation target: $ \mu _1,\ldots,\mu _r,\sigma ^2 $
 
@@ -48,7 +48,7 @@ Key of ANOVA: Decomposition of variation SS:
 \end{align}
 
 \begin{point}
-    Effect Model\index{Effect Model}
+    Effect Model\index{Factor Effect Model}
 \end{point}
 
     
@@ -89,7 +89,7 @@ Key of ANOVA: Decomposition of variation SS:
     
 
     \begin{point}
-        Fixed Effect:
+        Fixed Effect:\index{Fixed Effect}
     \end{point}
     
         
@@ -133,7 +133,7 @@ Key of ANOVA: Decomposition of variation SS:
     
 
 \begin{point}
-    Random Effect
+    Random Effect:\index{Random Effect}
 \end{point}
 
 \begin{align}
@@ -145,12 +145,12 @@ Key of ANOVA: Decomposition of variation SS:
 
     Hypothesis testing $ H_0:\,\sigma _\alpha ^2=0$, v.s. $ H_1: \sigma _\alpha ^2\neq 0$
 
-    Estimation (the same):
+    Estimation:
     \begin{align}
         \hat{\mu }=&\dfrac{1}{r}\sum_{i=1}^r\sum_{j=1}^{n_i}\dfrac{ Y_{ij} }{ n_i } \\
-        \hat{\alpha }_i=&\bar{Y}_{i\cdot }-\hat{\mu }=\dfrac{ 1 }{ n_i }\sum_{j=1}^{n_i}Y_{ij}-\hat{\mu } \\
         s_i^2=&\dfrac{1}{n_i-1}\sum_{j=1}^{n_i}\left(Y_{ij}-\bar{Y}_{i\cdot}\right)^2\\
-        s^2=&\dfrac{\sum_{i=1}^r(n_i-1)s_i^2}{n_T-r}
+        s^2=&\dfrac{\sum_{i=1}^r(n_i-1)s_i^2}{n_T-r}\\
+        \hat{\sigma }^2_\alpha =  & \dfrac{ 1 }{ r } \left(\dfrac{ \mathrm{SS}\alpha  }{ r-1 } -\dfrac{ \mathrm{SSE}  }{ n_T-r }\right)\\
 \end{align}    
 
     ANOVA table:
@@ -161,13 +161,13 @@ Key of ANOVA: Decomposition of variation SS:
             \hline
             Source of Var&$ \mathrm{SS} $&$ dof $&$ \mathrm{MS}  $&$ \mathbb{E}\left( \mathrm{MS}  \right)  $\\
             \hline
-            $ \alpha _i $&$ \mathrm{SS}\alpha=\sum_{i=1}^rn_i\left(\bar{Y}_{i\cdot }-\bar{Y}_{\cdot \cdot }\right)^2  $&$ r-1 $&$ \dfrac{\mathrm{SS}\alpha  }{r-1} $&$ \sigma ^2+n\sigma _\alpha ^2 $\\
+            $ \sigma ^2_\alpha  $&$ \mathrm{SS}\alpha=\sum_{i=1}^rn_i\left(\bar{Y}_{i\cdot }-\bar{Y}_{\cdot \cdot }\right)^2  $&$ r-1 $&$ \dfrac{\mathrm{SS}\alpha  }{r-1} $&$ \sigma ^2+n\sigma _\alpha ^2 $\\
             $ \sigma ^2$&$ \mathrm{SSE} =\sum_{i=1}^r\sum_{j=1}^{n_i}\left(Y_{ij}-Y_{i\cdot }\right)^2 $&$ n_T-r $&$ \dfrac{\mathrm{SSE}}{n_T-r} $&$ \sigma ^2 $\\
             \hline
         \end{tabular}
     \end{table}
 
-    $ F $ statistics for $ H_0:\alpha _1=\ldots=\alpha _r=0 $:
+    $ F $ statistics for $ H_0:\sigma ^2_\alpha =0$:
     \begin{align}
         F=\dfrac{\mathrm{MS}\alpha }{\mathrm{MSE} } \sim F_{r-1,n_T-r}
     \end{align}
@@ -179,9 +179,9 @@ Key of ANOVA: Decomposition of variation SS:
 
 Two factor model with interation term:
 
-\[
+\begin{align}
     Y_{ijk}=\mu +\alpha _i+\beta _j+(\alpha \beta )_{ij}+\varepsilon _{ijk} 
-\]
+\end{align}
 % \footnote{When we first introduced double factor model, we expressed interaction term as 
 % \begin{align}
 %     Y_{ijk} =& \mu +\alpha _i +\beta _j+(\alpha \beta ) _{ij}+\varepsilon _{ijk}
@@ -204,17 +204,18 @@ Two factor model with interation term:
     Here for convenience and clarity, when applying model with more factors, we use terms like $ (\alpha \beta )_{ij} $ to avoid confusion of too many symbols.
 
 
-\subsection{General Case for Factor Model}
+\subsection{General Case for Factor Model}\label{SubSubSectionBiosGeneralCaseForFactorModel}
 
 e.g. three factors model 
-\[
+\begin{align}
     Y_{ijkl} = \mu +\alpha _i +\beta _j+\gamma _k +(\alpha \beta )_{ij}+(\alpha \gamma )_{ik}+(\beta \gamma )_{jk}+(\alpha \beta \gamma )_{ijk}+\varepsilon _{ijkl}
-\]
+\end{align}
 
 
 \begin{point}
     Montgomery's Method for Restricted Model
 \end{point}
+\index{Montgomery's Method}\index{EMS@$ \mathbb{E}(MS) $}
 
     Montgomery describe a useful trick to form the ANOVA table and to find correponding $ \mathbb{E}\left( \mathrm{MS} \right)  $ (EMS), and finally help construct proper $ F^* $ statistics.
     Here an explicit example of three factor (1F+2R) model is provided to illustrate the procedure.
@@ -385,7 +386,7 @@ e.g. three factors model
         \end{tabular}
         \label{}
     \end{table}
-    \item Now we can use $ \mathbb{E}\left( \mathrm{MS}  \right)  $ to construct correponding $ F^* $. e.g. to test $ H_0:\alpha _1=\alpha _2=\ldots =\alpha _a $, test:
+    \item Now we can use $ \mathbb{E}\left( \mathrm{MS}  \right)  $ to construct correponding $ F^* $. e.g. to test $ H_0:\alpha _1=\alpha _2=\ldots =\alpha _a $, we use:
     \begin{align}
         \mathbb{E}\left( \mathrm{MS}_\alpha   \right)=&\sigma ^2+cn\sigma ^2_{\alpha \beta }+bn\sigma ^2_{\alpha \gamma}+n\sigma ^2_{\alpha \beta \gamma }+bcn\dfrac{\sum_{i}\alpha _i^2}{a-1} \\
         \mathbb{E}\left( \mathrm{MS}_{\alpha \beta }+\mathrm{MS}_{\alpha \gamma }-\mathrm{MS}_{\alpha \beta \gamma }    \right)=& \sigma ^2+cn\sigma ^2_{\alpha \beta }+bn\sigma ^2_{\alpha \gamma}+n\sigma ^2_{\alpha \beta \gamma }\\
@@ -432,7 +433,7 @@ dat %>% group_by(cat_1) %>% rstatix::identify_outliers(y)
 Some miscellanea in design of experiment and about some advanced models:
 
 \begin{point}
-    Crossed and Nested Factors
+    Crossed and Nested Factors\index{Crossed Factor}\index{Nested Factor}
 \end{point}
 
 In multi-factor studies, we may not be able to go through all possible factor settings.
@@ -466,6 +467,7 @@ In multi-factor studies, we may not be able to go through all possible factor se
 
 
 \section{Statistical Inference on Contingency Table}
+\index{Contingency Table}
 
 Contingency table is an easy way to display categorical variables, an example:
 \begin{table}[H]
@@ -495,6 +497,7 @@ Contingency table is an easy way to display categorical variables, an example:
 \begin{point}
     Prospective Study and Retrospective Study
 \end{point}
+\index{Prospective Study}\index{Retrospective Study}
 
     Contingency table itself is symmetric w.r.t. $ Y,\,Z $, but in experimental design we usually first specify and divide groups, and then conduct experiment (prospective) or conduct survey (retrospective), which would cause different conditional probability. An example in studying the effect of medicine
     \begin{itemize}[topsep=2pt,itemsep=0pt]
@@ -511,7 +514,7 @@ Contingency table is an easy way to display categorical variables, an example:
         This method is quick and convenient to conduct study, but usually we cannot control the exposure status $ Y $ accurately (because they are collected by, e.g. questionnaire)
     \end{itemize}
 
-    Statistics and tests should be selected based on the data collection design (prospective/retrospective) because of different probability condition.
+    Statistics and tests should be selected \textbf{based on the data collection design} (prospective/retrospective) because of different probability condition.
     
 \begin{point}
     Statistics and Estimation
@@ -531,7 +534,7 @@ Contingency table is an easy way to display categorical variables, an example:
 
     Their estimation:
 \begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item Respective probability $ p_1,p_2 $:
+    \item Respective probability $ p_1,p_2 $:\index{Respective Probability}
     
     \begin{align}
         \text{Prospective: }  &\begin{cases}
@@ -545,13 +548,13 @@ Contingency table is an easy way to display categorical variables, an example:
         \text{where }\rho &\text{ is the prevalence btw} D,D^\complement \text{ in natural condition}
     \end{align}
     
-    \item Relative Risk $ \phi  $:
+    \item Relative Risk $ \phi  $:\index{Relative Risk}
     \begin{align}
         \text{Prospective: }  &\hat{\phi }= \dfrac{n_{11}\big/n_{1\cdot }}{n_{21}\big/n_{2\cdot }} \\
         \text{Retrospective: }&\hat{\phi }=\dfrac{\hat{p}_1}{\hat{p}_2}
     \end{align}
 
-    \item Odds Ratio $ \theta  $:
+    \item Odds Ratio $ \theta  $:\index{Odds Ratio}
     \begin{align}
         \text{Prospective} \& \text{Retrospective: }& \hat{\theta }=\dfrac{n_{11}n_{22}}{n_{21}n_{12}}
     \end{align}
@@ -598,13 +601,13 @@ Contingency table is an easy way to display categorical variables, an example:
     
     Statistics:
     \begin{itemize}[topsep=2pt,itemsep=0pt]
-        \item \textbf{Pearson's $ \chi^2 $ Test}:
+        \item \textbf{Pearson's $ \chi^2 $ Test}\index{Pearson's $ \chi^2 $ Test}:
         \begin{align}
             \chi^2_P=\sum_{i=1}^I\sum_{j=1}^J\dfrac{(O_{ij}-E_{ij})^2}{E_{ij}}\xrightarrow[]{\mathscr{L}} \chi^2_{(I-1)(J-1)}
         \end{align}
         
         
-        \item \textbf{Likelihood Ratio Test}:
+        \item \textbf{Likelihood Ratio Test}:\index{LRT (Likelihood Ratio Test)}
         \begin{align}
             G^2=-2\log(\Lambda )=2\sum_{i=1}^I\sum_{j=1}^JO_{ij}\log\dfrac{O_{ij}}{E_{ij}}\xrightarrow[]{\mathscr{L}} \chi^2_{(I-1)(L-1)} 
         \end{align}
@@ -622,8 +625,9 @@ Contingency table is an easy way to display categorical variables, an example:
     
         
 
-\section{Clinical Trial Design}
-\section{GWAS}
+\section{Clinical Trial Design*}
+\index{Clinical Trial Design}
+\section{GWAS*}
 % \subsection{Four-Stage Clinical Trial}
 
 % \subsection{Relative Statistical Inference}

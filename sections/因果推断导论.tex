@@ -141,7 +141,7 @@ The null model is complicated, say, there could be multiple PO levels / interfer
     \end{itemize}
     \item \textbf{Regular Assignment Mechanisms (RAM)} \index{RAM (Regular Assignment Mechanisms)}
     \begin{itemize}[topsep=2pt,itemsep=0pt]   
-        \item \textbf{Individualistic Assignment}: Assignment probability of each unit does \textbf{not} depends on the covariants and PO of other units:
+        \item \textbf{Individualistic Assignment}\index{Individualistic Assignment}: Assignment probability of each unit does \textbf{not} depends on the covariants and PO of other units:
         \begin{align}
             \mathbb{P}(W_i=w_i|X,Y(1),Y(0))=&\mathbb{P}\left( W_i=w_i|X_i,Y_i(1),Y_i(0) \right) \\
             =&\mathbb{P}(W_i|X_i,Y_i(1),Y_i(0))^{w_i}(1-\mathbb{P}(W|X_i,Y_i(1),Y_i(0)))^{1-w_i},\,\forall i=1,2,\ldots,N
@@ -156,12 +156,12 @@ The null model is complicated, say, there could be multiple PO levels / interfer
         %      e(x)=\dfrac{1}{N(x)}\sum_{i:X_i=x}P(W=1|X,Y(1),Y(0))=\dfrac{1}{N(x)}\sum_{i:X_i=x}P(W=1|X_i,Y_i(1),Y_i(0))
         % \end{align}
         
-        \item \textbf{Probabilistic Assignment}: Probility for both $ W_i=1 $ and $ W_i=0 $ are non-zero (to ensure a reasonable causal model)
+        \item \textbf{Probabilistic Assignment}\index{Probabilistic Assignment}: Probility for both $ W_i=1 $ and $ W_i=0 $ are non-zero (to ensure a reasonable causal model)
         \begin{align}
             0<\mathbb{P}(W|X,Y(1)Y(0))<1,\,\forall X,Y(1),Y(0) 
         \end{align}
         
-        \item \textbf{Unconfounded Assignment}: Assignment mechanism is independent of PO
+        \item \textbf{Unconfounded Assignment}\index{Unconfounded Assignment}: Assignment mechanism is independent of PO
         \begin{align}
             \mathbb{P}(W|X,Y(1),Y(0))=\mathbb{P}(W|X)
         \end{align}
@@ -314,7 +314,7 @@ Comments:
 
     
 \subsection{Neyman's Repeated Sampling Approach}
-
+\index{Neyman's Repeated Sampling Approach}
 Neyman's method uses the distribution of $ W $ for completely randomized experiment to obtain the property of the finite sample estimator
 \begin{align}
     \hat{\tau}_\mathrm{fs}=\bar{Y}_\mathrm{t}^\mathrm{obs}-\bar{Y}_\mathrm{c}^\mathrm{obs}= \dfrac{1}{N_\mathrm{t} }\sum_{i=1}^N W_iY_i(1)-\dfrac{1}{N_\mathrm{c} } \sum_{i=1}^N(1-W_i)Y_i(0)   
@@ -448,7 +448,7 @@ e.g. for regression estimation $ Y=X\beta + \varepsilon  $, $ \mathcal{D}_n=\{x_
         \Rightarrow \hat{\theta }_n\xrightarrow[]{d} &N(\theta ^*,\Gamma ^{-1}\Sigma _{\psi}\Gamma ^{-1}\big/n ),\qquad \Gamma :=\dfrac{\partial^{} \psi_n(\theta =\hat{\theta}_n;\mathcal{D}_n)}{\partial \theta ^{}}
     \end{align}
 
-    and specifically if $ Q_n(\theta ;\mathcal{D}) $ is a log-likelihood, then $ \psi(\theta ;\mathcal{D}) $ here is Score function in \autoref{EqaScoreFunctionForMLE}. And $ \Sigma _\psi=I(\theta )  $ is Fisher Information in \autoref{EqaFisherInformation}. With the nice property of Fisher Information $ I(\theta )=\Sigma _{\psi}=-\mathbb{E}\left[ \Gamma  \right]  $, M-Estimator reduces to the asymptotic distribution of MLE in \autoref{EqaAsymptoticDistributionMLE}
+    and specifically if $ Q_n(\theta ;\mathcal{D}) $ is a log-likelihood, then $ \psi(\theta ;\mathcal{D}) $ here is Score function in \autoref{EqaScoreFunctionForMLE}. And $ \Sigma _\psi=I(\theta )  $ is Fisher Information in \autoref{EqaFisherInformation}. With the nice property of Fisher Information $ I(\theta )=\Sigma _{\psi}=-\mathbb{E}\left[ \Gamma  \right]  $, \index{Fisher Information}M-Estimator reduces to the asymptotic distribution of MLE in \autoref{EqaAsymptoticDistributionMLE}
     \begin{align}
          \hat{\theta }_n\xrightarrow[]{d} (\theta ^*,\dfrac{ I(\theta )^{-1}}{n})
     \end{align}
@@ -587,9 +587,7 @@ Estimation target: $ f(Y^\mathrm{mis}|Y^\mathrm{obs},W ) $, with assumptions
     \end{align}
     and corresponding intergrations need to consider intergral on $ X $.
 
-    Usually computation of integral terms is complex, simulation methods like random integration can be used, see \autoref{SubSectionStatisticalSimulation} for a brief introduction.
-
-    (Detailed estimation methods would be complemented upon completion of Intro. to Bayesian Statistics next semester.)
+    Usually computation of integral terms is complex, simulation methods like random integration can be used, see \autoref{SubSectionStatisticalSimulation} and \autoref{SubSectionBayesianStatisticsSimulation} for a brief introduction.
     
 
 
@@ -788,7 +786,7 @@ Property of propensity score:
 \end{itemize}
 
 
-\section{Pearl Causal Bayesian Framework}
+\section{Pearl Causal Bayesian Framework}\label{SubSectionPearlCausalBayesianFramework}
 \index{Pearl Causal Bayesian Framework}\index{Bayesian Network}
     Pearl Bayesian Framework\footnote{Also called Bayesian Network / Belief Network / Directed Acyclic Graphical (DAG) Model.} (Judea Pearl, 1995) uses causal information on a graph to construct inference. 
 
@@ -804,8 +802,8 @@ In Pearl's causal network we focus on \textbf{Directed Acyclic Graphs} (DAGs) \i
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item[$ \color{red}\vartriangleright  $] DAG is a graph in which all edges are directed, and no path is a loop (acyclic).
     \item[$ \color{blue}\vartriangleright  $] \textbf{Graph} $ \mathcal{G}$ is composed of a set of \textbf{Vertices}  / Nodes $\mathcal{V} $ and the \textbf{Edge}s $ \mathcal{E} $ connecting them; $\mathcal{G} = \left\{\mathcal{E},\mathcal{V}\right\} $.
-    \item Adjacency: Two vertices $ v_i ,\,v_j$ are adjacent if they are linked by an edge $ e_{ij} $.
-    \item \textbf{Path} : A (non-intersecting) routine tracing through edges to connect two vertices. 
+    \item Adjacency\index{Adjacency}: Two vertices $ v_i ,\,v_j$ are adjacent if they are linked by an edge $ e_{ij} $.
+    \item \textbf{Path}\index{Path}: A (non-intersecting) routine tracing through edges to connect two vertices. 
     \item[$ \color{blue}\vartriangleright $] \textbf{Direction}  of edges: two vertices are connected by directed edge, pointing from the first to the second, say the following meta $ X\to Y $. 
     \begin{figure}[H]
         \centering          
@@ -822,7 +820,7 @@ In Pearl's causal network we focus on \textbf{Directed Acyclic Graphs} (DAGs) \i
         \end{tikzpicture}
         \end{figure}
     in which $ X $ is a \textbf{parent} of $ Y $ and $ Y $ is a children of $ X $. Parent of note $ v_i $ is denoted $ pa_i $
-    \item \textbf{Skeleton} : The graph with all direction removed (looks like a graph with only nodes and line, without arrow).
+    \item \textbf{Skeleton}\index{Skeleton} : The graph with all direction removed (looks like a graph with only nodes and line, without arrow).
     \item[$ \color{blue}\vartriangleright $]  \textbf{Acyclic}: a graph without loop is acyclic. The structure is naturally required to make the causal structure healthy by clearly distinguish cause from effect.
 \end{itemize}
 
@@ -877,12 +875,12 @@ Here's an example of Markov factorization on a DAG graph:
 
 Starting from triplets in DAG as the key elements in a graph.
 \begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item Chain $ X\to Y\to Z $, in which $ Y $ is the \textit{mediator}. We have
+    \item Chain $ X\to Y\to Z $, in which $ Y $ is the \textit{mediator}\index{Chain}\index{Mediator}. We have
     \begin{align}
         \mathbb{P}\left( X,Z|Y \right)=&\dfrac{\mathbb{P}\left( X \right) \mathbb{P}\left( Y|X \right) \mathbb{P}\left( Z|Y \right) }{\mathbb{P}\left( Y \right) }=\mathbb{P}\left( X|Y \right) \mathbb{P}\left( Z|Y \right) 
     \end{align}
     i.e. we have a conditional independency in chain $ X\independent Z|Y $
-    \item Fork $ X\leftarrow Y\rightarrow Z $. We have
+    \item Fork\index{Fork} $ X\leftarrow Y\rightarrow Z $. We have
     \begin{align}
         \mathbb{P}\left( X,Z|Y \right) = \dfrac{\mathbb{P}\left( Y \right) \mathbb{P}\left( X|Y \right) \mathbb{P}\left( Z|Y \right) }{\mathbb{P}\left( Y \right) }=\mathbb{P}\left( X|Y \right) \mathbb{P}\left( Z|Y \right)   
     \end{align}
@@ -1122,7 +1120,7 @@ Related notions and comments:
     Causality on Bayesian Network
 \end{point}
 
-Recall that in Rubin's Potential Outcome Framework, causality was induced by counterfactual side of potential outcomes $ Y^\mathrm{mis} = Y(1-W)  $. In Bayesian Network framework, causality is induced by \textbf{intervention}, in formulas expressed by $ do(\, \cdot \, ) $ operator, e.g.
+Recall that in Rubin's Potential Outcome Framework, causality was induced by counterfactual side of potential outcomes $ Y^\mathrm{mis} = Y(1-W)  $. In Bayesian Network framework, causality is induced by \textbf{intervention}, in formulas expressed by $ do(\, \cdot \, ) $ operator, e.g.\index{do Operator@$ do(\, \cdot \, ) $ Operator}
 \begin{align}
     \mathbb{P}\left( X |do(Z=z) \right)  
 \end{align}
@@ -1210,7 +1208,7 @@ Comments:
 \subsection{Network Structure Learning}
 
 \begin{point}
-    IC/PC Algorithm\index{IC Algorithm (Inductive Causation Algorithm)}
+    IC/PC Algorithm\index{IC Algorithm (Inductive Causation Algorithm)}\index{Peter \& Clark Algorithm Refinement}
 \end{point}
 
 IC/PC Algorithm (Inductive Causation Algorithm with Peter \& Clark Algorithm Refinement) is a constraint-based method. DAG is constructed through identifying conditional independencies.
@@ -1219,7 +1217,7 @@ Here illustrated with the following example with conditional independencies. Gro
 
 \begin{center}
     \begin{minipage}{0.4\linewidth}
-        \begin{align*}
+        \begin{align}
             &X \not\!\!\mathop{\independent} R |\mathcal{S},\,\forall \mathcal{S}\subset\{Y,Z,W\}\\
             &X \not\!\!\mathop{\independent} Z |\mathcal{S},\,\forall \mathcal{S}\subset\{Y,R,W\}\\
             &X \not\!\!\mathop{\independent} Y |\mathcal{S},\,\forall \mathcal{S}\subset\{Z,R,W\}\\
@@ -1230,7 +1228,7 @@ Here illustrated with the following example with conditional independencies. Gro
             &Z\independent W|Y\\
             &Z\independent R|\{X,Y\}\\
             &W\independent R
-        \end{align*}
+        \end{align}
     \end{minipage}
     \quad
     \begin{tikzpicture}[baseline={([yshift = 0ex]current bounding box.center)}]
@@ -1265,7 +1263,7 @@ Here illustrated with the following example with conditional independencies. Gro
     \end{itemize}
     \begin{center}
         \begin{minipage}{0.4\linewidth}
-            \begin{align*}
+            \begin{align}
                 &\color{red}X \not\!\!\mathop{\independent} R |\mathcal{S},\,\forall \mathcal{S}\subset\{Y,Z,W\}\\
                 &\color{red}X \not\!\!\mathop{\independent} Z |\mathcal{S},\,\forall \mathcal{S}\subset\{Y,R,W\}\\
                 &\color{red}X \not\!\!\mathop{\independent} Y |\mathcal{S},\,\forall \mathcal{S}\subset\{Z,R,W\}\\
@@ -1276,7 +1274,7 @@ Here illustrated with the following example with conditional independencies. Gro
                 &Z\independent W|Y\\
                 &Z\independent R|\{X,Y\}\\
                 &W\independent R
-            \end{align*}
+            \end{align}
         \end{minipage}
         \quad
         \begin{tikzpicture}[baseline={([yshift = 0ex]current bounding box.center)}]
@@ -1308,7 +1306,7 @@ Here illustrated with the following example with conditional independencies. Gro
     \end{itemize}
     \begin{center}
         \begin{minipage}{0.4\linewidth}
-            \begin{align*}
+            \begin{align}
                 &\color{red}X \not\!\!\mathop{\independent} R |\mathcal{S},\,\forall \mathcal{S}\subset\{Y,Z,W\}\\
                 &X \not\!\!\mathop{\independent} Z |\mathcal{S},\,\forall \mathcal{S}\subset\{Y,R,W\}\\
                 &\color{red}X \not\!\!\mathop{\independent} Y |\mathcal{S},\,\forall \mathcal{S}\subset\{Z,R,W\}\\
@@ -1319,7 +1317,7 @@ Here illustrated with the following example with conditional independencies. Gro
                 &Z\independent W|Y\\
                 &Z\independent R|\{X,Y\}\\
                 &W\independent R
-            \end{align*}
+            \end{align}
         \end{minipage}
         \quad
         \begin{tikzpicture}[baseline={([yshift = 0ex]current bounding box.center)}]
@@ -1450,7 +1448,7 @@ The above procedure can produce identify the DAG up to its observational equival
 
 
 \begin{point}
-    Search and Score Methods
+    Search and Score Methods\index{Search and Score Methods}
 \end{point}
 
 We could also simply search in the space of all possible networks and select the one scoring the highest. Some frequently used metrics include AIC and BIC
@@ -1519,7 +1517,7 @@ Basically, parameter learning (given BN strucure) is simply estimating edge weig
         $ do $-Calculus
     \end{point}
     \begin{itemize}[topsep=2pt,itemsep=0pt]
-        \item Module invariant
+        \item Module invariant\index{Module Invariance}
         \begin{align}
             \mathbb{P}\left( X_i=x_i\big| do(PA_i=pa_i) \right) = \mathbb{P}\left( X_i=x_i\big| PA_i=pa_i \right)  
         \end{align}
@@ -1717,14 +1715,14 @@ Basically, parameter learning (given BN strucure) is simply estimating edge weig
                 
                 
             \end{minipage}}
-        \item[$ \color{red}\vartriangleright  $] General Rules of $ do $-calculus
+        \item[$ \color{red}\vartriangleright  $] General Rules of $ do $-calculus*
     \end{itemize}
     
         
 
 
-\subsection{Instrumental Variable Method}
-
+\subsection{Instrumental Variable Method*}
+\index{Instrumental Variable Method}
     
 
 

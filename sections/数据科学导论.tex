@@ -234,7 +234,7 @@ Comparison of \lstinline|R|, \lstinline|python|:focus on different aspects of `S
     Initialization: \lstinline|list(OBJECT1,OBJECT2,...)|
 
     Element access: \lstinline|a[[i]]|, \lstinline|a$OBJ_NAME|
-    \item \lstinline|data.frame|: `Mixture' of matrix and list. \lstinline|data.frame| is actually a kind of list(with some constraint), organized in the shape of matrix (but allowing different datatype for different columns, each column is a list object).
+    \item \index{data.frame}\lstinline|data.frame|: `Mixture' of matrix and list. \lstinline|data.frame| is actually a kind of list(with some constraint), organized in the shape of matrix (but allowing different datatype for different columns, each column is a list object).
     
     Each column of \lstinline|data.frame| has name: \lstinline|names(DATA_FRAME)|, \lstinline|colnames(DATA_FRAME)|
 
@@ -374,6 +374,7 @@ for(VAR in SEQ) {
 
 
 \subsection{Vectorized Operation}\label{SubSubSectionVectorizedOperation}
+\index{Vectorized Operation in R.}
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item \lstinline|apply()| function series:
 \begin{itemize}[topsep=2pt,itemsep=0pt]
@@ -411,6 +412,7 @@ mapply(function(x,y,z,k){(x+k)^(y+z)} , x = ,y = ,z = ,k = )
 
 
 \subsection{Subsetting}
+\index{Subsetting in R.}
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item By position: \lstinline|x[RANGE]|
     \begin{itemize}[topsep=2pt,itemsep=0pt]
@@ -472,6 +474,7 @@ match(vec1,vec2)
 \end{itemize}
 
 \subsection{Data Manipulation With dplyr. And tidyr.}
+\index{tidyverse}
     \lstinline|dplyr| and \lstinline|tidyr| are two useful package for data cleaning \& manipulation. Use package \lstinline|tidyverse| include both of them.
 
     \lstinline|tidyverse| for \lstinline|tidy|uni\lstinline|verse|, includes \lstinline|dplyr|, \lstinline|tidyr|, \lstinline|readr|, \lstinline|ggplot2|, \lstinline|stringr|, etc.
@@ -538,7 +541,7 @@ Some examples see \autoref{SubSubSectionDiagnosticsToFactorModel}.
     \item \lstinline|gather(DF,key='KEY_NAME',value='VALUE_NAME',...,na.rm)|, melt a \lstinline|data.frame|. 
     
     e.g. \lstinline|gather(df,'KEY','VALUE',c('COL1','COL2','COL3'))| transfers \lstinline|...| as:
-    \[
+    \begin{align}
         \begin{matrix}
             \text{ID}&\text{COL1}&\text{COL2}&\text{COL3}\\
             1&a_1&b_1&c_1\\
@@ -558,7 +561,7 @@ Some examples see \autoref{SubSubSectionDiagnosticsToFactorModel}.
             2&\text{COL3}&c_2\\
             \vdots&\vdots
         \end{matrix}
-    \]
+    \end{align}
     \item \lstinline|spread(DF,key='KEY_NAME',value='VALUE_NAME')|, inverse of \lstinline|gather()|
     \item \lstinline|separate(DF,COL,into=SET_VEC,sep='REGEX')|, separate \lstinline|COL| into columns with name in \lstinline|SET_VEC|, sep according to \lstinline|sep|
     \item \lstinline|unite(DF,COL,SET_VEC,sep='')| inverse of \lstinline|separate()|
@@ -630,6 +633,7 @@ Some examples see \autoref{SubSubSectionDiagnosticsToFactorModel}.
 
 
 \subsection{Regular Expression}
+\index{Regular Expression}
     Regular expression is a text pattern/mode. abbr. regex/regexp. Regex is supported in most common language, same syntax used.
 
     Tutorial: \url{https://www.runoob.com/regexp/regexp-tutorial.html}
@@ -667,11 +671,11 @@ Some examples see \autoref{SubSubSectionDiagnosticsToFactorModel}.
     \end{tabular}
 \end{table}
 
-    \item Wildcard（通配符）: \lstinline|.| matches any single character except line break \lstinline|\r|,\lstinline|\n|
+    \item Wildcard\index{Wildcard}（通配符）: \lstinline|.| matches any single character except line break \lstinline|\r|,\lstinline|\n|
     \item Anchor（词边界/定位符）: match `word boundary' (not the space at the start/end of string).
     
     \lstinline|^| string start, \lstinline|$| string end, \lstinline|\b| word boundary, \lstinline|\B| not-a-word-boundary position
-    \item Repetition/Quantifier: here \lstinline|X| for some regex pattern like \lstinline|CHAR|, \lstinline|[]| etc.
+    \item Repetition/Quantifier\index{Quantifier}: here \lstinline|X| for some regex pattern like \lstinline|CHAR|, \lstinline|[]| etc.
     
 \begin{table}[H]
     \centering
@@ -926,6 +930,7 @@ par(opar)
 
 
 \subsection{R::ggplot2 Plotting}
+\index{ggplot2}
     \lstinline|ggplot2|: \textbf{G}rammar of \textbf{G}raphics \textbf{plot} (2nd edi). It provides a convenient way to produce fancy plots. Reference see \url{https://ggplot2.tidyverse.org/reference/}\index{ggplot2}
     
     Basic steps for \lstinline|ggplot2|:

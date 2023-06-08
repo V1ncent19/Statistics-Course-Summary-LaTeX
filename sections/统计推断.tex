@@ -3,7 +3,7 @@
     Instructor: Jiangdian Wang
 \end{center}
 
-    \textbf{Statistical Inference}: Given sample $ X=(x_{1},x_{2},\ldots,x_{n})  $, we want to estimate some features of the population. This part focus on parametric statistical inference, thus our task is to estimate/testing parameters.
+    \textbf{Statistical Inference}: Given sample $ X=(x_{1},x_{2},\ldots,x_{n})  $, we want to estimate some features of the population. This part focus on parametric statistical inference, thus our task is to estimate/testing parameters.\index{Statistical Inference}
 
 \begin{point}
     Example of statistical inference
@@ -40,7 +40,7 @@ df <- data.frame(x=x,y=y)
 
 
 \section{Statistical Model and Statistics}\label{SectionStatisticalModelandStatistics}
-    Random sample comes from population $X$. In parametric model case, we have population distribution family:
+    Random sample comes from population $X$. In parametric model case, we have population distribution family:\index{Distribution Family}
     \begin{equation}\mathscr{F}=\{f(x;\vec{\theta})|\vec{\theta}\in\Theta\}\end{equation}
 
     where \text{parameter} $\vec{\theta}$ reflect some quantities of population (e.g. mean, variance, etc.), each $\vec{\theta}$ corresponds to a distribution of population $X$.
@@ -56,7 +56,7 @@ df <- data.frame(x=x,y=y)
 \end{point}
     
     \begin{itemize}
-        \item Sample mean (Consider $X_i$ i.i.d.)
+        \item Sample mean (Consider $X_i$ i.i.d.)\index{Mean}
         \begin{equation}
             \bar{X}=\frac{1}{n}\sum_{i=1}^n X_i
         \end{equation}
@@ -64,7 +64,7 @@ df <- data.frame(x=x,y=y)
         \begin{equation}
             S^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\bar{X})^2  
         \end{equation}
-        \item Sample moments
+        \item Sample moments\index{Moment}
         \begin{itemize}
             \item Origin moment
             \begin{equation}
@@ -75,7 +75,7 @@ df <- data.frame(x=x,y=y)
                 m_{n,k}=\frac{1}{n}\sum_{i=1}^n (X_i-\bar{X})^k\qquad k=2,3,4,\ldots    
             \end{equation}
         \end{itemize}
-        \item Pearson's Correlation Coefficient $ r $\index{Correlation Coefficient!Pearson's Correlation Coefficient $ r $}
+        \item Pearson's Correlation Coefficient $ r $\index{Correlation Coefficient!Pearson's Correlation Coefficient $ r $}\index{Pearson's Correlation Coefficient $ r $}
         \begin{align}
             r_{X,Y}=\hat{cov}(X,Y)=\dfrac{\sum_{i=1}^n(X_i-\bar{X})(Y_i-\bar{Y})}{\sqrt{\sum_{i=1}^n(X_i-\bar{X})^2}\sqrt{\sum_{i=1}^n(Y_i-\bar{Y})^2}} 
         \end{align}        
@@ -88,11 +88,11 @@ df <- data.frame(x=x,y=y)
         \begin{equation}
             m_p=X_{(m)},\quad m=\left\lfloor (n+1)p\right\rfloor    
         \end{equation}
-        \item Sample coefficient of variation
+        \item Sample coefficient of variation\index{Coefficient of Variation}
         \begin{equation}
             \hat{\nu}=\frac{S}{\bar{X}}    
         \end{equation}
-        \item Skewness and Kurtosis
+        \item Skewness and Kurtosis\index{Skewness}\index{Kurtosis}
         \begin{equation}
             \hat{g}_1=\frac{m_{n,3}}{m_{n,2}^{3/2}}\qquad \hat{g}_2=\frac{m_{n,4}}{m_{n,2}^2}    -3
         \end{equation}
@@ -151,9 +151,10 @@ moments::moment(df, order = ORDER_OF_M, central = FALSE, na.rm = FALSE)
 
 \subsection{Exponential Family}\label{SubSectionExponentialFamily}
 
-Motivation: parametric statistical inference needs a (priorly assumed) distribution, e.g. Normal $ N(\mu ,\sigma ^2) $, Poisson $ P(\lambda ) $, Gamma $ \Gamma (\alpha ,\lambda ) $, etc. Exponential Family is a framework to represent them in the same form Exponential Family can extract some key features of the distribution, and has some nice properties.
+\index{Exponential Family}
+Motivation: parametric statistical inference needs a (priorly assumed) distribution family, e.g. Normal $ N(\mu ,\sigma ^2) $, Poisson $ P(\lambda ) $, Gamma $ \Gamma (\alpha ,\lambda ) $, etc. Exponential Family is a framework to represent them in the same form Exponential Family can extract some key features of the distribution, and has some nice properties.
 
-Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf{Exponential Family} if $f(x;\vec{\theta})$ has the form as\index{Exponential Family}
+Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf{Exponential Family} if $f(x;\vec{\theta})$ has the form as
 \begin{equation}
     f(x;\vec{\theta})=C(\vec{\theta})h(x)\exp \left[  \sum_{i=1}^k Q_i(\vec{\theta})T_i(x) \right]\quad\vec{\theta}\in\Theta
 \end{equation}    
@@ -225,7 +226,7 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
 
         Properties
         \begin{itemize}
-            \item \textbf{Factorization Thm.}\index{Factorization Thm.} $T(\vec{X})$ is sufficient \textbf{if and only if} $f_{\vec{X}}(\vec{x};\theta)=f(\vec{x};\theta)$ can be written as 
+            \item \textbf{Factorization Theorem}\index{Factorization Theorem} $T(\vec{X})$ is sufficient \textbf{if and only if} $f_{\vec{X}}(\vec{x};\theta)=f(\vec{x};\theta)$ can be written as 
             \begin{equation}
                 f(\vec{x};\theta)=g\left(t(\vec{x});\theta\right)h(\vec{x})
             \end{equation}            
@@ -283,7 +284,7 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
         
         \item[$\blacktriangleright$]\index{Ancillary Statistic}  An \textbf{Ancillary Statistic} $S(\vec{X})$ is a statistic whose distribution does not depend on $\theta$
         
-        \textbf{Basu Thm.}\index{Basu Thm.}: $\vec{X}=(X_1,X_2,\ldots,X_n)$ is sample from $\mathscr{F}=\{f(x;\theta),\theta\in\Theta\}$. $T(\vec{X})$ is a complete and minimal sufficient statistic, $S(\vec{X})$ is ancillary statistic, then $S(\vec{X})\independent T(\vec{X})$. Intuitively $ S(\vec{X}) $ contains no information about $ \theta  $ and minimal sufficient $ T(\vec{X}) $ contains all and necessary information about $ \theta  $.
+        \textbf{Basu Theorem}\index{Basu Theorem}: $\vec{X}=(X_1,X_2,\ldots,X_n)$ is sample from $\mathscr{F}=\{f(x;\theta),\theta\in\Theta\}$. $T(\vec{X})$ is a complete and minimal sufficient statistic, $S(\vec{X})$ is ancillary statistic, then $S(\vec{X})\independent T(\vec{X})$. Intuitively $ S(\vec{X}) $ contains no information about $ \theta  $ and minimal sufficient $ T(\vec{X}) $ contains all and necessary information about $ \theta  $.
 
         \item[$\blacktriangleright$] Exponential family: For $\vec{X}=(X_1,X_2,\ldots,X_n)$ from exponential family with canonical form, i.e.
     \begin{equation}
@@ -299,6 +300,7 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
 
 
 \section{Point Estimation}\label{SectionPointEstimation}
+\index{Point Estimation}
     For parametric distribution family $\mathscr{F}=\{f(x,\theta),\theta\in\Theta\}$, random sample $\vec{X}=(X_1,X_2,\ldots,X_n)$ from $\mathscr{F}$. $g(\theta)$ is a function defined on $\Theta$. 
 
     Mission: use sample $\{X_i\}$ to estimate $g(\theta)$, called \textbf{Parameter Estimation}.
@@ -319,19 +321,19 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
 \subsection{Optimal Criterion}\label{SubSectionOptimalCriterion}
         Some nice properties of estimators (that we expect). They might not be satisfied simultaneously, e.g. we usually have to face trade-off between bias \& precision.
     \begin{itemize}
-        \item Unbiasedness
+        \item Unbiasedness\index{Unbiasedness}: say $\hat{\theta }(\vec{X})$ or $\hat{g}(\vec{X})$ is unbiased estimator of $\theta$ or $g(\theta)$, if
         \begin{equation}
-            \mathbb{E}(\hat{\theta})=\theta
+            \mathbb{E}(\hat{\theta})=\theta,\quad \mathbb{E}(\hat{g})=g(\theta)
         \end{equation}
 
-        Otherwise, say $\hat{\theta}$ or $\hat{g}$ is biased. Define \textbf{Bias}:
+        Otherwise, say $\hat{\theta}$ or $\hat{g}$ is biased. Define \textbf{Bias}:\index{Bias}
         \begin{align}
             Bias(\hat{\theta }):= \mathbb{E}(\hat{\theta})-\theta
         \end{align}
         
         in this way, an unbiased estimator is one with $ Bias(\hat{\theta })=0 $
 
-        Asymptotic unbiasedness with $ n $ as sample size
+        Asymptotic unbiasedness with $ n $ as sample size\index{Asymptotic Unbiasedness}:
         \begin{equation}
             \lim_{n\to\infty}  \mathbb{E}(\hat{\theta }_n(\vec{X})) =\theta 
         \end{equation}
@@ -341,7 +343,7 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
         \end{equation}
 
         Can we find a estimator with minimum variance / the most efficient? See \autoref{SubSectionUMVUE}.
-        \item Mean Squared Error (MSE)\index{MSE (Mean Squared Error)}: Most efficient in the sense with bias-variance trade-off\index{Bias-Variance Trade-Off}. More about Minimum MSE estimation see \autoref{SubSecMMSE}.
+        \item Minimum Mean Squared Error (MMSE)\index{MMSE (Minimum Mean Squared Error Estimator)}: Most efficient in the sense with bias-variance trade-off\index{Bias-Variance Trade-Off}. More about Minimum MSE estimation see \autoref{SubSecMMSE}.
         \begin{equation}\label{EqaMSEExpansion}
             \text{MSE}=\mathbb{E}[(\hat{\theta}-\theta)^2]=\mathbb{E}\left[ (\hat{\theta }-\mathbb{E}\left[ \hat{\theta}  \right] +\mathbb{E}\left[ \hat{\theta } \right]-\theta  )^2 \right] =var(\hat{\theta})+[Bias(\hat{\theta})]^2
         \end{equation}
@@ -350,7 +352,9 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
         \begin{equation}
             \text{MSE}=\mathbb{E}[(\hat{\theta}-\theta)^2]=var(\hat{\theta})
         \end{equation}
-        \item (Weak) Consistency
+
+        More about MMSE see \autoref{SubSecMMSE}.
+        \item (Weak) Consistency\index{Consistency}
         \begin{equation}
             \lim_{n\to\infty}\mathbb{P}(|\hat{\theta }_n(\vec{X})-\theta|\geq \varepsilon)=0\quad\forall\varepsilon>0    
         \end{equation}
@@ -377,7 +381,7 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
         g(\theta)=G(\alpha_1,\alpha_2,\ldots,\alpha_k;\mu_2,\mu_3,\ldots,\mu_l)    
     \end{equation}
 
-    Then its \textbf{Moment Estimate} $\hat{g}(\vec{X})$ is
+    Then its \textbf{Moment Estimate} $\hat{g}(\vec{X})$ is\index{Moment Estimate}
 \begin{equation}
     \hat{g}(\vec{X})=G(a_{n,1},a_{n,2},\ldots,a_{n,k};m_{n,2},m_{n,3},\ldots,m_{n,l}) 
 \end{equation}
@@ -462,7 +466,7 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
             \hat{\theta}_n\xrightarrow[]{\mathrm{d}}N(\theta,\frac{\sigma^2_\theta}{n})    
         \end{equation}
         
-        We will later see that $ \sigma _\theta ^2 $ is the inversed Fisher Information.
+        We will later see (in the next section) that $ \sigma _\theta ^2 $ is the inversed Fisher Information.
         \begin{align}\label{EqaAsymptoticDistributionMLE}
             \hat{\theta }_n\xrightarrow[]{d} N(\theta ,\dfrac{I(\theta )^{-1}}{n})
         \end{align}
@@ -552,7 +556,7 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
             \item A UMVUE has to be a function of sufficient statistic.
         \end{itemize}
 
-        \textbf{Lehmann-Scheffé Thm.}\index{LS Thm. (Lehmann-Scheffé Thm.)}: For $\vec{X}=(X_1,X_2,\ldots,X_n)$ from population $X\sim\mathscr{F}=\{f(x;\theta):\vec{\theta}\in\Theta\}$. $T(\vec{X})$ sufficient and complete, and $\hat{g}(T(\vec{X}))$ be an unbiased estimator, then $\hat{g}(T(\vec{X}))$ is the unique UMVUE.
+        \textbf{Lehmann-Scheffé Theorem}\index{LS Theorem (Lehmann-Scheffé Theorem)}: For $\vec{X}=(X_1,X_2,\ldots,X_n)$ from population $X\sim\mathscr{F}=\{f(x;\theta):\vec{\theta}\in\Theta\}$. $T(\vec{X})$ sufficient and complete, and $\hat{g}(T(\vec{X}))$ be an unbiased estimator, then $\hat{g}(T(\vec{X}))$ is the unique UMVUE.
 
         Can be used to construct UMVUE: given $T(\vec{X})$ sufficient and complete and some unbiased estimator $\hat{g}\prime(\theta)$ then 
         \begin{equation}
@@ -563,7 +567,7 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
 
 
 
-    \item \textbf{Cramer-Rao Inequality}\index{CR Inequality (Cramer-Rao Inequality)}
+    \item \textbf{Cramer-Rao Inequality}\index{CR Inequality (Cramer-Rao Inequality)}\index{Inequality!CR Inequality}
 
         Core idea: determine a lower bound of $var(\hat{g})$.
 
@@ -620,7 +624,7 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
 
 
     \item \textbf{Multi-Dimensional Cramer-Rao Inequality}
-        \index{CR Inequality (Cramer-Rao Inequality)}
+    
         ReDef. Fisher Information:
         \begin{equation}
             \bm{I}(\theta)=\{I_{ij}(\theta)\}=\{\mathbb{E}\left[\left(\frac{\partial\ln f(\vec{x};\theta)}{\partial\theta_i}\right)\left(\frac{\partial\ln f(\vec{x};\theta)}{\partial\theta_j}\right)\right]\}  
@@ -645,8 +649,8 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
 
 
 
-\subsection{MoM and MLE in Linear Regression}\label{SubSectionMoM_MLE_LinearRegression}
-    \textbf{Note:} More detailed knowledge see \autoref{SecLinearRegressionAnalysis} Linear Regression Analysis.
+\subsection{OLS, MoM, and MLE in Linear Regression}\label{SubSectionMoM_MLE_LinearRegression}
+    \textbf{Note:} More detailed knowledge see \autoref{SecLinearRegressionAnalysis} Linear Regression Analysis.\index{Linear Regression}
 
 \begin{point}
     Linear Regression Model (1-dimension case):
@@ -658,12 +662,18 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
 
     where $\beta_0,\beta_1$ are regression coefficient, and $\epsilon_i$ are unknown random \textbf{error}. 
     
-    Basic Assumptions (Guass-Markov Assumption):
+    Basic Assumptions (Guass-Markov Assumption):\index{Gauss-Markov Assumption}
     \begin{align}
-        \text{Zero-Mean: }&\epsilon_i\text{ are i.i.d.}\\
-        \text{Homogeneity of Variance: }&\mathbb{E}(\epsilon_i|x_i)=0\\
-        \text{Independent: }&var(\epsilon_i)=\sigma^2
+        \text{Zero-Mean: }&\mathbb{E}(\epsilon_i|x_i)=0\\
+        \text{Homogeneity of Variance: }&var(\epsilon_i)=\sigma^2\\
+        \text{Independent: }&\epsilon_i\text{ are i.d.}
     \end{align}
+    further for MLE we need normality assumption
+    \begin{align*}
+        \epsilon_i\sim N(0,\sigma^2)
+    \end{align*}
+    
+    
 
     Mission: use data $\{(x_i,y_i)\}$ to estimate $\beta_0,\beta_1$(i.e. regression line), and error $\epsilon_i$.
 
@@ -673,7 +683,7 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
             (\hat{\beta_0},\hat{\beta_1})=\arg\min\sum_{i=1}^n(y_i-\beta_0-\beta_1 x_i)^2    
         \end{equation}
 
-        (Express in Matrix Notation \autoref{EqaMatrixRepreOfSSE}, so that it can be generalized to multidimensional case) SSE can be expressed as the \textbf{Eucliean Distance }between $ \{y_i\} $ and $ \{\hat{\beta}_0+\hat{\beta}_1x_i\}  $, i.e.
+        (Express in Matrix Notation \autoref{EqaMatrixRepreOfSSE}, so that it can be generalized to multidimensional case)\index{SSE (Error Sum of Squares)} SSE can be expressed as the \textbf{Eucliean Distance }between $ \{y_i\} $ and $ \{\hat{\beta}_0+\hat{\beta}_1x_i\}  $, i.e.
         \begin{equation}
             \hat{\beta }=\mathop{ \arg\min }\limits_{\beta }  D(y
             ,X \hat{\beta})
@@ -701,7 +711,7 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
 
         So get regression line:$y=\hat{\beta_0}+\hat{\beta_1}x$
 
-        Def. Residuals
+        Def. Residuals\index{Residuals}
         \begin{equation}e_i=\hat{\epsilon}_i=y_i-\hat{y_i}=y_i-(\hat{\beta_0}+\hat{\beta_1}x_i)\end{equation}
 
 
@@ -803,13 +813,9 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
         =X\vec{\beta}+\vec{\epsilon}
     \end{equation}
 
-    Basic Assumptions: Gauss-Markov Assumptions
-    \begin{itemize}
-        \item OLS unbiased\begin{equation}\mathbb{E}(\epsilon_i|x_i)=0\qquad \mathbb{E}(y_i|x_i)=x_i^T\beta\end{equation}
-        \item Homogeneity of $\epsilon_i$\begin{equation}var(\epsilon_i)=\sigma^2\end{equation}
-        \item Independent of $\epsilon$
-        \item (For MLE) $\epsilon_i\text{ i.i.d.}\sim N(0,\sigma^2)$
-    \end{itemize}
+    Basic Assumptions: Gauss-Markov Assumptions and Normal Assumption (for MLE).
+    
+
 
     Residuals:
     \begin{equation}e_i=\hat{\epsilon}_i=y_i-\hat{y}_i=y_i-x_i^T\hat{\beta }\end{equation}
@@ -835,7 +841,7 @@ summary(lmfit)
     
 
 \subsection{Kernel Density Estimation}\label{SubSectionKernelDensityEstimation}
-    \index{KDE (Kernel Density Estimation)}Given random sample $\{X_i\}$. Def. Empirical CDF.\index{ECDF (Empirical CDF)}
+    \index{Kernel Density Estimation}Given random sample $\{X_i\}$. Def. Empirical CDF.\index{ECDF (Empirical CDF)}
     \begin{equation}\label{empiricaldisreibutionfunction}
         \hat{F}_n(x)=\frac{1}{n}\sum_{i=1}^n\mathbb{I}_{(-\infty,X_i]}(x) 
     \end{equation}
@@ -856,7 +862,7 @@ summary(lmfit)
     
 
 \begin{point}
-        Useful Kernel Functions
+        Useful Kernel Functions\index{Gaussian Kernel}
 \end{point}
 
     
@@ -866,7 +872,7 @@ summary(lmfit)
             \,(1-|x|)\mathbb{I}_{[-1,1]},&\text{Triangle Kernel}\\
             \,\dfrac{1}{\sqrt[]{2\pi}}e^{-\frac{x^2}{2}},&\text{Gaussian Kernel}\\
             \,\dfrac{1}{\pi(1+x^2)},&\text{Cauchy Kernel}\\
-            \,\dfrac{1}{2\pi}\mathrm{sinc}^2\dfrac{x}{2}=\dfrac{1}{2\pi}\left(\dfrac{\sin x/2}{x/2}\right)^2&\text{sinc Kernel}
+            \,\dfrac{1}{2\pi}\mathrm{sinc}^2\dfrac{x}{2}=\dfrac{1}{2\pi}\left(\dfrac{\sin x/2}{x/2}\right)^2,&\text{sinc Kernel}
         \end{cases} 
     \end{align}
     
@@ -884,6 +890,7 @@ plot(density(x, kernel = KERNEL_TO_USE))
 
 
 \section{Interval Estimation}\label{SectionIntervalEstimation}
+\index{Interval Estimation}
 \begin{equation}
     \text{Parameter Estimation}\begin{cases}
         \text{Point Estimation}& \\
@@ -946,8 +953,8 @@ plot(density(x, kernel = KERNEL_TO_USE))
 \subsection{Pivot Variable Method}\label{SubSectionPivotVariableMethod}
     Idea: Based on point estimation, construct a new variable and thus find the interval estimation.
 
-    Def. \textbf{Pivot Variable}\index{Pivot Variable} $T$, satisfies: 
-    \begin{itemize}[itemsep= -2 pt,parsep= -2 pt]
+    Def. \textbf{Pivot Variable}\index{Pivot Variable Method} $T$, satisfies: 
+    \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item Expression of $T$ contains $\theta$ (thus $T$ is not a statistic).
         \item Distribution of $T$ independent of $\theta$.\footnote{Comment: $ T(X,\theta ) $ is both function of sample $ X $ an parameter in statistics model. Note that $ X $ also depends on $ \theta  $, but is fixed once we complete a sample.}
     \end{itemize}
@@ -976,7 +983,7 @@ plot(density(x, kernel = KERNEL_TO_USE))
         \begin{equation}\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i\qquad S^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\bar{X})^2\qquad S_\mu=\dfrac{1}{n}\sum_{i=1}^n(X_i-\mu)^2\text{,(for the case }\mu\text{ known)}\end{equation}
 
         \hypertarget{OneSampletTest}{Estimating} $\mu\,\&\,\sigma^2$: construction of pivot variable under different circumstances:
-
+  
 
         \begin{table}[htbp]
             \centering
@@ -985,7 +992,7 @@ plot(density(x, kernel = KERNEL_TO_USE))
                 \hline 
                 Estimation& Pivot Variable & Confidence Interval\\
                 \hline
-                $\sigma^2$ known, estimate $\mu$    &   $T=\dfrac{\sqrt{n}(\bar{X}-\mu)}{\sigma}\sim N(0,1)$ & $\left[ \bar{X}-\dfrac{\sigma}{\sqrt{n}}N_\frac{\alpha}{2},\bar{X}+\dfrac{\sigma}{\sqrt{n}}N_\frac{\alpha}{2} \right]$\\
+                $\sigma^2$ known, estimate $\mu$    &   $Z=\dfrac{\sqrt{n}(\bar{X}-\mu)}{\sigma}\sim N(0,1)$ & $\left[ \bar{X}-\dfrac{\sigma}{\sqrt{n}}N_\frac{\alpha}{2},\bar{X}+\dfrac{\sigma}{\sqrt{n}}N_\frac{\alpha}{2} \right]$\\
                 \hline
                 $\sigma^2$ unknown, estimate $\mu$&$T=\dfrac{\sqrt{n}(\bar{X}-\mu)}{S}\sim t_{n-1}$&$\left[\bar{X}-\dfrac{S}{\sqrt{n}}t_{n-1,\frac{\alpha}{2}},\bar{X}+\dfrac{S}{\sqrt{n}}t_{n-1,\frac{\alpha}{2}}\right]$\\
                 \hline
@@ -1056,7 +1063,7 @@ plot(density(x, kernel = KERNEL_TO_USE))
     \begin{enumerate}[topsep=2pt,itemsep=2pt]
         \item \hypertarget{TwoSampletTest}{Estimating} $\mu_1-\mu_2$:
     
-        When $\sigma_1^2\neq\sigma^2_2$ and unknown, estimate $\mu_1-\mu_2$: Behrens-Fisher Problem, remains unsolved\footnote{An approximation is Welch-Satterthwaite equation. Detail see \autoref{SubSubSectionDoETwoSampleComparison}.}, but we can deal with simplified cases. 
+        When $\sigma_1^2\neq\sigma^2_2$ and unknown, estimate $\mu_1-\mu_2$: Behrens-Fisher Problem\index{Behrens-Fisher Problem}, remains unsolved\footnote{An approximation is Welch-Satterthwaite equation. Detail see \autoref{SubSubSectionDoETwoSampleComparison}.}, but we can deal with simplified cases. 
 
         \begin{table}[H]
             \centering
@@ -1065,7 +1072,7 @@ plot(density(x, kernel = KERNEL_TO_USE))
                 \hline
                 Estimation& Pivot Variable & Confidence Interval\\
                 \hline
-                \makecell{$\sigma_1^2\,\&\,\sigma_2^2$ known,\\estimate $\mu_1-\mu_2$}&$ T=\dfrac{\bar{X}-\bar{Y}-(\mu_1-\mu_2)}{\sqrt{\dfrac{\sigma_1^2}{m}+\dfrac{\sigma^2_2}{n}}}\sim N(0,1)$&\makecell{$\left[\bar{X}-\bar{Y}-N_{\frac{\alpha}{2}}\sqrt{\dfrac{\sigma_1^2}{m}+\dfrac{\sigma_2^2}{n}},\right.\quad $\\$\quad\left.\bar{X}-\bar{Y}+N_{\frac{\alpha}{2}}\sqrt{\dfrac{\sigma_1^2}{m}+\dfrac{\sigma_2^2}{n}}   \right]$}\\
+                \makecell{$\sigma_1^2\,\&\,\sigma_2^2$ known,\\estimate $\mu_1-\mu_2$}&$ Z=\dfrac{\bar{X}-\bar{Y}-(\mu_1-\mu_2)}{\sqrt{\dfrac{\sigma_1^2}{m}+\dfrac{\sigma^2_2}{n}}}\sim N(0,1)$&\makecell{$\left[\bar{X}-\bar{Y}-N_{\frac{\alpha}{2}}\sqrt{\dfrac{\sigma_1^2}{m}+\dfrac{\sigma_2^2}{n}},\right.\quad $\\$\quad\left.\bar{X}-\bar{Y}+N_{\frac{\alpha}{2}}\sqrt{\dfrac{\sigma_1^2}{m}+\dfrac{\sigma_2^2}{n}}   \right]$}\\
                 \hline
                 \makecell{$\sigma_1^2=\sigma^2_2$ unknown,\\estimate $\mu_1-\mu_2$}&$T=\dfrac{\bar{X}-\bar{Y}-(\mu_1-\mu_2)}{S_\omega\sqrt{\dfrac{1}{m}+\dfrac{1}{n}}}\sim t_{m+n-2}$&\makecell{$\left[\bar{X}-\bar{Y}-S_\omega t_{m+n-2,\frac{\alpha}{2}}\sqrt{\dfrac{1}{m}+\dfrac{1}{n}}\right.,\quad $\\$\left.\quad\bar{X}-\bar{Y}+S_\omega t_{m+n-2,\frac{\alpha}{2}}\sqrt{\dfrac{1}{m}+\dfrac{1}{n}} \right]$}\\
                 \hline
@@ -1082,9 +1089,9 @@ plot(density(x, kernel = KERNEL_TO_USE))
                 \hline
                 Estimation& Pivot Variable & Confidence Interval\\
                 \hline
-                $\mu_1,\mu_2$ known, estimate $\dfrac{\sigma^2_1}{\sigma_2^2}$&$T=\dfrac{S_{\mu_2}^2}{S_{\mu_1}^2}\dfrac{\sigma_1^2}{\sigma^2_2}\sim F_{n,m}$&\makecell{$\left[\dfrac{S_{\mu_1}^2}{S_{\mu_2}^2}\dfrac{1}{F_{m,n,\frac{\alpha}{2}}},\dfrac{S_{\mu_1}^2}{S_{\mu_2}^2}\dfrac{1}{F_{m,n,1-\frac{\alpha}{2}}}\right]$\\or $\left[\dfrac{S_{\mu_1}^2}{S_{\mu_2}^2}{F_{m,n,\frac{\alpha}{2}}},\dfrac{S_{\mu_1}^2}{S_{\mu_2}^2}F_{n,m,\frac{\alpha}{2}}\right]$}\\
+                $\mu_1,\mu_2$ known, estimate $\dfrac{\sigma^2_1}{\sigma_2^2}$&$F=\dfrac{S_{\mu_2}^2}{S_{\mu_1}^2}\dfrac{\sigma_1^2}{\sigma^2_2}\sim F_{n,m}$&\makecell{$\left[\dfrac{S_{\mu_1}^2}{S_{\mu_2}^2}\dfrac{1}{F_{m,n,\frac{\alpha}{2}}},\dfrac{S_{\mu_1}^2}{S_{\mu_2}^2}\dfrac{1}{F_{m,n,1-\frac{\alpha}{2}}}\right]$\\or $\left[\dfrac{S_{\mu_1}^2}{S_{\mu_2}^2}{F_{m,n,\frac{\alpha}{2}}},\dfrac{S_{\mu_1}^2}{S_{\mu_2}^2}F_{n,m,\frac{\alpha}{2}}\right]$}\\
                 \hline
-                $\mu_1,\mu_2$ unknown, estimate $\dfrac{\sigma^2_1}{\sigma_2^2}$&$T=\dfrac{S_Y^2}{S_X^2}\dfrac{\sigma_1^2}{\sigma^2_2}\sim F_{n-1,m-1}$&\makecell{$\left[\dfrac{S_X^2}{S_Y^2}\dfrac{1}{F_{m-1,n-1,\frac{\alpha}{2}}},\dfrac{S_X^2}{S_Y^2}\dfrac{1}{F_{m-1,n-1,1-\frac{\alpha}{2}}}\right]$\\or $\left[\dfrac{S_X^2}{S_Y^2}\dfrac{1}{F_{m-1,n-1,\frac{\alpha}{2}}},\dfrac{S_X^2}{S_Y^2}F_{n-1,m-1,\frac{\alpha}{2}}\right]$}\\
+                $\mu_1,\mu_2$ unknown, estimate $\dfrac{\sigma^2_1}{\sigma_2^2}$&$F=\dfrac{S_Y^2}{S_X^2}\dfrac{\sigma_1^2}{\sigma^2_2}\sim F_{n-1,m-1}$&\makecell{$\left[\dfrac{S_X^2}{S_Y^2}\dfrac{1}{F_{m-1,n-1,\frac{\alpha}{2}}},\dfrac{S_X^2}{S_Y^2}\dfrac{1}{F_{m-1,n-1,1-\frac{\alpha}{2}}}\right]$\\or $\left[\dfrac{S_X^2}{S_Y^2}{F_{m-1,n-1,\frac{\alpha}{2}}},\dfrac{S_X^2}{S_Y^2}F_{n-1,m-1,\frac{\alpha}{2}}\right]$}\\
                 \hline
             \end{tabularx}
         \end{table}
@@ -1261,7 +1268,7 @@ plot(density(x, kernel = KERNEL_TO_USE))
 
 \subsection{Fisher Fiducial Argument*}\label{SubSectionFisherFiducialArgument}
     (Not complete yet)
-
+    \index{Fisher Fiducial Argument}
     Idea: When sample is known, we can get '\textbf{Fiducial Probability}' of $\theta$, thus can find an interval estimation based on fiducial distribution.(Similar to the idea of MLE)
 
     Remark: Fiducial probability (denoted as $\tilde{\mathbb{P}}(\theta)$) is 'probability of parameter', in the case that sample is known. \textbf{Fiducial probability is different from Probability}.
@@ -1374,7 +1381,7 @@ plot(density(x, kernel = KERNEL_TO_USE))
 
         How to determine $\alpha_0$? Depend on specific problem.\footnote{In most cases, take $\alpha_0=0.05$.}
 
-        \item[$ \bm{\Delta } $] $p$-value: probability to get larger bias (or simply `more extreme data') than observed $\vec{x}_0$ \uline{if $H_0$ as ground truth, and $ H_1 $ as alternative.}
+        \item[$ \bm{\Delta } $] \index{p-value@$ p $-value}$p$-value: probability to get larger bias (or simply `more extreme data') than observed $\vec{x}_0$ \uline{if $H_0$ as ground truth, and $ H_1 $ as alternative.}
         
         e.g. For reject region defined with statistics $R=\{\vec{X}|T(\vec{X})\geq C\},$ $p$-value:
         \begin{equation}
@@ -1549,19 +1556,19 @@ plot(density(x, kernel = KERNEL_TO_USE))
 \begin{point}
     LRT for one-sample $ t $-test: For $ X_1,X_2,\ldots,X_n $ i.i.d. $ \sim N(\mu,\sigma ^2) $, test
 
-\[
+\begin{align}
     H_0: \mu=\mu_0\longleftrightarrow H_1:\mu\neq\mu_0\quad\text{when }\sigma ^2\text{ unknown}
-\]
+\end{align}
 
     Can prove:
-    \[
+    \begin{align}
         \lambda ^{2/n}=\dfrac{\sum\limits_{i=1}^n(x_i-\bar{x})^2}{\sum\limits_{i=1}^n(x_i-\mu_0)^2} 
-    \]
+    \end{align}
     
     Denote $ T=\dfrac{\sqrt{n}(\bar{x}-\mu_0)}{S}$, then LRT could be expressed in equivalent form 
-    \[
+    \begin{align}
         \lambda  = \left( 1+\dfrac{T^2}{n-1} \right)^{-n/2}
-    \]
+    \end{align}
     
     The Multivariate case see {\autoref{SubSectionMultivariateHypothesisTesting}}, where $ T^2 $ itself is the Hotelling's $ T^2 $ statistic.
     
@@ -1572,7 +1579,7 @@ plot(density(x, kernel = KERNEL_TO_USE))
 
 
 \begin{point}
-    Limiting Distribution of LRT: Wilks' Thm.\index{Wilk's Thm.}
+    Limiting Distribution of LRT: Wilks' Theorem\index{Wilk's Theorem}
 \end{point}
 
     
@@ -1584,14 +1591,14 @@ plot(density(x, kernel = KERNEL_TO_USE))
     \end{equation}
 
 \subsection{Uniformly Most Powerful Test}\label{SUbSectionUMP}
-    \index{UMPT (Uniformly Most Powerful Test)}Idea: Neyman-Pearson Principle: control $\alpha$, find $\min\beta$. i.e. control $\alpha$, find $\max\pi(\theta)$
+    \index{UMP Test (Uniformly Most Powerful Test)}Idea: Neyman-Pearson Principle: control $\alpha$, find $\min\beta$. i.e. control $\alpha$, find $\max\pi(\theta)$
 
     Def. \textbf{Uniformly Most Powerful Test} (UMP) $\varphi_{\mathrm{UMP}}$ with level of significance $\alpha$ satisfies
     \begin{equation}
         \pi_{\mathrm{UMP}}(\theta)\geq\pi(\theta),\,\forall\theta\in\Theta_1
     \end{equation}
 
-    \textbf{Neyman-Pearson Lemma}\index{NP-Lemma (Neyman-Pearson Lemma)}: For $\vec{X}=(X_1,X_2,\ldots,X_n)$ i.i.d. from $f(\vec{x};\theta)$. 
+    \textbf{Neyman-Pearson Lemma}\index{Neyman-Pearson Lemma}: For $\vec{X}=(X_1,X_2,\ldots,X_n)$ i.i.d. from $f(\vec{x};\theta)$. 
     
     Test hypothesis $H_0:\theta=\theta_0\longleftrightarrow H_1:\theta=\theta_1$. Def. test function $\varphi$ as:
     \begin{equation}\label{UMPtestfunction}
@@ -1646,7 +1653,7 @@ plot(density(x, kernel = KERNEL_TO_USE))
 \end{point}
 
     
-    \begin{enumerate}
+    \begin{enumerate}[topsep=2pt,itemsep=2pt]
         \item Find a point $\theta_0\in\Theta_0$ and a point $\theta_1\in\Theta_1$. (Note: \textbf{one} point)
         \item Construct test function in the form of {\autoref{UMPtestfunction}}, use $\mathbb{E}[\varphi(\vec{x})|\theta_0]=\alpha$ to determine $C$ and $r$.
         \item Get $R$ and $\varphi(\vec{x})$.
@@ -1657,14 +1664,14 @@ plot(density(x, kernel = KERNEL_TO_USE))
 \subsection{Duality of Hypothesis Testing and Interval Estimation}
 
 \begin{itemize}
-    \item Thm.: $\forall\theta_0\in\Theta$ there exists hypothesis testing $H_0:\theta=\theta_0\longleftrightarrow H_1:\theta\neq\theta_0$ of level $\alpha$ with rejection region $R_{\theta_0}$. Then
+    \item Theorem: $\forall\theta_0\in\Theta$ there exists hypothesis testing $H_0:\theta=\theta_0\longleftrightarrow H_1:\theta\neq\theta_0$ of level $\alpha$ with rejection region $R_{\theta_0}$. Then
     \begin{equation}
         C(\vec{X})=\{\theta:\vec{X}\in R^C_{\theta}\}
     \end{equation}
 
     is a $1-\alpha$ confidence region for $\theta$
 
-    \item Thm.: $C(\vec{X})$ is a $1-\alpha$ confidence region for $\theta$. Then $\forall\theta_0\in C(\vec{X})$, the rejection region of hypothesis testing $H_0:\theta=\theta_0\longleftrightarrow H_1:\theta\neq\theta_0$ of level $\alpha$ satisfies
+    \item Theorem: $C(\vec{X})$ is a $1-\alpha$ confidence region for $\theta$. Then $\forall\theta_0\in C(\vec{X})$, the rejection region of hypothesis testing $H_0:\theta=\theta_0\longleftrightarrow H_1:\theta\neq\theta_0$ of level $\alpha$ satisfies
     \begin{equation}
     R^\complement_{\theta_0}=\{\vec{X}:\theta_0\in C(\vec{X})\}
     \end{equation}
@@ -1700,11 +1707,12 @@ where \lstinline|paired = TRUE| for pairwise comparison requires $ |x|=|y| $.
 
 \subsection{Introduction to Non-Parametric Hypothesis Testing}\label{SubSectionIntroToNonParametricHypothesisTesting}
 
+\index{Non-parametric Hypothesis Testing}
     Motivation: Usually distribution form unknown, cannot use parametric hypothesis testing.
 
     Useful Method:
     \begin{itemize}
-        \item Sign Test: Used for paired comparison $\vec{X}=(X_1,X_2,\ldots,X_n)$, $\vec{Y}=(Y_1,Y_2,\ldots,Y_n)$.\index{Sign Test}
+        \item Sign Test\index{Sign Test}: Used for paired comparison $\vec{X}=(X_1,X_2,\ldots,X_n)$, $\vec{Y}=(Y_1,Y_2,\ldots,Y_n)$.
         
         Take $Z_i=Y_i-X_i$ i.i.d., denote $\mathbb{E}(Z)=\mu$. Test $H_0:\mu=0\longleftrightarrow H_1:\mu\neq 0$. Denote $n_+=\#(\text{positive } Z_i)$ and $n_-=\#(\text{negative }Z_i)$, $n_0=n_++n_-$. Then $n_+\sim B(n_0,\theta)$, thus the test is $H_0:\theta=\dfrac{1}{2}\longleftrightarrow H_1:\theta\neq\dfrac{1}{2}$
         
@@ -1719,20 +1727,20 @@ where \lstinline|paired = TRUE| for pairwise comparison requires $ |x|=|y| $.
         \item \index{WSRT (Wilcoxon Signed Rank Sum Test)}Wilcoxon Signed Rank Sum Test: Improvement of Sign Test. Based on order statistics.
         
         Order Statistics of $Z_i$: $Z_{(1)}<Z_{(2)}<\ldots<Z_{(n)}$, where each $Z_{(j)}$ corresponds to some $Z_i$ as $Z_i=Z_{(R_i)}$, then $R_i$ is the rank of $Z_i$.\footnote{If some $X_i,X_j,\ldots$ equal, then take same rank $R=\mathrm{mean}\{R_i,R_j,\ldots\}$.}
-        \begin{align*}
+        \begin{align}
             R_i=\sum_{i=1}^n 
-        \end{align*}
+        \end{align}
         
         
         
         Def. $\vec{R}=(R_1,R_2,\ldots,R_n)$ is \textbf{Rank Statistics} of $(Z_1,Z_2,\ldots,Z_n)$\index{Rank Statistics}
-        \begin{align*}
+        \begin{align}
             R_i=\sum_{j=1}^n\mathbb{I}_{Z_j<Z_i}+\dfrac{1}{2}\left(1+\sum_{j=1}^n\mathbb{I}_{Z_j=Z_i} \right)
-        \end{align*}
+        \end{align}
         
         
 
-        Def. \textbf{Sum of Wilcoxon Signed Rank}: 
+        Def. \textbf{Sum of Wilcoxon Signed Rank}\index{Sum of Wilcoxon Signed Rank}: 
         \begin{equation}
         W^+=\sum_{i=1}^{n_0}R_i\mathbb{I}_{Z_{R_i}>0} 
         \end{equation}
@@ -1796,7 +1804,7 @@ wilcox.test(x, y, alternative = c("two.sided", "less", "greater"), mu = 0, paire
                 K_n=K_n(X_1,\ldots,X_n;F)=\sum_{i=1}^r\frac{(\nu_i-np_i)^2}{np_i}
             \end{equation}
 
-            Pearson Thm.: For $K_n$ defined as \autoref{Pearson_chi_test_differenceKn}, then under $H_0$:
+            Pearson Theorem: For $K_n$ defined as \autoref{Pearson_chi_test_differenceKn}, then under $H_0$:\index{Pearson's Theorem}
             \begin{equation}
                 K_n\xrightarrow[]{\mathrm{d}}\chi^2_{r-1-s}
             \end{equation} 
@@ -1904,7 +1912,7 @@ fisher.test(table_df)
     Test $H_0:\text{exists }\mu\,\&\, \sigma^2$ such that $Y_i$ i.i.d. $\sim N(\mu,\sigma^2)$.
 
     \begin{itemize}
-        \item Kolmogorov-Smirnov Test\index{K-S Test (Kolmogorov-Smirnov Test)}: Assume $\vec{X}$ form population CDF $F(x)$, test $H_0:F(x)=F_0(x)$(where can take $F_0=\Phi$ or some other known CDF).
+        \item Kolmogorov-Smirnov Test\index{KS Test (Kolmogorov-Smirnov Test)}: Assume $\vec{X}$ form population CDF $F(x)$, test $H_0:F(x)=F_0(x)$(where can take $F_0=\Phi$ or some other known CDF).
         
         use $F_n(x)$ (as defined in \autoref{empiricaldisreibutionfunction}) as approx. to $F(x)$, test
         \begin{equation}
@@ -1918,7 +1926,7 @@ fisher.test(table_df)
             p(d_n)=\mathbb{P}(D_n>d_n|H_0)<\alpha
         \end{equation}
 
-        \item Shapiro-Wilk Test:\index{S-W Test (Shapiro-Wilk Test)}
+        \item Shapiro-Wilk Test:\index{SW Test (Shapiro-Wilk Test)}
         
         Test $H_0:\text{exists }\mu\,\&\, \sigma^2$ such that $X_i$ i.i.d. $\sim N(\mu,\sigma^2)$.
 
@@ -1946,6 +1954,8 @@ shapiro.test(x)
 \begin{point}
     Summary: Useful Non-Parameter Hypothesis Testing.
 \end{point}
+\\
+\\
 \\
 \\
 

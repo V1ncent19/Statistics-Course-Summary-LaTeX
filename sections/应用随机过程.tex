@@ -4,7 +4,7 @@
 \end{center}
 
 % \section{Review of Probability}
-
+\index{Stochastic Process}
 
 
 \section{Properties of Stochastic Process}
@@ -31,11 +31,11 @@ Some functions of stochastic processes include
     \begin{align}
         \mu _X(t)=\mathbb{E}\left[ X_t \right]  
     \end{align}
-    \item AutoCovariance function (ACVF):
+    \item AutoCovariance function (ACVF):\index{ACVF (Autocovariance)}
     \begin{align}
         \gamma _{s,t}:=cov(X_s,X_t)
     \end{align}
-    \item AutoCorrelation function (ACF):
+    \item AutoCorrelation function (ACF):\index{ACF (Autocorrelation)}
     \begin{align}
         \rho _{s,t}:=corr(X_s,X_t)=\dfrac{\gamma _{s,t}}{\sqrt{\gamma _{s,s}\gamma _{t,t}}} 
     \end{align}
@@ -96,13 +96,13 @@ A basic case for Markov Chain is Discrete Time Markov Chain (DTMC)\index{DTMC (D
         0\leq P^{(k)}_{ij}\leq 1,\quad \sum_{j}P^{(k)}_{ij}=1 
     \end{align}
 
-    \item Time homogeneity: transition probability is independent of step / time
+    \item Time homogeneity\index{Time Homogeneity}: transition probability is independent of step / time
     \begin{align}
         P^{(k)}=P,\quad \forall k 
     \end{align}
     we usually focus on time-homogeneous DTMC.
     
-    \item State diagram: a useful way to visualize DTMC, in which vertices / nodes for states and edges / arrows for transition. Here's an example of `Mickey Mouse' diagram with six states:
+    \item State diagram:\index{State Diagram} a useful way to visualize DTMC, in which vertices / nodes for states and edges / arrows for transition. Here's an example of `Mickey Mouse' diagram with six states:
     \begin{center}
         $
             P=\begin{pNiceMatrix}[first-row,first-col]
@@ -165,7 +165,7 @@ A basic case for Markov Chain is Discrete Time Markov Chain (DTMC)\index{DTMC (D
 
         Some concepts related to stationary distribution
     \begin{itemize}[topsep=2pt,itemsep=0pt]
-        \item Reachable: we can arrive at $ j $ starting from $ i $, denoted $ i\leadsto j $
+        \item Reachable\index{Reachable}: we can arrive at $ j $ starting from $ i $, denoted $ i\leadsto j $
         \begin{align}
             \exists n<\infty s.t. \mathbb{P}\left( X_n=j|X_0=i \right) > 0 
         \end{align}
@@ -414,6 +414,7 @@ Another case of Markov Chain is Continuous Time Markov Chain (CTMC)\index{CTMC (
     CTMC: Irreducible \& Non-explosive \& Positive Recurrent $ \Rightarrow  $ Unique Stationary Distribution $ \pi^* $
 \end{point}
 
+\index{Non-explosive}\index{Irreducible}
 Given irreducible \& non-explosive CTMC, we have
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item All states have the same state classification: null recurrent / positive recurrent / transient
@@ -430,7 +431,6 @@ Given irreducible \& non-explosive CTMC, we have
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item \hyperlink{BrownianProcess}{Brownian Process}: CTMC with continuous states;
     \item \hyperlink{PoissonProcess}{Poisson Process}: CTMC with discrete states;
-    \item 
 \end{itemize}
 
 
@@ -443,7 +443,7 @@ Motivation: Sometimes a process is a `summation of all past events'.
 \begin{align}
     X_{t_{n}}-X_{t_{n-1}}\independent X_{t_{n-1}}-X_{t_{n-2}} \independent \ldots\independent X_{t_1}-X_{t_0}
 \end{align}
-    \item Martingale: Def. $ \{X_t\}  $ a \textbf{Martingale} if $ \forall t_0<t_1<\ldots<t_n $, $ \forall n $
+    \item Martingale\index{Martingale}: Def. $ \{X_t\}  $ a \textbf{Martingale} if $ \forall t_0<t_1<\ldots<t_n $, $ \forall n $
     \begin{align}
         \mathbb{E}\left[ X_{t_n}|X_{t_{n-1}},\ldots,X_{t_0} \right] = X_{t_{n-1}} 
     \end{align}
@@ -469,7 +469,7 @@ Motivation: Sometimes a process is a `summation of all past events'.
 
 
 
-\subsection{Ergodicity}
+\subsection{Ergodicity*}
 
 
 
@@ -640,7 +640,7 @@ Reaching $ 0 $ or $ N $ stops the chain, so are called `absorbing state'.\index{
 \begin{align}
     T_{i\leadsto\{0,N\}}=\dfrac{\left(1-(q/p)^i\right)(N-i)}{\left(1-(q/p)^N\right)(p-q)} 
 \end{align}
-    \item One-end case (greedy gambler) is just having $ N\to\infty $
+    \item One-end case (greedy gambler) is just having $ N\to\infty $\index{Greedy Gambler}
     \begin{align}
         r_i=&\begin{cases}
             1,&p\leq \dfrac{1}{2}\\
@@ -746,12 +746,12 @@ Motivation: Brownian motion / Weiner Process $ W_t $\footnote{Symbol $ W_t $ for
 \begin{align}
     W_{t=\frac{k}{N}}:= \dfrac{1}{\sqrt{N}} \sum_{i=1}^k \varpi _i,\quad \varpi _i\sim_{\mathrm{i.i.d.} } \mathrm{Unif}\{+1,-1\} 
 \end{align}
-and have $ N\to \infty $ as a Brownian Motion (Donsker Thm.\index{Donsker Thm.})
+and have $ N\to \infty $ as a Brownian Motion (Donsker Theorem\index{Donsker Theorem})
 
 Rigorous definition of \textbf{Brownian / Wiener Process}: $ \{W_t:T\geq 0\} $ with $ 0<\sigma ^2<\infty $ is Brownian if
 \begin{enumerate}[topsep=2pt,itemsep=2pt]
     \item Starts from $ 0 $: $ \mathbb{P}\left( W_0 \right) =1 $
-    \item Independent increment: $ W_{t_1}-W_{s_1}\independent W_{t_2}-W_{s_2} $, $  \forall [t_1,s_1\cap [t_2,s_2]=\emptyset $
+    \item Independent increment: $ W_{t_1}-W_{s_1}\independent W_{t_2}-W_{s_2} $, $  \forall [t_1,s_1]\cap [t_2,s_2]=\emptyset $
     \item Zero mean Normal: $ W_t-W_s\sim N(0,\sigma ^2\vert t-s\vert) $
     \item continuity: $ \mathbb{P}\left( W_t\text{ continuous} \right) =1 $ 
 \end{enumerate}
@@ -1045,7 +1045,11 @@ Solving all $ \pi_{0:T} $ jointly in \autoref{EqaVLearningTarget} is complex. It
 \begin{align}
     R_t(s_t,a_t)= \mathbb{E}_{s_{t+1}\sim p\left(\, \cdot \, |s_t,a_t\right)}\left[ r_t(s_t,s_{t+1}|a_t)\big| s_t,a_t \right]
 \end{align}
-total reward $ \mathcal{V}_{t\leadsto T} $ could be written as
+total reward $ \mathcal{V}_{t\leadsto T} $ could be written as\footnote{Here the ugly symbol means, e.g.
+\begin{align*}
+     \mathcal{V}_{\text{describes the process from when to when} }^{\text{is influenced by which policies }\pi_{\cdot }}(\text{as a function of which state})
+\end{align*}
+}
 \begin{align}
     \mathcal{V}_{t\leadsto T}^{\pi_{t:T}}(s_t)=&\mathbb{E}_{s_{t+1}\sim p\left(\, \cdot \, |s_t,a_t\sim\pi(s_t)\right)}\left[ r_t\left(s_t,s_{t+1}|a_t\sim \pi_t(s_t)\right)+\gamma \mathcal{V}_{(t+1)\leadsto T}^{\pi_{(t+1):T}} (s_{t+1})\Big|s_t\right] \\
     =&{\color{red}\mathbb{E}_{a_t\sim \pi(\, \cdot \, |s_t)}\left[{\color{blue}R_{t}\left(s_t,a_t\right)+  \gamma\mathbb{E}_{s_{t+1}\sim p\left(\, \cdot \, |s_t,a_t\right)}\left[{\color{black}  \mathcal{V}_{(t+1)\leadsto T}^{\pi_{(t+1):T}} (s_{t+1})} \Big| s_t,a_t \right]}  \big|s_t\right]}
@@ -1059,7 +1063,7 @@ with the {red} part as \textbf{State-Value Function}\index{V-Value@$ V $-Value (
 Comments:
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item The decision process $(s_0,a_0)\leadsto (s_1,a_1)\leadsto\ldots\leadsto (s_T,a_T) $
-    is Markovian in $ t=0\to T $ sense, while the reward propagation $ V_{T\leadsto T}\leadsto Q_{(T-1)\leadsto T}\leadsto V_{(T-1)\leadsto T}\leadsto \ldots\leadsto Q_{0\leadsto T}\leadsto V_{0\leadsto T} $ is `Markovian' in $t= T\to 0 $ sense. i.e. solution to optimal $ \pi^* $ obtained by maximizing total reward should go backward.
+    is Markovian in $ t=0\leadsto T $ sense, while the reward propagation $ V_{T\leadsto T}\leadsto Q_{(T-1)\leadsto T}\leadsto V_{(T-1)\leadsto T}\leadsto \ldots\leadsto Q_{0\leadsto T}\leadsto V_{0\leadsto T} $ is `Markovian' in $t= T\leadsto 0 $ sense. i.e. solution to optimal $ \pi^* $ obtained by maximizing total reward should go backward.
     \item Duality of optimal $ \{V_{t\leadsto T}^{\pi_{t:T}}\}_{t=0}^T $ ($ V $-learning) and optimal $ \{Q_{t\leadsto T}^{\pi_{t:T}}\}_{t=0}^{T} $ ($ Q $-learning): With $ R_{t}(s_t,a_t) $ actually a given function (for given model $ p(s_{\tau+1}|s_\tau,a_\tau) $),
     \begin{align}
         \begin{cases}
@@ -1149,7 +1153,7 @@ with some known \textit{final/terminal} state $ \{s_\mathrm{final} \} $, where $
 
 \subsection{Karhunen-Loève Expansion}
 
-Karhunen-Loève Expansion (KL Expansion)\index{KL Expansion (Karhunen-Loève Expansion)} is a coutinuous version of PCA \autoref{EqaCurseOfDimensionality}. The idea is a decomposition 
+Karhunen-Loève Expansion (KL Expansion)\index{KL Expansion (Karhunen-Loève Expansion)}\index{PCA (Principal Component Analysis)} is a coutinuous version of PCA \autoref{EqaCurseOfDimensionality}. The idea is a decomposition 
 \begin{align}
     X(t)=\sum_{i}X_i\phi _i(t) 
 \end{align}
@@ -1163,7 +1167,7 @@ a special set of $ \{X_i,\phi_i\} $ is given by KL expansion.
     Derivations
 \end{point}
 
-First note that $ R(s,t):=\mathbb{E}\left[ X(s)X(t) \right] $ is a Kernel (see \autoref{EqaKernelFunction}), with positive semi-definition and symmetry. Then by Mercer's Thm., it has eigen-function decomposition
+First note that $ R(s,t):=\mathbb{E}\left[ X(s)X(t) \right] $ is a Kernel (see \autoref{EqaKernelFunction}), with positive semi-definition and symmetry. Then by Mercer's Theorem, it has eigen-function decomposition
 \begin{align}
     R(s,t) =\sum_{i} \lambda _i\phi _i(s)\phi _i(t) \Leftrightarrow \langle R(s,\, \cdot \, ),\phi_i\rangle = \lambda _i\phi_i(s)
 \end{align}
@@ -1556,7 +1560,7 @@ where $ \int $ for linear, and $ h(t-\tau) $ for time-invariant.
 LTI systems could be conveniently parsed with Fourier Transform, introduced in \autoref{SubSubSectionFourierAndConvolution}.
 
 \begin{point}
-    Cross Correlation Structure
+    Cross Correlation Structure\index{Cross Correlation Structure}
 \end{point}
 
 Usually we consider weak stationary case, with notation:
@@ -1596,60 +1600,60 @@ usually we also consider weak stationary case, with $ [a,b]=\mathbb{R} $
 
 
 \begin{point}
-    Non-Causal Solution
+    Non-Causal Solution\index{Non-Causal Solution}
 \end{point}
 A general solution $ L(x_u|z_t:\,t\in\mathbb{R}) $ is easily obtained by Fourier transform, with the convolution expression of estimator
 \begin{align}
     S_{XZ }(\omega )= \sqrt{2\pi}S_Z(\omega )H(\omega )\Rightarrow H(\omega )=\dfrac{S_{XZ} (\omega )}{\sqrt{2\pi}S_Z(\omega )}
 \end{align}
-with MSE\footnote{Derivation uses Parseval's Thm. \autoref{EqaParsevalThm}.}
+with MSE\footnote{Derivation uses Parseval's Theorem \autoref{EqaParsevalThm}.}
 \begin{align}
     \mathrm{MSE}=\int _\mathbb{R} S_X(\omega )-\dfrac{|S_{XZ}(\omega )|^2}{S_Z(\omega )} \,\mathrm{d}\omega   
 \end{align}
 
 \begin{point}
-    Causal Solution
+    Causal Solution\index{Causal Solution}
 \end{point}
 
 Causal solution demands that estimation cannot use future information, modelled as
-\begin{align*}
+\begin{align}
     \hat{x}_{T}=L(x_T|z_t:\,t\in(-\infty, 0]),\quad T>0 
-\end{align*}
+\end{align}
 i.e. 
-\begin{align*}
+\begin{align}
     \hat{x}_T=&\int _\mathbb{R} z_\tau h(-\tau) \,\mathrm{d}\tau ,\quad w.r.t.\, h(\varsigma)=h(\varsigma)\eta(\varsigma) \\
     R_{XZ}(T+t)=&\int _\mathbb{R}R_Z(\tau+t)h(-\tau) \,\mathrm{d}\tau ,\quad \forall t\geq 0
-\end{align*}
+\end{align}
 MMSE condition
-\begin{align*}
+\begin{align}
     \left[ e^{i\omega T}S_{XZ}\right]_+ = \left[S_Z(\omega )H(\omega ) \right]_+
-\end{align*}
+\end{align}
 where $[\, \cdot \, ]_+ $ corresponds to the causal component of FT
-\begin{align*}
+\begin{align}
      f(t)=&\eta(t)f(t)+(1-\eta(t))f(t)\fallingdotseq [F(\omega )]_+ + [F(\omega )]_-\\
     [F(\omega )]_+=&\dfrac{1}{\sqrt{2\pi}}\int _0^\infty f(t)e^{-i\omega t} \,\mathrm{d}t
-\end{align*}
+\end{align}
 
 with factor decomposition $ S_Z(\omega )=S_Z^+(\omega )S_Z^-(\omega ) $, where $ S_Z^+ $ is a causal function\footnote{An illustration: since convolution function is causal invariant, then
-\begin{align*}
+\begin{align}
     e^H=\sum_{i=0}^\infty \dfrac{H^i}{i!}\fallingdotseq \sum_{i=0}^\infty \dfrac{(* h)^i}{i!} 
-\end{align*}
+\end{align}
 is also causal invariant, i.e. $ H=[H]_+\Rightarrow e^H=[e^H]_+ $, then we could have
-\begin{align*}
+\begin{align}
     S=S^+S^-=e^{\varsigma^++\varsigma^-}=e^{[s]_++[s]_-}
-\end{align*}
+\end{align}
 }, we have solution
-\begin{align*}
+\begin{align}
     H(\omega )=\dfrac{1}{S_Z^+}\left[\dfrac{e^{i\omega T}S_{XZ}}{S_Z^-}\right]_+ 
-\end{align*}
+\end{align}
 
 
 Notes on causal function:
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item Convolution is causal invariant:
-    \begin{align*}
+    \begin{align}
         (\eta f * \eta g)(t) = \int_0^\infty f(\tau)g(t-\tau) \,\mathrm{d}\tau = 0 \,\text{if }t<0
-    \end{align*}
+    \end{align}
 \end{itemize}
 
     
@@ -1671,7 +1675,7 @@ Notes on causal function:
         \hat{g}=\mathop{\arg\min}\limits_{g(\, \cdot \, )\in \mathscr{F}} \mathbb{E}\left[ (X-g(\vec{Z}))^2 \right] 
     \end{align}
 
-    which is the \textbf{Minimum Mean Squared Estimator} (MMSE)\index{MMSE (Minimum Mean Squared Estimator)}. \footnote{\textbf{Note}: the function space $ \mathscr{F}(\vec{Z}) $ (by default) is the arbitrary measurable function space $ :=\mathscr{V}(\vec{Z}) $, but you can specifically select a proper one, e.g. linear combination of some power function $ \mathbb{V}(1,\vec{Z},\vec{Z}^2):=\{a+bZ+cZ^2\}_{a,b,c\in\mathbb{R}}\subset \mathscr{F}(\vec{Z}) $.
+    which is the \textbf{Minimum Mean Squared Error Estimator} (MMSE)\index{MMSE (Minimum Mean Squared Error Estimator)}. \footnote{\textbf{Note}: the function space $ \mathscr{F}(\vec{Z}) $ (by default) is the arbitrary measurable function space $ :=\mathscr{V}(\vec{Z}) $, but you can specifically select a proper one, e.g. linear combination of some power function $ \mathbb{V}(1,\vec{Z},\vec{Z}^2):=\{a+bZ+cZ^2\}_{a,b,c\in\mathbb{R}}\subset \mathscr{F}(\vec{Z}) $.
     
     I am not quite sure (actually I believe it's wrong lol) but maybe for some commonly used function form, we could view that
     \begin{align}
@@ -1760,7 +1764,7 @@ Notes on causal function:
          \mathbb{E}\left[ X \right]  
     \end{align}
     
-    in which
+    in which\index{Variance}
     \begin{align}
         \begin{cases}
             \mathbb{E}\left[ X \right]\in \mathcal{R}\\
@@ -1840,7 +1844,7 @@ Properties
     \begin{align}
         g(t-\tilde{t})\fallingdotseq G(\omega )e^{-i\omega \tilde{t}}  \qquad G(\omega -\tilde{\omega })\risingdotseq g(t)e^{i\tilde{\omega }t}
     \end{align}
-    \item Convolution Thm.\index{Convolution Thm.}
+    \item Convolution Theorem\index{Convolution}
     \begin{align}
         \mathscr{F}\left[ f*g \right]  = \sqrt{2\pi} FG 
     \end{align}
@@ -1856,7 +1860,7 @@ Properties
     \begin{align}
         \mathscr{F}\left[ \mathscr{F}\left[ g(t) \right]  \right] = \dfrac{1}{2\pi} g(-t)  
     \end{align}
-    \item Parseval's Thm.\index{Parseval's Thm.}\index{Rayleigh's Energy Thm.}:
+    \item Parseval's Theorem\index{Parseval's Theorem}\index{Rayleigh's Energy Theorem}:
     \begin{align}\label{EqaParsevalThm}
         \int _\mathbb{R}f(t)g^\dagger (t) \,\mathrm{d}t =& \int _\mathbb{R} \int _\mathbb{R}\dfrac{1}{\sqrt{2\pi}}F(\omega _1)e^{i\omega _1t} \,\mathrm{d}\omega _1 \int _\mathbb{R}\dfrac{1}{\sqrt{2\pi}}G^\dagger(\omega _2)e^{-i\omega _2t} \,\mathrm{d}\omega _2 \,\mathrm{d}t\\
         =&\int_{\omega _1} \int_{ \omega _2} F(\omega _1)G^\dagger(\omega _2)\int _t \dfrac{1}{2\pi} e^{i(\omega _1-\omega _2)t} \,\mathrm{d}t \,\mathrm{d}\omega _1 \,\mathrm{d}\omega\\

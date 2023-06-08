@@ -4,23 +4,23 @@
 \end{center}
 
 Design of Experiment (DoE) aims at understanding the cause-and-effect relation in systems (thus shares lots of similar language as Causal Inference). DoE is one step beyond Linear Regression where $ X $s are passively drawn while in DoE we are \textit{deliberately} designing them to be more precise / more efficient in studying $ Y$-$X $ relation.
-\begin{align*}
+\begin{align}
     \underbrace{\text{Experiment Designing}\longrightarrow \text{Execution}\longrightarrow \overbrace{\text{Analysis of Data}}^{\text{Regression / Causal Inference}}}_{\text{DoE}}
-\end{align*}
+\end{align}
 
 \begin{point}
     Philosophy of DoE 
 \end{point}
 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item \textbf{ Randomize }:
+    \item \textbf{ Randomize }: 
     \item \textbf{ Replicate  }:
     \item \textbf{ Blocking  }: 
 \end{itemize}
 
     
 
-\section{Statistical Inference Methods for Models}
+\section{Statistical Inference Methods for Factor Models}
 
 Basic inference methods are introduced in \autoref{SubSectionConfidenceIntervalForDistributions} (interval estimation) and \autoref{SubSectionHypothesisTestingOfCommonDistributions} (hypothesis testing). ANOVA in Regression is introduced in \autoref{SubSubSectionLinearRegressionMultiANOVA}. Preliminary introductions to factor model include \autoref{SubSubSectionFactorAnalysisModelIntroduction} and \autoref{SectionIntroToBiostatistics}. Listed here for review.
 
@@ -30,17 +30,17 @@ Basic inference methods are introduced in \autoref{SubSectionConfidenceIntervalF
 With $ X_1,X_2,\ldots,X_n $ i.i.d. $ \sim N(\mu ,\sigma ^2) $:
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item at null hypothesis $ H_0: \mu =\mu _0 $,with known variance:
-    \begin{align*}
+    \begin{align}
         Z_0 = \dfrac{ \sqrt{n}(\bar{X}-\mu _0) }{ \sigma  }\sim N(0,1)  
-    \end{align*}
+    \end{align}
     \item at null hypothesis $ H_0: \mu =\mu _0 $, with unknown variance:
-    \begin{align*}
+    \begin{align}
         t_0 =  \dfrac{ \sqrt{n}(\bar{X}-\mu _0) }{ s  }\sim t_{n-1}
-    \end{align*}
+    \end{align}
     \item at null hypothesis $ H_0: \sigma =\sigma _0 $, with unknown mean
-    \begin{align*}
+    \begin{align}
         \chi_0^2 = \dfrac{ (n-1)s^2 }{ \sigma _0^2 }  \sim \chi^2_{n-1}
-    \end{align*}   
+    \end{align}   
 \end{itemize}
 
 
@@ -52,66 +52,130 @@ Two sample: $ X_{11},X_{12},\ldots,X_{1n_1} $ i.i.d. $ \sim N(\mu _1,\sigma _1^2
 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item at null hypothesis $ H_0: \mu _1-\mu _2 = \Delta_0 $, with known variance
-    
-    \begin{align*}
+    \begin{align}
          z_0=\dfrac{ (\bar{X}_1-\bar{X}_2)-\Delta _0 }{ \sqrt{\dfrac{ \sigma _1 }{ n_1 }+\dfrac{ \sigma _2^2 }{ n_2 }  } } \sim N(0,1) 
-    \end{align*}
+    \end{align}
     \item at null hypothesis $ H_0: \mu _1-\mu _2 = \Delta_0 $, with unknown but same variance
-    \begin{align*}
+    \begin{align}
         t_0 = \dfrac{ (\bar{X}_1-\bar{X}_2)-\Delta _0 }{ s_\mathrm{ pooled }\sqrt{\dfrac{ 1 }{ n_1 } + \dfrac{ 1 }{ n_2 }  }  }\sim t_{n_1+n_2-2},\quad s_\mathrm{ pooled }=\dfrac{ (n_1-1)s_1^2+(n_2-1)s_2^2 }{ n_1+n_2-2 }  
-    \end{align*}
-    \item at null hypothesis $ H_0: \mu _1-\mu _2 = \Delta_0 $, with unknown variance (Welch-Satterthwaite approximation for the  Behrens-Fisher problem\footnote{This is the output in \lstinline|t.test(x1,x2, paired = FALSE, var.equal = FALSE)|}).
-    \begin{align*}
+    \end{align}
+    \item at null hypothesis $ H_0: \mu _1-\mu _2 = \Delta_0 $, with unknown variance (Welch-Satterthwaite approximation for the  Behrens-Fisher problem\footnote{This is the output in \lstinline|t.test(x1,x2, paired = FALSE, var.equal = FALSE)|}).\index{Welch's t Test@Welch's $ t $ Test}\index{Behrens-Fisher Problem}
+    \begin{align}
          t_0^\text{Welch}=\dfrac{ (\bar{X}_1-\bar{X}_2)-\Delta _0 }{ \sqrt{\dfrac{ s_1^2 }{ n_1 }+\dfrac{ s_2^2 }{ n_2 }  } }\approx \sim t_\nu\quad \nu = \dfrac{ \left(\dfrac{ s_1^2 }{ n_1 }+\dfrac{ s_2^2 }{ n_2 }\right)^2 }{ \dfrac{ (s_1^2/n_1)^2 }{ n_1+1 }+\dfrac{ (s_2^2/n_2)^2 }{ n_2+1 }   }-2  
-    \end{align*}
+    \end{align}
     \item at null hypothesis $ H_0: \sigma _1=\sigma _2 $, with unknown mean
-    \begin{align*}
+    \begin{align}
         F_0=\dfrac{ s_1^2 }{ s_2^2 }\sim F_{n_1-1,n_2-2}  
-    \end{align*}
-    
+    \end{align}
 \end{itemize}
 
+\begin{rcode}
+\begin{lstlisting}[language=R]
+y1 <- rnorm(100)
+y2 <- rnorm(100, 1)
+    
+t.test(y1, y2, var.equal = TRUE) # Use pooled variance
+t.test(y1, y2, var.equal = FALSE) # Welch's t-test
+t.test(y1, y2, paired = TRUE) # pairwise t
+\end{lstlisting}
+\end{rcode}
 
 \subsection{One Way ANOVA}\label{SubSubSectionDoEOneWayANOVA}
-
+\index{Factor Model}\index{ANOVA (Analysis of Variance)}
 Generalization from two-sample $ t $-test to Factor ANOVA: Use the trick that $ F\sim t^2 $, e.g. 
-\begin{align*}
+\begin{align}
     t_0^2 =\dfrac{( (\bar{X}_1-\bar{X}_2)-\Delta _0)^2 }{ s^2_\mathrm{ pooled }(\dfrac{ 1 }{ n_1 } + \dfrac{ 1 }{ n_2 }  )}\sim F_{{\color{red}1},n_1+n_2-2}
-\end{align*}
+\end{align}
 
 in which the nominator is `difference in mean', denominator is `fluctuation', i.e. in ANOVA language, variation caused by group difference $ \mathrm{ MSR }  $ and variation caused by random effect $ \mathrm{ MSE }  $.
 
-Model: (Factor model with balanca design here. Cell mean model / unbalanced design see \autoref{SubSubSectionIntroToBiostatisticsOneWayANOVA})
-\begin{align*}
-    Y_{ij} = \mu +\alpha_i+\varepsilon _{ij}\quad \varepsilon _{ij}\sim N(0,\sigma ^2),\quad i=1,2,\ldots,a,\quad j=1,2,\ldots,n,\quad w.r.t. \,\sum_{i=1}^a\alpha_i=0
-\end{align*}
+Model: (Factor model with balanced design here. Cell mean model \& unbalanced design see \autoref{SubSubSectionIntroToBiostatisticsOneWayANOVA})
 
-Solution could be obtained by traditional way $ [\mu ,\alpha _1,\ldots,\alpha _{a-1}]=(X'X)^{-1}XY $ with notation \autoref{EqaFactorAnalysisModel}. 
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Fixed Effect:\index{Fixed Effect}
 
+    
+    \begin{align}
+        Y_{ij} = \mu +\alpha_i+\varepsilon _{ij}\quad \varepsilon _{ij}\sim N(0,\sigma ^2),\quad i=1,2,\ldots,a,\quad j=1,2,\ldots,n,\quad w.r.t. \,\sum_{i=1}^a\alpha_i=0
+    \end{align}
+
+    Solution could be obtained by traditional way $ [\mu ,\alpha _1,\ldots,\alpha _{a-1}]=(X'X)^{-1}XY $ with notation \autoref{EqaFactorAnalysisModel}. 
+
+        \begin{align}
+            \hat{\mu }=&\bar{Y}_{\cdot \cdot }=\dfrac{1}{na}\sum_{i=1}^a\sum_{j=1}^{n}Y_{ij}\\
+            \hat{\alpha }_i=&\dfrac{ 1 }{ n }\sum_{j=1}^nY_{ij}-\hat{\mu }   \\
+            s_i^2=&\dfrac{1}{n-1}\sum_{j=1}^{n}\left(Y_{ij}-\bar{Y}_{i\cdot}\right)^2\\
+            s^2=&\dfrac{(n-1)\sum_{i=1}^as_i^2}{n_T-a}
+        \end{align}   
+    ANOVA Table:
+    \begin{table}[H]
+        \centering
+        \renewcommand\arraystretch{1.15}
+        \begin{tabular}{cllll}
+            \hline
+            Source of Var&$ \mathrm{SS} $&$ dof $&$ \mathrm{MS}  $&$ \mathbb{E}\left( \mathrm{MS}  \right)  $\\
+            \hline
+            $ \alpha _i $&$ \mathrm{SS}\alpha=\sum_{i=1}^a\left(\bar{Y}_{i\cdot }-\bar{Y}_{\cdot \cdot }\right)^2  $&$ a-1 $&$ \dfrac{\mathrm{SS}\alpha  }{a-1} $&$ \sigma ^2+\dfrac{n\sum_{i=1}^a\alpha _i^2}{a-1} $\\
+            $ \sigma ^2$&$ \mathrm{SSE} =\sum_{i=1}^a\sum_{j=1}^{n}\left(Y_{ij}-Y_{i\cdot }\right)^2 $&$ n_T-a $&$ \dfrac{\mathrm{SSE}}{n(a-1)} $&$ \sigma ^2 $\\
+            \hline
+        \end{tabular}
+    \end{table} 
+
+    $ F $ statistics for $ H_0:\alpha _1=\ldots=\alpha _a =0$:
+    \begin{align}
+        F_0=\dfrac{ \mathrm{ MS }\alpha   }{ \mathrm{ MSE }  }\sim F_{a-1,n_T-a}  
+    \end{align}
+
+    \item Random Effect:\index{Random Effect}
+    \begin{align*}
+        Y_{ij} = \mu +\alpha_i+\varepsilon _{ij}\quad \varepsilon _{ij}\sim N(0,\sigma ^2),\quad i=1,2,\ldots,a,\quad j=1,2,\ldots,n_i,\quad \alpha _i\sim N(0,\sigma ^2_\alpha )
+    \end{align*}
+    
+    Estimation:
     \begin{align}
         \hat{\mu }=&\bar{Y}_{\cdot \cdot }=\dfrac{1}{na}\sum_{i=1}^a\sum_{j=1}^{n}Y_{ij}\\
-        \hat{\alpha }_i=&\dfrac{ 1 }{ n }\sum_{j=1}^nY_{ij}-\hat{\mu }   \\
-        s_i^2=&\dfrac{1}{n-1}\sum_{j=1}^{n}\left(Y_{ij}-\bar{Y}_{i\cdot}\right)^2\\
-        s^2=&\dfrac{(n-1)\sum_{i=1}^as_i^2}{n_T-a}
-    \end{align}   
-And ANOVA Table 
-\begin{table}[H]
-    \centering
-    \renewcommand\arraystretch{1.15}
-    \begin{tabular}{cllll}
-        \hline
-        Source of Var&$ \mathrm{SS} $&$ dof $&$ \mathrm{MS}  $&$ \mathbb{E}\left( \mathrm{MS}  \right)  $\\
-        \hline
-        $ \alpha _i $&$ \mathrm{SS}\alpha=\sum_{i=1}^a\left(\bar{Y}_{i\cdot }-\bar{Y}_{\cdot \cdot }\right)^2  $&$ a-1 $&$ \dfrac{\mathrm{SS}\alpha  }{a-1} $&$ \sigma ^2+\dfrac{n\sum_{i=1}^a\alpha _i^2}{a-1} $\\
-        $ \sigma ^2$&$ \mathrm{SSE} =\sum_{i=1}^a\sum_{j=1}^{n}\left(Y_{ij}-Y_{i\cdot }\right)^2 $&$ n_T-a $&$ \dfrac{\mathrm{SSE}}{n(a-1)} $&$ \sigma ^2 $\\
-        \hline
-    \end{tabular}
-\end{table} 
+        s_i^2=&\dfrac{ 1 }{ n-1 }\sum_{j=1}^n(Y_{ij}-\bar{Y}_{i\cdot })^2\\
+        s^2=&\dfrac{ (n-1)\sum_{i=1}^as_i^2 }{ n_T-a }\\
+        \hat{\sigma }^2_\alpha =&\dfrac{ 1 }{ a } \left(\dfrac{ \mathrm{SS}\alpha  }{ a-1 } -\dfrac{ \mathrm{SSE}  }{ n_T-a }\right)
+\end{align}    
 
-Test for group difference
-\begin{align*}
-    F_0=\dfrac{ \mathrm{ MS }\alpha   }{ \mathrm{ MSE }  }\sim F_{a-1,n_T-a}  
-\end{align*}
+    ANOVA table:
+    \begin{table}[H]
+        \centering
+        \renewcommand\arraystretch{1.15}
+        \begin{tabular}{cllll}
+            \hline
+            Source of Var&$ \mathrm{SS} $&$ dof $&$ \mathrm{MS}  $&$ \mathbb{E}\left( \mathrm{MS}  \right)  $\\
+            \hline
+            $ \sigma ^2_\alpha  $&$ \mathrm{SS}\alpha=n\sum_{i=1}^a\left(\bar{Y}_{i\cdot }-\bar{Y}_{\cdot \cdot }\right)^2  $&$ a-1 $&$ \dfrac{\mathrm{SS}\alpha  }{a-1} $&$ \sigma ^2+n\sigma _\alpha ^2 $\\
+            $ \sigma ^2$&$ \mathrm{SSE} =\sum_{i=1}^r\sum_{j=1}^{n}\left(Y_{ij}-Y_{i\cdot }\right)^2 $&$ n_T-a $&$ \dfrac{\mathrm{SSE}}{n_T-a} $&$ \sigma ^2 $\\
+            \hline
+        \end{tabular}
+    \end{table}
+
+    $ F $ statistics for $ H_0:\sigma ^2_\alpha =0$:
+    \begin{align}
+        F=\dfrac{\mathrm{MS}\alpha }{\mathrm{MSE} } \sim F_{a-1,n_T-a}
+    \end{align}
+
+
+\end{itemize}
+
+\begin{rcode}
+\begin{lstlisting}[language=R]
+library(agricolae)
+dat <- data.frame(y = ..., trt = ... %>% factor()) 
+
+# fixed effect
+fit_fixed <- aov(y ~ trt, data = dat)
+summary(fit_fixed)
+
+# random effect 
+library(lme4)
+fit_random <- lmer(y ~ (1|trt), data = dat)
+summary(fit_random)
+\end{lstlisting}
+\end{rcode}
 
 
 \begin{point}
@@ -119,26 +183,26 @@ Test for group difference
 \end{point}
 
 General Linear Test in linear regression see \autoref{SubSubSectionGeneralLinearTest}. The idea is to compare a full model and a reduced model
-\begin{align*}
+\begin{align}
     \begin{cases}
         \text{Full Model}:&Y_{ij}=\mu +\alpha _i+\varepsilon _{ij}\\
         \text{Reduced Model}:&Y_{ij}=\mu +\varepsilon _{ij}
     \end{cases} 
-\end{align*}
+\end{align}
 
 in this case the General Linear Test $ F $ is 
-\begin{align*}
-    F^\mathrm{ GLT }=\dfrac{(\mathrm{SSE_R-SSE_F})/(dof_\mathrm{R}-dof_\mathrm{F} )}{\mathrm{SSE_F}/dof_F} =\dfrac{ \mathrm{ MS }\alpha   }{ \mathrm{ MSE }  }=F_0\sim F_{a-1,n_T-a}   
-\end{align*}
+\begin{align}
+    F^\mathrm{ GLT }=\dfrac{(\mathrm{SSE_R-SSE_F})/(dof_\mathrm{R}-dof_\mathrm{F} )}{\mathrm{SSE_F}/dof_\mathrm{ F } } =\dfrac{ \mathrm{ MS }\alpha   }{ \mathrm{ MSE }  }=F_0\sim F_{a-1,n_T-a}   
+\end{align}
 
 \begin{point}
     Likelihood Ratio Test Point of View
 \end{point}
 
 Detail theory of LRT see \autoref{SubSectionLRT}. the test statistics is
-\begin{align*}
-    \Lambda = \dfrac{{\displaystyle\sup_{\mu;\alpha =0}L(Y;\mu ,\alpha ) }}{{\displaystyle\sup_{\mu;\alpha}L(Y;\mu ,\alpha ) }}=\left(\dfrac{\mathrm{ SSTotal }  }{\mathrm{ SSE }  } \right)^{n_T/2}
-\end{align*}
+\begin{align}
+    \Lambda = \dfrac{{\displaystyle \sup_{\mu;\alpha =0}L(Y;\mu ,\alpha ) }}{{\displaystyle \sup_{\mu;\alpha}L(Y;\mu ,\alpha ) }}=\left(\dfrac{\mathrm{ SSTotal }  }{\mathrm{ SSE }  } \right)^{n_T/2},\quad -2\log \Lambda \xrightarrow[]{\mathrm{d}} \chi^2_{a-1}
+\end{align}
 
 and we have a bijection between $ \Lambda  $ and $ F_0 $.
 
@@ -148,56 +212,102 @@ and we have a bijection between $ \Lambda  $ and $ F_0 $.
 \end{point}
 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item Bartlett's Test for $ H_0:\sigma _1=\ldots=\sigma _a $\index{Bartlett's test}
-    \begin{align*}
+    \item Bartlett's Test for $ H_0:\sigma _1=\ldots=\sigma _a $\index{Bartlett's Test}
+    \begin{align}
         T=\dfrac{ (n_T-a)\log\dfrac{\sum_{i=1}^a (n-1)\mathrm{ MS }_i  }{ n_T-a } -\sum_{i=1}^a(n-1)\log \mathrm{MS}_i   }{ 1+\dfrac{ 1 }{ 3(a-1) }\left(\sum_{i=1}^a\dfrac{ 1 }{ n-1 }-\dfrac{ 1 }{ n_T-a }  \right)  }\approx \sim \chi^2_{a-1}  
-    \end{align*}
+    \end{align}
 
     the idea is $ \mathrm{ GeomMean }=\mathrm{ ArithMean }   $ when all are equal.
     
     
     \item Levene's Test\index{Levene's Test}
-    \begin{align*}
+    \begin{align}
         T=(\text{ANOVA of }|y_{ij}-\bar{y}_{i\cdot }|)\approx \sim F_{a-1,n_T-a}
-    \end{align*}
+    \end{align}
     
     \item Welch's ANOVA\index{Welch's ANOVA}
     
-    A generalized version of Welch's Test in two-sample $ t $-test.
+    A generalized version of Welch's Test in two-sample $ t $-test.   
     
 \end{itemize}
 
-    
+
+\begin{rcode}
+\begin{lstlisting}[language=R]
+bartlett.test(y ~ trt, data = dat) # Bartlett's Test
+leveneTest(fit) # Levene's Test
+oneway.test(y ~ trt, data = dat, var.equal=FALSE) # Welch's ANOVA
+\end{lstlisting}
+\end{rcode}
 
 \begin{point}
     \hypertarget{DoEMultipleComparison}{Multiple Comparison}
 \end{point}
 
-Target: When compare level pairs, say some $ (\alpha _i, \alpha _j) $ paris, i.e. there are multiple tests, we need to adjust the testing procedure to avoid multiple comparison hazard.\footnote{An intuition: If we simply test each of $ m $ tests at $ \alpha_i = 0.05 $, then the overall type-I error is 
-\begin{align*}
+Target: When compare level pairs, say some $ (\alpha _i, \alpha _j) $ pairs $ \subset \{\alpha _\imath\}_{\imath=1}^a $, i.e. there are multiple tests, we need to adjust the testing procedure to avoid multiple comparison hazard.\footnote{An intuition: If we simply test each of $ m $ tests at $ \alpha_i = 0.05 $, then the overall type-I error is 
+\begin{align}
     \alpha = 1-\prod_{i=1}^m(1-\alpha _i)>0.05
-\end{align*}
+\end{align}
 }
 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item Fisher's Least Significant Difference (LSD)\index{Fisher's LSD (Fisher's Least Significant Difference)} without correction
-    \begin{align*}
+    \begin{align}
         t_{ij}=\dfrac{ \bar{Y}_{i\cdot }-\bar{Y}_{j\cdot } }{ \sqrt{\mathrm{ MSE }\left(\dfrac{ 1 }{ n_i }+\dfrac{ 1 }{ n_j }  \right) } }\sim t_{N-a}  
-    \end{align*}
+    \end{align}
     rejection region construction use $ t_{N-a,1-\alpha /2} $
     \item Fisher's Least Significant Difference (LSD) with Bonferroni correction: rejection region use $ t_{N-a, 1-\alpha /2m} $
     \item Tukey's Honestly Significant Difference (HSD)\index{Tukey's HSD (Tukey's Honestly Significant Difference)}: Under $ H_0:\alpha _1=\ldots=\alpha _a $, treat $ Y_{\imath j} $ as sample of $ \mu _\imath $. We could study the range of $ \{\bar{Y}_{\imath\cdot }\}_{\imath=1}^a $
-    \begin{align*}
+    \begin{align}
         q=\dfrac{ \max\{\bar{Y}_{\imath\cdot }\}_{\imath=1}^a-\min\{\bar{Y}_{\imath\cdot }\}_{\imath=1}^a }{ s\sqrt{n} }  \sim q_{a,n_T-a}
-    \end{align*}
-    where $ q_{\cdot \, ,\, \cdot } $ is \hyperlink{TukeyStudentizedRangeDistribution}{Tukey's  studentized range distribution}
-    \item Scheff\`{e}'s Method\index{Scheff\`{e}'s Method} by testing contrasts. A $ \phi \equiv\sum_{i=1}^a\xi _i\alpha _i  \,w.r.t.\,\sum_{i=1}^a\xi _i=0$ is called a contrast. 
-    \begin{align*}
+    \end{align}
+    where $ q_{\cdot \, ,\, \cdot } $ is \hyperlink{TukeyStudentizedRangeDistribution}{Tukey's  studentized range distribution}, see \autoref{EqaTukeyStudentizedRangeDistribution}.
+    \item Scheff\`{e}'s Method\index{Scheff\`{e}'s Method} by testing contrasts. A $ \phi \equiv\sum_{i=1}^a\xi _i\alpha _i  \,w.r.t.\,\sum_{i=1}^a\xi _i=0$ is called a \textbf{contrast}\footnote{First introduced in \autoref{SubSubSectionLRSingleFactorModel}.}.\index{Contrast} 
+    \begin{align}
          F_0=\left(\dfrac{ \hat{\phi } }{ \sqrt{\hat{var}(\phi )} }\right)^2\big/(a-1)=\dfrac{ (\sum \xi_i\bar{Y}_{i\cdot })^2 }{ (a-1)\mathrm{ MSE }\sum \xi _i^2/n_i  } \sim F_{a-1,N-a}
+    \end{align}
+    \item Benjamini-Hochberg Method for False Discovery Rate control.\index{FDR (False Discovery Rate)}
+    \item Dunnett's Test for Many-to-One problem\index{Dunnett's Test}: e.g. we have a control group $ \alpha _0 $ and $ a-1 $ treatment groups $ \alpha _1,\ldots,\alpha _{a-1} $, we want to test a one-sided null hypothesis 
+    \begin{align*}
+        H_0:\, \mu _0\leq \mu _i,\quad \forall i=1,2,\ldots,a-1 
     \end{align*}
-    \item Benjamini-Hochberg Method for False Discovery Rate control:
+
+    Dunnett's statistics are
+    \begin{align*}
+        t_i=\dfrac{ \bar{y}_{i\cdot }-\bar{y}_{0\cdot } }{ \sqrt{ \mathrm{ MSE } (\dfrac{ 1 }{ n_i }+\dfrac{ 1  }{ n_0 }  ) }  },\quad \begin{bmatrix}
+            t_1\\
+            \vdots\\
+            t_{a-1}
+        \end{bmatrix}\sim t_{a-1}(\rho = \{\rho_{ij}=\sqrt{\dfrac{ n_in_j }{ (n_i+n_0)(n_j+n_0) } }\}_{i,j=1}^{a-1})
+    \end{align*}
+    
+    
+    
 \end{itemize}
 
+
+\begin{rcode}
+\begin{lstlisting}[language=R]
+fit <- aov(y ~ trt, data = dat) 
+
+
+# Fisher LSD
+LSD.test(fit, 'trt', group = FALSE, console = TRUE) 
+# Fisher LSD with bonferroni
+pairwise.t.test(dat$y, dat$trt, p.adj = 'bonferroni') 
+LSD.test(fit, 'trt', group = F, console = T, p.adj = 'bonferroni') 
+# Tukey's HSD
+TukeyHSD(fit) 
+glht(fit, linfct = mcp(trt = "Tukey")) %>% summary
+# Scheffe's Method
+scheffe.test(fit, 'trt', group = F, console = T) 
+# Dunnett's Test 
+glht(fit, linfct = mcp(trt = "Dunnett")) %>% summary
+
+## plotting confidence interval
+glht(fit, linfct = mcp(trt = "Tukey")) %>% confint %>% plot
+\end{lstlisting}
+\end{rcode}
     
     Interval Construction follows similar method, see \autoref{SubSectionLRAFactorANOVA}.
 
@@ -213,3 +323,762 @@ Target: When compare level pairs, say some $ (\alpha _i, \alpha _j) $ paris, i.e
 
 
 \subsection{Multi Factor ANOVA}
+
+ANOVA inference for multifactor case was introduced in \autoref{SubSubSectionBiosGeneralCaseForFactorModel}. Here are some recap. And more complex models and some insights for DoE are included.
+
+Take two factor model with interaction as exmaple:
+\begin{align}
+    Y_{ijk}=\mu +\alpha _i+\beta _j+(\alpha \beta )_{ij}+\varepsilon _{ijk} 
+\end{align}
+
+Decomposition of $ \mathrm{ SS }  $ and $ dof $:\begin{align}
+    Y_{ijk}-\bar{Y}_{\cdot \cdot \cdot }=&\left(\bar{Y}_{i\cdot \cdot}-\bar{Y}_{\cdot \cdot \cdot}\right)+\left(\bar{Y}_{\cdot j\cdot }-\bar{Y}_{\cdot \cdot \cdot }\right)\\
+    &+\left(\bar{Y}_{ij\cdot }-\bar{Y}_{i\cdot \cdot }-\bar{Y}_{\cdot j\cdot }+\bar{Y}_{\cdot \cdot \cdot }\right)+  \left( Y_{ijk}-\bar{Y}_{ij\cdot}\right)\\
+    \alpha _i+\beta _j+(\alpha \beta )_{ij}+\varepsilon _{ijk}=&\left((\mu +\alpha _i)-\mu \right)+\left((\mu +\beta _j)-\mu \right)\\
+    &+\big( (\mu +\alpha _i+\beta _j+(\alpha \beta )_{ij})-(\mu +\alpha _i)-(\mu +\beta _j)+\mu  \big)+\left(\varepsilon _{ijk}\right)\\
+    \sum_{i=1}^a\sum_{j=1}^b\sum_{k=1}^n(Y_{ijk}-\bar{Y}_{\cdot \cdot \cdot })=&bn\sum_{i=1}^a \left(\bar{Y}_{i\cdot\cdot  }-\bar{Y}_{\cdot \cdot\cdot  }\right)^2 +an\sum_{j=1}^b \left(\bar{Y}_{\cdot j\cdot }-\bar{Y}_{\cdot \cdot \cdot}\right)^2\\
+    &+ n\sum_{i=1}^a\sum_{j=1}^b\left(\bar{Y}_{ij\cdot }-\bar{Y}_{i\cdot \cdot }-\bar{Y}_{\cdot j\cdot }+\bar{Y}_{\cdot \cdot \cdot }\right)^2+\sum_{i=1}^a\sum_{j=1}^b\sum_{k=1}^{n}\left(Y_{ijk}-\bar{Y}_{ij\cdot  }\right)^2\\
+    nab-1=&(a-1)+(b-1)\\
+    &+\big((a-1)(b-1)\big)+(n-1)ab
+\end{align}
+ 
+and ANOVA table (e.g. with $ \alpha  $, $ \beta  $ both fixed effect factor):
+
+
+ANOVA table:
+\begin{table}[H]
+    \centering
+    \renewcommand\arraystretch{1.15}
+    \begin{tabular}{clll}
+        \hline
+        Source of Var&$ \mathrm{SS} $&$ dof $&$ \mathbb{E}\left( \mathrm{MS}  \right)  $\\
+        \hline
+        $ \alpha _i $&$\displaystyle  bn\sum_{i=1}^a \left(\bar{Y}_{i\cdot\cdot  }-\bar{Y}_{\cdot \cdot\cdot  }\right)^2  $&$ a-1 $&$ \sigma ^2+ \dfrac{ bn\sum_{i=1}^a\alpha _i^2 }{ a-1 }  $\\
+        $ \beta _j $&$\displaystyle  an\sum_{j=1}^b \left(\bar{Y}_{\cdot j\cdot }-\bar{Y}_{\cdot \cdot \cdot}\right)^2 $ &$ b-1 $&$ \sigma ^2+\dfrac{ an\sum_{j=1}^b\beta _j^2 }{ b-1 }  $\\
+        $ (\alpha \beta )_{ij} $&$\displaystyle  n\sum_{i=1}^a\sum_{j=1}^b\left(\bar{Y}_{ij\cdot }-\bar{Y}_{i\cdot \cdot }-\bar{Y}_{\cdot j\cdot }+\bar{Y}_{\cdot \cdot \cdot }\right)^2 $&$ (a-1)(b-1) $&$ \sigma ^2+\dfrac{ n\sum_{i=1}^a\sum_{j=1}^n(\alpha \beta )_{ij}^2 }{ (a-1)(b-1) }  $\\
+        $ \sigma ^2$&$\displaystyle  \sum_{i=1}^a\sum_{j=1}^b\sum_{k=1}^{n}\left(Y_{ijk}-\bar{Y}_{ij\cdot  }\right)^2 $&$ ab(n-1) $&$ \sigma ^2 $\\
+        \hline
+    \end{tabular}
+    \caption{ANOVA for two fixed effect model}
+    \label{tab:ANOVAforTwoFixedEffect}
+\end{table}
+
+Calculation of complicated factor design, especially for fixed\&random combined or more factors, see Montgomery's Method at \autoref{SubSubSectionBiosGeneralCaseForFactorModel}.
+
+
+\textit{Some Key Problems to Consider in DoE}:
+
+
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Effect of factors?
+    \item Include interaction term, say $ (\alpha \beta )_{ij} $, or not? Better functional form for interation? 
+    \item Cost of experiment in the case of multi factor. 
+\end{itemize}
+
+
+
+\begin{point}
+    $ F $ Test For Factor or Interaction term:
+\end{point}
+
+$ F $ test is simply $ \mathrm{ MS }\imath/\mathrm{ MS }\jmath   $, where $ \mathbb{E}\left[  \mathrm{ MS }\imath \right]-\mathbb{E}\left[ \mathrm{ MS }\jmath \right]   $ should correctly reflect the quantity to study. e.g. Still use the above \autoref{tab:ANOVAforTwoFixedEffect} example, to study whether to include interaction term $ (\alpha \beta )_{ij} $:
+\begin{align}
+    F_{(\alpha \beta )}=\dfrac{ \mathrm{ MS }(\alpha \beta )  }{ \mathrm{ MSE }  }=\dfrac{ n\sum_{i=1}^a\sum_{j=1}^b\left(\bar{Y}_{ij\cdot }-\bar{Y}_{i\cdot \cdot }-\bar{Y}_{\cdot j\cdot }+\bar{Y}_{\cdot \cdot \cdot }\right)^2 / (a-1)(b-1) }{ \sum_{i=1}^a\sum_{j=1}^b\sum_{k=1}^{n}\left(Y_{ijk}-\bar{Y}_{ij\cdot  }\right)^2/ab(n-1) }\sim F_{(a-1)(b-1),ab(n-1)}   
+\end{align}
+
+
+
+Example Code for two factor model
+
+
+\begin{rcode}
+\begin{lstlisting}[language=R]
+y <- c(...)
+factor1 <- c(...) %>% factor()
+factor2 <- c(...) %>% factor()
+dat <- data.frame(y, factor1, factor2)
+aovfit1 <- aov(y ~ factor1 + factor2, data = dat) # without interaction
+aovfit2 <- aov(y ~ factor1 * factor2, data = dat) # with interaction
+
+aovfit1 %>% summary()
+aovfit2 %>% summary()
+\end{lstlisting}
+\end{rcode}
+
+
+\begin{point}
+    Graphic Method for Interation
+\end{point}
+
+e.g. for each $ \alpha  $ level, plot $ y $-$ \beta _j $ relation and observe the parallel relation.
+
+\begin{rcode}
+\begin{lstlisting}[language=R]
+interaction.plot(x.fac = factor2, trace.fac = factor1, response = y)
+\end{lstlisting}
+\end{rcode}
+
+
+\begin{point}
+    Tukey's One $ dof $ Test for Additive Interaction
+\end{point}
+\index{Tukey's One $ dof $ Test for Additive Interaction}\index{Additive Interaction}
+
+Use the general interaction $ (\alpha \beta )_{ij} $ uses $ (a-1)(b-1) $ degree of freedom, thus cause less $ dof $ in estimating $ \sigma ^2 $, and sometimes prevents us from conduct a valid DoE due to cost limit (e.g. can only conduct one test for each level $ n=1 $). 
+
+Tukey's method is to use an analogue to  linear model $ (\alpha \beta )_{ij}=\lambda \alpha _i\beta _j $:
+\begin{align}
+    Y_{ijk}=\mu +\alpha _i+\beta _j+\lambda \alpha_{i} \beta_{j}+\varepsilon _{ijk} 
+\end{align}
+
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Estimation:
+    \begin{align}
+        \hat{\alpha }_i=&\bar{Y}_{i\cdot \cdot }-\bar{Y}_{\cdot \cdot \cdot }\\
+        \hat{\beta }_j =&\bar{Y}_{\cdot j\cdot }-\bar{Y}_{\cdot \cdot \cdot }\\
+        \hat{\lambda }\approx&\dfrac{ \sum_{i=1}^a\sum_{j=1}^b \hat{\alpha }_i\hat{\beta }_j\bar{Y}_{ij\cdot } }{ \big( \sum_{i=1}^a\hat{\alpha }_{i}^2 \big)\big( \sum_{j=1}^b\hat{\beta }_{j}^2 \big) }  
+    \end{align}
+    \item Motivation and Justification of product form interaction $ \lambda \alpha _i\beta _j $: Consider $ (\alpha \beta )_{ij} $ as a function of $ \alpha _i,\,\beta _j $, expand to second order:
+    \begin{align}
+        (\alpha \beta )_{ij}\text{ as function of }\alpha ,\,\beta =& C_0+C_1\alpha_i + C_2\beta _j +C_{11}\alpha _i^2+C_{12}\alpha _i\beta _j+C_{22}\beta _j^2+o(2^\mathrm{ nd } )
+    \end{align}
+    normalization condition $ \sum_{i=1}^a(\alpha \beta ) _{ij}=0 $, $ \sum_{j=1}^b(\alpha \beta )_{ij} =0 $ yields 
+    \begin{align}
+        (\alpha \beta )_{ij}=C_{12}\alpha _i\beta _j+o(2^\mathrm{ nd }) 
+    \end{align}
+    \item Tukey additive term test:
+    
+    \begin{align}
+        F=\dfrac{ \mathrm{ SS }\lambda /1  }{ \mathrm{MSE}   } = \dfrac{ \big(\sum_{i=1}^a\sum_{j=1}^b(\hat{\lambda }\hat{\alpha }_i\hat{\beta }_j)^2\big)/\big( \sum_{i=1}^a\hat{\alpha }_i^2\sum_{j=1}^b\hat{\beta }_j^2 \big) }{ \mathrm{ MSE }  }\sim F_{1,abn-a-b}  
+    \end{align}
+\end{itemize}
+
+\begin{rcode}
+\begin{lstlisting}[language=R]
+library(additivityTests)
+datmat <- matrix(dat, ...) # dim(factor1) * dim(factor2)
+tukey.test(datmat)
+\end{lstlisting}
+\end{rcode}
+
+
+
+
+\section{Blocking Methods}
+
+Blocking methods deal with nuisance factors, i.e. factors that we are not interested in but may affect the result, to help reduce the variation of the result. 
+
+A concrete example: we want to study the effect of fertilizer ($ \alpha  $) on crop yield ($ y $), but the soil quality ($ \beta  $) may affect the result. But finally we care about the effect of fertilizer on some arbitrary soil quality, so we block the soil quality factor, which is the nuisance factor in this case.
+
+
+\subsection{The Randomized Complete Block Design}
+e.g. when assessing the effect of $ \alpha _i $, we might try to induce some other blocking factor $ \beta _j $. Then the model turns to a 1 fixed ($ \alpha  $) + 1 random ($ \beta  $) factor model, with replicate size $ n=1 $
+\begin{align}
+    Y_{ij}=\mu +\alpha _i+\beta _j +\varepsilon _{ij}
+\end{align}
+which is the case for the randomized complete block design (RCBD).\index{RCBD (Randomized Complete Block Design)}
+
+Intuition about $ F_\alpha  $:
+\begin{align}
+    F_\alpha = \dfrac{ \mathrm{ MS}\alpha   }{ \mathrm{ SSE }/dof_\mathrm{ SSE }  }
+\end{align}
+adding a blocking factor $ \beta  $ results in both smaller $ \mathrm{SSE}   $ and $ dof_\mathrm{ SSE }  $. We are expecting more reduction in $ \mathrm{SSE} $ so finally $ \mathrm{ MSE }  $ decreases, to yield higher power. 
+
+Testing on $ \beta  $ is usually not quite necessary (only when considering whether to include $ \beta  $ in the model).\footnote{Such comparison is achieved by assessing relative efficiency.\index{Relative Efficiency}
+\begin{align*}
+    \mathrm{ rf }=\dfrac{ \mathrm{MSE}_\mathrm{ CRD }    }{ \mathrm{ MSE }_\mathrm{ RCBD } }   
+\end{align*}
+}
+
+\begin{rcode}
+\begin{lstlisting}[language=R]
+# test for RCBD \alpha effect 
+dat <- data.frame(y = ..., alpha = ... %>% factor, beta = ... %>% factor)
+aov(y ~ alpha + Error(beta / alpha), data = dat) %>% summary
+\end{lstlisting}
+\end{rcode}
+
+\begin{point}
+    Generalized RCBD
+\end{point}
+
+for model with replicates $ n \geq 2 $ we fit the model
+\begin{align*}
+    Y_{ijk}=\mu +\alpha _i+\beta _j +\varepsilon _{ijk},\quad k=1,\ldots, n
+\end{align*}
+or, in this case error terms are acceptable
+\begin{align*}
+    Y_{ijk}=\mu +\alpha _i+\beta _j + (\alpha \beta )_{ij} +\varepsilon _{ijk},\quad k=1,\ldots, n
+\end{align*}
+
+
+
+
+
+\subsection{Latin Square Design for Multi Factor ANOVA}\label{SubSubSectionLatinSquareDesign}
+
+To handle the case of more blocking factors (or simply there are too many factors), but faced with budget limit and can only conduct one test for each level. Latin Square Design is a method to reduce the cost of experiment while still keep the validity of DoE.
+
+Latin square is used for \# level equal for all factors (say 3 factors with 4 levels each).
+
+\begin{point}
+    3 Factors Latin Square Design\index{Latin Square Design}
+\end{point}
+
+e.g. model\footnote{We are already using Latin square to solve the problem of limited sample size, so adding interaction terms like $ (\alpha \beta )_{ij} $ is unwise because it uses $ dof $, thus cause less $ dof $ in estimating $ \sigma ^2 $ or even make it impossible.}
+\begin{align}
+    Y_{ijk}=\mu +\alpha _i+\beta _j+\gamma _k+\varepsilon _{ijk} 
+\end{align}
+denote $ \alpha _i $ as row effect, $ \beta _j $ as column effect, $ \gamma\in\{A,B,C,D,\ldots\} $ as layer effect (elements apprear in \autoref{EqaLatinSquareDesign} matrix). \# levels for factors $ := m $. Replicates size $ =1 $ so is ignored. \textbf{For blocking experiment, we usually put the blocking factors at row \& column, and the factor of interest at layer $ \gamma  $.}
+
+We could assign $ m\times m $ runs according to the following Latin square (take $ m=4 $ as example):\footnote{i.e. $ m\times m $ runs (arranged by column):
+\begin{align}
+    \text{run}1:&\alpha _1,\beta _1,A\\
+    \text{run}2:&\alpha _2,\beta _1,B\\
+    \vdots&\\
+    \text{run}5:&\alpha _1,\beta _2,B\\
+    \text{run}6:&\alpha _2,\beta _2,C\\
+    \vdots&
+\end{align}
+}
+\begin{align}\label{EqaLatinSquareDesign}
+    \begin{pNiceMatrix}[first-row,first-col,nullify-dots]
+        \text{factor}\,\gamma \small\searrow &\beta _1&\beta _2&\beta _3&\beta _4\\  
+        \alpha _1& A&B&C&D\\
+        \alpha _2& B&C&D&A\\
+        \alpha _3& C&D&A&B\\
+        \alpha _4& D&A&B&C
+        \end{pNiceMatrix} 
+\end{align}
+
+with ANOVA table:
+\begin{table}[H]
+    \centering
+    \renewcommand\arraystretch{1.15}
+    \begin{tabular}{cll}
+        \hline
+        Source of Var&$ \mathrm{SS} $&$ dof $\\
+        \hline
+        $ \alpha _i $ (row)&$ \displaystyle m\sum_{i=1}^m \left(\bar{Y}_{i\cdot \cdot }-\bar{Y}_{\cdot \cdot \cdot }\right)^2  $&$ m-1 $\\
+        $ \beta _j $ (column)&$\displaystyle  m\sum_{j=1}^m \left(\bar{Y}_{\cdot j\cdot }-\bar{Y}_{\cdot \cdot \cdot }\right)^2 $ &$ m-1 $\\
+        $ \gamma _k $ (layer)&$ \displaystyle m\sum_{k=1}^m \left(\bar{Y}_{\cdot \cdot k}-\bar{Y}_{\cdot \cdot \cdot }\right)^2 $&$ m-1 $\\
+        $ \sigma ^2$&$ \displaystyle \sum_{i=1}^m\sum_{j=1}^m\sum_{k=1}^{m}\mathbb{I}_{(i,j,k)\in\mathrm{Latin}}\left(Y_{ijk}-\bar{Y}_{i\cdot \cdot  }-\bar{Y}_{\cdot j\cdot }-\bar{Y}_{\cdot \cdot k}+2\bar{Y}_{\cdot \cdot \cdot } \right)^2 $&$ (m-1)(m-2) $\\
+        \hline
+    \end{tabular}
+    \caption{ANOVA for 3 Effects Latin Square Design}
+    \label{tab:ANOVAfor3EffectsLatinSquareDesign}
+\end{table}
+
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item An illustration for sample size reduction: for 3 factor experiment with 4 levels for each factor, we need $ 4^3=64 $ runs. If we use Latin Square Design, we only need $ 4\times 4=16 $ runs.
+\end{itemize}
+
+\begin{rcode}
+\begin{lstlisting}[language=R]
+# obtain latin square design
+library(agricolae)
+trt <- LETTERS[1:4] 
+design3 <- design.lsd(trt, seed = 42)
+\end{lstlisting}
+\end{rcode}
+
+\begin{point}
+    Replicated Latin Square Design\index{Replicted Latin Square Design}
+\end{point}
+
+$ m^\mathrm{ th }  $ order Latin square could be used with $ l $ replicates to generate $ lm^2 $ runs. There are 3 variants, corresponding to different experiment settings.
+
+Here we take $ r=3,\,m=4 $ as example. Replicates size $ =1 $. And $ \kappa _l,\,l=1,2,\ldots,r $ is used to denote the Latin square replicate effect.
+
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Same column + Same row effect
+    \begin{align*}
+        Y_{ijkl} =  \mu +\alpha _i+\beta _j+\gamma _k+ \kappa _l +\varepsilon _{ijkl},\quad i,j,k=1,2,\ldots,m,\quad l=1,2,\ldots,r.
+    \end{align*}
+    
+    (Note that here different Latin squares are \textbf{replicates})
+{
+    \NiceMatrixOptions{code-for-first-row = \color{black}, code-for-first-col = \color{black}}
+    \begin{align*}
+        \begin{pNiceMatrix}[first-row,first-col,nullify-dots]
+            \text{factor}\,\gamma \small\searrow &\beta _1&\beta _2&\beta _3&\beta _4\\  
+            \alpha _1& A&B&C&D\\
+            \alpha _2& B&C&D&A\\
+            \alpha _3& C&D&A&B\\
+            \alpha _4& D&A&B&C\\
+            \CodeAfter
+            \UnderBrace{4-1}{4-4}{\kappa _1}
+            \end{pNiceMatrix}  
+            \quad 
+            \begin{pNiceMatrix}[first-row,first-col,nullify-dots]
+                &\beta _1&\beta _2&\beta _3&\beta _4\\  
+                \alpha _1& D&A&B&C\\
+                \alpha _2& A&B&C&D\\
+                \alpha _3& B&C&D&A\\
+                \alpha _4& C&D&A&B\\
+                \CodeAfter
+                \UnderBrace{4-1}{4-4}{\kappa _2}
+            \end{pNiceMatrix}  
+            \quad 
+            \begin{pNiceMatrix}[first-row,first-col,nullify-dots]
+                &\beta _1&\beta _2&\beta _3&\beta _4\\  
+                \alpha _1& C&D&A&B\\
+                \alpha _2& D&A&B&C\\
+                \alpha _3& A&B&C&D\\
+                \alpha _4& B&C&D&A\\
+                \CodeAfter
+                \UnderBrace{4-1}{4-4}{\kappa _3}
+            \end{pNiceMatrix}  
+    \end{align*}
+}
+
+    with ANOVA table:
+    \begin{table}[H]
+        \centering
+        \renewcommand\arraystretch{1.15}
+        \begin{tabular}{cl}
+            \hline
+            Source of Var&$ dof $\\
+            \hline
+            $ \alpha _i $ (row)& $ m-1 $\\
+            $ \beta _j $ (column) & $ m-1 $\\
+            $ \gamma _k $ (layer) & $ m-1 $\\
+            $ \kappa _l $ (square replicate) & $ r-1 $\\
+            $ \sigma ^2 $& $ (m-1)(r(m+1)-3) $\\
+            \hline
+        \end{tabular}
+    \end{table}
+
+    \item Same column + Different row effect (Or equivalently Different column + Same row effect)
+    \begin{align*}
+        Y_{ijkl} =  \mu +\alpha _{i(l)}+\beta _j+\gamma _k+ \kappa _l +\varepsilon _{ijkl},\quad i(l)=1,\ldots,m\times r \quad j,k=1,\ldots,m,\quad l=1,\ldots,r.
+    \end{align*}
+{
+    \NiceMatrixOptions{code-for-first-row = \color{black}, code-for-first-col = \color{blue}}
+    \begin{align*}
+        \begin{pNiceMatrix}[first-row,first-col,nullify-dots]
+            \text{factor}\,\gamma \small\searrow &\beta _1&\beta _2&\beta _3&\beta _4\\  
+            \alpha _1& A&B&C&D\\
+            \alpha _2& B&C&D&A\\
+            \alpha _3& C&D&A&B\\
+            \alpha _4& D&A&B&C\\
+            \CodeAfter
+            \UnderBrace{4-1}{4-4}{\kappa _1}
+            \end{pNiceMatrix}  
+            \quad 
+            \begin{pNiceMatrix}[first-row,first-col,nullify-dots]
+                &\beta _1&\beta _2&\beta _3&\beta _4\\  
+                \alpha _5& D&A&B&C\\
+                \alpha _6& A&B&C&D\\
+                \alpha _7& B&C&D&A\\
+                \alpha _8& C&D&A&B\\
+                \CodeAfter
+                \UnderBrace{4-1}{4-4}{\kappa _2}
+            \end{pNiceMatrix}  
+            \quad 
+            \begin{pNiceMatrix}[first-row,first-col,nullify-dots]
+                &\beta _1&\beta _2&\beta _3&\beta _4\\  
+                \alpha _9& C&D&A&B\\
+                \alpha _{10}& D&A&B&C\\
+                \alpha _{11}& A&B&C&D\\
+                \alpha _{12}& B&C&D&A\\
+                \CodeAfter
+                \UnderBrace{4-1}{4-4}{\kappa _3}
+            \end{pNiceMatrix}  
+    \end{align*}
+}
+
+    with ANOVA table:
+    \begin{table}[H]
+        \centering
+        \renewcommand\arraystretch{1.15}
+        \begin{tabular}{cl}
+            \hline
+            Source of Var&$ dof $\\
+            \hline
+            $ \alpha _{i(l)} $ (row)& $ r(m-1) $\\
+            $ \beta _j $ (column) & $ m-1 $\\
+            $ \gamma _k $ (layer) & $ m-1 $\\
+            $ \kappa _l $ (square replicate) & $ r-1 $\\
+            $ \sigma ^2 $& $ (m-1)(rp-2) $\\
+            \hline
+        \end{tabular}
+    \end{table}
+    \item Different column + Different row effect
+    \begin{align*}
+        Y_{ijkl} =  \mu +\alpha _{i(l)}+\beta _{j(l)}+\gamma _k+ \kappa _l +\varepsilon _{ijkl},\quad i(l),j(l)=1,\ldots,m\times r \quad k=1,\ldots,m,\quad l=1,\ldots,r.
+    \end{align*}
+{
+    \NiceMatrixOptions{code-for-first-row = \color{blue}, code-for-first-col = \color{blue}}
+    \begin{align*}
+        \begin{pNiceMatrix}[first-row,first-col,nullify-dots]
+            \text{factor}\,\gamma \small\searrow &\beta _1&\beta _2&\beta _3&\beta _4\\  
+            \alpha _1& A&B&C&D\\
+            \alpha _2& B&C&D&A\\
+            \alpha _3& C&D&A&B\\
+            \alpha _4& D&A&B&C\\
+            \CodeAfter
+            \UnderBrace{4-1}{4-4}{\kappa _1}
+            \end{pNiceMatrix}  
+            \quad 
+            \begin{pNiceMatrix}[first-row,first-col,nullify-dots]
+                &\beta _5&\beta _6&\beta _7&\beta _8\\  
+                \alpha _5& D&A&B&C\\
+                \alpha _6& A&B&C&D\\
+                \alpha _7& B&C&D&A\\
+                \alpha _8& C&D&A&B\\
+                \CodeAfter
+                \UnderBrace{4-1}{4-4}{\kappa _2}
+            \end{pNiceMatrix}  
+            \quad 
+            \begin{pNiceMatrix}[first-row,first-col,nullify-dots]
+                &\beta _9&\beta _{10}&\beta _{11}&\beta _{12}\\  
+                \alpha _9& C&D&A&B\\
+                \alpha _{10}& D&A&B&C\\
+                \alpha _{11}& A&B&C&D\\
+                \alpha _{12}& B&C&D&A\\
+                \CodeAfter
+                \UnderBrace{4-1}{4-4}{\kappa _3}
+            \end{pNiceMatrix}  
+    \end{align*}
+}
+
+    with ANOVA table:
+    \begin{table}[H]
+        \centering
+        \renewcommand\arraystretch{1.15}
+        \begin{tabular}{cl}
+            \hline
+            Source of Var&$ dof $\\
+            \hline
+            $ \alpha _{i(l)} $ (row)& $ r(m-1) $\\
+            $ \beta _{j(l)} $ (column) & $ r(m-1) $\\
+            $ \gamma _k $ (layer) & $ m-1 $\\
+            $ \kappa _l $ (square replicate) & $ r-1 $\\
+            $ \sigma ^2 $& $ (m-1)(r(p-1)-1) $\\
+            \hline
+        \end{tabular}
+    \end{table}
+
+\end{itemize}
+
+
+
+
+
+\begin{point}
+    4 Factors Graeco-Latin Square Design\index{Graeco-Latin Square Design}
+\end{point}
+
+e.g. model
+\begin{align}
+    Y_{ijkl}=\mu +\alpha _i+\beta _j+\gamma _k+\phi_l+\varepsilon _{ijklr} 
+\end{align}
+denote $ \alpha _i $ as row effect, $ \beta _j $ as column effect, $ \gamma\in\{A,B,C,D,\ldots\} $ as layer row effect, $ \phi _l\in\{\alpha ,\beta ,\gamma ,\delta ,\ldots\} $ as layer column effect. \# levels for factors $ := m $. Usually $ l=1 $
+
+We could assign $ m\times m $ runs according to the following Graeco-Latin square, in which each Graeco-Latin alphabet pair only appear once (take $ m=4 $ as example):\footnote{i.e. $ m\times m $ runs (arranged by column):
+\begin{align}
+    \text{run}1:&\alpha _1,\beta _1,A,\alpha \\
+    \text{run}2:&\alpha _2,\beta _1,B,\gamma  \\
+    \vdots&\\
+    \text{run}5:&\alpha _1,\beta _2,B,\beta  \\
+    \text{run}6:&\alpha _2,\beta _2,A,\delta  \\
+    \vdots&\\
+    \text{run}9:&\alpha _1,\beta _3,C,\gamma  \\
+    \text{run}10:&\alpha _2,\beta _3,D,\alpha  \\
+    \vdots&
+\end{align}
+}
+\begin{align}
+    \begin{pNiceMatrix}[first-row,first-col,nullify-dots]
+        \text{factor}\,\gamma,\phi  \small\searrow &\beta _1&\beta _2&\beta _3&\beta _4\\
+        \alpha _1& A\alpha & B\beta & C\gamma & D\delta \\
+        \alpha _2& B\gamma  & A\delta  & D\alpha  & C\beta  \\
+        \alpha _3& C\delta   & D\gamma   & A\beta   & B\alpha   \\
+        \alpha _4& D\beta    & C\alpha    & B\delta    & A\gamma
+        \end{pNiceMatrix} 
+\end{align}
+
+
+
+with ANOVA table:
+\begin{table}[H]
+    \centering
+    \renewcommand\arraystretch{1.15}
+    \begin{tabular}{cll}
+        \hline
+        Source of Var&$ \mathrm{SS} $&$ dof $\\
+        \hline
+        $ \alpha _i $ (row)&$\displaystyle  m\sum_{i=1}^m \left(\bar{Y}_{i\cdot \cdot \cdot }-\bar{Y}_{\cdot \cdot \cdot \cdot  }\right)^2  $&$ m-1 $\\
+        $ \beta _j $ (column)&$\displaystyle  m\sum_{j=1}^m \left(\bar{Y}_{\cdot j\cdot \cdot }-\bar{Y}_{\cdot \cdot \cdot \cdot }\right)^2 $ &$ m-1 $\\
+        $ \gamma _k $ (layer row)&$ \displaystyle m\sum_{k=1}^m \left(\bar{Y}_{\cdot \cdot k\cdot }-\bar{Y}_{\cdot \cdot \cdot \cdot }\right)^2 $&$ m-1 $\\
+        $ \phi _l $ (layer column)&$\displaystyle  m\sum_{l=1}^m \left(\bar{Y}_{\cdot \cdot \cdot l}-\bar{Y}_{\cdot \cdot \cdot \cdot }\right)^2 $&$ m-1 $\\
+        $ \sigma ^2$&$ \displaystyle \sum_{i=1}^m\sum_{j=1}^m\sum_{k=1}^{m}\sum_{l=1}^{m}\mathbb{I}_{(i,j,k,l)\in\atop \mathrm{GraecoLatin}}\left(Y_{ijkl}-\bar{Y}_{i\cdot \cdot \cdot  }-\bar{Y}_{\cdot j\cdot \cdot }-\bar{Y}_{\cdot \cdot k\cdot }-\bar{Y}_{\cdot \cdot \cdot l}+3\bar{Y}_{\cdot \cdot \cdot \cdot } \right)^2 $&$ (m-1)(m-3) $\\
+        \hline
+    \end{tabular}
+    \caption{ANOVA for 4 Effects Graeco-Latin Square Design}
+    \label{tab:ANOVAfor4EffectsGraecoLatinSquareDesign}
+\end{table}
+
+
+
+
+
+\begin{point}
+    Balanced Incomplete Block Design\index{BIBD (Balanced Incomplete Block Design)}
+\end{point}
+
+A further case is that in two factor model 
+\begin{align*}
+    Y_{ij}\sim \mu +\tau _i+\beta _j +\varepsilon _{ij},\quad i=1,2,\ldots,t\quad j=1,2,\ldots,b. 
+\end{align*}
+we might have restrictions on the number of runs for each blocking level $ \beta_j  $, say we could only have $ k<t $ runs. i.e. for ideal case we should have $ t\times b $ runs but now only $ k\times b $. This is called the balanced incomplete block design (BIBD).
+
+To handle this case, we hope to: for each $ \beta  $ level, wisely choose which of $ \tau_i $s should be included in the experiment runs. Here's an example:
+\begin{align*}\label{eq:BIBDexample}
+    \begin{pNiceMatrix}[first-row,first-col,nullify-dots]
+        \text{assign run?}\searrow &\beta _1&\beta _2&\beta _3&\beta _4\\
+        \tau _1:=A& \surd &\surd &&\surd \\
+        \tau _2:=B& &\surd &\surd &\surd \\
+        \tau _3:=C& \surd &\surd &\surd &\\
+        \tau _4:=D& \surd &&\surd &\surd 
+        \end{pNiceMatrix} 
+        =     \begin{pNiceMatrix}[first-row,first-col,nullify-dots]
+            \text{assign }\tau\searrow &\beta _1&\beta _2&\beta _3&\beta _4\\
+            &A&B&C&D\\
+            &C&A&D&B\\
+            &D&C&B&A\\
+            \end{pNiceMatrix} 
+\end{align*}
+
+Comment:
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item Such design is possible iff
+    \begin{align*}
+        \lambda = \dfrac{ bk(k-1) }{ t(t-1) }\text{ is an integer}  
+    \end{align*}
+    \item The design can be generated from Latin square, e.g. BIBD assignment in \autoref{eq:BIBDexample} is just 3 rows from $ 4\times 4 $ Latin square.
+    
+\end{itemize}
+
+    
+
+\begin{rcode}
+BIBD assignment generation
+\begin{lstlisting}[language=R]
+trt <- LETTERS[1:4]
+k <- 3
+design.bib(trt, k, seed = 42)
+\end{lstlisting}
+\end{rcode}
+
+
+\subsection{Regression with Blocking}
+
+Regression could be combined in factor model. An example is a factor component $ \alpha  $ + a numeric component $ x'\beta  $, say
+\begin{align*}
+    Y_{ij}= \sum_{i=1}^a\big( \beta _{0i}+x_{ij}'\beta _{1i} \big)+\varepsilon _{ij} 
+\end{align*}
+
+
+
+
+\section{Factorial Design}
+\index{Factorial Design}
+An important application scenario of DoE is factorial design (析因试验), which is a method of designing experiments to study the effects of multiple factors simultaneously. The goal of factorial design is to efficiently explore the existance of effects and interactions.
+
+
+\subsection{$ 2^k $ Factorial Design}
+
+A typical setting is that we have $ k $ factors, each with $ 2 $ levels (because we just want to examine the existance of effects) denoted $ \{+,-\} $. This case is called $ 2^k $ screening designs. An example of $ 2^3 $ factorial design:
+
+\begin{table}[H]
+    \centering
+    \renewcommand\arraystretch{1.15}
+    \begin{tabular}{ccccc}
+        \hline
+            Run & Factor $ A $ & Factor $ B $ & Factor $ C $ & Response $ y $\\
+        \hline
+            $ 1 $&$ - $&$ - $&$ - $&$ y_1=y_{---} $\\
+            $ 2 $&$ + $&$ - $&$ - $&$ y_2=y_{+--} $\\
+            $ 3 $&$ - $&$ + $&$ - $&$ y_3=y_{-+-} $\\
+            $ 4 $&$ - $&$ - $&$ + $&$ y_4=y_{--+} $\\
+            $ 5 $&$ + $&$ + $&$ - $&$ y_5=y_{++-} $\\
+            $ 6 $&$ + $&$ - $&$ + $&$ y_6=y_{+-+} $\\
+            $ 7 $&$ - $&$ + $&$ + $&$ y_7=y_{-++} $\\
+            $ 8 $&$ + $&$ + $&$ + $&$ y_8=y_{+++} $\\
+        \hline
+    \end{tabular}
+\end{table}
+
+The estimation of effects can be done by Least Square Estimation by $ (X'X)^{-1}X'Y $, and further note that the above $ \pm 1 $ encoding yields
+\begin{align}
+    \text{effect} = 2\times  \text{corresp regression coef} 
+\end{align}
+
+e.g. a model with all interaction term for the above $ 2^3 $ design:
+\begin{align}
+    y_{A,B,C} = & \underbrace{(1)}_{\text{intercept}}+ A+B+C+(AB)+(AC)+(BC)+(ABC) + \varepsilon _{A,B,C},\quad A,B,C \in \{+1,-1\}
+\end{align}
+should be estimated by
+\begin{align}
+    \hat{\text{effect}}=&2\cdot \hat{\beta }\\
+    \hat{\beta }=&(X'X)^{-1}X'Y=2^kX'Y\\
+    var(\text{effect}_i)=&\dfrac{ \sigma ^2 }{ 2^{k-2}\times \text{replicate} } \\
+    X\equiv &\begin{bNiceMatrix}[first-row,first-col,nullify-dots]
+        \text{run}&(1)&A&B&C&(AB)&(AC)&(BC)&(ABC)\\
+        1:y_{---}&+&-&-&-&+&+&+&-\\
+        2:y_{+--}&+&+&-&-&-&-&+&+\\
+        3:y_{-+-}&+&-&+&-&-&+&-&+\\
+        4:y_{--+}&+&-&-&+&+&-&-&+\\
+        5:y_{++-}&+&+&+&-&+&-&-&-\\
+        6:y_{+-+}&+&+&-&+&-&+&-&-\\
+        7:y_{-++}&+&-&+&+&-&-&+&-\\
+        8:y_{+++}&+&+&+&+&+&+&+&+
+    \end{bNiceMatrix}\\
+    Y\equiv &\begin{bmatrix}
+        y_1\\
+        y_2\\
+        y_3\\
+        y_4\\
+        y_5\\
+        y_6\\
+        y_7\\
+        y_8
+    \end{bmatrix} =\begin{bmatrix}
+        y_{---}\\
+        y_{+--}\\
+        y_{-+-}\\
+        y_{--+}\\
+        y_{++-}\\
+        y_{+-+}\\
+        y_{-++}\\
+        y_{+++}
+    \end{bmatrix}
+\end{align}
+
+
+
+ 
+
+Comments:
+\begin{itemize}[topsep=2pt,itemsep=0pt]
+    \item $ \pm 1 $ encoding could ensure the orthogonality of the design matrix $ X $, i.e. $ X'X=I $, which benefits the estimation and avoid collinearity.
+    \item We can choose which effect terms to be included in $ X $, simply by multiplying corresponding components columns, e.g. $ ABC $ interaction in $ X $ is 
+    \begin{align}
+        \begin{bNiceMatrix}[first-row,first-col,nullify-dots]
+            \text{run}&(ABC)\\
+            y_{---}&  - \\
+            y_{+--}&  + \\
+            y_{-+-}&  + \\
+            y_{--+}&  + \\
+            y_{++-}&  - \\
+            y_{+-+}&  - \\
+            y_{-++}&  - \\
+            y_{+++}&  + 
+            \end{bNiceMatrix}
+            =        \begin{bNiceMatrix}[first-row,nullify-dots]
+                    A\\
+                    -\\
+                    +\\
+                    -\\
+                    -\\
+                    +\\
+                    +\\
+                    -\\
+                    +
+                \end{bNiceMatrix}\cdot \begin{bNiceMatrix}[first-row,nullify-dots]
+                    B\\
+                    -\\
+                    -\\
+                    +\\
+                    -\\
+                    +\\
+                    -\\
+                    +\\
+                    +
+                \end{bNiceMatrix}\cdot 
+                \begin{bNiceMatrix}[first-row,nullify-dots]
+                    C\\
+                    -\\
+                    -\\
+                    -\\
+                    +\\
+                    +\\
+                    +\\
+                    +\\
+                    -
+                \end{bNiceMatrix}
+    \end{align}
+    i.e. only $ A $, $ B $, $ C $ are `assigned', other interactions are induced by multiplication.
+\end{itemize}
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Miscaellaneous Topics}
+
+\subsection{Missing Values}
+
+Here we introduce a Minimizing-SSE method by
+\begin{align}
+    y_{\text{missing}}=\mathop{ \arg\min  }\limits_{\text{with }y\text{ fill in}} \mathrm{ SSE } 
+\end{align}
+
+e.g. two-factor model with $ y_{ij} $ missing, with current statistics denoted with prime $ ' $, i.e. obtained without missing values:
+\begin{align}
+    y_{ij}^\text{fill in}=\dfrac{ ay_{i\cdot }'+by_{\cdot j}'-y_{\cdot \cdot }' }{ (a-1)(b-1) }  
+\end{align}
+
+\subsection{D-Optimal Design}
+\index{D-Optimal}
+Motivation: What is a good design matrix $ X $? An answer is to minimize the generalized variance of $ \hat{\beta} $. Use \autoref{EqaDistributionOfMultiVariateBeta} we have
+\begin{align}
+    var(\hat{\beta})=\sigma ^2(X^TX)^{-1} \Rightarrow \arg\max|X'X|
+\end{align}
+
+Example: Use D-Optimal to explain balanced design\index{Balanced Design} in one-way factor ANOVA, use cell mean model:
+\begin{align}
+    Y_{ij}=& \tau _i+\varepsilon _{ij},\quad i=1,2,\ldots,r \quad j=1,2,\ldots,n_i \quad \sum_{i=1}^an_j=n_T
+\end{align}
+with design matrix 
+\begin{align}
+     \mathop{ n_{T\times r} }\limits_{} =\begin{bmatrix}
+        \mathbf{1}_{n_1} & 0 & \ldots & 0\\
+        0 & \mathbf{1}_{n_2} & \ldots & 0\\
+        \vdots & \vdots & \ddots & \vdots\\
+        0 & 0 & \ldots & \mathbf{1}_{n_r}
+     \end{bmatrix}
+\end{align}
+D-Optimal:
+\begin{align}
+    |X'X|=\left|\begin{bmatrix}
+        n_1 & 0 & \ldots & 0\\
+        0 & n_2 & \ldots & 0\\
+        \vdots & \vdots & \ddots & \vdots\\
+        0 & 0 & \ldots & n_r
+    \end{bmatrix} \right| = \prod_{i=1}^r n_i \leq \left( \dfrac{ n_T }{ r } \right)^r
+\end{align}
+equality taken at $ n_1=n_2=\ldots=n_r=\dfrac{ n_T }{ r }  $, i.e. balance design.
+
+Note: In the case that we have some constraint on $ X $, solving the D-Optimal problem could be complicated.
+
+
+
+
+
+
+
+

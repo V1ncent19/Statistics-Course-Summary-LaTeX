@@ -13,7 +13,7 @@
 
 
 
-
+This part introduces some probabilitics tools used in statistics. Theory in this part is not based on measure theory, but is quite enough of (applied) statistics lectures.
 
 
 
@@ -23,6 +23,7 @@
 
 
 \section{Some Important Distributions}\label{SectionImportantDistributions}
+\index{Distribution}
 
 \begin{table}[htbp]
     \centering
@@ -61,7 +62,7 @@ Use the following command for all distributions supported in \lstinline|R. stats
 
 \section{Probability and Probability Model}
 
-    What is \textbf{Probability}? A `belief' in `what would happen'.
+    What is \textbf{Probability}? A `belief' in `what would happen. Different people may have different answers.
 
 
 \subsection{Sample Space and $\sigma$-Field}
@@ -80,7 +81,7 @@ Use the following command for all distributions supported in \lstinline|R. stats
     \textbf{Note}: Randomness comes from the random result $ \omega  $ that an experiment generates.
     
 \begin{point}
-    Event 
+    Event \index{Event}
 \end{point}
 
     We may care about a conbination of some results, say `at least one of the coin lands tails-up'. It's like a kind of `structure' on sample space describing how we put results together to form \textbf{Events}. The definition is \index{Sigma-field@$ \sigma $-Field} a $\sigma$-field(or a $\sigma$-algebra) $\mathscr{F}$ as a collection of some subsets of $\Omega$, with properties:
@@ -119,7 +120,7 @@ And some more complex ones
             \dfrac{m(A)}{m(\Omega )}&\text{Geometric Model}
         \end{cases}   
     \end{align}
-    
+    \index{Classic Model}\index{Geometric Model}
     Where $ m(\, \cdot \, ) $ is some measure of events in continuous space, say integral in Euclidean Space $ \mathbb{R}^r $
     \begin{align}
         m_\mathrm{\mathbb{R}^r}(A)=\int_A \,\mathrm{d}x_1\,\mathrm{d}x_2\ldots\,\mathrm{d}x_r  
@@ -140,7 +141,7 @@ And some more complex ones
 \item Non-negativity
 \begin{equation}    \mathbb{P}(A)\geq 0\qquad \forall A\in\Omega    
 \end{equation}
-\item Normalization\footnote{Note: In other sections when dealing with not-yet-normalized distribution (say in Bayesian statistics), I usually use $ Z $ as the normalize constant, following the tradition in statistical physics where $ Z $ is the partition function.
+\item Normalization\index{Normalization}\footnote{Note: In other sections when dealing with not-yet-normalized distribution (say in Bayesian statistics), I usually use $ Z $ as the normalize constant, following the tradition in statistical physics where $ Z $ is the partition function.
 \begin{align}
     \mathbb{P}=\dfrac{1}{Z}\tilde{\mathbb{P}},\quad Z=\int \mathbb{\tilde{P}} 
 \end{align}}
@@ -173,11 +174,11 @@ where `countable subadditivity' means the events can be sequentially listed. e.g
         \begin{align}
             \mathbb{P}\left( A\cup B \right) =\mathbb{P}\left( A \right) +\mathbb{P}\left( B \right) -\mathbb{P}\left( A\cap B \right)  
         \end{align}
-        \item Monotonicity
+        \item Monotonicity\index{Monotonicity}
         \begin{equation}    
             \mathbb{P}(A)\leq \mathbb{P}(B)\quad \text{for}\, A\subset B
         \end{equation}
-        \item Finite Subadditivity (Boole Inequality)\index{Inequality!Boole Inequality}
+        \item Finite Subadditivity (Boole Inequality)\index{Inequality!Boole Inequality}\index{Boole Inequality}\index{Finite Subadditivity}
         \begin{equation}    
             \mathbb{P}(\bigcup_{i=1}^nA_i)\leq\sum_{i=1}^n \mathbb{P}(A_i)    
         \end{equation}
@@ -255,7 +256,7 @@ where `countable subadditivity' means the events can be sequentially listed. e.g
 \subsection{Conditional Probability}
     Motivation: To update the knowledge of probability measure.
 
-    Def. \textbf{Conditional Probability} of $B$ given $A$:
+    Def. \textbf{Conditional Probability} of $B$ given $A$:\index{Conditional Probability}
     \begin{equation}    
         \mathbb{P}(B|A)=\frac{\mathbb{P}(A\cap B)}{\mathbb{P}(A)}    
     \end{equation}
@@ -271,11 +272,11 @@ where `countable subadditivity' means the events can be sequentially listed. e.g
 \end{point}
 
         \begin{itemize}
-        \item Multiplication Formula
+        \item Multiplication Formula\index{Multiplication Formula}
         \begin{equation}    
             \mathbb{P}(\bigcap_{i=1}^n A_i)=\mathbb{P}(A_1)\prod_{i=2}^n \mathbb{P}(A_i|A_1\cap A_2\cap \cdots\cap A_{i-1})    
         \end{equation}
-        \item Total Probability Thm.\index{Total Probability Thm.}
+        \item Total Probability Theorem\index{Total Probability Theorem}
         \begin{equation}    
             \mathbb{P}(B)=\sum_{i=1}^n \mathbb{P}(A_i)\mathbb{P}(B|A_i)  
         \end{equation}
@@ -290,7 +291,7 @@ where `countable subadditivity' means the events can be sequentially listed. e.g
     \end{itemize}
 
 \subsection{Independency}
-    Statistical Independency is defined as:
+    Statistical Independency is defined as:\index{Independence}
     \begin{equation}    
         A\independent B:\,\mathbb{P}(A\cap B) =\mathbb{P}(A)\mathbb{P}(B)
     \end{equation}
@@ -423,7 +424,7 @@ Motivation: defining events is troublesome, and unhelpful to extract the key fea
         \begin{equation}\label{EqaDistributionOfOrderStatistics} 
             g_k(x_k)=nC_{n-1}^{k-1}[F(x_k)]^{k-1}[1-F(x_k)]^{n-k}f(x_k)
         \end{equation}
-        \item $p$-fractile\index{Fractile!$ p $-fractile}
+        \item $p$-fractile\index{Fractile!$ p $-fractile}\index{p-fractile@$ p $-fractile}
         \begin{equation}    \xi_p=F^{-1}(p)=\inf\{x|F(x)\geq p\}\end{equation}
     \end{itemize}
 
@@ -447,7 +448,7 @@ Motivation: defining events is troublesome, and unhelpful to extract the key fea
         f(x_1,\ldots,x_n)=\dfrac{\partial^n F(x_1,\ldots,x_n)}{\partial x_1\ldots\partial x_n}
     \end{equation}
 
-    $k$-dimensional Marginal Distribution: For $1\leq k<n$ and index set $S_k=\{i_1.\ldots,i_k\}$, distribution of $\vec{X}=(X_{i_1},X_{i_2},\ldots,X_{i_k})$
+    $k$-dimensional Marginal Distribution\index{Marginal Distribution}: For $1\leq k<n$ and index set $S_k=\{i_1.\ldots,i_k\}$, distribution of $\vec{X}=(X_{i_1},X_{i_2},\ldots,X_{i_k})$
     \begin{equation}F_{S_k}(X_{i_1}\leq x_{i_1},X_{i_2}\leq x_{i_2}\ldots,X_{i_k}\leq x_{i_k})=\mathbb{P}(X_{i_1}\leq x_{i_1},\ldots,X_{i_k}\leq x_{i_k};X_{i_{k+1}},\ldots,X_{i_n}\leq\infty)\end{equation}
 
     Marginal distribution: 
@@ -488,6 +489,7 @@ Motivation: what would happen `on average'?
 Expectation and Variance of common distributions see \autoref{SectionImportantDistributions}.
 
 \subsection{Expection $ \mathbb{E}(\,\cdot\,) $}
+\index{Expectation}
     Expectation of r.v. $g(X)$ def.:
     \begin{equation}
     \mathbb{E} [g(X)]=\begin{cases}
@@ -496,7 +498,7 @@ Expectation and Variance of common distributions see \autoref{SectionImportantDi
     \end{cases}
 \end{equation}
 
-    Sometimes when there are more than 1 variables, say $ x,y $, we would use notation $ \mathbb{E}_X\left( g(X,Y) \right)  $ to specify the variable to avoid confusion.
+    Sometimes when there are more than 1 variables, say $ x,y $, we would use notation $ \mathbb{E}_{X}\left( g(X,Y) \right)  $ or $ \mathbb{E}_{X\sim f_X(x)}\left( g(X,Y) \right)  $ to specify the variable and distribution to avoid confusion.
 
     \textbf{Note}: For discrete r.v. the expectation always exists, but for continuous \& unbounded r.v. the expectation might diverge, rigorously speaking:
     \begin{align}
@@ -506,7 +508,7 @@ Expectation and Variance of common distributions see \autoref{SectionImportantDi
     
  
 \begin{point}
-    Properties of Expectation $E(\,\cdot\,)$:
+    Properties of Expectation $\mathbb{E}(\,\cdot\,)$:
 \end{point}
 
 \begin{itemize}
@@ -522,14 +524,14 @@ Expectation and Variance of common distributions see \autoref{SectionImportantDi
 
     
 
-    \item Law of Total Expectation\begin{equation}
+    \item Law of Total Expectation\index{Law of Total Expectation}\begin{equation}
         \mathbb{E}_Y\big\{\mathbb{E}_X[g(X)|Y]\big\}=\mathbb{E}_X[g(X)]
     \end{equation}
     \item r.v.\& Event
     \begin{equation}
         \mathbb{P}(A|X)=\mathbb{E}(\mathbb{I}_A|X)\Rightarrow \mathbb{E}[P(A|X)]=\mathbb{E}(\mathbb{I}_A)=\mathbb{P}(A)
     \end{equation}
-    \item Conditional Expectation
+    \item Conditional Expectation\index{Conditional Expectation}
     \begin{equation}
         \mathbb{E}\big[h(Y)g(X)|Y\big]=h(Y)\mathbb{E}[g(X)|Y]
     \end{equation}
@@ -537,7 +539,7 @@ Expectation and Variance of common distributions see \autoref{SectionImportantDi
 
 
 \subsection{Variance $ var(\, \cdot \, ) $}
-    Variance of r.v. $X$: 
+    Variance of r.v. $X$: \index{Variance}
     \begin{equation}
         var(X)=\mathbb{E}\big[(X-\mathbb{E}(X))^2\big]=\mathbb{E}(X^2)-(\mathbb{E}(X))^2
     \end{equation}
@@ -562,12 +564,12 @@ Expectation and Variance of common distributions see \autoref{SectionImportantDi
     \begin{equation}
         var(X|Y)=\mathbb{E}{[X-\mathbb{E}(X|Y)]^2|Y}
     \end{equation}
-    \item Law of Total Variance\begin{equation}
+    \item Law of Total Variance\index{Law of Total Variance}\begin{equation}
         var(X)=\mathbb{E}[var(X|Y)]+var[\mathbb{E}(X|Y)]
     \end{equation}
 \end{itemize}
 
-    Standard Deviation def. as :
+    Standard Deviation\index{Standard Deviation} def. as :
     \begin{equation}\sigma_X=\sqrt{var(X)}\end{equation}
 
     Then can construct \textbf{Standardization}\index{Standardization} of r.v.
@@ -578,7 +580,7 @@ Expectation and Variance of common distributions see \autoref{SectionImportantDi
     Covariance of r.v. $X$ and $Y$:\begin{equation}
         cov(X,Y)=\mathbb{E}\big[(X-\mu_X)(Y-\mu_Y)\big]=\mathbb{E}(XY)-\mathbb{E}(X)\mathbb{E}(Y)
     \end{equation}
-
+    \index{Covariance}
     And Correlation Coefficient\index{Correlation Coefficient}
     \begin{equation}
         \rho_{X,Y}=corr(X,Y)=\frac{cov(X,Y)}{\sqrt{var(X)var(Y)}}
@@ -626,7 +628,7 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
     Generating Function: Representation of $\mathbb{P}$ in function space. $\mathbb{P}\Leftrightarrow$ Generating Function.
 
 \subsection{Probability Generating Function}
-    PGF\index{PGF (Probability Generating Function)}: used for non-negative, integer $X$, which is the $ z $-transform of $ p_X $
+    PGF\index{PGF (Probability Generating Function)}: used for non-negative, integer $X$, which is the $ z $-transformation of $ p_X $\index{z-transformation@$ z $-transformation}
     \begin{equation}
         g(s)=\mathbb{E}(s^X)=\sum_{j=0}^\infty s^j\mathbb{P}(X=j)    ,s\in[-1,1]
     \end{equation}
@@ -652,7 +654,7 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
         \end{equation}
     \end{itemize}
 \subsection{Moment Generating Function}
-    MGF\index{MGF (Moment Generating Function)}: used for non-negative $ X $, which is the Laplacian transformation of $ f_X $.
+    MGF\index{MGF (Moment Generating Function)}: used for non-negative $ X $, which is the Laplace transformation of $ f_X $.\index{Laplace Transformation}
     \begin{equation}
         M_X(s)=\mathbb{E}(e^{sX})=\begin{cases}
             \sum_je^{sx}\mathbb{P}(X=x_j)\\
@@ -672,7 +674,7 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
         \end{equation}
     \end{itemize}
 \subsection{Characteristic Function}
-    C.F \index{C.F. (Characteristic Function)}is actually the Fourier Transform of $f_X$.
+    C.F \index{Characteristic Function}is actually the Fourier Transform (FT) of $f_X$.\index{FT (Fourier Transform)}\footnote{More about FT see \autoref{SubSubSectionFourierAndConvolution}.}
     \begin{equation}
         \phi(t)=\mathbb{E}(e^{itX}) = \int_{-\infty}^\infty e^{itx}f_X(x)\mathrm{d}x
     \end{equation}
@@ -687,7 +689,7 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
     \begin{equation}
         \phi_Y(t)=\prod_{i=1}^n \phi_{X_i}(t)
     \end{equation}
-    \item Inverse (Fourier) Transform
+    \item Inverse (Fourier) Transform \index{Inverse Fourier Transform}
     \begin{equation}
         f(x)=\frac{1}{2\pi}\int_{-\infty}^\infty e^{-itx}\phi(t)\mathrm{d}t    
     \end{equation}
@@ -697,7 +699,7 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
 
 \section{Convergence and Limit Distribution}
 \subsection{Convergence Mode}
-    \index{Convergence}
+    \index{Convergence}\index{Almost Sure Convegence}\index{Lp Convergence@$ L_p $ Convergence}
     \begin{equation}
         \begin{cases}
             \text{Convergence in Distribution }&{\displaystyle X_n\xrightarrow[]{\mathrm{d}}X:\lim_{n\to\infty}F_n(x)=F(x)}\\
@@ -726,30 +728,31 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
             \end{tikzpicture}
         \end{center}
 
+    
         Note: $ L_2 $ convergence is also denoted m.s. (mean squared) convergence $ \xrightarrow[]{\mathrm{m.s.}}  $.
 
-        Useful Thm.:
-        \begin{itemize}
-            \item Continuous Mapping Thm.: For continuous function $g(\cdot)$\index{Continuous Mapping Thm.}\hypertarget{ContinuousMapping}{}
-            \begin{enumerate}
+        Useful Theorem:
+        \begin{itemize}[topsep=2pt,itemsep=0pt]
+            \item Continuous Mapping Theorem: For continuous function $g(\cdot)$\index{Continuous Mapping Theorem}\hypertarget{ContinuousMapping}{}
+            \begin{enumerate}[topsep=2pt,itemsep=2pt]
                 \item $X_n\xrightarrow[]{\text{a.s.}}X\Rightarrow g(X_n)\xrightarrow[]{\text{a.s.}}g(X)$
                 \item $X_n\xrightarrow[]{\mathrm{p}}X\Rightarrow g(X_n)\xrightarrow[]{\mathrm{p} }g(X)$
                 \item $X_n\xrightarrow[]{\mathrm{d}}X\Rightarrow g(X_n)\xrightarrow[]{\mathrm{d}}g(X)$
             \end{enumerate}
-            \item Slutsky's Thm.\index{Slutsky's Thm.}: For $X_n\xrightarrow[]{\mathrm{d}}X,Y_n\xrightarrow[]{\mathrm{p}}c$
-            \begin{enumerate}
+            \item Slutsky's Theorem\index{Slutsky's Theorem}: For $X_n\xrightarrow[]{\mathrm{d}}X,Y_n\xrightarrow[]{\mathrm{p}}c$
+                \begin{enumerate}[topsep=2pt,itemsep=2pt]   
                 \item $X_n+Y_n\xrightarrow[]{\mathrm{d}}X+c$
                 \item $X_nY_n\xrightarrow[]{\mathrm{d}}cX$
                 \item $X_n/Y_n\xrightarrow[]{\mathrm{d}}X/c$
             \end{enumerate}
-            \item Continuity Thm. for characteristic function:
+            \item Continuity Theorem for characteristic function:
             \begin{equation}        \lim_{n\to\infty}\phi_n(t)=\varphi(t)\Leftrightarrow X_n\xrightarrow[]{\mathrm{d}}X\end{equation}
         \end{itemize} 
 
 
 \subsection{Law of Large Number \& Central Limit Theorem}
 
-\begin{itemize}
+\begin{itemize}[topsep=2pt,itemsep=0pt]
 \item m.s. LLN\index{m.s. LLN (Mean-Squared Law of Large Number)}: For $ X_i $ with $ cov(X_i,X_j)=0$, if $ i\neq j $, and $ \mathbb{E}\left[ X_i \right] =\mu <\infty $
 \begin{align}
     \frac{1}{n}\sum X_i\xrightarrow[]{L_2} \mathbb{E}\left[ X_1 \right]
@@ -762,7 +765,7 @@ Attachment: Independence:\begin{equation}    X_i \independent X_j\Rightarrow \be
 \item SLLN\index{SLLN (Strong Law of Large Number)}: For $ X_i $ i.i.d. $ \sim f_X $, with $ \mathbb{E}\left[ X_i \right] =\mu <\infty $
 \begin{equation}    \frac{1}{n}\sum X_i\xrightarrow[]{\text{a.s.}}  \mu 
 \end{equation}
-\item CLT\index{CLT (Central Limit Thm.)}: For $ X_i $ i.i.d. $ \sim f_X $, with $ \mathbb{E}\left[ X_i \right] =\mu <\infty $, $ var(X_i)=\sigma ^2<\infty $
+\item CLT\index{CLT (Central Limit Theorem)}: For $ X_i $ i.i.d. $ \sim f_X $, with $ \mathbb{E}\left[ X_i \right] =\mu <\infty $, $ var(X_i)=\sigma ^2<\infty $
 \begin{align}
      \dfrac{\sqrt{n}\left(\bar{X}-\mu \right)}{\sigma }\xrightarrow[]{\mathrm{d}} N(0,1)
 \end{align}
@@ -776,29 +779,29 @@ or in equivalent form
     Denote the characteristic function of $ X\sim f_X(x) $ as $ \phi _X(t):=\mathbb{E}\left[ e^{itX} \right] $, with expectation $ \mu :=\mathbb{E}\left[ X \right]  $ and variance $ \sigma^2:=var(X)=\mathbb{E}\left[ X^2\right] -\mu  ^2 $.
     
     Define $ Z=\dfrac{X-\mu }{\sigma } $ The taylor series of $ \phi _Z(t) $ at $ t=0 $ yields:
-    \begin{align*}
+    \begin{align}
         \phi _Z(t)=1-\dfrac{t^2}{2}+o(t^2) 
-    \end{align*}
+    \end{align}
     The characteristic function of mean $ \displaystyle\bar{Z}:=\dfrac{1}{n}\sum_{i=1}^nZ_i=\dfrac{1}{n}\sum_{i=1}^n\dfrac{X_i-\mu }{\sigma } $ w.r.t. $ X_i $ i.i.d. $ \sim f_X(x) $
-    \begin{align*}
+    \begin{align}
         \phi _{\bar{Z}}(t)=\mathbb{E}\left[ e^{it\bar{Z}} \right]=&\left[\phi _{Z}(\dfrac{t}{n})\right]^n=\left[1-\dfrac{t^2}{2n^2}\right] ^n 
-    \end{align*}
+    \end{align}
     with $ n\to\infty $ limit:\footnote{Note: if use characteristic function of $ X_i $ directly, notice that
-    \begin{align*}
+    \begin{align}
         n\log\left(1+ \dfrac{at}{n}-\dfrac{bt^2}{2n^2}\right)= at -\left(b+a^2\right)\dfrac{t^2}{2n}+\mathcal{O}(\dfrac{1}{n^2})
-    \end{align*}
+    \end{align}
     using the taylor series of $ \log(1+\xi ) $ at $ \xi =0 $.
     }
-    \begin{align*}
+    \begin{align}
         \lim_{n\to\infty}\phi _{\bar{Z}}(t)=&\lim_{n\to\infty} \left[1-\dfrac{1}{n}\dfrac{t^2}{2n}\right] ^n=e^{-\frac{t^2}{2n}} \Rightarrow \bar{Z}=\dfrac{\bar{X}-\mu }{\sigma }\xrightarrow[]{\mathrm{d}} N(0,\dfrac{1}{n})
-    \end{align*}
+    \end{align}
 
 \end{proof}
 
-\item de Moivre-Laplace Thm.\index{de Moivre-Laplace Thm.} is a special case of CLT at $ S_n\sim B (n,p) $
+\item de Moivre-Laplace Theorem\index{de Moivre-Laplace Theorem} is a special case of CLT at $ S_n\sim B (n,p) $
 \begin{equation}    \mathbb{P}(k\leq S_n\leq m)\approx \Phi(\frac{m+0.5-np}{\sqrt{npq}})-\Phi(\frac{k-0.5-np}{\sqrt{npq}})
 \end{equation}
-\item Stirling Eqa. derived from CLT
+\item Stirling Eqa. derived from CLT\index{Stirling Equation}
 \begin{equation}    \frac{\lambda^k}{k!}e^{-\lambda}\approx \frac{1}{\sqrt{\lambda}\sqrt{2\pi}}e^{-\frac{(k-\lambda)^2}{2\lambda}}\xrightarrow[\lambda=n]{k=n}n!\approx\sqrt{2\pi n}(\frac{n}{e})^n\sim O\left((\dfrac{n}{e})^n\right)
 \end{equation}
 
@@ -808,15 +811,15 @@ or in equivalent form
 \section{Inequalities}\label{SubSectionUsefulInequality}
     
 \begin{itemize}
-    \item Cauchy-Schwarz Inequality\index{Inequality!Cauchy-Schwarz Inequality}
+    \item Cauchy-Schwarz Inequality\index{Inequality!Cauchy-Schwarz Inequality}\index{Cauchy-Schwarz Inequality}
     \begin{equation}
         \left\vert \mathbb{E}(XY) \right\vert\leq \sqrt{\mathbb{E}(X^2)\mathbb{E}(Y^2)}
     \end{equation}
 
-    \item Bonferroni Inequality\index{Inequality!Bonferroni Inequality}
+    \item Bonferroni Inequality\index{Inequality!Bonferroni Inequality}\index{Bonferroni Inequality}
 \begin{equation}    \mathbb{P}(\bigcup_{i=1}^n A_i)\geq \sum_{1\leq i\leq n}  \mathbb{P}(A_i)+\sum_{1\leq i <j\leq n}  \mathbb{P}(A_i\cap A_j)
 \end{equation}
-    \item Markov Inequality\index{Inequality!Markov Inequality}
+    \item Markov Inequality\index{Inequality!Markov Inequality}\index{Markov Inequality}
 \begin{equation}     \mathbb{P}(|X|\geq \epsilon)\leq\frac{\mathbb{E}(|X|^\alpha)}{\epsilon^\alpha}
 \end{equation}
 
@@ -826,12 +829,12 @@ or in equivalent form
     \end{align}
     
     
-    \item Chebyshev Inequality\index{Inequality!Chebyshev Inequality}
+    \item Chebyshev Inequality\index{Chebyshev Inequality}
 \begin{equation}     \mathbb{P}(|X-\mathbb{E}(X)|\geq\epsilon)\leq\frac{var(X)}{\epsilon^2}
 \end{equation}
 
     Chebyshev inequality is used to proof WLLN \autoref{EqaWLLN}
-    \item Jensen Inequality\index{Jensen Inequality}: For convex function $h(x)$:\footnote{Or equivalently for concave function $ \tilde{h}(x) $:
+    \item Jensen Inequality\index{Inequality!Jensen Inequality}\index{Jensen Inequality}: For convex function $h(x)$:\footnote{Or equivalently for concave function $ \tilde{h}(x) $:
     \begin{align}
          \mathbb{E}[\tilde{h}(X)]\leq \tilde{h}(\mathbb{E}(X))
     \end{align}
@@ -884,20 +887,20 @@ or in equivalent form
     \begin{align}
         |\mathbb{E}\left[ X \right] - \mathrm{med}(X ) |\leq \sigma  
     \end{align}
-    \item Hoeffding Inequality\index{Hoeffding Inequality}: with independent r.v. sequence $ X_i\in [a_i,b_i] $, and $ S_n:=\sum_{i=1}^nX_i $
+    \item Hoeffding Inequality\index{Hoeffding Inequality}\index{Inequality!Hoeffding Inequality}: with independent r.v. sequence $ X_i\in [a_i,b_i] $, and $ S_n:=\sum_{i=1}^nX_i $
     \begin{align}
         \mathbb{P}\left( \left\vert S_n-\mathbb{E}\left[ S_n \right]  \right\vert \geq \varepsilon   \right)  \leq 2\exp\left[ -\dfrac{2\varepsilon ^2}{\sum_{i=1}^n (b_i-a_i)^2} \right]
     \end{align}
 
     Or in equivalent form $ \varepsilon =nt $
-    \begin{align*}
+    \begin{align}
         \mathbb{P}\left( \dfrac{1}{n}\left\vert \sum_{i=1}^n\left(X_i-\mathbb{E}\left[ X_i \right] \right) \right\vert \geq t   \right)  \leq 2\exp\left[ -\dfrac{2n^2t ^2}{\sum_{i=1}^n (b_i-a_i)^2} \right]
-    \end{align*}
+    \end{align}
     
     For special case of $ [a_i,b_i]=[a,b] $, $ \forall i $, $ |[a,b]|:=L $,
-    \begin{align*}
+    \begin{align}
         \mathbb{P}\left( \dfrac{1}{n}\left\vert \sum_{i=1}^n\left(X_i-\mathbb{E}\left[ X_i \right] \right)  \right\vert \geq t   \right)  \leq 2\exp\left[ -\dfrac{2nt^2}{L^2} \right]
-    \end{align*}
+    \end{align}
     
     
 
@@ -907,14 +910,14 @@ or in equivalent form
     \end{align}
     
     \item McDiarmid Inequality\index{McDiarmid Inequality}: with independent r.v. sequence $ X_i $, and a function $ f(\, \cdot \, ) $ with bounded difference $ c_i $:
-    \begin{align*}
-        \left| f\left(X_1,X_2,\ldots,X_{n+1}\right)- f\left(X_1,X_2,\ldots,X_{n}\right) \right| \leq c_i
-    \end{align*}
+    \begin{align}
+        \left| f\left(X_1,\ldots,X_{n}\right)- f\left(X_1,\ldots,\tilde{X}_i,\ldots,X_{n}\right) \right| \leq c_i,\quad \forall i
+    \end{align}
 
     we have McDiarmid inequality
-    \begin{align*}
+    \begin{align}
         \mathbb{P}\left( \left| f(X_1,\ldots,X_n)-\mathbb{E}\left[ f(X_1,\ldots,X_n) \right]  \right| \geq nt\right) \leq 2\exp\left[ -\dfrac{2n^2t^2}{\sum_{i=1}^nc_i^2} \right] 
-    \end{align*}
+    \end{align}
     
 \end{itemize}
 
@@ -922,10 +925,10 @@ or in equivalent form
 \section{Multivariate Normal Distribution}\label{SubsectionDerivationMultivariateNormal}
     General Case and more discussion see \autoref{SubSubSectionMultivariateNormalDistribution}.
 
-    Distribution of Normal $ X\sim N(\mu ,\sigma ^2) $:\index{Distribution!Normal Distribution}
-    \[
+    Distribution of Normal r.v. $ X\sim N(\mu ,\sigma ^2) $:\index{Distribution!Normal Distribution}
+    \begin{align}
         f(x)=\dfrac{1}{\sqrt{2\pi}\sigma }e^{-\frac{(x-\mu )^2}{2\sigma ^2}} 
-    \]
+    \end{align}
     
     
 
@@ -985,7 +988,7 @@ or in equivalent form
         \vdots & \vdots & \ddots & \vdots\\
         cov(X_n,X_1) & cov(X_n,X_2) & \ldots & var(X_n)\\
         \end{pmatrix}  
-        =\{\sigma_{ij}\}  
+        =\{\Sigma_{ij}\}  
     \end{equation}
 
     Furthur Consider $\vec{Y}=(Y_1,\cdots,Y_n)^T$, $n\times n$ const square matrix $\bf{A}=\{a_{ij}\}$ and def. $\vec{Y}=\bf{A}\vec{X}$ i.e.
@@ -1044,7 +1047,7 @@ or in equivalent form
     \subsection{Distributions of Function of Normal Variable: $\chi^2,$ $t\,\& \,F$}\label{chi2_t_F_properties}
         Consider $X_1,X_2,\ldots,X_n$ i.i.d. $\sim N(0,1)$; $Y,Y_1,Y_2,\ldots,Y_m$ i.i.d. $\sim N(0,1)$
         \begin{itemize}
-            \item $\chi^2$ Distribution: Def. $\chi^2$ distribution with degree of freedom $n$:\index{Distribution!$ \chi^2 $ Distribution}
+            \item $\chi^2$ Distribution\index{chi2 Distribution@$ \chi^2 $ Distribution}: Def. $\chi^2$ distribution with degree of freedom $n$:\index{Distribution!$ \chi^2 $ Distribution}
             \begin{equation}        
                 \xi =\sum_{i=1}^n X_i^2\sim \chi^2_n
             \end{equation}
@@ -1062,7 +1065,7 @@ or in equivalent form
                     \xi_0=\sum_{i=1}^k\xi_i\sim\chi^2_{n_1+\ldots+n_k}\end{equation}
                 \item Denoted as $\Gamma(\alpha,\lambda)$: \begin{equation}            \xi=\sum_{i=1}^nX_i^2\sim\Gamma(\frac{n}{2},\frac{1}{2})=\chi^2_n\end{equation}
             \end{itemize}
-            \item $t$ Distribution: Def. $t$ distribution with degree of freedom $n$:\index{Distribution!$ t $ Distribution}
+            \item $t$ Distribution:\index{t Distribution@$ t $ Distribution} Def. $t$ distribution with degree of freedom $n$:\index{Distribution!$ t $ Distribution}
             \begin{equation}        
                 T=\frac{Y}{\sqrt{\dfrac{\sum_{i=1}^nX_i^2}{n}}}=\frac{Y}{\sqrt{\xi \big/ n}}\sim t_n
             \end{equation}
@@ -1080,7 +1083,7 @@ or in equivalent form
             \end{equation}
             
             (Similar for $ N $, $\chi^2_n$ and $F_{m,n}$ etc.)
-            \item $F$ Distribution: Def. $F$ distribution with degree of freedom $m$ and $n$:\index{Distribution!$ F $ Distribution}
+            \item $F$ Distribution\index{F Distribution@$ F $ Distribution}: Def. $F$ distribution with degree of freedom $m$ and $n$:\index{Distribution!$ F $ Distribution}
             \begin{equation}        
                 F=\frac{\sum_{i=1}^mY_i^2\big/ m}{\sum_{i=1}^nX_i^2\big/ n}\sim F_{m,n}
             \end{equation}

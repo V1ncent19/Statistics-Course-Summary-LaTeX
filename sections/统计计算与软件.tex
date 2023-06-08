@@ -8,15 +8,16 @@
 % \subsection{Float Storage}
 
 \subsection{Finite Precision Computation}
-    An arbitrary real number $ r\in\mathbb{R} $ is represented as (the nearest adjacent) float number $ v_r $. A float is basically stored as (example take 32-bit float): 1 bit \textbf{S}ign + 8 bit \textbf{E}xponent + 23 bit \textbf{M}antissa.
+\index{Float}\index{Finite Precision Computation}
+    An arbitrary real number $ r\in\mathbb{R} $ is represented as (the nearest adjacent) float number $ v_r $. A float is basically stored as (example take 32-bit float): 1 bit \textbf{S}ign + 8 bit \textbf{E}xponent + 23 bit \textbf{M}antissa.\index{Mantissa}
 \begin{equation}\label{EqaNormalizedFloat}
-    v=(-1)^S\times 2^{E-127}\times \left(1+\sum_{i=1}^{23}(M_i\times 2^{-i})\right)
+    v_r=(-1)^S\times 2^{E-127}\times \left(1+\sum_{i=1}^{23}(M_i\times 2^{-i})\right)
 \end{equation}
     
     
     Further, extreme value of $ (M,E) $ is used for some `special value': denormalized number, NaN, inf, etc. 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item Denormalized number: to fill the gap $ [0,\pm 2^{-126}] $($ E=1 $), for $ E=0 $ extremely small number, definition use\index{Normalized Number} 
+    \item Denormalized number: to fill the gap $ [0,\pm 2^{-126}] $($ E=1 $), for $ E=0 $ extremely small number, definition use\index{Normalized Number}\index{Denormalized Number}
     \begin{align}
         v_\mathrm{denormalized}=(-1)^S\times 2^{1-127}\times \left({\color{red}0}+\sum_{i=1}^{23}(M_i\times 2^{-i})\right)  
     \end{align}
@@ -36,7 +37,7 @@
         $ M\neq 0 $&$  v_\mathrm{denormalized} $&&NaN\\
         \hline
     \end{tabular}
-    \caption{Normalized Number}
+    \caption{(De)Normalized Number}
     \label{}
 \end{table}
 
@@ -45,7 +46,7 @@
 
     Use $ v_r $ to represent $ r $: approximation $ r\sim v_r $, the round-off error of $ r $:
 \begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item Absolute rounding error: 
+    \item Absolute rounding error: \index{Rounding Error}
     \begin{align}
          \varepsilon =|r-v_r|
     \end{align}
@@ -146,7 +147,7 @@
 \subsection{Iteration Algorithm}
     Iteration methods are used especially for problems without analytical solution, to obtain a numerical solution.
 
-    Iteration method: for problem $ f $ with solution $ x^* $ design an iteration function $ g $: $ X\to X $ so that 
+    Iteration method: for problem $ f $ with solution $ x^* $ design an iteration function $ g $: $ X\to X $ so that
     \begin{align}
         \lim_{n\to\infty}g^{\{n\}}(x)=\lim_{n\to\infty}\mathop{\underbrace{g(g(g(\ldots g(g}}\limits_{n}(x))\ldots ))) =x^*
     \end{align}
@@ -279,13 +280,6 @@
 \end{equation}
 
     
-    
-    
-     
-
-
-
-
 
 
 
@@ -333,7 +327,7 @@
         \mathrm{span}\{e_1,\ldots,e_m\} \mathop{\rightleftharpoons }\limits_{A^{-1}b}^{Ax}  \mathrm{span}\{a_1,\ldots,a_m\}
     \end{align}
     
-    \item Unitary Matrix: Furthur for unitary $ A $, denoted as $ Q $ with $ QQ^*=I $, is an orthonormal transformation.
+    \item Unitary Matrix\index{Unitary Matrix}: Furthur for unitary $ A $, denoted as $ Q $ with $ QQ^*=I $, is an orthonormal transformation.
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item $ |Q|=1 $ for rotation, $ |Q|=-1 $ for reflection.
     \item $ \lambda_Q=\pm 1 $
@@ -350,7 +344,7 @@
         \begin{align}
              (I-P)^2=I-P
         \end{align}
-        \item Orthogonal Projection: Projector such that $ Pv\perp (I-P)v $. Thm.: $ Pv\perp (I-P)v\Leftrightarrow P^*=P $
+        \item Orthogonal Projection: Projector such that $ Pv\perp (I-P)v $. Theorem: $ Pv\perp (I-P)v\Leftrightarrow P^*=P $
         
         Derivation: Projection of vector $ v $ on hyperplane $ X $ satisties (denoted as $ Xp $)
         \begin{align}
@@ -490,7 +484,7 @@
 
 \subsection{Gaussian $ LU $ Decomposition \& Cholesky Decomposition}
 \begin{point}
-    Gaussian Elimination Algorithm
+    Gaussian Elimination Algorithm\index{Gaussian Elimination Algorithm}\index{LU Decomposition@$ LU $ Decomposition}
 \end{point}
 
     Gaussian Elimination decomposes matrix $ A $ as lower triangular matrix $ \times $ upper triangular matrix
@@ -522,7 +516,7 @@
     
     Then we have $ L=L_1^{-1}L_2^{-1}\ldots L_{m-1}^{-1}U $, with $ U=L_{m-1}\ldots L_2L_1A $
 
-    If some pivot element $ (L_{i-1}\ldots L_1A)_{ii}=0 $, use a row transformation $ P_i $ such that $ (P_iL_{i-1}\ldots L_1A)_{ii}\neq 0 $, thus $ LU $ decomposition is expanded as 
+    If some pivot element\index{Pivot Element} $ (L_{i-1}\ldots L_1A)_{ii}=0 $, use a row transformation $ P_i $ such that $ (P_iL_{i-1}\ldots L_1A)_{ii}\neq 0 $, thus $ LU $ decomposition is expanded as 
     \begin{align}
         L_{m-1}P_{m-1}\ldots L_2P_2L_1P_1A=U
     \end{align}
@@ -563,7 +557,7 @@
     \end{align}
  
 \begin{point}
-    Cholesky Decomposition
+    Cholesky Decomposition\index{Cholesky Decomposition}
 \end{point}
 
     Hermitian positive-definite matrix $ A $ can $ LU $ decompose as
@@ -642,7 +636,7 @@
 
 \subsection{$ QR $ Decomposition: Gram-Schmidt/Householder/Givens Method}\label{SubSubSectionQRDecomposition}
     
-    $ QR $ Decomposition: Orthogonal Triangularization of matrix $ A $
+    $ QR $ Decomposition: Orthogonal Triangularization of matrix $ A $\index{QR Decomposition@$ QR $ Decomposition}
 \begin{align}
     \mathop{A}\limits_{m\times n} =\mathop{Q}\limits_{m\times n} \mathop{R}\limits_{n\times n}     
 \end{align}
@@ -689,7 +683,7 @@
 
 
 \begin{point}
-    \hypertarget{GS-Decomposition}{(Classical) Gram-Schmidt Orthogonalization}\index{CGS (Classical Gram-Schmidt Orthogonalization)}
+    \hypertarget{GS-Decomposition}{(Classical) Gram-Schmidt Orthogonalization}\index{Classical Gram-Schmidt Orthogonalization}
 \end{point}
 
     Key idea: project $ a_i $ onto $ \mathrm{span}\{q_1,\ldots,q_{i-1}\}^\perp  $ as $ q_i $, with $ q_1 $ initialized as $ \hat{a}_1 $, projection coefficient $ r_{ij} $ forms $ R $.
@@ -713,7 +707,7 @@
 
 
 \begin{point}
-    Modified Gram-Schmidt Orthogonalization Algorithm\index{MGS (Modified Gram-Schmidt Orthogonalization)}
+    Modified Gram-Schmidt Orthogonalization Algorithm\index{Modified Gram-Schmidt Orthogonalization}
 \end{point}
 
     In \autoref{EqaCGSProjector}, projection of G-S orthogonalization for each $ a_i $ is conducted `simultaneously', while modified G-S decomposition is conducted step by step.
@@ -756,10 +750,10 @@ GS <- function(A,MGS=FALSE){
 
 
 \begin{point}
-    \hypertarget{Householder-Reflection}{Householder Reflection}
+    \hypertarget{Householder-Reflection}{Householder Reflection}\index{Householder Reflection}
 \end{point}
 
-    Key idea: Reflect $ A_{i:m,i} $ onto $ e_{1}\in\mathbb{C}^{m-i+1} $ as a vector of the same length $ \Vert  A_{i:m,i} \Vert e_{1}\in\mathbb{C}^{m-i+1} $ (later we denote the $ l^\mathrm{th}  $ unit vector $ e_{l}\in\mathbb{C}^{m-i+1}\equiv e_{m-i+1,l} $), reflector $ F_i $ in $ \mathbb{C}^{(m-i+1)\times (m-i+1)} $ and auxiliary vector $ v_i $:\footnote{Here $ \mathrm{sgn}() $ for reflecting toward $ -e_1 $/$ e_1 $.}
+    Key idea: Reflect $ A_{i:m,i} $ onto $ e_{1}\in\mathbb{C}^{m-i+1} $ as a vector of the same length $ \Vert  A_{i:m,i} \Vert e_{1}\in\mathbb{C}^{m-i+1} $ (later we denote the $ l^\mathrm{th}  $ unit vector $ e_{l}\in\mathbb{C}^{m-i+1}\equiv e_{m-i+1,l} $), reflector $ F_i $ in $ \mathbb{C}^{(m-i+1)\times (m-i+1)} $ and auxiliary vector\index{Auxiliary Vector} $ v_i $:\footnote{Here $ \mathrm{sgn}() $ for reflecting toward $ -e_1 $/$ e_1 $.}
     \begin{align}
         \mathbb{C}^{(m-i+1)\times( m-i+1)} \ni F_i=I_{m-i+1}-2\dfrac{vv^*\,}{\Vert v \Vert_2^2 }\qquad v= \mathrm{sgn}(A_{i,i}) \Vert  A_{i:m,i} \Vert e_{m-i+1,1}+ A_{i:m,i} 
     \end{align}
@@ -801,7 +795,7 @@ R <- qr.R(A.qr)
 \end{rcode}
 
 \begin{point}
-    \hypertarget{Givens-Rotation}{Givens Rotation}
+    \hypertarget{Givens-Rotation}{Givens Rotation}\index{Givens Rotation}
 \end{point}
     
     Key idea: use rotation
@@ -823,6 +817,7 @@ R <- qr.R(A.qr)
     act on $ A_{i-1:i,j:n} $ so that $ A_{i,j}=0 $, each time use two rows to create 1 zero. Slow, used for special sparse matrix.
     
 \subsection{Eigenvalue Decomposition}
+\index{Eigenvalue}
     For square matrix $ A \in\mathbb{C}^{m\times m}$, its eigenvector is the vector $ x_i $ whose direction (subspace) is invariant under transform operator $ A $.
     \begin{align}
         Ax_i =\lambda _ix_i
@@ -840,7 +835,7 @@ R <- qr.R(A.qr)
     \end{align}
     
     
-    Further for $ AA^*=A^*A $ (Normal Matrix\index{Normal Matrix} 规范矩阵. Include: hermitian $ A=A^* $\index{Hermitian Matrix}, skew hermitian $A=-A^* $, unitary $ A^{-1}=A^* $, circulant matrix\index{Circulant Matrix}\footnote{Circulant Matrix, or similarly Latin Square.
+    Further for $ AA^*=A^*A $ (Normal Matrix\index{Normal Matrix} 规范矩阵. Includes: hermitian $ A=A^* $\index{Hermitian Matrix}, skew hermitian $A=-A^* $, unitary $ A^{-1}=A^* $, circulant matrix\index{Circulant Matrix}\footnote{Circulant Matrix, or similarly Latin Square.
     \begin{align}
         C=\begin{bmatrix}
             c_0&c_1&c_2&c_3\\
@@ -849,12 +844,11 @@ R <- qr.R(A.qr)
             c_1&c_2&c_3&c_0
         \end{bmatrix} 
     \end{align}
-    
-    }, and such $ A+kI $), orthonormality of $ x_i\to q_i $:
+    See \autoref{SubSubSectionLatinSquareDesign} for application details.}, and such $ A+kI $), orthonormality of $ x_i\to q_i $:
     \begin{align}
         \langle q_i,q_j  \rangle =\delta_{ij}
     \end{align}
-    Eigenvalue Decomposition/Spectrum Decomposition, $ X\to Q $:
+    Eigenvalue Decomposition/Spectrum Decomposition, $ X\to Q $:\index{Spectrum Decomposition}
     \begin{align}
         AQ=Q\Lambda \Rightarrow A=Q\Lambda Q^{-1}=Q\Lambda Q^*
     \end{align}
@@ -862,7 +856,7 @@ R <- qr.R(A.qr)
     \begin{align}
         D(\lambda_i,a_{ii})<\sum_{j=1,j\neq i}^m|a_{ij}| 
     \end{align}
-    \item Rayleigh quotient:
+    \item Rayleigh quotient:\index{Rayleigh Quotient}
     \begin{align}
         \max R(A,q)\equiv \max \dfrac{q^*Aq}{q^*q}=\lambda _1 
     \end{align}
@@ -1044,7 +1038,7 @@ for independent eigenvectors $ x_i $ and an arbitrary vector $ \xi =\sum_{i=1}^m
 
 
 \subsection{Schur Decomposition}
-    Unitary Triangularization of matrix $ A $ (always exists in $ \mathbb{C}^{m\times m} $):
+    Unitary Triangularization of matrix $ A $ (always exists in $ \mathbb{C}^{m\times m} $):\index{Schur Decomposition}
     \begin{align}
         A=QTQ^*,\, Q\text{ unitary, }T\text{ upper-triangular} 
     \end{align}
@@ -1070,11 +1064,10 @@ for independent eigenvectors $ x_i $ and an arbitrary vector $ \xi =\sum_{i=1}^m
 
 Algorithm Optimization in Statistics: e.g.
 \begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item MLE Maximazation
-    \item Linear/Logistics Regression: Minimizing error
-    \item Clustering: minimizing within-cluster distance \& maximizing between-cluster distance
-    \item Box-Cox $ \lambda  $ determining
-    \item Machine Learning Model training, minimizing loss function
+    \item MLE Maximazation, e.g. \autoref{SubSubSectionFisherScoringMethod}.
+    \item Clustering: minimizing within-cluster distance \& maximizing between-cluster distance, see \autoref{SubSectionClusteringAnalysis}
+    \item Box-Cox $ \lambda  $ determining, see \autoref{SubSubSectionVarianceStablizeTransformation}.
+    \item Machine Learning Model training, minimizing loss function, e.g. \autoref{SubSubSectionKernelRegression}.
 \end{itemize}
 
 \begin{point}
@@ -1106,7 +1099,7 @@ Duality of Optimization and Rooting:
     
     
 \begin{point}
-    Algorithm Design Aim:
+    Algorithm Design Aiming:
 \end{point}
 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
@@ -1292,7 +1285,7 @@ Duality of Optimization and Rooting:
     Idea: Intermediate value thm.: for continuous $ f:[a,b]\to \mathbb{R}  $, $ f(a)f(b)<0\Rightarrow \exists x^*, s.t. f(x^*)=0 $. 
 
 \begin{algorithm}{Bisection Search}
-    
+    \index{Bisection Search}
 \begin{enumerate}[topsep=2pt,itemsep=2pt]
     \item Initialize $ I^{(0)}=[x_1^{(0)},x_2^{(0)}] $ satisfying $ f(x_1^{(0)})f(x_2^{(0)})<0 $
     \item In each iteration $ x^{(t)} $:
@@ -1327,6 +1320,7 @@ Duality of Optimization and Rooting:
 \begin{point}
     \hypertarget{RegulaFalsi}{Regula Falsi/Linear Interpolation (Bracketing) for Root Finding}: 
 \end{point}
+\index{Regula Falsi Method}\index{Bracketing Linear Interpolation}
     
     Idea of regula falsi linear interpolation: at root $ x^* $ of $ f(x) $:
     \begin{align}
@@ -1368,6 +1362,7 @@ Duality of Optimization and Rooting:
 \begin{point}
     \hypertarget{Secant}{Secant Interpolation/Linear Interpolation (Open)} for Root Finding
 \end{point}    
+\index{Secant Interpolation}\index{Open Linear Interpolation}
 
     Instead of limiting $ x^*\in[x_1^{(t)},x_2^{(t)}] $ (bracketing) by ensuring $ f(x_1^{(t)})f(x_2^{(t)})<0 $, we can also remove the restrict, i.e. just use the latest two points to construct secant.
 
@@ -1398,6 +1393,7 @@ Duality of Optimization and Rooting:
 \begin{point}
     \hypertarget{ParabolicInterpolation}{Parabolic Interpolation for Minimizing}
 \end{point}
+\index{Parabolic Interpolation}
 
     Idea of parabolic interpolation: at extreme point $ x^* $, function $ f $ has taylor series
     \begin{align}
@@ -1432,6 +1428,7 @@ Duality of Optimization and Rooting:
 \begin{point}
     Lagrange Polynomial Interpolation\index{Lagrange Polynomial Interpolation}
 \end{point}
+\index{Lagrange Polynomial Interpolation}
 
     Lagrange Polynomial is a function base set: Given $ n+1 $ point $ (x_0,y_0),\ldots,(x_n,y_n) $ ($ n\geq 1 $), Lagrange polynomial:
 \begin{align}
@@ -1478,6 +1475,7 @@ Duality of Optimization and Rooting:
 \begin{point}
     \hypertarget{Dekker}{Dekker's Method}\index{Dekker's Method}
 \end{point}
+\index{Dekker's Method}
 
     Dekker's method is a hybrid of open linear interpolation and bisection, in each step, use one of interpolation/bisection according to iteration condition to achieve both quick convergence and stability.
 \begin{algorithm}{Dekker's Method}
@@ -1511,6 +1509,8 @@ Duality of Optimization and Rooting:
 \begin{point}
     \hypertarget{Brent}{Brent's Method}\index{Brent-Dekker Method}
 \end{point}
+
+\index{Brent-Dekker Method}
 
     Brent's Method is an improvement of Dekker's Method: 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
@@ -1565,7 +1565,7 @@ uniroot()
     \end{align}
     
 \begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item \hypertarget{JacobiMethod}{Jacobi Method}: Decompose $ A=D+E $, where $ D $ is diagonal part
+    \item \hypertarget{JacobiMethod}{Jacobi Method}\index{Jacobi Method}: Decompose $ A=D+E $, where $ D $ is diagonal part
     \begin{align}
         \mathop{A}\limits_{n\times n} =
         \begin{bmatrix}
@@ -1593,7 +1593,7 @@ uniroot()
         x_i^{(t+1)}=\dfrac{1}{a_{ii}}\left(b_i-\sum_{j\neq i}a_{ij}x_j^{(t)}\right)
     \end{align}
     
-    \item \hypertarget{GaussSeidelMethod}{Gauss-Seidel Method}: Decompose $ A=L+U $
+    \item \hypertarget{GaussSeidelMethod}{Gauss-Seidel Method}\index{Gauss-Seidel Iteration Method}: Decompose $ A=L+U $
     \begin{align}
         \mathop{A}\limits_{n\times n} =L+U=
         \begin{bmatrix}
@@ -1656,7 +1656,7 @@ uniroot()
 
 
 \subsection{Nelder-Mead Method}
-\index{N-M Search Method (Nelder-Mead Search Method)}\index{Simplex Search Method}\hypertarget{Simplex}{}
+\index{NM Search Method (Nelder-Mead Search Method)}\index{Simplex Search Method}\hypertarget{Simplex}{}
     For multivariate function $ g(x) $, with $ x\in \mathbb{R}^n $, usually use Nelder-Mead Method, or Simplex Search Method. Simplex is a generalization of triangle/tetrahedron to any arbitrary dimension, and Nelder-Mead method is conducted by iterating simplex.
 
 
@@ -1725,7 +1725,10 @@ uniroot()
 \end{enumerate}
     
 \end{algorithm}
-    
+
+
+\subsection{Coordinate Descent Method*}
+\index{coordinate descent method}
 %     多元函数求极值：依次迭代各变量，每次对一个方向求极值。
 % \begin{align}
 %     x_1^{(t+1)}=&\mathop{\arg\min}\limits_{x_1} g(x_1,x_2^{(t)},x_3^{(t)},\ldots,x_m^{(t)})\\
@@ -1779,7 +1782,7 @@ uniroot()
     
 
 \subsection{Gradient Descent Method}
-    \hypertarget{GradientDescent}{}The simplest choice for $ T(\cdot) $ is identity $ p^{(t)}=-\nabla f\left(x^{(t)}\right) $, because negative gradient direction is the (local) descent direction. Iteration:
+    \hypertarget{GradientDescent}{}\index{Gradient Descent Method}The simplest choice for $ T(\cdot) $ is identity $ p^{(t)}=-\nabla f\left(x^{(t)}\right) $, because negative gradient direction is the (local) descent direction. Iteration:
     \begin{align}
         x^{(t+1)}=x^{(t)} -\alpha ^{(t)}\nabla f\left(x^{(t)}\right) 
     \end{align}
@@ -1796,7 +1799,7 @@ uniroot()
 
 
 \subsection{Newton-Raphson Method}
-\index{Newton-Raphson Iteration Method}\hypertarget{NRMethod}{}
+\index{Newton-Raphson Method}\hypertarget{NRMethod}{}
     Idea: For minimizing problem $ x^*=\arg\min f(x) $\footnote{Here uses different notation from previous part to avoid confusion of $ g(x) $ as link function.}, using iteration method with an initial value $ x^{(0)} $, we hope to find iteration step $ x^{(t+1)}-x^{(t)} $ such that $ x^{(t+1)} $ can approach $ x^* $ quickly. We can try to use the taylor series at $ x^{(t)} $ to $ O(x^2) $ and try the minimizer of the quadric function:
     \begin{equation}\label{EqaGaussRaphsonQuadricExpansion}
         f(x)\approx \tilde{f}_{x^{(t)}}(x)=f(x^{(t)})+(x-x^{(t)})^T\nabla \left. f(x)\right|_{x^{(t)}}+\dfrac{1}{2}(x-x^{(t)})^T\nabla\nabla \left. f(x) \right|_{x^{(t)}} (x-x^{(t)})
@@ -1830,7 +1833,7 @@ uniroot()
         
     
 \subsection{Fisher's Scoring Method in MLE}\label{SubSubSectionFisherScoringMethod}
-    \hypertarget{FSNRMethod}{}For MLE optmizing problem in statistics using Newton-Raphson Method, we can use properties of log-likelihood $ l(\theta ;\vec{x}) $ to help overcome the difficulty of calculating $ H^{-1} $. This method is called Fisher's Scoring Method/Iteratively Re-weighted Least Squares (IRLS).\index{Fisher's Scoring Method}\index{IRLS (Iteratively Re-weighted Least Squares)}
+    \index{Fisher's Scoring Method}\index{IRLS (Iteratively Re-weighted Least Squares)}\hypertarget{FSNRMethod}{}For MLE optmizing problem in statistics using Newton-Raphson Method, we can use properties of log-likelihood $ l(\theta ;\vec{x}) $ to help overcome the difficulty of calculating $ H^{-1} $. This method is called Fisher's Scoring Method/Iteratively Re-weighted Least Squares (IRLS).
 
     Notation: for simplication, the following part uses $ \nabla f(x):=f'(x) $ (a vector), $ \nabla\nabla f(x):=f''(x) $ (a matrix)
 
@@ -1861,7 +1864,7 @@ uniroot()
     \end{equation}
 \end{itemize}}
 
-    Note that Fisher Information is the \textbf{expectation}  of $-l''(\theta ) ):=J(\theta  $, the idea of Fisher scoring method is the estimate $ l''(x) $ using Fisher information:
+    Note that Fisher Information is the \textbf{expectation}  of $-(l''(\theta ) ):=J(\theta)  $, the idea of Fisher scoring method is the estimate $ l''(x) $ using Fisher information:
 
     \begin{align}
         \theta ^{(t+1)}=\theta ^{(t)}- l''(\theta ;x)^{-1}l'(\theta ;x)\longrightarrow \theta ^{(t+1)}=\theta ^{(t)}+I(\theta^{(t)} )^{-1}l'(\theta^{(t)} ;x)
@@ -1878,7 +1881,7 @@ uniroot()
 
     
 \begin{point}
-    More Specific Case: Scaled Exponential Family $ f(y;\vec{\theta },\phi ) =\exp\left( \dfrac{y'\theta -b(\theta )}{a(\phi)}+c(y;\phi ) \right) $
+    More Specific Case: Scaled Exponential Family $ f(y;\vec{\theta },\phi ) =\exp\left( \dfrac{y'\theta -b(\theta )}{a(\phi)}+c(y;\phi ) \right) $\index{Scaled Exponential Family}
 \end{point}
 
     where $ \theta  $ is the canonical parameter, declaring location.
@@ -1934,6 +1937,7 @@ Properties:
     Fisher Scoring and GLM: Iterative Re-weighted Least Square (IRLS)
 \end{point}
 
+\index{GLM (Generalized Linear Model)}
     Recall in GLM in \autoref{SubSectionGeneralizedLinearModel}
     \begin{align}
         \mu _i\sim g^{-1}(x_i'\beta )\text{ or } g(\mu _i)\sim x'\beta  
@@ -2017,7 +2021,7 @@ Properties:
     \end{align}
     
     
-        \item Gauss-Raphson Iteration:
+        \item Raphson Iteration:
         \begin{align}
             \dfrac{\partial^{} l}{\partial \beta ^{}}=&\dfrac{1}{\sigma ^2}\sum_{i=1}^n\left( x_i(y_i-x_i'\beta ) \right)\\
             \dfrac{\partial l}{\partial \beta \partial\beta ^T}=&-\dfrac{1}{\sigma ^2}\sum_{i=1}^n x_ix_i'
@@ -2042,7 +2046,7 @@ Properties:
         
     \end{itemize}
     
-    \item Logistic Regression: Binomial Distribution
+    \item Logistic Regression: Binomial Distribution\index{Logistic Regression}
     \begin{align}
         Y_i\sim B(n_0,\mathrm{logistic}(x'\beta ) )\qquad f(y;n_0,\pi )=\exp\left\{ y\ln\dfrac{\pi}{1-\pi}+n_0\ln(1-\pi)+\ln\binom{n_0}{y} \right\}  
     \end{align}
@@ -2063,7 +2067,7 @@ Properties:
         \begin{align}
             l(n_0,\beta ;y,x)=yx'\beta  +n_0\ln(1-g^{-1}(x'\beta ))+\ln\binom{n_0}{y} 
         \end{align}
-        \item Gauss-Raphson Iteration:
+        \item Raphson Iteration:
         \begin{align}
             \dfrac{\partial^{} l}{\partial \beta ^{}}&=\sum_{i=1}^n x_i\left( y_i-n_0\mathrm{logistic}(x_i'\beta )  \right)\\
             \dfrac{\partial l}{\partial \beta \partial \beta ^T}&=\sum_{i=1}^n x_ix_i'\dfrac{n_0e^{-x_i'\beta }}{(1+e^{-x_i'\beta })^2}=\sum_{i=1}^nx_ix_i'n_0g^{-1}(x'\beta )(1-g^{-1}(x'\beta ))
@@ -2119,11 +2123,11 @@ Properties:
     we should choose proper scale of $ a^{(t)} $ adapted to the craggedness of $ g(x) $ for better convergence. In machine learning, $ \alpha ^{(t)} $ also refers to learning rate.
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item \hypertarget{FixedStepLength}{Fixed step-length}: Fix $ \alpha ^{(t)}=\alpha  $ (usually $ \alpha =1 $)    
-    \item \hypertarget{Backtracking}{Backtracking}: Starting from e.g. $ \alpha^{(t)}_0 =1 $ and calculate corresponding $ g\left(x^{(t)}+\alpha ^{(t)}_ip^{(t)}\right) $, update $ \alpha ^{(t)}_{i+1}=\alpha ^{(t)}_i/2 $ until $ g\left(x^{(t)}+\alpha ^{(t)}_ip^{(t)}\right)<g\left(x^{(t)}\right) $, i.e.
+    \item \hypertarget{Backtracking}{Backtracking}\index{Backtracking}: Starting from e.g. $ \alpha^{(t)}_0 =1 $ and calculate corresponding $ g\left(x^{(t)}+\alpha ^{(t)}_ip^{(t)}\right) $, update $ \alpha ^{(t)}_{i+1}=\alpha ^{(t)}_i/2 $ until $ g\left(x^{(t)}+\alpha ^{(t)}_ip^{(t)}\right)<g\left(x^{(t)}\right) $, i.e.
     \begin{align}
         \alpha ^{(t)}=\max  \dfrac{\alpha _0}{2^n},\,s.t. g\left(x^{(t)}+\alpha ^{(t)}_ip^{(t)}\right)<g\left(x^{(t)}\right)
     \end{align}
-    \item \hypertarget{ExactLineSearch}{Exact line search}: 
+    \item \hypertarget{ExactLineSearch}{Exact line search}: \index{Exact Line Search}
     \begin{align}
         \alpha ^{(t)}=\mathop{\arg\min}\limits_{\alpha } g\left( x^{(t)}+\alpha p^{(t)} \right)  
     \end{align}
@@ -2157,7 +2161,7 @@ Properties:
 
 
 \subsection{Quasi Newton Method}
-\hypertarget{QuasiNewtonMethod}{}
+\hypertarget{QuasiNewtonMethod}{}\index{Quasi Newton Method}
     One of the main difficulty of Newton-Raphson method is calculation of Hessian $ H\left(x^{(t)}\right) $ (as well as its inverse). We can use some estimation method for $ M^{(t)}\equiv \hat{H}^{(t)} $, for equivalently for $ B^{(t)}\equiv\left[\hat{H}^{(t)}\right]^{-1} $\footnote{Notation different from lecture note. Here always use $ H $ for Hessian $ H\equiv\nabla\nabla f $}
 
     Updating:
@@ -2225,7 +2229,7 @@ Properties:
 
 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item SR-1 Method/Davidon Update: Rank-1 updated 
+    \item SR-1 Method\index{SR-1 Method}/Davidon Update: Rank-1 updated 
     \begin{align}
         M_{(t+1)}=&M_{(t)}+\dfrac{(y-M_{(t)}s)(y-M_{(t)}s)^T}{(y-M_{(t)}s)^Ts}\\
         B_{(t+1)}=&B_{(t)}+\dfrac{(s-B_{(t)}y)(s-B_{(t)}y)^T}{(s-B_{(t)}y)^Ty}
@@ -2342,7 +2346,7 @@ Solve: fisrt eliminate $ \Lambda -\Lambda ^T $ into $\lambda s^T-s\lambda ^T $, 
 
 
 \subsection{Trust Region Method}\label{SubSubSectionTrustRegion}
-\hypertarget{TrustRegion}{}
+\hypertarget{TrustRegion}{}\index{Trust Region Method}
     Approximation quadric form $ \tilde{f} $ at iteration $ x^{(t)} $
     \begin{align}
         \tilde{f}_{x^{(t)}}(x)=f(x^{(t)})+ \left(x-x^{(t)}\right)^T\nabla f^{(t)}+\dfrac{1}{2}\left(x-x^{(t)}\right)^TM^{(t)}\left(x-x^{(t)}\right)
@@ -2392,7 +2396,7 @@ Solve: fisrt eliminate $ \Lambda -\Lambda ^T $ into $\lambda s^T-s\lambda ^T $, 
 
         
 \subsection{Conjugate Gradient Method}
-\hypertarget{ConjugateGradientMethod}{}
+\hypertarget{ConjugateGradientMethod}{}\index{Conjugate Gradient Method}
     Note that in Gauss-Raphson method, our iteration step was obtained by minimizing the taylor series to $ O(x^2)  $ in \autoref{EqaGaussRaphsonQuadricExpansion}, 
     \begin{align}
         f(x)\approx \tilde{f}_{x^{(t)}}(x)=f(x^{(t)})+(x-x^{(t)})^T\nabla \left. f(x)\right|_{x^{(t)}}+\dfrac{1}{2}(x-x^{(t)})^T\nabla\nabla \left. f(x) \right|_{x^{(t)}} (x-x^{(t)})
@@ -2506,7 +2510,7 @@ Solve: fisrt eliminate $ \Lambda -\Lambda ^T $ into $\lambda s^T-s\lambda ^T $, 
 
 
 \section{Expectation Maximization Algorithm}\label{SubSectionExpectationMaximumAlgorithm}
-\index{E-M Algorithm (Expectation Maximization Algorithm)}
+\index{EM Algorithm (Expectation Maximization Algorithm)}
     Motivation: use MLE to estimate some model parameter $ \theta  $ for model $ \{x_i\}$ i.i.d. $ \sim f(x|\theta ) $. Difficulty: for complex model
 
     Main appication: Probability Generative Model, observed value $ x_i $ is generated from distributon $ f(x|z_i,\theta _{i},\theta _z) $ dependent on \textbf{unobserved} random $ z\sim g(z|\theta _z) $(usually $ z $ is discrete, denoted $ z_\nu= z_\alpha ,\ldots z_\gamma  $). Where we know the form of $ f(x,z|\theta_{z_\nu},\theta_z) $, but form of $ f(x|\theta_{z_\nu},\theta) $ might be hard to solve, thus we use an iterative method to deal with the latent variable $ z $ so that we can use the known form $ f(x,z|\theta_{z_\nu},\theta) $.
@@ -2519,7 +2523,7 @@ Solve: fisrt eliminate $ \Lambda -\Lambda ^T $ into $\lambda s^T-s\lambda ^T $, 
         \end{align}
 
         Note: non-exchange for $ p $, $ q $.
-        \item Jensen Inequality: For \textbf{concave}  function $ h(x) $ and random variable $ X\sim f $
+        \item Jensen Inequality: For \textbf{concave}  function $ h(x) $ and random variable $ X\sim f $\index{Jensen Inequality}
         \begin{align}
             \mathbb{E}_f\left(h(X)\right)\leq h\left(\mathbb{E}_f(X)\right) 
         \end{align}       
@@ -2556,7 +2560,7 @@ Solve: fisrt eliminate $ \Lambda -\Lambda ^T $ into $\lambda s^T-s\lambda ^T $, 
         l(\theta |X)=\sum_{i=1}^N\log f(x_i|\theta )\geq \sum_{i=1}^N\int_z q_i(z)\log\dfrac{f(x_i,z|\theta )}{q_i(z)} \,\mathrm{d}z\equiv \mathrm{ELBO}(q,\theta ),\quad q=\{q_i\}
     \end{align}
     
-    i.e. $ \mathrm{ELBO}  $ provides a lower bound estimate for $ l(\theta |X) $, thus we can instead maximize $ \mathrm{ELBO}(q,\theta)  $, using coordiante ascent is the Maximization-Maximization Algorithm:\index{M-M Algorithm (Maximization-Maximization Algorithm)}.\footnote{where one of the `coordinate' is the function space $ q(z) $}
+    i.e. $ \mathrm{ELBO}  $ provides a lower bound estimate for $ l(\theta |X) $, thus we can instead maximize $ \mathrm{ELBO}(q,\theta)  $, using coordiante ascent is the Maximization-Maximization Algorithm:\index{MM Algorithm (Maximization-Maximization Algorithm)}.\footnote{where one of the `coordinate' is the function space $ q(z) $}
 \begin{align}
         q\text{ Maximum : }q^{(t+1)}=&\mathop{\arg\max}\limits_{q(z)}\mathrm{ELBO}(q,\theta ^{(t)})=p(z|x,\theta ^{(t)})\\
         \theta \text{ Maximum : }\theta ^{(t+1)}=&\mathop{\arg\max}\limits_{\theta }\mathrm{ELBO} (q^{(t+1)},\theta ) 
@@ -2638,6 +2642,8 @@ Solve: fisrt eliminate $ \Lambda -\Lambda ^T $ into $\lambda s^T-s\lambda ^T $, 
     \item Simulation method is also usually used for validation of model reliability.
 \end{itemize}
 
+An important application scenario of random simulation is Bayesian Statistics. More about it is introduced in \autoref{SubSectionBayesianStatisticsSimulation}, where there are variants of simulation methods and more example. This section would just introduce the basic ideas and methods of simulation.
+
 \begin{rcode}
     Remember to sed random generator seed before simulation.
 \begin{lstlisting}[language=R]
@@ -2656,7 +2662,7 @@ set.seed(INI_NUM)
 \end{point}
 
 \index{LCM (Linear Congruential Method)}
-    Linear Congruential Method (LCM) is the most commonly used method for generating uniform distribution $ U(0,1) $, which is the basic for more complex distribution. 
+    \index{Linear Congruential Method}Linear Congruential Method (LCM) is the most commonly used method for generating uniform distribution $ U(0,1) $, which is the basic for more complex distribution. 
 
 
 \begin{algorithm}{Linear Congruential for Uniform Distribution}
@@ -2702,7 +2708,7 @@ set.seed(INI_NUM)
     Improvement of LCG
 \end{point}
 
-    Key problem is the periodically structure of generated $ X_i $, i.e. when some $ X_{\tilde{i}} $ return to $ X_0 $, then the following $ X_{\tilde{i}+i}=X_i $ will repeat. Idea: modify the generation rule, e.g. use groups $ m $ of LCM $ X_{im} $ with differnet period $ P_m $ to generate $ R_{i} $. Example: L’Ecuyer-CMRG Algorithm.
+    Key problem is the periodically structure of generated $ X_i $, i.e. when some $ X_{\tilde{i}} $ return to $ X_0 $, then the following $ X_{\tilde{i}+i}=X_i $ will repeat. Idea: modify the generation rule, e.g. use groups $ m $ of LCM $ X_{im} $ with differnet period $ P_m $ to generate $ R_{i} $. Example: L'Ecuyer-CMRG Algorithm.
     \begin{align}
         X_i=\left(\sum_{j=1}^m (-1)^{j+1}X_{ij} \right)\mathrm{mod} \,m  \quad R_i=\begin{cases}
             \dfrac{X_i}{m}&X_i>0\\
@@ -2729,7 +2735,7 @@ set.seed(INI_NUM)
     Target: generate random number sequence with some distribution ($ f(x) $ or $ F(x) $ known). Denote random number sequence with $ U(0,1) $ distribution as $ U_i $
 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item Quantile Method/Inverse Transform Method\index{Inverse Transform Method}: For distributions with traceable CDF $ F(x) \in (0,1)$.\hypertarget{StatisticalSimulationInverseTrans}{}
+    \item Quantile Method/\textbf{Inverse Transform Method}\index{Inverse Transform Method}: For distributions with traceable CDF $ F(x) \in (0,1)$.\hypertarget{StatisticalSimulationInverseTrans}{}
     \begin{align}
          X_i=F^{-1}_X(U_i)
     \end{align}
@@ -2740,21 +2746,21 @@ set.seed(INI_NUM)
         =&\dfrac{\partial^{} F(x)}{\partial x^{}}\mathrm{d}x =f(x)\,\mathrm{d}x
     \end{align} 
     \end{proof}
-    \item Acceptance-Rejection Method\index{Acceptance-Rejection Method}: For $ F(x) $ intractable, only $ f(x) $ known, %e.g. Normal Distribution.
+    \item \textbf{Acceptance-Rejection Sampling}\index{Acceptance-Rejection Sampling}: For $ F(x) $ intractable, only $ f(x) $ known, %e.g. Normal Distribution.
     
     First decompose $ f(x) $ as 
     \begin{align}
-        f(x)=\dfrac{p(x)g(x)}{\int p(x)g(x) \,\mathrm{d}x} 
+        f(x)=\dfrac{p(x)g(x)}{\int p(x)g(x) \,\mathrm{d}x}:=\tilde{c}p(x)g(x)  \Rightarrow p(x)=\dfrac{1}{ \tilde{c} }  \dfrac{ f(x) }{ g(x) } 
     \end{align}
     
-    where $ g(x) $ is some distribution that we can generate, $ p(x)\in [0,1] $. Then $ X_{n_k} $ sequence $ \sim f(x) $ can be generated as follows:
+    where $ g(x) $ is some distribution that we can easily generate as \textbf{proposal distribution}. Then $ X_{k} $ sequence $ \sim f(x) $ can be generated as follows:
 \begin{enumerate}[topsep=2pt,itemsep=2pt]
-    \item Propose a $ x_k \sim g(x)$ and a $ u_k\sim U(0,1) $\hypertarget{StatisticalSimulationARS}{}
-    \item Decide whether accept/reject $ x_k $ to be $ X_{n_k} $:
+    \item Propose a $ \tilde{x} \sim g(x)$ and a $ \tilde{u}\sim U(0,1) $\hypertarget{StatisticalSimulationARS}{}
+    \item Decide whether accept/reject $ \tilde{x} $ to be $ X_{k} $ by:
     \begin{align}
         \begin{cases}
-            p(x_k)\geq u_k&\text{Reject}\\
-            p(x_k)<u_k&\text{Accept}
+            p(\tilde{x})\geq \tilde{u}&\text{Reject}\\
+            p(\tilde{x})<\tilde{u}&\text{Accept}
         \end{cases} 
     \end{align}
 \end{enumerate}
@@ -2765,19 +2771,28 @@ set.seed(INI_NUM)
 
     Using Bayesian Rule:
     \begin{align}
-        \mathbb{P}(x_k|\mathrm{Accept} )=\dfrac{\mathbb{P}(\mathrm{Accept}|x_k )g(x_k)}{\mathbb{P}(\mathrm{Accept} )}=f(X_{n_k}) 
+        \mathbb{P}(x_k|\mathrm{Accept} )=\dfrac{\mathbb{P}(\mathrm{Accept}|x_k )g(x_k)}{\mathbb{P}(\mathrm{Accept} )}=f(X_{k}) 
     \end{align}
     \end{proof}
 
-    Intuitively view: figure $ f(x) $ lies under $ \tilde{c}g(x) $ (where $ \tilde{x}=\sup p(x) $). If for each $ x $ we accept it with probability $ \dfrac{f(x)}{\tilde{c}g(x)} $, then figure $ \tilde{c}g(x) $ is `cut down' into $ f(x) $, $ \int p(x)g(x) \,\mathrm{d}x $ acts as the normalize constant, which corresponds to `accept rate' controlling generate frequancy.
-
-    We should choose a proper $ g(x) $ which is similar to $ f(x) $, so that $ p(x) $ is close to $ 1 $ and $ \int p(x)g(x) \,\mathrm{d}x $ could be large and the algorithm is efficient.    
+    
     
     Note on Acceptance-Rejection Sampling:
     \begin{itemize}[topsep=2pt,itemsep=0pt]
-        \item Inefficient for high-dimentional problem: we have limited choices of sample-able distribution $ g(\vec{x}) $, and usually the accept rate $  \int p(x)g(x) \,\mathrm{d}x $ is low.
-        \item Thick tail of $ g(x) $ matters, to control the bahaviour of $ \mathop{  p(x) }\limits_{x\to\infty} $.
+        \item Intuition: figure $ f(x) $ lies under $ \tilde{c}g(x) $ (where $ \tilde{c}=\sup p(x) $). If for each $ x $ we accept it with probability $ p(x):=\dfrac{f(x)}{\tilde{c}g(x)} $, then figure under $ \tilde{c}g(x) $ is `cut down' into $ f(x) $, $ \dfrac{ 1 }{ \tilde{c}}=  $ acts as the normalize constant, which corresponds to `accept rate' controlling generate frequency.
+        
+        We should choose a proper $ g(x) $ which is similar to $ f(x) $, so that $ p(x) $ is close to $ 1 $ and the algorithm is efficient.    
+        \item Expected accept ratio is
+        \begin{align}
+            \mathbb{E}_{\tilde{x}\sim g(x)}\left[ p(\tilde{x}) \right] =\dfrac{ 1   }{ \tilde{c} }=  \int p(x)g(x) \,\mathrm{d}x
+        \end{align}
+        
+        
+        \item Inefficient for high-dimentional problem: we have limited choices of sample-able distribution $ g(\vec{x}) $, and usually the expected accept rate $  \int p(x)g(x) \,\mathrm{d}x $ is low.
+        \item Thick tail of $ g(x) $ matters to control the bahaviour of $ \mathop{ f(x)/g(x) }\limits_{x\to\infty} $, otherwise we might not be able to find a $ \tilde{c} $ such that $ \tilde{c}g(x) $ bounds $ f(x) $, making the sampling impossible.
+        
     \end{itemize}
+    \item \textbf{Importance Resampling}: A method induced from importance sampling for integration, see \hyperlink{ImportanceResampling}{Importance Sampling} for detail.
     
         
 \end{itemize}
@@ -2834,7 +2849,7 @@ Markov Chain Monte Carlo (MCMC) aims at solving integration and simulation probl
          \pi_\infty=\pi_\infty P=\pi_{\infty}P^n
     \end{align}
     
-    Convergence and Ergodic Thm.:\index{Convergence and Ergodic Theorem} An ergodic markov chain converges to a unique stationary distribution $ \pi_\infty $\footnote{Ergodic = Irreducible + Aperiodic. Denote $ i\leadsto j $ if $ \exists n\,s.t.  \mathbb{P}\left( X_n=j|X_0=i \right) \neq 0 $
+    Convergence and Ergodic Theorem:\index{Convergence and Ergodic Theorem} An ergodic markov chain converges to a unique stationary distribution $ \pi_\infty $\footnote{Ergodic = Irreducible + Aperiodic. Denote $ i\leadsto j $ if $ \exists n\,s.t.  \mathbb{P}\left( X_n=j|X_0=i \right) \neq 0 $
     \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item Irreducible:
         \begin{align}
@@ -2870,12 +2885,12 @@ Markov Chain Monte Carlo (MCMC) aims at solving integration and simulation probl
     MCMC Algorithms for Unnormalized distribution\hypertarget{StatisticalSimulationInverseTransMCMC}{}
 \end{point}
 
-    To sample from an unnormalized distribution $ \tilde{p} $, i.e. $ p=\dfrac{\tilde{p}(x)}{\int \tilde{p}(\xi \,\mathrm{d}\xi)} $, but normalizer $ Z=\int \tilde{p}(\xi \,\mathrm{d}\xi) $ is impossible to calculate, we could only get relative probability ratio of states.
+    To sample from an unnormalized distribution $ \tilde{p} $, i.e. $ p=\dfrac{\tilde{p}(x)}{\int \tilde{p}(\xi) \,\mathrm{d}\xi} $, but normalizer $ Z=\int \tilde{p}(\xi) \,\mathrm{d}\xi $ is impossible to calculate, we could only get relative probability ratio of states.
 
 
 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item Metropolis-Hastings Algorithm:\index{M-H Algorithm (Metropolis-Hastings Algorithm)}
+    \item Metropolis-Hastings Algorithm:\index{MH Algorithm (Metropolis-Hastings Algorithm)}
     \begin{algorithm}{MCMC}
     \begin{enumerate}[topsep=2pt,itemsep=2pt]
         \item A pre-selected conditional distribution $ q(\cdot|x) $ is used as \textbf{proposal distribution}\index{Proposal Distribution}. In each step $ t $, a new state is proposed as 
@@ -2906,7 +2921,7 @@ Markov Chain Monte Carlo (MCMC) aims at solving integration and simulation probl
     i.e. $ p_{xy}=q(y|x)\alpha (y|x) $ is the transition matrix to generate the stationary distribution as $ \pi_{\infty}=p(x) $
     \item Choice of proposal $ q(\, \cdot \, |x) $ is flexible, but should be properly chosen for higher acceptance to increase efficiency. 
     \end{itemize}
-    
+    \item More variants of MCMC see \autoref{SubSubSectionBayesianMCMC} and \autoref{SubSubSectionBayesianGibbs}.
     
     
         
@@ -2918,15 +2933,17 @@ Markov Chain Monte Carlo (MCMC) aims at solving integration and simulation probl
 \subsection{Numerical Integration With Simulation}   
     Motivation: In Bayesian statistics we usually use the following expression to calculate some posterior:
     \begin{align}
-        f(z|x)=\dfrac{f(x|z)f(z)}{\displaystyle \int_z f(x|z)f(z) \,\mathrm{d}z} 
+        f(\theta |y)=\dfrac{f(y|\theta )f(\theta )}{\displaystyle \int_\theta  f(y|\theta )f(\theta ) \,\mathrm{d}\theta } 
     \end{align}
-    
-    Key difficulty is calculation of the normalize integration $ \displaystyle \int_z f(x|z)f(z) \,\mathrm{d}z =E_{f(z)}[f(x|z)]$, where $ f(z) $ is the prior of $ z $. Usually such integration needs numeric calculation. Statistical simulation using sampling is one of the methods.
+    in which $ \theta  $ is the parameter, $ y $ is the observd data. We might further construct come statistics using the posterior, usually in an integration form. But a key difficulty is calculation of the normalize integration $ \displaystyle \int_z f(x|z)f(z) \,\mathrm{d}z =E_{f(z)}[f(x|z)]$, where $ f(z) $ is the prior of $ z $. Usually such integration needs numeric calculation. Statistical simulation using sampling is one of the methods.
 
-    Target: calculate integration
+    Target: some kind of integration calculation:
     \begin{align}
         I(h)=\int_{x\in \mathcal{X} } h(x) \,\mathrm{d}x 
     \end{align}
+
+
+    
     
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item Hit-and-Miss Method: if $ \mathcal{X}\otimes h(x) $ is bounded in e.g. $ [a,b]\otimes [0,M] $. We can generate uniform distribution $ (x,y) $ in the region, and count \# points under $ h(x) $, proportion of accept denoted $ \hat{p} $, then
@@ -2966,7 +2983,7 @@ Markov Chain Monte Carlo (MCMC) aims at solving integration and simulation probl
         var(\hat{I}_\mathrm{M}) =\dfrac{(b-a)^2}{N}var(h(U))
     \end{align}
 
-    could be large if $ h(x) $ varies dramatically. To avoid the disadvantage, we could use some other distribution of $ x_i\sim p(x) $, the integration
+    could be large if $ h(x) $ varies dramatically. To avoid the disadvantage, we could use some other distribution of $ x_i\sim p(x) $ instead of $ x_i\sim U(a,b) $, to get the integration
     \begin{align}
         I=\int_{x\in \mathcal{X} } h(x) \,\mathrm{d}x =&\int _{x\in \mathcal{X}} \dfrac{h(x)}{p(x)}p(x) \,\mathrm{d}x=\mathbb{E}_{p(x)}\left[\dfrac{h(x)}{p(x)}\right]
     \end{align}
@@ -2986,7 +3003,7 @@ Markov Chain Monte Carlo (MCMC) aims at solving integration and simulation probl
     \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item An application of importance sampling: estimating expectation of function of r.v. $ E_{f(z)}\left(\phi(z)\right) $, where r.v. with $ f(z) $ distribution is hard to generate. We can generate another random number series $ x_i\sim q(x) $:
         \begin{align}
-            I(\phi,h)=\int \phi(z)f(z) \,\mathrm{d}z =&\int \phi(x)\dfrac{f(x)}{q(x)}q(x) \,\mathrm{d}x=\mathbb{E}_{q(x)}\left(\phi(x)\dfrac{f(x)}{q(x)}\right)\\
+            I(\phi)=\int \phi(z)f(z) \,\mathrm{d}z =&\int \phi(x)\dfrac{f(x)}{q(x)}q(x) \,\mathrm{d}x=\mathbb{E}_{q(x)}\left(\phi(x)\dfrac{f(x)}{q(x)}\right)\\
             =&\int \phi(x)W(x)q(x) \,\mathrm{d}x,\quad W(x)\equiv\dfrac{f(x)}{q(x)}
         \end{align}
     
@@ -3004,6 +3021,14 @@ Markov Chain Monte Carlo (MCMC) aims at solving integration and simulation probl
         \begin{align}
             \hat{I}=\dfrac{\sum_{i=1}^N\phi(x_i)\tilde{W}(x_i)}{\sum_{i=1}^N\tilde{W}(x_i)} ,\quad \tilde{W}(x_i)=\dfrac{\tilde{f}(x_i)}{g(x_i)}
         \end{align}
+
+        \item Effective Sample Size \index{Effective Sample Size}(Number of independent sample unit to get equivalent precision): 
+        \begin{align}
+            n_\mathrm{ effect } \equiv \dfrac{ N }{ \mathbb{E}\left[ W(x)^2 \right]  }\approx \dfrac{ N^2 }{ \sum_{i=1}^N W(x_i)^2 }    
+        \end{align}
+        \item Importance Resampling\index{Importance Resampling}\hypertarget{ImportanceResampling}{}: Importance sampling could be used to obtain random number series with distribution $ f(x) $, but it is not efficient. Here's the process:
+        
+        First obtain $ \tilde{x}_i\sim g(x) $ the proposal distribution, $ i=1,2,\ldots,N $. then compute importance $ \tilde{W}(\tilde{x}_i)=\dfrac{f(\tilde{x}_i)}{g(\tilde{x}_i)} $. By sampling from $ \{\tilde{x}_i\}_{i=1}^N $ a relative small subset with probability weight $ \tilde{W}(x_i) $, we can get a new random number series $ \{x_j\}_{j=1}^n $ with distribution $x\sim f(x) $.
         
     \end{itemize}
     
@@ -3011,7 +3036,7 @@ Markov Chain Monte Carlo (MCMC) aims at solving integration and simulation probl
     Comment: Idea of importance sampling estimation is to put more point at where $ h(x) $ has large function value to get better fit of integration, i.e. smaller variance.
     
 \subsection{Bootstrap}
-    In statistic inference for distribution $ x\sim f(x;\theta ) ,\,\theta \in \Theta $, we want to estimate some statistic $ \phi $ by estimator $ \hat{\phi } $, including e.g. mean $ E(\hat{\phi}) $, standard error $ \mathrm{SE}=\sqrt{var(\hat{\phi })}  $. In \autoref{SectionIntervalEstimation} we used pivot variable method to estimate statistics: parametric method, model required. Difficluty: strange distribution/strange statistics $ \to $ use non-parametric method, e.g. bootstrap method.\index{Bootstrap}
+    \index{Bootstrap}In statistic inference for distribution $ x\sim f(x;\theta ) ,\,\theta \in \Theta $, we want to estimate some statistic $ \phi $ by estimator $ \hat{\phi } $, including e.g. mean $ E(\hat{\phi}) $, standard error $ \mathrm{SE}=\sqrt{var(\hat{\phi })}  $. In \autoref{SectionIntervalEstimation} we used pivot variable method to estimate statistics: parametric method, model required. Difficluty: strange distribution/strange statistics $ \to $ use non-parametric method, e.g. bootstrap method.
     
 \begin{point}
     Bootstrap Method

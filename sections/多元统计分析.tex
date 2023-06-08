@@ -14,7 +14,7 @@
 \subsection{Matrix Representation}
 
 
-    \begin{itemize}[topsep=0pt,itemsep=1pt]
+    \begin{itemize}[topsep=0pt,itemsep=0pt]
         \item \hyperlink{RandomVariableRepresentation}{Random Variable Representation}
         \item \hyperlink{SampleRepresentation}{Sample Representation}
         \item \hyperlink{StatisticsRepresentation}{Statistics Representation}
@@ -131,7 +131,7 @@
     % \end{table}
 
 
-\[
+\begin{align}
     \begin{pNiceMatrix}[first-row,first-col,nullify-dots]
         &\mathrm{var}\,1&\mathrm{var}\,2&\ldots &\mathrm{var}\,j&\ldots&\mathrm{var}\,p\\    
     \mathrm{item}\,1& x_{11}&x_{12}&\ldots&x_{1j}&\ldots&x_{1p}\\
@@ -141,7 +141,7 @@
     \vdots&\vdots&\vdots&\ddots&\vdots&\ddots&\vdots\\
     \mathrm{item}\,n&x_{n1}&x_{n2}&\ldots&x_{nj}&\ldots&x_{np}
         \end{pNiceMatrix} 
-\]
+\end{align}
 
 
 
@@ -207,7 +207,7 @@
                 s_{ij}=&\dfrac{1}{n}d_i'd_j=\dfrac{1}{n}\sum_{k=1}^n(x_{ki}-\bar{x}_i)(x_{kj}-\bar{x}_j),\quad i,j=1,2,\ldots p\\
                 =&x_{\cdot i}'(I-\dfrac{1}{n}\mathcal{I}_n)x_{\cdot j},\quad i,j=1,2,\ldots,p
             \end{align}
-            \item Pearson's Correlation Coefficient between $ x_i $ and $ x_j $:\index{Correlation Coefficient!Pearson's Correlation Coefficient $ r $}
+            \item Pearson's Correlation Coefficient between $ x_i $ and $ x_j $:\index{Correlation Coefficient!Pearson's Correlation Coefficient $ r $}\index{Pearson's Correlation Coefficient $ r $}
             \begin{equation}\label{EqaEstimatorOfCorrelationCoefficient}
                 r_{ij}=\dfrac{s_{ij}}{\sqrt{s_{ii}}\sqrt{s_{jj}}}=\dfrac{{\displaystyle\sum_{k=1}^n(x_{ki}-\bar{x}_i)(x_{kj}-\bar{x}_j)}}{\sqrt{{\displaystyle\sum_{k=1}^n(x_{ki}-\bar{x}_i)^2}}\sqrt{{\displaystyle\sum_{k=1}^n(x_{kj}-\bar{x}_j)^2}}},\quad i,j=1,2,\ldots p
             \end{equation}
@@ -233,7 +233,7 @@
             r_{1p}&r_{p2}&\ldots&r_{pp}\\
             \end{bmatrix}
         \end{equation}
-        \item Generalized sample variance: $ |S_n|=\lambda _1\lambda _2 \ldots \lambda _p$, where $ \lambda_i  $ are eigenvalues of $ S_n $.
+        \item Generalized sample variance: $ |S_n|=\lambda _1\lambda _2 \ldots \lambda _p$, where $ \lambda_i  $ are eigenvalues of $ S_n $.\index{Generalized Variance}
         
         \item `Statistical Distance' between vectors: to measure the difference between two vectors $ x=(x_1,x_2,\ldots,x_p) $ and $ y=(y_1,y_2,\ldots,y_p) $.
         \begin{itemize}[topsep=6pt,itemsep=4pt]
@@ -300,7 +300,7 @@
 
         
         
-        \item Square root matrix\index{Square Root Matrix}: Def. as
+        \item Squareroot matrix\index{Square Root Matrix}: Def. as
         \begin{equation}
             A^{1/2}=\sum_{i=1}^p\sqrt{\lambda _i}e_ie_i^T=P\Lambda ^{1/2}P^T 
         \end{equation}
@@ -388,15 +388,15 @@
         \hypertarget{MatrixDifferenciation}{Properties (under denominator-layout):}\footnote{More matrix diffrenciation equation see book \cite{线性回归分析ref2} P49. Or can be easily derivated using Einstein sumation notation.
         
         An example:
-        \begin{align*}
+        \begin{align}
             \dfrac{\partial^{} |A|}{\partial A^{}}=&\dfrac{\partial^{} }{\partial A_{ij}^{}}\mathrm{Ex}_{i_1,i_2,\ldots,i_n}A_{1i_i}A_{2i_2}\ldots A_{ni_n}\\
             =&\sum_{k=1}^n\mathrm{Ex}_{i_1,\ldots, (\wedge i_k),\ldots, i_n}\delta _{ki}\delta _{i_kj}A_{1i_1}\ldots (\wedge A_{ki_k})\ldots A_{ni_n}\times (-1)^{(n-k)+(n-i_k)}\\
             =& (-1)^{i+j}\mathrm{Ex}_{i_1,\ldots, (\wedge j),\ldots, i_n}A_{1i_1}\ldots (\wedge A_{ij})\ldots A_{ni_n} \\
             =&|A|A^{-1}
-        \end{align*}
+        \end{align}
         
         }
-        \begin{itemize}[topsep=6pt,itemsep=2pt]
+        \begin{itemize}[topsep=3pt,itemsep=1pt]
             \item $ \dfrac{\partial^{} }{\partial x^{}}Ax=A^T $;\\
             \item $ \dfrac{\partial^{} }{\partial x^{}}x^TA=A $;\\
             \item $ \dfrac{\partial^{} }{\partial x^{}}x^Tx=2x $;\\
@@ -408,7 +408,7 @@
         \end{itemize}
           
         
-        \item Kronecker Product: For matrix $ \mathop{A}\limits_{m\times n}=\{a_{ij}\},\,\mathop{B}\limits_{p\times q}=\{b_{ij}\} $. Their Kronecker product
+        \item Kronecker Product\index{Kronecker Product}: For matrix $ \mathop{A}\limits_{m\times n}=\{a_{ij}\},\,\mathop{B}\limits_{p\times q}=\{b_{ij}\} $. Their Kronecker product
         \begin{equation}
             A\otimes B=\begin{bmatrix}
             a_{11}B&a_{12}B&\ldots&a_{1n}B \\
@@ -467,7 +467,7 @@
 
         Non-induced matrix norm, e.g. 
         \begin{itemize}[topsep=2pt,itemsep=0pt]
-            \item Frobenius norm: $ \Vert A \Vert _F=\left(\sum_{i=1}^m\sum_{j=1}^n |A_{ij}|^2 \right)^{1/2} =\sqrt{tr(A^*A)}$
+            \item Frobenius norm\index{Frobenius Norm}: $ \Vert A \Vert _F=\left(\sum_{i=1}^m\sum_{j=1}^n |A_{ij}|^2 \right)^{1/2} =\sqrt{tr(A^*A)}$
             \item Weighted Frobenius norm: $ \Vert A \Vert _W=\Vert W^{-1/2}AW^{-1/2} \Vert _F $( or some textbooks uses $ \Vert W^{1/2}AW^{1/2} \Vert_F  $)
             \item Max norm: $ \Vert A \Vert_{\max}=\mathop{\max}\limits_{i,j} |A_{ij}|  $
         \end{itemize}
@@ -479,7 +479,7 @@
         
             
         \end{itemize}
-    \item Sherman-Morrison Formula:
+    \item Sherman-Morrison Formula:\index{Sherman-Morrison Formula}
     \begin{align}
          \left(A+u^Tv\right)^{-1}=A^{-1}-\dfrac{A^{-1}u^TvA^{-1}}{1+v^TA^{-1}u} 
     \end{align}
@@ -491,6 +491,12 @@
     
     Application instances see \url{https://v1ncent19.github.io//texts/MahalanobisAndLeverage/} and \url{https://v1ncent19.github.io//texts/DeletedResidual/}.
     
+    \item Woodbury Matrix Identity:\index{Woodbury Matrix Identity}
+    \begin{align*}
+        (A+UCV)^{-1}=A^{-1}-A^{-1}U(C^{-1}+VA^{-1}U)^{-1}VA^{-1} 
+    \end{align*}
+    
+    
     
     \end{itemize}
     
@@ -499,14 +505,14 @@
 
     \subsection{Useful Inequalities}
     \begin{itemize}[topsep=6pt,itemsep=4pt]
-        \item Cauchy-Schwartz Inequality:\index{Inequality!Cauchy-Schwarz Inequality}
+        \item Cauchy-Schwartz Inequality:\index{Inequality!Cauchy-Schwarz Inequality}\index{Cauchy-Schwarz Inequality}
         
         Let $ b,d$ any $ p\times 1 $ vectors.
         \begin{equation}
             (b'd)^2\leq (b'b)(d'd) 
         \end{equation}
         
-        \item Extended Cauchy-Schwartz Inequality: 
+        \item Extended Cauchy-Schwartz Inequality: \index{Extended Cauchy-Schwartz Inequality}
         
         Let $ B $ be a positive definite matrix.
         
@@ -514,7 +520,7 @@
             (b'd)^2\leq(b'Bb)(d'B^{-1}d) 
         \end{equation}
         
-        \item Maximazation Lemma:\index{Inequality!Maximazation Lemma}
+        \item Maximazation Lemma:\index{Inequality!Maximazation Lemma}\index{Maximazation Lemma}
         
         $ d $ be a given vector, for any non-zero vector $ x $,
         \begin{equation}
@@ -874,7 +880,7 @@
 \begin{point}
     Hotelling's $ T^2 $ test
 \end{point}
-
+    \index{Hotelling's $ T^2 $}
     
     \begin{itemize}[topsep=2pt,itemsep=2pt]
         \item One-Dimensional case: $ t $-test
@@ -888,7 +894,7 @@
         \end{equation}
 
 
-        \item Multi-Dimensional case: Hotelling's $ T^2 $\index{Hotelling's $ T^2 $}
+        \item Multi-Dimensional case: Hotelling's $ T^2 $
         \begin{equation}
             T^2 =[\sqrt{n}(\bar{X}-\mu_0)']S^{-1}[\sqrt{n}(\bar{X}-\mu _0)] \sim \dfrac{p}{n-p}(n-1)F_{p,n-p}
         \end{equation}
@@ -947,7 +953,7 @@
             D_{ij}=X_{1,ij}-X_{2,ij} 
         \end{equation}
 
-        denote $ \bar{D}=\dfrac{1}{n}\sum_{j=1}^nD_{ j} $, $ S^2_D=\dfrac{1}{n-1}\sum_{j=1}^n(D_j-\bar{D}'(D_j-\bar{D})) $
+        denote $ \bar{D}=\dfrac{1}{n}\sum_{j=1}^nD_{ j} $, $ S^2_D=\dfrac{1}{n-1}\sum_{j=1}^n(D_j-\bar{D})'(D_j-\bar{D}) $
         
         and conduct test to 
         \begin{equation}
@@ -1151,7 +1157,7 @@
         \begin{equation}
              \mathrm{FL}_{ij}=(e_{i})_j\sqrt{\lambda _i}
         \end{equation}
-        \item PC Score:
+        \item PC Score:\index{PC Score (Principal Component Score)}
         \begin{equation}
             \mathrm{PC\, Score}_i=Y_i=e_i'X \text{ or } Y_i=e_i'(X-\mu)
         \end{equation}
@@ -1244,11 +1250,11 @@
     
     We can examine the (asymptotic) distribution of $ (\hat{\lambda} _{1},\hat{\lambda} _{2},\ldots,\hat{\lambda} _{p})  $ and $ (\hat{e}_{1},\hat{e}_{2},\ldots,\hat{e}_{p})  $:
     \begin{itemize}[topsep=2pt,itemsep=2pt]
-        \item $ \hat{\lambda } $:
+        \item $ \hat{\lambda } $ distribution:
         \begin{equation}
             \sqrt{n}(\hat{\lambda }-\lambda )\sim N_p(0,2\Lambda ^2) 
         \end{equation}
-        \item $ \hat{e}_i $:
+        \item $ \hat{e}_i $ distribution:
         \begin{equation}
             \sqrt{n}(\hat{e}_i-e_i)\sim N_p(0,E_i),\quad E_i=\lambda _i\sum_{k\neq i}\dfrac{\lambda _k}{(\lambda _k-\lambda _i)^2}e_ke_k' 
         \end{equation}
@@ -1275,7 +1281,7 @@
 
 
 \subsection{Orthogonal Factor Model}
-    
+    \index{Orthogonal Factor Model}\index{Loading Matrix}
     \begin{equation}
         \mathop{X-\mu}\limits_{p\times 1}=\mathop{L}\limits_{p\times m}\mathop{F}\limits_{m\times 1} +\mathop{\varepsilon }\limits_{p\times 1} ,\,\, m<p 
     \end{equation}
@@ -1300,7 +1306,7 @@
         \end{bmatrix}
     \end{align}
 
-    Note: Intuitively, we cannot estimate $ (m+p) $ （unobserable) r.v. from $ p $ r.v., so we need the following assumptions on $ F $ and $ \varepsilon  $
+    Note: Intuitively, we cannot estimate $ (m+p) $ (unobserable) r.v. from $ p $ r.v., so we need the following assumptions on $ F $ and $ \varepsilon  $
     \begin{equation}
         \begin{aligned}
             \mathbb{E}(F)&=0&cov(F)&=I_n\\
@@ -1334,8 +1340,9 @@
     \end{itemize}
     
     \begin{point}
-        Factor Rotation
+        Factor Rotation\index{Factor Rotation}
     \end{point}
+
     For any orthonormal rotation/reflection matrix $ \mathop{T}\limits_{m\times m}  $, $ \tilde{L}=LT $ satisfies the same factor model (with a different $ \tilde{F} $):
     \begin{equation*}
         \begin{aligned}
@@ -1348,7 +1355,7 @@
 
         
 \subsection{Principal Component Approach}
-    Origin: when $ m=p $, factor decomposition reduces to spectrum(PC) decomposition.(At the same time $ \Psi  $ can be taken $ 0 $.)
+    Origin: when $ m=p $, factor decomposition reduces to spectrum (PC) decomposition.(At the same time $ \Psi  $ can be taken $ 0 $.)
     \begin{equation}
         \begin{aligned}
         X=&LF+\varepsilon =PY &\Rightarrow \Psi &=0\\
@@ -1448,10 +1455,11 @@
         \end{bmatrix} 
     \end{equation}
     
-    find a few condensed variable to measure their similarity.
+    find a few condensed variables to measure their similarity.
     
     
 \subsection{Canonical Variate Pair}
+\index{Canonical Variate Pair}
     By using the linear combination, we can construct a pair of vector $ \mathop{a}\limits_{p\times 1 }  $ and $ \mathop{b}\limits_{q\times 1}  $ such that $ corr(a'X^{(1)},b'X^{(2)}) $ large, i.e.
     \begin{equation}\label{EqaFirstCanonicalVariatePair}
         \{a,b\}=\mathop{\arg\max}\limits_{a,b\neq 0}\dfrac{a'\Sigma _{12}b}{\sqrt{a'\Sigma _{11}a}\sqrt{b'\Sigma _{22}b}}  
@@ -1544,12 +1552,13 @@
 
 
 \section{Discriminant Analysis}\label{SubSectionDiscriminantAnalysis}
-    \index{DA (Discriminant Analysis)}
+    \index{Discriminant Analysis}
     Key idea of DA: for $ \mathop{X}\limits_{n\times p}  $ with an extra column labeling the classification, we want to determine a rule to assign new objects. More specifically, determine the classification region $ R_i $ for each class $ \pi_i $.
 
+    More on this topic see \autoref{SubSectionBasicClassificationModel} and \autoref{SubSectionSupportVectorMachine}.
 \subsection{Classification Criterion}
 \begin{itemize}[topsep=2pt,itemsep=2pt]
-    \item Two-category classification case:Each row of $ X $ is labeled in $ \pi_1 $ or $ \pi_2 $, for two-category, only one of $ R_1 $, $ R_2 $ is needed.
+    \item Two-category classification case: Each row of $ X $ is labeled in $ \pi_1 $ or $ \pi_2 $, for two-category, only one of $ R_1 $, $ R_2 $ is needed.
 
     Some basic concept in classification model:
     \begin{itemize}[topsep=2pt,itemsep=2pt]
@@ -1557,6 +1566,7 @@
         \item Penalty for misclassification $ c(i|j) $, $ i,j=1,2 $: cost if a $ \pi_j $ object is classified in $ R_i $.
         \item Conditional Probability $ \mathbb{P}(i|j) $, $ i,j=1,2 $: probability that a $ \pi_j $ object falls in region $ R_i $
     \end{itemize}
+\end{itemize}
 
     \begin{point}
 Determination Criterion:
@@ -1585,12 +1595,13 @@ Determination Criterion:
     
     Also equivalent to $ \mathrm{ECM} $ for $ c(1|2)=c(2|1) $
 \end{itemize}
-    \item Here only introduce ECM: $ \{R_i\}=\arg\min\mathrm{ECM} $
+    
+    Here only introduce ECM: $ \{R_i\}=\arg\min\mathrm{ECM} $
     \begin{align}
         \mathrm{ECM}(i)=&\sum_{j\neq i}c(j|i)\mathbb{P}(j|i)\\
         \mathrm{ECM}=&\sum_{i=1}^gp_i\mathrm{ECM}_i=\sum_{i=1}^g\sum_{j\neq i} c(j|i)p(j|i)p_i
     \end{align}
-\end{itemize}
+
 
     
     
@@ -1692,6 +1703,8 @@ Determination Criterion:
     \index{Clustering Analysis}
     Key idea of CA: Group a collection of data according to  similarity and relation of objects.
 
+    More about this topic see \autoref{SubSectionStatLearningClustering}.
+
 \subsection{Agglomerative Clustering Algorithm}
     \index{Agglomerative Clustering Algorithm}\index{Hierarchical Clustering}
 
@@ -1731,14 +1744,14 @@ Determination Criterion:
 \end{itemize}
     \item Location choice of cluster:    
 
-    \begin{itemize}[topsep=2pt,itemsep=2pt]
+    \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item Complete link: $ \max D(a\in A,b\in B) $;
         \item Single link: $ \min D(a\in A,b\in B) $;
         \item Centroid distance: $ D(A\,\mathrm{centroid},B\,\mathrm{centroid}) $;
         \item Group average: $ \langle D(a\in A,b\in B)\rangle $
     \end{itemize}
     \item Note: pros-and-cons of agglomerative clustering algorithm
-    \begin{itemize}[topsep=2pt,itemsep=2pt]
+    \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item No assumptions for final $ k $ needed;
         \item Intuitive display of relations;
         \item Large computational requirement: $ \sim O(n^3) $;
@@ -1755,7 +1768,7 @@ Determination Criterion:
 
 
 \subsection{$ K $-Means Clustering Algorithm}
-    \index{k-Means Clustering Algorithm@$ k $-Means Clustering Algorithm}
+    \index{k-Means Clustering Algorithm@$ K $-Means Clustering Algorithm}
     Assume we have a preset number $ K $ of clusters , we can use $ K $-means clustering.
 \begin{algorithm}{$ K $-Means Clustering}
     \begin{enumerate}[topsep=2pt,itemsep=2pt]
@@ -1772,7 +1785,7 @@ Determination Criterion:
             \item Classify each $ i $ point to the nearest centroid cluster;
             \item Re-calculate the centroid of new $ K $ clusters;
         \end{enumerate}
-        \item Repeat until convergence.(Convergence criterion can be e.g. $ <\sum_i D(i\in g_l,l)>\to \mathrm{const} $)
+        \item Repeat until convergence.(Convergence criterion can be e.g. $ \langle\sum_i D(i\in g_l,l)\rangle\to \mathrm{const} $)
     \end{enumerate}
 \end{algorithm}
     
@@ -1781,9 +1794,9 @@ Determination Criterion:
 
 
 
-Note: pros­and­cons of $ K $-Means clustering algorithm
+Note: pros ­and­ cons of $ K $-Means clustering algorithm:
 \begin{itemize}[topsep=2pt,itemsep=2pt]
-    \item Efficient:$ \sim O(n) $;
+    \item Efficient: $ \sim O(n) $;
     \item Sensitive to outliers;
     \item Ineffective for non-convex shapes.
 \end{itemize}
@@ -1792,7 +1805,7 @@ Note: pros­and­cons of $ K $-Means clustering algorithm
 
 
 \subsection{Gaussian Mixture Model with Expectation Maximization Algorithm}\label{SubSubSectionEMAlgorithmForGMM}
-\index{E-M Algorithm (Expectation Maximization Algorithm)}
+\index{EM Algorithm (Expectation Maximization Algorithm)}
     % We can also label each object, then conduct discriminant analysis (e.g. QDA).
 
     %  Assumption and notation:  
@@ -1819,7 +1832,7 @@ Note: pros­and­cons of $ K $-Means clustering algorithm
 \end{align}
     Lagrange Multiplier: Extreme value $ \mathop{\arg\max}\limits_{\theta }Q(\theta |\theta ^{(t)})  $ with constraint $ \sum_{l=1}^K \pi_l=1 $ requires 
     \begin{equation}
-         \dfrac{\partial^{}  Q(\theta |\theta ^{(t)})}{\partial \mu _l^{}}=0\quad \dfrac{\partial^{}  Q(\theta |\theta ^{(t)})}{\partial \Sigma ^{-1}_l}=0 \quad \dfrac{\partial^{}  Q(\theta |\theta ^{(t)})+\lambda (\sum_{j=1}^K\pi_l-1)}{\partial \pi_j^{}}=0,\quad \forall l=1,2,\ldots,K
+         \dfrac{\partial^{}  Q(\theta |\theta ^{(t)})}{\partial \mu _l^{}}=0\quad \dfrac{\partial^{}  Q(\theta |\theta ^{(t)})}{\partial \Sigma ^{-1}_l}=0 \quad \dfrac{\partial^{}  Q(\theta |\theta ^{(t)})+\lambda (\sum_{l=1}^K\pi_l-1)}{\partial \pi_l^{}}=0,\quad \forall l=1,2,\ldots,K
     \end{equation}
     
     Result:

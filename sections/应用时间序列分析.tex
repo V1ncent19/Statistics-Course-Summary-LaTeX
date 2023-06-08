@@ -15,9 +15,9 @@
     \end{equation}
 
     and actual data of time series, i.e. times series data is called a \textbf{Realization}  of time series, denoted\footnote{A note on $ T\subset \mathcal{T} $: actually $ T $ has to be discrete beacuse it is a sample of $ \mathcal{T} $. while $ \mathcal{T} $ is not necessarily defined as discrete.}
-    \[
+    \begin{align}
         \{y_t\},\,t\in  T\subset\mathcal{T}
-    \]
+    \end{align}
     e.g. in forecasting task, $ T $ encodes history. In this chapter we usually focus on easier case of arithmetic progression $ T=\{1,2,\dots,N\} $, or at least numeric orderal sequence.
 
     Time Series Analysis (TSA)\index{TSA (Time Series Analysis)}: Analysis on time series data to extract meaningful statistics/other characteristics. Task of TSA includes:
@@ -62,7 +62,7 @@
     
         and we could model $ T_\tau $, $ S_{\tau} $, $ X_\tau $ separately. The focus is the modelling of random term $ X_t $, which we expect to be `stationarily random' through time. (Usually we model this part also by ARMA model)
 
-        \item Exponential Smoothing Model: Use weighted average over history to predict future.
+        \item Exponential Smoothing Model: Use weighted average over history to predict future.\index{Exponential Smoothing Model}
 
         \item ARIMA Model: The main focus of this chapter.
     \end{itemize}
@@ -170,7 +170,7 @@
             \text{ACF: }\rho  _{t,s}\equiv &corr(X_t,X_s)=\dfrac{\gamma _{t,s}}{\sqrt[]{\gamma _{t,t}\gamma _{s,s}}},& \mathcal{T}\times \mathcal{T}\mapsto& [-1,1]
         \end{align}
 
-        \item Stationarity: Stationarity is a measure that the `correlation structure of stochastic process looks the same' at any time $ t $, i.e. is stationary through time.
+        \item Stationarity\index{Stationarity}: Stationarity is a measure that the `correlation structure of stochastic process looks the same' at any time $ t $, i.e. is stationary through time.
         \begin{itemize}[topsep=2pt,itemsep=0pt]
             \item Weakly Stationary (WS)\index{WS (Weakly Stationary)}: given $ \mathbb{E}\left( X_t^2 \right) < \infty $, has const $ \mathbb{E}\left[  \right]  $ and $ cov  $ (independent of time)
             \begin{align}
@@ -219,14 +219,14 @@
             \phi _{kk}=&corr\big(X_t-L(X_t|X_{t+1},\ldots,X_{t+k-1}),X_{t+k}-L(X_{t+k}|X_{t+1},\ldots,X_{t+k-1})\big),\quad k\geq 2
         \end{align}
 
-        where $ L(X_{\tau}|X_{t+1},\ldots,X_{t+k-1}) $ is the \textbf{Best Linear Estimation}  of linear model 
+        where $ L(X_{\tau}|X_{t+1},\ldots,X_{t+k-1}) $ is the \textbf{Best Linear Estimation}\index{Best Linear Estimator}  of linear model 
         \begin{align}
              X_\tau = \beta _0+\beta _1X_{t+1}+\ldots+\beta _{k-1}X_{t+k-1}+\epsilon
         \end{align}
         
            deduction:
         \begin{itemize}[topsep=2pt,itemsep=0pt]
-            \item Best MMSE linear estimation $ \hat{X}_\tau \equiv L(X_\tau|X_{t+1},\ldots,X_{t+k-1}) $ satisfies \footnote{Detailed theory about MMSE and linear estimator see \autoref{SubSecMMSE}, \hyperlink{MMSELinear}{Linear MMSEstimator}.}
+            \item \index{MMSE (Minimum Mean Squared Estimator)}Best MMSE linear estimation $ \hat{X}_\tau \equiv L(X_\tau|X_{t+1},\ldots,X_{t+k-1}) $ satisfies \footnote{Detailed theory about MMSE and linear estimator see \autoref{SubSecMMSE}, \hyperlink{MMSELinear}{Linear MMSEstimator}.}
             \begin{equation}
                 \{\beta _0,\beta \}=\mathop{\arg\min}\limits_{\beta _0,\beta }  \mathbb{E}\left( \hat{X}_\tau-\beta _0-\sum_{j=1}^{k-1}\beta _jX_{t+j} \right)  ^2
             \end{equation}
@@ -345,9 +345,9 @@
         \end{equation}
 
         $ \hat{\mu } $ is the unbiased, consistent estimator, with
-        \[
+        \begin{align}
             \sqrt[]{n}(\hat{\mu }-\mu )\xrightarrow[]{\mathrm{d}} N(0,\sigma ^2) 
-        \]
+        \end{align}
         
         an estimator using spectrum:
         \begin{align}
@@ -404,7 +404,7 @@
 \subsection{Backshift Operator and Difference Equation}
 
 \begin{point}
-    Backshift Operator $ \mathscr{B}  $
+    Backshift Operator $ \mathscr{B}  $\index{Backshift Operator}
 \end{point}
 
     For clearer notation of ARMA and induce the solution, we first introduce backshift operator $ \mathscr{B}  $ of time series: given time series $ \{X_t\} $\footnote{Backshift operator could be used to construct difference operator $ \Delta =(1-\mathscr{B} ) $, e.g.
@@ -440,7 +440,7 @@
     Difference Equation
 \end{point}
 
-    $ p^\mathrm{th}  $ order ordinary difference equation:
+    $ p^\mathrm{th}  $ order ordinary difference equation:\index{ODE (Ordinary Difference Equation)}
     \begin{equation}
         X_t-\left[a_1X_{t-1}+a_2X_{t-2}+\ldots+a_pX_{t-p}\right]=0 
     \end{equation}
@@ -455,7 +455,7 @@
     
     similar to ODE, we can construct general solution from $ \zeta _j $, and particular solution.\footnote{Cases for multiple root see \url{https://www.math.pku.edu.cn/teachers/lidf/course/atsa/atsanotes/html/_atsanotes/atsa-lagdiff.html}}
 
-\subsection{AR Model}
+\subsection{AR$ (p) $ Model}
 \index{AR Model (Auto-Regression Model)}
     Auto-Regression model (of order $ p $) contains ($ p^\mathrm{th} $ order) backshift on $ X_t $:
     \begin{equation}
@@ -511,7 +511,7 @@
 
 
 
-        write in matrix form to get Yule-Walker Equation:
+        written in matrix form to get Yule-Walker Equation:
         
         \begin{align}
             \begin{bmatrix}
@@ -557,7 +557,7 @@
             (\phi _1,\ldots,\phi _p,0,\ldots,0)=(\phi _{k,1},\ldots,\phi _{k,p},\phi _{k,p+1},\ldots,\phi _{k,k})
         \end{align}
 
-        (Note that $ \phi _{p,j}=\phi _{p+1,j}=\phi _{p+2,j}=\ldots $ using Levinson-Durbin' recursion \autoref{EqaLevinsonDurbin}).       
+        (Note that $ \phi _{p,j}=\phi _{p+1,j}=\phi _{p+2,j}=\ldots $ using Levinson-Durbin' recursion at \autoref{EqaLevinsonDurbin}).       
         
        
     \end{itemize}
@@ -629,7 +629,7 @@
         
 
 
-\subsection{MA Model}
+\subsection{MA$ (q) $ Model}
 \index{MA Model (Moving-Average Model)}
 
     Moving-Average model (of order$ q $) contains ($ q^\mathrm{th}  $ order) backshift on $ \varepsilon _t $:
@@ -680,7 +680,7 @@
 
     
 
-\subsection{ARMA Model}
+\subsection{ARMA$ (p,q) $ Model}
     Auto-Regerssion-Moving-Average model\index{ARMA Model} ARMA$ (p,q) $ in the form of 
     \begin{align}
         &\phi (\mathscr{B} )X_t=\theta (\mathscr{B} )\varepsilon _t\\
@@ -709,7 +709,7 @@
         
     \end{itemize}
     
-\subsection{ARIMA Model}
+\subsection{ARIMA$ (p,d,q) $ Model}
     ARIMA$ (p,d,q) $ model\index{ARIMA Model} adds an difference term $ \Delta ^d=(1-\mathscr{B} )^d $ in ARMA$ (p,q) $:
     \begin{align}
         \phi (\mathscr{B} )(1-\mathscr{B} )^dX_t=\theta (\mathscr{B} )
@@ -776,9 +776,9 @@
     \end{align}
         
     then seasonal term is naturally estimated by 
-    \[
+    \begin{align}
         \hat{S}_t=y_t- \hat{T}_t
-    \]
+    \end{align}
     
 \subsection{Seasonal ARIMA Model}\label{SubSubSectionSARIMA}
     Multiplicative seasonal ARIMA model with period $ s $ of $ Y_t $:\index{SARIMA (Seasonal ARIMA Model)} ARIMA$ (p,d,q)\times (P,D,Q)_s $
@@ -803,7 +803,7 @@
     \end{enumerate}
     
 \subsection{Order Determination of ARIMA Model}
-
+\index{Order Determination}
 \begin{point}
     Order Determination of AR$ (p) $
 \end{point}
@@ -859,9 +859,9 @@
     \end{align}
     
     i.e. test statistics for MA$ (q) $:
-    \[
+    \begin{align}
         T_q(m)=\dfrac{\sqrt[]{n}\hat{\rho }_m}{\sqrt[]{1+2\sum_{j=1}^q\hat{\rho }_j^2}}\xrightarrow[]{\mathrm{d}} N(0,1),\quad H_0:\rho _m=0, \quad m>q 
-    \]
+    \end{align}
     
     \item AIC/BIC method: use $\hat{q}= \arg\min \mathrm{AIC}(m)  $ or $ \arg\min\mathrm{BIC}(m)  $:
     \begin{align}
@@ -887,7 +887,7 @@
     
 
 \subsection{Outlier Detection}
-    Here we introduce two kinds of outlier in time series: Additive Outlier (AO)\index{AO (Additive Outlier)} and Innovative Outlier (IO)\index{IO (Innovative Outlier)}.
+    Here we introduce two kinds of outlier in time series: Additive Outlier (AO)\index{AO (Additive Outlier)} and Innovative Outlier (IO)\index{IO (Innovative Outlier)}\index{Outlier}.
     
 \begin{point}
     Notation for Outlier
@@ -895,19 +895,19 @@
 
 \begin{itemize}[topsep=2pt,itemsep=0pt]
     \item Step function in time series: a rise of value $ 1 $ at time $ \tau $:
-    \[
+    \begin{align}
          S_t^{(\tau)}=\begin{cases}
              0,& t<\tau\\
              1,& t\geq \tau
          \end{cases}
-    \]
-    \item Pulse function in time series: a pulse of value $ 1 $ at time $ \tau $:
-    \[
+    \end{align}
+    \item Pulse function\index{Pulse Function} in time series: a pulse of value $ 1 $ at time $ \tau $:
+    \begin{align}
         P_t^{(\tau)}=(1-\mathscr{B} ) S_t^{(\tau)}=\begin{cases}
             0,&t\neq \tau\\
             1,&t=\tau
         \end{cases}
-    \]
+    \end{align}
 
     
 \end{itemize}
@@ -919,9 +919,9 @@
 \end{point}
 
     A pulse outlier of $ y $ at $ \tau $:
-    \[
+    \begin{align}
         \tilde{y}_t=y_t+\omega _A P_t^{(\tau)} 
-    \]
+    \end{align}
 
     the outlier would not influence $ t\neq \tau $, thus is additive.
 
@@ -931,9 +931,9 @@
 
     A pulse outlier of $ \varepsilon  $ at $ \tau $:
     
-    \[
+    \begin{align}
         \varepsilon _\tau =\varepsilon _t+\omega _I 
-    \]
+    \end{align}
 
     $ t\neq \tau $ would also be influenced by this outlier.
     
@@ -945,6 +945,7 @@
 
     
 \section{Forecast of Time Series}
+\index{Forecast}
     % A time series can be decomposed into `TS = Trend + Season + Random', i.e.
     % \begin{equation}
     %     Y_\tau=T_\tau+S_\tau+R_\tau 

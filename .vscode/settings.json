@@ -204,7 +204,7 @@
       "vscodeGoogleTranslate.proxyHost": "120.0.0.1",
       "vscodeGoogleTranslate.proxyPort": "7890",
       "editor.accessibilitySupport": "off",
-      "workbench.editor.enablePreview": false,
+      "workbench.editor.enablePreview": true,
       "r.alwaysUseActiveTerminal": true,
       "r.bracketedPaste": true,
       "[python]": {

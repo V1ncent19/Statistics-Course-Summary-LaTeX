@@ -7,7 +7,7 @@
     In this course, some key formulations/theorem in machine learning are deduced, together with core principles illustrated.
 
 \begin{point}
-    What is Machine Learning?
+    What is Machine Learning?\index{Machine Learning}
 \end{point}
 
 \begin{quote}
@@ -16,82 +16,82 @@
 
 Examples of Machine Learning:
     \begin{itemize}[topsep=2pt,itemsep=0pt]
-        \item Linear/Logistic Regression (Linear Model)
-        \item Decision Tree
-        \item Support Vector Machine
-        \item Clustering
-        \item Bayesian Network
-        \item Neural Network
+        \item Linear/Logistic Regression (Linear Model), \autoref{SecLinearRegressionAnalysis}, \autoref{SubSectionRegressionAsALearningMethod};
+        \item Decision Tree, \autoref{SubSectionStatLearningTreeMethod};
+        \item Support Vector Machine, \autoref{SubSectionSupportVectorMachine};
+        \item Clustering, \autoref{SubSectionClusteringAnalysis}, \autoref{SubSectionStatLearningClustering};
+        \item Bayesian Network, \autoref{SubSectionPearlCausalBayesianFramework};
+        \item Neural Network, \autoref{SubSectionNeuralNetwork};
         \item Conditional Random Field
         \item etc.
 \end{itemize}
 
     This section will cover some of the methods above in a machine learning perspective.
 
-\section{Linear Model}
+\section{Linear Model}\label{SubSectionRegressionAsALearningMethod}
     Linear model is the basic model in statistics, see \autoref{SecLinearRegressionAnalysis}. 
 
 \subsection{Linear Model in Machine Learning Perspective}
     In machine learning field, key feature of linear model is its affine form of variable dependence:
-    \[
+    \begin{align}
         Y=f(X)+\varepsilon = \tilde{f}_\beta (X'\beta )+\varepsilon  
-    \]
+    \end{align}
 
     where usually $ X=(1,X_{1},X_{2},\ldots,X_{p}) $, $ \beta =(\beta _0,\beta _{1},\beta _{2},\ldots,\beta _{p})  $.\footnote{Some materials use  $ X=(X_{1},X_{2},\ldots,X_{p}) $, $ \beta =(\beta _{1},\beta _{2},\ldots,\beta _{p})  $, and the affine dependence is $ \tilde{f}(\beta _0+X'\beta ) $} Some example of linear model:
     \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item Linear Regression:
-        \[
+        \begin{align}
             Y=\beta _0 +\beta _1x_1+\ldots \beta _px_p+\varepsilon =X'\beta +\varepsilon 
-        \]
-        \item General Linear Model:
-        \[
+        \end{align}
+        \item Generalized Linear Model\index{Generalized Linear Model}:
+        \begin{align}
             Y\sim f(\theta (X'\beta ))  
-        \]
+        \end{align}
 
         in this framework, 
         \begin{itemize}[topsep=2pt,itemsep=0pt]
             \item Linear regression:
-            \[
+            \begin{align}
                 Y\sim N(X'\beta ,\sigma ^2) 
-            \]
+            \end{align}
             \item Logistic regression:
-            \[
+            \begin{align}
                 Y\sim \mathrm{Bernoulli}(\mathrm{logistic}(X'\beta ) )  
-            \]
+            \end{align}
         \end{itemize}
     \end{itemize}
     
   
 \subsection{Linear Regression}
     Linear Regression:
-    \[
+    \begin{align}
         Y=\beta _0 +\beta _1x_1+\ldots \beta _px_p+\varepsilon =X'\beta +\varepsilon ,\quad \varepsilon \sim N(0,\sigma ^2)
-    \]
+    \end{align}
     
     usually use Squared Error Loss to eatimate $ (\beta ,\sigma ^2) $
-    \[
+    \begin{align}
         \mathcal{L}(Y,\hat{f}(X))=\left(Y-\hat{f}(X)\right)^2=\left(Y-X\hat{\beta } \right)^2 
-    \]
+    \end{align}
 
     LSE estimator (where $ Y $ and $ X $ imply corresponding sample vector/matrix), more detail see \autoref{SubSectionMultivariateLinearRegressionModel}:
-    \[
+    \begin{align}
         \dfrac{\partial^{} \mathcal{L}}{\partial \beta ^{}}=0\Rightarrow \hat{\beta }=(X'X)^{-1}X'Y 
-    \]
+    \end{align}
     
     \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item Predict:
-        \[
+        \begin{align}
             \hat{Y}=X\beta =X(X'X)^{-1}X'Y 
-        \]
+        \end{align}
         \item Hat Matrix:
-        \[
+        \begin{align}
             H=P_X\equiv  X(X'X)^{-1}X'
-        \]
+        \end{align}
 
         idempotent and symmetry
-        \[
+        \begin{align}
             H^2=H,\quad H=H' 
-        \]
+        \end{align}
         \item Properties of $ \hat{\beta },\,\hat{\sigma ^2} $:\footnote{Definition of $ \mathrm{VIF}_j  $ see \autoref{SubSubSectionDiagnosticsToMultiCollinearity}}
         \begin{align}
             cov(\hat{\beta })=&cov\left((X'X)^{-1}X'(X\beta +\varepsilon )\right)=(X'X)^{-1}\sigma ^2\\
@@ -102,25 +102,26 @@ Examples of Machine Learning:
     \end{itemize}
     
     
-\subsection{Normalization Methods}
+\subsection{Regularization Methods}
+\index{Regularization}
     In machine learning topic we would focus more on model generalization ability, \index{Generalization Ability}so that the model can perform better on reality problems. In linear regression, we usually use normalization methods.
 
     Basically linear model uses SE loss:
-    \[
+    \begin{align}
         \mathcal{L}=\sum_{i=1}^n(y_i-\beta _0-\beta 'x_i)^2=\sum_{i=1}^n(y_i-x_i'\beta )^2
-    \]
+    \end{align}
 
     we can put various normalize term (penalty) in loss or put constraint on $ \beta  $: (these two methods are equivalent in many cases)
     \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item \index{Ridge Regression}Ridge Regression/$ \ell_2 $ Penalty/Tikhonov Regularization:\footnote{Recall for $ \ell_p $ norm: for $ n $-dim vector $ \vec{v}=(v_{1},v_{2},\ldots,v_{n})  $
-        \[
+        \begin{align}
              \Vert v \Vert_p=\left(\sum_{i=1}^m|v_i|^p\right)^{1/p} 
-        \]
+        \end{align}
         
         }
-        \[
+        \begin{align}
             \hat{\beta }^\mathrm{ridge}=\mathop{\arg\min}\limits_{\beta } \sum_{i=1}^n(y_i-x_i'\beta )^2+ \lambda \Vert \beta  \Vert _2^2 
-        \]
+        \end{align}
 
         or equivalent form 
         \begin{align}
@@ -131,15 +132,18 @@ Examples of Machine Learning:
         in either case, $ \lambda  $ or $ s $ is hyper-parameter.
 
         Ridge regression has closed form solution
-        \[
+        \begin{align}
             \hat{\beta }^\mathrm{ridge}=(X'X+\lambda I)^{-1}X'Y  
-        \]
+        \end{align}
 
         Intuitively speaking, ridge regression help shrink $ \hat{\beta } $ by an non-zero factor.
+
+        A Bayesian point of view for Ridge regreession see \autoref{SubSubSectionBayesianLinearModel}
+        
         \item LASSO/$ \ell_1 $ Penalty:\index{LASSO (Least Absolute Shrinkage and Selection Operator)}
-        \[
+        \begin{align}
             \hat{\beta }^\mathrm{LASSO}=\mathop{\arg\min}\limits_{\beta } \sum_{i=1}^n(y_i-x_i'\beta )^2+ \lambda \Vert \beta  \Vert _1 
-        \]
+        \end{align}
         or equivalent form 
         \begin{align}
             \hat{\beta }^\mathrm{LASSO}=\mathop{\arg\min}\limits_{\beta } \sum_{i=1}^n(y_i-x_i'\beta )^2 \\
@@ -149,9 +153,9 @@ Examples of Machine Learning:
         LASSO help shrink significantly large coefficients and truncate small coefficients.
         
         \item Generalized $ \ell_p $ norm penalty: 
-        \[
+        \begin{align}
             \hat{\beta }^\mathrm{ridge}=\mathop{\arg\min}\limits_{\beta } \sum_{i=1}^n(y_i-x_i'\beta )^2+ \lambda \Vert \beta  \Vert _2^2 
-        \]
+        \end{align}
 
         or equivalent form 
         \begin{align}
@@ -160,9 +164,9 @@ Examples of Machine Learning:
         \end{align}
         
         \item Elastic Net: \index{Elastic Net}
-        \[
+        \begin{align}
             \hat{\beta }=\mathop{\arg\min}\limits_{\beta }\Vert Y-X\beta  \Vert _2^2+\lambda _1\Vert \beta  \Vert _1+\lambda _2\Vert \beta  \Vert _2^2  
-        \]
+        \end{align}
         
         equivalent form:       
         
@@ -176,17 +180,17 @@ Examples of Machine Learning:
         A note on elastic net: the boundary of elastic net $ \lambda _1\Vert \beta  \Vert _1+\lambda _2\Vert \beta  \Vert _2^2  =\mathrm{const} $ is between $ \ell_1 $ boundary and $ \ell_2 $ boundary. Both the variable selection feature of $ \ell_1 $ and the differnetiable feature of $ \ell_2 $ are partially maintained.
         
         \item Adaptive LASSO:\index{Adaptive LASSO}
-        \[
+        \begin{align}
             \hat{\beta}=\mathop{\arg\min}\limits_{\beta } \sum_{i=1}^n\left(y_u-x_i'\beta \right) ^2+\lambda \sum_{j=1}^p\dfrac{|\beta _j|}{|\hat{\beta }_j^{\mathrm{OLS}} |}
-        \]
-        \item Non-negative Garrote method.
-        \item SCAD
+        \end{align}
+        \item Non-negative Garrote method*
+        \item SCAD*
     \end{itemize}
     
         
     
     
-\section{Basic Classification Model}
+\section{Basic Classification Model}\label{SubSectionBasicClassificationModel}
     Denote: Dataset $\mathcal{D}=\{ (x_i,y_i) $, $ i=1,2,\ldots,N \}$, $ x_i=[x_{i1},x_{i2},\ldots,x_{ip}] $, with reponse $ y_i\in\mathcal{C}=\{c_1,c_2,\ldots ,c_K\} $ as a $ K $-classification problem. When $ K=|\mathcal{C}|=2 $ for binary classification, in this case we usually denote $ \mathcal{C}_{01}=\{0,1\}$.
 
     Target is to predict/classify $ Y $ from $ X $
@@ -198,15 +202,15 @@ Examples of Machine Learning:
 
 \index{Classification Metrics}
 \begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item Accuracy
+    \item Accuracy\index{Accuracy}
     \begin{align}
         \mathbb{P}\left( \hat{Y}=Y \right) \xrightarrow[]{\hat{ }} \dfrac{\sum_{i=1}^N\mathbb{I}(\hat{y}_i=y_i)}{N}  
     \end{align}
-    \item Error Rate/ Misclassification Rate
+    \item Error Rate/ Misclassification Rate\index{Error Rate}\index{Misclassification Rate}
     \begin{align}
         \mathbb{P}\left( \hat{Y}\neq Y \right) \xrightarrow[]{\hat{ }} \dfrac{\sum_{i=1}^N\mathbb{I}(\hat{y}_i\neq y_i)}{N}  
     \end{align}
-    \item prevalence for binary classification
+    \item Prevalence for binary classification\index{Prevalence}
     \begin{align}
         \mathbb{P}\left( Y=1 \right)  \xrightarrow[]{\hat{ }} \dfrac{\sum_{i=1}^N y_i}{N}
     \end{align}
@@ -238,42 +242,42 @@ Examples of Machine Learning:
 
 Metrics:
 \begin{itemize}[topsep=2pt,itemsep=0pt]
-    \item True Positive Rate (TPR)/ Sensitivity/ Recall:
+    \item True Positive Rate (TPR)/ Sensitivity/ Recall:\index{TPR (True Positive Rate)}\index{Sensitivity}\index{Recall}
     \begin{align}
         \mathbb{P}\left( \hat{Y}=1|Y=1 \right)\xrightarrow[]{\hat{ }}\dfrac{\sum_{i=1}^N\mathbb{I}(\hat{y}_i=1)\cdot\mathbb{I}(y_i=1)}{\sum_{i=1}^N\mathbb{I}(y_i=1)} =\dfrac{n_{11}}{n_{11}+n_{10}}
     \end{align}
-    \item False Positive Rate (FPR):
+    \item False Positive Rate (FPR):\index{FPR (False Positive Rate)}
     \begin{align}
         \mathbb{P}\left( \hat{Y}=1|Y=0 \right)\xrightarrow[]{\hat{ }}\dfrac{\sum_{i=1}^N\mathbb{I}(\hat{y}_i=1)\cdot\mathbb{I}(y_i=0)}{\sum_{i=1}^N\mathbb{I}(y_i=0)} =\dfrac{n_{01}}{n_{01}+n_{00}}
     \end{align}
-    \item True Negatie Rate (TNR)/ Specific (SPC):
+    \item True Negatie Rate (TNR)/ Specific (SPC):\index{TNR (True Negatie Rate)}
     \begin{align}
         \mathbb{P}\left( \hat{Y}=0|Y=0 \right)\xrightarrow[]{\hat{ }}\dfrac{\sum_{i=1}^N\mathbb{I}(\hat{y}_i=0)\cdot\mathbb{I}(y_i=0)}{\sum_{i=1}^N\mathbb{I}(y_i=0)} =\dfrac{n_{00}}{n_{01}+n_{00}} 
     \end{align}
-    \item False Negative Rate (FNR):
+    \item False Negative Rate (FNR):\index{FNR (False Negative Rate)}
     \begin{align}
         \mathbb{P}\left( \hat{Y}=0|Y=1 \right)\xrightarrow[]{\hat{ }}\dfrac{\sum_{i=1}^N\mathbb{I}(\hat{y}_i=0)\cdot\mathbb{I}(y_i=1)}{\sum_{i=1}^N\mathbb{I}(y_i=1)} =\dfrac{n_{10}}{n_{11}+n_{10}}
     \end{align}
     \item 
-    \item Positive Predictive Value (PPV)/ Precision:
+    \item Positive Predictive Value (PPV)/ Precision:\index{Precision}\index{PPV (Positive Predictive Value)}
     \begin{align}
         \mathbb{P}\left( Y=1|\hat{Y}=1 \right)\xrightarrow[]{\hat{ }}\dfrac{\sum_{i=1}^N\mathbb{I}(\hat{y}_i=1)\cdot\mathbb{I}(y_i=1)}{\sum_{i=1}^N\mathbb{I}(\hat{y}_i=1)} =\dfrac{n_{11}}{n_{11}+n_{01}} 
     \end{align}
-    \item False Discovery Rate (FDR):
+    \item False Discovery Rate (FDR):\index{FDR (False Discovery Rate)}
     \begin{align}
         \mathbb{P}\left( Y=0|\hat{Y}=1 \right)\xrightarrow[]{\hat{ }}\dfrac{\sum_{i=1}^N\mathbb{I}(\hat{y}_i=1)\cdot\mathbb{I}(y_i=0)}{\sum_{i=1}^N\mathbb{I}(\hat{y}_i=1)} =\dfrac{n_{01}}{n_{11}+n_{01}} 
     \end{align}
-    \item Negative Predictive Value (NPV):
+    \item Negative Predictive Value (NPV):\index{NPV (Negative Predictive Value)}
     \begin{align}
         \mathbb{P}\left( Y=0|\hat{Y}=0 \right)\xrightarrow[]{\hat{ }}\dfrac{\sum_{i=1}^N\mathbb{I}(\hat{y}_i=0)\cdot\mathbb{I}(y_i=0)}{\sum_{i=1}^N\mathbb{I}(\hat{y}_i=0)} =\dfrac{n_{00}}{n_{10}+n_{00}} 
     \end{align}
-    \item False Omission Rate (FOR):
+    \item False Omission Rate (FOR):\index{FOR (False Omission Rate)}
     \begin{align}
         \mathbb{P}\left( Y=1|\hat{Y}=0 \right)\xrightarrow[]{\hat{ }}\dfrac{\sum_{i=1}^N\mathbb{I}(\hat{y}_i=0)\cdot\mathbb{I}(y_i=1)}{\sum_{i=1}^N\mathbb{I}(\hat{y}_i=0)} =\dfrac{n_{10}}{n_{10}+n_{00}} 
     \end{align}
 \end{itemize}
 
-    $ F_1 $ Score:
+    $ F_1 $ Score:\index{F1 Score@$ F_1 $ Score}
     \begin{align}
         F_1=2\dfrac{\mathrm{precision}\cdot\mathrm{recall}  }{\mathrm{precision}+\mathrm{recall}  } 
     \end{align}
@@ -307,11 +311,11 @@ Metrics:
 \subsection{Bayes Optimal Classifier}
 \index{Bayes Optimal Classifier}
 
-    Due to the randomness of class distribution, no classifier could reach 100\% accuracy, but there is a optimal classifier (if we really know the underlying distribution) to minimizie the expected loss:
+    Due to the randomness of class distribution, no classifier could reach 100\% accuracy, but there is an optimal classifier (if we really know the underlying distribution) to minimizie the expected loss:
     \begin{align}
-        \mathbb{E}\left( \mathcal{L} \right)=&\mathbb{E}_X\left( \sum_{k=1}^K\mathcal{L}(k,\hat{y}(X)) \right)\cdot \left\Vert Y=k|X \right\Vert    \\
+        \mathbb{E}_{Y,X\sim p_{Y,X}}\left( \mathcal{L} \right)=&\mathbb{E}_X\left( \sum_{k=1}^K\mathcal{L}(k,\hat{y}(X)) \right)\cdot \big\Vert Y=k|X \big\Vert    \\
         \Rightarrow \hat{y}(x)_{\mathrm{optimal} }=&\mathop{\arg\min}\limits_{j} \mathcal{L}(k,j)\cdot\mathbb{P}\left( Y=k|X=x \right)\\
-        \text{0/1 loss}=&\mathop{\arg\max}\limits_{j}\mathbb{P}\left( Y=j|X=x \right)   
+        (\text{if 0/1 loss})=&\mathop{\arg\max}\limits_{j}\mathbb{P}\left( Y=j|X=x \right)   
     \end{align}
     which is the Bayes Optimal Classifier $ \hat{y}(x)_{\mathrm{optimal} } $, its error rate is Bayes optimal rate.
     
@@ -339,7 +343,7 @@ Metrics:
     \end{align}
     
 \begin{point}
-    Discriminant Analysis
+    Discriminant Analysis\index{Discriminant Analysis}
 \end{point}
 
     Detail about discriminant analysis could be found in section \autoref{SubSectionDiscriminantAnalysis}. Here are some recaps:
@@ -446,14 +450,14 @@ glmnet(x, y, family="binomial", alpha, lambda) # with penalty
 
 
 
-\section{Support Vector Machine}
+\section{Support Vector Machine}\label{SubSectionSupportVectorMachine}
     Support vector machine (SVM)\index{SVM (Support Vector Machine)} classifier was one of the most successful classification model in $ 2010\pm $, mainly because of the kernel trick method in extending feature space.
 
     First we will consider the linear classification case, i.e. dataset $\mathcal{D}=\{ (\vec{x}_i,y_i) $, $ i=1,2,\ldots,N \}$ are devided by a linear boundary $ x'\beta +\beta _0 $, where label $ y_i\in\{1,-1\} $.
 
 \subsection{Derivation of Basic Optimize Problem}
 \begin{point}
-    Hard Margin SVM
+    Hard Margin SVM\index{Hard Margin SVM}
 \end{point}
 
 
@@ -466,9 +470,9 @@ glmnet(x, y, family="binomial", alpha, lambda) # with penalty
 \end{equation*}
 
     where $ M $ for `Margin', which indicates the distance of point from boundary. $  \mathrm{L.H.S.} $ of inequality is the distance from $ x_i $ to boundary.\footnote{\proof{ denote some point on $ x'\beta +\beta _0=0 $ as $ x_\perp $ (i.e. $ x_\perp'\beta +\beta _0=0 $), then the distance of $ x $ to boundary is the projection of $ x-x_\perp $ on unit normal vector $ \dfrac{\beta }{\Vert \beta  \Vert } $:
-    \[
+    \begin{align}
         d=\left|(x-x^*)' \dfrac{\beta }{\Vert \beta  \Vert }\right|=\dfrac{1}{\Vert \beta  \Vert }|x'\beta +\beta _0|
-    \]
+    \end{align}
 
     further because $ y_i $ varies at different sides of boundary:
     \begin{align}
@@ -476,9 +480,9 @@ glmnet(x, y, family="binomial", alpha, lambda) # with penalty
         y_i=-1:\,&x'\beta +\beta _0<0
     \end{align}
     we can replace the $ |\cdot| $ using label:
-    \[
+    \begin{align}
         d=\dfrac{1}{\Vert \beta  \Vert }y(x'\beta +\beta _0) 
-    \]}
+    \end{align}}
     }
 
     However note that the \textit{dof} of this problem is $ 1 $, i.e. all $ (\beta_0,\beta) \propto (\beta _0^*,\beta ^*) $ give the same result. We could omit this \textit{dof} by putting an extra constraint, here a convenient one is used: $ \Vert \beta  \Vert =\dfrac{1}{M} $. i.e.
@@ -490,7 +494,7 @@ glmnet(x, y, family="binomial", alpha, lambda) # with penalty
     \end{equation*}
 
 \begin{point}
-    Soft Margin SVM
+    Soft Margin SVM\index{Soft Margin SVM}
 \end{point}
 
     To tackle the case when $ y_i(x_i'\beta +\beta _0)\geq 1 $ cannot always been satisfied, use soft margin by inducing a `slack variable' $ \xi _i $ for each point, indicating the proportion of distance that the point enters the margin, see \autoref{FigSVMIllustration}
@@ -548,7 +552,7 @@ glmnet(x, y, family="binomial", alpha, lambda) # with penalty
     0<\hat{\alpha }_i<C:\,  &\hat{\xi }_0=0,\, y_i(x_i\hat{\beta }+\hat{\beta }_0)=1
 \end{align}
 
-    where all points $ \mathcal{I}^\mathrm{sv}:=  \{i^\mathrm{sv} \big|0<\hat{ \alpha }_{i^{\mathrm{sv} }}<C,\,\hat{\xi }_{i^\mathrm{sv} }=0 \} $ are called `\textbf{support vector}', that can be used to determine $ \beta _0 $:
+    where all points $ \mathcal{I}^\mathrm{sv}:=  \{i^\mathrm{sv} \big|0<\hat{ \alpha }_{i^{\mathrm{sv} }}<C,\,\hat{\xi }_{i^\mathrm{sv} }=0 \} $ are called `\textbf{support vector}', that can be used to determine $ \beta _0 $:\index{Support Vector}
 \begin{align}
     \hat{\beta }=&\sum_{i=1}^N\hat{\alpha }_iy_ix_i=\sum_{i\in\mathcal{I}^\mathrm{sv} }\hat{\alpha }_iy_ix_i\\
     \hat{\beta }_0=&y_{i^\mathrm{sv} }-x_{i^\mathrm{sv} }'\hat{\beta }
@@ -564,9 +568,9 @@ glmnet(x, y, family="binomial", alpha, lambda) # with penalty
     \end{align}
     
     in which $ [\,\cdot\,]_+\equiv \max\{0,\,\cdot\,\} $ is hinge loss\index{Hinge Loss}:
-    \[
+    \begin{align}
         \mathop{\arg\min}\limits_{\beta ,\beta _0}\sum_{i=1}^N\left[1-y_if(x_i)\right]_++\dfrac{\lambda }{2}\Vert \beta  \Vert ^2,\qquad \lambda =\dfrac{1}{C} ,\quad f(x_i)=\beta _0+x_i'\beta 
-    \]
+    \end{align}
     
     which is naturally in an $ \mathop{\arg\min}\limits_{f}\sum_{i=1}^N\mathcal{L}\left(x_i,y_i,f(x_i)\right)+\dfrac{\lambda }{2}\mathcal{P}(f(\,\cdot\,))  $ Loss+Penalty form.  
 
@@ -577,18 +581,18 @@ glmnet(x, y, family="binomial", alpha, lambda) # with penalty
 
 \section{Feature Expansion and Kernel Methods}
     Motivation: Map the data point $ x\in \mathcal{X}(e.g.\,=\mathbb{R}^p) $ to another feature space $ \mathcal{F}(e.g.\,=\mathbb{R}^M) $ (not necessarily a linear transform, usually $ M>p $, or just proper to describe the features). The mapping function lies in a Hilbert space $ \mathcal{H} $ of function:
-    \[
+    \begin{align}
         h(\,\cdot\,)=\left(h_1(\,\cdot\,),h_2(\,\cdot\,),\ldots,h_M(\,\cdot\,)\right)'\in \mathcal{H}:\, \mathcal{X} \to \mathcal{F}
-    \]
+    \end{align}
     
     and we can construct model in feature space.    
     
 \subsection{Reproducing Kernel Hilbert Space and The Representer Theorem}
 
     Based on the idea of feature space, make a step forward: the key focus of model is actually `measuring space structure by similarity between points' rather than having to define a feature space. i.e. describe similarity by a bi-linear \textbf{Kernel Function}\index{Kernel Function} 
-    \begin{align*}\label{EqaKernelFunction}
+    \begin{align}\label{EqaKernelFunction}
         K(x,x') \in \mathcal{X}\times \mathcal{X}\to \mathbb{R}
-    \end{align*}
+    \end{align}
         
     
 
@@ -603,7 +607,7 @@ glmnet(x, y, family="binomial", alpha, lambda) # with penalty
     \begin{align}
         \sum_{i,j=1}^n K(x_i,x_j)a_ia_j\geq 0,\quad \forall \{x_i\}_{i=1}^m,\{a_i\}_{i=1}^n,\quad \forall n\in\mathbb{Z}^+ 
     \end{align}
-    \item symmetry:
+    \item Symmetry:
     \begin{align}
         K(x,y)=K(y,x) 
     \end{align}
@@ -627,12 +631,13 @@ Eigenvalue $ \gamma _i $ and eigen function $ \phi _i(x) $ of Kernel:
         % =&\left\langle \sqrt[]{\gamma _i}\phi _i,\sqrt[]{\gamma _i}\phi _i\right\rangle 
     \end{align}
 
-    which is Mercer's Thm.:\index{Mercer's Theorem} Semi-positive definite symmetric kernel could be expressed as an inner product form. Such a form is also called the kernel trick\index{Kernel Trick} because it usually avoid calculating inner product in high dimensional space.
+    which is Mercer's Theorem:\index{Mercer's Theorem} Semi-positive definite symmetric kernel could be expressed as an inner product form. Such a form is also called the kernel trick because it usually avoid calculating inner product in high dimensional space.
     
 \begin{point}
     Reproducing Kernel Hilbert Space (RKHS)
 \end{point}
 \index{RKHS (Reproducing Kernel Hilbert Space)}
+\index{Hilbert Space}
     Now use set $ \{\phi _i\} $ as the orthonormal base to form a Hilbert space $ \mathcal{H}_K=\mathrm{span}\{\phi _i\}  $ i.e. any function $ f\in\mathcal{H}_K $ could be expressed as expansion
     \begin{align}
         \mu (x)=\sum_{i} \mu _i\phi _i(x)
@@ -661,7 +666,7 @@ Eigenvalue $ \gamma _i $ and eigen function $ \phi _i(x) $ of Kernel:
         which is the reproducing property of Kernel $ K(\,\cdot\,,\,\cdot\,) $ and its corresponding Hilbert space $ \mathcal{H}_K $
     
 \begin{point}
-    Representer Thm. for RKHS
+    Representer Theorem for RKHS
 \end{point}
 
     With Kernel and its corresponding RKHS defined, we could write a optimization problem as loss+penalty form:
@@ -669,7 +674,7 @@ Eigenvalue $ \gamma _i $ and eigen function $ \phi _i(x) $ of Kernel:
          \mathop{\arg\min}\limits_{f\in\mathcal{H}_K}\sum_{i=1}^N\mathcal{L}(y_i, f(x_i)) + \dfrac{\lambda }{2}\left\Vert f \right\Vert^2 _{\mathcal{H}_K}
     \end{align}
 
-    Representer Thm.\index{Representer Theorem}: Solution to above optimization has a \textbf{finite}  form
+    Representer Theorem\index{Representer Theorem}: Solution to above optimization has a \textbf{finite}  form
     \begin{align}
         \hat{f}(x)=\sum_{i=1}^N\hat{\alpha }_iK(x,x_i) 
     \end{align}
@@ -705,11 +710,11 @@ Eigenvalue $ \gamma _i $ and eigen function $ \phi _i(x) $ of Kernel:
         \begin{align}
             K(x,y):=\left\langle x,y \right\rangle 
         \end{align}        
-        \item $ d^\mathrm{th}  $ Degree Polynomial Kernel\index{dth Degree Polynomial Kernel@$ d^\mathrm{th}  $ Degree Polynomial Kernel}
+        \item $ d^\mathrm{th}  $ Degree Polynomial Kernel\index{dth Degree Polynomial Kernel@$ d^\mathrm{th}  $ Degree Polynomial Kernel}\index{Polynomial Kernel}:
         \begin{align}
             K(x,y):=\left(1+\left\langle x,y \right\rangle \right)^d
         \end{align}
-        \item Radical Base Function Kernel\index{RBF Kernel (Radical Base Function Kernel)}: 
+        \item Radical Base Function Kernel\index{RBF Kernel (Radical Base Function Kernel)}\index{Gaussian Kernel}: 
         \begin{align}
             K(x,y):=\exp\left[ -\dfrac{\left\Vert x-y \right\Vert ^2}{\sigma ^2} \right] 
         \end{align}
@@ -741,7 +746,8 @@ Eigenvalue $ \gamma _i $ and eigen function $ \phi _i(x) $ of Kernel:
     
     Note: Here $ \alpha _i $ and $ \hat{\alpha }_i $ are not the same set of number, but the optimization problems are the same (if $ \{K(x_i,x_j)\} $ is non-singular). 
 
-\subsection{SMO Algorithm for Kernel SVM}
+\subsection{SMO Algorithm for Kernel SVM*}
+\index{SMO Algorithm}
     
 Idea: reduction from $ N $-dim optimization to many $ 2 $-dim optimization.
     
@@ -749,13 +755,14 @@ Idea: reduction from $ N $-dim optimization to many $ 2 $-dim optimization.
 \begin{point}
     Kernel Regression with Squared Error Loss
 \end{point}
+\index{Kernel Regression}
 
-     Recall linear regression with RS loss
+     Recall linear regression with Squared loss and penalty
      \begin{align}
-        \mathop{\arg\min}\limits_{\beta_0,\beta  }\sum_{i=1}^N\left[ y_i-\beta _0-x_i'\beta  \right]^2+\dfrac{\lambda }{2}\left\Vert \beta \right\Vert^2_2
+        \mathop{\arg\min}\limits_{\beta _0,\beta  }\sum_{i=1}^N\left[ y_i-\beta _0-x_i'\beta  \right]^2+\dfrac{\lambda }{2}\left\Vert \beta \right\Vert^2_2
      \end{align}
 
-     replace linear classification $ f(x)=\beta _0+x'\beta  $ into Kernel $ K\alpha  $:
+     replace linear classification $ f(x)=\beta _0+x'\beta  $ by Kernel $ K\alpha  $:
      \begin{align}
         \mathop{\arg\min}\limits_{\hat{\alpha }}(y-K\hat{\alpha } )'(y-K\hat{\alpha } ) +\dfrac{\lambda }{2}\hat{\alpha } 'K\hat{\alpha } 
      \end{align}
@@ -779,7 +786,8 @@ Idea: reduction from $ N $-dim optimization to many $ 2 $-dim optimization.
     \end{align}
     
 
-\section{Clustering}
+\section{Clustering}\label{SubSectionStatLearningClustering}
+\index{Clustering}
     Clustering is an important scenario of unsupervised learning $ \mathcal{D}=\{x_i\}_{i=1}^N $, to cluster `similar' data points into the same group. 
 
 \subsection{Proximity Matrix}
@@ -828,7 +836,7 @@ Idea: reduction from $ N $-dim optimization to many $ 2 $-dim optimization.
 
     Usually search for cluster assignment is based on iterative greedy descent search.
     
-    Some frequently used clustering methods are included in \autoref{SubSectionClusteringAnalysis}
+    Some frequently used clustering methods were included in \autoref{SubSectionClusteringAnalysis}
     \begin{itemize}[topsep=2pt,itemsep=0pt]
         \item Hierarchical Method
         \item $ K $-Means
@@ -839,6 +847,7 @@ Idea: reduction from $ N $-dim optimization to many $ 2 $-dim optimization.
     In this section, an extra model based on spectrum is introduced
 
 \subsection{Spectrum Clustering}
+\index{Spectrum Clustering}
     Express the dataset as a Graph $ \mathcal{G}=(\mathcal{V},\mathcal{E},\mathcal{W}) $, where $ \mathcal{V}=\{v_i\}_{i=1}^N $ for vertex, $ \mathcal{E}=\{e_{ij}\}_{i,j=1}^N $, $ \mathcal{W}=\{w_{ij}\}_{i,j=1}^N $ for edges and weights. In this case cluster is a graph partition problem.
 
 \begin{point}
@@ -885,7 +894,7 @@ Some definition:
     \begin{align}
          \mathbf{1}_{\mathcal{G}_k}=[\mathbb{I}(v_1\in \mathcal{G}_k),\ldots,\mathbb{I}(v_N)\in\mathcal{G}_k],\quad k=1,2,\ldots,K
     \end{align}
-    \item In real world case, the graph could probably expressed as a small deviance from a graph with subgraph:
+    \item In real world case, the graph could probably expressed as a small deviance from a graph with subgraph:\index{Eigenvalue}
     \begin{align}
          L=\begin{bmatrix}
             L_{1}&0&\ldots&0\\
@@ -935,7 +944,7 @@ Some definition:
     
 \end{itemize}
 
-\section{Tree-Based Classification Model}
+\section{Tree-Based Classification Model}\label{SubSectionStatLearningTreeMethod}
     Idea of tree: divide the space $ \mathcal{X} $ into grids $ R_m $ and assign prediction into the most frequent class
     \begin{align}
         \hat{f}(x\in R_m)=\mathop{\arg\max}\limits_{k} \sum_{x_i\in R_m}\mathbb{I}(y_i=k)
@@ -946,7 +955,7 @@ Some definition:
 \subsection{Tree-Based Classification}
 
 \begin{point}
-    Branch Growing Process
+    Branch Growing Process\index{Branch Growing Process}
 \end{point}
 
     Grow branch on a node $  $
@@ -981,7 +990,7 @@ Some definition:
                 \sum_{k=1}^K\sum_{k'\neq k}w_{kk'}p_kp_{k'} 
             \end{align}
             
-            \item Entropy
+            \item Entropy\index{Entropy}
             \begin{align}
                 -\sum_{k=1}^Kp_k\log p_k 
             \end{align}
@@ -1095,7 +1104,7 @@ Some definition:
 \end{algorithm}
     
 
-\section{Neural Network}
+\section{Neural Network}\label{SubSectionNeuralNetwork}
 \index{Neural Network}
 \begin{point}
     Linear Perceptron with Activate Function\index{Linear Perceptron}\index{Activate Function}
@@ -1223,4 +1232,5 @@ Some definition:
     \end{align}
     
     
-
+\subsection{Neural Tangent Kernel*}
+\index{NTK (Neural Tangent Kernel)}
