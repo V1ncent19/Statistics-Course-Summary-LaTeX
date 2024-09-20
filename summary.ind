@@ -1,842 +1,842 @@
 \begin{theindex}
 
-  \item [, \hyperpage{299}
+  \item Abel's Lemma for Summation by Parts, \hyperpage{215}
+  \item Absorbing State, \hyperpage{304}
+  \item Acceptance Ratio, \hyperpage{178}
+  \item Acceptance-Rejection Sampling, \hyperpage{175}, \hyperpage{332}
+  \item Accuracy, \hyperpage{235}
+  \item ACF (Autocorrelation), \hyperpage{257}, \hyperpage{297}
+  \item Action-Value Function, \hyperpage{311}
+  \item Activate Function, \hyperpage{252}
+  \item ACVF (Autocovariance), \hyperpage{257}, \hyperpage{297}
+  \item Adaboost, \hyperpage{252}
+  \item Adaptive LASSO, \hyperpage{234}
+  \item Additive Interaction, \hyperpage{355}
+  \item Adjacency, \hyperpage{287}
+  \item Adjusted $ R^2 $, \hyperpage{85}
+  \item Adjusted Skewness, \hyperpage{75}
+  \item Adjustment Formula, \hyperpage{294}
+  \item AFT Model (Accelerated Failure Tome Model), \hyperpage{218}
+  \item Agglomerative Clustering Algorithm, \hyperpage{126}
+  \item AIC (Akaike Information Criterion), \hyperpage{89}
+  \item Almost Sure Convegence, \hyperpage{17}
+  \item Alternative Hypothesis, \hyperpage{45}
+  \item Ancillary Statistic, \hyperpage{31}
+  \item Anderson-Darling Test, \hyperpage{78}
+  \item ANOVA (Analysis of Variance), \hyperpage{68}, \hyperpage{71}, 
+		\hyperpage{96}, \hyperpage{220}, \hyperpage{349}
+  \item AO (Additive Outlier), \hyperpage{269}
+  \item APER (Apparent Error Rate), \hyperpage{126}
+  \item Aperiodic, \hyperpage{299}
+  \item AR Model (Auto-Regression Model), \hyperpage{262}
+  \item ARIMA Model, \hyperpage{266}
+  \item ARMA Model, \hyperpage{266}
+  \item Assignment Mechanism, \hyperpage{274}
+  \item Asymptotic Unbiasedness, \hyperpage{32}
+  \item AUC (Area Under ROC Curve), \hyperpage{236}
+  \item Auxiliary Vector, \hyperpage{142}
+  \item AV Plot (Added Variable Plot), \hyperpage{74}
 
   \indexspace
 
-  \item Abel's Lemma for Summation by Parts, \hyperpage{226}
-  \item Absorbing State, \hyperpage{315}
-  \item Acceptance Ratio, \hyperpage{189}
-  \item Acceptance-Rejection Sampling, \hyperpage{186}, \hyperpage{343}
-  \item Accuracy, \hyperpage{246}
-  \item ACF (Autocorrelation), \hyperpage{268}, \hyperpage{308}
-  \item Action-Value Function, \hyperpage{322}
-  \item Activate Function, \hyperpage{263}
-  \item ACVF (Autocovariance), \hyperpage{268}, \hyperpage{308}
-  \item Adaboost, \hyperpage{263}
-  \item Adaptive LASSO, \hyperpage{245}
-  \item Additive Interaction, \hyperpage{365}
-  \item Adjacency, \hyperpage{298}
-  \item Adjusted $ R^2 $, \hyperpage{96}
-  \item Adjusted Skewness, \hyperpage{87}
-  \item Adjustment Formula, \hyperpage{305}
-  \item AFT Model (Accelerated Failure Tome Model), \hyperpage{229}
-  \item Agglomerative Clustering Algorithm, \hyperpage{137}
-  \item AIC (Akaike Information Criterion), \hyperpage{100}
-  \item Almost Sure Convegence, \hyperpage{29}
-  \item Alternative Hypothesis, \hyperpage{57}
-  \item Ancillary Statistic, \hyperpage{43}
-  \item Anderson-Darling Test, \hyperpage{89}
-  \item ANOVA (Analysis of Variance), \hyperpage{79}, \hyperpage{83}, 
-		\hyperpage{107}, \hyperpage{231}, \hyperpage{359}
-  \item AO (Additive Outlier), \hyperpage{280}
-  \item APER (Apparent Error Rate), \hyperpage{137}
-  \item Aperiodic, \hyperpage{310}
-  \item AR Model (Auto-Regression Model), \hyperpage{273}
-  \item ARIMA Model, \hyperpage{277}
-  \item ARMA Model, \hyperpage{277}
-  \item Assignment Mechanism, \hyperpage{285}
-  \item Asymptotic Unbiasedness, \hyperpage{43}
-  \item AUC (Area Under ROC Curve), \hyperpage{247}
-  \item Auxiliary Vector, \hyperpage{153}
-  \item AV Plot (Added Variable Plot), \hyperpage{86}
-
-  \indexspace
-
-  \item Backdoor Criterion, \hyperpage{305}
-  \item Backshift Operator, \hyperpage{272}
-  \item Backtracking, \hyperpage{174}
-  \item Bagging Method (Bootstrap Aggregation Method), \hyperpage{262}
-  \item Balanced Design, \hyperpage{375}
-  \item Bartlett's Test, \hyperpage{88}, \hyperpage{362}
-  \item Basu Theorem, \hyperpage{43}
-  \item Bayes Optimal Classifier, \hyperpage{248}
-  \item Bayes's Rule, \hyperpage{21}, \hyperpage{338}
-  \item Bayesian Network, \hyperpage{298}
-  \item Behrens-Fisher Problem, \hyperpage{55}, \hyperpage{359}
-  \item Best Linear Estimator, \hyperpage{269}, \hyperpage{332}
-  \item Beta Integral, \hyperpage{336}
-  \item BF Test (Brown-Forsythe's Test), \hyperpage{88}
+  \item Backdoor Criterion, \hyperpage{294}
+  \item Backshift Operator, \hyperpage{261}
+  \item Backtracking, \hyperpage{163}
+  \item Bagging Method (Bootstrap Aggregation Method), \hyperpage{251}
+  \item Balanced Design, \hyperpage{365}
+  \item Bartlett's Test, \hyperpage{77}, \hyperpage{352}
+  \item Basu Theorem, \hyperpage{31}
+  \item Bayes Optimal Classifier, \hyperpage{237}
+  \item Bayes's Rule, \hyperpage{9}, \hyperpage{327}
+  \item Bayesian Network, \hyperpage{287}
+  \item Behrens-Fisher Problem, \hyperpage{43}, \hyperpage{349}
+  \item Best Linear Estimator, \hyperpage{258}, \hyperpage{321}
+  \item Beta Integral, \hyperpage{325}
+  \item BF Test (Brown-Forsythe's Test), \hyperpage{77}
   \item BFGS Updating Method (Broyden-Fletcher-Goldfarb-Shanno Updating), 
-		\hyperpage{177}
-  \item Bias, \hyperpage{43}
-  \item Bias-Variance Trade-Off, \hyperpage{44}
-  \item BIBD (Balanced Incomplete Block Design), \hyperpage{371}
-  \item BIC (Bayesian Information Criterion), \hyperpage{100}
-  \item Birth-Death Process, \hyperpage{319}
-  \item Bisection Search, \hyperpage{161}
-  \item BLUE (Best Linear Unbiased Estimator), \hyperpage{77}
-  \item Bonferroni Correction, \hyperpage{127}
-  \item Bonferroni Inequality, \hyperpage{31}
-  \item Boole Inequality, \hyperpage{20}
-  \item Boosting Method, \hyperpage{263}
-  \item Bootstrap, \hyperpage{191}
-  \item Bootstrap Aggregation, \hyperpage{262}
-  \item Borel-Cantelli Lemma, \hyperpage{20}
-  \item Box Plot, \hyperpage{85}
-  \item Box-Cox Transformation, \hyperpage{101}
-  \item Box-Jenkins Approach, \hyperpage{279}
-  \item BP (Back Propagation), \hyperpage{264}
-  \item BP Test (Breusch-Pagan Test), \hyperpage{88}
-  \item Bracketing Linear Interpolation, \hyperpage{161}
-  \item Branch Growing Process, \hyperpage{260}
-  \item Branching Process, \hyperpage{316}
-  \item Brent-Dekker Method, \hyperpage{164}
-  \item Breslow's Approximation, \hyperpage{227}
-  \item Brownian Motion, \hyperpage{317}
-  \item Broyden Class, \hyperpage{178}
+		\hyperpage{166}
+  \item Bias, \hyperpage{31}
+  \item Bias-Variance Trade-Off, \hyperpage{32}
+  \item BIBD (Balanced Incomplete Block Design), \hyperpage{361}
+  \item BIC (Bayesian Information Criterion), \hyperpage{89}
+  \item Birth-Death Process, \hyperpage{308}
+  \item Bisection Search, \hyperpage{150}
+  \item BLUE (Best Linear Unbiased Estimator), \hyperpage{66}
+  \item Bonferroni Correction, \hyperpage{116}
+  \item Bonferroni Inequality, \hyperpage{19}
+  \item Boole Inequality, \hyperpage{8}
+  \item Boosting Method, \hyperpage{252}
+  \item Bootstrap, \hyperpage{180}
+  \item Bootstrap Aggregation, \hyperpage{251}
+  \item Borel-Cantelli Lemma, \hyperpage{8}
+  \item Box Plot, \hyperpage{74}
+  \item Box-Cox Transformation, \hyperpage{90}
+  \item Box-Jenkins Approach, \hyperpage{268}
+  \item BP (Back Propagation), \hyperpage{253}
+  \item BP Test (Breusch-Pagan Test), \hyperpage{77}
+  \item Bracketing Linear Interpolation, \hyperpage{150}
+  \item Branch Growing Process, \hyperpage{249}
+  \item Branching Process, \hyperpage{305}
+  \item Brent-Dekker Method, \hyperpage{153}
+  \item Breslow's Approximation, \hyperpage{216}
+  \item Brownian Motion, \hyperpage{306}
+  \item Broyden Class, \hyperpage{167}
 
   \indexspace
 
-  \item Canonical Link, \hyperpage{111}
-  \item Canonical Variable Pair, \hyperpage{133}
-  \item Canonical Variate Pair, \hyperpage{133}
-  \item Cantelli Inequality, \hyperpage{32}
-  \item Cauchy-Schwarz Inequality, \hyperpage{31}, \hyperpage{121}
-  \item Causal Effect, \hyperpage{285}
-  \item Causal Solution, \hyperpage{330}
-  \item CBN (Causal Bayesian Network), \hyperpage{302}
-  \item CCA (Canonical Correction Analysis), \hyperpage{133}
-  \item CDF (Cumulative Distribution Function), \hyperpage{22}
-  \item Cell Means Model, \hyperpage{107}, \hyperpage{231}
-  \item Censored Data, \hyperpage{213}
-  \item Chain, \hyperpage{299}
-  \item Chapman-Kolmogorov Equation, \hyperpage{312}
-  \item Characteristic Function, \hyperpage{28}
-  \item Chebyshev Inequality, \hyperpage{31}
-  \item $ \chi^2 $ Distribution, \hyperpage{34}
-  \item Cholesky Decomposition, \hyperpage{151}
-  \item CI (Confidence Interval), \hyperpage{53}
-  \item Circulant Matrix, \hyperpage{155}
-  \item Classic Model, \hyperpage{19}
-  \item Classical Gram-Schmidt Orthogonalization, \hyperpage{152}
-  \item Classification Metrics, \hyperpage{246}
-  \item Clinical Trial Design, \hyperpage{241}
-  \item CLT (Central Limit Theorem), \hyperpage{30}
-  \item Clustering, \hyperpage{257}
-  \item Clustering Analysis, \hyperpage{137}
+  \item Canonical Link, \hyperpage{100}
+  \item Canonical Variable Pair, \hyperpage{122}
+  \item Canonical Variate Pair, \hyperpage{122}
+  \item Cantelli Inequality, \hyperpage{20}
+  \item Cauchy-Schwarz Inequality, \hyperpage{19}, \hyperpage{110}
+  \item Causal Effect, \hyperpage{274}
+  \item Causal Solution, \hyperpage{319}
+  \item CBN (Causal Bayesian Network), \hyperpage{291}
+  \item CCA (Canonical Correction Analysis), \hyperpage{122}
+  \item CDF (Cumulative Distribution Function), \hyperpage{10}
+  \item Cell Means Model, \hyperpage{96}, \hyperpage{220}
+  \item Censored Data, \hyperpage{202}
+  \item Chain, \hyperpage{288}
+  \item Chapman-Kolmogorov Equation, \hyperpage{301}
+  \item Characteristic Function, \hyperpage{16}
+  \item Chebyshev Inequality, \hyperpage{19}
+  \item $ \chi^2 $ Distribution, \hyperpage{22}
+  \item Cholesky Decomposition, \hyperpage{140}
+  \item CI (Confidence Interval), \hyperpage{41}
+  \item Circulant Matrix, \hyperpage{144}
+  \item Classic Model, \hyperpage{7}
+  \item Classical Gram-Schmidt Orthogonalization, \hyperpage{141}
+  \item Classification Metrics, \hyperpage{235}
+  \item Clinical Trial Design, \hyperpage{230}
+  \item CLT (Central Limit Theorem), \hyperpage{18}
+  \item Clustering, \hyperpage{246}
+  \item Clustering Analysis, \hyperpage{126}
   \item CMD $ R^2 $ (Coefficient of Multiple Determination), 
-		\hyperpage{96}
-  \item CMH Test (Cochran-Mantel-Haenszel Test), \hyperpage{222}
-  \item Cochran's Theorem, \hyperpage{75}
-  \item Coefficient of Partial Correlation $ \eta_k $, \hyperpage{97}
-  \item Coefficient of Variation, \hyperpage{38}
-  \item Complemetary Formula, \hyperpage{335}
-  \item Complete Statistic, \hyperpage{42}
-  \item Condition Number, \hyperpage{145}
-  \item Conditional Expectation, \hyperpage{26}
-  \item Conditional Independence, \hyperpage{332}
-  \item Conditional Probability, \hyperpage{21}
-  \item Confeidence Region, \hyperpage{54}
-  \item Confidence Band, \hyperpage{78}
-  \item Confidence Coefficient, \hyperpage{53}
-  \item Confidence Region, \hyperpage{127}
-    \subitem Confidence Band, \hyperpage{78}
-    \subitem Confidence Interval, \hyperpage{53}
-    \subitem Confidence Limit, \hyperpage{53}
-    \subitem Individual Converage Interval, \hyperpage{127}
-  \item Confusion Matrix, \hyperpage{246}
-  \item Conjugate Gradient Method, \hyperpage{179}
-  \item Conjugate Prior, \hyperpage{338}
-  \item Consistency, \hyperpage{44}
-  \item Contingency Table, \hyperpage{66}, \hyperpage{238}
-  \item Continuous Mapping Theorem, \hyperpage{29}
-  \item Contrast, \hyperpage{107}, \hyperpage{362}
-  \item Convergence, \hyperpage{29}
-  \item Convergence and Ergodic Theorem, \hyperpage{188}
-  \item Convergence Order, \hyperpage{146}
-  \item Convolution, \hyperpage{23}, \hyperpage{333}
-  \item Cook's Distance, \hyperpage{93}
-  \item coordinate descent method, \hyperpage{168}
-  \item Correlation Coefficient, \hyperpage{26}
-    \subitem Adjusted $ R^2 $, \hyperpage{96}
+		\hyperpage{85}
+  \item CMH Test (Cochran-Mantel-Haenszel Test), \hyperpage{211}
+  \item Cochran's Theorem, \hyperpage{64}
+  \item Coefficient of Partial Correlation $ \eta_k $, \hyperpage{86}
+  \item Coefficient of Variation, \hyperpage{26}
+  \item Complemetary Formula, \hyperpage{324}
+  \item Complete Statistic, \hyperpage{30}
+  \item Condition Number, \hyperpage{134}
+  \item Conditional Expectation, \hyperpage{14}
+  \item Conditional Independence, \hyperpage{321}
+  \item Conditional Probability, \hyperpage{9}
+  \item Confeidence Region, \hyperpage{41}
+  \item Confidence Band, \hyperpage{67}
+  \item Confidence Coefficient, \hyperpage{41}
+  \item Confidence Region, \hyperpage{116}
+    \subitem Confidence Band, \hyperpage{67}
+    \subitem Confidence Interval, \hyperpage{41}
+    \subitem Confidence Limit, \hyperpage{41}
+    \subitem Individual Converage Interval, \hyperpage{116}
+  \item Confusion Matrix, \hyperpage{235}
+  \item Conjugate Gradient Method, \hyperpage{168}
+  \item Conjugate Prior, \hyperpage{327}
+  \item Consistency, \hyperpage{32}
+  \item Contingency Table, \hyperpage{55}, \hyperpage{227}
+  \item Continuous Mapping Theorem, \hyperpage{17}
+  \item Contrast, \hyperpage{96}, \hyperpage{352}
+  \item Convergence, \hyperpage{17}
+  \item Convergence and Ergodic Theorem, \hyperpage{177}
+  \item Convergence Order, \hyperpage{135}
+  \item Convolution, \hyperpage{11}, \hyperpage{322}
+  \item Cook's Distance, \hyperpage{82}
+  \item coordinate descent method, \hyperpage{157}
+  \item Correlation Coefficient, \hyperpage{14}
+    \subitem Adjusted $ R^2 $, \hyperpage{85}
     \subitem Coefficient of Multiple Determination $ R^2 $, 
-		\hyperpage{96}
+		\hyperpage{85}
     \subitem Coefficient of Partial Correlation $ \eta_k $, 
-		\hyperpage{97}
-    \subitem Correlation Coefficient Matrix, \hyperpage{116}
-    \subitem Pearson's Correlation Coefficient, \hyperpage{96}
-    \subitem Pearson's Correlation Coefficient $ r $, \hyperpage{38}, 
-		\hyperpage{116}
-  \item (Cross) Correlation Matrix, \hyperpage{114}
-  \item (Pearson's) Correlation Matrix, \hyperpage{114}
-  \item Countable Additivity, \hyperpage{19}
-  \item Covariance, \hyperpage{26}
-  \item Covariance Matrix, \hyperpage{27}, \hyperpage{115}
-  \item Covariate, \hyperpage{285}
-  \item Cox's Modification, \hyperpage{227}
-  \item Cox's Proportion Hazard Model, \hyperpage{225}
-  \item Cox-Snell Residuals, \hyperpage{228}
-  \item CR Inequality (Cramer-Rao Inequality), \hyperpage{48, 49}
-  \item Cramér-von Mises Test, \hyperpage{89}
-  \item CRAN (The Comprehensive R Archive Network), \hyperpage{194}
-  \item CRE (Completely Randomized Experiment), \hyperpage{287}
-  \item Cross Correlation Structure, \hyperpage{329}
-  \item Crossed Factor, \hyperpage{238}
-  \item CTMC (Continuous Time Markov Chain), \hyperpage{312}
-  \item Cumulative Hazard Function, \hyperpage{214}
-  \item Curse of Dimensionality, \hyperpage{128}
-  \item CV ($ k $-Fold Cross Validation), \hyperpage{98}
-  \item CV (Cross-Validation), \hyperpage{247}
+		\hyperpage{86}
+    \subitem Correlation Coefficient Matrix, \hyperpage{105}
+    \subitem Pearson's Correlation Coefficient, \hyperpage{85}
+    \subitem Pearson's Correlation Coefficient $ r $, \hyperpage{26}, 
+		\hyperpage{105}
+  \item (Cross) Correlation Matrix, \hyperpage{103}
+  \item (Pearson's) Correlation Matrix, \hyperpage{103}
+  \item Countable Additivity, \hyperpage{7}
+  \item Covariance, \hyperpage{14}
+  \item Covariance Matrix, \hyperpage{15}, \hyperpage{104}
+  \item Covariate, \hyperpage{274}
+  \item Cox's Modification, \hyperpage{216}
+  \item Cox's Proportion Hazard Model, \hyperpage{214}
+  \item Cox-Snell Residuals, \hyperpage{217}
+  \item CR Inequality (Cramer-Rao Inequality), \hyperpage{35}
+  \item Cramér-von Mises Test, \hyperpage{78}
+  \item CRAN (The Comprehensive R Archive Network), \hyperpage{183}
+  \item CRE (Completely Randomized Experiment), \hyperpage{276}
+  \item Cross Correlation Structure, \hyperpage{318}
+  \item Crossed Factor, \hyperpage{227}
+  \item CTMC (Continuous Time Markov Chain), \hyperpage{301}
+  \item Cumulative Hazard Function, \hyperpage{203}
+  \item Curse of Dimensionality, \hyperpage{117}
+  \item CV ($ k $-Fold Cross Validation), \hyperpage{87}
+  \item CV (Cross-Validation), \hyperpage{236}
 
   \indexspace
 
-  \item D-Optimal, \hyperpage{375}
-  \item d-Separation, \hyperpage{300}
-  \item DAG (Directed Acyclic Graph), \hyperpage{298}
-  \item data.frame, \hyperpage{197}
+  \item D-Optimal, \hyperpage{365}
+  \item d-Separation, \hyperpage{289}
+  \item DAG (Directed Acyclic Graph), \hyperpage{287}
+  \item data.frame, \hyperpage{186}
   \item DBSCAN (Density-Based Spatial Clustering of Application with Noise), 
-		\hyperpage{140}
-  \item de Moivre-Laplace Theorem, \hyperpage{30}
-  \item Default Bayesian Regression, \hyperpage{356}
-  \item Degree of Freedom, \hyperpage{75}
-  \item Dekker's Method, \hyperpage{164}
-  \item Deleted Residual, \hyperpage{91}
-  \item Delta-Beta Residual, \hyperpage{228}
-  \item Denominator-layout, \hyperpage{119}
-  \item Denormalized Number, \hyperpage{143}
-  \item Density Clustering, \hyperpage{140}
-  \item Detailed Balance Condition, \hyperpage{188}, \hyperpage{310}
+		\hyperpage{129}
+  \item de Moivre-Laplace Theorem, \hyperpage{18}
+  \item Default Bayesian Regression, \hyperpage{346}
+  \item Degree of Freedom, \hyperpage{64}
+  \item Dekker's Method, \hyperpage{153}
+  \item Deleted Residual, \hyperpage{80}
+  \item Delta-Beta Residual, \hyperpage{217}
+  \item Denominator-layout, \hyperpage{108}
+  \item Denormalized Number, \hyperpage{132}
+  \item Density Clustering, \hyperpage{129}
+  \item Detailed Balance Condition, \hyperpage{177}, \hyperpage{299}
   \item DFBETAS (Studentized Difference in Beta Estimates), 
-		\hyperpage{93}
+		\hyperpage{82}
   \item DFP Updating Method (Davidon-Fletcher-Powell Updating), 
-		\hyperpage{176}
+		\hyperpage{165}
   \item DIFFITS (Studentized Difference caused to Fitted values), 
-		\hyperpage{93}
-  \item Dirac $ \delta  $ Function, \hyperpage{334}
-  \item Dirichlet Distribution, \hyperpage{337}
-  \item Discount Factor, \hyperpage{321}
-  \item Discrete Newton Method, \hyperpage{175}
-  \item Discriminant Analysis, \hyperpage{134}, \hyperpage{248}
-  \item Distribution, \hyperpage{17}
-    \subitem $ F $ Distribution, \hyperpage{35}
-    \subitem $ \Gamma  $ Distribution, \hyperpage{216}
-    \subitem $ \chi^2 $ Distribution, \hyperpage{34}
-    \subitem $ t $ Distribution, \hyperpage{35}
-    \subitem Generalized Gamma Distribution, \hyperpage{217}
-    \subitem Log-Normal Distribution, \hyperpage{216}
-    \subitem Multivariate Normal Distribution, \hyperpage{122}
-    \subitem Normal Distribution, \hyperpage{32}
-    \subitem Weibull Distribution, \hyperpage{216}
-    \subitem Wishart Distribution, \hyperpage{124}
-  \item Distribution Family, \hyperpage{37}
-  \item $ do(\, \cdot \, ) $ Operator, \hyperpage{301}
-  \item $ dof $/$ df $ (Degree of Freedom), \hyperpage{75}
-  \item Donsker Theorem, \hyperpage{317}
-  \item $ d^\mathrm{th}  $ Degree Polynomial Kernel, \hyperpage{256}
-  \item DTMC (Discrete Time Markov Chain), \hyperpage{309}
-  \item Dual Problem, \hyperpage{147}
-  \item Dunnett's Test, \hyperpage{363}
-  \item DW Test (Durbin-Watson Test), \hyperpage{90}
+		\hyperpage{82}
+  \item Dirac $ \delta  $ Function, \hyperpage{323}
+  \item Dirichlet Distribution, \hyperpage{326}
+  \item Discount Factor, \hyperpage{310}
+  \item Discrete Newton Method, \hyperpage{164}
+  \item Discriminant Analysis, \hyperpage{123}, \hyperpage{237}
+  \item Distribution, \hyperpage{5}
+    \subitem $ F $ Distribution, \hyperpage{23}
+    \subitem $ \Gamma  $ Distribution, \hyperpage{205}
+    \subitem $ \chi^2 $ Distribution, \hyperpage{22}
+    \subitem $ t $ Distribution, \hyperpage{23}
+    \subitem Generalized Gamma Distribution, \hyperpage{206}
+    \subitem Log-Normal Distribution, \hyperpage{205}
+    \subitem Multivariate Normal Distribution, \hyperpage{111}
+    \subitem Normal Distribution, \hyperpage{20}
+    \subitem Weibull Distribution, \hyperpage{205}
+    \subitem Wishart Distribution, \hyperpage{113}
+  \item Distribution Family, \hyperpage{25}
+  \item $ do(\, \cdot \, ) $ Operator, \hyperpage{290}
+  \item $ dof $/$ df $ (Degree of Freedom), \hyperpage{64}
+  \item Donsker Theorem, \hyperpage{306}
+  \item $ d^\mathrm{th}  $ Degree Polynomial Kernel, \hyperpage{245}
+  \item DTMC (Discrete Time Markov Chain), \hyperpage{298}
+  \item Dual Problem, \hyperpage{136}
+  \item Dunnett's Test, \hyperpage{353}
+  \item DW Test (Durbin-Watson Test), \hyperpage{79}
 
   \indexspace
 
-  \item EACF (Extended Autocorrelation), \hyperpage{280}
-  \item ECDF (Empirical CDF), \hyperpage{52}
-  \item ECM (Expected Cost of Misclassification), \hyperpage{135}
-  \item EDA (Exploratory Data Analysis), \hyperpage{70}
-  \item Effective Sample Size, \hyperpage{191}
-  \item Efron's Approximation, \hyperpage{227}
-  \item Eigenvalue, \hyperpage{117}, \hyperpage{154}, \hyperpage{259}
-  \item EKF (Extended Kalman Filter), \hyperpage{328}
-  \item Elastic Net, \hyperpage{104}, \hyperpage{245}
-  \item ELBO (Evidence Lower Bound), \hyperpage{183}
+  \item EACF (Extended Autocorrelation), \hyperpage{269}
+  \item ECDF (Empirical CDF), \hyperpage{40}
+  \item ECM (Expected Cost of Misclassification), \hyperpage{124}
+  \item EDA (Exploratory Data Analysis), \hyperpage{59}
+  \item Effective Sample Size, \hyperpage{180}
+  \item Efron's Approximation, \hyperpage{217}
+  \item Eigenvalue, \hyperpage{106}, \hyperpage{143}, \hyperpage{248}
+  \item EKF (Extended Kalman Filter), \hyperpage{317}
+  \item Elastic Net, \hyperpage{93}, \hyperpage{234}
+  \item ELBO (Evidence Lower Bound), \hyperpage{172}
   \item elpd (Expected log Prediction Distribution for New Data), 
-		\hyperpage{341}
+		\hyperpage{330}
   \item EM Algorithm (Expectation Maximization Algorithm), 
-		\hyperpage{139}, \hyperpage{182}
-  \item $ \mathbb{E}(MS) $, \hyperpage{235}
-  \item Entropy, \hyperpage{261}
-  \item Episode, \hyperpage{321}
-  \item Equilibrium, \hyperpage{188}, \hyperpage{309}, \hyperpage{313}
-  \item Ergodicity, \hyperpage{312}
-  \item Error Rate, \hyperpage{246}
-  \item Euclidean Distance, \hyperpage{116}
-  \item Event, \hyperpage{18}
-  \item Exact Line Search, \hyperpage{174}
-  \item Exhaustive Search, \hyperpage{103}
-  \item Expectation, \hyperpage{25}
-  \item Exponential Family, \hyperpage{40}
-  \item Exponential Smoothing Model, \hyperpage{267}
-  \item Extended Cauchy-Schwartz Inequality, \hyperpage{121}
-  \item Externally Studentized Residual, \hyperpage{92}
-  \item Extinction Probability, \hyperpage{317}
+		\hyperpage{128}, \hyperpage{171}
+  \item $ \mathbb{E}(MS) $, \hyperpage{224}
+  \item Entropy, \hyperpage{250}
+  \item Episode, \hyperpage{310}
+  \item Equilibrium, \hyperpage{177}, \hyperpage{298}, \hyperpage{302}
+  \item Ergodicity, \hyperpage{301}
+  \item Error Rate, \hyperpage{235}
+  \item Euclidean Distance, \hyperpage{105}
+  \item Event, \hyperpage{6}
+  \item Exact Line Search, \hyperpage{163}
+  \item Exhaustive Search, \hyperpage{92}
+  \item Expectation, \hyperpage{13}
+  \item Exponential Family, \hyperpage{28}
+  \item Exponential Smoothing Model, \hyperpage{256}
+  \item Extended Cauchy-Schwartz Inequality, \hyperpage{110}
+  \item Externally Studentized Residual, \hyperpage{81}
+  \item Extinction Probability, \hyperpage{306}
 
   \indexspace
 
-  \item $ F $ Distribution, \hyperpage{35}
-  \item $ F_1 $ Score, \hyperpage{247}
-  \item FA (Factor Analysis), \hyperpage{130}
-  \item Factor Effect Model, \hyperpage{107}, \hyperpage{232}
-  \item Factor Loading, \hyperpage{129}
-  \item Factor Model, \hyperpage{106}, \hyperpage{231}, \hyperpage{359}
-  \item Factor Rotation, \hyperpage{131}
-  \item Factorial Design, \hyperpage{372}
-  \item Factorization Theorem, \hyperpage{41}
-  \item FDA (Fisher's Discriminant Analysis), \hyperpage{136}
-  \item FDR (False Discovery Rate), \hyperpage{247}, \hyperpage{363}
-  \item FH Estimator (Fleming-Harrington Estimator), \hyperpage{221}
-  \item Fibonacci Section Search, \hyperpage{159}
-  \item Finite Precision Computation, \hyperpage{143}
-  \item Finite Sample, \hyperpage{285}
-  \item Finite Subadditivity, \hyperpage{20}
-  \item Fisher Fiducial Argument, \hyperpage{57}
-  \item Fisher Information, \hyperpage{48}, \hyperpage{218}, 
-		\hyperpage{291}, \hyperpage{339}
+  \item $ F $ Distribution, \hyperpage{23}
+  \item $ F_1 $ Score, \hyperpage{236}
+  \item FA (Factor Analysis), \hyperpage{119}
+  \item Factor Effect Model, \hyperpage{96}, \hyperpage{221}
+  \item Factor Loading, \hyperpage{118}
+  \item Factor Model, \hyperpage{95}, \hyperpage{220}, \hyperpage{349}
+  \item Factor Rotation, \hyperpage{120}
+  \item Factorial Design, \hyperpage{362}
+  \item Factorization Theorem, \hyperpage{29}
+  \item FDA (Fisher's Discriminant Analysis), \hyperpage{125}
+  \item FDR (False Discovery Rate), \hyperpage{236}, \hyperpage{353}
+  \item FH Estimator (Fleming-Harrington Estimator), \hyperpage{210}
+  \item Fibonacci Section Search, \hyperpage{148}
+  \item Finite Precision Computation, \hyperpage{132}
+  \item Finite Sample, \hyperpage{274}
+  \item Finite Subadditivity, \hyperpage{8}
+  \item Fisher Fiducial Argument, \hyperpage{45}
+  \item Fisher Information, \hyperpage{36}, \hyperpage{207}, 
+		\hyperpage{280}, \hyperpage{328}
   \item Fisher's LSD (Fisher's Least Significant Difference), 
-		\hyperpage{108}, \hyperpage{362}
-  \item Fisher's Scoring Method, \hyperpage{169}
-  \item Fisher's Sharp Null Hypothesis, \hyperpage{288}
-  \item Fisher-Pearson Coefficient of Skewness, \hyperpage{87}
-  \item Fixed Effect, \hyperpage{233}, \hyperpage{360}
-  \item Fixed Point Iteration, \hyperpage{165}
-  \item Fletcher-Reeves Method, \hyperpage{181}
-  \item Float, \hyperpage{143}
-  \item FNR (False Negative Rate), \hyperpage{246}
-  \item FOR (False Omission Rate), \hyperpage{247}
-  \item Forecast, \hyperpage{281}
-  \item Fork, \hyperpage{299}
-  \item Forward Stability, \hyperpage{145}
-  \item FPR (False Positive Rate), \hyperpage{246}
+		\hyperpage{97}, \hyperpage{352}
+  \item Fisher's Scoring Method, \hyperpage{158}
+  \item Fisher's Sharp Null Hypothesis, \hyperpage{277}
+  \item Fisher-Pearson Coefficient of Skewness, \hyperpage{76}
+  \item Fixed Effect, \hyperpage{222}, \hyperpage{350}
+  \item Fixed Point Iteration, \hyperpage{154}
+  \item Fletcher-Reeves Method, \hyperpage{170}
+  \item Float, \hyperpage{132}
+  \item FNR (False Negative Rate), \hyperpage{235}
+  \item FOR (False Omission Rate), \hyperpage{236}
+  \item Forecast, \hyperpage{270}
+  \item Fork, \hyperpage{288}
+  \item Forward Stability, \hyperpage{134}
+  \item FPR (False Positive Rate), \hyperpage{235}
   \item Fractile
-    \subitem $ p $-fractile, \hyperpage{24}
-    \subitem Upper $ \alpha $-fractile, \hyperpage{35}
-  \item Frobenius Norm, \hyperpage{120}
-  \item Frontdoor Adjustment, \hyperpage{306}
-  \item FT (Fourier Transform), \hyperpage{28}, \hyperpage{333}
+    \subitem $ p $-fractile, \hyperpage{12}
+    \subitem Upper $ \alpha $-fractile, \hyperpage{23}
+  \item Frobenius Norm, \hyperpage{109}
+  \item Frontdoor Adjustment, \hyperpage{295}
+  \item FT (Fourier Transform), \hyperpage{16}, \hyperpage{322}
 
   \indexspace
 
-  \item Galton-Watson Tree, \hyperpage{316}
-  \item Gambler's Model, \hyperpage{315}
-  \item Gamma Integral, \hyperpage{335}
-  \item Gauss-Markov Assumption, \hyperpage{49}, \hyperpage{72}, 
-		\hyperpage{83}
-  \item Gauss-Markov Theorem, \hyperpage{77}
-  \item Gauss-Seidel Iteration Method, \hyperpage{166}
-  \item Gaussian Elimination Algorithm, \hyperpage{150}
-  \item Gaussian Kernel, \hyperpage{52}, \hyperpage{256}
-  \item GCD (Greatest Common Divisor), \hyperpage{310}
-  \item Gelman-Rubin Potential Scale Reduction Factor, \hyperpage{346}
-  \item Generalization Ability, \hyperpage{244}
-  \item Generalized Cox-Snell Residuals, \hyperpage{228}
-  \item Generalized Gamma Distribution, \hyperpage{217}
-  \item Generalized Lagrange Function, \hyperpage{146}
-  \item Generalized Linear Model, \hyperpage{243}
-  \item Generalized Variance, \hyperpage{116}
-  \item Generator, \hyperpage{313}
-  \item Geometric Mean, \hyperpage{102}
-  \item Geometric Model, \hyperpage{19}
-  \item Gershgorin Circle Theorem, \hyperpage{313}
-  \item ggplot2, \hyperpage{210}
-  \item Gibbs Sampling, \hyperpage{347}
-  \item Gini Impurity, \hyperpage{261}
-  \item Givens Rotation, \hyperpage{154}
-  \item GLM (Generalized Linear Model), \hyperpage{109}, 
-		\hyperpage{171}
-  \item GLT (General Linear Test), \hyperpage{95}
-  \item GMM (Gaussian Mixture Model), \hyperpage{139}
-  \item Golden Section Search, \hyperpage{159}
-  \item Goodness-of-Fit Test, \hyperpage{66}
-  \item Goodness-of-fit Test, \hyperpage{228}
-  \item Gradient Descent Method, \hyperpage{168}
-  \item Graeco-Latin Square Design, \hyperpage{370}
-  \item Graph Laplacian, \hyperpage{258}
-  \item Greedy Gambler, \hyperpage{316}
-  \item Greedy Search Algorithm, \hyperpage{103}
-  \item Greenwood's Formula, \hyperpage{220}
-  \item GUI (Graphical User Interface), \hyperpage{194}
+  \item Galton-Watson Tree, \hyperpage{305}
+  \item Gambler's Model, \hyperpage{304}
+  \item Gamma Integral, \hyperpage{324}
+  \item Gauss-Markov Assumption, \hyperpage{37}, \hyperpage{61}, 
+		\hyperpage{72}
+  \item Gauss-Markov Theorem, \hyperpage{66}
+  \item Gauss-Seidel Iteration Method, \hyperpage{155}
+  \item Gaussian Elimination Algorithm, \hyperpage{139}
+  \item Gaussian Kernel, \hyperpage{40}, \hyperpage{245}
+  \item GCD (Greatest Common Divisor), \hyperpage{299}
+  \item Gelman-Rubin Potential Scale Reduction Factor, \hyperpage{335}
+  \item Generalization Ability, \hyperpage{233}
+  \item Generalized Cox-Snell Residuals, \hyperpage{217}
+  \item Generalized Gamma Distribution, \hyperpage{206}
+  \item Generalized Lagrange Function, \hyperpage{135}
+  \item Generalized Linear Model, \hyperpage{232}
+  \item Generalized Variance, \hyperpage{105}
+  \item Generator, \hyperpage{302}
+  \item Geometric Mean, \hyperpage{91}
+  \item Geometric Model, \hyperpage{7}
+  \item Gershgorin Circle Theorem, \hyperpage{302}
+  \item ggplot2, \hyperpage{199}
+  \item Gibbs Sampling, \hyperpage{336}
+  \item Gini Impurity, \hyperpage{250}
+  \item Givens Rotation, \hyperpage{143}
+  \item GLM (Generalized Linear Model), \hyperpage{98}, \hyperpage{160}
+  \item GLT (General Linear Test), \hyperpage{84}
+  \item GMM (Gaussian Mixture Model), \hyperpage{128}
+  \item Golden Section Search, \hyperpage{148}
+  \item Goodness-of-Fit Test, \hyperpage{54}
+  \item Goodness-of-fit Test, \hyperpage{217}
+  \item Gradient Descent Method, \hyperpage{157}
+  \item Graeco-Latin Square Design, \hyperpage{360}
+  \item Graph Laplacian, \hyperpage{247}
+  \item Greedy Gambler, \hyperpage{305}
+  \item Greedy Search Algorithm, \hyperpage{92}
+  \item Greenwood's Formula, \hyperpage{209}
+  \item GUI (Graphical User Interface), \hyperpage{183}
 
   \indexspace
 
-  \item Hamiltonian Dynamics, \hyperpage{346}
-  \item Hammersley Clifford Theorem, \hyperpage{348}
-  \item Hard Margin SVM, \hyperpage{250}
-  \item Hat Matrix, \hyperpage{81}
-  \item Hazard Function, \hyperpage{214}
-  \item Hazard Rate, \hyperpage{215}
-  \item Hermitian Matrix, \hyperpage{155}
-  \item Heteroscedasticity, \hyperpage{88}
-  \item Hierarchical Clustering, \hyperpage{137}
-  \item Hierarchical Model, \hyperpage{355}
-  \item Hierarchical Principle, \hyperpage{95}
-  \item Hilbert Space, \hyperpage{254}
-  \item Hinge Loss, \hyperpage{253}
-  \item Hitting Time, \hyperpage{315}
-  \item HMC (Hamiltonian MC), \hyperpage{346}
-  \item HMM (Hidden Markov Model), \hyperpage{324}
-  \item Hoeffding Inequality, \hyperpage{32}
-  \item Homogeneity Test, \hyperpage{67}
-  \item Homoscedasticity, \hyperpage{88}
-  \item Horvitz-Thompson Estimator, \hyperpage{297}
-  \item Hotelling's $ T^2 $, \hyperpage{125}
-  \item Householder Reflection, \hyperpage{153}
-  \item Hyperbolic Tangent Function, \hyperpage{264}
-  \item Hypothesis Testing, \hyperpage{57}, \hyperpage{218}
+  \item Hamiltonian Dynamics, \hyperpage{335}
+  \item Hammersley Clifford Theorem, \hyperpage{337}
+  \item Hard Margin SVM, \hyperpage{239}
+  \item Hat Matrix, \hyperpage{70}
+  \item Hazard Function, \hyperpage{203}
+  \item Hazard Rate, \hyperpage{204}
+  \item Hermitian Matrix, \hyperpage{144}
+  \item Heteroscedasticity, \hyperpage{76}
+  \item Hierarchical Clustering, \hyperpage{126}
+  \item Hierarchical Model, \hyperpage{344}
+  \item Hierarchical Principle, \hyperpage{84}
+  \item Hilbert Space, \hyperpage{243}
+  \item Hinge Loss, \hyperpage{242}
+  \item Hitting Time, \hyperpage{304}
+  \item HMC (Hamiltonian MC), \hyperpage{335}
+  \item HMM (Hidden Markov Model), \hyperpage{313}
+  \item Hoeffding Inequality, \hyperpage{20}
+  \item Homogeneity Test, \hyperpage{55}
+  \item Homoscedasticity, \hyperpage{76}
+  \item Horvitz-Thompson Estimator, \hyperpage{286}
+  \item Hotelling's $ T^2 $, \hyperpage{114}
+  \item Householder Reflection, \hyperpage{142}
+  \item Hyperbolic Tangent Function, \hyperpage{253}
+  \item Hypothesis Testing, \hyperpage{45}, \hyperpage{207}
 
   \indexspace
 
-  \item I-map (Independence Map), \hyperpage{300}
-  \item IC Algorithm (Inductive Causation Algorithm), \hyperpage{302}
-  \item Idempotence, \hyperpage{81}
-  \item Importance Resampling, \hyperpage{191}
-  \item Importance Sampling, \hyperpage{190}, \hyperpage{344}
-  \item Inclusion-Exclusion Formula, \hyperpage{20}
-  \item Independence, \hyperpage{22}
-  \item Indicator Function, \hyperpage{23}
-  \item Individualistic Assignment, \hyperpage{286}
+  \item I-map (Independence Map), \hyperpage{289}
+  \item IC Algorithm (Inductive Causation Algorithm), \hyperpage{291}
+  \item Idempotence, \hyperpage{70}
+  \item Importance Resampling, \hyperpage{180}
+  \item Importance Sampling, \hyperpage{179}, \hyperpage{333}
+  \item Inclusion-Exclusion Formula, \hyperpage{8}
+  \item Independence, \hyperpage{10}
+  \item Indicator Function, \hyperpage{11}
+  \item Individualistic Assignment, \hyperpage{275}
   \item Inequality
-    \subitem Bonferroni Inequality, \hyperpage{31}
-    \subitem Boole Inequality, \hyperpage{20}
-    \subitem Cauchy-Schwarz Inequality, \hyperpage{31}, \hyperpage{121}
-    \subitem CR Inequality, \hyperpage{48}
-    \subitem Hoeffding Inequality, \hyperpage{32}
-    \subitem Jensen Inequality, \hyperpage{31}
-    \subitem Markov Inequality, \hyperpage{31}
-    \subitem Maximazation Lemma, \hyperpage{121}
-  \item Influentials, \hyperpage{91}
-  \item Innovation Sequence, \hyperpage{320}
-  \item Instrumental Variable Method, \hyperpage{307}
-  \item Internally Studentized Residual, \hyperpage{91}
-  \item Interpolation, \hyperpage{161}
-  \item Interval Estimation, \hyperpage{53}
-  \item Invariance of MLE, \hyperpage{46}
-  \item Invariant Distribution, \hyperpage{188}
-  \item Inverse Distribution, \hyperpage{337}
-  \item Inverse Fourier Transform, \hyperpage{28}
-  \item Inverse Transform Method, \hyperpage{185}, \hyperpage{343}
-  \item IO (Innovative Outlier), \hyperpage{280}
-  \item IQI (Inverse Parabolic Interpolation), \hyperpage{163}
-  \item IRLS (Iteratively Re-weighted Least Squares), \hyperpage{169}
-  \item Irreducible, \hyperpage{310}, \hyperpage{314}
+    \subitem Bonferroni Inequality, \hyperpage{19}
+    \subitem Boole Inequality, \hyperpage{8}
+    \subitem Cauchy-Schwarz Inequality, \hyperpage{19}, \hyperpage{110}
+    \subitem CR Inequality, \hyperpage{35}
+    \subitem Hoeffding Inequality, \hyperpage{20}
+    \subitem Jensen Inequality, \hyperpage{19}
+    \subitem Markov Inequality, \hyperpage{19}
+    \subitem Maximazation Lemma, \hyperpage{110}
+  \item Influentials, \hyperpage{80}
+  \item Innovation Sequence, \hyperpage{309}
+  \item Instrumental Variable Method, \hyperpage{296}
+  \item Internally Studentized Residual, \hyperpage{80}
+  \item Interpolation, \hyperpage{150}
+  \item Interval Estimation, \hyperpage{40}
+  \item Invariance of MLE, \hyperpage{34}
+  \item Invariant Distribution, \hyperpage{177}
+  \item Inverse Distribution, \hyperpage{326}
+  \item Inverse Fourier Transform, \hyperpage{16}
+  \item Inverse Transform Method, \hyperpage{174}, \hyperpage{332}
+  \item IO (Innovative Outlier), \hyperpage{269}
+  \item IQI (Inverse Parabolic Interpolation), \hyperpage{152}
+  \item IRLS (Iteratively Re-weighted Least Squares), \hyperpage{158}
+  \item Irreducible, \hyperpage{299}, \hyperpage{303}
 
   \indexspace
 
-  \item Jacobi Method, \hyperpage{165}
-  \item Jarque-Bera Test, \hyperpage{89}
-  \item Jeffrey's Prior, \hyperpage{339}
-  \item Jensen Inequality, \hyperpage{31}, \hyperpage{182}
-  \item Jointly Gaussian Variable, \hyperpage{34}
-  \item Jordan Formula, \hyperpage{20}
+  \item Jacobi Method, \hyperpage{154}
+  \item Jarque-Bera Test, \hyperpage{78}
+  \item Jeffrey's Prior, \hyperpage{328}
+  \item Jensen Inequality, \hyperpage{19}, \hyperpage{171}
+  \item Jointly Gaussian Variable, \hyperpage{22}
+  \item Jordan Formula, \hyperpage{8}
 
   \indexspace
 
-  \item $ K $-Means Clustering Algorithm, \hyperpage{138}
-  \item Kalman Filter, \hyperpage{324}
-  \item Kalman-Bucy Filter, \hyperpage{328}
-  \item Kernel Density Estimation, \hyperpage{52}
-  \item Kernel Function, \hyperpage{253}
-  \item Kernel Regression, \hyperpage{257}
-  \item KKT Condition (Karush-Kuhn-Tucker Condition), \hyperpage{147}
-  \item KL Divergence (Kullback-Leibler Divergence), \hyperpage{182}
-  \item KL Expansion (Karhunen-Loève Expansion), \hyperpage{324}
-  \item KM Estimator (Kaplan-Meier Estimator), \hyperpage{219}
-  \item KNN ($ k $-Nearest Neighours), \hyperpage{248}
-  \item Kolmogorov Forward, \hyperpage{313}
-  \item Kronecker Product, \hyperpage{119}
-  \item KS Test (Kolmogorov-Smirnov Test), \hyperpage{68}, 
-		\hyperpage{89}
-  \item KSVM (Kernel Support Vector Machine), \hyperpage{256}
-  \item Kurtosis, \hyperpage{38}, \hyperpage{87}
+  \item $ K $-Means Clustering Algorithm, \hyperpage{127}
+  \item Kalman Filter, \hyperpage{313}
+  \item Kalman-Bucy Filter, \hyperpage{317}
+  \item Karlin-Rubin Theorem, \hyperpage{51}
+  \item Kernel Density Estimation, \hyperpage{40}
+  \item Kernel Function, \hyperpage{242}
+  \item Kernel Regression, \hyperpage{246}
+  \item KKT Condition (Karush-Kuhn-Tucker Condition), \hyperpage{136}
+  \item KL Divergence (Kullback-Leibler Divergence), \hyperpage{171}
+  \item KL Expansion (Karhunen-Loève Expansion), \hyperpage{313}
+  \item KM Estimator (Kaplan-Meier Estimator), \hyperpage{208}
+  \item KNN ($ k $-Nearest Neighours), \hyperpage{237}
+  \item Kolmogorov Forward, \hyperpage{302}
+  \item Kronecker Product, \hyperpage{108}
+  \item KS Test (Kolmogorov-Smirnov Test), \hyperpage{56}, 
+		\hyperpage{78}
+  \item KSVM (Kernel Support Vector Machine), \hyperpage{245}
+  \item Kurtosis, \hyperpage{26}, \hyperpage{76}
 
   \indexspace
 
-  \item L-BFGS Method, \hyperpage{178}
-  \item Lagrange Dual Problem, \hyperpage{147}
-  \item Lagrange Polynomial Interpolation, \hyperpage{163}
-  \item Laplace Transformation, \hyperpage{28}
+  \item L-BFGS Method, \hyperpage{167}
+  \item Lagrange Dual Problem, \hyperpage{136}
+  \item Lagrange Polynomial Interpolation, \hyperpage{152}
+  \item Laplace Transformation, \hyperpage{16}
   \item LASSO (Least Absolute Shrinkage and Selection Operator), 
-		\hyperpage{103}, \hyperpage{244}
-  \item Latin Square Design, \hyperpage{367}
-  \item Law of Total Expectation, \hyperpage{25}
-  \item Law of Total Variance, \hyperpage{26}
-  \item LCM (Linear Congruential Method), \hyperpage{184}
-  \item LDA (Linear Discriminant Analysis), \hyperpage{135}, 
-		\hyperpage{248}
-  \item Leapfrog, \hyperpage{347}
-  \item Leptokurtic, \hyperpage{87}
-  \item Levene's Test, \hyperpage{88}, \hyperpage{238}, \hyperpage{362}
-  \item Leverage, \hyperpage{92}
-  \item Levinson-Durbin's Recursive Formula, \hyperpage{270}
-  \item Life Table, \hyperpage{214}
-  \item Likelihood Function, \hyperpage{45}, \hyperpage{217}
-  \item Linear Congruential Method, \hyperpage{184}
-  \item Linear Perceptron, \hyperpage{263}
-  \item Linear Regression, \hyperpage{49}, \hyperpage{71}
-  \item Link Function, \hyperpage{111}
-  \item Ljung-Box Test, \hyperpage{90}
-  \item LLN (Law of Large Number), \hyperpage{30}
-  \item Loading Matrix, \hyperpage{131}
-  \item LOESS (Locally Regression), \hyperpage{105}
-  \item Log-likelihood Function, \hyperpage{45}
-  \item Log-Log Plot, \hyperpage{228}
-  \item Log-Log Pointwise Approach, \hyperpage{220}
-  \item Logistic Function, \hyperpage{264}
-  \item Logistic Regression, \hyperpage{112}, \hyperpage{173}, 
-		\hyperpage{249}
-  \item Longitudinal Study, \hyperpage{238}
-  \item LOWESS (Locally Weighted ScatterPlot Smoother), \hyperpage{105}
-  \item $ L_p $ Convergence, \hyperpage{29}
-  \item LRT (Likelihood Ratio Test), \hyperpage{60}, \hyperpage{241}
-  \item LS Theorem (Lehmann-Scheffé Theorem), \hyperpage{47}
-  \item LTI Systems (Linear Time Invariant Systems), \hyperpage{329}
-  \item LTU (Linear Threshold Unit), \hyperpage{263}
-  \item $ LU $ Decomposition, \hyperpage{150}
+		\hyperpage{92}, \hyperpage{233}
+  \item Latin Square Design, \hyperpage{357}
+  \item Law of Total Expectation, \hyperpage{13}
+  \item Law of Total Variance, \hyperpage{14}
+  \item LCM (Linear Congruential Method), \hyperpage{173}
+  \item LDA (Linear Discriminant Analysis), \hyperpage{124}, 
+		\hyperpage{237}
+  \item Leapfrog, \hyperpage{336}
+  \item Lehmann-Scheffé Theorem, \hyperpage{35}
+  \item Leptokurtic, \hyperpage{76}
+  \item Levene's Test, \hyperpage{77}, \hyperpage{227}, \hyperpage{352}
+  \item Leverage, \hyperpage{81}
+  \item Levinson-Durbin's Recursive Formula, \hyperpage{259}
+  \item Life Table, \hyperpage{203}
+  \item Likelihood Function, \hyperpage{33}, \hyperpage{206}
+  \item Linear Congruential Method, \hyperpage{173}
+  \item Linear Perceptron, \hyperpage{252}
+  \item Linear Regression, \hyperpage{37}, \hyperpage{60}
+  \item Link Function, \hyperpage{100}
+  \item Ljung-Box Test, \hyperpage{79}
+  \item LLN (Law of Large Number), \hyperpage{18}
+  \item Loading Matrix, \hyperpage{120}
+  \item LOESS (Locally Regression), \hyperpage{94}
+  \item Log-likelihood Function, \hyperpage{33}
+  \item Log-Log Plot, \hyperpage{217}
+  \item Log-Log Pointwise Approach, \hyperpage{209}
+  \item Logistic Function, \hyperpage{253}
+  \item Logistic Regression, \hyperpage{100}, \hyperpage{162}, 
+		\hyperpage{238}
+  \item Longitudinal Study, \hyperpage{227}
+  \item LOWESS (Locally Weighted ScatterPlot Smoother), \hyperpage{94}
+  \item $ L_p $ Convergence, \hyperpage{17}
+  \item LRT (Likelihood Ratio Test), \hyperpage{48}, \hyperpage{230}
+  \item LTI Systems (Linear Time Invariant Systems), \hyperpage{318}
+  \item LTU (Linear Threshold Unit), \hyperpage{252}
+  \item $ LU $ Decomposition, \hyperpage{139}
 
   \indexspace
 
-  \item M-Estimator (Maximization Estimator), \hyperpage{290}
-  \item m.s. LLN (Mean-Squared Law of Large Number), \hyperpage{29}
-  \item MA Model (Moving-Average Model), \hyperpage{276}
-  \item Machine Learning, \hyperpage{242}
-  \item Mahalanobis Distance, \hyperpage{94}, \hyperpage{116}
-  \item Mallow's $ C_p $, \hyperpage{99}
-  \item Mann-Whitney Form, \hyperpage{224}
-  \item Mann-Whitney-Wilcoxon Rand Sum Test, \hyperpage{224}
-  \item Mantel-Haenszel Logrank Test, \hyperpage{221}
-  \item Mantissa, \hyperpage{143}
-  \item MAP (Maximum A Posteriori), \hyperpage{341}
-  \item Marginal Distribution, \hyperpage{24}, \hyperpage{340}
-  \item Markov Compatibility, \hyperpage{300}
-  \item Markov Inequality, \hyperpage{31}
-  \item Martingale, \hyperpage{314}
-  \item Matrix Differentiation, \hyperpage{118}
-  \item Maximazation Lemma, \hyperpage{121}
-  \item McDiarmid Inequality, \hyperpage{32}
-  \item MCMC (Markov Chain Monte Carlo), \hyperpage{187}, 
-		\hyperpage{345}
-  \item McNemar Test, \hyperpage{241}
-  \item MDPs (Markov Decision Processes), \hyperpage{321}
-  \item MDS (Martingale Difference Sequence), \hyperpage{267}
-  \item Mean, \hyperpage{38}
-  \item Mean Field Approximation, \hyperpage{349}
-  \item Mean Residual Life Time, \hyperpage{215}
-  \item Mean Survival Time, \hyperpage{215}
-  \item Mercer's Theorem, \hyperpage{254}
-  \item MGF (Moment Generating Function), \hyperpage{28}
-  \item MH Algorithm (Metropolis-Hastings Algorithm), \hyperpage{188}, 
-		\hyperpage{345}
-  \item MH Test (Mental-Haenszel Test), \hyperpage{222}
-  \item Minimal Sufficient Statistics, \hyperpage{42}
-  \item Misclassification Rate, \hyperpage{246}
-  \item MLE (Maximum Likelihood Estimation), \hyperpage{45}, 
-		\hyperpage{123}
-  \item MLP (MultiLayer Perceptron), \hyperpage{264}
+  \item M-Estimator (Maximization Estimator), \hyperpage{279}
+  \item m.s. LLN (Mean-Squared Law of Large Number), \hyperpage{17}
+  \item MA Model (Moving-Average Model), \hyperpage{265}
+  \item Machine Learning, \hyperpage{231}
+  \item Mahalanobis Distance, \hyperpage{83}, \hyperpage{105}
+  \item Mallow's $ C_p $, \hyperpage{88}
+  \item Mann-Whitney Form, \hyperpage{213}
+  \item Mann-Whitney-Wilcoxon Rand Sum Test, \hyperpage{213}
+  \item Mantel-Haenszel Logrank Test, \hyperpage{210}
+  \item Mantissa, \hyperpage{132}
+  \item MAP (Maximum A Posteriori), \hyperpage{330}
+  \item Marginal Distribution, \hyperpage{12}, \hyperpage{329}
+  \item Markov Compatibility, \hyperpage{289}
+  \item Markov Inequality, \hyperpage{19}
+  \item Martingale, \hyperpage{303}
+  \item Matrix Differentiation, \hyperpage{107}
+  \item Maximazation Lemma, \hyperpage{110}
+  \item McDiarmid Inequality, \hyperpage{20}
+  \item MCMC (Markov Chain Monte Carlo), \hyperpage{176}, 
+		\hyperpage{334}
+  \item McNemar Test, \hyperpage{230}
+  \item MDPs (Markov Decision Processes), \hyperpage{310}
+  \item MDS (Martingale Difference Sequence), \hyperpage{256}
+  \item Mean, \hyperpage{26}
+  \item Mean Field Approximation, \hyperpage{338}
+  \item Mean Residual Life Time, \hyperpage{204}
+  \item Mean Survival Time, \hyperpage{204}
+  \item Mediator, \hyperpage{288}
+  \item Mercer's Theorem, \hyperpage{243}
+  \item MGF (Moment Generating Function), \hyperpage{16}
+  \item MH Algorithm (Metropolis-Hastings Algorithm), \hyperpage{177}, 
+		\hyperpage{334}
+  \item MH Test (Mental-Haenszel Test), \hyperpage{211}
+  \item Minimal Sufficient Statistics, \hyperpage{30}
+  \item Misclassification Rate, \hyperpage{235}
+  \item MLE (Maximum Likelihood Estimation), \hyperpage{33}, 
+		\hyperpage{112}
+  \item MLP (MultiLayer Perceptron), \hyperpage{253}
+  \item MLR Condition (Monotone Likelihood Ratio Condition), 
+		\hyperpage{51}
   \item MM Algorithm (Maximization-Maximization Algorithm), 
-		\hyperpage{183}
-  \item MMSE (Minimum Mean Squared Error Estimator), \hyperpage{44}, 
-		\hyperpage{331}
-  \item MMSE (Minimum Mean Squared Estimator), \hyperpage{269}
-  \item Modified Gram-Schmidt Orthogonalization, \hyperpage{153}
-  \item Module Invariance, \hyperpage{305}
-  \item MoM (Method of Moments), \hyperpage{44}
-  \item Moment, \hyperpage{38}
-  \item Moment Estimate, \hyperpage{44}
-  \item Monotonicity, \hyperpage{20}
-  \item Montgomery's Method, \hyperpage{235}
-  \item Multi-colinearity, \hyperpage{97}
-  \item Multiplication Formula, \hyperpage{21}
+		\hyperpage{172}
+  \item MMSE (Minimum Mean Squared Error Estimator), \hyperpage{32}, 
+		\hyperpage{320}
+  \item MMSE (Minimum Mean Squared Estimator), \hyperpage{258}
+  \item Modified Gram-Schmidt Orthogonalization, \hyperpage{142}
+  \item Module Invariance, \hyperpage{294}
+  \item MoM (Method of Moments), \hyperpage{32}
+  \item Moment, \hyperpage{26}
+  \item Moment Estimate, \hyperpage{32}
+  \item Monotonicity, \hyperpage{8}
+  \item Montgomery's Method, \hyperpage{224}
+  \item Multi-colinearity, \hyperpage{86}
+  \item Multiplication Formula, \hyperpage{9}
 
   \indexspace
 
-  \item NA Estimator (Nelson-Aalen Estimator), \hyperpage{221}
-  \item Na\"\i ve Bayes Classifier, \hyperpage{249}
-  \item Nested Factor, \hyperpage{238}
-  \item Neural Network, \hyperpage{263}
-  \item Newton-Raphson Method, \hyperpage{169}
-  \item Neyman's Repeated Sampling Approach, \hyperpage{289}
-  \item Neyman-Pearson Lemma, \hyperpage{62}
-  \item Neyman-Pearson Principle, \hyperpage{59}
-  \item Neyman-Rubin Framework, \hyperpage{284}
-  \item NM Search Method (Nelder-Mead Search Method), \hyperpage{166}
-  \item Non-Causal Solution, \hyperpage{329}
-  \item Non-explosive, \hyperpage{314}
-  \item Non-informative Prior, \hyperpage{339}
-  \item Non-parametric Hypothesis Testing, \hyperpage{64}
-  \item Norm, \hyperpage{120}
-  \item Normal Distribution, \hyperpage{336}
-  \item Normal Matrix, \hyperpage{155}
-  \item Normality Test, \hyperpage{68}
-  \item Normalization, \hyperpage{19}
-  \item Normalized Number, \hyperpage{143}
-  \item NPV (Negative Predictive Value), \hyperpage{247}
-  \item NTK (Neural Tangent Kernel), \hyperpage{265}
-  \item Null Hypothesis, \hyperpage{57}
+  \item NA Estimator (Nelson-Aalen Estimator), \hyperpage{210}
+  \item Na\"\i ve Bayes Classifier, \hyperpage{238}
+  \item Nested Factor, \hyperpage{227}
+  \item Neural Network, \hyperpage{252}
+  \item Newton-Raphson Method, \hyperpage{158}
+  \item Neyman's Repeated Sampling Approach, \hyperpage{278}
+  \item Neyman-Pearson Lemma, \hyperpage{50}
+  \item Neyman-Pearson Principle, \hyperpage{47}
+  \item Neyman-Rubin Framework, \hyperpage{273}
+  \item NM Search Method (Nelder-Mead Search Method), \hyperpage{155}
+  \item Non-Causal Solution, \hyperpage{318}
+  \item Non-explosive, \hyperpage{303}
+  \item Non-informative Prior, \hyperpage{328}
+  \item Non-parametric Hypothesis Testing, \hyperpage{53}
+  \item Norm, \hyperpage{109}
+  \item Normal Distribution, \hyperpage{325}
+  \item Normal Matrix, \hyperpage{144}
+  \item Normality Test, \hyperpage{56}
+  \item Normalization, \hyperpage{7}
+  \item Normalized Number, \hyperpage{132}
+  \item NPV (Negative Predictive Value), \hyperpage{236}
+  \item NTK (Neural Tangent Kernel), \hyperpage{254}
+  \item Null Hypothesis, \hyperpage{45}
 
   \indexspace
 
-  \item Observational Equivalence, \hyperpage{300}
-  \item Odds Ratio, \hyperpage{240}
-  \item ODE (Ordinary Difference Equation), \hyperpage{273}
-  \item OLS (Ordinary Least Squares), \hyperpage{49}, \hyperpage{74}, 
-		\hyperpage{80}
-  \item Open Linear Interpolation, \hyperpage{162}
+  \item Observational Equivalence, \hyperpage{289}
+  \item Odds Ratio, \hyperpage{229}
+  \item ODE (Ordinary Difference Equation), \hyperpage{262}
+  \item OLS (Ordinary Least Squares), \hyperpage{37}, \hyperpage{63}, 
+		\hyperpage{69}
+  \item Open Linear Interpolation, \hyperpage{151}
   \item OPTICS (Ordering Point To Indentify the Cluster Structure), 
-		\hyperpage{141}
-  \item Optimal Kalman Gain, \hyperpage{325}
-  \item Order Determination, \hyperpage{279}
-  \item Order Statistics, \hyperpage{24}, \hyperpage{38}
-  \item Orthogonal Factor Model, \hyperpage{131}
-  \item Orthonormality, \hyperpage{117}
-  \item Outlier, \hyperpage{280}
+		\hyperpage{130}
+  \item Optimal Kalman Gain, \hyperpage{314}
+  \item Order Determination, \hyperpage{268}
+  \item Order Statistics, \hyperpage{12}, \hyperpage{26}
+  \item Orthogonal Factor Model, \hyperpage{120}
+  \item Orthonormality, \hyperpage{106}
+  \item Outlier, \hyperpage{269}
 
   \indexspace
 
-  \item $ p $-fractile, \hyperpage{24}
-  \item $ p $-value, \hyperpage{59}
-  \item PACF (Partial Autocorrelation), \hyperpage{269}
-  \item Parabolic Interpolation, \hyperpage{163}
-  \item Parseval's Theorem, \hyperpage{333}
-  \item Partial Likelihood, \hyperpage{225}
-  \item Partial Regression Plot, \hyperpage{85}
-  \item Path, \hyperpage{298}
-  \item PC Score (Principal Component Score), \hyperpage{129}
-  \item PCA (Principal Component Analysis), \hyperpage{128}, 
-		\hyperpage{324}
-  \item PDF (Probability Density Function), \hyperpage{22}
-  \item Pearl Causal Bayesian Framework, \hyperpage{298}
-  \item Pearson's $ \chi^2 $ Test, \hyperpage{66}, \hyperpage{222}, 
-		\hyperpage{241}
-  \item Pearson's Correlation Coefficient, \hyperpage{96}
-  \item Pearson's Correlation Coefficient $ r $, \hyperpage{38}, 
-		\hyperpage{116}
-  \item Pearson's Theorem, \hyperpage{66}
-  \item Peter \& Clark Algorithm Refinement, \hyperpage{302}
-  \item PGF (Probability Generating Function), \hyperpage{27}
-  \item PH Model (Cox's Proportion Hazard Model), \hyperpage{225}
-  \item Pivot Element, \hyperpage{150}
-  \item Pivot Variable Method, \hyperpage{54}
-  \item Platykurtic, \hyperpage{87}
-  \item Plot Parameters in R., \hyperpage{206}
-  \item PMF (Probability Mass Function), \hyperpage{22}
-  \item PO (Potential Outcome), \hyperpage{285}
-  \item Point Estimation, \hyperpage{43}
-  \item Poisson Process, \hyperpage{318}
-  \item Polak-Ribi$ \grave{e} $re Method, \hyperpage{181}
-  \item Policy, \hyperpage{321}
-  \item Polynomial Kernel, \hyperpage{256}
-  \item Polynomial Regression Model, \hyperpage{106}
-  \item Pooled Sample Variance, \hyperpage{55}
-  \item Positive Definite Matrix, \hyperpage{118}
-  \item Positive Recurrent State, \hyperpage{311}
-  \item Potential Outcome Framework, \hyperpage{284}
-  \item Power Function, \hyperpage{59}
-  \item PPV (Positive Predictive Value), \hyperpage{246}
-  \item PRE (Pairwise Randomized Experiment), \hyperpage{296}
-  \item Pre-Treatment Variable, \hyperpage{285}
-  \item Precision, \hyperpage{246}
-  \item PRESS (Predictive Residual Error Sum of Squares), 
-		\hyperpage{100}
-  \item Prevalence, \hyperpage{246}
-  \item Primal Problem, \hyperpage{146}
-  \item Probabilistic Assignment, \hyperpage{286}
-  \item Probability Space, \hyperpage{19}
-  \item Projection Operator, \hyperpage{81}, \hyperpage{148}, 
-		\hyperpage{331}
-  \item Propensity Score, \hyperpage{287}, \hyperpage{294}
-  \item Proportion of Strata, \hyperpage{294}
-  \item Proposal Distribution, \hyperpage{189}, \hyperpage{343}
-  \item Prospective Study, \hyperpage{239}
-  \item Proximity Matrix, \hyperpage{257}
-  \item Pseudo Inverse Matrix, \hyperpage{149}
-  \item Pulse Function, \hyperpage{281}
-
-  \indexspace
-
-  \item $ Q $-Learning, \hyperpage{323}
-  \item QDA (Quadratic Discriminant Analysis), \hyperpage{136}, 
-		\hyperpage{249}
-  \item QQ-Plot (Quartile-Quartile Plots), \hyperpage{85}
-  \item $ QR $ Decomposition, \hyperpage{152}
-  \item Quantifier, \hyperpage{205}
-  \item Quasi Newton Method, \hyperpage{175}
-  \item Quasi-Newton Condition, \hyperpage{176}
-
-  \indexspace
-
-  \item r.v. (Random Variable or Random Vector), \hyperpage{22}, 
-		\hyperpage{113}
-  \item RAM (Regular Assignment Mechanisms), \hyperpage{286}
-  \item Random Effect, \hyperpage{233}, \hyperpage{360}
-  \item Random Forest, \hyperpage{262}
-  \item Random Number Generator, \hyperpage{184}
-  \item Random Walk, \hyperpage{314}
-  \item Rank Statistics, \hyperpage{65}
-  \item Rayleigh Quotient, \hyperpage{155}
-  \item Rayleigh's Energy Theorem, \hyperpage{333}
-  \item RBE (Randomized Blocks Experiment), \hyperpage{294}
-  \item RBF Kernel (Radical Base Function Kernel), \hyperpage{256}
-  \item RCBD (Randomized Complete Block Design), \hyperpage{366}
-  \item Reachable, \hyperpage{310}
-  \item Recall, \hyperpage{246}
-  \item Regula Falsi Method, \hyperpage{161}
-  \item Regular Expression, \hyperpage{204}
-  \item Regularization, \hyperpage{103}, \hyperpage{244}
-  \item Rejection Region, \hyperpage{57}
-  \item Relative Efficiency, \hyperpage{366}
-  \item Relative Risk, \hyperpage{240}
-  \item ReLU (Rectified Linear Unit), \hyperpage{264}
-  \item Replicted Latin Square Design, \hyperpage{368}
-  \item Representer Theorem, \hyperpage{255}
-  \item Residuals, \hyperpage{50}, \hyperpage{74}
-  \item Respective Probability, \hyperpage{240}
-  \item Retrospective Study, \hyperpage{239}
-  \item Ridge Regression, \hyperpage{104}, \hyperpage{244}, 
-		\hyperpage{356}
-  \item RKHS (Reproducing Kernel Hilbert Space), \hyperpage{254}
-  \item ROC Curve (Receive Operating Characteristic Curve), 
-		\hyperpage{247}
-  \item Rounding Error, \hyperpage{143}
-
-  \indexspace
-
-  \item Sample Path, \hyperpage{308}
-  \item Sample Space, \hyperpage{38}
-  \item Sampling Distribution, \hyperpage{39}
-  \item SARIMA (Seasonal ARIMA Model), \hyperpage{278}
-  \item SBC (Schwarz's Bayesian Criterion), \hyperpage{100}
-  \item Scaled Exponential Family, \hyperpage{110}, \hyperpage{170}
-  \item SCB (Simultaneous Confidence Band), \hyperpage{78}
-  \item Scheff\`{e}'s Method, \hyperpage{108}, \hyperpage{362}
-  \item Schoenfeld Residuals, \hyperpage{228}
-  \item Schur Decomposition, \hyperpage{157}
-  \item Score Function, \hyperpage{48}, \hyperpage{218}
-  \item Score Test, \hyperpage{218}
-  \item Search and Score Methods, \hyperpage{304}
-  \item Secant Condition, \hyperpage{176}
-  \item Secant Interpolation, \hyperpage{162}
-  \item Selection Bias, \hyperpage{87}
-  \item Self-sensitivity, \hyperpage{91}
-  \item Sensitivity, \hyperpage{246}
-  \item Shapiro-Wilk Test, \hyperpage{238}
-  \item Sherman-Morrison Formula, \hyperpage{121}
-  \item $ \sigma $-Field, \hyperpage{18}
-  \item $ \sigma  $-Subadditivity, \hyperpage{20}
-  \item Sigmoid Kernel, \hyperpage{256}
-  \item Sign Test, \hyperpage{64}
-  \item Simplex Search Method, \hyperpage{166}
-  \item Skeleton, \hyperpage{298}
-  \item Skewness, \hyperpage{38}, \hyperpage{86}
-  \item SLLN (Strong Law of Large Number), \hyperpage{30}
-  \item Slutsky's Theorem, \hyperpage{29}
-  \item SMO Algorithm, \hyperpage{257}
-  \item Soft Margin SVM, \hyperpage{251}
-  \item Sojourn Time, \hyperpage{310}, \hyperpage{313}
-  \item SOR Method (Successive Over-Relaxation Method), \hyperpage{166}
-  \item SPD (Symmetric Positive Definite), \hyperpage{179}
-  \item Spectrum Clustering, \hyperpage{258}
-  \item Spectrum Decomposition, \hyperpage{155}
-  \item Spectrum Density, \hyperpage{270}
-  \item Square Root Matrix, \hyperpage{117}
-  \item SR-1 Method, \hyperpage{176}
-  \item SRE (Stratified Randomized Experiment), \hyperpage{294}
-  \item SS (Strictly Stationary), \hyperpage{268}
-  \item SSE (Error Sum of Squares), \hyperpage{50}, \hyperpage{79}
-  \item SSPE (Sum Squared Prediction Error), \hyperpage{99}
-  \item SST (Total Sum of Squares), \hyperpage{79}
-  \item Standard Deviation, \hyperpage{26}
-  \item Standardization, \hyperpage{26}
-  \item Standardized Regression Model, \hyperpage{105}
-  \item Standardized Residual, \hyperpage{91}
-  \item State Diagram, \hyperpage{309}
-  \item State-Value Function, \hyperpage{322}
-  \item Stationarity, \hyperpage{268}
-  \item Stationary Distribution, \hyperpage{188}, \hyperpage{309}, 
+  \item $ p $-fractile, \hyperpage{12}
+  \item $ p $-value, \hyperpage{47}
+  \item PACF (Partial Autocorrelation), \hyperpage{258}
+  \item Parabolic Interpolation, \hyperpage{152}
+  \item Parseval's Theorem, \hyperpage{322}
+  \item Partial Likelihood, \hyperpage{214}
+  \item Partial Regression Plot, \hyperpage{74}
+  \item Path, \hyperpage{287}
+  \item PC Score (Principal Component Score), \hyperpage{118}
+  \item PCA (Principal Component Analysis), \hyperpage{117}, 
 		\hyperpage{313}
-  \item Statistical Inference, \hyperpage{37}
-  \item Statistics, \hyperpage{38}
-  \item Steepest Descent Method, \hyperpage{178}
-  \item Stirling Equation, \hyperpage{30}
+  \item PDF (Probability Density Function), \hyperpage{10}
+  \item Pearl Causal Bayesian Framework, \hyperpage{287}
+  \item Pearson's $ \chi^2 $ Test, \hyperpage{55}, \hyperpage{211}, 
+		\hyperpage{229}
+  \item Pearson's Correlation Coefficient, \hyperpage{85}
+  \item Pearson's Correlation Coefficient $ r $, \hyperpage{26}, 
+		\hyperpage{105}
+  \item Pearson's Theorem, \hyperpage{54}
+  \item Peter \& Clark Algorithm Refinement, \hyperpage{291}
+  \item PGF (Probability Generating Function), \hyperpage{15}
+  \item PH Model (Cox's Proportion Hazard Model), \hyperpage{214}
+  \item Pivot Element, \hyperpage{139}
+  \item Pivot Variable Method, \hyperpage{42}
+  \item Platykurtic, \hyperpage{76}
+  \item Plot Parameters in R., \hyperpage{195}
+  \item PMF (Probability Mass Function), \hyperpage{10}
+  \item PO (Potential Outcome), \hyperpage{274}
+  \item Point Estimation, \hyperpage{31}
+  \item Poisson Process, \hyperpage{307}
+  \item Polak-Ribi$ \grave{e} $re Method, \hyperpage{170}
+  \item Policy, \hyperpage{310}
+  \item Polynomial Kernel, \hyperpage{245}
+  \item Polynomial Regression Model, \hyperpage{95}
+  \item Pooled Sample Variance, \hyperpage{42}
+  \item Positive Definite Matrix, \hyperpage{107}
+  \item Positive Recurrent State, \hyperpage{300}
+  \item Potential Outcome Framework, \hyperpage{273}
+  \item Power Function, \hyperpage{47}
+  \item PPV (Positive Predictive Value), \hyperpage{235}
+  \item PRE (Pairwise Randomized Experiment), \hyperpage{285}
+  \item Pre-Treatment Variable, \hyperpage{274}
+  \item Precision, \hyperpage{235}
+  \item PRESS (Predictive Residual Error Sum of Squares), 
+		\hyperpage{89}
+  \item Prevalence, \hyperpage{235}
+  \item Primal Problem, \hyperpage{135}
+  \item Probabilistic Assignment, \hyperpage{275}
+  \item Probability Space, \hyperpage{7}
+  \item Projection Operator, \hyperpage{69}, \hyperpage{137}, 
+		\hyperpage{320}
+  \item Propensity Score, \hyperpage{276}, \hyperpage{283}
+  \item Proportion of Strata, \hyperpage{283}
+  \item Proposal Distribution, \hyperpage{178}, \hyperpage{332}
+  \item Prospective Study, \hyperpage{228}
+  \item Proximity Matrix, \hyperpage{246}
+  \item Pseudo Inverse Matrix, \hyperpage{138}
+  \item Pulse Function, \hyperpage{270}
+
+  \indexspace
+
+  \item $ Q $-Learning, \hyperpage{312}
+  \item QDA (Quadratic Discriminant Analysis), \hyperpage{125}, 
+		\hyperpage{238}
+  \item QQ-Plot (Quartile-Quartile Plots), \hyperpage{74}
+  \item $ QR $ Decomposition, \hyperpage{141}
+  \item Quantifier, \hyperpage{194}
+  \item Quasi Newton Method, \hyperpage{164}
+  \item Quasi-Newton Condition, \hyperpage{165}
+
+  \indexspace
+
+  \item r.v. (Random Variable or Random Vector), \hyperpage{10}, 
+		\hyperpage{102}
+  \item RAM (Regular Assignment Mechanisms), \hyperpage{275}
+  \item Random Effect, \hyperpage{222}, \hyperpage{350}
+  \item Random Forest, \hyperpage{251}
+  \item Random Number Generator, \hyperpage{173}
+  \item Random Walk, \hyperpage{303}
+  \item Rank Statistics, \hyperpage{53}
+  \item Rao-Blackwell Theorem, \hyperpage{35}
+  \item Rayleigh Quotient, \hyperpage{144}
+  \item Rayleigh's Energy Theorem, \hyperpage{322}
+  \item RBE (Randomized Blocks Experiment), \hyperpage{283}
+  \item RBF Kernel (Radical Base Function Kernel), \hyperpage{245}
+  \item RCBD (Randomized Complete Block Design), \hyperpage{356}
+  \item Reachable, \hyperpage{299}
+  \item Recall, \hyperpage{235}
+  \item Regula Falsi Method, \hyperpage{150}
+  \item Regular Expression, \hyperpage{193}
+  \item Regularization, \hyperpage{92}, \hyperpage{233}
+  \item Rejection Region, \hyperpage{45}
+  \item Relative Efficiency, \hyperpage{356}
+  \item Relative Risk, \hyperpage{229}
+  \item ReLU (Rectified Linear Unit), \hyperpage{253}
+  \item Replicted Latin Square Design, \hyperpage{358}
+  \item Representer Theorem, \hyperpage{244}
+  \item Residuals, \hyperpage{38}, \hyperpage{63}
+  \item Respective Probability, \hyperpage{229}
+  \item Retrospective Study, \hyperpage{228}
+  \item Ridge Regression, \hyperpage{93}, \hyperpage{233}, 
+		\hyperpage{346}
+  \item RKHS (Reproducing Kernel Hilbert Space), \hyperpage{243}
+  \item ROC Curve (Receive Operating Characteristic Curve), 
+		\hyperpage{236}
+  \item Rounding Error, \hyperpage{132}
+
+  \indexspace
+
+  \item Sample Path, \hyperpage{297}
+  \item Sample Space, \hyperpage{26}
+  \item Sampling Distribution, \hyperpage{27}
+  \item SARIMA (Seasonal ARIMA Model), \hyperpage{267}
+  \item SBC (Schwarz's Bayesian Criterion), \hyperpage{89}
+  \item Scaled Exponential Family, \hyperpage{99}, \hyperpage{159}
+  \item SCB (Simultaneous Confidence Band), \hyperpage{67}
+  \item Scheff\`{e}'s Method, \hyperpage{97}, \hyperpage{352}
+  \item Schoenfeld Residuals, \hyperpage{217}
+  \item Schur Decomposition, \hyperpage{146}
+  \item Score Function, \hyperpage{36}, \hyperpage{207}
+  \item Score Test, \hyperpage{207}
+  \item Search and Score Methods, \hyperpage{293}
+  \item Secant Condition, \hyperpage{165}
+  \item Secant Interpolation, \hyperpage{151}
+  \item Selection Bias, \hyperpage{76}
+  \item Self-sensitivity, \hyperpage{80}
+  \item Sensitivity, \hyperpage{235}
+  \item Shapiro-Wilk Test, \hyperpage{227}
+  \item Sherman-Morrison Formula, \hyperpage{110}
+  \item $ \sigma $-Field, \hyperpage{6}
+  \item $ \sigma  $-Subadditivity, \hyperpage{8}
+  \item Sigmoid Kernel, \hyperpage{245}
+  \item Sign Test, \hyperpage{53}
+  \item Simplex Search Method, \hyperpage{155}
+  \item Skeleton, \hyperpage{287}
+  \item Skewness, \hyperpage{26}, \hyperpage{75}
+  \item SLLN (Strong Law of Large Number), \hyperpage{18}
+  \item Slutsky's Theorem, \hyperpage{17}
+  \item SMO Algorithm, \hyperpage{246}
+  \item Soft Margin SVM, \hyperpage{240}
+  \item Sojourn Time, \hyperpage{299}, \hyperpage{302}
+  \item SOR Method (Successive Over-Relaxation Method), \hyperpage{155}
+  \item SPD (Symmetric Positive Definite), \hyperpage{168}
+  \item Spectrum Clustering, \hyperpage{247}
+  \item Spectrum Decomposition, \hyperpage{144}
+  \item Spectrum Density, \hyperpage{259}
+  \item Square Root Matrix, \hyperpage{106}
+  \item SR-1 Method, \hyperpage{165}
+  \item SRE (Stratified Randomized Experiment), \hyperpage{283}
+  \item SS (Strictly Stationary), \hyperpage{257}
+  \item SSE (Error Sum of Squares), \hyperpage{37}, \hyperpage{68}
+  \item SSPE (Sum Squared Prediction Error), \hyperpage{88}
+  \item SST (Total Sum of Squares), \hyperpage{68}
+  \item Standard Deviation, \hyperpage{14}
+  \item Standardization, \hyperpage{14}
+  \item Standardized Regression Model, \hyperpage{94}
+  \item Standardized Residual, \hyperpage{80}
+  \item State Diagram, \hyperpage{298}
+  \item State-Value Function, \hyperpage{311}
+  \item Stationarity, \hyperpage{257}
+  \item Stationary Distribution, \hyperpage{177}, \hyperpage{298}, 
+		\hyperpage{302}
+  \item Statistical Inference, \hyperpage{25}
+  \item Statistics, \hyperpage{26}
+  \item Steepest Descent Method, \hyperpage{167}
+  \item Stirling Equation, \hyperpage{18}
   \item STL Model (Seasonal and Trend Decomposition using Loess), 
-		\hyperpage{267}
-  \item Stochastic Process, \hyperpage{267}, \hyperpage{308}
-  \item Studentized Range Distribution, \hyperpage{108}
-  \item Studentized Residual, \hyperpage{91}
-  \item Subsetting in R., \hyperpage{200}
-  \item Sufficient Statistic, \hyperpage{41}
-  \item Sum of Wilcoxon Signed Rank, \hyperpage{65}
-  \item Super Population, \hyperpage{285}
-  \item Support Vector, \hyperpage{253}
-  \item Survival Function, \hyperpage{214}
-  \item SUTVA (Stable Unit Treatment Value Assumption), \hyperpage{286}
-  \item SVD (Singular Value Decomposition), \hyperpage{156}
-  \item SVM (Support Vector Machine), \hyperpage{250}
-  \item SW Test (Shapiro-Wilk Test), \hyperpage{68}, \hyperpage{89}
+		\hyperpage{256}
+  \item Stochastic Process, \hyperpage{256}, \hyperpage{297}
+  \item Studentized Range Distribution, \hyperpage{97}
+  \item Studentized Residual, \hyperpage{80}
+  \item Subsetting in R., \hyperpage{189}
+  \item Sufficient Statistic, \hyperpage{29}
+  \item Sum of Wilcoxon Signed Rank, \hyperpage{53}
+  \item Super Population, \hyperpage{274}
+  \item Support Vector, \hyperpage{242}
+  \item Survival Function, \hyperpage{203}
+  \item SUTVA (Stable Unit Treatment Value Assumption), \hyperpage{275}
+  \item SVD (Singular Value Decomposition), \hyperpage{145}
+  \item SVM (Support Vector Machine), \hyperpage{239}
+  \item SW Test (Shapiro-Wilk Test), \hyperpage{56}, \hyperpage{78}
 
   \indexspace
 
-  \item $ t $ Distribution, \hyperpage{35}
-  \item $ t $-test, \hyperpage{60}
-  \item Test Function, \hyperpage{58}
-  \item tidyverse, \hyperpage{201}
-  \item Tikhonov Regularization, \hyperpage{104}
-  \item Time Homogeneity, \hyperpage{309}
-  \item Time Series, \hyperpage{266}
-  \item TNR (True Negatie Rate), \hyperpage{246}
-  \item Total Probability Theorem, \hyperpage{21}
-  \item TPM (Total Probability of Misclassification), \hyperpage{135}, 
-		\hyperpage{137}
-  \item TPR (True Positive Rate), \hyperpage{246}
-  \item Trace, \hyperpage{118}
-  \item Transition Rate Matrix, \hyperpage{312}
-  \item Trust Region Method, \hyperpage{178}
-  \item TSA (Time Series Analysis), \hyperpage{266}
+  \item $ t $ Distribution, \hyperpage{23}
+  \item $ t $-test, \hyperpage{48}
+  \item Test Function, \hyperpage{46}
+  \item tidyverse, \hyperpage{190}
+  \item Tikhonov Regularization, \hyperpage{93}
+  \item Time Homogeneity, \hyperpage{298}
+  \item Time Series, \hyperpage{255}
+  \item TNR (True Negatie Rate), \hyperpage{235}
+  \item Total Probability Theorem, \hyperpage{9}
+  \item TPM (Total Probability of Misclassification), \hyperpage{124}, 
+		\hyperpage{126}
+  \item TPR (True Positive Rate), \hyperpage{235}
+  \item Trace, \hyperpage{107}
+  \item Transition Rate Matrix, \hyperpage{301}
+  \item Trust Region Method, \hyperpage{167}
+  \item TSA (Time Series Analysis), \hyperpage{255}
   \item Tukey's HSD (Tukey's Honestly Significant Difference), 
-		\hyperpage{108}, \hyperpage{362}
+		\hyperpage{97}, \hyperpage{352}
   \item Tukey's One $ dof $ Test for Additive Interaction, 
-		\hyperpage{365}
-  \item Type I \& II \& III SS, \hyperpage{95}
-  \item Type I Error \& Type II Error, \hyperpage{58}
+		\hyperpage{355}
+  \item Type I \& II \& III SS, \hyperpage{84}
+  \item Type I Error \& Type II Error, \hyperpage{46}
 
   \indexspace
 
-  \item UMP Test (Uniformly Most Powerful Test), \hyperpage{62}
+  \item UMP Test (Uniformly Most Powerful Test), \hyperpage{50}
   \item UMVUE (Uniformly Minimum Variance Unbiased Estimator), 
-		\hyperpage{47}
-  \item Unbiasedness, \hyperpage{43}
-  \item Unconfounded Assignment, \hyperpage{287}
-  \item Unitary Matrix, \hyperpage{148}
+		\hyperpage{35}
+  \item Unbiasedness, \hyperpage{31}
+  \item Unconfounded Assignment, \hyperpage{276}
+  \item Unitary Matrix, \hyperpage{137}
 
   \indexspace
 
-  \item $ v $-structure, \hyperpage{299}
-  \item $ V $-Value (State-Value Function), \hyperpage{322}
-  \item Variable Selection, \hyperpage{103}
-  \item Variance, \hyperpage{26}, \hyperpage{332}
-  \item Variance Stabilizing Transformation, \hyperpage{101}
-  \item Variation Bayesian Inference, \hyperpage{349}
-  \item Vectorized Operation in R., \hyperpage{199}
-  \item Venn Diagram, \hyperpage{97}
-  \item VIF (Variance Inflation Factor), \hyperpage{98}
+  \item $ v $-structure, \hyperpage{288}
+  \item $ V $-Value (State-Value Function), \hyperpage{311}
+  \item Variable Selection, \hyperpage{92}
+  \item Variance, \hyperpage{14}, \hyperpage{321}
+  \item Variance Stabilizing Transformation, \hyperpage{90}
+  \item Variation Bayesian Inference, \hyperpage{338}
+  \item Vectorized Operation in R., \hyperpage{188}
+  \item Venn Diagram, \hyperpage{86}
+  \item VIF (Variance Inflation Factor), \hyperpage{87}
 
   \indexspace
 
-  \item Wald Test, \hyperpage{219}
-  \item Weibull Distribution, \hyperpage{216}
-  \item Welch's ANOVA, \hyperpage{362}
-  \item Welch's $ t $ Test, \hyperpage{359}
-  \item Wiener Filter, \hyperpage{329}
-  \item Wiener Process, \hyperpage{317}
-  \item Wilcoxon Two-Sample Rank Sum Test, \hyperpage{65}, 
-		\hyperpage{223, 224}
-  \item Wildcard, \hyperpage{205}
-  \item Wilk's Theorem, \hyperpage{62}
-  \item Wishart Distribution, \hyperpage{124}
-  \item WLLN (Weak Law of Large Number), \hyperpage{30}
-  \item WLS (Weighted Least Squares), \hyperpage{103}
-  \item WN (White Noise), \hyperpage{267}
-  \item Wold Decomposition, \hyperpage{270}
-  \item Woodbury Matrix Identity, \hyperpage{121}
-  \item WS (Weakly Stationary), \hyperpage{268}
-  \item WSRT (Wilcoxon Signed Rank Sum Test), \hyperpage{65}
+  \item Wald Test, \hyperpage{208}
+  \item Weibull Distribution, \hyperpage{205}
+  \item Welch's ANOVA, \hyperpage{352}
+  \item Welch's $ t $ Test, \hyperpage{349}
+  \item Wiener Filter, \hyperpage{318}
+  \item Wiener Process, \hyperpage{306}
+  \item Wilcoxon Two-Sample Rank Sum Test, \hyperpage{54}, 
+		\hyperpage{212, 213}
+  \item Wildcard, \hyperpage{194}
+  \item Wilk's Theorem, \hyperpage{50}
+  \item Wishart Distribution, \hyperpage{113}
+  \item WLLN (Weak Law of Large Number), \hyperpage{18}
+  \item WLS (Weighted Least Squares), \hyperpage{92}
+  \item WN (White Noise), \hyperpage{256}
+  \item Wold Decomposition, \hyperpage{259}
+  \item Woodbury Matrix Identity, \hyperpage{110}
+  \item WS (Weakly Stationary), \hyperpage{257}
+  \item WSRT (Wilcoxon Signed Rank Sum Test), \hyperpage{53}
 
   \indexspace
 
-  \item Y-W Equation (Yule-Walker Equation), \hyperpage{274}
+  \item Y-W Equation (Yule-Walker Equation), \hyperpage{263}
 
   \indexspace
 
-  \item $ z $-transformation, \hyperpage{27}
-  \item Zellner's $ g $-prior, \hyperpage{357}
+  \item $ z $-transformation, \hyperpage{15}
+  \item Zellner's $ g $-prior, \hyperpage{346}
 
 \end{theindex}

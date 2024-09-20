@@ -217,7 +217,7 @@
       "latex-workshop.intellisense.atSuggestion.user": {
         "@a": "\\alpha"
       },
-      "editor.wordBasedSuggestions": false,
+      "editor.wordBasedSuggestions": "off",
       "r.plot.useHttpgd": true,
       "editor.inlineSuggest.enabled": true,
   }

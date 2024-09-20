@@ -265,6 +265,8 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
             \item A complete statistic does not always exists.
         \end{itemize}
 
+        \item[$\blacktriangleright$] A \textbf{Complete Sufficient Statistics}: with both sufficient and complete properties satisfied.
+
         \item[$\blacktriangleright$] A \textbf{Minimal Sufficient Statistics}\index{Minimal Sufficient Statistics} $ T(\vec{X}) $ for $ \theta $ contains `just enough necessary' information about $ \theta  $. Definition:
         \begin{equation}
             \forall\,\text{sufficient statistic }\tilde{T}(\vec{X}),\,\exists\, q_{\tilde{T}}(\, \cdot \, ),\, \text{s.t. } T(\vec{X})=q_{\tilde{T}}(\tilde{T}(\vec{X}))
@@ -280,6 +282,7 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
             
 
             \item A minimal sufficient statistic does \textbf{not} always exists.
+            \item If minimal sufficient statistic exists, then any complete statistic is also minimal sufficient $  \Rightarrow  $ complete \& sufficient.
         \end{itemize}
         
         \item[$\blacktriangleright$]\index{Ancillary Statistic}  An \textbf{Ancillary Statistic} $S(\vec{X})$ is a statistic whose distribution does not depend on $\theta$
@@ -541,29 +544,31 @@ Def. $\mathscr{F}_\Theta=\{f(x;\vec{\theta}|\vec{\theta}\in\Theta)\}$ is \textbf
         \end{equation}
 
         Then $\hat{g}$ is a UMVUE of $g(\theta)$ (sufficient \& necessary condition).
-    \item \textbf{Sufficient and Complete Statistic Method}
-
-        For $T(\vec{X})$ sufficient statistic, $\hat{g}(\vec{X})$ unbiased estimate of $g(\theta)$, then 
-    \begin{equation}
-        h(T)=\mathbb{E}(\hat{g}(\vec{X})| T)    
-    \end{equation}
-
-        is an unbiased estimate of $g(\theta)$ and $var(h(T))\leq var(\hat{g})$.
-
-        Remark:
-        \begin{itemize}
-            \item A method to improve estimator.
-            \item A UMVUE has to be a function of sufficient statistic.
-        \end{itemize}
-
-        \textbf{Lehmann-Scheffé Theorem}\index{LS Theorem (Lehmann-Scheffé Theorem)}: For $\vec{X}=(X_1,X_2,\ldots,X_n)$ from population $X\sim\mathscr{F}=\{f(x;\theta):\vec{\theta}\in\Theta\}$. $T(\vec{X})$ sufficient and complete, and $\hat{g}(T(\vec{X}))$ be an unbiased estimator, then $\hat{g}(T(\vec{X}))$ is the unique UMVUE.
-
-        Can be used to construct UMVUE: given $T(\vec{X})$ sufficient and complete and some unbiased estimator $\hat{g}\prime(\theta)$ then 
+    \item \textbf{Sufficient and Complete Statistic Method}. This method relies on two theorems:
+    \begin{itemize}[topsep=2pt,itemsep=0pt]
+        \item \textbf{Rao-Blackwell Theorem}\index{Rao-Blackwell Theorem}: For $T(\vec{X})$ sufficient statistic, $\hat{g}(\vec{X})$ unbiased estimate of $g(\theta)$, then 
         \begin{equation}
-            \hat{g}(T)=\mathbb{E}(\hat{g}\prime|T)    
+            h(T)=\mathbb{E}(\hat{g}(\vec{X})| T)    
         \end{equation}
+    
+            is an unbiased estimate of $g(\theta)$ and $var(h(T))\leq var(\hat{g})$.
+    
+            Remark:
+            \begin{itemize}
+                \item A method to improve estimator.
+                \item A UMVUE has to be a function of sufficient statistic.
+            \end{itemize}
 
-        is the unique UMVUE.
+        \item \textbf{Lehmann-Scheffé Theorem}\index{Lehmann-Scheffé Theorem}: For $ T(\vec{X}) $ sufficient \& complete, $ \hat{g}(T()\vec{X}) $ an unbiased estimate of $ g(T(\theta )) $, then $ \hat{g}(T(\vec{X})) $ is the unique UMVUE.
+        
+        Using this theorem, we can actually construct UMVUE by conditional expectation: with any unbiased estimator $ \tilde{g}(\vec{x}) $ and sufficient \& complete statistic $ T(\vec{X}) $, we have
+        \begin{align*}
+             \mathbb{E}\left[ \tilde{g}(\vec{x})|T(\vec{x}) \right] \text{ the unique UMVUE for } g(\theta ) 
+        \end{align*}
+        
+        
+    \end{itemize}
+    
 
 
 
@@ -1660,6 +1665,30 @@ plot(density(x, kernel = KERNEL_TO_USE))
         \item If $\varphi$ does \textbf{not} depend on $\theta_1$, then $H_1$ can be generalized to $H_1:\theta\in\Theta_1$.
         \item If $\varphi$ satisfies $\mathbb{E}_{\theta\in\Theta_0}(\varphi)\leq\alpha$, then $H_0$ an be generalized to $H_0:\theta\in\Theta_0$.
     \end{enumerate}
+
+
+    \begin{point}
+        Upgrade to one-sided test:
+    \end{point}
+    
+    Using Neyman-Pearson we have only two-points test $ H_0:\theta =\theta _0 \longleftrightarrow H_1:\theta =\theta _1 $. With certain condition we could upgrade two-points two one-sided test $ H_0:\theta \leq \theta _0 \longleftrightarrow H_1:\theta >\theta _0 $ by \textbf{Karlin-Rubin Theorem}\index{Karlin-Rubin Theorem}. 
+
+    \begin{enumerate}[topsep=2pt,itemsep=0pt]
+        \item Monotone Likelihood Ratio Condition \index{MLR Condition (Monotone Likelihood Ratio Condition)}: If $ \forall \theta > \tilde{\theta } $ we have
+        \begin{align*}
+            \dfrac{ L(\theta ) }{ L(\tilde{\theta }) } \text{ is monotone in sufficient stat} T(\vec{X})  
+        \end{align*}
+        then we say that the MLR condition is satisfied.
+        \item With MLR condition, we could upgrade two-points test to one-sided test $ H_0: \theta <\theta _0 \longleftrightarrow H_1:\theta >\theta _0 $. We would have a UMP test of form 
+        \begin{align*}
+            \text{Rejection Region }R=\{ \vec{X}:T(\vec{X})>C \} 
+        \end{align*}
+    
+    \end{enumerate}
+
+    \textbf{Note:} Upgrade to two-sided test $ H_0:\theta =\theta _0 \longleftrightarrow H_1:\theta \neq \theta _0 $ is not always possible. e.g. $ H_0:\mu =\mu _0 \longleftrightarrow H_1:\mu \neq \mu _0 $ for $ X\mathop{ \sim  }\limits^{i.i.d.} N(\mu ,\sigma_0^2 \text{ known})  $ does not have UMP test.
+    
+        
 
 \subsection{Duality of Hypothesis Testing and Interval Estimation}
 
